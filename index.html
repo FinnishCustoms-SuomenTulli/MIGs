@@ -238,7 +238,7 @@
     <!-- Bootstrap core JavaScript
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script data-require="promise@*" data-semver="4.0.0" src="https://www.promisejs.org/polyfills/promise-4.0.0.js"></script>
+    <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
     <script src='assets/javascripts/vendor/jquery.js'></script>
     <script>
 		var i = 1;
@@ -306,7 +306,7 @@
               
               proc.input = xmlDoc;
               
-              proc.transform(xslDoc);
+              proc.transform();
               
               var resultHTML = proc.output;
               
@@ -317,7 +317,7 @@
       document.addEventListener('DOMContentLoaded', function() {
         transform('pages/intro.xml', 'history.xsl', document.getElementById('history'));      
       })
-      </script>
+    </script>
     <script src='assets/javascripts/bootstrap.js'></script>
 
 
