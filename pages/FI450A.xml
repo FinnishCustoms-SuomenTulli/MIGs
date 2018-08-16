@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
+<Message>
+	<Type>FI450A</Type>
+	<Name lang="en">Error notification</Name>
+	<DataGroup>
+		<Name lang="en">Import operation</Name>
+		<XPath>FI450A</XPath>
+		<MinOccurence>1</MinOccurence>
+		<MaxOccurence>1</MaxOccurence>
+		<RC/>
+		<DataElement>
+			<Name lang="fi">MRN</Name>
+			<Name lang="sv">MRN</Name>
+			<Name lang="en">MRN</Name>
+			<XPath>MRN</XPath>
+			<MinOccurence>1</MinOccurence>
+			<EUCDM/>
+			<GeneralType>MRN</GeneralType>
+			<Codelist/>
+			<RC>NR002</RC>
+			<Format>an18</Format>
+			<Description>A description related to the Master Reference Number on a white background, so that it's clearly separate from the elements and groups. Some more text to make the description long enough to split over several lines even on bigger screens. Descriptive texts are justified unlike the other elements, which are left-aligned.</Description>
+			<Description>More Description text on a new line should the description be so long, that it needs several paragraphs.</Description>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">LRN</Name>
+			<Name lang="sv">LRN</Name>
+			<Name lang="en">LRN</Name>
+			<XPath>FunctionalReference</XPath>
+			<MinOccurence>1</MinOccurence>
+			<EUCDM/>
+			<GeneralType>LRN</GeneralType>
+			<Codelist/>
+			<RC/>
+			<Format>an..22</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="en">Additional LRN</Name>
+			<XPath>AdditionalFunctionalReference</XPath>
+			<MinOccurence>0</MinOccurence>
+			<EUCDM/>
+			<GeneralType>LRN</GeneralType>
+			<Codelist/>
+			<RC/>
+			<Format>an..22</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="en">MessageIdentification</Name>
+			<XPath>Identification</XPath>
+			<MinOccurence>1</MinOccurence>
+			<EUCDM/>
+			<GeneralType>MessageIdentification</GeneralType>
+			<Codelist/>
+			<RC/>
+			<Format>an..14</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Kielikoodi</Name>
+			<Name lang="sv">Spr책kkod</Name>
+			<Name lang="en">Language code</Name>
+			<XPath>Language</XPath>
+			<MinOccurence>1</MinOccurence>
+			<EUCDM/>
+			<GeneralType>LanguageCode</GeneralType>
+			<Codelist>CL012</Codelist>
+			<RC/>
+			<Format>a2</Format>
+		</DataElement>
+		<DataGroup>
+			<Name lang="en">Notification</Name>
+			<XPath>Notification</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<RC/>
+			<DataElement>
+				<Name lang="en">Notification type</Name>
+				<XPath>Type</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM/>
+				<GeneralType>LanguageCode</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>an..100</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Notification date and time</Name>
+				<XPath>Notification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM/>
+				<GeneralType>DateTime</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>dateTime</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Notification description</Name>
+				<XPath>Text</XPath>
+				<MinOccurence>0</MinOccurence>
+				<EUCDM/>
+				<GeneralType>Freetext</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>an..4096</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Document link</Name>
+				<XPath>DocumentLink</XPath>
+				<MinOccurence>0</MinOccurence>
+				<EUCDM/>
+				<GeneralType>DocumentLink</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>an..500</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Related goods item</Name>
+				<XPath>Sequence</XPath>
+				<MinOccurence>0</MinOccurence>
+				<EUCDM/>
+				<GeneralType>Integer</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>n..5</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Time limit for response</Name>
+				<XPath>Limit</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM/>
+				<GeneralType>DateTime</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>dateTime</Format>
+			</DataElement>
+			<DataGroup>
+				<Name lang="en">Contact information</Name>
+				<XPath>ContactInfo</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<RC/>
+				<DataElement>
+					<Name lang="en">Name</Name>
+					<XPath>Name</XPath>
+					<MinOccurence>0</MinOccurence>
+					<EUCDM/>
+					<GeneralType>TraderName</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..100</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">E-mail</Name>
+					<XPath>Email</XPath>
+					<MinOccurence>0</MinOccurence>
+					<EUCDM/>
+					<GeneralType>String</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..320</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Telephone</Name>
+					<XPath>Name</XPath>
+					<MinOccurence>0</MinOccurence>
+					<EUCDM/>
+					<GeneralType>TelephoneNumber</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..20</Format>
+				</DataElement>
+			</DataGroup>
+		</DataGroup>
+	</DataGroup>
+</Message>

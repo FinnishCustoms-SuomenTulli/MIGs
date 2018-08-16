@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+	<xs:element name="Message" type="MessageType"/>
+	<xs:element name="DataGroup" type="DataGroupType"/>
+	<xs:element name="DataElement" type="DataElementType"/>
+	<xs:complexType name="DataGroupType">
+		<xs:sequence>
+			<xs:element name="Name" type="NameType" maxOccurs="3"/>
+			<xs:element name="XPath" type="XPathType"/>
+			<xs:element name="MinOccurence" type="xs:integer"/>
+			<xs:element name="MaxOccurence" type="xs:integer"/>
+			<xs:element name="Rule" minOccurs="0" maxOccurs="unbounded">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="5"/>
+						<xs:maxLength value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Condition" minOccurs="0" maxOccurs="unbounded">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="5"/>
+						<xs:maxLength value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Description" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DataElement" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="DataGroup" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DataElementType">
+		<xs:sequence>
+			<xs:element name="Name" type="NameType" maxOccurs="3"/>
+			<xs:element name="XPath" type="XPathType"/>
+			<xs:element name="MinOccurence"/>
+			<xs:element name="EUCDM" minOccurs="0"/>
+			<xs:element name="GeneralType"/>
+			<xs:element name="Codelist" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Rule" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Condition" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Format"/>
+			<xs:element name="Description" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NameType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="lang" use="optional" default="en">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="fi|sv|en"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="XPathType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="MessageType">
+		<xs:sequence>
+			<xs:element name="Type" type="xs:string"/>
+			<xs:element name="Name" maxOccurs="3">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="lang">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:length value="2"/>
+										<xs:pattern value="fi|sv|en"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element ref="DataGroup"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

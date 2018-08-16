@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
+<Message>
+	<Type>FI460A</Type>
+	<Name lang="en">Customs' control notification</Name>
+	<DataGroup>
+		<Name lang="en">Import operation</Name>
+		<XPath>FI460</XPath>
+		<MinOccurence>1</MinOccurence>
+		<MaxOccurence>1</MaxOccurence>
+		<RC/>
+		<DataElement>
+			<Name lang="fi">MRN</Name>
+			<Name lang="sv">MRN</Name>
+			<Name lang="en">MRN</Name>
+			<XPath>MRN</XPath>
+			<MinOccurence>1</MinOccurence>
+			<EUCDM/>
+			<GeneralType>MRN</GeneralType>
+			<Codelist/>
+			<RC>NR002</RC>
+			<Format>an18</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">LRN</Name>
+			<Name lang="sv">LRN</Name>
+			<Name lang="en">LRN</Name>
+			<XPath>FunctionalReference</XPath>
+			<MinOccurence>1</MinOccurence>
+			<EUCDM/>
+			<GeneralType>LRN</GeneralType>
+			<Codelist/>
+			<RC/>
+			<Format>an..22</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="en">Additional LRN</Name>
+			<XPath>AdditionalFunctionalReference</XPath>
+			<MinOccurence>0</MinOccurence>
+			<EUCDM/>
+			<GeneralType>LRN</GeneralType>
+			<Codelist/>
+			<RC/>
+			<Format>an..22</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="en">MessageIdentification</Name>
+			<XPath>Identification</XPath>
+			<MinOccurence>1</MinOccurence>
+			<EUCDM/>
+			<GeneralType>MessageIdentification</GeneralType>
+			<Codelist/>
+			<RC/>
+			<Format>an..14</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Kielikoodi</Name>
+			<Name lang="sv">Språkkod</Name>
+			<Name lang="en">Language code</Name>
+			<XPath>Language</XPath>
+			<MinOccurence>0</MinOccurence>
+			<EUCDM/>
+			<GeneralType>LanguageCode</GeneralType>
+			<Codelist>CL012</Codelist>
+			<RC/>
+			<Format>a2</Format>
+		</DataElement>
+		<DataGroup>
+			<Name lang="en">Notification</Name>
+			<XPath>Notification</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>999</MaxOccurence>
+			<RC/>
+			<DataElement>
+				<Name lang="en">Notification type</Name>
+				<XPath>Type</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM/>
+				<GeneralType>LanguageCode</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>an..100</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Notification date and time</Name>
+				<XPath>Notification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM/>
+				<GeneralType>DateTime</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>dateTime</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Notification description</Name>
+				<XPath>Text</XPath>
+				<MinOccurence>0</MinOccurence>
+				<EUCDM/>
+				<GeneralType>Freetext</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>an..4096</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Document link</Name>
+				<XPath>DocumentLink</XPath>
+				<MinOccurence>0</MinOccurence>
+				<EUCDM/>
+				<GeneralType>DocumentLink</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>an..500</Format>
+			</DataElement>
+			<DataGroup>
+				<Name lang="en">Contact information</Name>
+				<XPath>ContactInfo</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<RC/>
+				<DataElement>
+					<Name lang="en">Name</Name>
+					<XPath>Name</XPath>
+					<MinOccurence>0</MinOccurence>
+					<EUCDM/>
+					<GeneralType>TraderName</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..100</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">E-mail</Name>
+					<XPath>Email</XPath>
+					<MinOccurence>0</MinOccurence>
+					<EUCDM/>
+					<GeneralType>String</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..320</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Telephone</Name>
+					<XPath>Name</XPath>
+					<MinOccurence>0</MinOccurence>
+					<EUCDM/>
+					<GeneralType>TelephoneNumber</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..20</Format>
+				</DataElement>
+			</DataGroup>
+			<DataGroup>
+				<Name lang="en">Control</Name>
+				<XPath>Control</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<RC/>
+				<DataElement>
+					<Name lang="en">Control type</Name>
+					<XPath>Type</XPath>
+					<MinOccurence>0</MinOccurence>
+					<EUCDM/>
+					<GeneralType>String</GeneralType>
+					<Codelist>NCL421</Codelist>
+					<RC/>
+					<Format>an4</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Control location</Name>
+					<XPath>Location</XPath>
+					<MinOccurence>0</MinOccurence>
+					<EUCDM/>
+					<GeneralType>String</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..100</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Contact</Name>
+					<XPath>Contact</XPath>
+					<MinOccurence>0</MinOccurence>
+					<EUCDM/>
+					<GeneralType>String</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..200</Format>
+				</DataElement>
+			</DataGroup>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="en">Representative</Name>
+			<XPath>Agent</XPath>
+			<MinOccurence>0</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<RC/>
+			<DataElement>
+				<Name lang="en">Representative status code</Name>
+				<XPath>Function</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM/>
+				<GeneralType>RepresentationCode</GeneralType>
+				<Codelist>CL530</Codelist>
+				<RC/>
+				<Format>n1</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Representative identification no.</Name>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM/>
+				<GeneralType>TIN</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>an17</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Representative office code</Name>
+				<XPath>AdditionalIdentifier/Identification</XPath>
+				<MinOccurence>0</MinOccurence>
+				<EUCDM/>
+				<GeneralType>TraderOfficeCode</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>n3</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Representative name</Name>
+				<XPath>Name</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM/>
+				<GeneralType>TraderName</GeneralType>
+				<Codelist></Codelist>
+				<RC/>
+				<Format>an..70</Format>
+			</DataElement>
+			<DataGroup>
+				<Name lang="en">Representative address</Name>
+				<XPath>Address</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<RC/>
+				<DataElement>
+					<Name lang="en">Representative street and number</Name>
+					<XPath>Line</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM/>
+					<GeneralType>Street</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..70</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Representative city</Name>
+					<XPath>CityName</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM/>
+					<GeneralType>City</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..35</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Representative postcode</Name>
+					<XPath>Postcode</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM/>
+					<GeneralType>Postcode</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..9</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Representative country</Name>
+					<XPath>Country</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM/>
+					<GeneralType>CountryCode</GeneralType>
+					<Codelist>CL008</Codelist>
+					<RC/>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="en">Declarant</Name>
+			<XPath>Declarant</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<RC/>
+			<DataElement>
+				<Name lang="en">Declarant identification no.</Name>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM>3/18</EUCDM>
+				<GeneralType>TIN</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>an..17</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Declarant office code</Name>
+				<XPath>AdditionalIdentifier/Identity</XPath>
+				<MinOccurence>0</MinOccurence>
+				<EUCDM/>
+				<GeneralType>TraderOfficeCode</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>n..3</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Declarant name</Name>
+				<XPath>Name</XPath>
+				<MinOccurence>0</MinOccurence>
+				<EUCDM>3/17</EUCDM>
+				<GeneralType>TraderName</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>an..70</Format>
+			</DataElement>
+			<DataGroup>
+				<Name lang="en">Declarant address</Name>
+				<XPath>Address</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<RC/>
+				<DataElement>
+					<Name lang="en">Declarant street and number</Name>
+					<XPath>Line</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM/>
+					<GeneralType>Street</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..70</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Declarant city</Name>
+					<XPath>CityName</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM/>
+					<GeneralType>City</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..35</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Declarant postcode</Name>
+					<XPath>Postcode</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM/>
+					<GeneralType>Postcode</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..9</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Declarant country</Name>
+					<XPath>Country</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM/>
+					<GeneralType>CountryCode</GeneralType>
+					<Codelist>CL008</Codelist>
+					<RC/>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="en">Submitter</Name>
+			<XPath>Submitter</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<RC/>
+			<DataElement>
+				<Name lang="en">Submitter name</Name>
+				<XPath>Name</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM/>
+				<GeneralType>TraderName</GeneralType>
+				<Codelist/>
+				<RC/>
+				<Format>an..70</Format>
+			</DataElement>
+			<DataGroup>
+				<Name lang="en">Submitter e-mail address</Name>
+				<XPath>Communication</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<RC/>
+				<DataElement>
+					<Name lang="en">Submitter e-mail address</Name>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM/>
+					<GeneralType>CommunicationIdentification</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..320</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Submitter communication type</Name>
+					<XPath>Type</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM/>
+					<GeneralType>CommunicationType</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+			<DataGroup>
+				<Name lang="en">Submitter telephone number</Name>
+				<XPath>Communication</XPath>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<RC/>
+				<DataElement>
+					<Name lang="en">Submitter telephone number</Name>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM/>
+					<GeneralType>CommunicationIdentification</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>an..20</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Submitter communication type</Name>
+					<XPath>Type</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM/>
+					<GeneralType>CommunicationType</GeneralType>
+					<Codelist/>
+					<RC/>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+		</DataGroup>
+	</DataGroup>
+</Message>

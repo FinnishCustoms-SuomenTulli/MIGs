@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Code lists -</title>
+    <link rel="stylesheet" href="tulli-bootstrap-style.css" type="text/css" />
+    <link rel="stylesheet" href="tulli-mig-tables-style.css" type="text/css" />
+</head>
+<body class="Site">
+
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <span class="navbar-text">Code lists updated 
+                </span>
+            </div>
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- /.navbar -->
+
+    <header>
+        <div class="upper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <a class="" href="../index.html">
+                            <img class="img-responsive pull-left" src="../assets/images/logo-tulli.svg" /></a>
+
+                        <button type="button" class="navbar-toggle collapsed pull-right margin-0" data-toggle="collapse" data-target="#navbar-mainmenu" aria-expanded="false" aria-controls="navbar-mainmenu">
+                            <span class="sr-only">Menu</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="col-md-9 col-sm-12 col-xs-12">
+                        <nav id="navbar-mainmenu" role="menu" class="mainmenu collapse navbar-collapse">
+                            <ul class="nav nav-pills">
+                                <li>
+                                    <a href="../index.html">Home</a>
+                                </li>
+                                <li>
+                                    <a href="datamodel.html">Class diagram</a>
+                                </li>
+                                <li>
+                                    <a href="messageexchange.html">Guide for message exchange</a>
+                                </li>
+                                <li>
+                                    <a href="datarequirements.html">Data requirements</a>
+                                </li>
+                                <li class='current'>
+                                    <a class='current' href="codes.html">Codes</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lower">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h1>Codelists</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="Site-content">
+        <div class="col-xs-12" role="main">
+            <div><a href="codelists.xml"><span class="icon icon-tulli-external" style="margin-right:3px"></span>Download codelists in XML format</a><p></p></div>
+            <div class="panel panel-primary">
+                <div class="panel-body" id="contents"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                &copy; Tulli 2018
+	    
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src='../assets/javascripts/vendor/jquery.js'></script>
+    <script type="text/javascript">
+		$(document).ready(function(){
+			$.ajax({
+				url: 'codelists.xml',
+				type: 'GET',
+				dataType: 'xml',
+				success: function(returnedXMLResponse){
+					$('Generated', returnedXMLResponse).each(function(){
+						var version = new Date($(this).text());
+                        version = version.toLocaleString("en-GB");
+                        $(".navbar-text").append(version);
+
+					})
+				}  // End Success
+			}); // End AJAX
+		});
+	</script>
+    <script>
+		$(document).ready(function(){
+			$.ajax({
+				url: 'intro.xml',
+				type: 'GET',
+				dataType: 'xml',
+				success: function(returnedXMLResponse){
+					$('System', returnedXMLResponse).each(function(){
+						var system = $(this).text();
+                        document.title += " " + system;
+					})
+				}  // End Success
+			}); // End AJAX
+		});
+	</script>
+    <script>
+      function loadXML(url) {
+           return new Promise(function(resolve) {
+             var req = new XMLHttpRequest();
+             req.open("GET", url);
+             if (typeof XSLTProcessor === 'undefined') {
+               try {
+                 req.responseType = 'msxml-document';
+               }
+               catch (e) {}
+             }
+             req.onload = function() {
+               resolve(this.responseXML)
+             }
+             req.send();
+           });
+      }
+      
+      function transform(xmlUrl, xslUrl,targetElement) {
+        Promise.all([loadXML(xmlUrl), loadXML(xslUrl)]).then(function(data) {
+          var xmlDoc = data[0];
+          var xslDoc = data[1];
+          
+          if (typeof XSLTProcessor !== 'undefined') {
+            var proc = new XSLTProcessor();
+            proc.importStylesheet(xslDoc);
+            
+
+            var resultFrag = proc.transformToFragment(xmlDoc, targetElement.ownerDocument);
+            
+            targetElement.textContent = '';
+            targetElement.appendChild(resultFrag);
+          }
+          else {
+              var template = new ActiveXObject('Msxml2.XslTemplate.6.0');
+              template.stylesheet = xslDoc;
+              var proc = template.createProcessor();
+              
+              for (var prop in xsltParams) {
+                proc.addParameter(prop, xsltParams[prop]);
+              }
+              
+              proc.input = xmlDoc;
+              
+              proc.transform();
+              
+              var resultHTML = proc.output;
+              
+              targetElement.innerHTML = resultHTML;
+          }
+        });
+      }
+      document.addEventListener('DOMContentLoaded', function() {
+        transform('codelists.xml', 'codelists.xsl', document.getElementById('contents'));      
+      })
+    </script>
+    <script src='../assets/javascripts/bootstrap.js'></script>
+
+    <script src='../assets/javascripts/custom-ui.js'></script>
+
+    <script>
+
+	$(function() {
+		
+	});
+
+    </script>
+
+</body>
+</html>
