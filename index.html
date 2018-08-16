@@ -294,7 +294,6 @@
             var proc = new XSLTProcessor();
             proc.importStylesheet(xslDoc);
             
-
             var resultFrag = proc.transformToFragment(xmlDoc, targetElement.ownerDocument);
             
             targetElement.textContent = '';
@@ -304,10 +303,6 @@
               var template = new ActiveXObject('Msxml2.XslTemplate.6.0');
               template.stylesheet = xslDoc;
               var proc = template.createProcessor();
-              
-              for (var prop in xsltParams) {
-                proc.addParameter(prop, xsltParams[prop]);
-              }
               
               proc.input = xmlDoc;
               
