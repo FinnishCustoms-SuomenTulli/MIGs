@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <title>Guide for message exchange -</title>
-    <link rel="icon" href="../assets/favicon.ico">
-    <link rel="stylesheet" href="tulli-bootstrap-style.css" type="text/css" />
-    <link rel="prefetch" href="datarequirements.html" type="text/html" />
+    <link rel="icon" href="../../assets/favicon.ico">
+    <link rel="stylesheet" href="../../common/tulli-bootstrap-style.css" type="text/css" />
+    <link rel="prefetch" href="../../common/datarequirements.html" type="text/html" />
 </head>
 
 <body class="guidelines">
@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <a class="" href="../index.html">
-                            <img class="img-responsive pull-left" src="../assets/images/logo-tulli.svg" /></a>
+                            <img class="img-responsive pull-left" src="../../assets/images/logo-tulli.svg" alt="Finnish Customs logotype" /></a>
 
                         <button type="button" class="navbar-toggle collapsed pull-right margin-0" data-toggle="collapse" data-target="#navbar-mainmenu" aria-expanded="false" aria-controls="navbar-mainmenu">
                             <span class="sr-only">Menu</span>
@@ -115,11 +115,12 @@
     <!-- Bootstrap core JavaScript
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src='../assets/javascripts/vendor/jquery.js'></script>
+    <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
+    <script src='../../assets/javascripts/vendor/jquery.js'></script>
     <script>
 		$(document).ready(function(){
 			$.ajax({
-				url: 'intro.xml',
+				url: '../../common/intro.xml',
 				type: 'GET',
 				dataType: 'xml',
 				success: function(returnedXMLResponse){
@@ -168,7 +169,6 @@
             var proc = new XSLTProcessor();
             proc.importStylesheet(xslDoc);
             
-
             var resultFrag = proc.transformToFragment(xmlDoc, targetElement.ownerDocument);
             
             targetElement.textContent = '';
@@ -178,10 +178,6 @@
               var template = new ActiveXObject('Msxml2.XslTemplate.6.0');
               template.stylesheet = xslDoc;
               var proc = template.createProcessor();
-              
-              for (var prop in xsltParams) {
-                proc.addParameter(prop, xsltParams[prop]);
-              }
               
               proc.input = xmlDoc;
               
@@ -194,12 +190,12 @@
         });
       }
       document.addEventListener('DOMContentLoaded', function() {
-        transform('messageexchange.xml', 'messageexchange.xsl', document.getElementById('accordion'));      
+        transform('../../common/messageexchange.xml', 'messageexchange.xsl', document.getElementById('accordion'));      
       })
     </script>
-    <script src='../assets/javascripts/bootstrap.js'></script>
+    <script src='../../assets/javascripts/bootstrap.js'></script>
 
-    <script src='../assets/javascripts/custom-ui.js'></script>
+    <script src='../../assets/javascripts/custom-ui.js'></script>
 
     <script>
 

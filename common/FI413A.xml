@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
 <Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Message.xsd">
-	<Type>FI415A</Type>
+	<Type>FI413A</Type>
 	<Name lang="fi">Tulli-ilmoitus</Name>
 	<Name lang="sv">Tulldeklaration</Name>
 	<Name lang="en">Customs declaration</Name>
@@ -10,6 +10,14 @@
 		<XPath>FI415A</XPath>
 		<MinOccurence>1</MinOccurence>
 		<MaxOccurence>1</MaxOccurence>
+		<DataElement>
+			<Name lang="en">MRN</Name>
+			<XPath>MasterReferenceNumber</XPath>
+			<MinOccurence>1</MinOccurence>
+			<EUCDM></EUCDM>
+			<GeneralType>MRN</GeneralType>
+			<Format>an18</Format>
+		</DataElement>
 		<DataElement>
 			<Name lang="en">LRN</Name>
 			<XPath>FunctionalReference</XPath>
@@ -88,11 +96,30 @@
 			<Format>a2</Format>
 		</DataElement>
 		<DataGroup>
+			<Name lang="en">Amendment</Name>
+			<XPath>Amendment</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="en">Amendment date and time</Name>
+				<XPath>Amendment</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>DateTime</GeneralType>
+				<Format>dateTime</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Reason for amendment request</Name>
+				<XPath>ChangeReason</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>String</GeneralType>
+				<Format>an..512</Format>
+			</DataElement>
+		</DataGroup>
+		<DataGroup>
 			<Name lang="en">Holder of the authorisation</Name>
 			<XPath>AuthorisationHolder</XPath>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>99</MaxOccurence>
-			<Condition>NC0021</Condition>
 			<DataElement>
 				<Name lang="en">Holder of the authorisation identification no.</Name>
 				<XPath>Identification</XPath>
@@ -148,7 +175,6 @@
 				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>TraderOfficeCode</GeneralType>
-				<Condition>NC0015</Condition>
 				<Format>n..3</Format>
 				<Description>Enter nationally allocated trader office code, if representative has one.</Description>
 			</DataElement>
@@ -158,7 +184,7 @@
 				<MinOccurence>0</MinOccurence>
 				<EUCDM>3/19</EUCDM>
 				<GeneralType>TraderName</GeneralType>
-				<Condition>C0050</Condition>
+				<Condition>NC0016</Condition>
 				<Format>an..70</Format>
 			</DataElement>
 			<DataGroup>
@@ -166,7 +192,7 @@
 				<XPath>Address</XPath>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
-				<Condition>C0050</Condition>
+				<Condition>NC0016</Condition>
 				<DataElement>
 					<Name lang="en">Representative street and number</Name>
 					<XPath>Street</XPath>
@@ -223,7 +249,6 @@
 				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>TraderOfficeCode</GeneralType>
-				<Condition>NC0015</Condition>
 				<Format>n..3</Format>
 				<Description>Enter nationally allocated trader office code, if declarant has one.</Description>
 			</DataElement>
@@ -233,7 +258,7 @@
 				<MinOccurence>0</MinOccurence>
 				<EUCDM>3/17</EUCDM>
 				<GeneralType>TraderName</GeneralType>
-				<Condition>C0050</Condition>
+				<Condition>NC0016</Condition>
 				<Format>n..5</Format>
 			</DataElement>
 			<DataGroup>
@@ -241,7 +266,7 @@
 				<XPath>Address</XPath>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
-				<Condition>C0050</Condition>
+				<Condition>NC0016</Condition>
 				<DataElement>
 					<Name lang="en">Declarant street and number</Name>
 					<XPath>Street</XPath>
@@ -591,7 +616,6 @@
 					<XPath>AdditionalIdentifier/Identification</XPath>
 					<MinOccurence>0</MinOccurence>
 					<GeneralType>TraderOfficeCode</GeneralType>
-					<Condition>NC0015</Condition>
 					<Format>n..3</Format>
 					<Description>Enter nationally allocated trader office code, if consignee has one.</Description>
 				</DataElement>
@@ -601,7 +625,7 @@
 					<MinOccurence>0</MinOccurence>
 					<EUCDM>3/15</EUCDM>
 					<GeneralType>TraderName</GeneralType>
-					<Condition>C0050</Condition>
+					<Condition>NC0016</Condition>
 					<Format>n..5</Format>
 				</DataElement>
 				<DataGroup>
@@ -609,7 +633,7 @@
 					<XPath>Address</XPath>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
-					<Condition>C0050</Condition>
+					<Condition>NC0016</Condition>
 					<DataElement>
 						<Name lang="en">Consignee street and number</Name>
 						<XPath>Street</XPath>
@@ -940,8 +964,7 @@
 						<MinOccurence>1</MinOccurence>
 						<EUCDM>2/3</EUCDM>
 						<GeneralType>String</GeneralType>
-						<Codelist>CL013H</Codelist>
-						<Codelist>CL605</Codelist>
+						<Codelist>CL013G</Codelist>
 						<Format>an..4</Format>
 					</DataElement>
 					<DataElement>
