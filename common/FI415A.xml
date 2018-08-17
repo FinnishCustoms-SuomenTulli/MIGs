@@ -706,18 +706,21 @@
 						<Rule>NR0022</Rule>
 						<Format>an2</Format>
 					</DataElement>
-					<DataElement>
+					<DataGroup>
 						<Name lang="en">Additional procedure</Name>
-						<XPath>Previous</XPath>
-						<MinOccurence>1</MinOccurence>
-						<EUCDM>1/11</EUCDM>
-						<GeneralType>String</GeneralType>
-						<Codelist>CL102</Codelist>
-						<Rule>NR0005</Rule>
-						<Rule>NR0006</Rule>
-						<Rule>NR0007</Rule>
-						<Format>an3</Format>
-					</DataElement>
+						<XPath>AdditionalProcedure</XPath>
+						<MinOccurence>0</MinOccurence>
+						<MaxOccurence>99</MaxOccurence>
+						<DataElement>
+							<Name lang="en">Additional procedure code</Name>
+							<XPath>Procedure</XPath>
+							<MinOccurence>1</MinOccurence>
+							<EUCDM>1/11</EUCDM>
+							<GeneralType>String</GeneralType>
+							<Codelist>CL102</Codelist>
+							<Format>an3</Format>
+						</DataElement>
+					</DataGroup>
 				</DataGroup>
 				<DataGroup>
 					<Name lang="en">Commodity</Name>
@@ -728,6 +731,7 @@
 						<Name lang="en">Description of goods</Name>
 						<XPath>Description</XPath>
 						<MinOccurence>1</MinOccurence>
+						<EUCDM>6/8</EUCDM>
 						<GeneralType>String</GeneralType>
 						<Format>an..512</Format>
 						<Description>Enter the common trade name precise enough in order to identify and classify the goods. General terms e.g. “clothes” may not be used. The EU Commission maintains a list of unacceptable general terms.</Description>
