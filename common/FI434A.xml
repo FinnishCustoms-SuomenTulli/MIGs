@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
+<Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Message.xsd">
+	<Type>FI434A</Type>
+	<Name lang="en">Bill of discharge</Name>
+	<DataGroup>
+		<Name lang="en">Import operation</Name>
+		<XPath>FI434A</XPath>
+		<MinOccurence>1</MinOccurence>
+		<MaxOccurence>1</MaxOccurence>
+		<DataElement>
+			<Name lang="fi">MRN</Name>
+			<Name lang="sv">MRN</Name>
+			<Name lang="en">MRN</Name>
+			<XPath>MRN</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>MRN</GeneralType>
+			<Format>an18</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">LRN</Name>
+			<Name lang="sv">LRN</Name>
+			<Name lang="en">LRN</Name>
+			<XPath>FunctionalReference</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>LRN</GeneralType>
+			<Format>an..22</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="en">Additional LRN</Name>
+			<XPath>AdditionalFunctionalReference</XPath>
+			<MinOccurence>0</MinOccurence>
+			<GeneralType>LRN</GeneralType>
+			<Format>an..22</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="en">MessageIdentification</Name>
+			<XPath>Identification</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>MessageIdentification</GeneralType>
+			<Format>an..14</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Kielikoodi</Name>
+			<Name lang="sv">Spr책kkod</Name>
+			<Name lang="en">Language code</Name>
+			<XPath>Language</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>LanguageCode</GeneralType>
+			<Codelist>CL012</Codelist>
+			<Format>a2</Format>
+		</DataElement>
+		<DataGroup>
+			<Name lang="en">Representative</Name>
+			<XPath>Agent</XPath>
+			<MinOccurence>0</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="en">Representative status code</Name>
+				<XPath>Function</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM>3/21</EUCDM>
+				<GeneralType>RepresentationCode</GeneralType>
+				<Codelist>CL530</Codelist>
+				<Format>n1</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Representative identification no.</Name>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM>3/20</EUCDM>
+				<GeneralType>TIN</GeneralType>
+				<Rule>NR1311</Rule>
+				<Format>an..17</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Representative office code</Name>
+				<XPath>AdditionalIdentifier/Identification</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>TraderOfficeCode</GeneralType>
+				<Format>n..3</Format>
+				<DescriptionLine lang="en">Enter nationally allocated trader office code, if representative has one.</DescriptionLine>
+			</DataElement>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="en">Holder of the authorisation</Name>
+			<XPath>AuthorisationHolder</XPath>
+			<MinOccurence>0</MinOccurence>
+			<MaxOccurence>99</MaxOccurence>
+			<DataElement>
+				<Name lang="en">Holder of the authorisation identification no.</Name>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM>3/39</EUCDM>
+				<GeneralType>TIN</GeneralType>
+				<Rule>NR1311</Rule>
+				<Rule>NR2001</Rule>
+				<Format>an..17</Format>
+			</DataElement>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="en">Submitter</Name>
+			<XPath>Submitter</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="en">Submitter name</Name>
+				<XPath>Name</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>TraderName</GeneralType>
+				<Format>an..70</Format>
+			</DataElement>
+			<DataGroup>
+				<Name lang="en">Submitter e-mail</Name>
+				<XPath>Communication</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="en">Submitter e-mail address</Name>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>CommunicationIdentification</GeneralType>
+					<Format>an..320</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Submitter communication type</Name>
+					<XPath>Type</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>CommunicationType</GeneralType>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+			<DataGroup>
+				<Name lang="en">Submitter telephone</Name>
+				<XPath>Communication</XPath>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="en">Submitter telephone number</Name>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>CommunicationIdentification</GeneralType>
+					<Format>an..20</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Submitter communication type</Name>
+					<XPath>Type</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>CommunicationType</GeneralType>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="en">Consignment</Name>
+			<XPath>Consignment</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataGroup>
+				<Name lang="en">Identification of warehouse</Name>
+				<XPath>Warehouse</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="en">Warehouse identifier</Name>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM>2/7</EUCDM>
+					<GeneralType>String</GeneralType>
+					<Format>an..35</Format>
+				</DataElement>
+			</DataGroup>
+			<DataGroup>
+				<Name lang="en">Simplified declaration / Previous documents</Name>
+				<XPath>PreviousDocument</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>999</MaxOccurence>
+				<DataElement>
+					<Name lang="en">Previous document reference</Name>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM>2/1</EUCDM>
+					<GeneralType>String</GeneralType>
+					<Format>an..35</Format>
+				</DataElement>
+			</DataGroup>
+		</DataGroup>
+	</DataGroup>
+</Message>

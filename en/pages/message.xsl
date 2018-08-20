@@ -14,6 +14,17 @@
 				</h2>
 			</div>
 		</div>
+		<xsl:if test="Message/Rule!=''">
+			<p><b>Rules:</b>
+		<xsl:for-each select="Message/Rule">
+					<a href="#" data-toggle="modal">
+						<xsl:attribute name="data-target"><xsl:value-of select="concat('#RC_',.)"/></xsl:attribute>
+						<xsl:value-of select="."/>
+					</a>
+					<xsl:if test="position() != last()">, </xsl:if>
+				</xsl:for-each>
+			</p>
+		</xsl:if>
 		<h3>Structure of groups</h3>
 		<table class="table table-responsive">
 			<thead>
@@ -75,7 +86,7 @@
 						<td>
 							<xsl:for-each select="ancestor-or-self::*">
 								<xsl:value-of select="XPath"/>
-								<xsl:if test="position() != last() and position() != 1">/</xsl:if>
+								<xsl:if test="position() != last() and position() != 1">/&#8203;</xsl:if>
 							</xsl:for-each>
 						</td>
 						<td>
@@ -88,12 +99,12 @@
 							</xsl:for-each>
 						</td>
 					</tr>
-					<xsl:if test="Description!=''">
+					<xsl:if test="DescriptionLine[@lang=($language)]!=''">
 						<tr>
 							<xsl:attribute name="class"><xsl:value-of select="concat('description indent-',count(ancestor::*)-1)"/></xsl:attribute>
 							<td colspan="5">
 								<span class="icon icon-tulli-info" style="margin-right:3px"/>
-								<xsl:for-each select="Description">
+								<xsl:for-each select="DescriptionLine[@lang=($language)]">
 									<xsl:value-of select="."/>
 									<xsl:if test="position() != last()">
 										<br/>
@@ -218,7 +229,7 @@
 								</xsl:for-each>
 							</td>
 						</tr>
-						<xsl:if test="Description!=''">
+						<xsl:if test="DescriptionLine[@lang=($language)]!=''">
 							<tr>
 								<xsl:choose>
 									<xsl:when test="count(ancestor::*)>2">
@@ -230,7 +241,7 @@
 								</xsl:choose>
 								<td colspan="7">
 									<span class="icon icon-tulli-info" style="margin-right:3px"/>
-									<xsl:for-each select="Description">
+									<xsl:for-each select="DescriptionLine[@lang=($language)]">
 										<xsl:value-of select="."/>
 										<xsl:if test="position() != last()">
 											<!--xsl:text disable-output-escaping="yes">&lt;br /&gt;</xsl:text-->

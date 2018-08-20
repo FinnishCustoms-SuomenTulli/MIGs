@@ -8,7 +8,7 @@
 	<DataGroup>
 		<Name lang="en">Import operation</Name>
 		<XPath>FI404A</XPath>
-		<MinOccurence>0</MinOccurence>
+		<MinOccurence>1</MinOccurence>
 		<MaxOccurence>1</MaxOccurence>
 		<DataElement>
 			<Name lang="en">MRN</Name>
@@ -24,7 +24,6 @@
 			<EUCDM>2/5</EUCDM>
 			<GeneralType>LRN</GeneralType>
 			<Format>an..22</Format>
-			<Description>Unique reference number of the declaration.</Description>
 		</DataElement>
 		<DataElement>
 			<Name lang="en">Additional LRN</Name>
@@ -39,7 +38,6 @@
 			<MinOccurence>0</MinOccurence>
 			<GeneralType>MessageIdentification</GeneralType>
 			<Format>an..14</Format>
-			<Description>Identification of a single message. A five-character string assigned by Customs is followed by a reference number assigned by the message sender.</Description>
 		</DataElement>
 		<DataElement>
 			<Name lang="en">Declaration Type</Name>
@@ -207,7 +205,6 @@
 				<GeneralType>String</GeneralType>
 				<Codelist>CL605</Codelist>
 				<Format>an..4</Format>
-				<Description>Enter the type of authorisation that the holder is linked to (authorisation data is entered in data group 'Documents produced, certificates and authorisations, additional references').</Description>
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
@@ -215,7 +212,6 @@
 			<XPath>Agent</XPath>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<Description>If a representative is used by the declarant, enter representative's identity data.</Description>
 			<DataElement>
 				<Name lang="en">Representative status code</Name>
 				<XPath>Function</XPath>
@@ -239,7 +235,6 @@
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>TraderOfficeCode</GeneralType>
 				<Format>n..3</Format>
-				<Description>Enter nationally allocated trader office code, if representative has one.</Description>
 			</DataElement>
 			<DataElement>
 				<Name lang="en">Representative name</Name>
@@ -308,7 +303,6 @@
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>TraderOfficeCode</GeneralType>
 				<Format>n..3</Format>
-				<Description>Enter nationally allocated trader office code, if declarant has one.</Description>
 			</DataElement>
 			<DataElement>
 				<Name lang="en">Declarant name</Name>
@@ -481,7 +475,6 @@
 					<EUCDM>2/4</EUCDM>
 					<GeneralType>String</GeneralType>
 					<Format>an..35</Format>
-					<Description>Enter a unique consignment reference UCR, if one has been assigned by the consignor. UCR remains the same throughout the supply chain. It can be WCO (ISO 15459) -code or an equivalent.</Description>
 				</DataElement>
 			</DataGroup>
 			<DataGroup>
@@ -532,7 +525,6 @@
 						<EUCDM>7/10</EUCDM>
 						<GeneralType>String</GeneralType>
 						<Format>an..17</Format>
-						<Description>Enter the number(s) of container(s) in accordance with ISO standard 6343, if containers are used. The container number is written together: four letters (if they exist) + six numbers + hyphen + control number. </Description>
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
@@ -627,7 +619,6 @@
 					<GeneralType>CountryCode</GeneralType>
 					<Codelist>CL008</Codelist>
 					<Format>a2</Format>
-					<Description>Enter the original country code if dispatch. If there has been a stoppage unrelated to the transport of goods or a commercial transaction (e.g. sale or processing), indicate the last intermediate country. Consolidation of the goods en-route is not considered as a stoppage in this data element.</Description>
 				</DataElement>
 			</DataGroup>
 			<DataGroup>
@@ -642,7 +633,6 @@
 					<GeneralType>CountryCode</GeneralType>
 					<Codelist>CL010</Codelist>
 					<Format>a2</Format>
-					<Description>Enter country code FI if the goods remain in Finland. If the goods are to be transited to another EU country enter the code of that country.</Description>
 				</DataElement>
 			</DataGroup>
 			<DataGroup>
@@ -664,7 +654,6 @@
 					<MinOccurence>0</MinOccurence>
 					<GeneralType>TraderOfficeCode</GeneralType>
 					<Format>n..3</Format>
-					<Description>Enter nationally allocated trader office code, if consignee has one.</Description>
 				</DataElement>
 				<DataElement>
 					<Name lang="en">Consignee name</Name>
@@ -747,7 +736,6 @@
 						<EUCDM>2/4</EUCDM>
 						<GeneralType>String</GeneralType>
 						<Format>an..35</Format>
-						<Description>Enter a unique consignment reference UCR, if one has been assigned by the consignor. UCR remains the same throughout the supply chain. It can be WCO (ISO 15459) -code or an equivalent.</Description>
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
@@ -801,7 +789,6 @@
 						<EUCDM>6/8</EUCDM>
 						<GeneralType>String</GeneralType>
 						<Format>an..512</Format>
-						<Description>Enter the common trade name precise enough in order to identify and classify the goods. General terms e.g. “clothes” may not be used. The EU Commission maintains a list of unacceptable general terms.</Description>
 					</DataElement>
 					<DataGroup>
 						<Name lang="en">CUS code</Name>
@@ -823,7 +810,6 @@
 							<EUCDM>6/13</EUCDM>
 							<GeneralType>String</GeneralType>
 							<Format>an..3</Format>
-							<Description>Enter CUS code if the goods are subject to a TARIC measure in relation with a CUS code. CUS code applies to some chemical substances and preparations. Declaration of CUS code does not waive from the declaration of the description of goods.</Description>
 						</DataElement>
 					</DataGroup>
 					<DataGroup>
@@ -838,7 +824,6 @@
 							<EUCDM>6/14</EUCDM>
 							<GeneralType>NumericalString</GeneralType>
 							<Format>an..8</Format>
-							<Description>A minimum of 6 digits must be declared.</Description>
 						</DataElement>
 						<DataElement>
 							<Name lang="en">Classification type</Name>
@@ -915,29 +900,28 @@
 							<Format>an..3</Format>
 						</DataElement>
 					</DataGroup>
-				</DataGroup>
-				<DataGroup>
-					<Name lang="en">Goods measure</Name>
-					<XPath>GoodsMeasure</XPath>
-					<MinOccurence>0</MinOccurence>
-					<MaxOccurence>1</MaxOccurence>
-					<DataElement>
-						<Name lang="en">Gross mass</Name>
-						<XPath>GrossMass</XPath>
+					<DataGroup>
+						<Name lang="en">Goods measure</Name>
+						<XPath>GoodsMeasure</XPath>
 						<MinOccurence>0</MinOccurence>
-						<EUCDM>6/5</EUCDM>
-						<GeneralType>Decimal</GeneralType>
-						<Format>n..16,6</Format>
-						<Description>Enter the gross mass in kilograms. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with up to maximum of 6 decimal places, e.g. "0,654". If the gross mass exceeds 1 kg, you can enter the value rounded to the closest full kilogram.</Description>
-					</DataElement>
-					<DataElement>
-						<Name lang="en">Supplementary units</Name>
-						<XPath>Tariff</XPath>
-						<MinOccurence>0</MinOccurence>
-						<EUCDM>6/2</EUCDM>
-						<GeneralType>Decimal</GeneralType>
-						<Format>n..16,6</Format>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="en">Gross mass</Name>
+							<XPath>GrossMass</XPath>
+							<MinOccurence>0</MinOccurence>
+							<EUCDM>6/5</EUCDM>
+							<GeneralType>Decimal</GeneralType>
+							<Format>n..16,6</Format>
+						</DataElement>
+						<DataElement>
+							<Name lang="en">Supplementary units</Name>
+							<XPath>Tariff</XPath>
+							<MinOccurence>0</MinOccurence>
+							<EUCDM>6/2</EUCDM>
+							<GeneralType>Decimal</GeneralType>
+							<Format>n..16,6</Format>
+						</DataElement>
+					</DataGroup>
 				</DataGroup>
 				<DataGroup>
 					<Name lang="en">Packaging</Name>
@@ -951,7 +935,6 @@
 						<EUCDM>6/11</EUCDM>
 						<GeneralType>String</GeneralType>
 						<Format>an..512</Format>
-						<Description>Enter a free-form description of the marks and numbers on transport units or packages. If the packages are not marked, enter "no markings". If the number of packages is 0, the marks and numbers shall be the same as on the goods item for which the total number of packages has been entered. </Description>
 					</DataElement>
 					<DataElement>
 						<Name lang="en">Number of packages</Name>
@@ -960,7 +943,6 @@
 						<EUCDM>6/10</EUCDM>
 						<GeneralType>Integer</GeneralType>
 						<Format>n..8</Format>
-						<Description>Enter the number of packages. If there are goods from several goods items within the one and same package, enter the value "1" at least in one of the goods items, and value "0" in the other goods items.</Description>
 					</DataElement>
 					<DataElement>
 						<Name lang="en">Type of packages</Name>
@@ -1052,7 +1034,6 @@
 					<XPath>PreviousDocument</XPath>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>99</MaxOccurence>
-					<Description>Enter previous document. Most often entry summary declaration, summary declaration or T1-transit declaration is used. If the country of dispatch is Norway and there is no previous procedure, previous document is not declared. If previous declaration is submitted to Finnish Customs UTU system, enter MRN of that declaration.</Description>
 					<DataElement>
 						<Name lang="en">Goods item identifier</Name>
 						<XPath>Line</XPath>
@@ -1072,7 +1053,7 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="en">Previous document reference</Name>
-						<XPath>Type</XPath>
+						<XPath>Identification</XPath>
 						<MinOccurence>0</MinOccurence>
 						<EUCDM>2/1</EUCDM>
 						<GeneralType>String</GeneralType>
@@ -1091,7 +1072,6 @@
 						<EUCDM>7/10</EUCDM>
 						<GeneralType>String</GeneralType>
 						<Format>an..17</Format>
-						<Description>Enter the number(s) of container(s) in accordance with ISO standard 6343, if containers are used. The container number is written together: four letters (if they exist) + six numbers + hyphen + control number. </Description>
 					</DataElement>
 				</DataGroup>
 			</DataGroup>

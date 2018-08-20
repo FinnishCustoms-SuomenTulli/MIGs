@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
 <Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Message.xsd">
-	<Type>FI450A</Type>
-	<Name lang="en">Error notification</Name>
+	<Type>FI439A</Type>
+	<Name lang="en">Free-formcontact request</Name>
 	<DataGroup>
 		<Name lang="en">Import operation</Name>
-		<XPath>FI450A</XPath>
+		<XPath>FI439A</XPath>
 		<MinOccurence>1</MinOccurence>
 		<MaxOccurence>1</MaxOccurence>
 		<DataElement>
@@ -77,51 +77,80 @@
 				<Format>an..4096</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="en">Document link</Name>
-				<XPath>DocumentLink</XPath>
+				<Name lang="en">Reason for contact</Name>
+				<XPath>ContactReason</XPath>
 				<MinOccurence>0</MinOccurence>
-				<GeneralType>DocumentLink</GeneralType>
-				<Format>an..500</Format>
+				<GeneralType>String</GeneralType>
+				<Codelist>NCL050</Codelist>
+				<Format>an..50</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="en">Related goods item</Name>
-				<XPath>Sequence</XPath>
+				<Name lang="en">Invalidation reason</Name>
+				<XPath>Invalidation</XPath>
 				<MinOccurence>0</MinOccurence>
-				<GeneralType>Integer</GeneralType>
-				<Format>n..5</Format>
+				<GeneralType>String</GeneralType>
+				<Codelist>NCL062</Codelist>
+				<Format>n..50</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="en">Time limit for response</Name>
-				<XPath>Limit</XPath>
+				<Name lang="en">Amendment reason</Name>
+				<XPath>Amendment</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>an..50</GeneralType>
+				<Codelist>NCL062</Codelist>
+				<Format>String</Format>
+			</DataElement>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="en">Submitter</Name>
+			<XPath>Submitter</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="en">Submitter name</Name>
+				<XPath>Name</XPath>
 				<MinOccurence>1</MinOccurence>
-				<GeneralType>DateTime</GeneralType>
-				<Format>dateTime</Format>
+				<GeneralType>TraderName</GeneralType>
+				<Format>an..70</Format>
 			</DataElement>
 			<DataGroup>
-				<Name lang="en">Contact information</Name>
-				<XPath>ContactInfo</XPath>
+				<Name lang="en">Submitter e-mail</Name>
+				<XPath>Communication</XPath>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
-					<Name lang="en">Name</Name>
-					<XPath>Name</XPath>
-					<MinOccurence>0</MinOccurence>
-					<GeneralType>TraderName</GeneralType>
-					<Format>an..100</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="en">E-mail</Name>
-					<XPath>Email</XPath>
-					<MinOccurence>0</MinOccurence>
-					<GeneralType>String</GeneralType>
+					<Name lang="en">Submitter e-mail address</Name>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>CommunicationIdentification</GeneralType>
 					<Format>an..320</Format>
 				</DataElement>
 				<DataElement>
-					<Name lang="en">Telephone</Name>
-					<XPath>Name</XPath>
-					<MinOccurence>0</MinOccurence>
-					<GeneralType>TelephoneNumber</GeneralType>
+					<Name lang="en">Submitter communication type</Name>
+					<XPath>Type</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>CommunicationType</GeneralType>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+			<DataGroup>
+				<Name lang="en">Submitter telephone</Name>
+				<XPath>Communication</XPath>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="en">Submitter telephone number</Name>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>CommunicationIdentification</GeneralType>
 					<Format>an..20</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Submitter communication type</Name>
+					<XPath>Type</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>CommunicationType</GeneralType>
+					<Format>a2</Format>
 				</DataElement>
 			</DataGroup>
 		</DataGroup>

@@ -26,7 +26,15 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="Description" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DescriptionLine" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="lang" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 			<xs:element ref="DataElement" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="DataGroup" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
@@ -42,13 +50,21 @@
 			<xs:element name="Rule" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Condition" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Format"/>
-			<xs:element name="Description" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="DescriptionLine" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="lang" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="NameType">
 		<xs:simpleContent>
 			<xs:extension base="xs:string">
-				<xs:attribute name="lang" use="optional" default="en">
+				<xs:attribute name="lang" use="required">
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
 							<xs:pattern value="fi|sv|en"/>
@@ -80,6 +96,7 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="Rule" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element ref="DataGroup"/>
 		</xs:sequence>
 	</xs:complexType>

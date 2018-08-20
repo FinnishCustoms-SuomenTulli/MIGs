@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
 <Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Message.xsd">
-	<Type>FI450A</Type>
-	<Name lang="en">Error notification</Name>
+	<Type>FI916A</Type>
+	<Name lang="en">Rejection notification</Name>
 	<DataGroup>
 		<Name lang="en">Import operation</Name>
-		<XPath>FI450A</XPath>
+		<XPath>FI916A</XPath>
 		<MinOccurence>1</MinOccurence>
 		<MaxOccurence>1</MaxOccurence>
 		<DataElement>
@@ -76,27 +76,6 @@
 				<GeneralType>Freetext</GeneralType>
 				<Format>an..4096</Format>
 			</DataElement>
-			<DataElement>
-				<Name lang="en">Document link</Name>
-				<XPath>DocumentLink</XPath>
-				<MinOccurence>0</MinOccurence>
-				<GeneralType>DocumentLink</GeneralType>
-				<Format>an..500</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="en">Related goods item</Name>
-				<XPath>Sequence</XPath>
-				<MinOccurence>0</MinOccurence>
-				<GeneralType>Integer</GeneralType>
-				<Format>n..5</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="en">Time limit for response</Name>
-				<XPath>Limit</XPath>
-				<MinOccurence>1</MinOccurence>
-				<GeneralType>DateTime</GeneralType>
-				<Format>dateTime</Format>
-			</DataElement>
 			<DataGroup>
 				<Name lang="en">Contact information</Name>
 				<XPath>ContactInfo</XPath>
@@ -122,6 +101,40 @@
 					<MinOccurence>0</MinOccurence>
 					<GeneralType>TelephoneNumber</GeneralType>
 					<Format>an..20</Format>
+				</DataElement>
+			</DataGroup>
+			<DataGroup>
+				<Name lang="en">Error</Name>
+				<XPath>Error</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>999</MaxOccurence>
+				<DataElement>
+					<Name lang="en">Error code</Name>
+					<XPath>Code</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>String</GeneralType>
+					<Format>an..10</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Error reason</Name>
+					<XPath>Reason</XPath>
+					<MinOccurence>0</MinOccurence>
+					<GeneralType>String</GeneralType>
+					<Format>an..4096</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Error pointer</Name>
+					<XPath>Pointer/Location</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>String</GeneralType>
+					<Format>an..200</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Original attribute value</Name>
+					<XPath>OriginaValue</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>String</GeneralType>
+					<Format>an..500</Format>
 				</DataElement>
 			</DataGroup>
 		</DataGroup>

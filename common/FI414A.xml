@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
 <Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Message.xsd">
-	<Type>FI460A</Type>
-	<Name lang="en">Customs' control notification</Name>
+	<Type>FI414A</Type>
+	<Name lang="fi">Mitätöintipyyntö</Name>
+	<Name lang="en">Invalidation request</Name>
 	<DataGroup>
 		<Name lang="en">Import operation</Name>
-		<XPath>FI460</XPath>
+		<XPath>FI414A</XPath>
 		<MinOccurence>1</MinOccurence>
 		<MaxOccurence>1</MaxOccurence>
 		<DataElement>
@@ -15,6 +16,7 @@
 			<XPath>MRN</XPath>
 			<MinOccurence>1</MinOccurence>
 			<GeneralType>MRN</GeneralType>
+			<Rule>NR002</Rule>
 			<Format>an18</Format>
 		</DataElement>
 		<DataElement>
@@ -42,39 +44,32 @@
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">Kielikoodi</Name>
-			<Name lang="sv">Språkkod</Name>
+			<Name lang="sv">Spr책kkod</Name>
 			<Name lang="en">Language code</Name>
 			<XPath>Language</XPath>
-			<MinOccurence>0</MinOccurence>
+			<MinOccurence>1</MinOccurence>
 			<GeneralType>LanguageCode</GeneralType>
 			<Codelist>CL012</Codelist>
 			<Format>a2</Format>
 		</DataElement>
 		<DataGroup>
-			<Name lang="en">Notification</Name>
-			<XPath>Notification</XPath>
+			<Name lang="en">Invalidation</Name>
+			<XPath>Invalidation</XPath>
 			<MinOccurence>1</MinOccurence>
-			<MaxOccurence>999</MaxOccurence>
+			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
-				<Name lang="en">Notification type</Name>
-				<XPath>Type</XPath>
+				<Name lang="en">Invalidation request reason</Name>
+				<XPath>Reason</XPath>
 				<MinOccurence>1</MinOccurence>
-				<GeneralType>LanguageCode</GeneralType>
-				<Format>an..100</Format>
+				<GeneralType>String</GeneralType>
+				<Format>an..4096</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="en">Notification date and time</Name>
-				<XPath>Notification</XPath>
+				<Name lang="en">Invalidation request date and time</Name>
+				<XPath>Invalidation</XPath>
 				<MinOccurence>1</MinOccurence>
 				<GeneralType>DateTime</GeneralType>
 				<Format>dateTime</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="en">Notification description</Name>
-				<XPath>Text</XPath>
-				<MinOccurence>0</MinOccurence>
-				<GeneralType>Freetext</GeneralType>
-				<Format>an..4096</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="en">Document link</Name>
@@ -83,61 +78,6 @@
 				<GeneralType>DocumentLink</GeneralType>
 				<Format>an..500</Format>
 			</DataElement>
-			<DataGroup>
-				<Name lang="en">Contact information</Name>
-				<XPath>ContactInfo</XPath>
-				<MinOccurence>1</MinOccurence>
-				<MaxOccurence>1</MaxOccurence>
-				<DataElement>
-					<Name lang="en">Name</Name>
-					<XPath>Name</XPath>
-					<MinOccurence>0</MinOccurence>
-					<GeneralType>TraderName</GeneralType>
-					<Format>an..100</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="en">E-mail</Name>
-					<XPath>Email</XPath>
-					<MinOccurence>0</MinOccurence>
-					<GeneralType>String</GeneralType>
-					<Format>an..320</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="en">Telephone</Name>
-					<XPath>Name</XPath>
-					<MinOccurence>0</MinOccurence>
-					<GeneralType>TelephoneNumber</GeneralType>
-					<Format>an..20</Format>
-				</DataElement>
-			</DataGroup>
-			<DataGroup>
-				<Name lang="en">Control</Name>
-				<XPath>Control</XPath>
-				<MinOccurence>1</MinOccurence>
-				<MaxOccurence>1</MaxOccurence>
-				<DataElement>
-					<Name lang="en">Control type</Name>
-					<XPath>Type</XPath>
-					<MinOccurence>0</MinOccurence>
-					<GeneralType>String</GeneralType>
-					<Codelist>NCL421</Codelist>
-					<Format>an4</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="en">Control location</Name>
-					<XPath>Location</XPath>
-					<MinOccurence>0</MinOccurence>
-					<GeneralType>String</GeneralType>
-					<Format>an..100</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="en">Contact</Name>
-					<XPath>Contact</XPath>
-					<MinOccurence>0</MinOccurence>
-					<GeneralType>String</GeneralType>
-					<Format>an..200</Format>
-				</DataElement>
-			</DataGroup>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="en">Representative</Name>
@@ -148,47 +88,58 @@
 				<Name lang="en">Representative status code</Name>
 				<XPath>Function</XPath>
 				<MinOccurence>1</MinOccurence>
+				<EUCDM>3/21</EUCDM>
 				<GeneralType>RepresentationCode</GeneralType>
 				<Codelist>CL530</Codelist>
+				<Rule>NR0002</Rule>
 				<Format>n1</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="en">Representative identification no.</Name>
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
+				<EUCDM>3/20</EUCDM>
 				<GeneralType>TIN</GeneralType>
-				<Format>an17</Format>
+				<Rule>NR0034</Rule>
+				<Rule>NR0035</Rule>
+				<Rule>NR0036</Rule>
+				<Format>an..17</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="en">Representative office code</Name>
 				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>TraderOfficeCode</GeneralType>
-				<Format>n3</Format>
+				<Format>n..3</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="en">Representative name</Name>
 				<XPath>Name</XPath>
-				<MinOccurence>1</MinOccurence>
+				<MinOccurence>0</MinOccurence>
+				<EUCDM>3/19</EUCDM>
 				<GeneralType>TraderName</GeneralType>
+				<Condition>NC0016</Condition>
 				<Format>an..70</Format>
 			</DataElement>
 			<DataGroup>
 				<Name lang="en">Representative address</Name>
 				<XPath>Address</XPath>
-				<MinOccurence>1</MinOccurence>
+				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
+				<Condition>NC0016</Condition>
 				<DataElement>
 					<Name lang="en">Representative street and number</Name>
-					<XPath>Line</XPath>
+					<XPath>Street</XPath>
 					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/19</EUCDM>
 					<GeneralType>Street</GeneralType>
 					<Format>an..70</Format>
 				</DataElement>
 				<DataElement>
 					<Name lang="en">Representative city</Name>
-					<XPath>CityName</XPath>
+					<XPath>City</XPath>
 					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/19</EUCDM>
 					<GeneralType>City</GeneralType>
 					<Format>an..35</Format>
 				</DataElement>
@@ -196,6 +147,7 @@
 					<Name lang="en">Representative postcode</Name>
 					<XPath>Postcode</XPath>
 					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/19</EUCDM>
 					<GeneralType>Postcode</GeneralType>
 					<Format>an..9</Format>
 				</DataElement>
@@ -203,6 +155,7 @@
 					<Name lang="en">Representative country</Name>
 					<XPath>Country</XPath>
 					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/19</EUCDM>
 					<GeneralType>CountryCode</GeneralType>
 					<Codelist>CL008</Codelist>
 					<Format>a2</Format>
@@ -220,11 +173,14 @@
 				<MinOccurence>1</MinOccurence>
 				<EUCDM>3/18</EUCDM>
 				<GeneralType>TIN</GeneralType>
+				<Rule>NR0034</Rule>
+				<Rule>NR0035</Rule>
+				<Rule>NR0036</Rule>
 				<Format>an..17</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="en">Declarant office code</Name>
-				<XPath>AdditionalIdentifier/Identity</XPath>
+				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>TraderOfficeCode</GeneralType>
 				<Format>n..3</Format>
@@ -235,24 +191,28 @@
 				<MinOccurence>0</MinOccurence>
 				<EUCDM>3/17</EUCDM>
 				<GeneralType>TraderName</GeneralType>
-				<Format>an..70</Format>
+				<Condition>NC0016</Condition>
+				<Format>n..5</Format>
 			</DataElement>
 			<DataGroup>
 				<Name lang="en">Declarant address</Name>
 				<XPath>Address</XPath>
-				<MinOccurence>1</MinOccurence>
+				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
+				<Condition>NC0016</Condition>
 				<DataElement>
 					<Name lang="en">Declarant street and number</Name>
-					<XPath>Line</XPath>
+					<XPath>Street</XPath>
 					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/17</EUCDM>
 					<GeneralType>Street</GeneralType>
 					<Format>an..70</Format>
 				</DataElement>
 				<DataElement>
 					<Name lang="en">Declarant city</Name>
-					<XPath>CityName</XPath>
+					<XPath>City</XPath>
 					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/17</EUCDM>
 					<GeneralType>City</GeneralType>
 					<Format>an..35</Format>
 				</DataElement>
@@ -260,6 +220,7 @@
 					<Name lang="en">Declarant postcode</Name>
 					<XPath>Postcode</XPath>
 					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/17</EUCDM>
 					<GeneralType>Postcode</GeneralType>
 					<Format>an..9</Format>
 				</DataElement>
@@ -267,6 +228,7 @@
 					<Name lang="en">Declarant country</Name>
 					<XPath>Country</XPath>
 					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/17</EUCDM>
 					<GeneralType>CountryCode</GeneralType>
 					<Codelist>CL008</Codelist>
 					<Format>a2</Format>
@@ -286,7 +248,7 @@
 				<Format>an..70</Format>
 			</DataElement>
 			<DataGroup>
-				<Name lang="en">Submitter e-mail address</Name>
+				<Name lang="en">Submitter e-mail</Name>
 				<XPath>Communication</XPath>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
@@ -306,7 +268,7 @@
 				</DataElement>
 			</DataGroup>
 			<DataGroup>
-				<Name lang="en">Submitter telephone number</Name>
+				<Name lang="en">Submitter telephone</Name>
 				<XPath>Communication</XPath>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>

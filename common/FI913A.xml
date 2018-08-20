@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
+<Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Message.xsd">
+	<Type>FI913A</Type>
+	<Name lang="en">Amendment request for EIDR presentation notification</Name>
+	<Rule>NR0052</Rule>
+	<Rule>NR0053</Rule>
+	<DataGroup>
+		<Name lang="en">Import operation</Name>
+		<XPath>FI913A</XPath>
+		<MinOccurence>1</MinOccurence>
+		<MaxOccurence>1</MaxOccurence>
+		<DataElement>
+			<Name lang="fi">MRN</Name>
+			<Name lang="sv">MRN</Name>
+			<Name lang="en">MRN</Name>
+			<XPath>MRN</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>MRN</GeneralType>
+			<Rule>NR002</Rule>
+			<Format>an18</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">LRN</Name>
+			<Name lang="sv">LRN</Name>
+			<Name lang="en">LRN</Name>
+			<XPath>FunctionalReference</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>LRN</GeneralType>
+			<Format>an..22</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="en">Additional LRN</Name>
+			<XPath>AdditionalFunctionalReference</XPath>
+			<MinOccurence>0</MinOccurence>
+			<GeneralType>LRN</GeneralType>
+			<Format>an..22</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="en">MessageIdentification</Name>
+			<XPath>Identification</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>MessageIdentification</GeneralType>
+			<Format>an..14</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="en">Total gross mass</Name>
+			<XPath>TotalGrossMass</XPath>
+			<MinOccurence>1</MinOccurence>
+			<EUCDM>6/5</EUCDM>
+			<GeneralType>Decimal</GeneralType>
+			<Format>n..16,6</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Kielikoodi</Name>
+			<Name lang="sv">Språkkod</Name>
+			<Name lang="en">Language code</Name>
+			<XPath>Language</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>LanguageCode</GeneralType>
+			<Codelist>CL012</Codelist>
+			<Format>a2</Format>
+		</DataElement>
+		<DataGroup>
+			<Name lang="en">Amendment</Name>
+			<XPath>Amendment</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="en">Amendment date and time</Name>
+				<XPath>Amendment</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>DateTime</GeneralType>
+				<Format>dateTime</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Reason for amendment request</Name>
+				<XPath>ChangeReason</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>String</GeneralType>
+				<Format>an..512</Format>
+			</DataElement>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="en">Holder of the authorisation</Name>
+			<XPath>AuthorisationHolder</XPath>
+			<MinOccurence>0</MinOccurence>
+			<MaxOccurence>99</MaxOccurence>
+			<Condition>NC0021</Condition>
+			<DataElement>
+				<Name lang="en">Holder of the authorisation identification no.</Name>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM>3/39</EUCDM>
+				<GeneralType>TIN</GeneralType>
+				<Rule>NR0025</Rule>
+				<Format>an..17</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Authorisation type code</Name>
+				<XPath>Category</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM>3/39</EUCDM>
+				<GeneralType>String</GeneralType>
+				<Codelist>CL605</Codelist>
+				<Rule>NR0001</Rule>
+				<Rule>NR0028</Rule>
+				<Rule>NR0029</Rule>
+				<Format>an..4</Format>
+				<DescriptionLine lang="en">Enter the type of authorisation that the holder is linked to (authorisation data is entered in data group 'Documents produced, certificates and authorisations, additional references').</DescriptionLine>
+			</DataElement>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="en">Representative</Name>
+			<XPath>Agent</XPath>
+			<MinOccurence>0</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="en">Representative status code</Name>
+				<XPath>Function</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM>3/21</EUCDM>
+				<GeneralType>RepresentationCode</GeneralType>
+				<Codelist>CL530</Codelist>
+				<Rule>NR0002</Rule>
+				<Format>n1</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Representative identification no.</Name>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM>3/20</EUCDM>
+				<GeneralType>TIN</GeneralType>
+				<Rule>NR0034</Rule>
+				<Rule>NR0035</Rule>
+				<Rule>NR0036</Rule>
+				<Format>an..17</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Representative office code</Name>
+				<XPath>AdditionalIdentifier/Identification</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>TraderOfficeCode</GeneralType>
+				<Format>n..3</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Representative name</Name>
+				<XPath>Name</XPath>
+				<MinOccurence>0</MinOccurence>
+				<EUCDM>3/19</EUCDM>
+				<GeneralType>TraderName</GeneralType>
+				<Condition>NC0016</Condition>
+				<Format>an..70</Format>
+			</DataElement>
+			<DataGroup>
+				<Name lang="en">Representative address</Name>
+				<XPath>Address</XPath>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<Condition>NC0016</Condition>
+				<DataElement>
+					<Name lang="en">Representative street and number</Name>
+					<XPath>Street</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/19</EUCDM>
+					<GeneralType>Street</GeneralType>
+					<Format>an..70</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Representative city</Name>
+					<XPath>City</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/19</EUCDM>
+					<GeneralType>City</GeneralType>
+					<Format>an..35</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Representative postcode</Name>
+					<XPath>Postcode</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/19</EUCDM>
+					<GeneralType>Postcode</GeneralType>
+					<Format>an..9</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Representative country</Name>
+					<XPath>Country</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/19</EUCDM>
+					<GeneralType>CountryCode</GeneralType>
+					<Codelist>CL008</Codelist>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="en">Declarant</Name>
+			<XPath>Declarant</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="en">Declarant identification no.</Name>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM>3/18</EUCDM>
+				<GeneralType>TIN</GeneralType>
+				<Rule>NR0034</Rule>
+				<Rule>NR0035</Rule>
+				<Rule>NR0036</Rule>
+				<Format>an..17</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Declarant office code</Name>
+				<XPath>AdditionalIdentifier/Identification</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>TraderOfficeCode</GeneralType>
+				<Format>n..3</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Declarant name</Name>
+				<XPath>Name</XPath>
+				<MinOccurence>0</MinOccurence>
+				<EUCDM>3/17</EUCDM>
+				<GeneralType>TraderName</GeneralType>
+				<Condition>NC0016</Condition>
+				<Format>n..5</Format>
+			</DataElement>
+			<DataGroup>
+				<Name lang="en">Declarant address</Name>
+				<XPath>Address</XPath>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<Condition>NC0016</Condition>
+				<DataElement>
+					<Name lang="en">Declarant street and number</Name>
+					<XPath>Street</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/17</EUCDM>
+					<GeneralType>Street</GeneralType>
+					<Format>an..70</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Declarant city</Name>
+					<XPath>City</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/17</EUCDM>
+					<GeneralType>City</GeneralType>
+					<Format>an..35</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Declarant postcode</Name>
+					<XPath>Postcode</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/17</EUCDM>
+					<GeneralType>Postcode</GeneralType>
+					<Format>an..9</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Declarant country</Name>
+					<XPath>Country</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM>3/17</EUCDM>
+					<GeneralType>CountryCode</GeneralType>
+					<Codelist>CL008</Codelist>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="en">Submitter</Name>
+			<XPath>Submitter</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="en">Submitter name</Name>
+				<XPath>Name</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>TraderName</GeneralType>
+				<Format>an..70</Format>
+			</DataElement>
+			<DataGroup>
+				<Name lang="en">Submitter e-mail</Name>
+				<XPath>Communication</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="en">Submitter e-mail address</Name>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>CommunicationIdentification</GeneralType>
+					<Format>an..320</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Submitter communication type</Name>
+					<XPath>Type</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>CommunicationType</GeneralType>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+			<DataGroup>
+				<Name lang="en">Submitter telephone</Name>
+				<XPath>Communication</XPath>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="en">Submitter telephone number</Name>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>CommunicationIdentification</GeneralType>
+					<Format>an..20</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="en">Submitter communication type</Name>
+					<XPath>Type</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>CommunicationType</GeneralType>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="en">Documents produced, certificates and authorisations, additional references </Name>
+			<XPath>AdditionalDocument</XPath>
+			<MinOccurence>0</MinOccurence>
+			<MaxOccurence>99</MaxOccurence>
+			<DataElement>
+				<Name lang="en">Document type</Name>
+				<XPath>Type</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM>2/3</EUCDM>
+				<GeneralType>String</GeneralType>
+				<Codelist>CL605</Codelist>
+				<Format>an..4</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Document identifier</Name>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM>2/3</EUCDM>
+				<GeneralType>String</GeneralType>
+				<Format>an..35</Format>
+			</DataElement>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="en">Additional information</Name>
+			<XPath>AdditionalInformation</XPath>
+			<MinOccurence>0</MinOccurence>
+			<MaxOccurence>99</MaxOccurence>
+			<DataElement>
+				<Name lang="en">Additional information code</Name>
+				<XPath>Statement</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM>2/2</EUCDM>
+				<GeneralType>String</GeneralType>
+				<Format>an5</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="en">Additional information description</Name>
+				<XPath>StatementDescription</XPath>
+				<MinOccurence>0</MinOccurence>
+				<EUCDM>2/2</EUCDM>
+				<GeneralType>String</GeneralType>
+				<Format>an..512</Format>
+			</DataElement>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="en">Goods shipment</Name>
+			<XPath>GoodsShipment</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<Rule>R0285</Rule>
+			<Rule>NR0030</Rule>
+			<DataGroup>
+				<Name lang="en">Consignment</Name>
+				<XPath>Consignment</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataGroup>
+					<Name lang="en">Transport equipment</Name>
+					<XPath>TransportEquipment</XPath>
+					<MinOccurence>0</MinOccurence>
+					<MaxOccurence>9999</MaxOccurence>
+					<DataElement>
+						<Name lang="en">Container identification number</Name>
+						<XPath>Identification</XPath>
+						<MinOccurence>1</MinOccurence>
+						<EUCDM>7/10</EUCDM>
+						<GeneralType>String</GeneralType>
+						<Format>an..17</Format>
+						<DescriptionLine lang="en">Enter the number(s) of container(s) in accordance with ISO standard 6343, if containers are used. The container number is written together: four letters (if they exist) + six numbers + hyphen + control number. </DescriptionLine>
+					</DataElement>
+				</DataGroup>
+				<DataGroup>
+					<Name lang="en">Location of goods</Name>
+					<XPath>GoodsLocation</XPath>
+					<MinOccurence>1</MinOccurence>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="en">Identification of location</Name>
+						<XPath>Name</XPath>
+						<MinOccurence>0</MinOccurence>
+						<EUCDM>5/23</EUCDM>
+						<GeneralType>String</GeneralType>
+						<Condition>NC0014</Condition>
+						<Format>an..35</Format>
+					</DataElement>
+				</DataGroup>
+			</DataGroup>
+			<DataGroup>
+				<Name lang="en">Goods item</Name>
+				<XPath>GovernmentAgencyGoodsItem</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>99999</MaxOccurence>
+				<DataElement>
+					<Name lang="en">Goods item number</Name>
+					<XPath>Sequence</XPath>
+					<MinOccurence>1</MinOccurence>
+					<EUCDM>1/6</EUCDM>
+					<GeneralType>Integer</GeneralType>
+					<Rule>R0005</Rule>
+					<Rule>R0007</Rule>
+					<Format>n..5</Format>
+				</DataElement>
+				<DataGroup>
+					<Name lang="en">Commodity</Name>
+					<XPath>Commodity</XPath>
+					<MinOccurence>1</MinOccurence>
+					<MaxOccurence>1</MaxOccurence>
+					<DataGroup>
+						<Name lang="en">Goods measure</Name>
+						<XPath>GoodsMeasure</XPath>
+						<MinOccurence>1</MinOccurence>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="en">Gross mass</Name>
+							<XPath>GrossMass</XPath>
+							<MinOccurence>1</MinOccurence>
+							<EUCDM>6/5</EUCDM>
+							<GeneralType>Decimal</GeneralType>
+							<Format>n..16,6</Format>
+							<DescriptionLine lang="en">Enter the gross mass in kilograms. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with up to maximum of 6 decimal places, e.g. "0,654". If the gross mass exceeds 1 kg, you can enter the value rounded to the closest full kilogram.</DescriptionLine>
+						</DataElement>
+					</DataGroup>
+				</DataGroup>
+				<DataGroup>
+					<Name lang="en">Packaging</Name>
+					<XPath>Packaging</XPath>
+					<MinOccurence>1</MinOccurence>
+					<MaxOccurence>99</MaxOccurence>
+					<DataElement>
+						<Name lang="en">Number of packages</Name>
+						<XPath>Quantity</XPath>
+						<MinOccurence>0</MinOccurence>
+						<EUCDM>6/10</EUCDM>
+						<GeneralType>Integer</GeneralType>
+						<Condition>NC0010</Condition>
+						<Format>n..8</Format>
+						<DescriptionLine lang="en">Enter the number of packages. If there are goods from several goods items within the one and same package, enter the value "1" at least in one of the goods items, and value "0" in the other goods items.</DescriptionLine>
+					</DataElement>
+					<DataElement>
+						<Name lang="en">Type of packages</Name>
+						<XPath>Type</XPath>
+						<MinOccurence>1</MinOccurence>
+						<EUCDM>6/9</EUCDM>
+						<GeneralType>Integer</GeneralType>
+						<Codelist>CL017</Codelist>
+						<Format>an2</Format>
+					</DataElement>
+				</DataGroup>
+				<DataGroup>
+					<Name lang="en">Simplified declaration / Previous documents</Name>
+					<XPath>PreviousDocument</XPath>
+					<MinOccurence>0</MinOccurence>
+					<MaxOccurence>99</MaxOccurence>
+					<Rule>NR0022</Rule>
+					<Condition>NC0018</Condition>
+					<DescriptionLine lang="en">Enter previous document. Most often entry summary declaration, summary declaration or T1-transit declaration is used. If the country of dispatch is Norway and there is no previous procedure, previous document is not declared. If previous declaration is submitted to Finnish Customs UTU system, enter MRN of that declaration.</DescriptionLine>
+					<DataElement>
+						<Name lang="en">Goods item identifier</Name>
+						<XPath>Line</XPath>
+						<MinOccurence>1</MinOccurence>
+						<EUCDM>2/1</EUCDM>
+						<GeneralType>Integer</GeneralType>
+						<Format>n..5</Format>
+					</DataElement>
+					<DataElement>
+						<Name lang="en">Previous document type</Name>
+						<XPath>Type</XPath>
+						<MinOccurence>1</MinOccurence>
+						<EUCDM>2/1</EUCDM>
+						<GeneralType>String</GeneralType>
+						<Codelist>CL014</Codelist>
+						<Format>an..3</Format>
+					</DataElement>
+					<DataElement>
+						<Name lang="en">Previous document reference</Name>
+						<XPath>Identification</XPath>
+						<MinOccurence>1</MinOccurence>
+						<EUCDM>2/1</EUCDM>
+						<GeneralType>String</GeneralType>
+						<Format>an..35</Format>
+					</DataElement>
+				</DataGroup>
+				<DataGroup>
+					<Name lang="en">Transport equipment</Name>
+					<XPath>TransportEquipment</XPath>
+					<MinOccurence>0</MinOccurence>
+					<MaxOccurence>9999</MaxOccurence>
+					<DataElement>
+						<Name lang="en">Container identification number</Name>
+						<XPath>Identification</XPath>
+						<MinOccurence>1</MinOccurence>
+						<EUCDM>7/10</EUCDM>
+						<GeneralType>String</GeneralType>
+						<Format>an..17</Format>
+						<DescriptionLine lang="en">Enter the number(s) of container(s) in accordance with ISO standard 6343, if containers are used. The container number is written together: four letters (if they exist) + six numbers + hyphen + control number. </DescriptionLine>
+					</DataElement>
+				</DataGroup>
+			</DataGroup>
+		</DataGroup>
+	</DataGroup>
+</Message>
