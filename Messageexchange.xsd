@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+	<xs:element name="MessageExchange" type="MessageExchangeType"/>
+	<xs:complexType name="MessagesType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="Message">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Sender">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:pattern value="EO|Customs"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="ID"/>
+						<xs:element name="Name" maxOccurs="3">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="lang" use="required">
+											<xs:annotation>
+												<xs:appinfo>
+													<altova:exampleValues>
+														<altova:example value="fi|sv|en"/>
+													</altova:exampleValues>
+												</xs:appinfo>
+											</xs:annotation>
+										</xs:attribute>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="DescriptionLine" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="lang" use="required">
+											<xs:annotation>
+												<xs:appinfo>
+													<altova:exampleValues>
+														<altova:example value="fi|sv|en"/>
+													</altova:exampleValues>
+												</xs:appinfo>
+											</xs:annotation>
+										</xs:attribute>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UseCasesType">
+		<xs:sequence>
+			<xs:element name="UseCase" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Name" maxOccurs="3">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="lang" use="required">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:pattern value="fi|sv|en"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:attribute>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Sequence">
+							<xs:complexType>
+								<xs:sequence maxOccurs="unbounded">
+									<xs:element name="EO" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="Customs" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="SequenceDescription">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Item" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ItemLine" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:simpleContent>
+															<xs:extension base="xs:string">
+																<xs:attribute name="lang" use="required">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:pattern value="fi|sv|en"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:attribute>
+															</xs:extension>
+														</xs:simpleContent>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MessageExchangeType">
+		<xs:sequence>
+			<xs:element name="Messages" type="MessagesType" maxOccurs="unbounded"/>
+			<xs:element name="UseCases" type="UseCasesType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
