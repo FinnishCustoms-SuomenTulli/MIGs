@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Guide for message exchange -</title>
-    <link rel="icon" href="../../assets/favicon.ico">
+    <title>Data requirements -</title>
+    <link rel="icon" href="../../../assets/favicon.ico">
     <link rel="stylesheet" href="../../common/tulli-bootstrap-style.css" type="text/css" />
-    <link rel="stylesheet" href="../../common/tulli-mig-me.css" type="text/css" />
+    <link rel="stylesheet" href="../../common/tulli-mig-tables-style.css" type="text/css" />
 </head>
-
-<body class="guidelines">
+<body class="Site">
 
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <span class="navbar-text">Guide for message exchange version </span>
+                <span class="navbar-text">Data requirements version </span>
             </div>
         </div>
         <!-- /.container -->
@@ -27,7 +25,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <a class="" href="../index.html">
-                            <img class="img-responsive pull-left" src="../../assets/images/logo-tulli.svg" alt="Finnish Customs logotype" /></a>
+                            <img class="img-responsive pull-left" src="../../../assets/images/logo-tulli.svg" alt="Finnish Customs logotype" /></a>
 
                         <button type="button" class="navbar-toggle collapsed pull-right margin-0" data-toggle="collapse" data-target="#navbar-mainmenu" aria-expanded="false" aria-controls="navbar-mainmenu">
                             <span class="sr-only">Menu</span>
@@ -42,14 +40,14 @@
                                 <li>
                                     <a href="../index.html">Home</a>
                                 </li>
-                                <li class='current'>
-                                    <a class='current' href="messageexchange.html">Guide for message exchange</a>
+                                <li>
+                                    <a href="messageexchange.html">Guide for message exchange</a>
                                 </li>
                                 <li>
                                     <a href="datamodel.html">Class diagram</a>
                                 </li>
-                                <li>
-                                    <a href="datarequirements.html">Data requirements</a>
+                                <li class='current'>
+                                    <a class='current' href="datarequirements.html">Data requirements</a>
                                 </li>
                                 <li>
                                     <a href="codes.html">Codes</a>
@@ -64,81 +62,75 @@
         <div class="lower">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-10">
-                        <h1>Guide for message exchange</h1>
-                    </div>
-                    <div class="col-xs-2">
-                        <button type="button" class="navbar-toggle collapsed pull-right padding-0 margin-0" data-toggle="collapse" data-target="#nav-sidebar" aria-expanded="false" aria-controls="nav-sidebar">
-                            <span class="sr-only">Menu</span>
-                            <span class="icon icon-tulli-chevron-down icon-blue"></span>
-                        </button>
+                    <div class="col-md-9 col-sm-12 col-xs-12">
+                        <h1>Data requirements</h1>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
-    <div class="main-content-area">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-3 sidebar" role="complementary">
-                    <nav id="nav-sidebar" class="hidden-print collapse navbar-collapse" data-spy="affix" data-offset-top="210" style="width: 270px">
-                        <ul class="nav nav-stacked">
-                            <li class="active">
-                                <a href="#messages">Messages</a>
-                            </li>
-                            <li>
-                                <a href="#usecases">Use cases</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <div class="col-md-9 col-sm-9 col-xs-12" role="main">
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <footer>
+	<main class="Site-content">
+	    <div class="col-xs-12" role="main">
+		    <div>
+			    <ul class="nav nav-tabs messagetabs" role="tablist"></ul>
+			    <div class="tab-content"></div>
+			    <div id="codemodal"></div>
+			    <div id="rulesmodal"></div>
+		    </div>
+	    </div>
+	</main>
+	<footer>
         <div class="container">
             <div class="row">
                 &copy; Tulli 2018
-	
+	    
             </div>
         </div>
     </footer>
+
     <!-- Bootstrap core JavaScript
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
-    <script src='../../assets/javascripts/vendor/jquery.js'></script>
+    <script src='../../../assets/javascripts/vendor/jquery.js'></script>
     <script>
+		var i = 1;
 		$(document).ready(function(){
 			$.ajax({
 				url: '../../common/intro.xml',
 				type: 'GET',
 				dataType: 'xml',
 				success: function(returnedXMLResponse){
-					$('System', returnedXMLResponse).each(function(){
-						var system = $(this).text();
-                        $(".pageheader").append(system);
-                        $(".navbar-text").append(system + " ");
-                        document.title += " " + system;
+					$('Message', returnedXMLResponse).each(function(){
+                        var path = '../../common/';
+						var message = $(this).text();
+						// nav-tabs
+                        $(".messagetabs").append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '">'+ message +'</a></li>');
+                        // panels
+                        $(".tab-content").append('<div role="tabpanel" class="tab-pane" id="' + message + '"></div>');
+                        $(".messagetabs").find("li").first().addClass("active");
+                        $(".tab-content").find(".tab-pane").first().addClass("active");
+                        transform(path.concat(message, '.xml'), 'message.xsl', document.getElementById(message));
+						i++;
 					})
 					$('CurrentVersion', returnedXMLResponse).each(function(){
 						var version = $(this).text();
                         $(".navbar-text").append(version + " ");
+
 					})
 					$('Generated', returnedXMLResponse).each(function(){
-						var date = new Date($(this).text());
-                        date = date.toLocaleDateString("en-GB");
-                        $(".navbar-text").append(date);
+						var generated = new Date($(this).text());
+                        var generated = generated.toLocaleDateString("en-GB");
+                        $(".navbar-text").append(generated);
 					})
+					
+					$('System', returnedXMLResponse).each(function(){
+						var system = $(this).text();
+                        document.title += " " + system;
+
+					})
+                    $('.nav-tabs').tabdrop({text: 'More'});
+
 				}  // End Success
 			}); // End AJAX
 		});
@@ -161,7 +153,7 @@
            });
       }
       
-      function transform(xmlUrl, xslUrl,targetElement) {
+      function transform(xmlUrl, xslUrl, targetElement) {
         Promise.all([loadXML(xmlUrl), loadXML(xslUrl)]).then(function(data) {
           var xmlDoc = data[0];
           var xslDoc = data[1];
@@ -169,7 +161,7 @@
           if (typeof XSLTProcessor !== 'undefined') {
             var proc = new XSLTProcessor();
             proc.importStylesheet(xslDoc);
-            
+
             var resultFrag = proc.transformToFragment(xmlDoc, targetElement.ownerDocument);
             
             targetElement.textContent = '';
@@ -190,21 +182,48 @@
           }
         });
       }
-      document.addEventListener('DOMContentLoaded', function() {
-        transform('../../common/messageexchange.xml', 'messageexchange.xsl', document.getElementById('accordion'));      
-      })
+      
     </script>
-    <script src='../../assets/javascripts/bootstrap.js'></script>
+    <script src='../../../assets/javascripts/bootstrap.js'></script>
 
-    <script src='../../assets/javascripts/custom-ui.js'></script>
+    <script src='../../../assets/javascripts/custom-ui.js'></script>
+
+    <script src="../../../assets/javascripts/bootstrap-tabdrop.js"></script>
 
     <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        transform('../../common/codelists.xml', 'codedata.xsl', document.getElementById('codemodal'));      
+        transform('../../common/rulesconditions.xml', 'rulesconditions.xsl', document.getElementById('rulesmodal'));      
+      })
+    </script>
+    <script>
+        // The function actually applying the offset
+        function offsetAnchor() {
+            if (location.hash.length !== 0) {
+                window.scrollTo(window.scrollX, window.scrollY - 50);
+            }
+        }
+
+        // This will capture hash changes while on the page
+        $(window).on("hashchange", function () {
+            offsetAnchor();
+        });
+
+        // Let the page finish loading.
+        $(document).ready(function() {
+            offsetAnchor();
+        });
+    </script>
+
+    <script>
+
+    $(document.body).tooltip({ selector: "[title]" });
 
 	$(function() {
 
 	});
 
-</script>
+    </script>
 
 </body>
 </html>
