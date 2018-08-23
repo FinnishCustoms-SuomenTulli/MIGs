@@ -38,7 +38,7 @@
 									<h4>
 										<xsl:value-of select="Name[@lang=($language)]"/> (<xsl:value-of select="ID"/>)
 									</h4>
-									<xsl:for-each select="DescriptionLine[@lang=($language)]">
+									<xsl:for-each select="Description[@lang=($language)]">
 										<p>
 											<xsl:value-of select="."/>
 										</p>
@@ -64,35 +64,13 @@
 								<h3>CASE <xsl:number value="position()"/>: <xsl:value-of select="Name"/>
 								</h3>
 								<table class="table table-striped table-responsive">
-									<xsl:choose>
-										<xsl:when test="$language='fi'">
-											<thead>
-												<tr>
-													<th class="tabledata">Talouden toimija</th>
-													<th/>
-													<th class="tabledata">Tulli</th>
-												</tr>
-											</thead>
-										</xsl:when>
-										<xsl:when test="$language='sv'">
-											<thead>
-												<tr>
-													<th class="tabledata">Ekonomisk aktör</th>
-													<th/>
-													<th class="tabledata">Tullen</th>
-												</tr>
-											</thead>
-										</xsl:when>
-										<xsl:when test="$language='en'">
-											<thead>
-												<tr>
-													<th class="tabledata">Economic operator</th>
-													<th/>
-													<th class="tabledata">Customs</th>
-												</tr>
-											</thead>
-										</xsl:when>
-									</xsl:choose>
+									<thead>
+										<tr>
+											<th>Economic operator</th>
+											<th/>
+											<th>Customs</th>
+										</tr>
+									</thead>
 									<xsl:for-each select="Sequence/EO | Sequence/Customs">
 										<xsl:variable name="MSG" select="."/>
 										<xsl:choose>
