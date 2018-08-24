@@ -159,13 +159,13 @@
 				<div class="panel-body">
                     <p>The message flow and data requirements are based on the Union Customs Code (UCC) of the European Union and more closely on the data requirement tables in the Delegated and Implementing Acts (UCC DA and IA respectively) and the <a href="https://svn.taxud.gefeg.com/svn/Documentation/EUCDM/EN/index.htm"><span class="icon icon-tulli-external"></span>EU customs data model 
                         (EUCDM)</a> defined therein, but are amended to meet the national requirements. Whenever possible, the messages are mapped to the EUCDM and the 
-                        underlying <a href="http://www.wcoomd.org/en/topics/facilitation/instrument-and-tools/tools/data-model.aspx"><span class="icon icon-tulli-external"></span>Customs Organization Data Model (WCO DM) version 3.7.0</a>. It is possible, that the messages 
+                        underlying <a href="http://www.wcoomd.org/en/topics/facilitation/instrument-and-tools/tools/data-model.aspx"><span class="icon icon-tulli-external"></span>World Customs Organization Data Model (WCO DM) version 3.7.0</a>. It is possible, that the messages 
                         will need to be amended, when further mapping projects against the WCO DM are undertaken to maximize compatibility of the messages between the different member states.</p>
 					<p></p>
                     <p>The messages are sent by using XML (eXtensible Mark-up Language) syntax.</p>
 					<p>One interchange includes one message only.</p>
                     <p>Messages must conform to the XML specifications provied. If a message includes additional data and this does not cause an error message, the Finnish Customs processes the message as if the additional data was not included in the message.</p>
-                    <h4>Data model and data requirements</h4>
+                    <h4>Class diagram and data requirements</h4>
                     <p>Dates and times are declared with time zone information. If no time zone information is provided Finnish time (EET/EEST) is assumed. Dates and times are formatted according to XML specifications, corresponding to ISO standard 8601. For example:</p>
                     <pre>2010-09-29
 2012-02-29T12:30:05
@@ -241,7 +241,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src='../../assets/javascripts/vendor/jquery.js'></script>
     <script>
-		var i = 1;
 		$(document).ready(function(){
 			$.ajax({
 				url: '../common/intro.xml',
