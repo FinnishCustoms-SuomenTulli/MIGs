@@ -14,7 +14,9 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <span class="navbar-text">Sanomakuvaukset - </span>
+                <span class="navbar-text main-navbar">Sanomakuvaukset - </span>
+                <a class="navbar-text" href="../../sv/index.html">Svenska</a>
+                <a class="navbar-text" href="../../en/index.html">English</a>
             </div>
         </div>
         <!-- /.container -->
@@ -27,7 +29,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-4 col-xs-12">
                         <a class="" href="index.html">
-                            <img src="../../assets/images/logo-tulli.svg" alt="Finnish Customs logotype" /></a>
+                            <img src="../../assets/images/logo-tulli.svg" alt="Suomen tullin logo" /></a>
                     </div>
                     <div class="col-md-9 col-sm-8 col-xs-12">
                         <h1 class="pageheader">Sanomakuvaukset - </h1>
@@ -253,17 +255,17 @@
 					$('System[lang="fi"]', returnedXMLResponse).each(function(){
 						var system = $(this).text();
                         $(".pageheader").append(system);
-                        $(".navbar-text").append(system + " ");
+                        $(".main-navbar").append(system + " ");
                         document.title += " " + system;
 					})
 					$('CurrentVersion', returnedXMLResponse).each(function(){
 						var version = $(this).text();
-                        $(".navbar-text").append(version + " ");
+                        $(".main-navbar").append(version + " ");
 					})
 					$('Generated', returnedXMLResponse).each(function(){
 						var date = new Date($(this).text());
-                        date = date.toLocaleDateString("en-GB");
-                        $(".navbar-text").append(date);
+                        date = date.toLocaleDateString("fi-FI");
+                        $(".main-navbar").append(date);
 					})
 				}  // End Success
 			}); // End AJAX
