@@ -124,7 +124,7 @@
 				type: 'GET',
 				dataType: 'xml',
 				success: function(returnedXMLResponse){
-					$('System', returnedXMLResponse).each(function(){
+					$('System[lang="en"]', returnedXMLResponse).each(function(){
 						var system = $(this).text();
                         $(".pageheader").append(system);
                         $(".navbar-text").append(system + " ");
