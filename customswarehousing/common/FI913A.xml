@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
-<Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Message.xsd">
+<Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Message.xsd">
 	<Type>FI913A</Type>
 	<Name lang="en">Amendment request for EIDR presentation notification</Name>
 	<Rule>NR0052</Rule>
@@ -17,7 +17,6 @@
 			<XPath>MRN</XPath>
 			<MinOccurence>1</MinOccurence>
 			<GeneralType>MRN</GeneralType>
-			<Rule>NR002</Rule>
 			<Format>an18</Format>
 		</DataElement>
 		<DataElement>
@@ -341,6 +340,13 @@
 				<GeneralType>String</GeneralType>
 				<Format>an..35</Format>
 			</DataElement>
+			<DataElement>
+				<Name lang="en">Attachment reference</Name>
+				<XPath>NationalReference/Identification</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>String</GeneralType>
+				<Format>an..35</Format>
+			</DataElement>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="en">Additional information</Name>
@@ -353,6 +359,7 @@
 				<MinOccurence>1</MinOccurence>
 				<EUCDM>2/2</EUCDM>
 				<GeneralType>String</GeneralType>
+				<Codelist>CL039H</Codelist>
 				<Format>an5</Format>
 			</DataElement>
 			<DataElement>

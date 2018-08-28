@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="html"/>
-	<xsl:variable name="language">en</xsl:variable>
+	<xsl:variable name="language">fi</xsl:variable>
 	<xsl:template match="/">
 		<div class="panel panel-primary">
 			<div class="panel-heading" role="tab" id="heading-colors">
@@ -15,8 +15,9 @@
 			</div>
 		</div>
 		<xsl:if test="Message/Rule!=''">
-			<p><b>Rules:</b>
-		<xsl:for-each select="Message/Rule">
+			<p>
+				<b>Rules:</b>
+				<xsl:for-each select="Message/Rule">
 					<a href="#" data-toggle="modal">
 						<xsl:attribute name="data-target"><xsl:value-of select="concat('#RC_',.)"/></xsl:attribute>
 						<xsl:value-of select="."/>
@@ -25,7 +26,17 @@
 				</xsl:for-each>
 			</p>
 		</xsl:if>
-		<h3>Structure of groups</h3>
+		<xsl:choose>
+			<xsl:when test="$language='fi'">
+				<h3>Tietoryhmien rakenne</h3>
+			</xsl:when>
+			<xsl:when test="$language='sv'">
+				<h3>Datagruppernas struktur</h3>
+			</xsl:when>
+			<xsl:when test="$language='en'">
+				<h3>Structure of groups</h3>
+			</xsl:when>
+		</xsl:choose>
 		<table class="table table-responsive">
 			<thead>
 				<tr>
@@ -116,7 +127,17 @@
 				</xsl:for-each>
 			</tbody>
 		</table>
-		<h3>Structure of elements</h3>
+		<xsl:choose>
+			<xsl:when test="$language='fi'">
+				<h3>Tietoelementtien rakenne</h3>
+			</xsl:when>
+			<xsl:when test="$language='sv'">
+				<h3>Dataelementens struktur</h3>
+			</xsl:when>
+			<xsl:when test="$language='en'">
+				<h3>Structure of elements</h3>
+			</xsl:when>
+		</xsl:choose>
 		<table class="table table-responsive">
 			<thead>
 				<tr>

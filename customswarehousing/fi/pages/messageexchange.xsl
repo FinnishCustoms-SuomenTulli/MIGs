@@ -6,7 +6,13 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading" role="tab" id="heading-messages">
 				<h2 class="panel-title">
-					<a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="messages">Messages</a>
+					<a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="messages">
+						<xsl:choose>
+							<xsl:when test="$language='fi'">Sanomat</xsl:when>
+							<xsl:when test="$language='sv'">Meddelanden</xsl:when>
+							<xsl:when test="$language='en'">Messages</xsl:when>
+						</xsl:choose>
+					</a>
 				</h2>
 			</div>
 			<div id="messages" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-messages">
@@ -53,7 +59,13 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading" role="tab" id="heading-usecases">
 				<h2 class="panel-title">
-					<a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="usecases">Use cases</a>
+					<a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="usecases">
+						<xsl:choose>
+							<xsl:when test="$language='fi'">Käyttötapaukset</xsl:when>
+							<xsl:when test="$language='sv'">Användningsfallen</xsl:when>
+							<xsl:when test="$language='en'">Use cases</xsl:when>
+						</xsl:choose>
+					</a>
 				</h2>
 			</div>
 			<div id="usecases" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-usecases">
