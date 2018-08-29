@@ -26,17 +26,7 @@
 				</xsl:for-each>
 			</p>
 		</xsl:if>
-		<xsl:choose>
-			<xsl:when test="$language='fi'">
-				<h3>Tietoryhmien rakenne</h3>
-			</xsl:when>
-			<xsl:when test="$language='sv'">
-				<h3>Datagruppernas struktur</h3>
-			</xsl:when>
-			<xsl:when test="$language='en'">
-				<h3>Structure of groups</h3>
-			</xsl:when>
-		</xsl:choose>
+		<h3>Structure of groups</h3>
 		<table class="table table-responsive">
 			<thead>
 				<tr>
@@ -78,8 +68,8 @@
 						<xsl:attribute name="class"><xsl:value-of select="concat($class,'indent-',count(ancestor::*)-1)"/></xsl:attribute>
 						<td>
 							<a>
-								<xsl:attribute name="id"><xsl:value-of select="translate(concat('Group_',//Type,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
-								<xsl:attribute name="href"><xsl:value-of select="translate(concat('#Element_',//Type,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
+								<xsl:attribute name="id"><xsl:value-of select="translate(concat('Group_',//Type,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
+								<xsl:attribute name="href"><xsl:value-of select="translate(concat('#Element_',//Type,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
 								<span class="icon icon-tulli-treeview" style="margin-right:0.2em"/>
 								<xsl:value-of select="Name[@lang=($language)]"/>
 							</a>
@@ -127,17 +117,7 @@
 				</xsl:for-each>
 			</tbody>
 		</table>
-		<xsl:choose>
-			<xsl:when test="$language='fi'">
-				<h3>Tietoelementtien rakenne</h3>
-			</xsl:when>
-			<xsl:when test="$language='sv'">
-				<h3>Dataelementens struktur</h3>
-			</xsl:when>
-			<xsl:when test="$language='en'">
-				<h3>Structure of elements</h3>
-			</xsl:when>
-		</xsl:choose>
+		<h3>Structure of elements</h3>
 		<table class="table table-responsive">
 			<thead>
 				<tr>
@@ -185,8 +165,8 @@
 							<xsl:attribute name="class"><xsl:value-of select="concat('group indent-',count(ancestor::*)-1)"/></xsl:attribute>
 							<td colspan="7">
 								<a>
-									<xsl:attribute name="id"><xsl:value-of select="translate(concat('Element_',//Type,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
-									<xsl:attribute name="href"><xsl:value-of select="translate(concat('#Group_',//Type,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
+									<xsl:attribute name="id"><xsl:value-of select="translate(concat('Element_',//Type,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
+									<xsl:attribute name="href"><xsl:value-of select="translate(concat('#Group_',//Type,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
 									<span class="icon icon-tulli-treeview" style="margin-right:0.2em"/>
 									<xsl:value-of select="Name[@lang=($language)]"/>
 								</a>

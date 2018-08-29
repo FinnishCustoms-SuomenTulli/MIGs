@@ -15,8 +15,9 @@
 			</div>
 		</div>
 		<xsl:if test="Message/Rule!=''">
-			<p><b>Rules:</b>
-		<xsl:for-each select="Message/Rule">
+			<p>
+				<b>Rules:</b>
+				<xsl:for-each select="Message/Rule">
 					<a href="#" data-toggle="modal">
 						<xsl:attribute name="data-target"><xsl:value-of select="concat('#RC_',.)"/></xsl:attribute>
 						<xsl:value-of select="."/>
@@ -67,8 +68,8 @@
 						<xsl:attribute name="class"><xsl:value-of select="concat($class,'indent-',count(ancestor::*)-1)"/></xsl:attribute>
 						<td>
 							<a>
-								<xsl:attribute name="id"><xsl:value-of select="translate(concat('Group_',//Type,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
-								<xsl:attribute name="href"><xsl:value-of select="translate(concat('#Element_',//Type,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
+								<xsl:attribute name="id"><xsl:value-of select="translate(concat('Group_',//Type,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
+								<xsl:attribute name="href"><xsl:value-of select="translate(concat('#Element_',//Type,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
 								<span class="icon icon-tulli-treeview" style="margin-right:0.2em"/>
 								<xsl:value-of select="Name[@lang=($language)]"/>
 							</a>
@@ -164,8 +165,8 @@
 							<xsl:attribute name="class"><xsl:value-of select="concat('group indent-',count(ancestor::*)-1)"/></xsl:attribute>
 							<td colspan="7">
 								<a>
-									<xsl:attribute name="id"><xsl:value-of select="translate(concat('Element_',//Type,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
-									<xsl:attribute name="href"><xsl:value-of select="translate(concat('#Group_',//Type,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
+									<xsl:attribute name="id"><xsl:value-of select="translate(concat('Element_',//Type,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
+									<xsl:attribute name="href"><xsl:value-of select="translate(concat('#Group_',//Type,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
 									<span class="icon icon-tulli-treeview" style="margin-right:0.2em"/>
 									<xsl:value-of select="Name[@lang=($language)]"/>
 								</a>
