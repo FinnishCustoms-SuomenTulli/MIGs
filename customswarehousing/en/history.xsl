@@ -31,7 +31,7 @@
                 </xsl:choose>
               </td>
               <td>
-                <xsl:value-of select="Remarks"/>
+                <xsl:value-of select="Remarks[@lang=($language)]"/>
               </td>
             </tr>
         </xsl:for-each>
