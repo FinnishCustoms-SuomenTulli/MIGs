@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Code lists -</title>
+    <link rel="icon" href="../../../assets/favicon.ico">
     <link rel="stylesheet" href="../../common/tulli-bootstrap-style.css" type="text/css" />
     <link rel="stylesheet" href="../../common/tulli-mig-tables-style.css" type="text/css" />
 </head>
@@ -11,8 +12,7 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <span class="navbar-text">Code lists updated 
-                </span>
+                <span class="navbar-text">Code lists updated </span>
             </div>
         </div>
         <!-- /.container -->
@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <a class="" href="../index.html">
-                            <img class="img-responsive pull-left" src="../../assets/images/logo-tulli.svg" alt="Finnish Customs logotype" /></a>
+                            <img class="img-responsive pull-left" src="../../../assets/images/logo-tulli.svg" alt="Finnish Customs logotype" /></a>
 
                         <button type="button" class="navbar-toggle collapsed pull-right margin-0" data-toggle="collapse" data-target="#navbar-mainmenu" aria-expanded="false" aria-controls="navbar-mainmenu">
                             <span class="sr-only">Menu</span>
@@ -90,7 +90,7 @@
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
-    <script src='../../assets/javascripts/vendor/jquery.js'></script>
+    <script src='../../../assets/javascripts/vendor/jquery.js'></script>
     <script type="text/javascript">
 		$(document).ready(function(){
 			$.ajax({
@@ -115,7 +115,7 @@
 				type: 'GET',
 				dataType: 'xml',
 				success: function(returnedXMLResponse){
-					$('System', returnedXMLResponse).each(function(){
+					$('System[lang="en"]', returnedXMLResponse).each(function(){
 						var system = $(this).text();
                         document.title += " " + system;
 					})
@@ -174,9 +174,9 @@
         transform('../../common/codelists.xml', 'codelists.xsl', document.getElementById('contents'));      
       })
     </script>
-    <script src='../../assets/javascripts/bootstrap.js'></script>
+    <script src='../../../assets/javascripts/bootstrap.js'></script>
 
-    <script src='../../assets/javascripts/custom-ui.js'></script>
+    <script src='../../../assets/javascripts/custom-ui.js'></script>
 
     <script>
 
