@@ -6,7 +6,12 @@
 		<div class="container">
 			<div>
 				<a href="../../common/codelists.xml">
-					<span class="icon icon-tulli-external" style="margin-right:3px"/>Lataa koodistot XML-muodossa</a>
+				<xsl:choose>
+					<xsl:when test="$language='fi'"><span class="icon icon-tulli-external" style="margin-right:3px"/>Lataa koodistot XML-muodossa</xsl:when>
+					<xsl:when test="$language='sv'"><span class="icon icon-tulli-external" style="margin-right:3px"/>Ladda ner kodlistorna i XML-format</xsl:when>
+					<xsl:when test="$language='en'"><span class="icon icon-tulli-external" style="margin-right:3px"/>Download codelists XML format</xsl:when>
+				</xsl:choose>
+				</a>
 				<p/>
 			</div>
 			<div class="row">
