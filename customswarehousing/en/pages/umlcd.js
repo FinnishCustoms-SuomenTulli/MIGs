@@ -144,7 +144,7 @@ var classes = {
 
     taricadditional: new uml.Class({
         position: { x: 10 , y: 782 },
-        size: { width: 250, height: 49 },
+        size: { width: 260, height: 49 },
         name: 'Commodity code - TARIC additional code(s)',
         attributes: ['Commodity code - TARIC additional code'],
         attrs: {
@@ -170,7 +170,7 @@ var classes = {
 
     nationaladditional: new uml.Class({
         position: { x: 10 , y: 861 },
-        size: { width: 260, height: 49 },
+        size: { width: 270, height: 49 },
         name: 'Commodity code - National additional code(s)',
         attributes: ['Commodity code - National additional code'],
         attrs: {

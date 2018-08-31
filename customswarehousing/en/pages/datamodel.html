@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <title>Class diagram -</title>
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="../../common/joint.css" type="text/css" />
     <link rel="stylesheet" href="../../common/umlcd.css" type="text/css" />
 </head>
+
 <body class="Site">
 
     <nav class="navbar navbar-default navbar-static-top">
@@ -82,7 +84,7 @@
         <div class="container">
             <div class="row">
                 &copy; Tulli 2018
-	    
+
             </div>
         </div>
     </footer>
@@ -94,52 +96,53 @@
     <script src="../../../assets/javascripts/joint.js"></script>
     <script src="umlcd.js"></script>
     <script>
-		$(document).ready(function(){
-			$.ajax({
-				url: '../../common/intro.xml',
-				type: 'GET',
-				dataType: 'xml',
-				success: function(returnedXMLResponse){
-					$('CurrentVersion', returnedXMLResponse).each(function(){
-						var version = $(this).text();
-                        $(".navbar-text").append(version + " ");
+        $(document).ready(function() {
+            $.ajax({
+                url: '../../common/intro.xml',
+                type: 'GET',
+                dataType: 'xml',
+                success: function(returnedXMLResponse) {
+                        $('CurrentVersion', returnedXMLResponse).each(function() {
+                            var version = $(this).text();
+                            $(".navbar-text").append(version + " ");
 
-					})
-					$('Generated', returnedXMLResponse).each(function(){
-						var generated = new Date($(this).text());
-                        var generated = generated.toLocaleDateString("en-GB");
-                        $(".navbar-text").append(generated);
-					})
-					
-					$('System[lang="en"]', returnedXMLResponse).each(function(){
-						var system = $(this).text();
-                        document.title += " " + system;
+                        })
+                        $('Generated', returnedXMLResponse).each(function() {
+                            var generated = new Date($(this).text());
+                            var generated = generated.toLocaleDateString("en-GB");
+                            $(".navbar-text").append(generated);
+                        })
 
-					})
+                        $('System[lang="en"]', returnedXMLResponse).each(function() {
+                            var system = $(this).text();
+                            document.title += " " + system;
 
-				}  // End Success
-			}); // End AJAX
-		});
+                        })
+
+                    } // End Success
+            }); // End AJAX
+        });
     </script>
     <script src='../../../assets/javascripts/bootstrap.js'></script>
 
     <script src='../../../assets/javascripts/custom-ui.js'></script>
 
     <script>
+        $(function() {
 
-	$(function() {
-		
-	});
-
+        });
     </script>
 
     <script>
         $(window).resize(function() {
             var canvas = $('#canvas');
             paper.setDimensions(canvas.width() + 10);
-            paper.scaleContentToFit( { padding: 10 } );
+            paper.scaleContentToFit({
+                padding: 10
+            });
         });
     </script>
 
 </body>
+
 </html>

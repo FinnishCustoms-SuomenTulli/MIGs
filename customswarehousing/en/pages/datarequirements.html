@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <title>Data requirements -</title>
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="../../common/tulli-bootstrap-style.css" type="text/css" />
     <link rel="stylesheet" href="../../common/tulli-mig-tables-style.css" type="text/css" />
 </head>
+
 <body class="Site">
 
     <nav class="navbar navbar-default navbar-static-top">
@@ -69,21 +71,21 @@
             </div>
         </div>
     </header>
-	<main class="Site-content">
-	    <div class="col-xs-12" role="main">
-		    <div>
-			    <ul class="nav nav-tabs messagetabs" role="tablist"></ul>
-			    <div class="tab-content"></div>
-			    <div id="codemodal"></div>
-			    <div id="rulesmodal"></div>
-		    </div>
-	    </div>
-	</main>
-	<footer>
+    <main class="Site-content">
+        <div class="col-xs-12" role="main">
+            <div>
+                <ul class="nav nav-tabs messagetabs" role="tablist"></ul>
+                <div class="tab-content"></div>
+                <div id="codemodal"></div>
+                <div id="rulesmodal"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
         <div class="container">
             <div class="row">
                 &copy; Tulli 2018
-	    
+
             </div>
         </div>
     </footer>
@@ -94,95 +96,94 @@
     <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
     <script src='../../../assets/javascripts/vendor/jquery.js'></script>
     <script>
-		var i = 1;
-		$(document).ready(function(){
-			$.ajax({
-				url: '../../common/intro.xml',
-				type: 'GET',
-				dataType: 'xml',
-				success: function(returnedXMLResponse){
-					$('Message', returnedXMLResponse).each(function(){
-                        var path = '../../common/';
-						var message = $(this).text();
-						// nav-tabs
-                        $(".messagetabs").append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '">'+ message +'</a></li>');
-                        // panels
-                        $(".tab-content").append('<div role="tabpanel" class="tab-pane" id="' + message + '"></div>');
-                        $(".messagetabs").find("li").first().addClass("active");
-                        $(".tab-content").find(".tab-pane").first().addClass("active");
-                        transform(path.concat(message, '.xml'), 'message.xsl', document.getElementById(message));
-						i++;
-					})
-					$('CurrentVersion', returnedXMLResponse).each(function(){
-						var version = $(this).text();
-                        $(".navbar-text").append(version + " ");
+        var i = 1;
+        $(document).ready(function() {
+            $.ajax({
+                url: '../../common/intro.xml',
+                type: 'GET',
+                dataType: 'xml',
+                success: function(returnedXMLResponse) {
+                        $('Message', returnedXMLResponse).each(function() {
+                            var path = '../../common/';
+                            var message = $(this).text();
+                            // nav-tabs
+                            $(".messagetabs").append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '">' + message + '</a></li>');
+                            // panels
+                            $(".tab-content").append('<div role="tabpanel" class="tab-pane" id="' + message + '"></div>');
+                            $(".messagetabs").find("li").first().addClass("active");
+                            $(".tab-content").find(".tab-pane").first().addClass("active");
+                            transform(path.concat(message, '.xml'), 'message.xsl', document.getElementById(message));
+                            i++;
+                        })
+                        $('CurrentVersion', returnedXMLResponse).each(function() {
+                            var version = $(this).text();
+                            $(".navbar-text").append(version + " ");
 
-					})
-					$('Generated', returnedXMLResponse).each(function(){
-						var generated = new Date($(this).text());
-                        var generated = generated.toLocaleDateString("en-GB");
-                        $(".navbar-text").append(generated);
-					})
-					
-					$('System[lang="en"]', returnedXMLResponse).each(function(){
-						var system = $(this).text();
-                        document.title += " " + system;
+                        })
+                        $('Generated', returnedXMLResponse).each(function() {
+                            var generated = new Date($(this).text());
+                            var generated = generated.toLocaleDateString("en-GB");
+                            $(".navbar-text").append(generated);
+                        })
 
-					})
-                    $('.nav-tabs').tabdrop({text: 'More'});
+                        $('System[lang="en"]', returnedXMLResponse).each(function() {
+                            var system = $(this).text();
+                            document.title += " " + system;
 
-				}  // End Success
-			}); // End AJAX
-		});
-	</script>
-    <script>
-      function loadXML(url) {
-           return new Promise(function(resolve) {
-             var req = new XMLHttpRequest();
-             req.open("GET", url);
-             if (typeof XSLTProcessor === 'undefined') {
-               try {
-                 req.responseType = 'msxml-document';
-               }
-               catch (e) {}
-             }
-             req.onload = function() {
-               resolve(this.responseXML)
-             }
-             req.send();
-           });
-      }
-      
-      function transform(xmlUrl, xslUrl, targetElement) {
-        Promise.all([loadXML(xmlUrl), loadXML(xslUrl)]).then(function(data) {
-          var xmlDoc = data[0];
-          var xslDoc = data[1];
-          
-          if (typeof XSLTProcessor !== 'undefined') {
-            var proc = new XSLTProcessor();
-            proc.importStylesheet(xslDoc);
+                        })
+                        $('.nav-tabs').tabdrop({
+                            text: 'More'
+                        });
 
-            var resultFrag = proc.transformToFragment(xmlDoc, targetElement.ownerDocument);
-            
-            targetElement.textContent = '';
-            targetElement.appendChild(resultFrag);
-          }
-          else {
-              var template = new ActiveXObject('Msxml2.XslTemplate.6.0');
-              template.stylesheet = xslDoc;
-              var proc = template.createProcessor();
-              
-              proc.input = xmlDoc;
-              
-              proc.transform();
-              
-              var resultHTML = proc.output;
-              
-              targetElement.innerHTML = resultHTML;
-          }
+                    } // End Success
+            }); // End AJAX
         });
-      }
-      
+    </script>
+    <script>
+        function loadXML(url) {
+            return new Promise(function(resolve) {
+                var req = new XMLHttpRequest();
+                req.open("GET", url);
+                if (typeof XSLTProcessor === 'undefined') {
+                    try {
+                        req.responseType = 'msxml-document';
+                    } catch (e) {}
+                }
+                req.onload = function() {
+                    resolve(this.responseXML)
+                }
+                req.send();
+            });
+        }
+
+        function transform(xmlUrl, xslUrl, targetElement) {
+            Promise.all([loadXML(xmlUrl), loadXML(xslUrl)]).then(function(data) {
+                var xmlDoc = data[0];
+                var xslDoc = data[1];
+
+                if (typeof XSLTProcessor !== 'undefined') {
+                    var proc = new XSLTProcessor();
+                    proc.importStylesheet(xslDoc);
+
+                    var resultFrag = proc.transformToFragment(xmlDoc, targetElement.ownerDocument);
+
+                    targetElement.textContent = '';
+                    targetElement.appendChild(resultFrag);
+                } else {
+                    var template = new ActiveXObject('Msxml2.XslTemplate.6.0');
+                    template.stylesheet = xslDoc;
+                    var proc = template.createProcessor();
+
+                    proc.input = xmlDoc;
+
+                    proc.transform();
+
+                    var resultHTML = proc.output;
+
+                    targetElement.innerHTML = resultHTML;
+                }
+            });
+        }
     </script>
     <script src='../../../assets/javascripts/bootstrap.js'></script>
 
@@ -191,10 +192,10 @@
     <script src="../../../assets/javascripts/bootstrap-tabdrop.js"></script>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        transform('../../common/codelists.xml', 'codedata.xsl', document.getElementById('codemodal'));      
-        transform('../../common/rulesconditions.xml', 'rulesconditions.xsl', document.getElementById('rulesmodal'));      
-      })
+        document.addEventListener('DOMContentLoaded', function() {
+            transform('../../common/codelists.xml', 'codedata.xsl', document.getElementById('codemodal'));
+            transform('../../common/rulesconditions.xml', 'rulesconditions.xsl', document.getElementById('rulesmodal'));
+        })
     </script>
     <script>
         // The function actually applying the offset
@@ -205,7 +206,7 @@
         }
 
         // This will capture hash changes while on the page
-        $(window).on("hashchange", function () {
+        $(window).on("hashchange", function() {
             offsetAnchor();
         });
 
@@ -216,14 +217,15 @@
     </script>
 
     <script>
+        $(document.body).tooltip({
+            selector: "[title]"
+        });
 
-    $(document.body).tooltip({ selector: "[title]" });
+        $(function() {
 
-	$(function() {
-
-	});
-
+        });
     </script>
 
 </body>
+
 </html>
