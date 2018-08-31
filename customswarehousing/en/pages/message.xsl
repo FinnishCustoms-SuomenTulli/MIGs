@@ -26,35 +26,88 @@
 				</xsl:for-each>
 			</p>
 		</xsl:if>
-		<h3>Structure of groups</h3>
+		<xsl:choose>
+			<xsl:when test="$language='fi'">
+				<h3>Tietoryhmien rakenne</h3>
+			</xsl:when>
+			<xsl:when test="$language='sv'">
+				<h3>Datagruppernas struktur</h3>
+			</xsl:when>
+			<xsl:when test="$language='en'">
+				<h3>Structure of groups</h3>
+			</xsl:when>
+		</xsl:choose>
 		<table class="table table-responsive">
 			<thead>
 				<tr>
-					<th>
-						<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Name of the data group">
-							<span class="icon icon-tulli-help"/>Data group
-            </a>
-					</th>
-					<th>
-						<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Optionality of the data&lt;br /&gt;R = required&lt;br /&gt;D = dependant (on a condition)&lt;br /&gt;O = optional">
-							<span class="icon icon-tulli-help"/>RDO
-            </a>
-					</th>
-					<th>
-						<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The maximum number of times a data group can be repeated. If a data group is mandatory, it must be repeated at least once.">
-							<span class="icon icon-tulli-help"/>Cardinality
-            </a>
-					</th>
-					<th>
-						<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The corresponging XML path in the message schema">
-							<span class="icon icon-tulli-help"/>Path
-            </a>
-					</th>
-					<th>
-						<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Applied rules and conditions">
-							<span class="icon icon-tulli-help"/>Rules and conditions
-            </a>
-					</th>
+					<xsl:choose>
+						<xsl:when test="$language='fi'">
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Tietoryhmän nimi">
+									<span class="icon icon-tulli-help"/>Tietoryhmä</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Tiedon pakollisuus&lt;br /&gt;R = pakollinen&lt;br /&gt;D = ehdollinen&lt;br /&gt;O = vapaaehtoinen">
+									<span class="icon icon-tulli-help"/>RDO</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Tietoryhmän toistojen suurin sallittu määrä. Jos tietoryhmä on pakollinen, sen tulee esiintyä vähintään kerran.">
+									<span class="icon icon-tulli-help"/>Kardinaliteetti</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Tietoryhmää vastaava XML-polku sanoman skeemassa">
+									<span class="icon icon-tulli-help"/>Polku</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Sovelletut säännöt ja ehdot">
+									<span class="icon icon-tulli-help"/>Säännöt ja ehdot</a>
+							</th>
+						</xsl:when>
+						<xsl:when test="$language='sv'">
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Datagruppens namn">
+									<span class="icon icon-tulli-help"/>Datagrupp</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Datas valfrihet&lt;br /&gt;R = obligatorisk&lt;br /&gt;D = villkorlig&lt;br /&gt;O = frivillig">
+									<span class="icon icon-tulli-help"/>RDO</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Det maximala antalet gånger som en datagrupp kan upprepas. Om en datagrupp är obligatorisk måste den upprepas minst en gång.">
+									<span class="icon icon-tulli-help"/>Kardinalitet</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Den motsvarande XML-sökvägen i meddelandeskeman">
+									<span class="icon icon-tulli-help"/>Sökväg</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Tillämpade regler och villkor">
+									<span class="icon icon-tulli-help"/>Regler och villkor</a>
+							</th>
+						</xsl:when>
+						<xsl:when test="$language='en'">
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Name of the data group">
+									<span class="icon icon-tulli-help"/>Data group</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Optionality of the data&lt;br /&gt;R = required&lt;br /&gt;D = dependant (on a condition)&lt;br /&gt;O = optional">
+									<span class="icon icon-tulli-help"/>RDO</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The maximum number of times a data group can be repeated. If a data group is mandatory, it must be repeated at least once.">
+									<span class="icon icon-tulli-help"/>Cardinality</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The corresponding XML path in the message schema">
+									<span class="icon icon-tulli-help"/>Path</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Applied rules and conditions">
+									<span class="icon icon-tulli-help"/>Rules and conditions</a>
+							</th>
+						</xsl:when>
+					</xsl:choose>
 				</tr>
 			</thead>
 			<tbody>
@@ -117,45 +170,104 @@
 				</xsl:for-each>
 			</tbody>
 		</table>
-		<h3>Structure of elements</h3>
+		<xsl:choose>
+			<xsl:when test="$language='fi'">
+				<h3>Tietoelementtien rakenne</h3>
+			</xsl:when>
+			<xsl:when test="$language='sv'">
+				<h3>Dataelementens struktur</h3>
+			</xsl:when>
+			<xsl:when test="$language='en'">
+				<h3>Structure of elements</h3>
+			</xsl:when>
+		</xsl:choose>
 		<table class="table table-responsive">
 			<thead>
 				<tr>
-					<th>
-						<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Name of the data element">
-							<span class="icon icon-tulli-help"/>Data element
-            </a>
-					</th>
-					<th>
-						<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Optionality of the data&lt;br /&gt;R = required&lt;br /&gt;D = dependant (on a condition)&lt;br /&gt;O = optional">
-							<span class="icon icon-tulli-help"/>RDO
-            </a>
-					</th>
-					<th>
-						<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Format of the data&lt;br /&gt;a = alphabetic&lt;br /&gt;n = numeric&lt;br /&gt;an = alphanumeric&lt;br /&gt;The number indicates the length of the field. If it is preceeded by two dots, the length is variable. A number after a comma indicates the maximum number of decimals.">
-							<span class="icon icon-tulli-help"/>Format
-            </a>
-					</th>
-					<th>
-						<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The corresponging XML path in the message schema">
-							<span class="icon icon-tulli-help"/>Path
-            </a>
-					</th>
-					<th>
-						<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The XML type of the data">
-							<span class="icon icon-tulli-help"/>General type
-            </a>
-					</th>
-					<th>
-						<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Applicable code lists">
-							<span class="icon icon-tulli-help"/>Codelist
-            </a>
-					</th>
-					<th>
-						<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Applied rules and conditions">
-							<span class="icon icon-tulli-help"/>Rules and conditions
-            </a>
-					</th>
+					<xsl:choose>
+						<xsl:when test="$language='fi'">
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Tietoelementin nimi">
+									<span class="icon icon-tulli-help"/>Tietoelementti</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Tiedon pakollisuus&lt;br /&gt;R = pakollinen&lt;br /&gt;D = ehdollinen&lt;br /&gt;O = vapaaehtoinen">
+									<span class="icon icon-tulli-help"/>RDO</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Tiedon muoto&lt;br /&gt;a = aakkosellinen&lt;br /&gt;n = numeerinen&lt;br /&gt;an = aakkosnumeerinen&lt;br /&gt;Numero kertoo kentän pituuden. Jos sitä edeltää kaksi pistettä, on kenttä muuttuvan mittainen. Pilkun jälkeinen numero kertoo desimaalien enimmäismäärän.">
+									<span class="icon icon-tulli-help"/>Muoto</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Tietoelementtiä vastaava XML-polku sanoman skeemassa">
+									<span class="icon icon-tulli-help"/>Polku</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Soveltuvat koodistot">
+									<span class="icon icon-tulli-help"/>Koodisto</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Sovelletut säännöt ja ehdot">
+									<span class="icon icon-tulli-help"/>Säännöt ja ehdot</a>
+							</th>
+						</xsl:when>
+						<xsl:when test="$language='sv'">
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Dataelementets namn">
+									<span class="icon icon-tulli-help"/>Dataelement</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Datas valfrihet&lt;br /&gt;R = obligatorisk&lt;br /&gt;D = villkorlig&lt;br /&gt;O = frivillig">
+									<span class="icon icon-tulli-help"/>RDO</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Datas format&lt;br /&gt;a = alfabetiskt&lt;br /&gt;n = numerisk&lt;br /&gt;an = alfanumerisk&lt;br /&gt;Talet anger fältets längd. Om det föregås av två punkter, är längden varierande. Et tal efter ett komma anger maximala antalet decimaler.">
+									<span class="icon icon-tulli-help"/>Datas format</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Den motsvarande XML-sökvägen i meddelandeskeman">
+									<span class="icon icon-tulli-help"/>Sökväg</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Tillämpade kodförteckningar">
+									<span class="icon icon-tulli-help"/>Kodförteckning</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Tillämpade regler och villkor">
+									<span class="icon icon-tulli-help"/>Regler och villkor</a>
+							</th>
+						</xsl:when>
+						<xsl:when test="$language='en'">
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Name of the data element">
+									<span class="icon icon-tulli-help"/>Data element</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Optionality of the data&lt;br /&gt;R = required&lt;br /&gt;D = dependant (on a condition)&lt;br /&gt;O = optional">
+									<span class="icon icon-tulli-help"/>RDO</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Format of the data&lt;br /&gt;a = alphabetic&lt;br /&gt;n = numeric&lt;br /&gt;an = alphanumeric&lt;br /&gt;The number indicates the length of the field. If it is preceded by two dots, the length is variable. A number after a comma indicates the maximum number of decimals.">
+									<span class="icon icon-tulli-help"/>Format</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The corresponging XML path in the message schema">
+									<span class="icon icon-tulli-help"/>Path</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The XML type of the data">
+									<span class="icon icon-tulli-help"/>General type</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Applicable code lists">
+									<span class="icon icon-tulli-help"/>Codelist</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Applied rules and conditions">
+									<span class="icon icon-tulli-help"/>Rules and conditions</a>
+							</th>
+						</xsl:when>
+					</xsl:choose>
 				</tr>
 			</thead>
 			<xsl:for-each select="descendant::DataGroup | descendant::DataElement">

@@ -20,11 +20,29 @@
 							<table class="table table-striped table-hover table-responsive table-condensed">
 								<thead>
 									<tr>
-										<th>Code</th>
-										<th>Name</th>
-										<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
-											<th>Description</th>
-										</xsl:if>
+										<xsl:choose>
+											<xsl:when test="$language='fi'">
+												<th>Koodi</th>
+												<th>Nimi</th>
+												<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
+													<th>Selite</th>
+												</xsl:if>
+											</xsl:when>
+											<xsl:when test="$language='sv'">
+												<th>Kod</th>
+												<th>Namn</th>
+												<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
+													<th>Förklaring</th>
+												</xsl:if>
+											</xsl:when>
+											<xsl:when test="$language='en'">
+												<th>Code</th>
+												<th>Name</th>
+												<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
+													<th>Description</th>
+												</xsl:if>
+											</xsl:when>
+										</xsl:choose>
 									</tr>
 								</thead>
 								<xsl:for-each select="CodeItem">
