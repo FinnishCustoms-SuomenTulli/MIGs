@@ -116,8 +116,49 @@
 	</xs:complexType>
 	<xs:complexType name="MessageExchangeType">
 		<xs:sequence>
+			<xs:element name="Intro" type="IntroType" minOccurs="0"/>
 			<xs:element name="Messages" type="MessagesType" maxOccurs="unbounded"/>
 			<xs:element name="UseCases" type="UseCasesType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IntroType">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="TextLine" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="lang" use="required">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="fi|sv|en"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="List" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ListItem" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="lang" use="required">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:pattern value="fi|sv|en"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:attribute>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

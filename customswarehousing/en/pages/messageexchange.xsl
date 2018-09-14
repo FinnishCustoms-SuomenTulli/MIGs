@@ -4,6 +4,39 @@
 	<xsl:variable name="language">fi</xsl:variable>
 	<xsl:template match="/">
 		<div class="panel panel-primary">
+			<div class="panel-heading" role="tab" id="heading-intro">
+				<h2 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="intro">General information</a>
+				</h2>
+			</div>
+			<div id="intro" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-intro">
+				<div class="panel-body">
+					<article>
+						<div class="content-area">
+							<xsl:for-each select="MessageExchange/Intro/TextLine[@lang=($language)] | MessageExchange/Intro/List">
+								<xsl:choose>
+									<xsl:when test="local-name()='List'">
+										<ul>
+											<xsl:for-each select="ListItem[@lang=($language)]">
+												<li>
+													<xsl:value-of select="."/>
+												</li>
+											</xsl:for-each>
+										</ul>
+									</xsl:when>
+									<xsl:otherwise>
+										<p>
+											<xsl:value-of select="."/>
+										</p>
+									</xsl:otherwise>
+								</xsl:choose>
+							</xsl:for-each>
+						</div>
+					</article>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-primary">
 			<div class="panel-heading" role="tab" id="heading-messages">
 				<h2 class="panel-title">
 					<a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="messages">Messages</a>
