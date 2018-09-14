@@ -93,8 +93,20 @@
 				<div class="panel-body">
 					<article>
 						<div class="content-area">
+							<ul>
+								<xsl:for-each select="MessageExchange/UseCases/UseCase">
+									<li>
+										<a>
+											<xsl:attribute name="href"><xsl:value-of select="concat('#CASE', position())"/></xsl:attribute>
+									CASE <xsl:number value="position()"/>: <xsl:value-of select="Name"/>
+										</a>
+									</li>
+								</xsl:for-each>
+							</ul>
 							<xsl:for-each select="MessageExchange/UseCases/UseCase">
-								<h3>CASE <xsl:number value="position()"/>: <xsl:value-of select="Name"/>
+								<h3>
+									<xsl:attribute name="id"><xsl:value-of select="concat('CASE', position())"/></xsl:attribute>
+								CASE <xsl:number value="position()"/>: <xsl:value-of select="Name"/>
 								</h3>
 								<table class="table table-striped table-responsive">
 									<xsl:choose>
