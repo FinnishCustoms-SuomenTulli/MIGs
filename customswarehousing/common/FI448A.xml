@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
 <Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Message.xsd">
-	<Type>FI912A</Type>
-	<Name lang="en">Error notification</Name>
+	<Type>FI448A</Type>
+	<Name lang="fi">Mitätöintipyynnön hylkäystiedonanto</Name>
+	<Name lang="en">Invalidation request rejection notification</Name>
 	<DataGroup>
 		<Name lang="fi">Tuontitapahtuma</Name>
 		<Name lang="sv">Importåtgärd</Name>
 		<Name lang="en">Import operation</Name>
-		<XPath>FI912A</XPath>
+		<XPath>FI448A</XPath>
 		<MinOccurence>1</MinOccurence>
 		<MaxOccurence>1</MaxOccurence>
 		<DataElement>
@@ -25,6 +26,7 @@
 			<Name lang="en">LRN</Name>
 			<XPath>FunctionalReference</XPath>
 			<MinOccurence>1</MinOccurence>
+			<EUCDM>2/5</EUCDM>
 			<GeneralType>LRN</GeneralType>
 			<Format>an..22</Format>
 		</DataElement>
@@ -42,7 +44,7 @@
 			<Name lang="sv">Meddelandets identifiering</Name>
 			<Name lang="en">Message identification</Name>
 			<XPath>Identification</XPath>
-			<MinOccurence>1</MinOccurence>
+			<MinOccurence>0</MinOccurence>
 			<GeneralType>MessageIdentification</GeneralType>
 			<Format>an..14</Format>
 		</DataElement>
@@ -51,7 +53,7 @@
 			<Name lang="sv">Språkkod</Name>
 			<Name lang="en">Language code</Name>
 			<XPath>Language</XPath>
-			<MinOccurence>1</MinOccurence>
+			<MinOccurence>0</MinOccurence>
 			<GeneralType>LanguageCode</GeneralType>
 			<Codelist>CL012</Codelist>
 			<Format>a2</Format>
@@ -69,7 +71,7 @@
 				<Name lang="en">Notification type</Name>
 				<XPath>Type</XPath>
 				<MinOccurence>1</MinOccurence>
-				<GeneralType>LanguageCode</GeneralType>
+				<GeneralType/>
 				<Format>an..100</Format>
 			</DataElement>
 			<DataElement>
@@ -82,15 +84,6 @@
 				<Format>dateTime</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="fi">Ilmoituksen kuvaus</Name>
-				<Name lang="sv">Underrättelsens beskrivning</Name>
-				<Name lang="en">Notification description</Name>
-				<XPath>Text</XPath>
-				<MinOccurence>0</MinOccurence>
-				<GeneralType>Freetext</GeneralType>
-				<Format>an..4096</Format>
-			</DataElement>
-			<DataElement>
 				<Name lang="fi">Asiakirjalinkki</Name>
 				<Name lang="sv">Dokumentlänk</Name>
 				<Name lang="en">Document link</Name>
@@ -99,58 +92,84 @@
 				<GeneralType>DocumentLink</GeneralType>
 				<Format>an..500</Format>
 			</DataElement>
-			<DataElement>
-				<Name lang="fi">Yhteenkuuluva tavaraerä</Name>
-				<Name lang="sv">Sammanhörande varuparti</Name>
-				<Name lang="en">Related goods item</Name>
-				<XPath>Sequence</XPath>
+			<DataGroup>
+				<Name lang="fi">Päätös</Name>
+				<Name lang="sv">Beslut</Name>
+				<Name lang="en">Decision</Name>
+				<XPath>Decision</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Päätöksen päivämäärä ja aika</Name>
+					<Name lang="sv">Beslutets datum och tid</Name>
+					<Name lang="en">Decision date and time</Name>
+					<XPath>Decision</XPath>
+					<MinOccurence>0</MinOccurence>
+					<GeneralType>DateTime</GeneralType>
+					<Format>dateTime</Format>
+				</DataElement>
+				<DataGroup>
+					<Name lang="fi">Huomautus</Name>
+					<Name lang="sv">Anteckning</Name>
+					<Name lang="en">Note</Name>
+					<XPath>Note</XPath>
+					<MinOccurence>1</MinOccurence>
+					<MaxOccurence>999</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Huomautuksen tyyppi</Name>
+						<Name lang="sv">Anteckningens typ</Name>
+						<Name lang="en">Note type</Name>
+						<XPath>Note</XPath>
+						<MinOccurence>0</MinOccurence>
+						<GeneralType>String</GeneralType>
+						<Format>an..6</Format>
+					</DataElement>
+					<DataElement>
+						<Name lang="fi">Huomautuksen teksti</Name>
+						<Name lang="sv">Anteckningens text</Name>
+						<Name lang="en">Note text</Name>
+						<XPath>NoteDescription</XPath>
+						<MinOccurence>0</MinOccurence>
+						<GeneralType>String</GeneralType>
+						<Format>an..4096</Format>
+					</DataElement>
+				</DataGroup>
+			</DataGroup>
+			<DataGroup>
+				<Name lang="fi">Yhteystiedot</Name>
+				<Name lang="sv">Kontaktuppgifter</Name>
+				<Name lang="en">Contact information</Name>
+				<XPath>ContactInfo</XPath>
 				<MinOccurence>0</MinOccurence>
-				<GeneralType>Integer</GeneralType>
-				<Format>n..5</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Vastauksen määräaika</Name>
-				<Name lang="sv">Tidsgräns för svar</Name>
-				<Name lang="en">Time limit for response</Name>
-				<XPath>Limit</XPath>
-				<MinOccurence>1</MinOccurence>
-				<GeneralType>DateTime</GeneralType>
-				<Format>dateTime</Format>
-			</DataElement>
-		</DataGroup>
-		<DataGroup>
-			<Name lang="fi">Luvanhaltija</Name>
-			<Name lang="sv">Tillståndshavare</Name>
-			<Name lang="en">Holder of the authorisation</Name>
-			<XPath>AuthorisationHolder</XPath>
-			<MinOccurence>1</MinOccurence>
-			<MaxOccurence>99</MaxOccurence>
-			<DataElement>
-				<Name lang="fi">Luvanhaltijan tunnistenumero</Name>
-				<Name lang="sv">Tillståndshavarens</Name>
-				<Name lang="en">Holder of the authorisation identification no.</Name>
-				<XPath>Identification</XPath>
-				<MinOccurence>1</MinOccurence>
-				<EUCDM>3/39</EUCDM>
-				<GeneralType>TIN</GeneralType>
-				<Rule>NR0025</Rule>
-				<Format>an..17</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Luvan tyyppi</Name>
-				<Name lang="sv">Tillståndets typ</Name>
-				<Name lang="en">Authorisation type</Name>
-				<XPath>Category</XPath>
-				<MinOccurence>1</MinOccurence>
-				<EUCDM>3/39</EUCDM>
-				<GeneralType>String</GeneralType>
-				<Codelist>CL605</Codelist>
-				<Rule>NR0001</Rule>
-				<Rule>NR0028</Rule>
-				<Rule>NR0029</Rule>
-				<Format>an..4</Format>
-				<DescriptionLine lang="en">Enter the type of authorisation that the holder is linked to (authorisation data is entered in data group 'Documents produced, certificates and authorisations, additional references').</DescriptionLine>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Nimi</Name>
+					<Name lang="sv">Namn</Name>
+					<Name lang="en">Name</Name>
+					<XPath>Name</XPath>
+					<MinOccurence>0</MinOccurence>
+					<GeneralType>TraderName</GeneralType>
+					<Format>an..70</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="fi">Sähköpostiosoite</Name>
+					<Name lang="sv">E-postadress</Name>
+					<Name lang="en">E-mail address</Name>
+					<XPath>Email</XPath>
+					<MinOccurence>0</MinOccurence>
+					<GeneralType>String</GeneralType>
+					<Format>an..320</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="fi">Puhelinnumero</Name>
+					<Name lang="sv">Telefonnummer</Name>
+					<Name lang="en">Telephone number</Name>
+					<XPath>Telephone</XPath>
+					<MinOccurence>0</MinOccurence>
+					<GeneralType>TelephoneNumber</GeneralType>
+					<Format>an..20</Format>
+				</DataElement>
+			</DataGroup>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Edustaja</Name>
@@ -159,7 +178,6 @@
 			<XPath>Agent</XPath>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<DescriptionLine lang="en">If a representative is used by the declarant, enter representative's identity data.</DescriptionLine>
 			<DataElement>
 				<Name lang="fi">Edustajan asemaa koskeva koodi</Name>
 				<Name lang="sv">Kod för ombudets status</Name>
@@ -169,7 +187,6 @@
 				<EUCDM>3/21</EUCDM>
 				<GeneralType>RepresentationCode</GeneralType>
 				<Codelist>CL530</Codelist>
-				<Rule>NR0002</Rule>
 				<Format>n1</Format>
 			</DataElement>
 			<DataElement>
@@ -180,9 +197,6 @@
 				<MinOccurence>1</MinOccurence>
 				<EUCDM>3/20</EUCDM>
 				<GeneralType>TIN</GeneralType>
-				<Rule>NR0034</Rule>
-				<Rule>NR0035</Rule>
-				<Rule>NR0036</Rule>
 				<Format>an..17</Format>
 			</DataElement>
 			<DataElement>
@@ -193,7 +207,6 @@
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>TraderOfficeCode</GeneralType>
 				<Format>n..3</Format>
-				<DescriptionLine lang="en">Enter nationally allocated trader office code, if representative has one.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Edustajan nimi</Name>
@@ -280,7 +293,6 @@
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>TraderOfficeCode</GeneralType>
 				<Format>n..3</Format>
-				<DescriptionLine lang="en">Enter nationally allocated trader office code, if declarant has one.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Ilmoittajan nimi</Name>
@@ -290,7 +302,6 @@
 				<MinOccurence>1</MinOccurence>
 				<EUCDM>3/17</EUCDM>
 				<GeneralType>TraderName</GeneralType>
-				<Condition>NC0016</Condition>
 				<Format>n..5</Format>
 			</DataElement>
 			<DataGroup>
@@ -355,7 +366,7 @@
 				<Name lang="sv">Inlämnarens name</Name>
 				<Name lang="en">Submitter name</Name>
 				<XPath>Name</XPath>
-				<MinOccurence>1</MinOccurence>
+				<MinOccurence>0</MinOccurence>
 				<GeneralType>TraderName</GeneralType>
 				<Format>an..70</Format>
 			</DataElement>
@@ -398,7 +409,7 @@
 					<Name lang="sv">Inlämnarens telefonnummer</Name>
 					<Name lang="en">Submitter telephone number</Name>
 					<XPath>Identification</XPath>
-					<MinOccurence>1</MinOccurence>
+					<MinOccurence>0</MinOccurence>
 					<GeneralType>CommunicationIdentification</GeneralType>
 					<Format>an..20</Format>
 				</DataElement>
@@ -413,44 +424,6 @@
 					<Format>a2</Format>
 				</DataElement>
 			</DataGroup>
-		</DataGroup>
-		<DataGroup>
-			<Name lang="fi">Esitetyt asiakirjat, todistukset ja luvat, lisäviitteet.</Name>
-			<Name lang="sv">Framlagda dokument, certifikat och tillstånd, ytterligare referensuppgifter</Name>
-			<Name lang="en">Documents produced, certificates and authorisations, additional references</Name>
-			<XPath>AdditionalDocument</XPath>
-			<MinOccurence>1</MinOccurence>
-			<MaxOccurence>99</MaxOccurence>
-			<DataElement>
-				<Name lang="fi">Asiakirjatyyppi</Name>
-				<Name lang="sv">Dokumentets typ</Name>
-				<Name lang="en">Document type</Name>
-				<XPath>Type</XPath>
-				<MinOccurence>1</MinOccurence>
-				<EUCDM>2/3</EUCDM>
-				<GeneralType>String</GeneralType>
-				<Codelist>CL605</Codelist>
-				<Format>an..4</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Asiakirjatunniste</Name>
-				<Name lang="sv">Dokumentes identifiering</Name>
-				<Name lang="en">Document identifier</Name>
-				<XPath>Identification</XPath>
-				<MinOccurence>1</MinOccurence>
-				<EUCDM>2/3</EUCDM>
-				<GeneralType>String</GeneralType>
-				<Format>an..35</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Liitteen viite</Name>
-				<Name lang="sv">Bilagans referens</Name>
-				<Name lang="en">Attachment reference</Name>
-				<XPath>NationalReference/Identification</XPath>
-				<MinOccurence>0</MinOccurence>
-				<GeneralType>String</GeneralType>
-				<Format>an..35</Format>
-			</DataElement>
 		</DataGroup>
 	</DataGroup>
 </Message>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
 <Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Message.xsd">
-	<Type>FI409A</Type>
-	<Name lang="fi">Mitätöintipyynnön hylkäystiedonanto</Name>
-	<Name lang="en">Invalidation request rejection notification</Name>
+	<Type>FI452A</Type>
+	<Name lang="fi">Lisäselvityspyyntö</Name>
+	<Name lang="en">Additional information request</Name>
 	<DataGroup>
 		<Name lang="fi">Tuontitapahtuma</Name>
 		<Name lang="sv">Importåtgärd</Name>
 		<Name lang="en">Import operation</Name>
-		<XPath>FI409A</XPath>
+		<XPath>FI452A</XPath>
 		<MinOccurence>1</MinOccurence>
 		<MaxOccurence>1</MaxOccurence>
 		<DataElement>
@@ -84,6 +84,15 @@
 				<Format>dateTime</Format>
 			</DataElement>
 			<DataElement>
+				<Name lang="fi">Ilmoituksen kuvaus</Name>
+				<Name lang="sv">Underrättelsens beskrivning</Name>
+				<Name lang="en">Notification description</Name>
+				<XPath>Text</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>String</GeneralType>
+				<Format>an..4096</Format>
+			</DataElement>
+			<DataElement>
 				<Name lang="fi">Asiakirjalinkki</Name>
 				<Name lang="sv">Dokumentlänk</Name>
 				<Name lang="en">Document link</Name>
@@ -92,49 +101,24 @@
 				<GeneralType>DocumentLink</GeneralType>
 				<Format>an..500</Format>
 			</DataElement>
-			<DataGroup>
-				<Name lang="fi">Päätös</Name>
-				<Name lang="sv">Beslut</Name>
-				<Name lang="en">Decision</Name>
-				<XPath>Decision</XPath>
+			<DataElement>
+				<Name lang="fi">Yhteenkuuluva tavaraerä</Name>
+				<Name lang="sv">Sammanhörande varuparti</Name>
+				<Name lang="en">Related goods item</Name>
+				<XPath>Sequence</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>Integer</GeneralType>
+				<Format>n..5</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Vastauksen määräaika</Name>
+				<Name lang="sv">Tidsgräns för svar</Name>
+				<Name lang="en">Time limit for response</Name>
+				<XPath>Limit</XPath>
 				<MinOccurence>1</MinOccurence>
-				<MaxOccurence>1</MaxOccurence>
-				<DataElement>
-					<Name lang="fi">Päätöksen päivämäärä ja aika</Name>
-					<Name lang="sv">Beslutets datum och tid</Name>
-					<Name lang="en">Decision date and time</Name>
-					<XPath>Decision</XPath>
-					<MinOccurence>0</MinOccurence>
-					<GeneralType>DateTime</GeneralType>
-					<Format>dateTime</Format>
-				</DataElement>
-				<DataGroup>
-					<Name lang="fi">Huomautus</Name>
-					<Name lang="sv">Anteckning</Name>
-					<Name lang="en">Note</Name>
-					<XPath>Note</XPath>
-					<MinOccurence>1</MinOccurence>
-					<MaxOccurence>999</MaxOccurence>
-					<DataElement>
-						<Name lang="fi">Huomautuksen tyyppi</Name>
-						<Name lang="sv">Anteckningens typ</Name>
-						<Name lang="en">Note type</Name>
-						<XPath>Note</XPath>
-						<MinOccurence>0</MinOccurence>
-						<GeneralType>String</GeneralType>
-						<Format>an..6</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Huomautuksen teksti</Name>
-						<Name lang="sv">Anteckningens text</Name>
-						<Name lang="en">Note text</Name>
-						<XPath>NoteDescription</XPath>
-						<MinOccurence>0</MinOccurence>
-						<GeneralType>String</GeneralType>
-						<Format>an..4096</Format>
-					</DataElement>
-				</DataGroup>
-			</DataGroup>
+				<GeneralType>DateTime</GeneralType>
+				<Format>dateTime</Format>
+			</DataElement>
 			<DataGroup>
 				<Name lang="fi">Yhteystiedot</Name>
 				<Name lang="sv">Kontaktuppgifter</Name>

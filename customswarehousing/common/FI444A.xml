@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
+<Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Message.xsd">
+	<Type>FI444A</Type>
+	<Name lang="en">Error notification</Name>
+	<DataGroup>
+		<Name lang="fi">Tuontitapahtuma</Name>
+		<Name lang="sv">Importåtgärd</Name>
+		<Name lang="en">Import operation</Name>
+		<XPath>FI444A</XPath>
+		<MinOccurence>1</MinOccurence>
+		<MaxOccurence>1</MaxOccurence>
+		<DataElement>
+			<Name lang="fi">MRN</Name>
+			<Name lang="sv">MRN</Name>
+			<Name lang="en">MRN</Name>
+			<XPath>MRN</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>MRN</GeneralType>
+			<Format>an18</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">LRN</Name>
+			<Name lang="sv">LRN</Name>
+			<Name lang="en">LRN</Name>
+			<XPath>FunctionalReference</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>LRN</GeneralType>
+			<Format>an..22</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Toissijainen LRN</Name>
+			<Name lang="sv">Sekundär LRN</Name>
+			<Name lang="en">Additional LRN</Name>
+			<XPath>AdditionalFunctionalReference</XPath>
+			<MinOccurence>0</MinOccurence>
+			<GeneralType>LRN</GeneralType>
+			<Format>an..22</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Sanoman tunniste</Name>
+			<Name lang="sv">Meddelandets identifiering</Name>
+			<Name lang="en">Message identification</Name>
+			<XPath>Identification</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>MessageIdentification</GeneralType>
+			<Format>an..14</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Kielikoodi</Name>
+			<Name lang="sv">Språkkod</Name>
+			<Name lang="en">Language code</Name>
+			<XPath>Language</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>LanguageCode</GeneralType>
+			<Codelist>CL012</Codelist>
+			<Format>a2</Format>
+		</DataElement>
+		<DataGroup>
+			<Name lang="fi">Ilmoitus</Name>
+			<Name lang="sv">Underrättelse</Name>
+			<Name lang="en">Notification</Name>
+			<XPath>Notification</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="fi">Ilmoituksen tyyppi</Name>
+				<Name lang="sv">Underrättelsens typ</Name>
+				<Name lang="en">Notification type</Name>
+				<XPath>Type</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>LanguageCode</GeneralType>
+				<Format>an..100</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Ilmoituksen päivämäärä ja aika</Name>
+				<Name lang="sv">Underrättelsens datum och tid</Name>
+				<Name lang="en">Notification date and time</Name>
+				<XPath>Notification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>DateTime</GeneralType>
+				<Format>dateTime</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Ilmoituksen kuvaus</Name>
+				<Name lang="sv">Underrättelsens beskrivning</Name>
+				<Name lang="en">Notification description</Name>
+				<XPath>Text</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>Freetext</GeneralType>
+				<Format>an..4096</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Asiakirjalinkki</Name>
+				<Name lang="sv">Dokumentlänk</Name>
+				<Name lang="en">Document link</Name>
+				<XPath>DocumentLink</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>DocumentLink</GeneralType>
+				<Format>an..500</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Yhteenkuuluva tavaraerä</Name>
+				<Name lang="sv">Sammanhörande varuparti</Name>
+				<Name lang="en">Related goods item</Name>
+				<XPath>Sequence</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>Integer</GeneralType>
+				<Format>n..5</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Vastauksen määräaika</Name>
+				<Name lang="sv">Tidsgräns för svar</Name>
+				<Name lang="en">Time limit for response</Name>
+				<XPath>Limit</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>DateTime</GeneralType>
+				<Format>dateTime</Format>
+			</DataElement>
+			<DataGroup>
+				<Name lang="fi">Yhteystiedot</Name>
+				<Name lang="sv">Kontaktuppgifter</Name>
+				<Name lang="en">Contact information</Name>
+				<XPath>ContactInfo</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Nimi</Name>
+					<Name lang="sv">Namn</Name>
+					<Name lang="en">Name</Name>
+					<XPath>Name</XPath>
+					<MinOccurence>0</MinOccurence>
+					<GeneralType>TraderName</GeneralType>
+					<Format>an..100</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="fi">Sähköpostiosoite</Name>
+					<Name lang="sv">E-postadress</Name>
+					<Name lang="en">E-mail address</Name>
+					<XPath>Email</XPath>
+					<MinOccurence>0</MinOccurence>
+					<GeneralType>String</GeneralType>
+					<Format>an..320</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="fi">Puhelinnumero</Name>
+					<Name lang="sv">Telefonnummer</Name>
+					<Name lang="en">Telephone number</Name>
+					<XPath>Name</XPath>
+					<MinOccurence>0</MinOccurence>
+					<GeneralType>TelephoneNumber</GeneralType>
+					<Format>an..20</Format>
+				</DataElement>
+			</DataGroup>
+		</DataGroup>
+	</DataGroup>
+</Message>
