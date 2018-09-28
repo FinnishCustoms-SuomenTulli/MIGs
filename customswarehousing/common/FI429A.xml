@@ -516,7 +516,7 @@
 			</DataGroup>
 		</DataGroup>
 		<DataGroup>
-			<Name lang="fi">Esitetyt asiakirjat, todistukset ja luvat, lisäviitteet.</Name>
+			<Name lang="fi">Esitetyt asiakirjat, todistukset ja luvat, lisäviitteet</Name>
 			<Name lang="sv">Framlagda dokument, certifikat och tillstånd, ytterligare referensuppgifter</Name>
 			<Name lang="en">Documents produced, certificates and authorisations, additional references</Name>
 			<XPath>AdditionalDocument</XPath>
@@ -1169,6 +1169,25 @@
 							<GeneralType>Decimal</GeneralType>
 							<Format>n..16,6</Format>
 						</DataElement>
+						<DataElement>
+							<Name lang="fi">Toimijan ilmoittama paljous</Name>
+							<Name lang="sv">Mängd som anges av aktören</Name>
+							<Name lang="en">Measurement declared by trader</Name>
+							<XPath>Tariff</XPath>
+							<MinOccurence>0</MinOccurence>
+							<GeneralType>Decimal</GeneralType>
+							<Format>n..16,6</Format>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Toimijan ilmoittama paljous, paljousyksikkö</Name>
+							<Name lang="sv">Mängd som anges av aktören, mängdenhet</Name>
+							<Name lang="en">Measurement declared by trader, measurement unit</Name>
+							<XPath>Tariff@unit</XPath>
+							<MinOccurence>0</MinOccurence>
+							<GeneralType>String</GeneralType>
+							<Condition>NC0030</Condition>
+							<Format>an..4</Format>
+						</DataElement>
 					</DataGroup>
 				</DataGroup>
 				<DataGroup>
@@ -1241,7 +1260,7 @@
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
-					<Name lang="fi">Esitetyt asiakirjat, todistukset ja luvat, lisäviitteet.</Name>
+					<Name lang="fi">Esitetyt asiakirjat, todistukset ja luvat, lisäviitteet</Name>
 					<Name lang="sv">Framlagda dokument, certifikat och tillstånd, ytterligare referensuppgifter</Name>
 					<Name lang="en">Documents produced, certificates and authorisations, additional references</Name>
 					<XPath>AdditionalDocument</XPath>
