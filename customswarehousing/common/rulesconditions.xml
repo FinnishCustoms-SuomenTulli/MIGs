@@ -39,7 +39,7 @@
 	</RuleCondition>
 	<RuleCondition>
 		<ID>NR0019</ID>
-		<DescriptionLine lang="en">If location address has been declared, country code must be 'FI' (at least in the CW pilot)</DescriptionLine>
+		<DescriptionLine lang="en">If Location address has been declared, country code must be 'FI' (at least in the CW pilot)</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
 		<ID>NR0022</ID>
@@ -98,15 +98,15 @@
 	</RuleCondition>
 	<RuleCondition>
 		<ID>NR0039</ID>
-		<DescriptionLine lang="en">If qualifier identification (of location) is 'V', type of location must be A and value of location ID must be valid customs office ID (code list CustomsOffice)</DescriptionLine>
+		<DescriptionLine lang="en">If Qualifier of the location is 'V', Type of location must be 'A' and Identification of location must be valid customs office ID</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
 		<ID>NR0041</ID>
-		<DescriptionLine lang="en">If qualifier identification (of location) is 'X', type of location must be 'B' or 'C'</DescriptionLine>
+		<DescriptionLine lang="en">If Qualifier of the location is 'X', type of location must be 'B' or 'C'</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
 		<ID>NR0042</ID>
-		<DescriptionLine lang="en">If qualifier identification (of location) is 'Z', type of location must be 'A', 'C' or 'D'</DescriptionLine>
+		<DescriptionLine lang="en">If Qualifier of the location is 'Z', type of location must be 'A', 'C' or 'D'</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
 		<ID>NR0044</ID>
@@ -139,6 +139,10 @@
 	<RuleCondition>
 		<ID>NR1312</ID>
 		<DescriptionLine lang="en">If additional procedure is F34, previous procedure must be 44</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
+		<ID>NR1313</ID>
+		<DescriptionLine lang="en">If previous procedure is 71, then additional declaration type cannot be 'D'</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
 		<ID>NR2001</ID>
@@ -177,7 +181,7 @@
 	<RuleCondition>
 		<ID>NC0010</ID>
 		<DescriptionLine lang="en">IF 'Type of packages' indicates 'BULK' (UNECE rec 21 : 'VQ', 'VG', 'VL', 'VY', 'VR', 'VS' or ‘VO’)</DescriptionLine>
-		<DescriptionLine lang="en">  THEN 'Number of packages' can not be used</DescriptionLine>
+		<DescriptionLine lang="en">  THEN 'Number of packages' cannot be used</DescriptionLine>
 		<DescriptionLine lang="en">  ELSE 'Number of packages' = 'R'</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
@@ -194,10 +198,10 @@
 	<RuleCondition>
 		<ID>NC0014</ID>
 		<DescriptionLine lang="en">If Qualifier of location is 'X' or 'V'</DescriptionLine>
-		<DescriptionLine lang="en">  THEN location ID is required</DescriptionLine>
-		<DescriptionLine lang="en">  ELSE If Qualifier = 'Z'</DescriptionLine>
-		<DescriptionLine lang="en">    THEN Location ID cannot be used</DescriptionLine>
-		<DescriptionLine lang="en">  ELSE location ID is 'O'</DescriptionLine>
+		<DescriptionLine lang="en">  THEN Identification of location is 'R'</DescriptionLine>
+		<DescriptionLine lang="en">  ELSE If Qualifier of location is 'Z'</DescriptionLine>
+		<DescriptionLine lang="en">    THEN Identification of location cannot be used</DescriptionLine>
+		<DescriptionLine lang="en">  ELSE Identification of location is 'O'</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
 		<ID>NC0016</ID>
@@ -220,5 +224,15 @@
 		<ID>NC0021</ID>
 		<DescriptionLine lang="en">If Requested procedure is customs warehousing ('71')</DescriptionLine>
 		<DescriptionLine lang="en">  THEN Authorisation holder and corresponding authorisation must be declared</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
+		<ID>NC0022</ID>
+		<DescriptionLine lang="en">If Previous procedure is '00' and declaration type is 'CO' or Location of goods/Identification of location is one of the following: FI994400, FI994900, FI998002, FI999500, FI999800 or FI999801</DescriptionLine>
+		<DescriptionLine lang="en">  THEN Simplified declaration / Previous documents is optional</DescriptionLine>
+		<DescriptionLine lang="en">  ELSE Simplified declaration / Previous documents is 'R'</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
+		<ID>NC0030</ID>
+		<DescriptionLine lang="en">Either 'Country of Origin' or 'Country of preferential origin' must be declared</DescriptionLine>
 	</RuleCondition>
 </RulesConditions>
