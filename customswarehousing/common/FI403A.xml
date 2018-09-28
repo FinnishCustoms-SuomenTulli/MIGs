@@ -16,7 +16,7 @@
 			<Name lang="fi">MRN</Name>
 			<Name lang="sv">MRN</Name>
 			<Name lang="en">MRN</Name>
-			<XPath>MRN</XPath>
+			<XPath>FunctionalReference@function="MRN"</XPath>
 			<MinOccurence>1</MinOccurence>
 			<GeneralType>MRN</GeneralType>
 			<Format>an18</Format>
@@ -25,7 +25,7 @@
 			<Name lang="fi">LRN</Name>
 			<Name lang="sv">LRN</Name>
 			<Name lang="en">LRN</Name>
-			<XPath>FunctionalReference</XPath>
+			<XPath>FunctionalReference@function="LRN"</XPath>
 			<MinOccurence>1</MinOccurence>
 			<EUCDM>2/5</EUCDM>
 			<GeneralType>LRN</GeneralType>
@@ -35,7 +35,7 @@
 			<Name lang="fi">Toissijainen LRN</Name>
 			<Name lang="sv">Ytterligare LRN</Name>
 			<Name lang="en">Additional LRN</Name>
-			<XPath>AdditionalFunctionalReference</XPath>
+			<XPath>FunctionalReference@function="AdditionalLRN"</XPath>
 			<MinOccurence>0</MinOccurence>
 			<GeneralType>LRN</GeneralType>
 			<Format>an..22</Format>
@@ -52,8 +52,8 @@
 		<DataElement>
 			<Name lang="fi">Ilmoitustyyppi</Name>
 			<Name lang="sv">Typ av deklaration</Name>
-			<Name lang="en">Declaration Type</Name>
-			<XPath>DeclarationType</XPath>
+			<Name lang="en">Declaration type</Name>
+			<XPath>Type@function="DeclarationType"</XPath>
 			<MinOccurence>1</MinOccurence>
 			<EUCDM>1/1</EUCDM>
 			<GeneralType>AlfaString</GeneralType>
@@ -63,8 +63,8 @@
 		<DataElement>
 			<Name lang="fi">Lisäilmoitustyyppi</Name>
 			<Name lang="sv">Typ av tilläggsdeklaration</Name>
-			<Name lang="en">Additional declaration Type</Name>
-			<XPath>DeclarationType</XPath>
+			<Name lang="en">Additional declaration type</Name>
+			<XPath>Type@function="AdditionalDeclarationType"</XPath>
 			<MinOccurence>1</MinOccurence>
 			<EUCDM>1/2</EUCDM>
 			<GeneralType>AlfaString</GeneralType>
@@ -700,16 +700,6 @@
 						<GeneralType>String</GeneralType>
 						<Format>an..35</Format>
 					</DataElement>
-					<DataElement>
-						<Name lang="fi">Lisätunniste</Name>
-						<Name lang="sv">Tilläggskod</Name>
-						<Name lang="en">Additional identifier</Name>
-						<XPath>Identification</XPath>
-						<MinOccurence>0</MinOccurence>
-						<EUCDM>5/23</EUCDM>
-						<GeneralType>String</GeneralType>
-						<Format>n..3</Format>
-					</DataElement>
 					<DataGroup>
 						<Name lang="fi">Sijaintipaikan osoite</Name>
 						<Name lang="sv">Platsens adress</Name>
@@ -1171,12 +1161,31 @@
 						</DataElement>
 						<DataElement>
 							<Name lang="fi">Lisäpaljousyksiköt</Name>
-							<Name lang="sv">Bruttomassa</Name>
+							<Name lang="sv">Extra mängdenheter</Name>
 							<Name lang="en">Supplementary units</Name>
 							<XPath>Tariff</XPath>
 							<MinOccurence>0</MinOccurence>
 							<EUCDM>6/2</EUCDM>
 							<GeneralType>Decimal</GeneralType>
+							<Format>n..16,6</Format>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Toimijan ilmoittama paljous</Name>
+							<Name lang="sv">Mängd som anges av aktören</Name>
+							<Name lang="en">Measurement declared by trader</Name>
+							<XPath>Tariff</XPath>
+							<MinOccurence>0</MinOccurence>
+							<GeneralType>Decimal</GeneralType>
+							<Format>n..16,6</Format>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Toimijan ilmoittama paljous, paljousyksikkö</Name>
+							<Name lang="sv">Mängd som anges av aktören, mängdenhet</Name>
+							<Name lang="en">Measurement declared by trader, measurement unit</Name>
+							<XPath>Tariff@unit</XPath>
+							<MinOccurence>0</MinOccurence>
+							<GeneralType>Decimal</GeneralType>
+							<Condition>NC0030</Condition>
 							<Format>n..16,6</Format>
 						</DataElement>
 					</DataGroup>

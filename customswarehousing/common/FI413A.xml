@@ -16,7 +16,7 @@
 			<Name lang="fi">MRN</Name>
 			<Name lang="sv">MRN</Name>
 			<Name lang="en">MRN</Name>
-			<XPath>MasterReferenceNumber</XPath>
+			<XPath>FunctionalReference@function="MRN"</XPath>
 			<MinOccurence>1</MinOccurence>
 			<EUCDM/>
 			<GeneralType>MRN</GeneralType>
@@ -26,7 +26,7 @@
 			<Name lang="fi">LRN</Name>
 			<Name lang="sv">LRN</Name>
 			<Name lang="en">LRN</Name>
-			<XPath>FunctionalReference</XPath>
+			<XPath>FunctionalReference@function="LRN"</XPath>
 			<MinOccurence>1</MinOccurence>
 			<EUCDM>2/5</EUCDM>
 			<GeneralType>LRN</GeneralType>
@@ -37,7 +37,7 @@
 			<Name lang="fi">Toissijainen LRN</Name>
 			<Name lang="sv">Ytterligare LRN</Name>
 			<Name lang="en">Additional LRN</Name>
-			<XPath>AdditionalFunctionalReference</XPath>
+			<XPath>FunctionalReference@function="AdditionalLRN"</XPath>
 			<MinOccurence>0</MinOccurence>
 			<GeneralType>LRN</GeneralType>
 			<Format>an..22</Format>
@@ -55,8 +55,8 @@
 		<DataElement>
 			<Name lang="fi">Ilmoitustyyppi</Name>
 			<Name lang="sv">Typ av deklaration</Name>
-			<Name lang="en">Declaration Type</Name>
-			<XPath>DeclarationType</XPath>
+			<Name lang="en">Declaration type</Name>
+			<XPath>Type@function="DeclarationType"</XPath>
 			<MinOccurence>1</MinOccurence>
 			<EUCDM>1/1</EUCDM>
 			<GeneralType>AlfaString</GeneralType>
@@ -66,12 +66,13 @@
 		<DataElement>
 			<Name lang="fi">Lisäilmoitustyyppi</Name>
 			<Name lang="sv">Typ av tilläggsdeklaration</Name>
-			<Name lang="en">Declaration Type</Name>
-			<XPath>DeclarationType</XPath>
+			<Name lang="en">Additional declaration type</Name>
+			<XPath>Type@function="AdditionalDeclarationType"</XPath>
 			<MinOccurence>1</MinOccurence>
 			<EUCDM>1/2</EUCDM>
 			<GeneralType>AlfaString</GeneralType>
 			<Codelist>CL024</Codelist>
+			<Rule>NR1313</Rule>
 			<Format>a1</Format>
 		</DataElement>
 		<DataElement>
@@ -156,6 +157,7 @@
 				<MinOccurence>1</MinOccurence>
 				<EUCDM>3/39</EUCDM>
 				<GeneralType>TIN</GeneralType>
+				<Rule>NR0001</Rule>
 				<Rule>NR0025</Rule>
 				<Format>an..17</Format>
 			</DataElement>
@@ -168,7 +170,6 @@
 				<EUCDM>3/39</EUCDM>
 				<GeneralType>String</GeneralType>
 				<Codelist>CL605</Codelist>
-				<Rule>NR0001</Rule>
 				<Rule>NR0028</Rule>
 				<Rule>NR0029</Rule>
 				<Format>an..4</Format>
@@ -564,7 +565,6 @@
 					<GeneralType>String</GeneralType>
 					<Codelist>CL099</Codelist>
 					<Rule>NR0023</Rule>
-					<Rule>NR0023_b</Rule>
 					<Rule>NR0024</Rule>
 					<Format>a1</Format>
 				</DataElement>
@@ -634,16 +634,6 @@
 						<Condition>NC0014</Condition>
 						<Format>an..35</Format>
 					</DataElement>
-					<DataElement>
-						<Name lang="fi">Lisätunniste</Name>
-						<Name lang="sv">Tilläggskod</Name>
-						<Name lang="en">Additional identifier</Name>
-						<XPath>Identification</XPath>
-						<MinOccurence>1</MinOccurence>
-						<EUCDM>5/23</EUCDM>
-						<GeneralType>String</GeneralType>
-						<Format>n..3</Format>
-					</DataElement>
 					<DataGroup>
 						<Name lang="fi">Sijaintipaikan osoite</Name>
 						<Name lang="sv">Platsens adress</Name>
@@ -705,6 +695,7 @@
 							<EUCDM>5/23</EUCDM>
 							<GeneralType>CountryCode</GeneralType>
 							<Codelist>CL008</Codelist>
+							<Rule>NR0019</Rule>
 							<Format>a2</Format>
 						</DataElement>
 					</DataGroup>
@@ -867,7 +858,6 @@
 					<MinOccurence>1</MinOccurence>
 					<EUCDM>8/6</EUCDM>
 					<GeneralType>Decimal</GeneralType>
-					<Condition>C0028</Condition>
 					<Format>n..16,2</Format>
 				</DataElement>
 				<DataGroup>
@@ -936,6 +926,9 @@
 							<EUCDM>1/11</EUCDM>
 							<GeneralType>String</GeneralType>
 							<Codelist>CL102</Codelist>
+							<Rule>NR0005</Rule>
+							<Rule>NR0006</Rule>
+							<Rule>NR0007</Rule>
 							<Format>an3</Format>
 						</DataElement>
 					</DataGroup>
@@ -995,6 +988,7 @@
 						<XPath>Classification</XPath>
 						<MinOccurence>1</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
+						<Rule>NR0501</Rule>
 						<DataElement>
 							<Name lang="fi">Tavaran koodi – yhdistetyn nimikkeistön koodi</Name>
 							<Name lang="sv">Varukod – KN-nummer</Name>
@@ -1025,6 +1019,7 @@
 						<XPath>Classification</XPath>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
+						<Rule>NR0501</Rule>
 						<DataElement>
 							<Name lang="fi">Tavaran koodi – Taric-koodi</Name>
 							<Name lang="sv">Varukod – Taric-nummer</Name>
@@ -1125,12 +1120,32 @@
 						</DataElement>
 						<DataElement>
 							<Name lang="fi">Lisäpaljousyksiköt</Name>
-							<Name lang="sv">Bruttomassa</Name>
+							<Name lang="sv">Extra mängdenheter</Name>
 							<Name lang="en">Supplementary units</Name>
 							<XPath>Tariff</XPath>
 							<MinOccurence>0</MinOccurence>
 							<EUCDM>6/2</EUCDM>
 							<GeneralType>Decimal</GeneralType>
+							<Format>n..16,6</Format>
+							<DescriptionLine lang="en">When indicating a measurement required by Taric, no unit is declared.</DescriptionLine>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Toimijan ilmoittama paljous</Name>
+							<Name lang="sv">Mängd som anges av aktören</Name>
+							<Name lang="en">Measurement declared by trader</Name>
+							<XPath>Tariff</XPath>
+							<MinOccurence>0</MinOccurence>
+							<GeneralType>Decimal</GeneralType>
+							<Format>n..16,6</Format>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Toimijan ilmoittama paljous, paljousyksikkö</Name>
+							<Name lang="sv">Mängd som anges av aktören, mängdenhet</Name>
+							<Name lang="en">Measurement declared by trader, measurement unit</Name>
+							<XPath>Tariff@unit</XPath>
+							<MinOccurence>0</MinOccurence>
+							<GeneralType>Decimal</GeneralType>
+							<Condition>NC0030</Condition>
 							<Format>n..16,6</Format>
 						</DataElement>
 					</DataGroup>
@@ -1185,6 +1200,7 @@
 					<XPath>Origin</XPath>
 					<MinOccurence>1</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
+					<Condition>NC0030</Condition>
 					<DataElement>
 						<Name lang="fi">Alkuperämaan koodi</Name>
 						<Name lang="sv">Kod för ursprungsland</Name>
@@ -1192,6 +1208,37 @@
 						<XPath>Country</XPath>
 						<MinOccurence>1</MinOccurence>
 						<EUCDM>5/15</EUCDM>
+						<GeneralType>CountryCode</GeneralType>
+						<Codelist>CL008</Codelist>
+						<Format>an2</Format>
+					</DataElement>
+					<DataElement>
+						<Name lang="fi">Alkuperämaan tyyppi</Name>
+						<Name lang="sv">Ursprungslandstyp</Name>
+						<Name lang="en">Origin country type</Name>
+						<XPath>Type</XPath>
+						<MinOccurence>1</MinOccurence>
+						<EUCDM>5/15</EUCDM>
+						<GeneralType>String</GeneralType>
+						<Codelist>NCL996</Codelist>
+						<Format>an..3</Format>
+					</DataElement>
+				</DataGroup>
+				<DataGroup>
+					<Name lang="fi">Etuuskohtelun oikeuttava alkuperämaa</Name>
+					<Name lang="sv">Förmånsursprungsland</Name>
+					<Name lang="en">Country of preferential origin</Name>
+					<XPath>Origin</XPath>
+					<MinOccurence>1</MinOccurence>
+					<MaxOccurence>1</MaxOccurence>
+					<Condition>NC0030</Condition>
+					<DataElement>
+						<Name lang="fi">Etuuskohteluun oikeuttavan alkuperämaan koodi</Name>
+						<Name lang="sv">Kod för förmånsursprungsland</Name>
+						<Name lang="en">Country of preferential origin code</Name>
+						<XPath>Country</XPath>
+						<MinOccurence>1</MinOccurence>
+						<EUCDM>5/16</EUCDM>
 						<GeneralType>CountryCode</GeneralType>
 						<Codelist>CL008</Codelist>
 						<Format>an2</Format>
@@ -1287,6 +1334,7 @@
 					<Rule>NR0010</Rule>
 					<Rule>NR0022</Rule>
 					<Condition>NC0018</Condition>
+					<Condition>NC0022</Condition>
 					<DescriptionLine lang="en">Enter previous document. Most often entry summary declaration, summary declaration or T1-transit declaration is used. If the country of dispatch is Norway and there is no previous procedure, previous document is not declared. If previous declaration is submitted to Finnish Customs UTU system, enter MRN of that declaration.</DescriptionLine>
 					<DataElement>
 						<Name lang="fi">Tavaraerän tunniste</Name>
