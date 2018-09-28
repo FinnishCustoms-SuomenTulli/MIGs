@@ -4,6 +4,45 @@
 	<xsl:variable name="language">fi</xsl:variable>
 	<xsl:template match="/">
 		<div class="panel panel-primary">
+			<div class="panel-heading" role="tab" id="heading-intro">
+				<h2 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="intro">
+						<xsl:choose>
+							<xsl:when test="$language='fi'">Yleistä</xsl:when>
+							<xsl:when test="$language='sv'">Allmän information</xsl:when>
+							<xsl:when test="$language='en'">General information</xsl:when>
+						</xsl:choose>
+					</a>
+				</h2>
+			</div>
+			<div id="intro" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-intro">
+				<div class="panel-body">
+					<article>
+						<div class="content-area">
+							<xsl:for-each select="MessageExchange/Intro/TextLine[@lang=($language)] | MessageExchange/Intro/List">
+								<xsl:choose>
+									<xsl:when test="local-name()='List'">
+										<ul>
+											<xsl:for-each select="ListItem[@lang=($language)]">
+												<li>
+													<xsl:value-of select="."/>
+												</li>
+											</xsl:for-each>
+										</ul>
+									</xsl:when>
+									<xsl:otherwise>
+										<p>
+											<xsl:value-of select="."/>
+										</p>
+									</xsl:otherwise>
+								</xsl:choose>
+							</xsl:for-each>
+						</div>
+					</article>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-primary">
 			<div class="panel-heading" role="tab" id="heading-messages">
 				<h2 class="panel-title">
 					<a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="messages">
@@ -72,8 +111,20 @@
 				<div class="panel-body">
 					<article>
 						<div class="content-area">
+							<ul>
+								<xsl:for-each select="MessageExchange/UseCases/UseCase">
+									<li>
+										<a>
+											<xsl:attribute name="href"><xsl:value-of select="concat('#CASE', position())"/></xsl:attribute>
+									CASE <xsl:number value="position()"/>: <xsl:value-of select="Name"/>
+										</a>
+									</li>
+								</xsl:for-each>
+							</ul>
 							<xsl:for-each select="MessageExchange/UseCases/UseCase">
-								<h3>CASE <xsl:number value="position()"/>: <xsl:value-of select="Name"/>
+								<h3>
+									<xsl:attribute name="id"><xsl:value-of select="concat('CASE', position())"/></xsl:attribute>
+								CASE <xsl:number value="position()"/>: <xsl:value-of select="Name"/>
 								</h3>
 								<table class="table table-striped table-responsive">
 									<xsl:choose>
