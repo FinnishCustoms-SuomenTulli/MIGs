@@ -13,10 +13,10 @@ var uml = joint.shapes.uml;
 var classes = {
 
     importoperation: new uml.Class({
-        position: { x: $('#paper').width()/2-135 , y: 10 },
-        size: { width: 270, height: 166 },
-        name: 'Import operation',
-        attributes: ['MRN', 'LRN', 'Additional LRN', 'Message identification', 'Declaration type', 'Additional declaration type', 'Estimated presentation of goods date and time', 'Total gross mass', 'Total packages', 'Language code'],
+        position: { x: $('#paper').width()/2-120 , y: 10 },
+        size: { width: 240, height: 166 },
+        name: 'Tuontitapahtuma',
+        attributes: ['MRN', 'LRN', 'Toissijainen LRN', 'Sanoman tunniste', 'Ilmoitustyyppi', 'Lis\xE4ilmoitustyyppi', 'Tavaroiden arvioitu esitt\xE4misp\xE4iv\xE4 ja -aika', 'Kokonaisbruttomassa', 'Pakkausten kokonaism\xE4\xE4r\xE4', 'Kielikoodi'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -39,10 +39,10 @@ var classes = {
     }),
 
     goodsshipment: new uml.Class({
-        position: { x: $('#paper').width()/2-100 , y: 440 },
-        size: { width: 200, height: 75 },
-        name: 'Goods shipment',
-        attributes: ['Reference number/UCR', 'Country of dispatch/export', 'Country of destination',],
+        position: { x: $('#paper').width()/2-70 , y: 440 },
+        size: { width: 140, height: 75 },
+        name: 'Tavaral\xE4hetys',
+        attributes: ['Viitenumero/UCR', 'L\xE4hetys-/vientimaa', 'M\xE4\xE4r\xE4maa'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -65,10 +65,10 @@ var classes = {
     }),
 
     consignment: new uml.Class({
-        position: { x: $('#paper').width()*0.725-80 , y: 450 },
-        size: { width: 160, height: 49 },
-        name: 'Consignment',
-        attributes: ['Container'],
+        position: { x: $('#paper').width()*0.725-50 , y: 450 },
+        size: { width: 100, height: 49 },
+        name: 'L\xE4hetyser\xE4',
+        attributes: ['Kontti'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -91,10 +91,12 @@ var classes = {
     }),
 
     goodsitem: new uml.Class({
-        position: { x: $('#paper').width()/2-140 , y: 720 },
-        size: { width: 280, height: 190 },
-        name: 'Goods item',
-        attributes: ['Goods item number','Statistical value','Reference number/UCR','Requested procedure code','Previous procedure code','Description of goods','CUS code','Commodity code - Combined nomenclature code','Commodity code - TARIC code','Gross mass','Supplementary units','Country of origin'],
+        position: { x: $('#paper').width()/2-130 , y: 681 },
+        size: { width: 260, height: 229 },
+        name: 'Tavaraer\xE4',
+        attributes: ['Tavaraer\xE4n numero', 'Tilastoarvo', 'Viitenumero/UCR', 'Pyydetty menettelykoodi', 'Edelt\xE4v\xE4 menettelykoodi', 'Tavaran kuvaus',
+					 'CUS-koodi', 'Tavaran koodi - yhdistetyn nimikkeist\xF6n koodi', 'Tavaran koodi - Taric-koodi', 'Bruttomassa', 'Lis\xE4paljousyksik\xF6t',
+					 'Toimijan ilmoittama paljous', 'Toimijan ilmoittama paljous, paljousyksikk\xF6', 'Alkuper\xE4maa', 'Etuuskohteluun oikeuttava alkuper\xE4maa'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -118,9 +120,9 @@ var classes = {
 
     additionalprocedure: new uml.Class({
         position: { x: 10 , y: 695 },
-        size: { width: 156, height: 49 },
-        name: 'Additional procedure',
-        attributes: ['Additional procedure code'],
+        size: { width: 130, height: 49 },
+        name: 'Lis\xE4menettely',
+        attributes: ['Lis\xE4menettelykoodi'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -144,9 +146,9 @@ var classes = {
 
     taricadditional: new uml.Class({
         position: { x: 10 , y: 782 },
-        size: { width: 250, height: 49 },
-        name: 'Commodity code - TARIC additional code(s)',
-        attributes: ['Commodity code - TARIC additional code'],
+        size: { width: 220, height: 49 },
+        name: 'Tavaran koodi - Taric-lis\xE4koodi(t)',
+        attributes: ['Tavaran koodi - Taric-lis\xE4koodi'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -170,9 +172,9 @@ var classes = {
 
     nationaladditional: new uml.Class({
         position: { x: 10 , y: 861 },
-        size: { width: 260, height: 49 },
-        name: 'Commodity code - National additional code(s)',
-        attributes: ['Commodity code - National additional code'],
+        size: { width: 240, height: 49 },
+        name: 'Tavaran koodi - kansalliset lis\xE4koodit',
+        attributes: ['Tavaran koodi - kansallinen lis\xE4koodi'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -197,8 +199,8 @@ var classes = {
     packages: new uml.Class({
         position: { x: $('#paper').width()*0.75-65 , y: 835 },
         size: { width: 130, height: 75 },
-        name: 'Packaging',
-        attributes: ['Shipping marks', 'Number of packages', 'Type of packages'],
+        name: 'Pakkaukset',
+        attributes: ['L\xE4hetysmerkinn\xE4t', 'Kolliluku', 'Kollien laji'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -222,9 +224,9 @@ var classes = {
 
     authorisationholder: new uml.Class({
         position: { x: 10 , y: 10 },
-        size: { width: 250, height: 62 },
-        name: 'Holder of the authorisation',
-        attributes: ['Holder of the authorisation identification no.','Authorisation type code'],
+        size: { width: 170, height: 62 },
+        name: 'Luvanhaltija',
+        attributes: ['Luvanhaltijan tunnistenumero','Luvan tyyppi'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -249,8 +251,9 @@ var classes = {
     representative: new uml.Class({
         position: { x: 10 , y: 82 },
         size: { width: 200, height: 140 },
-        name: 'Representative',
-        attributes: ['Representative status code','Representative identification no.','Representative office code','Representative name','Representative street and number','Representative city','Representative postcode','Representative country'],
+        name: 'Edustaja',
+        attributes: ['Edustajan asemaa koskeva koodi', 'Edustajan tunnistenumero', 'Edustajan toimipaikkakoodi', 'Edustajan nimi',
+					 'Edustajan katuosoite', 'Edustajan postitoimipaikka', 'Edustajan postinumero', 'Edustajan maa'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -275,8 +278,9 @@ var classes = {
     declarant: new uml.Class({
         position: { x: $('#paper').width()-150 , y: 25 },
         size: { width: 170, height: 127 },
-        name: 'Declarant',
-        attributes: ['Declarant identification no.','Declarant office code','Declarant name','Declarant street and number','Declarant city','Declarant postcode','Declarant country'],
+        name: 'Ilmoittaja',
+        attributes: ['Ilmoittajan tunnistenumero', 'Ilmoittajan toimipaikkakoodi', 'Ilmoittajan nimi', 'Ilmoittajan katuosoite',
+					 'Ilmoittajan postitoimipaikka', 'Ilmoittajan postinumero', 'Ilmoittajan maa'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -299,10 +303,10 @@ var classes = {
     }),
 
     submitter: new uml.Class({
-        position: { x: $('#paper').width()-150 , y: 165 },
-        size: { width: 170, height: 75 },
-        name: 'Submitter',
-        attributes: ['Submitter name', 'Submitter e-mail address', 'Submitter telephone number'],
+        position: { x: $('#paper').width()-190 , y: 165 },
+        size: { width: 210, height: 75 },
+        name: 'Ilmoituksen antaja',
+        attributes: ['Ilmoituksen antajan nimi', 'Ilmoituksen antajan s\xE4hk\xF6postiosoite', 'Ilmoituksen antajan puhelinnumero'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -327,8 +331,9 @@ var classes = {
     consignee: new uml.Class({
         position: { x: $('#paper').width()*0.25-20 , y: 405 },
         size: { width: 176, height: 127 },
-        name: 'Consignee',
-        attributes: ['Consignee identification no.','Consignee office code','Consignee name','Consignee street and number','Consignee city','Consignee postcode','Consignee country'],
+        name: 'Tuoja',
+        attributes: ['Tuojan tunnistenumero', 'Tuojan toimipaikkakoodi', 'Tuojan nimi', 'Tuojan katuosoite',
+					 'Tuojan postitoimipaikka', 'Tuojan postinumero', 'Tuojan maa'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -351,10 +356,10 @@ var classes = {
     }),
 
     additionaldocument: new uml.Class({
-        position: { x: 10 , y: 330 },
-        size: { width: 160, height: 75 },
-        name: 'Documents produced, ...',
-        attributes: ['Document type','Document identifier','Attachment reference'],
+        position: { x: 10 , y: 350 },
+        size: { width: 140, height: 75 },
+        name: 'Esitetyt asiakirjat, ...',
+        attributes: ['Asiakirjatyyppi','Asiakirjatunniste','Liitteen viite'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -379,8 +384,8 @@ var classes = {
     previousdocument: new uml.Class({
         position: { x: $('#paper').width()*0.625-85 , y: 550 },
         size: { width: 170, height: 75 },
-        name: 'Simplified declaration...',
-        attributes: ['Goods item identifier', 'Previous document type', 'Previous document reference'],
+        name: 'Yksinkertaistettu ilmoitus...',
+        attributes: ['Tavaraer\xE4n tunniste', 'Edelt\xE4v\xE4 asiakirjatyyppi', 'Edelt\xE4v\xE4n asiakirjan viite'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -404,9 +409,9 @@ var classes = {
 
     additionalinformation: new uml.Class({
         position: { x: 10 , y: 465 },
-        size: { width: 195, height: 62 },
-        name: 'Additional information',
-        attributes: ['Additional information type','Additional information description'],
+        size: { width: 120, height: 62 },
+        name: 'Lis\xE4tiedot',
+        attributes: ['Lis\xE4tietokoodi','Lis\xE4tiedon kuvaus'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -431,8 +436,8 @@ var classes = {
     transportequipment: new uml.Class({
         position: { x: $('#paper').width()*0.75-90 , y: 740 },
         size: { width: 180, height: 49 },
-        name: 'Transport equipment',
-        attributes: ['Container identification number'],
+        name: 'Kuljetusv\xE4lineet',
+        attributes: ['Kontin tunnistenumero'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -455,10 +460,11 @@ var classes = {
     }),
 
     goodslocation: new uml.Class({
-        position: { x: $('#paper').width()*0.825-80 , y: 580 },
-        size: { width: 160, height: 140 },
-        name: 'Location of goods',
-        attributes: ['Type of location', 'Qualifier of the location', 'Identification of location', 'Additional identifier', 'Location street and number', 'Location city', 'Location postcode', 'Location country'],
+        position: { x: $('#paper').width()*0.825-85 , y: 580 },
+        size: { width: 170, height: 140 },
+        name: 'Tavaran sijantipaikka',
+        attributes: ['Sijaintipaikan tyyppi', 'Tunnisteen tarkenne', 'Sijaintipaikan tunniste', 'Sijaintipaikan katuosoite',
+					 'Sijaintipaikan postitoimipaikka', 'Sijaintipaikan postinumero', 'Sijaintipaikan maa'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -481,10 +487,10 @@ var classes = {
     }),
 
     warehouse: new uml.Class({
-        position: { x: $('#paper').width()*0.375-80 , y: 290 },
-        size: { width: 160, height: 62 },
-        name: 'Identification of warehouse',
-        attributes: ['Warehouse identifier', 'Warehouse type'],
+        position: { x: $('#paper').width()*0.375-75 , y: 290 },
+        size: { width: 150, height: 62 },
+        name: 'Varaston tunnistetiedot',
+        attributes: ['Varaston tunniste', 'Varaston tyyppi'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -509,8 +515,8 @@ var classes = {
     notification: new uml.Class({
         position: { x: $('#paper').width()-130 , y: 380 },
         size: { width: 150, height: 88 },
-        name: 'Notification',
-        attributes: ['Notification type', 'Notification date and time', 'Notification description', 'Document link'],
+        name: 'Ilmoitus',
+        attributes: ['Ilmoituksen tyyppi', 'Ilmoituksen p\xE4iv\xE4ys ja aika', 'Ilmoituksen kuvaus', 'Asiakirjalinkki'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -534,9 +540,9 @@ var classes = {
 
     amendment: new uml.Class({
         position: { x: $('#paper').width()*0.5+10 , y: 370 },
-        size: { width: 190, height: 49 },
-        name: 'Amendment',
-        attributes: ['Amendment date and time', 'Reason for amendment request'],
+        size: { width: 160, height: 49 },
+        name: 'Korjaus',
+        attributes: ['Korjauksen p\xE4iv\xE4ys ja aika', 'Korjauspyynn\xF6n syy'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -561,8 +567,8 @@ var classes = {
     invalidation: new uml.Class({
         position: { x: 10 , y: 235 },
         size: { width: 200, height: 75 },
-        name: 'Invalidation',
-        attributes: ['Invalidation request date and time', 'Reason for invalidation request', 'Document link'],
+        name: 'Mit\xE4t\xF6inti',
+        attributes: ['Mit\xE4t\xF6intipyynn\xF6n p\xE4iv\xE4ys ja aika', 'Mit\xE4t\xF6intipyynn\xF6n syy', 'Asiakirjalinkki'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -587,8 +593,8 @@ var classes = {
 	decision: new uml.Class({
         position: { x: $('#paper').width()-130 , y: 600 },
         size: { width: 150, height: 49 },
-        name: 'Decision',
-        attributes: ['Decision date and time'],
+        name: 'P\xE4\xE4t\xF6s',
+        attributes: ['P\xE4\xE4t\xF6ksen p\xE4iv\xE4ys ja aika'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -611,10 +617,10 @@ var classes = {
     }),
 
 	note: new uml.Class({
-        position: { x: $('#paper').width()-60 , y: 690 },
-        size: { width: 80, height: 62 },
-        name: 'Note',
-        attributes: ['Note type', 'Note text'],
+        position: { x: $('#paper').width()-110 , y: 690 },
+        size: { width: 130, height: 62 },
+        name: 'Huomautus',
+        attributes: ['Huomautuksen tyyppi', 'Huomautuksen teksti'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -638,9 +644,9 @@ var classes = {
 
 	error: new uml.Class({
         position: { x: $('#paper').width()*0.7 , y: 315 },
-        size: { width: 136, height: 88 },
-        name: 'Error',
-        attributes: ['Error code', 'Error reason', 'Error pointer', 'Original attribute value'],
+        size: { width: 146, height: 88 },
+        name: 'Virhe',
+        attributes: ['Virhekoodi', 'Virhesyy', 'Virheosoitin', 'Tiedon alkuper\xE4inen arvo'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -663,10 +669,10 @@ var classes = {
     }),
 
 	control: new uml.Class({
-        position: { x: $('#paper').width()-310 , y: 200 },
-        size: { width: 96, height: 75 },
-        name: 'Control',
-        attributes: ['Control type', 'Control location', 'Contact'],
+        position: { x: $('#paper').width()-330 , y: 200 },
+        size: { width: 116, height: 75 },
+        name: 'Tarkastus',
+        attributes: ['Tarkastustyyppi', 'Tarkastuksen sijainti', 'Kontakti'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -689,10 +695,10 @@ var classes = {
     }),
 
 	contactinfo: new uml.Class({
-        position: { x: $('#paper').width()-130 , y: 270 },
-        size: { width: 150, height: 75 },
-        name: 'Contact information',
-        attributes: ['Name', 'E-mail address', 'Telephone number'],
+        position: { x: $('#paper').width()-90 , y: 270 },
+        size: { width: 110, height: 75 },
+        name: 'Yhteystiedot',
+        attributes: ['Nimi', 'S\xE4hk\xF6postiosoite', 'Puhelinnumero'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -716,9 +722,9 @@ var classes = {
 
 	providedinfo: new uml.Class({
         position: { x: $('#paper').width()-230 , y: 510 },
-        size: { width: 140, height: 62 },
-        name: 'Provided information',
-        attributes: ['Description', 'Dcoument link'],
+        size: { width: 100, height: 62 },
+        name: 'Toimitettu tieto',
+        attributes: ['Kuvaus', 'Asiakirjalinkki'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',

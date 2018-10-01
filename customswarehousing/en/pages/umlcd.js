@@ -42,7 +42,7 @@ var classes = {
         position: { x: $('#paper').width()/2-100 , y: 440 },
         size: { width: 200, height: 75 },
         name: 'Goods shipment',
-        attributes: ['Reference number/UCR', 'Country of dispatch/export', 'Country of destination',],
+        attributes: ['Reference number/UCR', 'Country of dispatch/export', 'Country of destination'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -91,10 +91,13 @@ var classes = {
     }),
 
     goodsitem: new uml.Class({
-        position: { x: $('#paper').width()/2-140 , y: 720 },
-        size: { width: 280, height: 190 },
+        position: { x: $('#paper').width()/2-143 , y: 681 },
+        size: { width: 286, height: 229 },
         name: 'Goods item',
-        attributes: ['Goods item number','Statistical value','Reference number/UCR','Requested procedure code','Previous procedure code','Description of goods','CUS code','Commodity code - Combined nomenclature code','Commodity code - TARIC code','Gross mass','Supplementary units','Country of origin'],
+        attributes: ['Goods item number', 'Statistical value', 'Reference number/UCR', 'Requested procedure code', 'Previous procedure code',
+					 'Description of goods', 'CUS code', 'Commodity code - Combined nomenclature code', 'Commodity code - TARIC code',
+					 'Gross mass', 'Supplementary units', 'Measurement declared by trader', 'Measurement declared by trader, measurement unit',
+					 'Country of origin', 'Country of preferential origin'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -456,9 +459,10 @@ var classes = {
 
     goodslocation: new uml.Class({
         position: { x: $('#paper').width()*0.825-80 , y: 580 },
-        size: { width: 160, height: 140 },
+        size: { width: 160, height: 127 },
         name: 'Location of goods',
-        attributes: ['Type of location', 'Qualifier of the location', 'Identification of location', 'Additional identifier', 'Location street and number', 'Location city', 'Location postcode', 'Location country'],
+        attributes: ['Type of location', 'Qualifier of the location', 'Identification of location', 'Location street and number',
+					 'Location city', 'Location postcode', 'Location country'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -718,7 +722,7 @@ var classes = {
         position: { x: $('#paper').width()-230 , y: 510 },
         size: { width: 140, height: 62 },
         name: 'Provided information',
-        attributes: ['Description', 'Dcoument link'],
+        attributes: ['Description', 'Document link'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
