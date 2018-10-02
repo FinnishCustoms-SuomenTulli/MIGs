@@ -30,6 +30,9 @@
 			<MinOccurence>1</MinOccurence>
 			<GeneralType>LRN</GeneralType>
 			<Format>an..22</Format>
+			<DescriptionLine lang="fi">Ilmoittajan oma viitenumero, joka yksilöi tulli-ilmoituksen, esim. varastoonpanon numero tai keikkaviite.</DescriptionLine>
+			<DescriptionLine lang="sv">Deklarantens eget referensnummer som specificerar tulldeklarationen, t.ex. uppläggningsnummer eller ärendereferens.</DescriptionLine>
+			<DescriptionLine lang="en">Declarant's reference number which specifies the customs declaration, e.g. warehouse deposit number or case reference.</DescriptionLine>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">Toissijainen LRN</Name>
@@ -48,6 +51,9 @@
 			<MinOccurence>1</MinOccurence>
 			<GeneralType>MessageIdentification</GeneralType>
 			<Format>an..14</Format>
+			<DescriptionLine lang="fi">Yksittäisen sanoman tunniste. Tullin antamat viisi merkkiä, jonka jälkeen sanoman lähettäjän antama viitenumero.</DescriptionLine>
+			<DescriptionLine lang="sv">ID för enskilt meddelande. Fem tecken som tilldelats av Tullen vilket åtföljs av ett referensnummer som tilldelats av meddelandets avsändare.</DescriptionLine>
+			<DescriptionLine lang="en">Identification of a single message. A five-character string assigned by Customs is followed by a reference number assigned by the message sender.</DescriptionLine>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">Kokonaisbruttomassa</Name>
@@ -58,6 +64,9 @@
 			<EUCDM>6/5</EUCDM>
 			<GeneralType>Decimal</GeneralType>
 			<Format>n..16,6</Format>
+			<DescriptionLine lang="fi">Ilmoita bruttopaino kiloina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuunottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kg:n bruttopaino esimerkiksi muodossa "0,654", kuitenkin maksimissaan 6 desimaaliin asti. Yli kilon  painon voit pyöristää lähimpään kiloon pyöristyssääntöjen mukaisesti.</DescriptionLine>
+			<DescriptionLine lang="sv">Ange bruttovikt i kilogram. Bruttovikten omfattar varans vikt (kg) med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kg anges i formen "0,654", dock högst med 6 decimaler. Bruttovikter över 1 kg kan avrundas till närmaste kilo enligt normala avrundningsregler.</DescriptionLine>
+			<DescriptionLine lang="en">Enter the total gross mass in kilograms. The gross mass includes the  goods and packaging, but not the means of transport or containers.  If the gross mass is below 1 kilogram, enter the value with three decimals, e.g. "0,654" up to maximum of 6 digits. If the gross mass exceeds 1 kg, you can enter the value grounded to the closest full kilogram.</DescriptionLine>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">Kielikoodi</Name>
@@ -68,6 +77,9 @@
 			<GeneralType>LanguageCode</GeneralType>
 			<Codelist>CL012</Codelist>
 			<Format>a2</Format>
+			<DescriptionLine lang="fi">Valitse kieli, jolla haluat tätä ilmoitusta koskevat vastaussanomat ja päätökset.</DescriptionLine>
+			<DescriptionLine lang="sv">Välj det språk på vilket du vill få svarsmeddelanden och beslut som hänför sig till deklarationen.</DescriptionLine>
+			<DescriptionLine lang="en">Choose in which language you prefer to have response messages and decisions. </DescriptionLine>
 		</DataElement>
 		<DataGroup>
 			<Name lang="fi">Korjaus</Name>
@@ -127,7 +139,9 @@
 				<Rule>NR0028</Rule>
 				<Rule>NR0029</Rule>
 				<Format>an..4</Format>
-				<DescriptionLine lang="en">Enter the type of authorisation that the holder is linked to (authorisation data is entered in data group 'Documents produced, certificates and authorisations, additional references').</DescriptionLine>
+				<DescriptionLine lang="fi">Ilmoita luvan tyyppi (lupatiedot ilmoitetaan tietokentässä 'Esitetyt asiakirjat, todistukset ja luvat, lisäviitteet'). Sekä EIR että tullivarastoinnin lupa tulee ilmoittaa. </DescriptionLine>
+				<DescriptionLine lang="sv">Ange typ av tillstånd (tillståndsuppgifter anges i datafältet 'Framlagda dokument, certifikat och tillstånd, ytterligare referensuppgifter'). Både EIR och tullagertillstånd ska anges. </DescriptionLine>
+				<DescriptionLine lang="en">Enter the type of authorisation that the holder is linked to (authorisation data is entered in data group 'Documents produced, certificates and authorisations, additional references'). Both EIR and Customs warehouse authorisation must be entered.</DescriptionLine>
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
@@ -137,6 +151,9 @@
 			<XPath>Agent</XPath>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
+			<DescriptionLine lang="fi">Jos ilmoittaja on valtuuttanut sinut antamaan ilmoituksen puolestaan edustajana, tieto on pakollinen. Jos edustajaa ei käytetä, tietoa ei ilmoiteta.</DescriptionLine>
+			<DescriptionLine lang="sv">Om deklaranten har befullmäktigat dig att inge deklarationen som sitt ombud, är det obligatoriskt att ange denna uppgift. Om ombud inte används, anges inte denna uppgift.</DescriptionLine>
+			<DescriptionLine lang="en">If the declarant has authorised you to lodge the declaration as a representative, this data is required.  If there is no representative, no data is entered. </DescriptionLine>
 			<DataElement>
 				<Name lang="fi">Edustajan asemaa koskeva koodi</Name>
 				<Name lang="sv">Kod för ombudets status</Name>
@@ -161,6 +178,9 @@
 				<Rule>NR0035</Rule>
 				<Rule>NR0036</Rule>
 				<Format>an..17</Format>
+				<DescriptionLine lang="fi">EORI ID</DescriptionLine>
+				<DescriptionLine lang="sv">EORI-nummer</DescriptionLine>
+				<DescriptionLine lang="en">EORI ID</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Edustajan toimipaikkakoodi</Name>
@@ -170,6 +190,9 @@
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>TraderOfficeCode</GeneralType>
 				<Format>n..3</Format>
+				<DescriptionLine lang="fi">Ilmoita edustajan toimipisteen kansallinen tunniste, jos edustajalla on sellainen.</DescriptionLine>
+				<DescriptionLine lang="sv">Ange det nationella identifieringsnumret för ombudets verksamhetsställe, om ombudet har ett sådant nummer.</DescriptionLine>
+				<DescriptionLine lang="en">Enter nationally allocated trader office code, if representative has one.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Edustajan nimi</Name>
@@ -252,6 +275,9 @@
 				<Rule>NR0035</Rule>
 				<Rule>NR0036</Rule>
 				<Format>an..17</Format>
+				<DescriptionLine lang="fi">Ilmoita tavarat esittävän EIR luvanhaltijan/ilmoittajan EORI.</DescriptionLine>
+				<DescriptionLine lang="sv">Ange EORI-numret för den EIR-tillståndshavare/deklarant som anmäler varornas ankomst.</DescriptionLine>
+				<DescriptionLine lang="en">Enter the EORI ID of the EIR authorised declarant presenting goods. </DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Ilmoittajan toimipaikkakoodi</Name>
@@ -261,6 +287,9 @@
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>TraderOfficeCode</GeneralType>
 				<Format>n..3</Format>
+				<DescriptionLine lang="fi">Ilmoita toimipisteen kansallinen tunniste.</DescriptionLine>
+				<DescriptionLine lang="sv">Ange det nationella identifieringsnumret för verksamhetsstället.</DescriptionLine>
+				<DescriptionLine lang="en">Enter nationally allocated trader office code.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Ilmoittajan nimi</Name>
@@ -339,6 +368,9 @@
 				<MinOccurence>1</MinOccurence>
 				<GeneralType>TraderName</GeneralType>
 				<Format>an..70</Format>
+				<DescriptionLine lang="fi">Ilmoitusta tekevän henkilön nimi</DescriptionLine>
+				<DescriptionLine lang="sv">Namnet på personen som upprättar deklarationen</DescriptionLine>
+				<DescriptionLine lang="en">Name of the person actually filing the declaration</DescriptionLine>
 			</DataElement>
 			<DataGroup>
 				<Name lang="fi">Ilmoituksen antajan sähköposti</Name>
@@ -355,6 +387,9 @@
 					<MinOccurence>1</MinOccurence>
 					<GeneralType>CommunicationIdentification</GeneralType>
 					<Format>an..320</Format>
+					<DescriptionLine lang="fi">Sähköpostiosoite, josta Tulli voi kysyä tarvittessa lisätietoa tästä ilmoituksesta</DescriptionLine>
+					<DescriptionLine lang="sv">E-postadress från vilken Tullen vid behov kan begära ytterligare uppgifter om denna deklaration</DescriptionLine>
+					<DescriptionLine lang="en">Email address for Customs' additional inquiries on this declaration</DescriptionLine>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Ilmoituksen antajan viestintätapa</Name>
@@ -382,6 +417,9 @@
 					<MinOccurence>1</MinOccurence>
 					<GeneralType>CommunicationIdentification</GeneralType>
 					<Format>an..20</Format>
+					<DescriptionLine lang="fi">Numero, josta Tulli voi kysyä tarvittaessa lisätietoa tästä ilmoituksesta</DescriptionLine>
+					<DescriptionLine lang="sv">Telefonnummer från vilken Tullen vid behov kan begära ytterligare uppgifter om denna deklaration</DescriptionLine>
+					<DescriptionLine lang="en">Phone number for Customs' additional inquiries on this declaration</DescriptionLine>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Ilmoituksen antajan viestintätapa</Name>
@@ -402,6 +440,9 @@
 			<XPath>AdditionalDocument</XPath>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>99</MaxOccurence>
+			<DescriptionLine lang="fi">Ilmoita tullivarastoinnin lupanumero sekä EIR-luvan numero. Ilmoita tarvittaessa myös muut asiakirjat.</DescriptionLine>
+			<DescriptionLine lang="sv">Ange tullagertillståndets nummer och EIR-tillståndets nummer. Ange vid behov även andra relevanta dokument.</DescriptionLine>
+			<DescriptionLine lang="en">Enter authorisation for customs warehousing, EIR and other relevant documents.</DescriptionLine>
 			<DataElement>
 				<Name lang="fi">Asiakirjatyyppi</Name>
 				<Name lang="sv">Dokumentets typ</Name>
@@ -494,7 +535,9 @@
 						<EUCDM>7/10</EUCDM>
 						<GeneralType>String</GeneralType>
 						<Format>an..17</Format>
-						<DescriptionLine lang="en">Enter the number(s) of container(s) in accordance with ISO standard 6343, if containers are used. The container number is written together: four letters (if they exist) + six numbers + hyphen + control number. </DescriptionLine>
+						<DescriptionLine lang="fi">Ilmoita merikontin, jalkalavakontin tai puoliperävaunun tunnistenumero(t). </DescriptionLine>
+						<DescriptionLine lang="sv">Ange identifieringsnummer för sjöcontainer, container med stödben eller påhängsvagn. </DescriptionLine>
+						<DescriptionLine lang="en">Enter the number(s) of sea container or semitrailer identification number(s). </DescriptionLine>
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
@@ -513,6 +556,9 @@
 						<EUCDM>5/23</EUCDM>
 						<GeneralType>String</GeneralType>
 						<Format>an..35</Format>
+						<DescriptionLine lang="fi">Ilmoita sen tullivaraston varaston tunniste, jossa tavarat ovat tullin tarkastettavissa. Tunniste on muotoa EORI+3+2 ilman välilyöntejä. </DescriptionLine>
+						<DescriptionLine lang="sv">Ange identifieringsnumret för det tullager där Tullen kan kontrollera varorna. Identifieringsnumret har formen EORI+3+2 utan mellanslag. </DescriptionLine>
+						<DescriptionLine lang="en">Enter the identification number of the customs warehouse where the physical customs control of goods could take place. Form is EORI+3+2 without spaces.</DescriptionLine>
 					</DataElement>
 				</DataGroup>
 			</DataGroup>
@@ -558,6 +604,8 @@
 							<EUCDM>6/5</EUCDM>
 							<GeneralType>Decimal</GeneralType>
 							<Format>n..16,6</Format>
+							<DescriptionLine lang="fi">Ilmoita  bruttopaino kiloina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuunottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kg:n bruttopaino esimerkiksi muodossa "0,654". Yli kilon  painon voit pyöristää lähimpään kiloon pyöristyssääntöjen mukaisesti.</DescriptionLine>
+							<DescriptionLine lang="sv">Ange bruttovikt i kilogram. Bruttovikten omfattar varans vikt (kg) med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kg anges i formen "0,654". Bruttovikter över 1 kg kan avrundas till närmaste kilo enligt normala avrundningsregler.</DescriptionLine>
 							<DescriptionLine lang="en">Enter the gross mass in kilograms. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with up to maximum of 6 decimal places, e.g. "0,654". If the gross mass exceeds 1 kg, you can enter the value rounded to the closest full kilogram.</DescriptionLine>
 						</DataElement>
 					</DataGroup>
@@ -579,7 +627,9 @@
 						<GeneralType>Integer</GeneralType>
 						<Condition>NC0010</Condition>
 						<Format>n..8</Format>
-						<DescriptionLine lang="en">Enter the number of packages. If there are goods from several goods items within the one and same package, enter the value "1" at least in one of the goods items, and value "0" in the other goods items.</DescriptionLine>
+						<DescriptionLine lang="fi">Ilmoita pakkausten lukumäärä. Pakkaamattoman tavaran (bulk) osalta tätä tietoa ei ilmoiteta. Jos samaan pakkaukseen on pakattu enemmän kuin 1 tavaraerä, ilmoita vähintään yhdellä erällä pakkausten lukumääräksi 1. Ilmoita loput samassa pakkauksessa olevat tavaraerät nollana (0).</DescriptionLine>
+						<DescriptionLine lang="sv">Ange antalet förpackningar. För oförpackade varor (bulkvaror) anges inte denna uppgift. Om en förpackning innehåller varor från flera varuposter, ska man för minst en varupost som antal förpackningar ange 1. För övriga varuposter som ingår i samma förpackning ska man ange 0.</DescriptionLine>
+						<DescriptionLine lang="en">Enter the number of packages.  If the declared goods are unpacked (bulk), this element is not used. If there are goods from several goods items within the one and same package, enter the value "1"  at least in one of the goods items, and value "0" in the other goods items. </DescriptionLine>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Kollien laji</Name>
@@ -591,6 +641,9 @@
 						<GeneralType>Integer</GeneralType>
 						<Codelist>CL017</Codelist>
 						<Format>an2</Format>
+						<DescriptionLine lang="fi">Valitse  pakkausten lajia ilmaiseva koodi. Pakkauksella tarkoitetaan yksikköä, jota ei voida jakaa ilman pakkauksen purkamista.</DescriptionLine>
+						<DescriptionLine lang="sv">Välj kod som anger förpackningsslag. Med förpackning avses en enhet som inte kan delas utan att förpackningen först packas upp.</DescriptionLine>
+						<DescriptionLine lang="en">Choose packaging type. Package means unit which can not be devided into several units without unpacking it.</DescriptionLine>
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
@@ -612,6 +665,9 @@
 						<EUCDM>2/1</EUCDM>
 						<GeneralType>Integer</GeneralType>
 						<Format>n..5</Format>
+						<DescriptionLine lang="fi">Ilmoita edeltävän asiakirjan MRN:än liittyvä tavaraerän järjestysnumero. </DescriptionLine>
+						<DescriptionLine lang="sv">Ange det ordningsnummer för varuposten som hänför sig till det tidigare dokumentets MRN. </DescriptionLine>
+						<DescriptionLine lang="en">Enter the goods item number related to the MRN of the previous document.</DescriptionLine>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Edeltävä asiakirjatyyppi</Name>
@@ -623,6 +679,9 @@
 						<GeneralType>String</GeneralType>
 						<Codelist>CL014</Codelist>
 						<Format>an..3</Format>
+						<DescriptionLine lang="fi">Ilmoita edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus.  Jos lähetysmaa on Norja eikä ole edeltävää menettelyä, edeltävää asiakirjaa ei ilmoiteta. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, valitse MRN.</DescriptionLine>
+						<DescriptionLine lang="sv">Ange tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration.  Om avsändningslandet är Norge och det inte finns något föregående förfarande, ska tidigare dokument inte anges. Om den tidigare deklarationen har ingetts till UTU-systemet, välj MRN.</DescriptionLine>
+						<DescriptionLine lang="en">Enter previous document which is most often  entry summary declaration, summary declaration or T1-transit declaration.  If the country of dispatch is Norway and there is no previous procedure, previous document is not declared. If previous declaration is submitted to Finnish Customs UTU system, enter MRN.</DescriptionLine>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Edeltävän asiakirjan viite</Name>
@@ -633,6 +692,9 @@
 						<EUCDM>2/1</EUCDM>
 						<GeneralType>String</GeneralType>
 						<Format>an..35</Format>
+						<DescriptionLine lang="fi">Ilmoita edeltävän asiakirjan (esimerkiksi saapumisen tai passituksen ilmoitus) viitenumero MRN tai muu viite.</DescriptionLine>
+						<DescriptionLine lang="sv">Ange det tidigare dokumentets (t.ex. ankomstanmälans eller transiteringsdeklarationens) MRN-nummer eller annan referens.</DescriptionLine>
+						<DescriptionLine lang="en">Enter previous document (eg. entry or transit declaration) MRN or other reference.</DescriptionLine>
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
@@ -651,7 +713,9 @@
 						<EUCDM>7/10</EUCDM>
 						<GeneralType>String</GeneralType>
 						<Format>an..17</Format>
-						<DescriptionLine lang="en">Enter the number(s) of container(s) in accordance with ISO standard 6343, if containers are used. The container number is written together: four letters (if they exist) + six numbers + hyphen + control number. </DescriptionLine>
+						<DescriptionLine lang="fi">Ilmoita merikontin, jalkalavakontin tai puoliperävaunun tunnistenumero(t). </DescriptionLine>
+						<DescriptionLine lang="sv">Ange identifieringsnummer för sjöcontainer, container med stödben eller påhängsvagn. </DescriptionLine>
+						<DescriptionLine lang="en">Enter the number(s) of sea container or semitrailer identification number(s). </DescriptionLine>
 					</DataElement>
 				</DataGroup>
 			</DataGroup>

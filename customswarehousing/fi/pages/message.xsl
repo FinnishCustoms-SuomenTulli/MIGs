@@ -203,6 +203,10 @@
 									<span class="icon icon-tulli-help"/>Polku</a>
 							</th>
 							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="XML-skeemassa määritetty tietoelementin yleinen tyyppi">
+									<span class="icon icon-tulli-help"/>Yleinen tyyppi</a>
+							</th>
+							<th>
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Soveltuvat koodistot">
 									<span class="icon icon-tulli-help"/>Koodisto</a>
 							</th>
@@ -227,6 +231,10 @@
 							<th>
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Den motsvarande XML-sökvägen i meddelandeskeman">
 									<span class="icon icon-tulli-help"/>Sökväg</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Den allmänna typen som definierats i XML-schemat för dataelementet">
+									<span class="icon icon-tulli-help"/>Allmän typ</a>
 							</th>
 							<th>
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Tillämpade kodförteckningar">

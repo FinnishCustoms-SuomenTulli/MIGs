@@ -19,6 +19,9 @@
 			<MinOccurence>1</MinOccurence>
 			<GeneralType>LRN</GeneralType>
 			<Format>an..22</Format>
+			<DescriptionLine lang="fi">Ilmoittajan oma viitenumero, joka yksilöi tulli-ilmoituksen, esim. varastoonpanon numero tai keikkaviite.</DescriptionLine>
+			<DescriptionLine lang="sv">Deklarantens eget referensnummer som specificerar tulldeklarationen, t.ex. uppläggningsnummer eller ärendereferens.</DescriptionLine>
+			<DescriptionLine lang="en">Declarant's reference number which specifies the customs declaration, e.g. warehouse deposit number or case reference.</DescriptionLine>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">Toissijainen LRN</Name>
@@ -37,6 +40,9 @@
 			<MinOccurence>1</MinOccurence>
 			<GeneralType>MessageIdentification</GeneralType>
 			<Format>an..14</Format>
+			<DescriptionLine lang="fi">Yksittäisen sanoman tunniste. Tullin antamat viisi merkkiä, jonka jälkeen sanoman lähettäjän antama viitenumero.</DescriptionLine>
+			<DescriptionLine lang="sv">ID för enskilt meddelande. Fem tecken som tilldelats av Tullen vilket åtföljs av ett referensnummer som tilldelats av meddelandets avsändare.</DescriptionLine>
+			<DescriptionLine lang="en">Identification of a single message. A five-character string assigned by Customs is followed by a reference number assigned by the message sender.</DescriptionLine>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">Kielikoodi</Name>
@@ -47,6 +53,9 @@
 			<GeneralType>LanguageCode</GeneralType>
 			<Codelist>CL012</Codelist>
 			<Format>a2</Format>
+			<DescriptionLine lang="fi">Valitse kieli, jolla haluat tätä ilmoitusta koskevat vastaussanomat ja päätökset.</DescriptionLine>
+			<DescriptionLine lang="sv">Välj det språk på vilket du vill få svarsmeddelanden och beslut som hänför sig till deklarationen.</DescriptionLine>
+			<DescriptionLine lang="en">Choose in which language you prefer to have response messages and decisions. </DescriptionLine>
 		</DataElement>
 		<DataGroup>
 			<Name lang="fi">Edustaja</Name>
@@ -55,6 +64,9 @@
 			<XPath>Agent</XPath>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
+			<DescriptionLine lang="fi">Jos ilmoittaja on valtuuttanut sinut antamaan ilmoituksen puolestaan edustajana, tieto on pakollinen. Jos edustajaa ei käytetä, tietoa ei ilmoiteta.</DescriptionLine>
+			<DescriptionLine lang="sv">Om deklaranten har befullmäktigat dig att inge deklarationen som sitt ombud, är det obligatoriskt att ange denna uppgift. Om ombud inte används, anges inte denna uppgift.</DescriptionLine>
+			<DescriptionLine lang="en">If the declarant has authorised you to lodge the declaration as a representative, this data is required.  If there is no representative, no data is entered. </DescriptionLine>
 			<DataElement>
 				<Name lang="fi">Edustajan asemaa koskeva koodi</Name>
 				<Name lang="sv">Kod för ombudets status</Name>
@@ -76,6 +88,9 @@
 				<GeneralType>TIN</GeneralType>
 				<Rule>NR1311</Rule>
 				<Format>an..17</Format>
+				<DescriptionLine lang="fi">EORI ID</DescriptionLine>
+				<DescriptionLine lang="sv">EORI-nummer</DescriptionLine>
+				<DescriptionLine lang="en">EORI ID</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Edustajan toimipaikkakoodi</Name>
@@ -85,6 +100,8 @@
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>TraderOfficeCode</GeneralType>
 				<Format>n..3</Format>
+				<DescriptionLine lang="fi">Ilmoita edustajan toimipisteen kansallinen tunniste, jos edustajalla on sellainen.</DescriptionLine>
+				<DescriptionLine lang="sv">Ange det nationella identifieringsnumret för ombudets verksamhetsställe, om ombudet har ett sådant nummer.</DescriptionLine>
 				<DescriptionLine lang="en">Enter nationally allocated trader office code, if representative has one.</DescriptionLine>
 			</DataElement>
 		</DataGroup>
@@ -106,6 +123,9 @@
 				<Rule>NR1311</Rule>
 				<Rule>NR2001</Rule>
 				<Format>an..17</Format>
+				<DescriptionLine lang="fi">Ilmoita tullivarastoinnin luvanhaltijan tunnistenumero.</DescriptionLine>
+				<DescriptionLine lang="sv">Ange identifieringsnummer för innehavaren av tullagertillståndet.</DescriptionLine>
+				<DescriptionLine lang="en">Enter the ID of  the holder of the authorisation for the customs warehouse.</DescriptionLine>
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
@@ -123,6 +143,9 @@
 				<MinOccurence>1</MinOccurence>
 				<GeneralType>TraderName</GeneralType>
 				<Format>an..70</Format>
+				<DescriptionLine lang="fi">Ilmoitusta tekevän henkilön nimi</DescriptionLine>
+				<DescriptionLine lang="sv">Namnet på personen som upprättar deklarationen</DescriptionLine>
+				<DescriptionLine lang="en">Name of the person actually filing the declaration</DescriptionLine>
 			</DataElement>
 			<DataGroup>
 				<Name lang="fi">Ilmoituksen antajan sähköposti</Name>
@@ -139,6 +162,9 @@
 					<MinOccurence>1</MinOccurence>
 					<GeneralType>CommunicationIdentification</GeneralType>
 					<Format>an..320</Format>
+					<DescriptionLine lang="fi">Sähköpostiosoite, josta Tulli voi kysyä tarvittessa lisätietoa tästä ilmoituksesta</DescriptionLine>
+					<DescriptionLine lang="sv">E-postadress från vilken Tullen vid behov kan begära ytterligare uppgifter om denna deklaration</DescriptionLine>
+					<DescriptionLine lang="en">Email address for Customs' additional inquiries on this declaration</DescriptionLine>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Ilmoituksen antajan viestintätapa</Name>
@@ -166,6 +192,9 @@
 					<MinOccurence>1</MinOccurence>
 					<GeneralType>CommunicationIdentification</GeneralType>
 					<Format>an..20</Format>
+					<DescriptionLine lang="fi">Numero, josta Tulli voi kysyä tarvittaessa lisätietoa tästä ilmoituksesta</DescriptionLine>
+					<DescriptionLine lang="sv">Telefonnummer från vilken Tullen vid behov kan begära ytterligare uppgifter om denna deklaration</DescriptionLine>
+					<DescriptionLine lang="en">Phone number for Customs' additional inquiries on this declaration</DescriptionLine>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Ilmoituksen antajan viestintätapa</Name>
@@ -202,6 +231,9 @@
 					<EUCDM>2/7</EUCDM>
 					<GeneralType>String</GeneralType>
 					<Format>an..35</Format>
+					<DescriptionLine lang="fi">Ilmoita sen varaston tunnistenumero, mihin tavarat on tullivarastoinnin tulli-ilmoituksella ilmoitettu, esim. muotoa  FI1234567-800101. Jos luvanhaltijana olet siirtänyt tavaraa tullivarastointimenettelyssä samassa luvassa ilmoitettujen varastojen välillä</DescriptionLine>
+					<DescriptionLine lang="sv">Ange identifieringsnumret för det lager till vilket varorna hänförts med tulldeklarationen för tullagring, t.ex. i formen FI1234567-800101. Om du som tillståndshavare har under tullagerförfarandet befordrat varor mellan olika i samma tillstånd angivna lag</DescriptionLine>
+					<DescriptionLine lang="en">Enter the ID of the customs warehouse, to which the goods have been declared, for example FI1234567-800101. If you, as an authorisation holder of the customs warehouse, have transferred goods within various storage facilities under the same warehouse auth</DescriptionLine>
 				</DataElement>
 			</DataGroup>
 			<DataGroup>
@@ -220,6 +252,9 @@
 					<EUCDM>2/1</EUCDM>
 					<GeneralType>String</GeneralType>
 					<Format>an..35</Format>
+					<DescriptionLine lang="fi">Ilmoita päätettävien tullivarastoilmoitusten MRN-numerot.</DescriptionLine>
+					<DescriptionLine lang="sv">Ange MRN-numren för de tullagerdeklarationer som avslutas.</DescriptionLine>
+					<DescriptionLine lang="en">Enter the MRN(s) of the customs warehouse declarations which are to be discharged.</DescriptionLine>
 				</DataElement>
 			</DataGroup>
 		</DataGroup>
