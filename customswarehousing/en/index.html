@@ -46,6 +46,11 @@
                 </div>
             </div>
         </div>
+        <script>
+            function OpenModal() {
+                $("#myModal").modal("show");
+            }
+        </script>
     </header>
     <main class="Site-content">
         <div class="main-content-area">
@@ -147,15 +152,6 @@
 					</h2>
                             </div>
                             <div class="panel-body" id="history">
-                                		<div class="alert alert-info alert-dismissable" role="alert">
-			                                <div class="row">
-				                                <div class="col-xs-12">
-					                                <span>
-						                                <p>Some features required for the full functionality of this page are not available on your current browser. Browsers known to work are: Google Chrome, Firefox, Safari, Edge and Internet Explorer 11 (on Windows 10).</p>
-					                                </span>
-				                                </div>
-			                                </div>
-		                                </div>
 
                             </div>
                         </div>
@@ -250,6 +246,22 @@
             </div>
 
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="browserWarning" tabindex="-1" role="dialog" aria-labelledby="modal-header-demo" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title" id="modal-header-demo">Browser incompatibility detected</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p>Some features required for the full functionality of this page are not available on your current browser. Browsers known to work are: Google Chrome, Firefox, Safari, Edge and Internet Explorer 11 (on Windows 10).</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default remove-bottom" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="container">
@@ -287,6 +299,10 @@
                         })
                     } // End Success
             }); // End AJAX
+            var ua = window.navigator.userAgent;
+            if ((ua.indexOf("MSIE ") != -1 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) && navigator.userAgent.match(/NT 6\.1/)) {
+                $("#browserWarning").modal("show");
+            }
         });
     </script>
     <script>

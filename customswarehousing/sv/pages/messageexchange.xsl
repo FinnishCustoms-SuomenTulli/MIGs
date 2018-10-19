@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="html"/>
-	<xsl:variable name="language">fi</xsl:variable>
+	<xsl:variable name="language">sv</xsl:variable>
 	<xsl:template match="/">
 		<div class="panel panel-primary">
 			<div class="panel-heading" role="tab" id="heading-intro">

@@ -9,7 +9,7 @@
 					<a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="intro">
 						<xsl:choose>
 							<xsl:when test="$language='fi'">Yleistä</xsl:when>
-							<xsl:when test="$language='sv'">Allmän information</xsl:when>
+							<xsl:when test="$language='sv'">Allmänt</xsl:when>
 							<xsl:when test="$language='en'">General information</xsl:when>
 						</xsl:choose>
 					</a>
@@ -116,7 +116,7 @@
 									<li>
 										<a>
 											<xsl:attribute name="href"><xsl:value-of select="concat('#CASE', position())"/></xsl:attribute>
-									CASE <xsl:number value="position()"/>: <xsl:value-of select="Name"/>
+									CASE <xsl:number value="position()"/>: <xsl:value-of select="Name[@lang=($language)]"/>
 										</a>
 									</li>
 								</xsl:for-each>
@@ -124,7 +124,7 @@
 							<xsl:for-each select="MessageExchange/UseCases/UseCase">
 								<h3>
 									<xsl:attribute name="id"><xsl:value-of select="concat('CASE', position())"/></xsl:attribute>
-								CASE <xsl:number value="position()"/>: <xsl:value-of select="Name"/>
+								CASE <xsl:number value="position()"/>: <xsl:value-of select="Name[@lang=($language)]"/>
 								</h3>
 								<table class="table table-striped table-responsive">
 									<xsl:choose>
@@ -183,15 +183,13 @@
 								<ol>
 									<xsl:for-each select="SequenceDescription/Item">
 										<li>
-											<xsl:for-each select="ItemLine">
+											<xsl:for-each select="ItemLine[@lang=($language)]">
 												<xsl:value-of select="."/>
 												<br/>
 											</xsl:for-each>
 										</li>
 									</xsl:for-each>
 								</ol>
-								<xsl:for-each select="../../Message">
-								</xsl:for-each>
 							</xsl:for-each>
 						</div>
 					</article>

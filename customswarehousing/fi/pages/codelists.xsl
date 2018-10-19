@@ -6,11 +6,14 @@
 		<div class="container">
 			<div>
 				<a href="../../common/codelists.xml">
-				<xsl:choose>
-					<xsl:when test="$language='fi'"><span class="icon icon-tulli-external" style="margin-right:3px"/>Lataa koodistot XML-muodossa</xsl:when>
-					<xsl:when test="$language='sv'"><span class="icon icon-tulli-external" style="margin-right:3px"/>Ladda ner kodlistorna i XML-format</xsl:when>
-					<xsl:when test="$language='en'"><span class="icon icon-tulli-external" style="margin-right:3px"/>Download codelists XML format</xsl:when>
-				</xsl:choose>
+					<xsl:choose>
+						<xsl:when test="$language='fi'">
+							<span class="icon icon-tulli-external" style="margin-right:3px"/>Lataa koodistot XML-muodossa</xsl:when>
+						<xsl:when test="$language='sv'">
+							<span class="icon icon-tulli-external" style="margin-right:3px"/>Ladda ner kodlistorna i XML-format</xsl:when>
+						<xsl:when test="$language='en'">
+							<span class="icon icon-tulli-external" style="margin-right:3px"/>Download codelists XML format</xsl:when>
+					</xsl:choose>
 				</a>
 				<p/>
 			</div>
@@ -41,7 +44,11 @@
 										<a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true">
 											<xsl:attribute name="id"><xsl:value-of select="concat('CODELIST_',Identification)"/></xsl:attribute>
 											<xsl:attribute name="aria-controls"><xsl:value-of select="concat('CODELIST_',Identification)"/></xsl:attribute>
-											<xsl:value-of select="concat('CODELIST ',Identification)"/> - <xsl:value-of select="Name[@lang=($language)]"/>
+											<xsl:choose>
+												<xsl:when test="$language='fi'"><xsl:value-of select="concat('KOODISTO ',Identification)"/> - <xsl:value-of select="Name[@lang=($language)]"/></xsl:when>
+												<xsl:when test="$language='sv'"><xsl:value-of select="concat('KODFÖRTECKNING ',Identification)"/> - <xsl:value-of select="Name[@lang=($language)]"/></xsl:when>
+												<xsl:when test="$language='en'"><xsl:value-of select="concat('CODELIST ',Identification)"/> - <xsl:value-of select="Name[@lang=($language)]"/></xsl:when>
+											</xsl:choose>
 										</a>
 									</h2>
 								</div>
@@ -53,11 +60,29 @@
 								<table class="table table-striped table-hover table-responsive">
 									<thead>
 										<tr>
-											<th>Code</th>
-											<th>Name</th>
-											<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
-												<th>Description</th>
-											</xsl:if>
+											<xsl:choose>
+												<xsl:when test="$language='fi'">
+													<th>Koodi</th>
+													<th>Nimi</th>
+													<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
+														<th>Selite</th>
+													</xsl:if>
+												</xsl:when>
+												<xsl:when test="$language='sv'">
+													<th>Kod</th>
+													<th>Namn</th>
+													<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
+														<th>Beskrivning</th>
+													</xsl:if>
+												</xsl:when>
+												<xsl:when test="$language='en'">
+													<th>Code</th>
+													<th>Name</th>
+													<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
+														<th>Description</th>
+													</xsl:if>
+												</xsl:when>
+											</xsl:choose>
 										</tr>
 									</thead>
 									<xsl:for-each select="CodeItem">
