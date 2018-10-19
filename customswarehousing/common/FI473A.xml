@@ -45,16 +45,13 @@
 			<Format>an..22</Format>
 		</DataElement>
 		<DataElement>
-			<Name lang="fi">Sanoman tunniste</Name>
-			<Name lang="sv">Meddelandets identifiering</Name>
-			<Name lang="en">Message identification</Name>
+			<Name lang="fi">Tapahtuman tunniste</Name>
+			<Name lang="sv">Händelsens identifiering</Name>
+			<Name lang="en">Case identification</Name>
 			<XPath>Identification</XPath>
 			<MinOccurence>1</MinOccurence>
-			<GeneralType>MessageIdentification</GeneralType>
-			<Format>an..14</Format>
-			<DescriptionLine lang="fi">Yksittäisen sanoman tunniste. Tullin antamat viisi merkkiä, jonka jälkeen sanoman lähettäjän antama viitenumero.</DescriptionLine>
-			<DescriptionLine lang="sv">ID för enskilt meddelande. Fem tecken som tilldelats av Tullen vilket åtföljs av ett referensnummer som tilldelats av meddelandets avsändare.</DescriptionLine>
-			<DescriptionLine lang="en">Identification of a single message. A five-character string assigned by Customs is followed by a reference number assigned by the message sender.</DescriptionLine>
+			<GeneralType>CaseIdentification</GeneralType>
+			<Format>an..22</Format>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">Kokonaisbruttomassa</Name>
@@ -106,6 +103,15 @@
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>String</GeneralType>
 				<Format>an..512</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Pyynnön korrelaatio</Name>
+				<Name lang="sv">Begärans korrelation</Name>
+				<Name lang="en">Request correlation</Name>
+				<XPath>RequestCorrelation</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>GUID</GeneralType>
+				<Format>an38</Format>
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
@@ -605,9 +611,9 @@
 							<EUCDM>6/5</EUCDM>
 							<GeneralType>Decimal</GeneralType>
 							<Format>n..16,6</Format>
-			<DescriptionLine lang="fi">Ilmoita bruttomassa kilogrammoina. Bruttomassa on tavaran massa pakkauspäällyksineen lukuunottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttomassa esimerkiksi muodossa "0,654", enintään kuuden desimaalin tarkkuudella. Yli kilogrammann massan voit pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti.</DescriptionLine>
-			<DescriptionLine lang="sv">Ange bruttomassa i kilogram. Bruttomassan omfattar varans massa med emballage, med undantag för transportmedel och containrar. En bruttomassa som underskrider 1 kilogram anges i formen "0,654", dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler.</DescriptionLine>
-			<DescriptionLine lang="en">Enter the gross mass in kilograms. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. "0,654" up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, you can enter the value grounded to the closest full kilogram.</DescriptionLine>
+							<DescriptionLine lang="fi">Ilmoita bruttomassa kilogrammoina. Bruttomassa on tavaran massa pakkauspäällyksineen lukuunottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttomassa esimerkiksi muodossa "0,654", enintään kuuden desimaalin tarkkuudella. Yli kilogrammann massan voit pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti.</DescriptionLine>
+							<DescriptionLine lang="sv">Ange bruttomassa i kilogram. Bruttomassan omfattar varans massa med emballage, med undantag för transportmedel och containrar. En bruttomassa som underskrider 1 kilogram anges i formen "0,654", dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler.</DescriptionLine>
+							<DescriptionLine lang="en">Enter the gross mass in kilograms. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. "0,654" up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, you can enter the value grounded to the closest full kilogram.</DescriptionLine>
 						</DataElement>
 					</DataGroup>
 				</DataGroup>

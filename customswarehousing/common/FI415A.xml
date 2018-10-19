@@ -35,16 +35,13 @@
 			<Format>an..22</Format>
 		</DataElement>
 		<DataElement>
-			<Name lang="fi">Sanoman tunniste</Name>
-			<Name lang="sv">Meddelandets identifiering</Name>
-			<Name lang="en">Message identification</Name>
+			<Name lang="fi">Tapahtuman tunniste</Name>
+			<Name lang="sv">Händelsens identifiering</Name>
+			<Name lang="en">Case identification</Name>
 			<XPath>Identification</XPath>
 			<MinOccurence>1</MinOccurence>
-			<GeneralType>MessageIdentification</GeneralType>
-			<Format>an..14</Format>
-			<DescriptionLine lang="fi">Yksittäisen sanoman tunniste. Tullin antamat viisi merkkiä, jonka jälkeen sanoman lähettäjän antama viitenumero.</DescriptionLine>
-			<DescriptionLine lang="sv">ID för enskilt meddelande. Fem tecken som tilldelats av Tullen vilket åtföljs av ett referensnummer som tilldelats av meddelandets avsändare.</DescriptionLine>
-			<DescriptionLine lang="en">Identification of a single message. A five-character string assigned by Customs is followed by a reference number assigned by the message sender.</DescriptionLine>
+			<GeneralType>CaseIdentification</GeneralType>
+			<Format>an..22</Format>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">Ilmoitustyyppi</Name>
@@ -769,15 +766,15 @@
 			<DataGroup>
 				<Name lang="fi">Tuoja</Name>
 				<Name lang="sv">Importör</Name>
-				<Name lang="en">Consignee</Name>
-				<XPath>Consignee</XPath>
+				<Name lang="en">Importer</Name>
+				<XPath>Importer</XPath>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<Condition>NC0011</Condition>
 				<DataElement>
 					<Name lang="fi">Tuojan tunnistenumero</Name>
 					<Name lang="sv">Importörens identifieringsnummer</Name>
-					<Name lang="en">Consignee identification no.</Name>
+					<Name lang="en">Importer identification no.</Name>
 					<XPath>Identification</XPath>
 					<MinOccurence>1</MinOccurence>
 					<EUCDM>3/16</EUCDM>
@@ -790,7 +787,7 @@
 				<DataElement>
 					<Name lang="fi">Tuojan toimipaikkakoodi</Name>
 					<Name lang="sv">Importörens kontorskod</Name>
-					<Name lang="en">Consignee office code</Name>
+					<Name lang="en">Importer office code</Name>
 					<XPath>AdditionalIdentifier/Identification</XPath>
 					<MinOccurence>0</MinOccurence>
 					<GeneralType>TraderOfficeCode</GeneralType>
@@ -803,7 +800,7 @@
 				<DataElement>
 					<Name lang="fi">Tuojan nimi</Name>
 					<Name lang="sv">Importörens namn</Name>
-					<Name lang="en">Consignee name</Name>
+					<Name lang="en">Importer name</Name>
 					<XPath>Name</XPath>
 					<MinOccurence>0</MinOccurence>
 					<EUCDM>3/15</EUCDM>
@@ -814,7 +811,7 @@
 				<DataGroup>
 					<Name lang="fi">Tuojan osoite</Name>
 					<Name lang="sv">Importörens adress</Name>
-					<Name lang="en">Consignee address</Name>
+					<Name lang="en">Importer address</Name>
 					<XPath>Address</XPath>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
@@ -822,7 +819,7 @@
 					<DataElement>
 						<Name lang="fi">Tuojan katuosoite</Name>
 						<Name lang="sv">Importörens gatuadress</Name>
-						<Name lang="en">Consignee street and number</Name>
+						<Name lang="en">Importer street and number</Name>
 						<XPath>Street</XPath>
 						<MinOccurence>1</MinOccurence>
 						<EUCDM>3/15</EUCDM>
@@ -832,7 +829,7 @@
 					<DataElement>
 						<Name lang="fi">Tuojan postitoimipaikka</Name>
 						<Name lang="sv">Importörens ort</Name>
-						<Name lang="en">Consignee city</Name>
+						<Name lang="en">Importer city</Name>
 						<XPath>City</XPath>
 						<MinOccurence>1</MinOccurence>
 						<EUCDM>3/15</EUCDM>
@@ -842,7 +839,7 @@
 					<DataElement>
 						<Name lang="fi">Tuojan postinumero</Name>
 						<Name lang="sv">Importörens postnummer</Name>
-						<Name lang="en">Consignee postcode</Name>
+						<Name lang="en">Importer postcode</Name>
 						<XPath>Postcode</XPath>
 						<MinOccurence>1</MinOccurence>
 						<EUCDM>3/15</EUCDM>
@@ -852,7 +849,7 @@
 					<DataElement>
 						<Name lang="fi">Tuojan maa</Name>
 						<Name lang="sv">Importörens land</Name>
-						<Name lang="en">Consignee country</Name>
+						<Name lang="en">Importer country</Name>
 						<XPath>Country</XPath>
 						<MinOccurence>1</MinOccurence>
 						<EUCDM>3/15</EUCDM>
@@ -953,6 +950,7 @@
 						<XPath>AdditionalProcedure</XPath>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>99</MaxOccurence>
+						<Rule>NR1314</Rule>
 						<DataElement>
 							<Name lang="fi">Lisämenettelykoodi</Name>
 							<Name lang="sv">Kod för ytterligare förfarande</Name>
@@ -1187,18 +1185,9 @@
 </DescriptionLine>
 						</DataElement>
 						<DataElement>
-							<Name lang="fi">Toimijan ilmoittama paljous</Name>
-							<Name lang="sv">Mängd som anges av aktören</Name>
-							<Name lang="en">Measurement declared by trader</Name>
-							<XPath>Tariff</XPath>
-							<MinOccurence>0</MinOccurence>
-							<GeneralType>Decimal</GeneralType>
-							<Format>n..16,6</Format>
-						</DataElement>
-						<DataElement>
-							<Name lang="fi">Toimijan ilmoittama paljous, paljousyksikkö</Name>
-							<Name lang="sv">Mängd som anges av aktören, mängdenhet</Name>
-							<Name lang="en">Measurement declared by trader, measurement unit</Name>
+							<Name lang="fi">Lisäpaljousyksiköt, paljousyksikkö</Name>
+							<Name lang="sv">Extra mängdenheter, mängdenhet</Name>
+							<Name lang="en">Supplementary units, measurement unit</Name>
 							<XPath>Tariff@unit</XPath>
 							<MinOccurence>0</MinOccurence>
 							<GeneralType>String</GeneralType>
@@ -1259,7 +1248,7 @@
 				<DataGroup>
 					<Name lang="fi">Alkuperämaa</Name>
 					<Name lang="sv">Ursprungsland</Name>
-					<Name lang="en">Country of Origin</Name>
+					<Name lang="en">Country of origin</Name>
 					<XPath>Origin</XPath>
 					<MinOccurence>1</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
