@@ -16,7 +16,7 @@ var classes = {
         position: { x: $('#paper').width()/2-135 , y: 10 },
         size: { width: 270, height: 166 },
         name: 'Import operation',
-        attributes: ['MRN', 'LRN', 'Additional LRN', 'Message identification', 'Declaration type', 'Additional declaration type', 'Estimated presentation of goods date and time', 'Total gross mass', 'Total packages', 'Language code'],
+        attributes: ['MRN', 'LRN', 'Additional LRN', 'Case identification', 'Declaration type', 'Additional declaration type', 'Estimated presentation of goods date and time', 'Total gross mass', 'Total packages', 'Language code'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -92,12 +92,11 @@ var classes = {
 
     goodsitem: new uml.Class({
         position: { x: $('#paper').width()/2-143 , y: 681 },
-        size: { width: 286, height: 229 },
+        size: { width: 286, height: 203 },
         name: 'Goods item',
         attributes: ['Goods item number', 'Statistical value', 'Reference number/UCR', 'Requested procedure code', 'Previous procedure code',
 					 'Description of goods', 'CUS code', 'Commodity code - Combined nomenclature code', 'Commodity code - TARIC code',
-					 'Gross mass', 'Supplementary units', 'Measurement declared by trader', 'Measurement declared by trader, measurement unit',
-					 'Country of origin', 'Country of preferential origin'],
+					 'Gross mass', 'Supplementary units', 'Country of origin', 'Country of preferential origin'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -432,7 +431,7 @@ var classes = {
     }),
 
     transportequipment: new uml.Class({
-        position: { x: $('#paper').width()*0.75-90 , y: 740 },
+        position: { x: $('#paper').width()*0.75-90 , y: 760 },
         size: { width: 180, height: 49 },
         name: 'Transport equipment',
         attributes: ['Container identification number'],
@@ -458,7 +457,7 @@ var classes = {
     }),
 
     goodslocation: new uml.Class({
-        position: { x: $('#paper').width()*0.825-80 , y: 580 },
+        position: { x: $('#paper').width()*0.825-80 , y: 600 },
         size: { width: 160, height: 127 },
         name: 'Location of goods',
         attributes: ['Type of location', 'Qualifier of the location', 'Identification of location', 'Location street and number',
@@ -512,9 +511,9 @@ var classes = {
 
     notification: new uml.Class({
         position: { x: $('#paper').width()-130 , y: 380 },
-        size: { width: 150, height: 88 },
+        size: { width: 150, height: 114 },
         name: 'Notification',
-        attributes: ['Notification type', 'Notification date and time', 'Notification description', 'Document link'],
+        attributes: ['Notification type', 'Notification date and time', 'Notification description', 'Document link', 'Related goods item', 'Request correlation'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -538,9 +537,9 @@ var classes = {
 
     amendment: new uml.Class({
         position: { x: $('#paper').width()*0.5+10 , y: 370 },
-        size: { width: 190, height: 49 },
+        size: { width: 190, height: 62 },
         name: 'Amendment',
-        attributes: ['Amendment date and time', 'Reason for amendment request'],
+        attributes: ['Amendment date and time', 'Reason for amendment request', 'Request correlation'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -562,7 +561,7 @@ var classes = {
         }
     }),
 
-    invalidation: new uml.Class({
+/*    invalidation: new uml.Class({
         position: { x: 10 , y: 235 },
         size: { width: 200, height: 75 },
         name: 'Invalidation',
@@ -586,7 +585,7 @@ var classes = {
 				'font-family': 'Arial, Helvetica, sans-serif'
             }
         }
-    }),
+    }),*/
 
 	decision: new uml.Class({
         position: { x: $('#paper').width()-130 , y: 600 },
@@ -720,9 +719,9 @@ var classes = {
 
 	providedinfo: new uml.Class({
         position: { x: $('#paper').width()-230 , y: 510 },
-        size: { width: 140, height: 62 },
+        size: { width: 140, height: 75 },
         name: 'Provided information',
-        attributes: ['Description', 'Document link'],
+        attributes: ['Description', 'Document link', 'Request correlation'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -789,7 +788,7 @@ createLink(classes.goodsshipment.id, classes.goodsitem.id, '1', '1..99999');
 createLink(classes.goodsshipment.id, classes.warehouse.id, '1', '1');
 createLink(classes.goodsshipment.id, classes.consignee.id, '1', '0..1');
 createLink(classes.importoperation.id, classes.amendment.id, '1', '0..1');
-createLink(classes.importoperation.id, classes.invalidation.id, '1', '0..1');
+//createLink(classes.importoperation.id, classes.invalidation.id, '1', '0..1');
 
 createLink(classes.importoperation.id, classes.authorisationholder.id, '1', '0..99');
 createLink(classes.importoperation.id, classes.representative.id, '1', '0..1');
