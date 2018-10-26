@@ -15,7 +15,7 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <span class="navbar-text">Message Implementing Guidelines - </span>
+                <span class="navbar-text main-navbar">Message Implementing Guidelines - </span>
                 <a class="navbar-text" href="../fi/index.html">Suomi</a>
                 <a class="navbar-text" href="../sv/index.html">Svenska</a>
             </div>
@@ -97,7 +97,7 @@
                                 <li class="col-md-6 col-sm-6 col-xs-12">
                                     <a class="media" href="pages/datamodel.html">
                                         <div class="media-left media-middle" style="background: #00205b;">
-                                            <span class="media-object icon-white icon-sm icon icon-tulli-hamburger-menu"></span>
+                                            <span class="media-object icon-white icon-md icon icon-tulli-hamburger-menu"></span>
                                         </div>
                                         <div class="media-body media-middle">
                                             <h3 class="media-heading">Class diagram</h3>
@@ -119,11 +119,11 @@
                                 </li>
 
                                 <li class="col-md-6 col-sm-6 col-xs-12">
-                                    <a class="media">
+                                    <a class="media" href="../common/schemas.zip">
                                         <div class="media-left media-middle" style="background: #00205b;">
                                             <span class="media-object icon-white icon-md icon icon-tulli-hamburger-menu"></span>
                                         </div>
-                                        <div class="media-body media-middle" style="background: #dddddd;">
+                                        <div class="media-body media-middle">
                                             <h3 class="media-heading">XML schemas</h3>
                                             <div class="description">XML schemas used by Customs for validation of messages used in message exchange between economic operators and Customs.</div>
                                         </div>
@@ -163,11 +163,11 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h2 class="panel-title">
-						<a name="mainmenu">Version notes</a>
+						<a name="mainmenu">Latest version notes</a>
 					</h2>
                             </div>
-                            <div class="panel-body">
-                                <p>This version introduces a new layout for providing message implementing guidelines to trade. The data requirements for the messages released earlier are largely unchanged, with only minor corrections of discovered errors. Three new messages (Presentation notification for EIDR and its amendment and a bill of discharge message) have been added. The guide for message exchange has also been updated with new use cases. It has been discovered that the provisional message numbering is partially misaligned with the message numbering defined at the EU Commission level. The numbering will be aligned in a future release.</p>
+                            <div class="panel-body" id="notes">
+
                             </div>
                         </div>
                     </div>
@@ -287,17 +287,17 @@
                         $('System[lang="en"]', returnedXMLResponse).each(function() {
                             var system = $(this).text();
                             $(".pageheader").append(system);
-                            $(".navbar-text").append(system + " ");
+                            $(".main-navbar").append(system + " ");
                             document.title += " " + system;
                         })
-                        $('CurrentVersion', returnedXMLResponse).each(function() {
+                        $('VersionHistory Version:last Number', returnedXMLResponse).each(function() {
                             var version = $(this).text();
-                            $(".navbar-text").append(version + " ");
+                            $(".main-navbar").append(version + " ");
                         })
-                        $('Generated', returnedXMLResponse).each(function() {
+                        $('VersionHistory Version:last Date', returnedXMLResponse).each(function() {
                             var date = new Date($(this).text());
-                            date = date.toLocaleDateString("en-GB");
-                            $(".navbar-text").append(date);
+                            date = date.toLocaleDateString("sv-FI");
+                            $(".main-navbar").append(date);
                         })
                     } // End Success
             }); // End AJAX
@@ -353,6 +353,9 @@
         }
         document.addEventListener('DOMContentLoaded', function() {
             transform('../common/intro.xml', 'history.xsl', document.getElementById('history'));
+        })
+        document.addEventListener('DOMContentLoaded', function() {
+            transform('../common/intro.xml', 'notes.xsl', document.getElementById('notes'));
         })
     </script>
     <script src='../../assets/javascripts/bootstrap.js'></script>

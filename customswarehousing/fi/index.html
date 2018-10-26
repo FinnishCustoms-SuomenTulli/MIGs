@@ -16,8 +16,8 @@
         <div class="container">
             <div class="navbar-header">
                 <span class="navbar-text main-navbar">Sanomakuvaukset - </span>
-                <a class="navbar-text" href="../../sv/index.html">Svenska</a>
-                <a class="navbar-text" href="../../en/index.html">English</a>
+                <a class="navbar-text" href="../sv/index.html">Svenska</a>
+                <a class="navbar-text" href="../en/index.html">English</a>
             </div>
         </div>
         <!-- /.container -->
@@ -68,7 +68,7 @@
                                 <li class="col-md-6 col-sm-6 col-xs-12">
                                     <a class="media" href="pages/messageexchange.html">
                                         <div class="media-left media-middle" style="background: #00205b;">
-                                            <span class="media-object icon-white icon-md icon icon-tulli-measures"></span>
+                                            <span class="media-object icon-white icon-md icon icon-tulli-hamburger-menu"></span>
                                         </div>
                                         <div class="media-body media-middle">
                                             <h3 class="media-heading">Sanomaliikenneopas</h3>
@@ -80,7 +80,7 @@
                                 <li class="col-md-6 col-sm-6 col-xs-12">
                                     <a class="media" href="pages/datarequirements.html">
                                         <div class="media-left media-middle" style="background: #00205b;">
-                                            <span class="media-object icon-white icon-md icon icon-tulli-message"></span>
+                                            <span class="media-object icon-white icon-md icon icon-tulli-hamburger-menu"></span>
                                         </div>
                                         <div class="media-body media-middle">
                                             <h3 class="media-heading">Tietosis&auml;ll&ouml;t</h3>
@@ -92,7 +92,7 @@
                                 <li class="col-md-6 col-sm-6 col-xs-12">
                                     <a class="media" href="pages/datamodel.html">
                                         <div class="media-left media-middle" style="background: #00205b;">
-                                            <span class="media-object icon-white icon-sm icon icon-tulli-service-fintaric"></span>
+                                            <span class="media-object icon-white icon-md icon icon-tulli-hamburger-menu"></span>
                                         </div>
                                         <div class="media-body media-middle">
                                             <h3 class="media-heading">Luokkakaavio</h3>
@@ -114,11 +114,11 @@
                                 </li>
 
                                 <li class="col-md-6 col-sm-6 col-xs-12">
-                                    <a class="media" href="demo-tabs.html">
+                                    <a class="media" href="../common/schemas.zip">
                                         <div class="media-left media-middle" style="background: #00205b;">
-                                            <span class="media-object icon-white icon-md icon icon-tulli-external"></span>
+                                            <span class="media-object icon-white icon-md icon icon-tulli-hamburger-menu"></span>
                                         </div>
-                                        <div class="media-body media-middle" style="background: #dddddd;">
+                                        <div class="media-body media-middle">
                                             <h3 class="media-heading">XML-skeemat</h3>
                                             <div class="description">XML-skeemat joita k&auml;ytet&auml;&auml;n talouden toimijoiden ja Tullin v&auml;lisess&auml; sanomaliikenteess&auml;.</div>
                                         </div>
@@ -128,7 +128,7 @@
                                 <li class="col-md-6 col-sm-6 col-xs-12">
                                     <a class="media" href="demo-tabs.html">
                                         <div class="media-left media-middle" style="background: #00205b;">
-                                            <span class="media-object icon-white icon-md icon icon-tulli-external"></span>
+                                            <span class="media-object icon-white icon-md icon icon-tulli-hamburger-menu"></span>
                                         </div>
                                         <div class="media-body media-middle" style="background: #dddddd;">
                                             <h3 class="media-heading">XML-esimerkit</h3>
@@ -153,6 +153,19 @@
                     </div>
 
                     <div class="col-md-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
+						<a name="mainmenu">Uusimman version huomautukset</a>
+					</h2>
+                            </div>
+                            <div class="panel-body" id="notes">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h2 class="panel-title">
@@ -256,11 +269,11 @@
                             $(".main-navbar").append(system + " ");
                             document.title += " " + system;
                         })
-                        $('CurrentVersion', returnedXMLResponse).each(function() {
+                        $('VersionHistory Version:last Number', returnedXMLResponse).each(function() {
                             var version = $(this).text();
                             $(".main-navbar").append(version + " ");
                         })
-                        $('Generated', returnedXMLResponse).each(function() {
+                        $('VersionHistory Version:last Date', returnedXMLResponse).each(function() {
                             var date = new Date($(this).text());
                             date = date.toLocaleDateString("fi-FI");
                             $(".main-navbar").append(date);
@@ -315,6 +328,9 @@
         }
         document.addEventListener('DOMContentLoaded', function() {
             transform('../common/intro.xml', 'history.xsl', document.getElementById('history'));
+        })
+        document.addEventListener('DOMContentLoaded', function() {
+            transform('../common/intro.xml', 'notes.xsl', document.getElementById('notes'));
         })
     </script>
     <script src='../../assets/javascripts/bootstrap.js'></script>
