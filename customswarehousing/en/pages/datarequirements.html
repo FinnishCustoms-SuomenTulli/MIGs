@@ -15,7 +15,7 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <span class="navbar-text">Data requirements version </span>
+                <span class="navbar-text main-navbar">Data requirements version </span>
                 <a class="navbar-text" href="../../fi/pages/datarequirements.html">Suomi</a>
                 <a class="navbar-text" href="../../sv/pages/datarequirements.html">Svenska</a>
             </div>
@@ -120,19 +120,17 @@
                         })
                         $('CurrentVersion', returnedXMLResponse).each(function() {
                             var version = $(this).text();
-                            $(".navbar-text").append(version + " ");
+                            $(".main-navbar").append(version + " ");
 
                         })
                         $('Generated', returnedXMLResponse).each(function() {
                             var generated = new Date($(this).text());
                             var generated = generated.toLocaleDateString("en-GB");
-                            $(".navbar-text").append(generated);
+                            $(".main-navbar").append(generated);
                         })
-
                         $('System[lang="en"]', returnedXMLResponse).each(function() {
                             var system = $(this).text();
                             document.title += " " + system;
-
                         })
                         $('.nav-tabs').tabdrop({
                             text: 'More'

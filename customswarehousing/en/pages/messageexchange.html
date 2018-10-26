@@ -15,7 +15,7 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <span class="navbar-text">Guide for message exchange version </span>
+                <span class="navbar-text main-navbar">Guide for message exchange version </span>
                 <a class="navbar-text" href="../../fi/pages/messageexchange.html">Suomi</a>
                 <a class="navbar-text" href="../../sv/pages/messageexchange.html">Svenska</a>
             </div>
@@ -133,17 +133,16 @@
                         $('System[lang="en"]', returnedXMLResponse).each(function() {
                             var system = $(this).text();
                             $(".pageheader").append(system);
-                            $(".navbar-text").append(system + " ");
                             document.title += " " + system;
                         })
                         $('CurrentVersion', returnedXMLResponse).each(function() {
                             var version = $(this).text();
-                            $(".navbar-text").append(version + " ");
+                            $(".main-navbar").append(version + " ");
                         })
                         $('Generated', returnedXMLResponse).each(function() {
                             var date = new Date($(this).text());
                             date = date.toLocaleDateString("en-GB");
-                            $(".navbar-text").append(date);
+                            $(".main-navbar").append(date);
                         })
                     } // End Success
             }); // End AJAX
