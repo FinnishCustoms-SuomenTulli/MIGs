@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <title>Meddelandebeskrivningar - </title>
     <link rel="icon" href="../../assets/favicon.ico">
-    <link rel='stylesheet' href='../common/tulli-bootstrap-style.css'>
-    <link rel='stylesheet' href='../common/tulli-mig-index.css'>
+    <link rel='stylesheet' href='../../assets/tulli-bootstrap-style.css'>
+    <link rel='stylesheet' href='../../assets/tulli-mig-index.css'>
     <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
 </head>
 
@@ -67,7 +67,7 @@
                                 <li class="col-md-6 col-sm-6 col-xs-12">
                                     <a class="media" href="pages/datarequirements.html">
                                         <div class="media-left media-middle" style="background: #00205b;">
-                                            <span class="media-object icon-white icon-md icon icon-tulli-message"></span>
+                                            <span class="media-object icon-white icon-md icon icon-tulli-hamburger-menu"></span>
                                         </div>
                                         <div class="media-body media-middle">
                                             <h3 class="media-heading">Datainneh&aring;ll</h3>
@@ -79,7 +79,7 @@
                                 <li class="col-md-6 col-sm-6 col-xs-12">
                                     <a class="media" href="pages/messageexchange.html">
                                         <div class="media-left media-middle" style="background: #00205b;">
-                                            <span class="media-object icon-white icon-md icon icon-tulli-measures"></span>
+                                            <span class="media-object icon-white icon-md icon icon-tulli-hamburger-menu"></span>
                                         </div>
                                         <div class="media-body media-middle">
                                             <h3 class="media-heading">Guide f&ouml;r meddelandetrafik</h3>
@@ -91,7 +91,7 @@
                                 <li class="col-md-6 col-sm-6 col-xs-12">
                                     <a class="media" href="pages/datamodel.html">
                                         <div class="media-left media-middle" style="background: #00205b;">
-                                            <span class="media-object icon-white icon-sm icon icon-tulli-service-fintaric"></span>
+                                            <span class="media-object icon-white icon-md icon icon-tulli-hamburger-menu"></span>
                                         </div>
                                         <div class="media-body media-middle">
                                             <h3 class="media-heading">Klassdiagram</h3>
@@ -113,11 +113,11 @@
                                 </li>
 
                                 <li class="col-md-6 col-sm-6 col-xs-12">
-                                    <a class="media" href="demo-tabs.html">
+                                    <a class="media" href="../common/schemas.zip">
                                         <div class="media-left media-middle" style="background: #00205b;">
-                                            <span class="media-object icon-white icon-md icon icon-tulli-external"></span>
+                                            <span class="media-object icon-white icon-md icon icon-tulli-hamburger-menu"></span>
                                         </div>
-                                        <div class="media-body media-middle" style="background: #dddddd;">
+                                        <div class="media-body media-middle">
                                             <h3 class="media-heading">XML-scheman</h3>
                                             <div class="description">XML-scheman som anv&auml;nds i meddelandetrafiken mellan ekonomista operat&ouml;rer och Tullen.</div>
                                         </div>
@@ -127,7 +127,7 @@
                                 <li class="col-md-6 col-sm-6 col-xs-12">
                                     <a class="media" href="demo-tabs.html">
                                         <div class="media-left media-middle" style="background: #00205b;">
-                                            <span class="media-object icon-white icon-md icon icon-tulli-external"></span>
+                                            <span class="media-object icon-white icon-md icon icon-tulli-hamburger-menu"></span>
                                         </div>
                                         <div class="media-body media-middle" style="background: #dddddd;">
                                             <h3 class="media-heading">XML-exempel</h3>
@@ -152,6 +152,19 @@
                     </div>
 
                     <div class="col-md-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
+						<a name="mainmenu">Anm&auml;rkningar ang&aring;ende nyaste versionen</a>
+					</h2>
+                            </div>
+                            <div class="panel-body" id="notes">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h2 class="panel-title">
@@ -255,11 +268,11 @@
                             $(".main-navbar").append(system + " ");
                             document.title += " " + system;
                         })
-                        $('CurrentVersion', returnedXMLResponse).each(function() {
+                        $('VersionHistory Version:last Number', returnedXMLResponse).each(function() {
                             var version = $(this).text();
                             $(".main-navbar").append(version + " ");
                         })
-                        $('Generated', returnedXMLResponse).each(function() {
+                        $('VersionHistory Version:last Date', returnedXMLResponse).each(function() {
                             var date = new Date($(this).text());
                             date = date.toLocaleDateString("fi-FI");
                             $(".main-navbar").append(date);
@@ -314,6 +327,9 @@
         }
         document.addEventListener('DOMContentLoaded', function() {
             transform('../common/intro.xml', 'history.xsl', document.getElementById('history'));
+        })
+        document.addEventListener('DOMContentLoaded', function() {
+            transform('../common/intro.xml', 'notes.xsl', document.getElementById('notes'));
         })
     </script>
     <script src='../../assets/javascripts/bootstrap.js'></script>
