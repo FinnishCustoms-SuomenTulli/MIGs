@@ -135,11 +135,11 @@
                             $(".pageheader").append(system);
                             document.title += " " + system;
                         })
-                        $('CurrentVersion', returnedXMLResponse).each(function() {
+                        $('VersionHistory Version:last Number', returnedXMLResponse).each(function() {
                             var version = $(this).text();
                             $(".main-navbar").append(version + " ");
                         })
-                        $('Generated', returnedXMLResponse).each(function() {
+                        $('VersionHistory Version:last Date', returnedXMLResponse).each(function() {
                             var date = new Date($(this).text());
                             date = date.toLocaleDateString("sv-FI");
                             $(".main-navbar").append(date);
