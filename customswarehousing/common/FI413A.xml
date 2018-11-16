@@ -1223,7 +1223,7 @@
 							<DescriptionLine lang="sv">Ange bruttomassa i kilogram. Bruttomassan omfattar varans massa med emballage, med undantag för transportmedel och containrar. En bruttomassa som underskrider 1 kilogram anges i formen "0,654", dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler.</DescriptionLine>
 							<DescriptionLine lang="en">Enter the gross mass in kilograms. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. "0,654" up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, you can enter the value grounded to the closest full kilogram.</DescriptionLine>
 						</DataElement>
-						<DataElement>
+						<!--DataElement>
 							<Name lang="fi">Lisäpaljousyksiköt</Name>
 							<Name lang="sv">Extra mängdenheter</Name>
 							<Name lang="en">Supplementary units</Name>
@@ -1245,6 +1245,38 @@
 							<DescriptionLine lang="sv">Ange den i Taric förutsatta extra mängdenheten, t.ex. 'NAR' (styck).</DescriptionLine>
 							<DescriptionLine lang="en">Enter the supplementary unit required according to Taric, e.g. 'NAR' (number of items).
 </DescriptionLine>
+						</DataElement-->
+						<DataElement>
+							<Name lang="fi">Lisäpaljousyksiköt</Name>
+							<Name lang="sv">Extra mängdenheter</Name>
+							<Name lang="en">Supplementary units</Name>
+							<XPath>SupplementaryMeasureUnit/Quantity</XPath>
+							<MinOccurence>0</MinOccurence>
+							<EUCDM>6/2</EUCDM>
+							<GeneralType>Decimal</GeneralType>
+							<Format>n..16,6</Format>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Lisäpaljousyksiköt, paljousyksikkö</Name>
+							<Name lang="sv">Extra mängdenheter, mängdenhet</Name>
+							<Name lang="en">Supplementary units, measurement unit</Name>
+							<XPath>SupplementaryMeasureUnit/Unit</XPath>
+							<MinOccurence>0</MinOccurence>
+							<GeneralType>String</GeneralType>
+							<Format>an3</Format>
+							<DescriptionLine lang="fi">Ilmoita Taricissa edellytetty lisäpaljouden yksikkö, esim. 'NAR' (kappale).</DescriptionLine>
+							<DescriptionLine lang="sv">Ange den i Taric förutsatta extra mängdenheten, t.ex. 'NAR' (styck).</DescriptionLine>
+							<DescriptionLine lang="en">Enter the supplementary unit required according to Taric, e.g. 'NAR' (number of items).
+</DescriptionLine>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Lisäpaljousyksiköt, paljousyksikön tarkennin</Name>
+							<Name lang="sv">Extra mängdenheter, mängdenheten kvalificerare</Name>
+							<Name lang="en">Supplementary units, measurement unit qualifier</Name>
+							<XPath>SupplementaryMeasureUnit/Unit</XPath>
+							<MinOccurence>0</MinOccurence>
+							<GeneralType>String</GeneralType>
+							<Format>an1</Format>
 						</DataElement>
 					</DataGroup>
 				</DataGroup>
