@@ -201,133 +201,70 @@
 					<XPath>Commodity</XPath>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
-					<DataGroup>
-						<Name lang="fi">Tavaran koodi – yhdistetyn nimikkeistön koodi</Name>
-						<Name lang="sv">Varukod – KN-nummer</Name>
-						<Name lang="en">Commodity code - Harmonised System code</Name>
-						<XPath>Classification</XPath>
-						<MinOccurence>1</MinOccurence>
-						<MaxOccurence>1</MaxOccurence>
-						<DataElement>
-							<Name lang="fi">Tavaran koodi – yhdistetyn nimikkeistön koodi</Name>
-							<Name lang="sv">Varukod – KN-nummer</Name>
-							<Name lang="en">Commodity code - Harmonised System code</Name>
-							<XPath>Identification</XPath>
-							<MinOccurence>1</MinOccurence>
-							<EUCDM>6/14</EUCDM>
-							<GeneralType>NumericalString</GeneralType>
-							<Format>an6</Format>
-						</DataElement>
-						<DataElement>
-							<Name lang="fi">Luokitustyyppi</Name>
-							<Name lang="sv">Klassificeringstyp</Name>
-							<Name lang="en">Classification type</Name>
-							<XPath>IdentificationType</XPath>
-							<MinOccurence>1</MinOccurence>
-							<EUCDM>6/14</EUCDM>
-							<GeneralType>String</GeneralType>
-							<Codelist>NCL995</Codelist>
-							<Format>an..3</Format>
-						</DataElement>
-					</DataGroup>
-					<DataGroup>
-						<Name lang="fi">Tavaran koodi – yhdistetyn nimikkeistön koodi</Name>
-						<Name lang="sv">Varukod – KN-nummer</Name>
-						<Name lang="en">Commodity code - Combined Nomenclature code</Name>
-						<XPath>Classification</XPath>
-						<MinOccurence>0</MinOccurence>
-						<MaxOccurence>1</MaxOccurence>
-						<DataElement>
-							<Name lang="fi">Tavaran koodi – yhdistetyn nimikkeistön koodi</Name>
-							<Name lang="sv">Varukod – KN-nummer</Name>
-							<Name lang="en">Commodity code - Combined Nomenclature code</Name>
-							<XPath>Identification</XPath>
-							<MinOccurence>1</MinOccurence>
-							<GeneralType>NumericalString</GeneralType>
-							<Format>an2</Format>
-						</DataElement>
-						<DataElement>
-							<Name lang="fi">Luokitustyyppi</Name>
-							<Name lang="sv">Klassificeringstyp</Name>
-							<Name lang="en">Classification type</Name>
-							<XPath>IdentificationType</XPath>
-							<MinOccurence>1</MinOccurence>
-							<EUCDM>6/14</EUCDM>
-							<GeneralType>String</GeneralType>
-							<Codelist>NCL995</Codelist>
-							<Format>an..3</Format>
-						</DataElement>
-					</DataGroup>
-					<DataGroup>
-						<Name lang="fi">Tavaran koodi – Taric-koodi</Name>
-						<Name lang="sv">Varukod – Taric-nummer</Name>
-						<Name lang="en">Commodity code - TARIC code</Name>
-						<XPath>Classification</XPath>
-						<MinOccurence>0</MinOccurence>
-						<MaxOccurence>1</MaxOccurence>
-						<DataElement>
-							<Name lang="fi">Tavaran koodi – Taric-koodi</Name>
-							<Name lang="sv">Varukod – Taric-nummer</Name>
-							<Name lang="en">Commodity code - TARIC code</Name>
-							<XPath>Identification</XPath>
-							<MinOccurence>1</MinOccurence>
-							<EUCDM>6/15</EUCDM>
-							<GeneralType>NumericalString</GeneralType>
-							<Format>an2</Format>
-						</DataElement>
-						<DataElement>
-							<Name lang="fi">Luokitustyyppi</Name>
-							<Name lang="sv">Klassificeringstyp</Name>
-							<Name lang="en">Classification type</Name>
-							<XPath>IdentificationType</XPath>
-							<MinOccurence>1</MinOccurence>
-							<EUCDM>6/15</EUCDM>
-							<GeneralType>String</GeneralType>
-							<Codelist>NCL995</Codelist>
-							<Format>an..3</Format>
-						</DataElement>
-					</DataGroup>
-				</DataGroup>
-				<DataGroup>
-					<Name lang="fi">Pakkaukset</Name>
-					<Name lang="sv">Förpackningar</Name>
-					<Name lang="en">Packages</Name>
-					<XPath>Packaging</XPath>
-					<MinOccurence>1</MinOccurence>
-					<MaxOccurence>99</MaxOccurence>
-					<DescriptionLine lang="en">Data required from 2019 onward.</DescriptionLine>
 					<DataElement>
-						<Name lang="en">Marks and numbers</Name>
-						<XPath>MarksNumbers</XPath>
+						<Name lang="fi">Tavaran koodi</Name>
+						<Name lang="sv">Varukod</Name>
+						<Name lang="en">Commodity code</Name>
+						<XPath>Classification/Identification</XPath>
+						<MinOccurence>1</MinOccurence>
+						<GeneralType>NumericalString</GeneralType>
+						<Format>an..10</Format>
+					</DataElement>
+					<DataElement>
+						<Name lang="en">Goods value</Name>
+						<XPath>InvoiceLine/ItemCharge</XPath>
 						<MinOccurence>0</MinOccurence>
-						<EUCDM>6/11</EUCDM>
+						<GeneralType>Decimal</GeneralType>
+						<Format>n..16,2</Format>
+					</DataElement>
+					<DataElement>
+						<Name lang="en">Goods value, currency code</Name>
+						<XPath>InvoiceLine/ItemCharge@currencyCode</XPath>
+						<MinOccurence>0</MinOccurence>
 						<GeneralType>String</GeneralType>
-						<Format>an..512</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Kolliluku</Name>
-						<Name lang="sv">Antal kollin</Name>
-						<Name lang="en">Number of packages</Name>
-						<XPath>Quantity</XPath>
-						<MinOccurence>1</MinOccurence>
-						<EUCDM>6/10</EUCDM>
-						<GeneralType>Integer</GeneralType>
-						<Format>n..8</Format>
-						<DescriptionLine lang="en">Data required from 2019 onward.</DescriptionLine>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Kollien laji</Name>
-						<Name lang="sv">Kollislag</Name>
-						<Name lang="en">Type of packages</Name>
-						<XPath>Type</XPath>
-						<MinOccurence>0</MinOccurence>
-						<EUCDM>6/9</EUCDM>
-						<GeneralType>Integer</GeneralType>
-						<Codelist>CL017</Codelist>
-						<Format>an2</Format>
+						<Format>a3</Format>
 					</DataElement>
 				</DataGroup>
 			</DataGroup>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="fi">Pakkaukset</Name>
+			<Name lang="sv">Förpackningar</Name>
+			<Name lang="en">Packages</Name>
+			<XPath>Packaging</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>99</MaxOccurence>
+			<DescriptionLine lang="en">Data required from 2019 onward.</DescriptionLine>
+			<DataElement>
+				<Name lang="en">Marks and numbers</Name>
+				<XPath>MarksNumbers</XPath>
+				<MinOccurence>0</MinOccurence>
+				<EUCDM>6/11</EUCDM>
+				<GeneralType>String</GeneralType>
+				<Format>an..512</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Kolliluku</Name>
+				<Name lang="sv">Antal kollin</Name>
+				<Name lang="en">Number of packages</Name>
+				<XPath>Quantity</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM>6/10</EUCDM>
+				<GeneralType>Integer</GeneralType>
+				<Format>n..8</Format>
+				<DescriptionLine lang="en">Data required from 2019 onward.</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Kollien laji</Name>
+				<Name lang="sv">Kollislag</Name>
+				<Name lang="en">Type of packages</Name>
+				<XPath>Type</XPath>
+				<MinOccurence>0</MinOccurence>
+				<EUCDM>6/9</EUCDM>
+				<GeneralType>Integer</GeneralType>
+				<Codelist>CL017</Codelist>
+				<Format>an2</Format>
+			</DataElement>
 		</DataGroup>
 	</DataGroup>
 </Message>
