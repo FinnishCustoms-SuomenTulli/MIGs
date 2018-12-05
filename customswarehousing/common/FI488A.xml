@@ -4,7 +4,7 @@
 	<Type>FI488A</Type>
 	<Name lang="fi">Päättämistiedonanto</Name>
 	<Name lang="sv">Anmälan om avslutande</Name>
-	<Name lang="en">Bill of discharge</Name>
+	<Name lang="en">Discharge notification</Name>
 	<DataGroup>
 		<Name lang="fi">Tuontitapahtuma</Name>
 		<Name lang="sv">Importåtgärd</Name>
@@ -56,6 +56,29 @@
 			<DescriptionLine lang="en">Choose in which language you prefer to have response messages and decisions. </DescriptionLine>
 		</DataElement>
 		<DataGroup>
+			<Name lang="fi">Luvanhaltija</Name>
+			<Name lang="sv">Tillståndshavare</Name>
+			<Name lang="en">Holder of the authorisation</Name>
+			<XPath>AuthorisationHolder</XPath>
+			<MinOccurence>0</MinOccurence>
+			<MaxOccurence>99</MaxOccurence>
+			<DataElement>
+				<Name lang="fi">Luvanhaltijan tunnistenumero</Name>
+				<Name lang="sv">Tillståndshavarens</Name>
+				<Name lang="en">Holder of the authorisation identification no.</Name>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<EUCDM>3/39</EUCDM>
+				<GeneralType>TIN</GeneralType>
+				<Rule>NR1311</Rule>
+				<Rule>NR2001</Rule>
+				<Format>an..17</Format>
+				<DescriptionLine lang="fi">Ilmoita tullivarastoinnin luvanhaltijan tunnistenumero.</DescriptionLine>
+				<DescriptionLine lang="sv">Ange identifieringsnummer för innehavaren av tullagertillståndet.</DescriptionLine>
+				<DescriptionLine lang="en">Enter the ID of  the holder of the authorisation for the customs warehouse.</DescriptionLine>
+			</DataElement>
+		</DataGroup>
+		<DataGroup>
 			<Name lang="fi">Edustaja</Name>
 			<Name lang="sv">Ombud</Name>
 			<Name lang="en">Representative</Name>
@@ -103,141 +126,7 @@
 				<DescriptionLine lang="en">Enter nationally allocated trader office code, if representative has one.</DescriptionLine>
 			</DataElement>
 		</DataGroup>
-		<DataGroup>
-			<Name lang="fi">Luvanhaltija</Name>
-			<Name lang="sv">Tillståndshavare</Name>
-			<Name lang="en">Holder of the authorisation</Name>
-			<XPath>AuthorisationHolder</XPath>
-			<MinOccurence>0</MinOccurence>
-			<MaxOccurence>99</MaxOccurence>
-			<DataElement>
-				<Name lang="fi">Luvanhaltijan tunnistenumero</Name>
-				<Name lang="sv">Tillståndshavarens</Name>
-				<Name lang="en">Holder of the authorisation identification no.</Name>
-				<XPath>Identification</XPath>
-				<MinOccurence>1</MinOccurence>
-				<EUCDM>3/39</EUCDM>
-				<GeneralType>TIN</GeneralType>
-				<Rule>NR1311</Rule>
-				<Rule>NR2001</Rule>
-				<Format>an..17</Format>
-				<DescriptionLine lang="fi">Ilmoita tullivarastoinnin luvanhaltijan tunnistenumero.</DescriptionLine>
-				<DescriptionLine lang="sv">Ange identifieringsnummer för innehavaren av tullagertillståndet.</DescriptionLine>
-				<DescriptionLine lang="en">Enter the ID of  the holder of the authorisation for the customs warehouse.</DescriptionLine>
-			</DataElement>
-		</DataGroup>
-		<DataGroup>
-			<Name lang="fi">Edustaja</Name>
-			<Name lang="sv">Ombud</Name>
-			<Name lang="en">Representative</Name>
-			<XPath>Agent</XPath>
-			<MinOccurence>0</MinOccurence>
-			<MaxOccurence>1</MaxOccurence>
-			<DescriptionLine lang="fi">Jos ilmoittaja on valtuuttanut sinut antamaan ilmoituksen puolestaan edustajana, tieto on pakollinen. Jos edustajaa ei käytetä, tietoa ei ilmoiteta.</DescriptionLine>
-			<DescriptionLine lang="sv">Om deklaranten har befullmäktigat dig att inge deklarationen som sitt ombud, är det obligatoriskt att ange denna uppgift. Om ombud inte används, anges inte denna uppgift.</DescriptionLine>
-			<DescriptionLine lang="en">If the declarant has authorised you to lodge the declaration as a representative, this data is required. If there is no representative, no data is entered.</DescriptionLine>
-			<DataElement>
-				<Name lang="fi">Edustajan asemaa koskeva koodi</Name>
-				<Name lang="sv">Kod för ombudets status</Name>
-				<Name lang="en">Representative status code</Name>
-				<XPath>Function</XPath>
-				<MinOccurence>1</MinOccurence>
-				<EUCDM>3/21</EUCDM>
-				<GeneralType>RepresentationCode</GeneralType>
-				<Codelist>CL530</Codelist>
-				<Rule>NR0002</Rule>
-				<Format>n1</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Edustajan tunnistenumero</Name>
-				<Name lang="sv">Ombudets identifieringsnummer</Name>
-				<Name lang="en">Representative identification no.</Name>
-				<XPath>Identification</XPath>
-				<MinOccurence>1</MinOccurence>
-				<EUCDM>3/20</EUCDM>
-				<GeneralType>TIN</GeneralType>
-				<Rule>NR0034</Rule>
-				<Rule>NR0035</Rule>
-				<Rule>NR0036</Rule>
-				<Format>an..17</Format>
-				<DescriptionLine lang="fi">EORI ID</DescriptionLine>
-				<DescriptionLine lang="sv">EORI-nummer</DescriptionLine>
-				<DescriptionLine lang="en">EORI ID</DescriptionLine>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Edustajan toimipaikkakoodi</Name>
-				<Name lang="sv">Ombudets kontorskod</Name>
-				<Name lang="en">Representative office code</Name>
-				<XPath>AdditionalIdentifier/Identification</XPath>
-				<MinOccurence>0</MinOccurence>
-				<GeneralType>TraderOfficeCode</GeneralType>
-				<Format>n..3</Format>
-				<DescriptionLine lang="fi">Ilmoita edustajan toimipisteen kansallinen tunniste, jos edustajalla on sellainen.</DescriptionLine>
-				<DescriptionLine lang="sv">Ange det nationella identifieringsnumret för ombudets verksamhetsställe, om ombudet har ett sådant nummer.</DescriptionLine>
-				<DescriptionLine lang="en">Enter nationally allocated trader office code, if representative has one.</DescriptionLine>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Edustajan nimi</Name>
-				<Name lang="sv">Ombudets namn</Name>
-				<Name lang="en">Representative name</Name>
-				<XPath>Name</XPath>
-				<MinOccurence>0</MinOccurence>
-				<EUCDM>3/19</EUCDM>
-				<GeneralType>TraderName</GeneralType>
-				<Condition>NC0016</Condition>
-				<Format>an..70</Format>
-			</DataElement>
-			<DataGroup>
-				<Name lang="fi">Edustajan osoite</Name>
-				<Name lang="sv">Ombudets adress</Name>
-				<Name lang="en">Representative address</Name>
-				<XPath>Address</XPath>
-				<MinOccurence>0</MinOccurence>
-				<MaxOccurence>1</MaxOccurence>
-				<Condition>NC0016</Condition>
-				<DataElement>
-					<Name lang="fi">Edustajan katuosoite</Name>
-					<Name lang="sv">Ombudets gatuadress</Name>
-					<Name lang="en">Representative street and number</Name>
-					<XPath>Street</XPath>
-					<MinOccurence>1</MinOccurence>
-					<EUCDM>3/19</EUCDM>
-					<GeneralType>Street</GeneralType>
-					<Format>an..70</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Edustajan postitoimipaikka</Name>
-					<Name lang="sv">Ombudets ort</Name>
-					<Name lang="en">Representative city</Name>
-					<XPath>CityName</XPath>
-					<MinOccurence>1</MinOccurence>
-					<EUCDM>3/19</EUCDM>
-					<GeneralType>City</GeneralType>
-					<Format>an..35</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Edustajan postinumero</Name>
-					<Name lang="sv">Ombudets postnummer</Name>
-					<Name lang="en">Representative postcode</Name>
-					<XPath>Postcode</XPath>
-					<MinOccurence>1</MinOccurence>
-					<EUCDM>3/19</EUCDM>
-					<GeneralType>Postcode</GeneralType>
-					<Format>an..9</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Edustajan maa</Name>
-					<Name lang="sv">Ombudets land</Name>
-					<Name lang="en">Representative country</Name>
-					<XPath>Country</XPath>
-					<MinOccurence>1</MinOccurence>
-					<EUCDM>3/19</EUCDM>
-					<GeneralType>CountryCode</GeneralType>
-					<Codelist>CL008</Codelist>
-					<Format>a2</Format>
-				</DataElement>
-			</DataGroup>
-		</DataGroup>
+
 		<!--DataGroup>
 			<Name lang="fi">Ilmoituksen antaja</Name>
 			<Name lang="sv">Inlämnare</Name>
