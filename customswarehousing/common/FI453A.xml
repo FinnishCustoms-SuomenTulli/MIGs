@@ -66,7 +66,7 @@
 			<XPath>Notification</XPath>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<DataElement>
+			<!--DataElement>
 				<Name lang="fi">Ilmoituksen tyyppi</Name>
 				<Name lang="sv">Underrättelsens typ</Name>
 				<Name lang="en">Notification type</Name>
@@ -83,7 +83,7 @@
 				<MinOccurence>1</MinOccurence>
 				<GeneralType>DateTime</GeneralType>
 				<Format>dateTime</Format>
-			</DataElement>
+			</DataElement-->
 			<DataElement>
 				<Name lang="fi">Ilmoituksen kuvaus</Name>
 				<Name lang="sv">Underrättelsens beskrivning</Name>
@@ -91,7 +91,11 @@
 				<XPath>Text</XPath>
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>String</GeneralType>
+				<Condition>NC0031</Condition>
 				<Format>an..4096</Format>
+				<DescriptionLine lang="fi">Vapaamuotoinen vastaus Tullin lisäselvityspyyntöön.</DescriptionLine>
+				<DescriptionLine lang="sv">Fritt formulerat svar på Tullens begär om tilläggsutredning.</DescriptionLine>
+				<DescriptionLine lang="en">Free form response to Customs' request for additional information.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Pyynnön korrelaatio</Name>
@@ -107,29 +111,36 @@
 				<Name lang="sv">Inlämnad information</Name>
 				<Name lang="en">Provided information</Name>
 				<XPath>ProvidedInfo</XPath>
-				<MinOccurence>1</MinOccurence>
+				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>999</MaxOccurence>
+				<Condition>NC0031</Condition>
 				<DataElement>
 					<Name lang="fi">Kuvaus</Name>
 					<Name lang="sv">Beskrivning</Name>
 					<Name lang="en">Description</Name>
 					<XPath>Description</XPath>
-					<MinOccurence>0</MinOccurence>
+					<MinOccurence>1</MinOccurence>
 					<GeneralType>String</GeneralType>
-					<Format>an..4096</Format>
+					<Format>an..70</Format>
+					<DescriptionLine lang="fi">Liitetiedoston kuvaus.</DescriptionLine>
+					<DescriptionLine lang="sv">Beskriving av den bilagda filen.</DescriptionLine>
+					<DescriptionLine lang="en">Description of the attachment.</DescriptionLine>
 				</DataElement>
-				<!--DataElement>
-					<Name lang="fi">Yhteenkuuluva tavaraerä</Name>
-					<Name lang="sv">Sammanhörande varuparti</Name>
-					<Name lang="en">Related goods item</Name>
-					<XPath>Sequence</XPath>
-					<MinOccurence>0</MinOccurence>
-					<GeneralType>Integer</GeneralType>
-					<Format>n..5</Format>
-				</DataElement-->
+				<DataElement>
+					<Name lang="fi">Asiakirjalinkki</Name>
+					<Name lang="sv">Dokumentlänk</Name>
+					<Name lang="en">Document link</Name>
+					<XPath>NationalReference</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>String</GeneralType>
+					<Format>an..500</Format>
+					<DescriptionLine lang="fi">Tullin järjestelmän antama liitetiedosoton viite.</DescriptionLine>
+					<DescriptionLine lang="sv">Den referens som givits till bilagda dokumentet av Tullens system.</DescriptionLine>
+					<DescriptionLine lang="en">The reference of the attachment that the Customs' system has provided.</DescriptionLine>
+				</DataElement>
 			</DataGroup>
 		</DataGroup>
-		<DataGroup>
+		<!--DataGroup>
 			<Name lang="fi">Edustaja</Name>
 			<Name lang="sv">Ombud</Name>
 			<Name lang="en">Representative</Name>
@@ -382,6 +393,6 @@
 					<Format>a2</Format>
 				</DataElement>
 			</DataGroup>
-		</DataGroup>
+		</DataGroup-->
 	</DataGroup>
 </Message>
