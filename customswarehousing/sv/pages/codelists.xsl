@@ -45,9 +45,15 @@
 											<xsl:attribute name="id"><xsl:value-of select="concat('CODELIST_',Identification)"/></xsl:attribute>
 											<xsl:attribute name="aria-controls"><xsl:value-of select="concat('CODELIST_',Identification)"/></xsl:attribute>
 											<xsl:choose>
-												<xsl:when test="$language='fi'"><xsl:value-of select="concat('KOODISTO ',Identification)"/> - <xsl:value-of select="Name[@lang=($language)]"/></xsl:when>
-												<xsl:when test="$language='sv'"><xsl:value-of select="concat('KODFÖRTECKNING ',Identification)"/> - <xsl:value-of select="Name[@lang=($language)]"/></xsl:when>
-												<xsl:when test="$language='en'"><xsl:value-of select="concat('CODELIST ',Identification)"/> - <xsl:value-of select="Name[@lang=($language)]"/></xsl:when>
+												<xsl:when test="$language='fi'">
+													<xsl:value-of select="concat('KOODISTO ',Identification)"/> - <xsl:value-of select="Name[@lang=($language)]"/>
+												</xsl:when>
+												<xsl:when test="$language='sv'">
+													<xsl:value-of select="concat('KODFÖRTECKNING ',Identification)"/> - <xsl:value-of select="Name[@lang=($language)]"/>
+												</xsl:when>
+												<xsl:when test="$language='en'">
+													<xsl:value-of select="concat('CODELIST ',Identification)"/> - <xsl:value-of select="Name[@lang=($language)]"/>
+												</xsl:when>
 											</xsl:choose>
 										</a>
 									</h2>
@@ -89,15 +95,41 @@
 										<xsl:if test="Valid!='False'">
 											<tr>
 												<td>
-													<!--span class="icon icon-tulli-info" style="margin-right:3px"></span-->
-													<xsl:value-of select="Code"/>
+													<xsl:choose>
+														<xsl:when test="Header=1">
+															<b>
+																<xsl:value-of select="Code"/>
+															</b>
+														</xsl:when>
+														<xsl:otherwise>
+															<xsl:value-of select="Code"/>
+														</xsl:otherwise>
+													</xsl:choose>
 												</td>
 												<td>
-													<xsl:value-of select="Name[@lang=($language)]"/>
+													<xsl:choose>
+														<xsl:when test="Header=1">
+															<b>
+																<xsl:value-of select="Name[@lang=($language)]"/>
+															</b>
+														</xsl:when>
+														<xsl:otherwise>
+															<xsl:value-of select="Name[@lang=($language)]"/>
+														</xsl:otherwise>
+													</xsl:choose>
 												</td>
 												<xsl:if test="count(../CodeItem/Description[@lang=($language)][string(.)]) > 0">
 													<td>
-														<xsl:value-of select="Description[@lang=($language)]"/>
+														<xsl:choose>
+															<xsl:when test="Header=1">
+																<b>
+																	<xsl:value-of select="Description[@lang=($language)]"/>
+																</b>
+															</xsl:when>
+															<xsl:otherwise>
+																<xsl:value-of select="Description[@lang=($language)]"/>
+															</xsl:otherwise>
+														</xsl:choose>
 													</td>
 												</xsl:if>
 											</tr>

@@ -49,15 +49,41 @@
 									<xsl:if test="Valid!='False'">
 										<tr>
 											<td>
-												<!--span class="icon icon-tulli-info" style="margin-right:3px"></span-->
-												<xsl:value-of select="Code"/>
+												<xsl:choose>
+													<xsl:when test="Header=1">
+														<b>
+															<xsl:value-of select="Code"/>
+														</b>
+													</xsl:when>
+													<xsl:otherwise>
+														<xsl:value-of select="Code"/>
+													</xsl:otherwise>
+												</xsl:choose>
 											</td>
 											<td>
-												<xsl:value-of select="Name[@lang=($language)]"/>
+												<xsl:choose>
+													<xsl:when test="Header=1">
+														<b>
+															<xsl:value-of select="Name[@lang=($language)]"/>
+														</b>
+													</xsl:when>
+													<xsl:otherwise>
+														<xsl:value-of select="Name[@lang=($language)]"/>
+													</xsl:otherwise>
+												</xsl:choose>
 											</td>
 											<xsl:if test="count(../CodeItem/Description[@lang=($language)][string(.)]) > 0">
 												<td>
-													<xsl:value-of select="Description[@lang=($language)]"/>
+													<xsl:choose>
+														<xsl:when test="Header=1">
+															<b>
+																<xsl:value-of select="Description[@lang=($language)]"/>
+															</b>
+														</xsl:when>
+														<xsl:otherwise>
+															<xsl:value-of select="Description[@lang=($language)]"/>
+														</xsl:otherwise>
+													</xsl:choose>
 												</td>
 											</xsl:if>
 										</tr>
