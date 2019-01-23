@@ -19,7 +19,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-3 col-sm-3 sidebar" role="complementary">
-					<nav id="nav-sidebar" class="hidden-print collapse navbar-collapse" data-spy="affix" data-offset-top="210">
+					<nav id="nav-sidebar" class="hidden-print collapse navbar-collapse" data-spy="affix" data-offset-top="210" style="width: 270px">
 						<ul class="nav nav-stacked">
 							<xsl:for-each select="CodeLists/CodeList">
 								<li>
