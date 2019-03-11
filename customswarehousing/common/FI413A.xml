@@ -89,6 +89,7 @@
 			<XPath>Jurisdiction</XPath>
 			<MinOccurence>0</MinOccurence>
 			<GeneralType>DateTime</GeneralType>
+			<Rule>NR0055</Rule>
 			<Condition>NC0017</Condition>
 			<Format>dateTime</Format>
 			<DescriptionLine lang="fi">Jos ilmoituksen tyyppi on D, ilmoita arvioitu esittämispäivä ja aika. </DescriptionLine>
@@ -146,6 +147,7 @@
 				<XPath>Amendment</XPath>
 				<MinOccurence>1</MinOccurence>
 				<GeneralType>DateTime</GeneralType>
+				<Rule>NR0055</Rule>
 				<Format>dateTime</Format>
 			</DataElement>
 			<DataElement>
@@ -184,6 +186,7 @@
 				<GeneralType>TIN</GeneralType>
 				<Rule>NR0001</Rule>
 				<Rule>NR0025</Rule>
+				<Rule>NR1101</Rule>
 				<Format>an..17</Format>
 			</DataElement>
 			<DataElement>
@@ -236,6 +239,7 @@
 				<Rule>NR0034</Rule>
 				<Rule>NR0035</Rule>
 				<Rule>NR0036</Rule>
+				<Rule>NR1101</Rule>
 				<Format>an..17</Format>
 				<DescriptionLine lang="fi">EORI ID</DescriptionLine>
 				<DescriptionLine lang="sv">EORI-nummer</DescriptionLine>
@@ -248,6 +252,7 @@
 				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>TraderOfficeCode</GeneralType>
+				<Rule>NR1101</Rule>
 				<Format>n..3</Format>
 				<DescriptionLine lang="fi">Ilmoita edustajan toimipisteen kansallinen tunniste, jos edustajalla on sellainen.</DescriptionLine>
 				<DescriptionLine lang="sv">Ange det nationella identifieringsnumret för ombudets verksamhetsställe, om ombudet har ett sådant nummer.</DescriptionLine>
@@ -333,6 +338,7 @@
 				<Rule>NR0034</Rule>
 				<Rule>NR0035</Rule>
 				<Rule>NR0036</Rule>
+				<Rule>NR1101</Rule>
 				<Format>an..17</Format>
 				<DescriptionLine lang="fi">Ilmoita tullivarastointimenettelyyn asettamisesta ja ilmoituksen oikeellisuudesta vastaavan EORI-numero. Jos olet yksityishenkilö, ilmoita henkilötunnuksesi, jonka alkuun kirjoitat maakoodin, esim. "FIPPKKVV-1234".</DescriptionLine>
 				<DescriptionLine lang="sv">Ange EORI-numret för personen som är ansvarig för hänförandet till tullagerförfarandet och deklarationens riktighet. Om du är en privatperson ska du ange din personbeteckning, framför vilken du placerar landkoden, t.ex. "FIDDMMÅÅ-1234".</DescriptionLine>
@@ -345,6 +351,7 @@
 				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>TraderOfficeCode</GeneralType>
+				<Rule>NR1101</Rule>
 				<Format>n..3</Format>
 				<DescriptionLine lang="fi">Ilmoittajan toimipisteen kansallinen tunniste, jos ilmoittajalla on sellainen, esim. "001".</DescriptionLine>
 				<DescriptionLine lang="sv">Ange det nationella identifieringsnumret för deklarantens verksamhetsställe, om deklaranten har ett sådant nummer, t.ex. "001".</DescriptionLine>
@@ -647,9 +654,9 @@
 					<EUCDM>7/2</EUCDM>
 					<GeneralType>Boolean</GeneralType>
 					<Format>n1</Format>
-					<DescriptionLine lang="fi">Jos tavarat ovat kontissa ilmoita ´1´, muuten ´0´</DescriptionLine>
-					<DescriptionLine lang="sv">Om varorna är i en container ange ”1”, i annat fall ”0”.</DescriptionLine>
-					<DescriptionLine lang="en">If the goods are in containers enter ´1´, otherwise enter ´0´</DescriptionLine>
+					<DescriptionLine lang="fi">Jos tavarat ovat kontissa ilmoita '1', muuten '0'.</DescriptionLine>
+					<DescriptionLine lang="sv">Om varorna är i en container ange '1', i annat fall '0'.</DescriptionLine>
+					<DescriptionLine lang="en">If the goods are in containers enter '1', otherwise enter '0'.</DescriptionLine>
 				</DataElement>
 				<DataGroup>
 					<Name lang="fi">Kuljetusvälineet</Name>
@@ -823,6 +830,7 @@
 				<XPath>Importer</XPath>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
+				<Rule>NR0069</Rule>
 				<Condition>NC0011</Condition>
 				<DataElement>
 					<Name lang="fi">Tuojan tunnistenumero</Name>
@@ -832,6 +840,7 @@
 					<MinOccurence>1</MinOccurence>
 					<EUCDM>3/16</EUCDM>
 					<GeneralType>TIN</GeneralType>
+					<Rule>NR1101</Rule>
 					<Format>an..17</Format>
 					<DescriptionLine lang="fi">Jos ilmoittaja on saanut toimeksiannon tavaran tuomisesta Suomeen joltakin muulta taholta, ilmoita toimeksiantajan EORI-numero tai muu tunnistenumero tässä (tuoja). Tuojan ollessa yksityishenkilö ilmoita henkilötunnus, jonka alkuun kirjoitat maakoodin, esim. FIPPKKVV-1234. Jos ilmoittaja on sama kuin tuoja, tietoa ei ilmoiteta.</DescriptionLine>
 					<DescriptionLine lang="sv">Om deklaranten har fått av en annan aktör som uppdrag att importera varorna till Finland, ska uppdragsgivarens EORI-nummer eller annat identifieringsnummer anges här (importör). Om importören är en privatperson ska här anges dennes personbeteckning, framför vilken landkoden placeras, t.ex. FIDDMMÅÅ-1234. Om deklaranten också är importören, anges inte denna uppgift.</DescriptionLine>
@@ -844,6 +853,7 @@
 					<XPath>AdditionalIdentifier/Identification</XPath>
 					<MinOccurence>0</MinOccurence>
 					<GeneralType>TraderOfficeCode</GeneralType>
+					<Rule>NR1101</Rule>
 					<Format>n..3</Format>
 					<DescriptionLine lang="en">Enter nationally allocated trader office code, if consignee has one.</DescriptionLine>
 					<DescriptionLine lang="fi">Ilmoita tuojan toimipisteen kansallinen tunniste jos tuojalla on sellainen.</DescriptionLine>
@@ -1083,6 +1093,7 @@
 						<XPath>Classification</XPath>
 						<MinOccurence>1</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
+						<Rule>NR0011</Rule>
 						<Rule>NR0501</Rule>
 						<DataElement>
 							<Name lang="fi">Tavaran koodi – yhdistetyn nimikkeistön koodi</Name>
@@ -1399,6 +1410,9 @@
 					<XPath>AdditionalDocument</XPath>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>99</MaxOccurence>
+					<DescriptionLine lang="fi">Jos tavaran nimikkeeseen liittyy rajoitus, rajoituksen mukainen asiakirjakoodi on ilmoitettava. Jos tuote ei ole rajoituksen alainen, asiakirjatunnisteena ilmoitetaan 'N/A' (esim. tuote ei ole CITES-rajoituksen alainen, ilmoitetaan nimikkeen mukainen Taric-asiakirjakoodi Y900, jonka tunnisteeksi ilmoitetaan 'N/A').</DescriptionLine>
+					<DescriptionLine lang="sv">Om varan är föremål för begränsningar måste dokumentkoden gällande restriktionen anmälas. Om varan inte är föremål för begränsningen anmäls 'N/A' som dokumentets identifiering (t.ex. varan är inte föremål för CITES-begränsningen, Taric-dokumentkoden Y900 med identifieringen 'N/A' anmäls).</DescriptionLine>
+					<DescriptionLine lang="en">If the goods are subject to a restriction, the document code corresponding with the restriction must be provided. If the goods are not subject to the restriction, the document identifier is 'N/A' (eg the product is not subject to the CITES restriction, the Taric document code Y900 with identifier 'N/A' is entered).</DescriptionLine>
 					<DataElement>
 						<Name lang="fi">Asiakirjatyyppi</Name>
 						<Name lang="sv">Dokumentets typ</Name>

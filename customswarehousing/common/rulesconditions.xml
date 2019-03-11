@@ -64,6 +64,12 @@
 		<DescriptionLine lang="en">- type 821 and transit MRN</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
+		<ID>NR0011</ID>
+		<DescriptionLine lang="fi">Jos CN-koodi alkaa 8701-8705, on ilmoitettava tavaraerätason lisäkoodi FIXBC (ja ajoneuvon tunnusnumero (VIN) / alustan numero sen arvoksi)</DescriptionLine>
+		<DescriptionLine lang="sv">Om KN-numret börjar med 8701-8705 måste ytterligare informationskod FIXBC (och fordonets identifikationsnummer (VIN) / chassinummer som ett värde) anges på varupartinivå</DescriptionLine>
+		<DescriptionLine lang="en">If CN code starts with 8701-8705, goods item level additional information code FIXBC (and vehicle identification number (VIN) / chassis number as a value for it) must be declared</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
 		<ID>NR0012</ID>
 		<DescriptionLine lang="fi">Jos tunnisteen tarkenne on 'X', tulee varaston tunniste ilmoittaa</DescriptionLine>
 		<DescriptionLine lang="sv">Om kod för identifieringsmetod är 'X', måste lagrets identifiering anmälas</DescriptionLine>
@@ -207,7 +213,7 @@
 	<RuleCondition>
 		<ID>NR0052</ID>
 		<DescriptionLine lang="fi">EIDR:lle on oltava yksi seuraavista lupatyypeistä: 'CWP', 'CW1' or 'CW2'</DescriptionLine>
-		<DescriptionLine lang="sv">För EIDR måste ett av de följande tillståndstyperna anmälas: 'CWP', 'CW1' or 'CW2'</DescriptionLine>
+		<DescriptionLine lang="sv">För EIDR måste ett av de följande tillståndstyperna anmälas: 'CWP', 'CW1' eller 'CW2'</DescriptionLine>
 		<DescriptionLine lang="en">For EIDR, there must be one of the following authorisation types: 'CWP', 'CW1' or 'CW2'</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
@@ -217,16 +223,34 @@
 		<DescriptionLine lang="en">For EIDR, there must be authorisation type: 'EIR'</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
+		<ID>NR0055</ID>
+		<DescriptionLine lang="fi">Sekunteja ja millisekunteja ei oteta huomioon</DescriptionLine>
+		<DescriptionLine lang="sv">Sekunder och millisekunder ignoreras</DescriptionLine>
+		<DescriptionLine lang="en">Seconds and milliseconds will be ignored</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
+		<ID>NR0069</ID>
+		<DescriptionLine lang="fi">Kun ilmoittaja ja tuoja ovat sama toimija, ilmoita tuojan tietojen sijaan lisätietokoodi 00500.</DescriptionLine>
+		<DescriptionLine lang="sv">När deklaranten och importören är samma aktör, anmäl i stället för importörens uppgifter koden 00500 som kod för yrretligare uppgifter.</DescriptionLine>
+		<DescriptionLine lang="en">When the declarant and importer are the same trader, instead of entering the importer's data, enter the code 00500 as an additional information code.</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
 		<ID>NR0501</ID>
 		<DescriptionLine lang="fi">Tavaran koodi (6-numeroinen HS-koodi, 8-numeroinen CN-koodi tai 10-numeroinen Taric-koodi) on oltava voimassa Taricissa hyväksymispäivänä</DescriptionLine>
 		<DescriptionLine lang="sv">Varukoden (en 6-siffrig HS-kod, 8-siffrig CN-kod eller 10-siffrig Taric-kod) måste vara gilltig dagen då deklarationen godkänns</DescriptionLine>
 		<DescriptionLine lang="en">Commodity code (a 6-digit HS code, an 8-digit CN code or a 10-digit Taric code) must be valid in Taric on the acceptance date</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
+		<ID>NR1101</ID>
+		<DescriptionLine lang="fi">Ilmoitettua EORI-tunnusta tai siihen liitettyä toimipistettä ei löydy Tullin asiakasrekisteristä.</DescriptionLine>
+		<DescriptionLine lang="sv">Den anmälda EORI-identifieringen eller den sammanhörande kontoskoden hittas inte i Tullens kundregister.</DescriptionLine>
+		<DescriptionLine lang="en">The declared EORI identification or the associated office code is not found in Customs' customer register.</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
 		<ID>NR1311</ID>
 		<DescriptionLine lang="fi">Toimijan on oltava asiakasrekisterissä</DescriptionLine>
 		<DescriptionLine lang="sv">Aktören måste finnas i kundregistret</DescriptionLine>
-		<DescriptionLine lang="en">Trader must be found in crader register</DescriptionLine>
+		<DescriptionLine lang="en">Trader must be found in trader register</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
 		<ID>NR1313</ID>
