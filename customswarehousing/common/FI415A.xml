@@ -208,7 +208,7 @@
 				<Name lang="sv">Ombudets kontorskod</Name>
 				<Name lang="en">Representative office code</Name>
 				<XPath>AdditionalIdentifier/Identification</XPath>
-				<MinOccurence>0</MinOccurence>
+				<MinOccurence>1</MinOccurence>
 				<GeneralType>TraderOfficeCode</GeneralType>
 				<Rule>NR1101</Rule>
 				<Format>n..3</Format>
@@ -456,6 +456,26 @@
 					<Format>a2</Format>
 				</DataElement>
 			</DataGroup>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="fi">Sanoman lähettäjä</Name>
+			<Name lang="sv">Meddelandeavsändare</Name>
+			<Name lang="en">Message sender</Name>
+			<XPath>ServiceProvider</XPath>
+			<MinOccurence>0</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DescriptionLine lang="fi">Sanoman tekninen lähettäjä.</DescriptionLine>
+			<DescriptionLine lang="sv">Meddelandets tekniska avsändare.</DescriptionLine>
+			<DescriptionLine lang="en">The technical message sender.</DescriptionLine>
+			<DataElement>
+				<Name lang="fi">Sanoman lähettäjän tunniste</Name>
+				<Name lang="sv">Meddlandesavändaren identifieringsnummer</Name>
+				<Name lang="en">Message sender identification</Name>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>TIN</GeneralType>
+				<Format>an..17</Format>
+			</DataElement>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Esitetyt asiakirjat, todistukset ja luvat, lisäviitteet</Name>
@@ -1233,7 +1253,7 @@
 							<Name lang="fi">Lisäpaljousyksiköt, paljousyksikön tarkennin</Name>
 							<Name lang="sv">Extra mängdenheter, mängdenheten kvalificerare</Name>
 							<Name lang="en">Supplementary units, measurement unit qualifier</Name>
-							<XPath>SupplementaryMeasureUnit/Unit</XPath>
+							<XPath>SupplementaryMeasureUnit/Qualifier</XPath>
 							<MinOccurence>0</MinOccurence>
 							<GeneralType>String</GeneralType>
 							<Format>an1</Format>

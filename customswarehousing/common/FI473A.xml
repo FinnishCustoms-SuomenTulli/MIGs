@@ -80,42 +80,6 @@
 			<DescriptionLine lang="en">Choose in which language you prefer to have response messages and decisions. </DescriptionLine>
 		</DataElement>
 		<DataGroup>
-			<Name lang="fi">Korjaus</Name>
-			<Name lang="sv">Korrigering</Name>
-			<Name lang="en">Amendment</Name>
-			<XPath>Amendment</XPath>
-			<MinOccurence>1</MinOccurence>
-			<MaxOccurence>1</MaxOccurence>
-			<DataElement>
-				<Name lang="fi">Korjauksen päiväys ja aika</Name>
-				<Name lang="sv">Korrigeringens datum och tid</Name>
-				<Name lang="en">Amendment date and time</Name>
-				<XPath>Amendment</XPath>
-				<MinOccurence>1</MinOccurence>
-				<GeneralType>DateTime</GeneralType>
-				<Rule>NR0055</Rule>
-				<Format>dateTime</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Korjauspyynnön syy</Name>
-				<Name lang="sv">Orsak till korrigeringsbegäran</Name>
-				<Name lang="en">Reason for amendment request</Name>
-				<XPath>ChangeReason</XPath>
-				<MinOccurence>0</MinOccurence>
-				<GeneralType>String</GeneralType>
-				<Format>an..512</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Pyynnön korrelaatio</Name>
-				<Name lang="sv">Begärans korrelation</Name>
-				<Name lang="en">Request correlation</Name>
-				<XPath>RequestCorrelation</XPath>
-				<MinOccurence>0</MinOccurence>
-				<GeneralType>GUID</GeneralType>
-				<Format>an38</Format>
-			</DataElement>
-		</DataGroup>
-		<DataGroup>
 			<Name lang="fi">Luvanhaltija</Name>
 			<Name lang="sv">Tillståndshavare</Name>
 			<Name lang="en">Holder of the authorisation</Name>
@@ -197,7 +161,7 @@
 				<Name lang="sv">Ombudets kontorskod</Name>
 				<Name lang="en">Representative office code</Name>
 				<XPath>AdditionalIdentifier/Identification</XPath>
-				<MinOccurence>0</MinOccurence>
+				<MinOccurence>1</MinOccurence>
 				<GeneralType>TraderOfficeCode</GeneralType>
 				<Rule>NR1101</Rule>
 				<Format>n..3</Format>
@@ -266,6 +230,42 @@
 					<Format>a2</Format>
 				</DataElement>
 			</DataGroup>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="fi">Korjaus</Name>
+			<Name lang="sv">Korrigering</Name>
+			<Name lang="en">Amendment</Name>
+			<XPath>Amendment</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="fi">Korjauksen päiväys ja aika</Name>
+				<Name lang="sv">Korrigeringens datum och tid</Name>
+				<Name lang="en">Amendment date and time</Name>
+				<XPath>Amendment</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>DateTime</GeneralType>
+				<Rule>NR0055</Rule>
+				<Format>dateTime</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Korjauspyynnön syy</Name>
+				<Name lang="sv">Orsak till korrigeringsbegäran</Name>
+				<Name lang="en">Reason for amendment request</Name>
+				<XPath>ChangeReason</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>String</GeneralType>
+				<Format>an..512</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Pyynnön korrelaatio</Name>
+				<Name lang="sv">Begärans korrelation</Name>
+				<Name lang="en">Request correlation</Name>
+				<XPath>RequestCorrelation</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>GUID</GeneralType>
+				<Format>an38</Format>
+			</DataElement>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Ilmoittaja</Name>
@@ -445,6 +445,26 @@
 					<Format>a2</Format>
 				</DataElement>
 			</DataGroup>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="fi">Sanoman lähettäjä</Name>
+			<Name lang="sv">Meddelandeavsändare</Name>
+			<Name lang="en">Message sender</Name>
+			<XPath>ServiceProvider</XPath>
+			<MinOccurence>0</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DescriptionLine lang="fi">Sanoman tekninen lähettäjä.</DescriptionLine>
+			<DescriptionLine lang="sv">Meddelandets tekniska avsändare.</DescriptionLine>
+			<DescriptionLine lang="en">The technical message sender.</DescriptionLine>
+			<DataElement>
+				<Name lang="fi">Sanoman lähettäjän tunniste</Name>
+				<Name lang="sv">Meddlandesavändaren identifieringsnummer</Name>
+				<Name lang="en">Message sender identification</Name>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>TIN</GeneralType>
+				<Format>an..17</Format>
+			</DataElement>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Esitetyt asiakirjat, todistukset ja luvat, lisäviitteet.</Name>
