@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="html"/>
-	<xsl:variable name="language">fi</xsl:variable>
+	<xsl:param name="language"/>
 	<xsl:template match="Introduction">
 		<table class="table table-striped table-responsive table-condensed">
 			<thead>
