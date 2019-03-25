@@ -7,7 +7,6 @@
     <link rel="icon" href="../../../assets/favicon.ico">
     <link rel="stylesheet" href="../../../assets/tulli-bootstrap-style.css" type="text/css" />
     <link rel="stylesheet" href="../../../assets/tulli-mig-tables-style.css" type="text/css" />
-    <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
 </head>
 
 <body class="Site">
@@ -115,7 +114,7 @@
                             $(".tab-content").append('<div role="tabpanel" class="tab-pane" id="' + message + '"></div>');
                             $(".messagetabs").find("li").first().addClass("active");
                             $(".tab-content").find(".tab-pane").first().addClass("active");
-                            transform(path.concat(message, '.xml'), 'message.xsl', document.getElementById(message));
+                            transform(path.concat(message, '.xml'), '../../../assets/message.xsl', document.getElementById(message), 'en');
                             i++;
                         })
                         $('VersionHistory Version:last Number', returnedXMLResponse).each(function() {
@@ -140,52 +139,9 @@
             }); // End AJAX
         });
     </script>
-    <script>
-        function loadXML(url) {
-            return new Promise(function(resolve) {
-                var req = new XMLHttpRequest();
-                req.open("GET", url);
-                if (typeof XSLTProcessor === 'undefined') {
-                    try {
-                        req.responseType = 'msxml-document';
-                    } catch (e) {}
-                }
-                req.onload = function() {
-                    resolve(this.responseXML)
-                }
-                req.send();
-            });
-        }
 
-        function transform(xmlUrl, xslUrl, targetElement) {
-            Promise.all([loadXML(xmlUrl), loadXML(xslUrl)]).then(function(data) {
-                var xmlDoc = data[0];
-                var xslDoc = data[1];
+    <script src='../../../assets/xsltProcessor.js'></script>
 
-                if (typeof XSLTProcessor !== 'undefined') {
-                    var proc = new XSLTProcessor();
-                    proc.importStylesheet(xslDoc);
-
-                    var resultFrag = proc.transformToFragment(xmlDoc, targetElement.ownerDocument);
-
-                    targetElement.textContent = '';
-                    targetElement.appendChild(resultFrag);
-                } else {
-                    var template = new ActiveXObject('Msxml2.XslTemplate.6.0');
-                    template.stylesheet = xslDoc;
-                    var proc = template.createProcessor();
-
-                    proc.input = xmlDoc;
-
-                    proc.transform();
-
-                    var resultHTML = proc.output;
-
-                    targetElement.innerHTML = resultHTML;
-                }
-            });
-        }
-    </script>
     <script src='../../../assets/javascripts/bootstrap.js'></script>
 
     <script src='../../../assets/javascripts/custom-ui.js'></script>
@@ -194,8 +150,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            transform('../../common/codelists.xml', 'codedata.xsl', document.getElementById('codemodal'));
-            transform('../../common/rulesconditions.xml', 'rulesconditions.xsl', document.getElementById('rulesmodal'));
+            transform('../../common/codelists.xml', '../../../assets/codedata.xsl', document.getElementById('codemodal'), 'en');
+            transform('../../common/rulesconditions.xml', '../../../assets/rulesconditions.xsl', document.getElementById('rulesmodal'), 'en');
         })
     </script>
     <script>
