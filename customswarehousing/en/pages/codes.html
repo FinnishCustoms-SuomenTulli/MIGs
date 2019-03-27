@@ -7,6 +7,7 @@
     <link rel="icon" href="../../../assets/favicon.ico">
     <link rel="stylesheet" href="../../../assets/tulli-bootstrap-style.css" type="text/css" />
     <link rel="stylesheet" href="../../../assets/tulli-mig-tables-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../assets/scroll-style.css" type="text/css" />
 </head>
 
 <body class="Site">
@@ -141,6 +142,23 @@
     <script>
         $(function() {
 
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+              $('body').append('<span id="toTop" class="badge"><i class="media-object icon-md icon icon-tulli-chevron-up"></i></span>');
+    	        $(window).scroll(function () {
+			        if ($(this).scrollTop() != 0) {
+				        $('#toTop').fadeIn();
+			        } else {
+				        $('#toTop').fadeOut();
+			        }
+		        }); 
+            $('#toTop').click(function(){
+                $("html, body").animate({ scrollTop: 0 }, 600);
+                return false;
+            });
         });
     </script>
 
