@@ -10,14 +10,23 @@
 						<xsl:when test="$language='fi'">
 							<th>Versio ja päivämäärä</th>
 							<th>Muutoksen syy</th>
+							<th>Skeema</th>
+							<th>Tietosisältö</th>
+							<th>Sanomaliikenneopas</th>
 						</xsl:when>
 						<xsl:when test="$language='sv'">
 							<th>Version och datum</th>
 							<th>Orsak till ändring</th>
+							<th>Schema</th>
+							<th>Datainnehåll</th>
+							<th>Guide för meddelandetrafik</th>
 						</xsl:when>
 						<xsl:when test="$language='en'">
 							<th>Version and date</th>
 							<th>Reason for amendment</th>
+							<th>Schema</th>
+							<th>Data requirements</th>
+							<th>Guide for message exchange</th>
 						</xsl:when>
 					</xsl:choose>
 				</tr>
@@ -48,6 +57,15 @@
 					</td>
 					<td>
 						<xsl:value-of select="Remarks[@lang=($language)]"/>
+					</td>
+					<td align="center">
+						<xsl:if test="Schema=1">•</xsl:if>
+					</td>
+					<td align="center">
+						<xsl:if test="Data=1">•</xsl:if>
+					</td>
+					<td align="center">
+						<xsl:if test="ME=1">•</xsl:if>
 					</td>
 				</tr>
 			</xsl:for-each>
