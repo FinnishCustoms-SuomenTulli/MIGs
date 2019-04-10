@@ -94,8 +94,8 @@ var classes = {
     goodsitem: new uml.Class({
         position: { x: $('#paper').width()/2-100 , y: 681 },
         size: { width: 200, height: 203 },
-        name: 'Varuparti',
-        attributes: ['Varupartinummer', 'Statistiskt v\xE4rde', 'Referensnummer/UCR', 'Kod f\xF6r beg\xE4rt f\xF6rfarande', 'Kod f\xF6r f\xF6reg\xE5ende f\xF6rfarande',
+        name: 'Varupost',
+        attributes: ['Varupostnummer', 'Statistiskt v\xE4rde', 'Referensnummer/UCR', 'Kod f\xF6r beg\xE4rt f\xF6rfarande', 'Kod f\xF6r f\xF6reg\xE5ende f\xF6rfarande',
 					 'Varubeskrivning', 'CUS-kod', 'Varukod - KN-nummer', 'Varukod - Taric-nummer', 'Bruttomassa', 'Extra m\xE4ngdenheter',
 					 'Ursprungsland', 'F\xF6rm\xE5nsursprungsland'],
         attrs: {
@@ -386,7 +386,7 @@ var classes = {
         position: { x: $('#paper').width()*0.625-85 , y: 550 },
         size: { width: 170, height: 75 },
         name: 'F\xF6renklad deklaration...',
-        attributes: ['Varupartiidentifierare', 'Tidigare dokumenttyp', 'Referens till tidigare dokument'],
+        attributes: ['Varupostidentifierare', 'Tidigare dokumenttyp', 'Referens till tidigare dokument'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
@@ -517,7 +517,7 @@ var classes = {
         position: { x: $('#paper').width()-156 , y: 380 },
         size: { width: 176, height: 114 },
         name: 'Underr\xE4ttelse',
-        attributes: ['Underr\xE4ttelsens typ', 'Underr\xE4ttelsens datum och tid', 'Underr\xE4ttelsens beskrivning', 'Dokumentl\xE4nk', 'Sammanh\xF6rande varuparti', 'Beg\xE4rans korrelation'],
+        attributes: ['Underr\xE4ttelsens typ', 'Underr\xE4ttelsens datum och tid', 'Underr\xE4ttelsens beskrivning', 'Dokumentl\xE4nk', 'Sammanh\xF6rande varupost', 'Beg\xE4rans korrelation'],
         attrs: {
             '.uml-class-name-rect': {
                 fill: '#00205b',
