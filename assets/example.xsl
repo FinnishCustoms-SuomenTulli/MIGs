@@ -68,9 +68,9 @@
 			<xsl:value-of select="name(.)"/>
 		</SPAN>
 		<SPAN class="m">="</SPAN>
-		<B>
+		<SPAN class="tx">
 			<xsl:value-of select="."/>
-		</B>
+		</SPAN>
 		<SPAN class="m">"</SPAN>
 	</xsl:template>
 	<xsl:template match="text()">
