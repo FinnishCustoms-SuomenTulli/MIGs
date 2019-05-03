@@ -205,7 +205,7 @@
 	</xsl:template>
 	<xsl:template match="*[*]" priority="20">
 		<DIV class="e">
-			<DIV STYLE="margin-left:1em;text-indent:-1.4em" class="c">
+			<DIV STYLE="margin-left:1em;text-indent:-1.7em" class="c">
 				<SPAN class="m">&lt;</SPAN>
 				<SPAN>
 					<xsl:attribute name="class"><xsl:if test="xsl:*"><xsl:text>x</xsl:text></xsl:if><xsl:text>t</xsl:text></xsl:attribute>
