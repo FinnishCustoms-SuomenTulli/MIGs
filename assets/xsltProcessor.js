@@ -23,6 +23,7 @@ function transform(xmlUrl, xslUrl, targetElement, language) {
             var proc = new XSLTProcessor();
             proc.importStylesheet(xslDoc);
 
+            proc.setParameter(null, "xmlUrl", xmlUrl);
             proc.setParameter(null, "language", language);
 
             var resultFrag = proc.transformToFragment(xmlDoc, targetElement.ownerDocument);
@@ -34,6 +35,7 @@ function transform(xmlUrl, xslUrl, targetElement, language) {
             template.stylesheet = xslDoc;
             var proc = template.createProcessor();
 
+            proc.addParameter(null, "xmlUrl", xmlUrl);
             proc.addParameter(null, "language", language);
 
             proc.input = xmlDoc;

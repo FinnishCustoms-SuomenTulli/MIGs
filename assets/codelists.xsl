@@ -12,7 +12,7 @@
 						<xsl:when test="$language='sv'">
 							<span class="icon icon-tulli-external" style="margin-right:3px"/>Ladda ner kodlistorna i XML-format</xsl:when>
 						<xsl:when test="$language='en'">
-							<span class="icon icon-tulli-external" style="margin-right:3px"/>Download codelists XML format</xsl:when>
+							<span class="icon icon-tulli-external" style="margin-right:3px"/>Download codelists in XML format</xsl:when>
 					</xsl:choose>
 				</a>
 				<p/>

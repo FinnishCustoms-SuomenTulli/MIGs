@@ -66,7 +66,7 @@
 	<RuleCondition>
 		<ID>NR0011</ID>
 		<DescriptionLine lang="fi">Jos CN-koodi alkaa 8701-8705, on ilmoitettava tavaraerätason lisäkoodi FIXBC (ja ajoneuvon tunnusnumero (VIN) / alustan numero sen arvoksi)</DescriptionLine>
-		<DescriptionLine lang="sv">Om KN-numret börjar med 8701-8705 måste ytterligare informationskod FIXBC (och fordonets identifikationsnummer (VIN) / chassinummer som ett värde) anges på varupostnivå</DescriptionLine>
+		<DescriptionLine lang="sv">Om KN-numret börjar med 8701-8705 måste ytterligare informationskod FIXBC (och fordonets identifikationsnummer (VIN) / chassinummer som ett värde) anges på varupartinivå</DescriptionLine>
 		<DescriptionLine lang="en">If CN code starts with 8701-8705, goods item level additional information code FIXBC (and vehicle identification number (VIN) / chassis number as a value for it) must be declared</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
@@ -123,7 +123,7 @@
 	<RuleCondition>
 		<ID>NR0026</ID>
 		<DescriptionLine lang="fi">Jos 'Kolliluku' on '0' ilmoituksella on oltava vähintään yksi tavaraerä, jolla on samat 'Lähetysmerkinnät' ja 'Kollilaji' jolla 'Kolliluku' on suurempi kuin '0'</DescriptionLine>
-		<DescriptionLine lang="sv">Om 'Antal kollin' är '0' så måste det finnas åtminstone en varupost med samma 'Märken' och 'Kollislag' med 'Antal kollin' som är större än '0'</DescriptionLine>
+		<DescriptionLine lang="sv">Om 'Antal kollin' är '0' så måste det finnas åtminstone ett varuparti med samma 'Märken' och 'Kollislag' med 'Antal kollin' som är större än '0'</DescriptionLine>
 		<DescriptionLine lang="en">In case the value of 'Number of Packages' is '0' then there should exist at least one goods item with the same 'Shipping marks' and 'Type of packages' with 'Number of Packages' with a value greater than '0'</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
@@ -273,13 +273,13 @@
 	<RuleCondition>
 		<ID>R0005</ID>
 		<DescriptionLine lang="fi">'Tavaraerän numero' on aina käytössä, vaikka tavaraerien määrä olisikin '1'. Tällöin 'Tavaraerän numero' on myös '1'. </DescriptionLine>
-		<DescriptionLine lang="sv">'Varupostnummer' används alltid, även om antalet varuposter är '1'. I så fall är även 'Varupostnummer' '1'. </DescriptionLine>
+		<DescriptionLine lang="sv">'Varupartinummer' används alltid, även om antalet varupartier är '1'. I så fall är även 'Varupartinummer' '1'. </DescriptionLine>
 		<DescriptionLine lang="en">'Goods Item Number' is always used even if the number of items is '1'. In that case 'Goods Item Number' is also '1'. </DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
 		<ID>R0007</ID>
 		<DescriptionLine lang="fi">Jokainen 'Tavaraerän numero' on uniiki kautta ilmoituksen. Tavaraerät numeroidaan järjestyksessä, alkaen arvosta '1' ja lisäten yhdellä jokaista seuraavaa tavaraerää kohti</DescriptionLine>
-		<DescriptionLine lang="sv">Varje 'Varupostnummer' är unikt genom deklarationen. Vartupartierna ska numreras i ordning med '1' för den första varuposten och numreringen ökas med '1' för varje följande varupost</DescriptionLine>
+		<DescriptionLine lang="sv">Varje 'Varupartinummer' är unikt genom deklarationen. Vartupartierna ska numreras i ordning med '1' för det första varupartiet och numreringen ökas med '1' för varje följande varuparti</DescriptionLine>
 		<DescriptionLine lang="en">Each 'Goods Item Number' is unique throughout the declaration. The items shall be numbered in a sequential fashion, starting from '1' for the first item and incrementing the numbering by '1' for each following item</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
@@ -291,7 +291,7 @@
 	<RuleCondition>
 		<ID>R0285</ID>
 		<DescriptionLine lang="fi">Jos tietoelementti/tietoryhmä on käytössä ja sen arvo jokaisella muulla tavaraerällä on sama, niin käytetään tietoelementtiä/tietoryhmää TUONTITAPAHTUMA-/TAVARALÄHETYS-tasolla, muuten käytetään tietoryhmää/tietoelementtiä TAVARAERÄ-tasolla</DescriptionLine>
-		<DescriptionLine lang="en">Om dataelementet/datagruppen använs och det/den innehåller samma värde för samtliga varupposter, används dataelementet/datagruppen på IMPORTÅTGÄRD-/VARUFÖRSÄNDELSE-nivå, annars används datagruppen/dataelementet på VARUPOST-nivå.</DescriptionLine>
+		<DescriptionLine lang="en">Om dataelementet/datagruppen använs och det/den innehåller samma värde för samtliga varupartier, används dataelementet/datagruppen på IMPORTÅTGÄRD-/VARUFÖRSÄNDELSE-nivå, annars används datagruppen/dataelementet på VARUPARTI-nivå.</DescriptionLine>
 		<DescriptionLine lang="en">In case the data item/data group is used and has the same value(s) for all other goods items then the data group/data item on IMPORT OPERATION or CONSIGNMENT/GOODS SHIPMENT level is used, else the data group/data item on ITEM level is used</DescriptionLine>
 	</RuleCondition>
 	<RuleCondition>
