@@ -206,6 +206,12 @@
         });
     </script>
 
+    <script>
+        $(document).on('DOMNodeInserted', 'table', function() {
+            $("table tbody tr").filter(":not(.group, .description)").filter(":nth-child(odd)").addClass("odd");
+        });
+    </script>
+
 </body>
 
 </html>

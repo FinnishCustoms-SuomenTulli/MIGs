@@ -113,12 +113,7 @@
 			<tbody>
 				<xsl:for-each select="descendant::DataGroup">
 					<tr>
-						<xsl:variable name="class">
-							<xsl:choose>
-								<xsl:when test="position() mod 2 = 1">odd </xsl:when>
-							</xsl:choose>
-						</xsl:variable>
-						<xsl:attribute name="class"><xsl:value-of select="concat($class,'indent-',count(ancestor::*)-1)"/></xsl:attribute>
+						<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1)"/></xsl:attribute>
 						<td>
 							<a>
 								<xsl:attribute name="id"><xsl:value-of select="translate(concat('Group_',//Type,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
@@ -202,10 +197,10 @@
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Tietoelementtiä vastaava XML-polku sanoman skeemassa">
 									<span class="icon icon-tulli-help"/>Polku</a>
 							</th>
-							<th>
+							<!--th>
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="XML-skeemassa määritetty tietoelementin yleinen tyyppi">
 									<span class="icon icon-tulli-help"/>Yleinen tyyppi</a>
-							</th>
+							</th-->
 							<th>
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Soveltuvat koodistot">
 									<span class="icon icon-tulli-help"/>Koodisto</a>
@@ -232,10 +227,10 @@
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Den motsvarande XML-sökvägen i meddelandeskeman">
 									<span class="icon icon-tulli-help"/>Sökväg</a>
 							</th>
-							<th>
+							<!--th>
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Den allmänna typen som definierats i XML-schemat för dataelementet">
 									<span class="icon icon-tulli-help"/>Allmän typ</a>
-							</th>
+							</th-->
 							<th>
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Tillämpade kodförteckningar">
 									<span class="icon icon-tulli-help"/>Kodförteckning</a>
@@ -262,10 +257,10 @@
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The corresponging XML path in the message schema">
 									<span class="icon icon-tulli-help"/>Path</a>
 							</th>
-							<th>
+							<!--th>
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The XML type of the data">
 									<span class="icon icon-tulli-help"/>General type</a>
-							</th>
+							</th-->
 							<th>
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Applicable code lists">
 									<span class="icon icon-tulli-help"/>Codelist</a>
@@ -295,17 +290,12 @@
 					</xsl:when>
 					<xsl:otherwise>
 						<tr>
-							<xsl:variable name="class">
-								<xsl:choose>
-									<xsl:when test="(count(preceding-sibling::*) mod 2) = 0">odd </xsl:when>
-								</xsl:choose>
-							</xsl:variable>
 							<xsl:choose>
 								<xsl:when test="count(ancestor::*)>2">
-									<xsl:attribute name="class"><xsl:value-of select="concat($class, 'indent-',count(ancestor::*)-1)"/></xsl:attribute>
+									<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1)"/></xsl:attribute>
 								</xsl:when>
 								<xsl:otherwise>
-									<xsl:attribute name="class"><xsl:value-of select="concat($class, 'indent-2')"/></xsl:attribute>
+									<xsl:attribute name="class"><xsl:value-of select="'indent-2'"/></xsl:attribute>
 								</xsl:otherwise>
 							</xsl:choose>
 							<td>
@@ -328,9 +318,9 @@
 									<xsl:if test="position() != last() and position() != 1">/&#8203;</xsl:if>
 								</xsl:for-each>
 							</td>
-							<td>
+							<!--td>
 								<xsl:value-of select="GeneralType"/>
-							</td>
+							</td-->
 							<td>
 								<xsl:for-each select="Codelist">
 									<a href="#" data-toggle="modal">
@@ -365,7 +355,6 @@
 									<xsl:for-each select="DescriptionLine[@lang=($language)]">
 										<xsl:value-of select="."/>
 										<xsl:if test="position() != last()">
-											<!--xsl:text disable-output-escaping="yes">&lt;br /&gt;</xsl:text-->
 											<br/>
 										</xsl:if>
 									</xsl:for-each>
