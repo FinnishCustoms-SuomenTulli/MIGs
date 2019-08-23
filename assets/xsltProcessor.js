@@ -14,7 +14,7 @@ function loadXML(url) {
     });
 }
 
-function transform(xmlUrl, xslUrl, targetElement, language) {
+function transform(xmlUrl, xslUrl, targetElement, language, messageType) {
     Promise.all([loadXML(xmlUrl), loadXML(xslUrl)]).then(function(data) {
         var xmlDoc = data[0];
         var xslDoc = data[1];
@@ -25,6 +25,7 @@ function transform(xmlUrl, xslUrl, targetElement, language) {
 
             proc.setParameter(null, "xmlUrl", xmlUrl);
             proc.setParameter(null, "language", language);
+            proc.setParameter(null, "messageType", messageType);
 
             var resultFrag = proc.transformToFragment(xmlDoc, targetElement.ownerDocument);
 
@@ -37,6 +38,7 @@ function transform(xmlUrl, xslUrl, targetElement, language) {
 
             proc.addParameter(null, "xmlUrl", xmlUrl);
             proc.addParameter(null, "language", language);
+            proc.addParameter(null, "messageType", messageType);
 
             proc.input = xmlDoc;
 
@@ -44,7 +46,7 @@ function transform(xmlUrl, xslUrl, targetElement, language) {
 
             var resultHTML = proc.output;
 
-            targetElement.innerHTML = resultHTML;
+            targetElement.innerHTML += resultHTML;
         }
     });
  }

@@ -2,18 +2,8 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="html"/>
 	<xsl:param name="language"/>
+	<xsl:param name="messageType"/>
 	<xsl:template match="/">
-		<div class="panel panel-primary">
-			<div class="panel-heading" role="tab" id="heading-colors">
-				<h2 class="panel-title">
-					<a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true">
-						<xsl:attribute name="aria-controls"><xsl:value-of select="Message/Type"/></xsl:attribute>
-						<span class="icon icon-tulli-message icon-white" style="margin-right:3px"/>
-						<xsl:value-of select="Message/Type"/> - <xsl:value-of select="Message/Name[@lang=($language)]"/>
-					</a>
-				</h2>
-			</div>
-		</div>
 		<xsl:if test="Message/Rule!=''">
 			<p>
 				<b>Rules:</b>
@@ -112,55 +102,58 @@
 			</thead>
 			<tbody>
 				<xsl:for-each select="descendant::DataGroup">
-					<tr>
-						<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1)"/></xsl:attribute>
-						<td>
-							<a>
-								<xsl:attribute name="id"><xsl:value-of select="translate(concat('Group_',//Type,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
-								<xsl:attribute name="href"><xsl:value-of select="translate(concat('#Element_',//Type,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
-								<span class="icon icon-tulli-treeview" style="margin-right:0.2em"/>
-								<xsl:value-of select="Name[@lang=($language)]"/>
-							</a>
-						</td>
-						<td>
-							<xsl:choose>
-								<xsl:when test="Condition != ''">D</xsl:when>
-								<xsl:when test="MinOccurence=0">O</xsl:when>
-								<xsl:otherwise>R</xsl:otherwise>
-							</xsl:choose>
-						</td>
-						<td>
-							<xsl:value-of select="MaxOccurence"/>x
-            </td>
-						<td>
-							<xsl:for-each select="ancestor-or-self::*">
-								<xsl:value-of select="XPath"/>
-								<xsl:if test="position() != last() and position() != 1">/&#8203;</xsl:if>
-							</xsl:for-each>
-						</td>
-						<td>
-							<xsl:for-each select="Rule | Condition">
-								<a href="#" data-toggle="modal">
-									<xsl:attribute name="data-target"><xsl:value-of select="concat('#RC_',.)"/></xsl:attribute>
-									<xsl:value-of select="."/>
-								</a>
-								<xsl:if test="position() != last()">, </xsl:if>
-							</xsl:for-each>
-						</td>
-					</tr>
-					<xsl:if test="DescriptionLine[@lang=($language)]!=''">
+					<xsl:if test="Use = $messageType">
 						<tr>
-							<xsl:attribute name="class"><xsl:value-of select="concat('description indent-',count(ancestor::*)-1)"/></xsl:attribute>
-							<td colspan="5">
-								<span class="icon icon-tulli-info" style="margin-right:3px"/>
-								<xsl:for-each select="DescriptionLine[@lang=($language)]">
-									<xsl:value-of select="."/>
-									<xsl:if test="position() != last()">
-										<br/>
-									</xsl:if>
+							<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1)"/></xsl:attribute>
+							<td>
+								<a>
+									<xsl:attribute name="id"><xsl:value-of select="translate(concat('Group_',$messageType,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
+									<xsl:attribute name="href"><xsl:value-of select="translate(concat('#Element_',$messageType,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
+									<span class="icon icon-tulli-treeview" style="margin-right:0.2em"/>
+									<xsl:value-of select="Name[@lang=($language)]"/>
+								</a>
+							</td>
+							<td>
+								<xsl:choose>
+									<xsl:when test="Condition != ''">D</xsl:when>
+									<xsl:when test="MinOccurence=0">O</xsl:when>
+									<xsl:otherwise>R</xsl:otherwise>
+								</xsl:choose>
+							</td>
+							<td>
+								<xsl:value-of select="MaxOccurence"/>x
+						</td>
+							<td>
+								<xsl:value-of select="$messageType"/>
+								<xsl:for-each select="ancestor-or-self::*">
+									<xsl:value-of select="XPath"/>
+									<xsl:if test="position() != last() and position() != 1">/&#8203;</xsl:if>
+								</xsl:for-each>
+							</td>
+							<td>
+								<xsl:for-each select="Rule | Condition">
+									<a href="#" data-toggle="modal">
+										<xsl:attribute name="data-target"><xsl:value-of select="concat('#RC_',.)"/></xsl:attribute>
+										<xsl:value-of select="."/>
+									</a>
+									<xsl:if test="position() != last()">, </xsl:if>
 								</xsl:for-each>
 							</td>
 						</tr>
+						<xsl:if test="DescriptionLine[@lang=($language)]!=''">
+							<tr>
+								<xsl:attribute name="class"><xsl:value-of select="concat('description indent-',count(ancestor::*)-1)"/></xsl:attribute>
+								<td colspan="5">
+									<span class="icon icon-tulli-info" style="margin-right:3px"/>
+									<xsl:for-each select="DescriptionLine[@lang=($language)]">
+										<xsl:value-of select="."/>
+										<xsl:if test="position() != last()">
+											<br/>
+										</xsl:if>
+									</xsl:for-each>
+								</td>
+							</tr>
+						</xsl:if>
 					</xsl:if>
 				</xsl:for-each>
 			</tbody>
@@ -276,98 +269,103 @@
 			<xsl:for-each select="descendant::DataGroup | descendant::DataElement">
 				<xsl:choose>
 					<xsl:when test="local-name()='DataGroup'">
-						<tr>
-							<xsl:attribute name="class"><xsl:value-of select="concat('group indent-',count(ancestor::*)-1)"/></xsl:attribute>
-							<td colspan="6">
-								<a>
-									<xsl:attribute name="id"><xsl:value-of select="translate(concat('Element_',//Type,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
-									<xsl:attribute name="href"><xsl:value-of select="translate(concat('#Group_',//Type,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
-									<span class="icon icon-tulli-treeview" style="margin-right:0.2em"/>
-									<xsl:value-of select="Name[@lang=($language)]"/>
-								</a>
-							</td>
-						</tr>
+						<xsl:if test="Use = $messageType">
+							<tr>
+								<xsl:attribute name="class"><xsl:value-of select="concat('group indent-',count(ancestor::*)-1)"/></xsl:attribute>
+								<td colspan="6">
+									<a>
+										<xsl:attribute name="id"><xsl:value-of select="translate(concat('Element_',$messageType,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
+										<xsl:attribute name="href"><xsl:value-of select="translate(concat('#Group_',$messageType,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
+										<span class="icon icon-tulli-treeview" style="margin-right:0.2em"/>
+										<xsl:value-of select="Name[@lang=($language)]"/>
+									</a>
+								</td>
+							</tr>
+						</xsl:if>
 					</xsl:when>
 					<xsl:otherwise>
-						<tr>
-							<xsl:choose>
-								<xsl:when test="count(ancestor::*)>2">
-									<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1)"/></xsl:attribute>
-								</xsl:when>
-								<xsl:otherwise>
-									<xsl:attribute name="class"><xsl:value-of select="'indent-2'"/></xsl:attribute>
-								</xsl:otherwise>
-							</xsl:choose>
-							<xsl:choose>
-								<xsl:when test="count(ancestor::*)>2">
-									<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1)"/></xsl:attribute>
-								</xsl:when>
-								<xsl:otherwise>
-									<xsl:attribute name="class"><xsl:value-of select="'indent-2'"/></xsl:attribute>
-								</xsl:otherwise>
-							</xsl:choose>
-							<td>
-								<span class="icon icon-tulli-hamburger-menu" style="margin-left:0.7em; margin-right:0.6em; font-size: 50%; vertical-align: middle"/>
-								<xsl:value-of select="Name[@lang=($language)]"/>
-							</td>
-							<td>
-								<xsl:choose>
-									<xsl:when test="Condition != ''">D</xsl:when>
-									<xsl:when test="MinOccurence = 0">O</xsl:when>
-									<xsl:otherwise>R</xsl:otherwise>
-								</xsl:choose>
-							</td>
-							<td>
-								<xsl:value-of select="Format"/>
-							</td>
-							<td>
-								<xsl:for-each select="ancestor-or-self::*">
-									<xsl:value-of select="XPath"/>
-									<xsl:if test="position() != last() and position() != 1">/&#8203;</xsl:if>
-								</xsl:for-each>
-							</td>
-							<!--td>
-								<xsl:value-of select="GeneralType"/>
-							</td-->
-							<td>
-								<xsl:for-each select="Codelist">
-									<a href="#" data-toggle="modal">
-										<xsl:attribute name="data-target"><xsl:value-of select="concat('#CODELIST_',.)"/></xsl:attribute>
-										<xsl:value-of select="."/>
-									</a>
-									<xsl:if test="position() != last()">, </xsl:if>
-								</xsl:for-each>
-							</td>
-							<td>
-								<xsl:for-each select="Rule | Condition">
-									<a href="#" data-toggle="modal">
-										<xsl:attribute name="data-target"><xsl:value-of select="concat('#RC_',.)"/></xsl:attribute>
-										<xsl:value-of select="."/>
-									</a>
-									<xsl:if test="position() != last()">, </xsl:if>
-								</xsl:for-each>
-							</td>
-						</tr>
-						<xsl:if test="DescriptionLine[@lang=($language)]!=''">
+						<xsl:if test="Use = $messageType">
 							<tr>
 								<xsl:choose>
 									<xsl:when test="count(ancestor::*)>2">
-										<xsl:attribute name="class"><xsl:value-of select="concat('description indent-',count(ancestor::*)-1)"/></xsl:attribute>
+										<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1)"/></xsl:attribute>
 									</xsl:when>
 									<xsl:otherwise>
-										<xsl:attribute name="class"><xsl:value-of select="'description indent-2'"/></xsl:attribute>
+										<xsl:attribute name="class"><xsl:value-of select="'indent-2'"/></xsl:attribute>
 									</xsl:otherwise>
 								</xsl:choose>
-								<td colspan="6">
-									<span class="icon icon-tulli-info" style="margin-right:3px"/>
-									<xsl:for-each select="DescriptionLine[@lang=($language)]">
-										<xsl:value-of select="."/>
-										<xsl:if test="position() != last()">
-											<br/>
-										</xsl:if>
+								<xsl:choose>
+									<xsl:when test="count(ancestor::*)>2">
+										<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1)"/></xsl:attribute>
+									</xsl:when>
+									<xsl:otherwise>
+										<xsl:attribute name="class"><xsl:value-of select="'indent-2'"/></xsl:attribute>
+									</xsl:otherwise>
+								</xsl:choose>
+								<td>
+									<span class="icon icon-tulli-hamburger-menu" style="margin-left:0.7em; margin-right:0.6em; font-size: 50%; vertical-align: middle"/>
+									<xsl:value-of select="Name[@lang=($language)]"/>
+								</td>
+								<td>
+									<xsl:choose>
+										<xsl:when test="Condition != ''">D</xsl:when>
+										<xsl:when test="MinOccurence = 0">O</xsl:when>
+										<xsl:otherwise>R</xsl:otherwise>
+									</xsl:choose>
+								</td>
+								<td>
+									<xsl:value-of select="Format"/>
+								</td>
+								<td>
+									<xsl:value-of select="$messageType"/>
+									<xsl:for-each select="ancestor-or-self::*">
+										<xsl:value-of select="XPath"/>
+										<xsl:if test="position() != last() and position() != 1">/&#8203;</xsl:if>
+									</xsl:for-each>
+								</td>
+								<!--td>
+								<xsl:value-of select="GeneralType"/>
+							</td-->
+								<td>
+									<xsl:for-each select="Codelist">
+										<a href="#" data-toggle="modal">
+											<xsl:attribute name="data-target"><xsl:value-of select="concat('#CODELIST_',.)"/></xsl:attribute>
+											<xsl:value-of select="."/>
+										</a>
+										<xsl:if test="position() != last()">, </xsl:if>
+									</xsl:for-each>
+								</td>
+								<td>
+									<xsl:for-each select="Rule | Condition">
+										<a href="#" data-toggle="modal">
+											<xsl:attribute name="data-target"><xsl:value-of select="concat('#RC_',.)"/></xsl:attribute>
+											<xsl:value-of select="."/>
+										</a>
+										<xsl:if test="position() != last()">, </xsl:if>
 									</xsl:for-each>
 								</td>
 							</tr>
+							<xsl:if test="DescriptionLine[@lang=($language)]!=''">
+								<tr>
+									<xsl:choose>
+										<xsl:when test="count(ancestor::*)>2">
+											<xsl:attribute name="class"><xsl:value-of select="concat('description indent-',count(ancestor::*)-1)"/></xsl:attribute>
+										</xsl:when>
+										<xsl:otherwise>
+											<xsl:attribute name="class"><xsl:value-of select="'description indent-2'"/></xsl:attribute>
+										</xsl:otherwise>
+									</xsl:choose>
+									<td colspan="6">
+										<span class="icon icon-tulli-info" style="margin-right:3px"/>
+										<xsl:for-each select="DescriptionLine[@lang=($language)]">
+											<xsl:value-of select="."/>
+											<xsl:if test="position() != last()">
+												<br/>
+											</xsl:if>
+										</xsl:for-each>
+									</td>
+								</tr>
+							</xsl:if>
 						</xsl:if>
 					</xsl:otherwise>
 				</xsl:choose>
