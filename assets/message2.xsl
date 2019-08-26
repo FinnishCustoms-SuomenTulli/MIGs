@@ -4,7 +4,7 @@
 	<xsl:param name="language"/>
 	<xsl:param name="messageType"/>
 	<xsl:template match="/">
-		<xsl:if test="Message/Rule!=''">
+		<xsl:if test="Message/Rule!='' and Message/Rule/@use=$messageType">
 			<p>
 				<b>Rules:</b>
 				<xsl:for-each select="Message/Rule">
@@ -115,7 +115,8 @@
 							</td>
 							<td>
 								<xsl:choose>
-									<xsl:when test="Condition != ''">D</xsl:when>
+									<xsl:when test="Condition[@use=$messageType] != ''">D</xsl:when>
+									<xsl:when test="Condition[not(@*)] != ''">D</xsl:when>
 									<xsl:when test="MinOccurence=0">O</xsl:when>
 									<xsl:otherwise>R</xsl:otherwise>
 								</xsl:choose>
@@ -131,7 +132,7 @@
 								</xsl:for-each>
 							</td>
 							<td>
-								<xsl:for-each select="Rule | Condition">
+								<xsl:for-each select="Rule[@use=$messageType] | Rule[not(@*)] | Condition[@use=$messageType] | Condition[not(@*)]">
 									<a href="#" data-toggle="modal">
 										<xsl:attribute name="data-target"><xsl:value-of select="concat('#RC_',.)"/></xsl:attribute>
 										<xsl:value-of select="."/>
@@ -190,10 +191,6 @@
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Tietoelementtiä vastaava XML-polku sanoman skeemassa">
 									<span class="icon icon-tulli-help"/>Polku</a>
 							</th>
-							<!--th>
-								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="XML-skeemassa määritetty tietoelementin yleinen tyyppi">
-									<span class="icon icon-tulli-help"/>Yleinen tyyppi</a>
-							</th-->
 							<th>
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Soveltuvat koodistot">
 									<span class="icon icon-tulli-help"/>Koodisto</a>
@@ -220,10 +217,6 @@
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Den motsvarande XML-sökvägen i meddelandeskeman">
 									<span class="icon icon-tulli-help"/>Sökväg</a>
 							</th>
-							<!--th>
-								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Den allmänna typen som definierats i XML-schemat för dataelementet">
-									<span class="icon icon-tulli-help"/>Allmän typ</a>
-							</th-->
 							<th>
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Tillämpade kodförteckningar">
 									<span class="icon icon-tulli-help"/>Kodförteckning</a>
@@ -250,10 +243,6 @@
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The corresponging XML path in the message schema">
 									<span class="icon icon-tulli-help"/>Path</a>
 							</th>
-							<!--th>
-								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The XML type of the data">
-									<span class="icon icon-tulli-help"/>General type</a>
-							</th-->
 							<th>
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Applicable code lists">
 									<span class="icon icon-tulli-help"/>Codelist</a>
@@ -308,7 +297,8 @@
 								</td>
 								<td>
 									<xsl:choose>
-										<xsl:when test="Condition != ''">D</xsl:when>
+										<xsl:when test="Condition[@use=$messageType] != ''">D</xsl:when>
+										<xsl:when test="Condition[not(@*)] != ''">D</xsl:when>
 										<xsl:when test="MinOccurence = 0">O</xsl:when>
 										<xsl:otherwise>R</xsl:otherwise>
 									</xsl:choose>
@@ -323,9 +313,6 @@
 										<xsl:if test="position() != last() and position() != 1">/&#8203;</xsl:if>
 									</xsl:for-each>
 								</td>
-								<!--td>
-								<xsl:value-of select="GeneralType"/>
-							</td-->
 								<td>
 									<xsl:for-each select="Codelist">
 										<a href="#" data-toggle="modal">
@@ -336,7 +323,7 @@
 									</xsl:for-each>
 								</td>
 								<td>
-									<xsl:for-each select="Rule | Condition">
+									<xsl:for-each select="Rule[@use=$messageType] | Rule[not(@*)] | Condition[@use=$messageType] | Condition[not(@*)]">
 										<a href="#" data-toggle="modal">
 											<xsl:attribute name="data-target"><xsl:value-of select="concat('#RC_',.)"/></xsl:attribute>
 											<xsl:value-of select="."/>
