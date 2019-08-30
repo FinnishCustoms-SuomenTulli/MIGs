@@ -3,25 +3,18 @@
 	<xsl:output method="html"/>
 	<xsl:param name="language"/>
 	<xsl:template match="/">
-		<xsl:for-each select="RulesConditions/RuleCondition">
+		<xsl:for-each select="CodeLists/CodeList[Identification='CL401']/CodeItem">
 			<div class="modal fade" tabindex="-1" role="dialog" data-keyboard="false">
-				<xsl:attribute name="id"><xsl:value-of select="concat('RC_',ID)"/></xsl:attribute>
+				<xsl:attribute name="id"><xsl:value-of select="concat('RC_',Code)"/></xsl:attribute>
 				<div class="modal-dialog modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h1 class="modal-title">
-								<xsl:value-of select="ID"/>
+								<xsl:value-of select="Code"/>
 							</h1>
 						</div>
 						<div class="modal-body">
-							<pre>
-								<xsl:for-each select="DescriptionLine[@lang=($language)]">
-									<xsl:value-of select="."/>
-									<xsl:if test="position() != last()">
-										<br/>
-									</xsl:if>
-								</xsl:for-each>
-							</pre>
+							<p><xsl:value-of select="Name[@lang=($language)]"/></p>
 						</div>
 					</div>
 				</div>
