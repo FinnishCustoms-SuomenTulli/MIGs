@@ -97,8 +97,36 @@
 			<xs:element name="EUCDM" minOccurs="0"/>
 			<xs:element name="GeneralType"/>
 			<xs:element name="Codelist" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Rule" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="Condition" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Rule" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="use">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:length value="6"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Condition" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="use">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:length value="6"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="Format"/>
 			<xs:element name="DescriptionLine" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
@@ -116,7 +144,8 @@
 	</xs:simpleType>
 	<xs:complexType name="MessageType">
 		<xs:sequence>
-			<xs:element name="Name" maxOccurs="3">
+			<xs:element name="Type" minOccurs="0"/>
+			<xs:element name="Name" minOccurs="0" maxOccurs="3">
 				<xs:complexType>
 					<xs:simpleContent>
 						<xs:extension base="xs:string">
@@ -132,7 +161,15 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Rule" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Rule" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="use"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 			<xs:element ref="DataGroup" maxOccurs="2"/>
 		</xs:sequence>
 	</xs:complexType>
