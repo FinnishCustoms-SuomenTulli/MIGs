@@ -28,7 +28,15 @@
 			</xs:element>
 			<xs:element name="XPath" type="XPathType"/>
 			<xs:element name="MinOccurence" type="xs:integer"/>
-			<xs:element name="MaxOccurence" type="xs:integer"/>
+			<xs:element name="MaxOccurence" maxOccurs="99">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:integer">
+							<xs:attribute name="use"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="Rule" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:simpleContent>

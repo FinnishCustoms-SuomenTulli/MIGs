@@ -122,8 +122,11 @@
 								</xsl:choose>
 							</td>
 							<td>
-								<xsl:value-of select="MaxOccurence"/>x
-						</td>
+								<xsl:choose>
+									<xsl:when test="MaxOccurence[@use=$messageType] != ''"><xsl:value-of select="MaxOccurence[@use=$messageType]"/>x</xsl:when>
+									<xsl:otherwise><xsl:value-of select="MaxOccurence"/>x</xsl:otherwise>
+								</xsl:choose>
+							</td>
 							<td>
 								<xsl:value-of select="$messageType"/>
 								<xsl:for-each select="ancestor-or-self::*">
