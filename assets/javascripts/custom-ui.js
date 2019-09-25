@@ -128,5 +128,5 @@ $(".current").each(function(){
 
 $(".navbar-toggle").on("click key tap", function() {
   $(this).find(".icon").toggleClass("icon-tulli-chevron-down");
-  $(this).find(".icon").toggleClass("icon-tulli-chevron-up");
+  $(this).find(".icon").toggleClass("icon-tulli-arrow-up");
 });

@@ -1111,8 +1111,12 @@ a {
     color: #4c628c;
     text-decoration: none; }
   a:focus {
-    outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
+
+p a {
+  color: #3a7dda; }
+  p a:hover, p a:focus {
+    color: #2059a8; }
 
 figure {
   margin: 0; }
@@ -1200,7 +1204,7 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, 
 h1, .h1,
 h2, .h2,
 h3, .h3 {
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 10px; }
   h1 small,
   h1 .small, .h1 small,
@@ -1256,6 +1260,8 @@ h1, .h1 {
 
 p {
   margin: 0 0 10px; }
+  p:last-child {
+    margin-bottom: 0; }
 
 .lead {
   margin-bottom: 20px;
@@ -1324,11 +1330,11 @@ a.text-info:focus {
   color: #000e28; }
 
 .text-warning {
-  color: #00205b; }
+  color: #b88400; }
 
 a.text-warning:hover,
 a.text-warning:focus {
-  color: #000e28; }
+  color: #855f00; }
 
 .text-danger {
   color: #c71530; }
@@ -1530,7 +1536,7 @@ button.code-example[aria-expanded="true"] {
   background-color: #00205b; }
 
 .content-area .collapse, .content-area .collapsing {
-  margin-top: 20px; }
+  /* margin-top: 20px;*/ }
 
 span.colorbox {
   display: inline-block;
@@ -1544,7 +1550,11 @@ hr {
   margin-bottom: 20px;
   border-top: 1px solid #ccd2de; }
   hr.modeldividers {
-    border-top: 4px dotted #dddddd; }
+    border-top: 5px dotted #eeeff2; }
+  hr.bigger-space {
+    border-top: 20px solid #eeeff2;
+    margin-left: -20px;
+    margin-right: -20px; }
 
 pre {
   font-family: Arial, sans-serif;
@@ -1571,6 +1581,8 @@ pre {
     color: #671e75;
     padding: 0 5px;
     display: block; }
+  pre:first-child {
+    margin-top: 20px; }
   pre .indent {
     padding-left: 15px; }
   pre b {
@@ -1591,6 +1603,12 @@ pre {
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll; }
+
+.content-demo {
+  background-color: #eeeff2;
+  padding: 20px;
+  margin-left: -20px;
+  margin-right: -20px; }
 
 .container {
   margin-right: auto;
@@ -2433,7 +2451,7 @@ table th[class*="col-"] {
   min-height: 0.01%; }
   @media screen and (max-width: 767px) {
     .table-responsive {
-      width: 100%;
+      width: 100% !important;
       margin-bottom: 15px;
       overflow-y: hidden;
       -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -2534,7 +2552,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
 output {
@@ -2888,31 +2905,31 @@ select[multiple].input-lg,
 .has-warning .radio-inline,
 .has-warning .checkbox-inline,
 .has-warning label, .has-warning.radio label, .has-warning.checkbox label, .has-warning.radio-inline label, .has-warning.checkbox-inline label {
-  color: #00205b; }
+  color: #b88400; }
 .has-warning .form-control {
-  border-color: #00205b;
+  border-color: #b88400;
   background-color: #fef6e6;
-  color: #00205b;
+  color: #b88400;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
   .has-warning .form-control:focus {
-    border-color: #000e28;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #0044c1; }
+    border-color: #855f00;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ffc01f; }
 .has-warning.form-control {
-  border-color: #00205b;
+  border-color: #b88400;
   background-color: #fef6e6;
-  color: #00205b;
+  color: #b88400;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
   .has-warning.form-control:focus {
-    border-color: #000e28;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #0044c1; }
+    border-color: #855f00;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ffc01f; }
 .has-warning .input-group-addon {
-  color: #00205b;
-  border-color: #00205b;
+  color: #b88400;
+  border-color: #b88400;
   background-color: #fef6e6; }
 .has-warning .form-control-feedback {
-  color: #00205b; }
+  color: #b88400; }
 .has-warning .radio label:before, .has-warning .checkbox label:before {
-  border-color: #00205b; }
+  border-color: #b88400; }
 
 .has-error .help-block,
 .has-error .control-label,
@@ -3058,7 +3075,6 @@ select[multiple].input-lg,
   -ms-user-select: none;
   user-select: none; }
   .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
-    outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px; }
   .btn:hover, .btn:focus, .btn.focus {
     color: #00205b;
@@ -3302,6 +3318,10 @@ input[type="button"].btn-block {
 
 .alert button.btn {
   margin-bottom: 0; }
+
+button {
+  white-space: normal !important;
+  overflow-wrap: break-word !important; }
 
 /* TULLI-VERSION */
 .fade {
@@ -3787,6 +3807,8 @@ tbody.collapse.in {
         .nav-tabs > li > a {
           min-width: 160px;
           text-align: center; } }
+      .nav-tabs > li > a:hover {
+        background-color: #e5e8ee; }
     .nav-tabs > li.active > a {
       padding-bottom: 10px; }
       .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
@@ -3828,6 +3850,10 @@ tbody.collapse.in {
         background-color: white; }
     .nav-pills > li:last-child > a {
       margin-right: 0; }
+  @media (max-width: 1200px) {
+    .nav-pills > li > a {
+      padding-left: 8px !important;
+      padding-right: 8px !important; } }
   @media (max-width: 991px) {
     .navbar-collapse .nav-pills {
       margin-right: -10px;
@@ -3872,7 +3898,8 @@ tbody.collapse.in {
       list-style: none; }
       .nav-stacked > li > ul > li a {
         display: block;
-        padding: 10px 10px; }
+        padding: 10px 10px;
+        color: #00205b; }
         .nav-stacked > li > ul > li a:hover, .nav-stacked > li > ul > li a:focus, .nav-stacked > li > ul > li a:active {
           color: #fff; }
       .nav-stacked > li > ul > li ul {
@@ -4267,6 +4294,9 @@ ul li a[target=_blank]:after {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
     width: 100%; }
+    @media (max-width: 480px) {
+      .navbar-default .container div.navbar-header {
+        display: block; } }
     .navbar-default .container div.navbar-header div {
       margin: 0; }
       .navbar-default .container div.navbar-header div span.icon {
@@ -4276,6 +4306,12 @@ ul li a[target=_blank]:after {
         -ms-flex-positive: 0;
             flex-grow: 0;
         margin-left: -10px; }
+        @media (max-width: 768px) {
+          .navbar-default .container div.navbar-header div.navbar-links {
+            margin-left: 10px; } }
+        @media (max-width: 480px) {
+          .navbar-default .container div.navbar-header div.navbar-links {
+            width: 100%; } }
         .navbar-default .container div.navbar-header div.navbar-links li {
           padding: 0; }
       .navbar-default .container div.navbar-header div.navbar-info {
@@ -4285,19 +4321,22 @@ ul li a[target=_blank]:after {
         .navbar-default .container div.navbar-header div.navbar-info span.version-number {
           display: inline-block;
           margin: 10px 20px; }
+        @media (max-width: 480px) {
+          .navbar-default .container div.navbar-header div.navbar-info {
+            width: 100%; } }
       .navbar-default .container div.navbar-header div.navbar-logout {
         -ms-flex-positive: 0;
             flex-grow: 0;
         margin: 0; }
         .navbar-default .container div.navbar-header div.navbar-logout a {
-          border-left: 10px solid #f2a900;
+          border-left: 10px solid #f26600;
           background-color: #6b6b6c;
           color: #fff !important;
           display: block;
           padding: 10px 20px 10px 5px;
           min-height: 40px; }
           .navbar-default .container div.navbar-header div.navbar-logout a:hover {
-            background-color: #f2a900; }
+            background-color: #f26600; }
   .navbar-default .navbar-text {
     color: #bbbcbc; }
   .navbar-default .navbar-nav > li > a {
@@ -4409,18 +4448,27 @@ ul li a[target=_blank]:after {
 /* TULLI-VERSION */
 .breadcrumb {
   padding: 8px 15px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   list-style: none;
-  background-color: #eeeeee;
+  background-color: #fafafa;
   border-radius: 2px; }
   .breadcrumb > li {
     display: inline-block; }
     .breadcrumb > li + li:before {
       content: "/ ";
       padding: 0 5px;
-      color: #e3e5e9; }
+      color: #ccd2de !important; }
   .breadcrumb > .active {
-    color: #eeeeee; }
+    color: #00205b !important; }
+
+.row .breadcrumb {
+  padding: 0;
+  border-bottom: 1px solid #00205b;
+  padding-bottom: 10px; }
+
+.content-demo .breadcrumb {
+  padding: 8px 15px !important;
+  border-bottom: none; }
 
 .pagination {
   display: inline-block;
@@ -4697,7 +4745,8 @@ a.thumbnail.active {
   border-color: #00205b; }
 
 .alert {
-  padding: 30px 30px 30px 60px;
+  padding: 30px 15px !important;
+  /* $alert-padding */
   margin-bottom: 20px;
   border-style: solid;
   border-width: 0 0 5px 0;
@@ -4712,6 +4761,20 @@ a.thumbnail.active {
     margin-bottom: 0; }
   .alert > p + p {
     margin-top: 5px; }
+  .alert .icon-tulli-close {
+    color: #00205b; }
+  .alert > .row {
+    max-width: 1170px;
+    margin: 0 auto; }
+    .alert > .row .container {
+      display: inline-block;
+      vertical-align: top; }
+    .alert > .row .icon-container {
+      width: 50px; }
+    .alert > .row .content-container {
+      width: calc(100% - 110px) !important; }
+    .alert > .row .close-container {
+      width: 50px; }
 
 .panel-body .alert {
   margin: -20px -20px 20px -20px !important;
@@ -4721,7 +4784,7 @@ a.thumbnail.active {
 .alert-dismissible .close {
   position: relative;
   top: -2px;
-  right: 30px 30px 30px 60px;
+  right: 30px 30px 30px 30px;
   color: #00205b; }
 
 .alert-success {
@@ -4749,11 +4812,11 @@ a.thumbnail.active {
 .alert-warning {
   background-color: #fef6e6;
   border-color: #b88400;
-  color: #00205b; }
+  color: #b88400; }
   .alert-warning hr {
     border-top-color: #9f7200; }
   .alert-warning .alert-link {
-    color: #000e28; }
+    color: #855f00; }
   .alert-warning span.pull-left.icon {
     color: #b88400; }
 
@@ -4771,6 +4834,8 @@ a.thumbnail.active {
 .notification.growl {
   border: 2px solid #4c628c;
   box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.3); }
+  .notification.growl .icon-tulli-close {
+    color: #00205b; }
 .notification .row {
   padding: 20px; }
   .notification .row div:nth-child(1) span.icon {
@@ -4814,7 +4879,7 @@ a.thumbnail.active {
 .notification-warning {
   background-color: #fef6e6;
   border-color: #b88400;
-  color: #00205b; }
+  color: #b88400; }
   .notification-warning hr {
     border-top-color: #9f7200; }
   .notification-warning span.pull-left.icon {
@@ -5080,27 +5145,27 @@ button.list-group-item-info {
     border-color: #00205b; }
 
 .list-group-item-warning {
-  color: #00205b;
+  color: #b88400;
   background-color: #fef6e6; }
 
 a.list-group-item-warning,
 button.list-group-item-warning {
-  color: #00205b; }
+  color: #b88400; }
   a.list-group-item-warning .list-group-item-heading,
   button.list-group-item-warning .list-group-item-heading {
     color: inherit; }
   a.list-group-item-warning:hover, a.list-group-item-warning:focus,
   button.list-group-item-warning:hover,
   button.list-group-item-warning:focus {
-    color: #00205b;
+    color: #b88400;
     background-color: #fdedcd; }
   a.list-group-item-warning.active, a.list-group-item-warning.active:hover, a.list-group-item-warning.active:focus,
   button.list-group-item-warning.active,
   button.list-group-item-warning.active:hover,
   button.list-group-item-warning.active:focus {
     color: #fff;
-    background-color: #00205b;
-    border-color: #00205b; }
+    background-color: #b88400;
+    border-color: #b88400; }
 
 .list-group-item-danger {
   color: #c71530;
@@ -5363,22 +5428,22 @@ button.list-group-item-danger {
     padding: 0; }
   .panel-default .panel-title {
     border-bottom: 2px solid #00205b; }
-    .panel-default .panel-title > a {
+    .panel-default .panel-title > a, .panel-default .panel-title > span {
       padding: 18px 10px 6px 10px;
       background-color: #00205b;
       display: inline-block;
       padding: 14px 8px 4px 8px;
       transition: all 200ms ease; }
-      .panel-default .panel-title > a[role=button]:after {
+      .panel-default .panel-title > a[role=button]:after, .panel-default .panel-title > span[role=button]:after {
         font-family: "Tulli Icons";
         padding: 0 0 0 10px;
         position: relative;
         top: 2px;
         content: \e909; }
-      .panel-default .panel-title > a.collapsed {
+      .panel-default .panel-title > a.collapsed, .panel-default .panel-title > span.collapsed {
         color: #00205b;
         background-color: #bfcadb; }
-        .panel-default .panel-title > a.collapsed:after {
+        .panel-default .panel-title > a.collapsed:after, .panel-default .panel-title > span.collapsed:after {
           top: 0;
           content: \e90b; }
 
@@ -5427,14 +5492,14 @@ button.list-group-item-danger {
 .panel-warning {
   border-color: #b88400; }
   .panel-warning > .panel-heading {
-    color: #00205b;
+    color: #b88400;
     background-color: #fef6e6;
     border-color: #b88400; }
     .panel-warning > .panel-heading + .panel-collapse > .panel-body {
       border-top-color: #b88400; }
     .panel-warning > .panel-heading .badge {
       color: #fef6e6;
-      background-color: #00205b; }
+      background-color: #b88400; }
   .panel-warning > .panel-footer + .panel-collapse > .panel-body {
     border-bottom-color: #b88400; }
 
@@ -5451,6 +5516,11 @@ button.list-group-item-danger {
       background-color: #c71530; }
   .panel-danger > .panel-footer + .panel-collapse > .panel-body {
     border-bottom-color: #c71530; }
+
+.front-navigation a.media .media-left {
+  background-color: #00205b; }
+  .front-navigation a.media .media-left.login-required {
+    background-color: #f26600; }
 
 /* TULLI-VERSION */
 .embed-responsive {
@@ -5625,6 +5695,27 @@ button.close {
   display: block;
   color: #333; }
 
+span.replace-text {
+  color: transparent;
+  display: inline-block;
+  position: relative;
+  width: 10px;
+  overflow-x: hidden;
+  white-space: nowrap; }
+  span.replace-text:before {
+    color: #333;
+    display: inline-block;
+    content: '--';
+    position: absolute;
+    left: 0;
+    top: 0; }
+
+a:focus, button:focus {
+  box-shadow: 0 0 10px 2px #00205b !important; }
+
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 6px 0 #00205b !important; }
+
 /* TULLI-VERSION */
 a, table tr, button {
   transition: all 150ms ease-in-out; }
@@ -5649,7 +5740,7 @@ a, table tr, button {
     float: right;
     margin-top: 3px; }
 .accordion .accordion-content .accordion-content-container {
-  padding: 20px 0; }
+  padding: 20px 15px; }
 .accordion.odd-even .accordion-row .accordion-link {
   background-color: #e5e8ee;
   color: #00205b; }
@@ -5666,6 +5757,8 @@ a, table tr, button {
     color: #fff; }
   .accordion.odd-even .accordion-row:nth-child(even) .accordion-link:hover {
     background-color: #b2bccd; }
+.accordion.odd-even .accordion-row .accordion-content {
+  border-bottom: 1px solid #00205b; }
 
 /* TULLI-VERSION */
 .modal-open {
@@ -5892,13 +5985,17 @@ a, table tr, button {
   border-width: 0 5px 5px;
   border-bottom-color: #e5e8ee; }
 
+button.btn-tooltip {
+  padding: 0; }
+
 .popover {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1060;
   display: none;
-  max-width: 276px;
+  max-width: 600px;
+  width: 600px;
   padding: 1px;
   font-family: Arial, sans-serif;
   font-style: normal;
@@ -6471,9 +6568,9 @@ ul.release-notes-list {
     padding: 15px;
     width: 60px; }
   .icon.pull-left {
-    margin: 0 20px 20px 0; }
+    margin: 0 20px 10px 0; }
   .icon.pull-right {
-    margin: 0 0 20px 20px; }
+    margin: 0 0 10px 20px; }
   .icon.icon-right {
     margin-right: 0;
     margin-left: 10px; }
@@ -6500,14 +6597,29 @@ ul.release-notes-list {
     .btn .icon .btn-attach {
       margin: 0 10px; }
 
+.icon-tulli-service-tullaus:before {
+  content: "\e935"; }
+
+.icon-tulli-service-tullaus-export:before {
+  content: "\e936"; }
+
+.icon-tulli-service-tullaus-import:before {
+  content: "\e937"; }
+
 .icon-tulli-service-ahvenanmaa:before {
   content: "\e92e"; }
 
 .icon-tulli-service-customer:before {
   content: "\e92f"; }
 
-.icon-tulli-service-fintaric:before {
-  content: "\e924"; }
+.icon-tulli-service-eori:before {
+  content: "\e945"; }
+
+.icon-tulli-service-mrn:before {
+  content: "\e946"; }
+
+.icon-tulli-service-sanoma:before {
+  content: "\e947"; }
 
 .icon-tulli-service-iat:before {
   content: "\e930"; }
@@ -6521,15 +6633,6 @@ ul.release-notes-list {
 .icon-tulli-service-passitus:before {
   content: "\e934"; }
 
-.icon-tulli-service-tullaus:before {
-  content: "\e935"; }
-
-.icon-tulli-service-tullaus-export:before {
-  content: "\e936"; }
-
-.icon-tulli-service-tullaus-import:before {
-  content: "\e937"; }
-
 .icon-tulli-service-tullivarastointi:before {
   content: "\e938"; }
 
@@ -6542,11 +6645,83 @@ ul.release-notes-list {
 .icon-tulli-service-upload:before {
   content: "\e932"; }
 
-.icon-tulli-add:before {
-  content: "\e91e"; }
+.icon-tulli-service-fintaric:before {
+  content: "\e924"; }
 
-.icon-tulli-addnew:before {
-  content: "\e900"; }
+.icon-tulli-service-arex:before {
+  content: "\e94a"; }
+
+.icon-tulli-service-askcustomsadvice:before {
+  content: "\e944"; }
+
+.icon-tulli-service-museum:before {
+  content: "\e94b"; }
+
+.icon-tulli-service-laboratory:before {
+  content: "\e94c"; }
+
+.icon-tulli-service-utu:before {
+  content: "\e94d"; }
+
+.icon-tulli-box-default:before {
+  content: "\e983"; }
+
+.icon-tulli-box-barcode:before {
+  content: "\e984"; }
+
+.icon-tulli-box-export:before {
+  content: "\e93b"; }
+
+.icon-tulli-box-import:before {
+  content: "\e93c"; }
+
+.icon-tulli-box-question:before {
+  content: "\e985"; }
+
+.icon-tulli-box-ok:before {
+  content: "\e986"; }
+
+.icon-tulli-box-euro:before {
+  content: "\e987"; }
+
+.icon-tulli-box-discount:before {
+  content: "\e988"; }
+
+.icon-tulli-box-alert:before {
+  content: "\ea35"; }
+
+.icon-tulli-box-search:before {
+  content: "\e989"; }
+
+.icon-tulli-box-search-barcode:before {
+  content: "\e98a"; }
+
+.icon-tulli-box-return:before {
+  content: "\e98b"; }
+
+.icon-tulli-box-forward:before {
+  content: "\e98c"; }
+
+.icon-tulli-box-airplane-arrival:before {
+  content: "\e98d"; }
+
+.icon-tulli-box-airplane-departure:before {
+  content: "\e98e"; }
+
+.icon-tulli-box-ship:before {
+  content: "\e98f"; }
+
+.icon-tulli-box-split:before {
+  content: "\e990"; }
+
+.icon-tulli-box-size:before {
+  content: "\e991"; }
+
+.icon-tulli-box-handle:before {
+  content: "\e992"; }
+
+.icon-tulli-container-lift:before {
+  content: "\e993"; }
 
 .icon-tulli-arrow-down:before {
   content: "\e901"; }
@@ -6557,32 +6732,8 @@ ul.release-notes-list {
 .icon-tulli-arrow-right:before {
   content: "\e903"; }
 
-.icon-tulli-arrow-thin-left:before {
-  content: "\e905"; }
-
-.icon-tulli-arrow-thin-right:before {
-  content: "\e906"; }
-
 .icon-tulli-arrow-up:before {
   content: "\e904"; }
-
-.icon-tulli-attention:before {
-  content: "\e918"; }
-
-.icon-tulli-calendar:before {
-  content: "\e907"; }
-
-.icon-tulli-checkbox-checked:before {
-  content: "\e90d"; }
-
-.icon-tulli-checkbox-unchecked:before {
-  content: "\e90e"; }
-
-.icon-tulli-checklist-one:before {
-  content: "\e93c"; }
-
-.icon-tulli-checkmark:before {
-  content: "\e908"; }
 
 .icon-tulli-chevron-down:before {
   content: "\e909"; }
@@ -6592,6 +6743,9 @@ ul.release-notes-list {
 
 .icon-tulli-chevron-right:before {
   content: "\e90b"; }
+
+.icon-tulli-chevron-up:before {
+  content: "\e90f"; }
 
 .icon-tulli-chevron-tight-down:before {
   content: "\e910"; }
@@ -6605,26 +6759,65 @@ ul.release-notes-list {
 .icon-tulli-chevron-tight-up:before {
   content: "\e913"; }
 
-.icon-tulli-chevron-up:before {
-  content: "\e90f"; }
+.icon-tulli-arrow-thin-left:before {
+  content: "\e905"; }
+
+.icon-tulli-arrow-thin-right:before {
+  content: "\e906"; }
+
+.icon-tulli-checkbox-checked:before {
+  content: "\e90d"; }
+
+.icon-tulli-checkbox-unchecked:before {
+  content: "\e90e"; }
+
+.icon-tulli-radio-selected:before {
+  content: "\e929"; }
+
+.icon-tulli-radio-unselected:before {
+  content: "\e928"; }
+
+.icon-tulli-checklist-one:before {
+  content: "\e93d"; }
+
+.icon-tulli-task-list:before {
+  content: "\e994"; }
+
+.icon-tulli-add:before {
+  content: "\e91e"; }
+
+.icon-tulli-subtract:before {
+  content: "\e995"; }
+
+.icon-tulli-checkmark:before {
+  content: "\e908"; }
 
 .icon-tulli-close:before {
   content: "\e92a"; }
 
-.icon-tulli-delete:before {
-  content: "\e92b"; }
+.icon-tulli-row-default:before {
+  content: "\e94e"; }
 
-.icon-tulli-delete-row:before {
-  content: "\e914"; }
+.icon-tulli-row-add:before {
+  content: "\e94f"; }
+
+.icon-tulli-row-delete:before {
+  content: "\e950"; }
+
+.icon-tulli-treeview:before {
+  content: "\e93e"; }
 
 .icon-tulli-edit:before {
   content: "\e915"; }
 
-.icon-tulli-electronicmessage:before {
-  content: "\e93f"; }
+.icon-tulli-delete:before {
+  content: "\e92b"; }
 
 .icon-tulli-expand:before {
   content: "\e916"; }
+
+.icon-tulli-electronicmessage:before {
+  content: "\e93f"; }
 
 .icon-tulli-external:before {
   content: "\e917"; }
@@ -6632,29 +6825,65 @@ ul.release-notes-list {
 .icon-tulli-eye:before {
   content: "\e90c"; }
 
-.icon-tulli-file-xml:before {
-  content: "\e940"; }
-
-.icon-tulli-file-xsd:before {
-  content: "\e941"; }
-
 .icon-tulli-filter:before {
   content: "\e919"; }
+
+.icon-tulli-filter-filled:before {
+  content: "\e996"; }
 
 .icon-tulli-hamburger-menu:before {
   content: "\e91a"; }
 
+.icon-tulli-calendar:before {
+  content: "\e907"; }
+
+.icon-tulli-calendar-schedule:before {
+  content: "\e997"; }
+
+.icon-tulli-statistics:before {
+  content: "\e998"; }
+
+.icon-tulli-presentation-performance:before {
+  content: "\e999"; }
+
+.icon-tulli-presentation-graph-analytics:before {
+  content: "\e99a"; }
+
+.icon-tulli-presentation-graph-pie:before {
+  content: "\e99b"; }
+
+.icon-tulli-calculator:before {
+  content: "\e951"; }
+
+.icon-tulli-attention:before {
+  content: "\e918"; }
+
 .icon-tulli-help:before {
   content: "\e91b"; }
-
-.icon-tulli-history:before {
-  content: "\e91d"; }
 
 .icon-tulli-info:before {
   content: "\e91f"; }
 
+.icon-tulli-sign-blocked:before {
+  content: "\e952"; }
+
+.icon-tulli-sign-stop:before {
+  content: "\e953"; }
+
+.icon-tulli-sign-protection:before {
+  content: "\e99c"; }
+
+.icon-tulli-risk-globe:before {
+  content: "\e99d"; }
+
+.icon-tulli-history:before {
+  content: "\e91d"; }
+
 .icon-tulli-integrationscheme:before {
   content: "\e942"; }
+
+.icon-tulli-logout:before {
+  content: "\e99e"; }
 
 .icon-tulli-lock-close:before {
   content: "\e921"; }
@@ -6662,8 +6891,17 @@ ul.release-notes-list {
 .icon-tulli-lock-open:before {
   content: "\e922"; }
 
+.icon-tulli-lock-key:before {
+  content: "\e99f"; }
+
+.icon-tulli-finance-coupon-scissor:before {
+  content: "\e9a0"; }
+
 .icon-tulli-measures:before {
   content: "\e923"; }
+
+.icon-tulli-insurance:before {
+  content: "\e9a1"; }
 
 .icon-tulli-message:before {
   content: "\e91c"; }
@@ -6671,8 +6909,50 @@ ul.release-notes-list {
 .icon-tulli-message-read:before {
   content: "\e920"; }
 
-.icon-tulli-pdf:before {
-  content: "\e925"; }
+.icon-tulli-message-alert:before {
+  content: "\e954"; }
+
+.icon-tulli-message-reply:before {
+  content: "\e955"; }
+
+.icon-tulli-message-send:before {
+  content: "\e9a2"; }
+
+.icon-tulli-time:before {
+  content: "\e956"; }
+
+.icon-tulli-phone:before {
+  content: "\e957"; }
+
+.icon-tulli-customer-service:before {
+  content: "\e9a3"; }
+
+.icon-tulli-chat:before {
+  content: "\e958"; }
+
+.icon-tulli-home:before {
+  content: "\e959"; }
+
+.icon-tulli-building-home:before {
+  content: "\e9a4"; }
+
+.icon-tulli-building-multistorey:before {
+  content: "\e9a5"; }
+
+.icon-tulli-building-storage:before {
+  content: "\e9a6"; }
+
+.icon-tulli-building-lighthouse:before {
+  content: "\e9a7"; }
+
+.icon-tulli-building-bank:before {
+  content: "\e9a8"; }
+
+.icon-tulli-building-fence:before {
+  content: "\e9a9"; }
+
+.icon-tulli-surveillance-camera:before {
+  content: "\e9aa"; }
 
 .icon-tulli-pin-available:before {
   content: "\e926"; }
@@ -6680,14 +6960,29 @@ ul.release-notes-list {
 .icon-tulli-pin-pinned:before {
   content: "\e927"; }
 
+.icon-tulli-attachment:before {
+  content: "\e95a"; }
+
 .icon-tulli-printer:before {
   content: "\e92c"; }
 
-.icon-tulli-radio-selected:before {
-  content: "\e929"; }
+.icon-tulli-device-pc:before {
+  content: "\e9ab"; }
 
-.icon-tulli-radio-unselected:before {
-  content: "\e928"; }
+.icon-tulli-device-pc-box:before {
+  content: "\e9ac"; }
+
+.icon-tulli-device-laptop:before {
+  content: "\e9ad"; }
+
+.icon-tulli-device-phone-hand-email:before {
+  content: "\e9ae"; }
+
+.icon-tulli-device-phone:before {
+  content: "\e9af"; }
+
+.icon-tulli-password:before {
+  content: "\e9b0"; }
 
 .icon-tulli-search:before {
   content: "\e92d"; }
@@ -6696,13 +6991,553 @@ ul.release-notes-list {
   content: "\e943"; }
 
 .icon-tulli-settings:before {
-  content: "\e93b"; }
+  content: "\e940"; }
 
-.icon-tulli-treeview:before {
-  content: "\e93d"; }
+.icon-tulli-transport-car:before {
+  content: "\e9b1"; }
+
+.icon-tulli-transport-truck-logistics:before {
+  content: "\e9b2"; }
+
+.icon-tulli-transport-truck:before {
+  content: "\e9b3"; }
+
+.icon-tulli-transport-forklift:before {
+  content: "\e9b4"; }
+
+.icon-tulli-box-cart:before {
+  content: "\e9b5"; }
+
+.icon-tulli-transport-airplane:before {
+  content: "\e9b6"; }
+
+.icon-tulli-transport-airplane-ship:before {
+  content: "\e9b7"; }
+
+.icon-tulli-transport-train:before {
+  content: "\e9b8"; }
+
+.icon-tulli-transport-yacht:before {
+  content: "\e9b9"; }
+
+.icon-tulli-transport-ship:before {
+  content: "\ea0b"; }
+
+.icon-tulli-transport-ship-regulations:before {
+  content: "\ea0c"; }
+
+.icon-tulli-transport-kayak:before {
+  content: "\ea0d"; }
+
+.icon-tulli-transport-boat-trailer:before {
+  content: "\ea0e"; }
+
+.icon-tulli-globe-traveler:before {
+  content: "\e9ba"; }
+
+.icon-tulli-globe-checked:before {
+  content: "\e9bb"; }
+
+.icon-tulli-globe-shield:before {
+  content: "\e9bc"; }
 
 .icon-tulli-user:before {
-  content: "\e93e"; }
+  content: "\e941"; }
+
+.icon-tulli-user-send:before {
+  content: "\e9bd"; }
+
+.icon-tulli-user-question:before {
+  content: "\e9be"; }
+
+.icon-tulli-user-package:before {
+  content: "\e9bf"; }
+
+.icon-tulli-user-family:before {
+  content: "\ea0f"; }
+
+.icon-tulli-user-female:before {
+  content: "\ea10"; }
+
+.icon-tulli-user-activity-hiking:before {
+  content: "\ea11"; }
+
+.icon-tulli-accessibility-wheelchair:before {
+  content: "\e948"; }
+
+.icon-tulli-user-search:before {
+  content: "\e9c0"; }
+
+.icon-tulli-user-photo:before {
+  content: "\e9c1"; }
+
+.icon-tulli-maps-map-pin:before {
+  content: "\e9c2"; }
+
+.icon-tulli-maps-compass:before {
+  content: "\e9c3"; }
+
+.icon-tulli-maps-pin:before {
+  content: "\e9c4"; }
+
+.icon-tulli-maps-pins-2:before {
+  content: "\e9c5"; }
+
+.icon-tulli-maps-pins-3:before {
+  content: "\e9c6"; }
+
+.icon-tulli-speechbubble-question:before {
+  content: "\e9c7"; }
+
+.icon-tulli-thumb-up:before {
+  content: "\e9c8"; }
+
+.icon-tulli-thumb-down:before {
+  content: "\e9c9"; }
+
+.icon-tulli-hand-seed:before {
+  content: "\e9ca"; }
+
+.icon-tulli-hand-plant:before {
+  content: "\e9cb"; }
+
+.icon-tulli-dog-paw:before {
+  content: "\e9cc"; }
+
+.icon-tulli-finance-money-pile:before {
+  content: "\e9cd"; }
+
+.icon-tulli-finance-currency-conversion:before {
+  content: "\e9ce"; }
+
+.icon-tulli-finance-negative:before {
+  content: "\e9cf"; }
+
+.icon-tulli-finance-positive:before {
+  content: "\e9d0"; }
+
+.icon-tulli-shopping-basket:before {
+  content: "\e9d1"; }
+
+.icon-tulli-shopping-receipt:before {
+  content: "\e9d2"; }
+
+.icon-tulli-finance-percentage-coupon:before {
+  content: "\e9d3"; }
+
+.icon-tulli-finance-percentage-sign:before {
+  content: "\e9d4"; }
+
+.icon-tulli-shopping-givegift:before {
+  content: "\e9d5"; }
+
+.icon-tulli-stamp-decision:before {
+  content: "\e9d6"; }
+
+.icon-tulli-stamp-question:before {
+  content: "\e9d7"; }
+
+.icon-tulli-pdf:before {
+  content: "\e925"; }
+
+.icon-tulli-file-xml:before {
+  content: "\e949"; }
+
+.icon-tulli-file-xsd:before {
+  content: "\e95b"; }
+
+.icon-tulli-file-csv:before {
+  content: "\e95c"; }
+
+.icon-tulli-file-xls:before {
+  content: "\e95d"; }
+
+.icon-tulli-file-ppt:before {
+  content: "\e95e"; }
+
+.icon-tulli-file-txt:before {
+  content: "\e95f"; }
+
+.icon-tulli-file-doc:before {
+  content: "\e960"; }
+
+.icon-tulli-file:before {
+  content: "\e961"; }
+
+.icon-tulli-file-double:before {
+  content: "\e9d8"; }
+
+.icon-tulli-file-ok:before {
+  content: "\e9d9"; }
+
+.icon-tulli-document-add:before {
+  content: "\e900"; }
+
+.icon-tulli-document-remove:before {
+  content: "\e914"; }
+
+.icon-tulli-file-import:before {
+  content: "\e9da"; }
+
+.icon-tulli-file-export:before {
+  content: "\e9db"; }
+
+.icon-tulli-file-denied:before {
+  content: "\e9dc"; }
+
+.icon-tulli-file-alert:before {
+  content: "\e9dd"; }
+
+.icon-tulli-file-question:before {
+  content: "\e9de"; }
+
+.icon-tulli-file-info:before {
+  content: "\e9df"; }
+
+.icon-tulli-file-safety:before {
+  content: "\e9e0"; }
+
+.icon-tulli-file-locked:before {
+  content: "\e9e1"; }
+
+.icon-tulli-file-path:before {
+  content: "\e9e2"; }
+
+.icon-tulli-file-globe:before {
+  content: "\ea12"; }
+
+.icon-tulli-file-ahvenanmaa:before {
+  content: "\e9e3"; }
+
+.icon-tulli-file-graph-pie:before {
+  content: "\e9e4"; }
+
+.icon-tulli-file-graph-chart:before {
+  content: "\e9e5"; }
+
+.icon-tulli-file-drawer:before {
+  content: "\e9e6"; }
+
+.icon-tulli-book-archive:before {
+  content: "\e962"; }
+
+.icon-tulli-book-regulations:before {
+  content: "\e963"; }
+
+.icon-tulli-book-phone:before {
+  content: "\e9e7"; }
+
+.icon-tulli-book-manual:before {
+  content: "\e9e8"; }
+
+.icon-tulli-book-download:before {
+  content: "\e9e9"; }
+
+.icon-tulli-book-search:before {
+  content: "\e9ea"; }
+
+.icon-tulli-book-bookmark:before {
+  content: "\e9eb"; }
+
+.icon-tulli-book-open:before {
+  content: "\e9ec"; }
+
+.icon-tulli-newspaper:before {
+  content: "\e9ed"; }
+
+.icon-tulli-smiley-happy:before {
+  content: "\e964"; }
+
+.icon-tulli-smiley-smile:before {
+  content: "\e965"; }
+
+.icon-tulli-smiley-smirk:before {
+  content: "\e966"; }
+
+.icon-tulli-smiley-indifferent:before {
+  content: "\e967"; }
+
+.icon-tulli-smiley-sad:before {
+  content: "\e968"; }
+
+.icon-tulli-some-facebook:before {
+  content: "\e9ee"; }
+
+.icon-tulli-some-youtube:before {
+  content: "\e9ef"; }
+
+.icon-tulli-some-linkedin:before {
+  content: "\e9f0"; }
+
+.icon-tulli-some-twitter:before {
+  content: "\e9f1"; }
+
+.icon-tulli-some-googleplus:before {
+  content: "\e9f2"; }
+
+.icon-tulli-dice:before {
+  content: "\e9f3"; }
+
+.icon-tulli-star-circle:before {
+  content: "\e9f4"; }
+
+.icon-tulli-logo-icon-background:before {
+  content: "\e9f5"; }
+
+.icon-tulli-logo-icon:before {
+  content: "\e9f6"; }
+
+.icon-tulli-logo-full:before {
+  content: "\e9f7"; }
+
+.icon-tulli-product-toy:before {
+  content: "\e9f8"; }
+
+.icon-tulli-product-baby-carriage:before {
+  content: "\ea13"; }
+
+.icon-tulli-product-plants:before {
+  content: "\ea14"; }
+
+.icon-tulli-product-food-seeds:before {
+  content: "\ea15"; }
+
+.icon-tulli-product-food-wheat:before {
+  content: "\e9f9"; }
+
+.icon-tulli-product-package-present:before {
+  content: "\e96d"; }
+
+.icon-tulli-product-shoppingbag-forgery:before {
+  content: "\e96e"; }
+
+.icon-tulli-product-shoppingbag-dutyfree:before {
+  content: "\e96f"; }
+
+.icon-tulli-product-bone:before {
+  content: "\e9fa"; }
+
+.icon-tulli-product-animal-dog:before {
+  content: "\e971"; }
+
+.icon-tulli-product-animal-butterfly:before {
+  content: "\ea16"; }
+
+.icon-tulli-product-animal-endangered:before {
+  content: "\e970"; }
+
+.icon-tulli-product-animal-leather:before {
+  content: "\ea17"; }
+
+.icon-tulli-product-animal-fish-fishing:before {
+  content: "\ea18"; }
+
+.icon-tulli-product-animal-fish:before {
+  content: "\e972"; }
+
+.icon-tulli-product-food:before {
+  content: "\ea19"; }
+
+.icon-tulli-product-food-cheese:before {
+  content: "\ea1a"; }
+
+.icon-tulli-product-food-chilli:before {
+  content: "\ea1b"; }
+
+.icon-tulli-product-food-bottle:before {
+  content: "\ea1c"; }
+
+.icon-tulli-product-food-babymilk:before {
+  content: "\ea1d"; }
+
+.icon-tulli-product-food-bottle-favorite:before {
+  content: "\e9fb"; }
+
+.icon-tulli-product-beauty-perfume:before {
+  content: "\e9fc"; }
+
+.icon-tulli-product-spa-aroma:before {
+  content: "\e9fd"; }
+
+.icon-tulli-product-medicine-pill:before {
+  content: "\ea1e"; }
+
+.icon-tulli-product-medicine-pill-box:before {
+  content: "\e9fe"; }
+
+.icon-tulli-product-supplements:before {
+  content: "\ea1f"; }
+
+.icon-tulli-product-medicine-drugs:before {
+  content: "\ea20"; }
+
+.icon-tulli-product-tobacco:before {
+  content: "\e975"; }
+
+.icon-tulli-product-tobacco-cigar:before {
+  content: "\e976"; }
+
+.icon-tulli-product-tobacco-nicotinefluid:before {
+  content: "\e977"; }
+
+.icon-tulli-product-tobacco-pipe:before {
+  content: "\e974"; }
+
+.icon-tulli-product-tobacco-plant:before {
+  content: "\e973"; }
+
+.icon-tulli-product-tobacco-chewing:before {
+  content: "\e978"; }
+
+.icon-tulli-product-food-alcohol:before {
+  content: "\e979"; }
+
+.icon-tulli-product-food-wine-glas:before {
+  content: "\e97b"; }
+
+.icon-tulli-product-food-beer-glas:before {
+  content: "\e97a"; }
+
+.icon-tulli-product-clothes-blouse:before {
+  content: "\ea21"; }
+
+.icon-tulli-product-clothes-tshirt:before {
+  content: "\e9ff"; }
+
+.icon-tulli-product-clothes-sweater:before {
+  content: "\ea00"; }
+
+.icon-tulli-product-clothes:before {
+  content: "\e97c"; }
+
+.icon-tulli-product-clothes-pants:before {
+  content: "\ea22"; }
+
+.icon-tulli-product-clothes-blazer:before {
+  content: "\ea01"; }
+
+.icon-tulli-product-clothes-dress:before {
+  content: "\ea23"; }
+
+.icon-tulli-product-clothes-tie-ribbon:before {
+  content: "\ea02"; }
+
+.icon-tulli-product-clothes-hat-cap:before {
+  content: "\ea03"; }
+
+.icon-tulli-product-clothes-footwear:before {
+  content: "\ea04"; }
+
+.icon-tulli-product-package-bag:before {
+  content: "\ea24"; }
+
+.icon-tulli-product-package-briefcase:before {
+  content: "\ea25"; }
+
+.icon-tulli-product-package-backpack:before {
+  content: "\ea05"; }
+
+.icon-tulli-product-tools-cross:before {
+  content: "\ea26"; }
+
+.icon-tulli-product-tools-colourpalette:before {
+  content: "\ea27"; }
+
+.icon-tulli-product-sport-tennis:before {
+  content: "\ea06"; }
+
+.icon-tulli-product-music-guitar:before {
+  content: "\ea28"; }
+
+.icon-tulli-product-money:before {
+  content: "\e97e"; }
+
+.icon-tulli-product-valuable-precious:before {
+  content: "\ea29"; }
+
+.icon-tulli-product-valuable-ring-diamond:before {
+  content: "\ea2a"; }
+
+.icon-tulli-product-forgery:before {
+  content: "\ea2b"; }
+
+.icon-tulli-product-chemical:before {
+  content: "\ea2c"; }
+
+.icon-tulli-product-gasoline:before {
+  content: "\e97d"; }
+
+.icon-tulli-product-outdoor-fire:before {
+  content: "\ea2d"; }
+
+.icon-tulli-product-tools-multitool:before {
+  content: "\ea2e"; }
+
+.icon-tulli-product-weapon-knife:before {
+  content: "\ea2f"; }
+
+.icon-tulli-product-weapon-rifle:before {
+  content: "\e97f"; }
+
+.icon-tulli-product-weapon-bullets:before {
+  content: "\ea07"; }
+
+.icon-tulli-product-weapon-grenade:before {
+  content: "\ea08"; }
+
+.icon-tulli-product-entertainment-fireworks:before {
+  content: "\ea09"; }
+
+.icon-tulli-product-tech-camera:before {
+  content: "\ea0a"; }
+
+.icon-tulli-product-tech-videocamera:before {
+  content: "\ea30"; }
+
+.icon-tulli-product-tech-radio:before {
+  content: "\ea31"; }
+
+.icon-tulli-product-tech-laundry:before {
+  content: "\ea32"; }
+
+.icon-tulli-product-tech-laser:before {
+  content: "\ea33"; }
+
+.icon-tulli-product-tech-lawnmower:before {
+  content: "\ea34"; }
+
+.icon-tulli-product-tech:before {
+  content: "\e980"; }
+
+.icon-tulli-product-tech-drone:before {
+  content: "\ea36"; }
+
+.icon-tulli-product-tech-drone-camera:before {
+  content: "\ea37"; }
+
+.icon-tulli-sg-designelements:before {
+  content: "\e969"; }
+
+.icon-tulli-sg-components:before {
+  content: "\e96a"; }
+
+.icon-tulli-sg-patternlibrary:before {
+  content: "\e96b"; }
+
+.icon-tulli-sg-other:before {
+  content: "\e96c"; }
+
+.icon-tulli-sg-releasenotes:before {
+  content: "\e981"; }
+
+.icon-tulli-sg-versions:before {
+  content: "\e982"; }
+
+.icon-tulli-addnew:before {
+  content: "\e94f"; }
+
+.icon-tulli-delete-row:before {
+  content: "\e950"; }
 
 /* TULLI ORIGINAL STYLES */
 .add-top {
@@ -6789,7 +7624,8 @@ header .upper {
   background-color: #e3e5e9;
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-bottom: 20px; }
+  margin-bottom: 0 !important;
+  /*$grid-gutter-width;*/ }
   header .upper h1 {
     display: inline-block;
     vertical-align: bottom;
@@ -6800,16 +7636,18 @@ header .upper {
   header .upper img {
     max-width: 180px;
     max-height: 40px; }
-@media (max-width: 767px) {
-  header .lower .navbar-toggle {
-    position: relative;
-    top: -8px; }
-    header .lower .navbar-toggle .icon {
+header .lower {
+  margin-top: 20px; }
+  @media (max-width: 767px) {
+    header .lower .navbar-toggle {
       position: relative;
-      top: 2px; } }
-@media (min-width: 768px) {
-  header .lower .navbar-toggle {
-    display: none; } }
+      top: -8px; }
+      header .lower .navbar-toggle .icon {
+        position: relative;
+        top: 2px; } }
+  @media (min-width: 768px) {
+    header .lower .navbar-toggle {
+      display: none; } }
 
 .nav.language .active {
   display: none; }
@@ -7069,7 +7907,7 @@ table tr:hover .btn-row, table tr:focus .btn-row {
       padding: 5px 10px;
       position: relative; }
       .table.table-responsive tr td {
-        width: 70%;
+        width: 100%;
         padding: 0 0 0 30%;
         display: block !important; }
         .table.table-responsive tr td:before {
@@ -7154,18 +7992,33 @@ nav .nav-pills li a {
     padding: 0 5px;
     margin: 0; }
 
-table.hide-actions tr .td-btn-row {
+table.with-actions thead th:last-child {
+  text-align: right;
+  padding-right: 25px; }
+table.with-actions.hide-actions thead th:last-child {
   opacity: 0; }
-table.hide-actions tr:hover .td-btn-row {
+table.with-actions.hide-actions tr .td-btn-row {
+  opacity: 0; }
+table.with-actions.hide-actions tr:hover .td-btn-row {
   opacity: 1; }
-table.hide-actions tr:focus .td-btn-row {
+table.with-actions.hide-actions tr:focus .td-btn-row {
   opacity: 1; }
-
-table.table-hover tr.focused {
+@media screen and (max-width: 767px) {
+  table.with-actions.hide-actions tr .td-btn-row {
+    opacity: 1; } }
+table.with-actions .table-hover tr.focused {
   background-color: #b2bccd !important; }
-  table.table-hover tr.focused .td-btn-row {
+  table.with-actions .table-hover tr.focused .td-btn-row {
     opacity: 1; }
 
+@media screen and (max-width: 767px) {
+  .td-btn-row {
+    text-align: left;
+    width: 100% !important; }
+    .td-btn-row:before {
+      opacity: 0; }
+    .td-btn-row.has-label button {
+      display: block; } }
 .pager ~ .details {
   display: inline-block;
   margin: 20px 10px;
@@ -7191,6 +8044,9 @@ footer {
   footer hr {
     border: 1px solid #777;
     display: block; }
+  footer h3 {
+    color: #f2a900;
+    font-weight: 400; }
   footer button.btn-default,
   footer a.btn-default {
     background-color: transparent;
@@ -7203,6 +8059,8 @@ footer {
       background-color: transparent;
       border-color: #fff;
       color: #fff; }
+  footer .button-list button.btn-default {
+    text-transform: uppercase; }
   footer ul.footer-menu {
     padding: 0;
     margin: 0; }
@@ -7245,6 +8103,8 @@ footer {
         content: "\e908"; }
       footer ul.contact-information li.icon-time:before {
         content: "\e91d"; }
+      footer ul.contact-information li.icon-email:before {
+        content: "\e91c"; }
       footer ul.contact-information li a {
         color: #ccc; }
         footer ul.contact-information li a:hover {
@@ -7280,6 +8140,10 @@ footer {
 img {
   width: 100%;
   height: auto; }
+
+.screencap img {
+  border: 8px solid #ffffff;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25); }
 
 .cn8-search {
   position: absolute;
