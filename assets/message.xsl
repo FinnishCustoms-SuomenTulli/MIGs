@@ -348,7 +348,7 @@
 								</xsl:for-each>
 							</td>
 						</tr>
-						<xsl:if test="DescriptionLine[@lang=($language)]!=''">
+						<xsl:if test="DescriptionLine[@lang=($language)]!='' or Hyperlink[@lang=($language)]!=''">
 							<tr>
 								<xsl:choose>
 									<xsl:when test="count(ancestor::*)>2">
@@ -366,6 +366,10 @@
 											<br/>
 										</xsl:if>
 									</xsl:for-each>
+									<a>
+										<xsl:attribute name="href"><xsl:value-of select="Hyperlink[@lang=($language)]/URL"/></xsl:attribute>
+										<span class="icon icon-tulli-external" style="margin-right:3px"></span><xsl:value-of select="Hyperlink/Description"/>
+									</a>
 								</td>
 							</tr>
 						</xsl:if>

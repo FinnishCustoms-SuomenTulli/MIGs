@@ -149,6 +149,21 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="Hyperlink" minOccurs="0" maxOccurs="99">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="URL"/>
+						<xs:element name="Description">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string"/>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="lang" use="required"/>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="XPathType">
