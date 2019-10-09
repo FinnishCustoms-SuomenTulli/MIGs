@@ -194,7 +194,7 @@ th {
 
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
-  *,
+*,
   *:before,
   *:after {
     background: transparent !important;
@@ -220,10 +220,13 @@ th {
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid; }
-
+   
   thead {
-    display: table-header-group; }
+      display: table-header-group; }
 
+  tbody {
+      display: table-row-group; }
+  
   tr,
   img {
     page-break-inside: avoid; }
@@ -252,14 +255,16 @@ th {
     border: 1px solid #000; }
 
   .table {
+    width: 100%;
     border-collapse: collapse !important; }
     .table td,
     .table th {
-      background-color: #fff !important; }
+/*      background-color: #fff !important;*/ }
 
   .table-bordered th,
   .table-bordered td {
     border: 1px solid #ddd !important; } }
+
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url(fonts/bootstrap/glyphicons-halflings-regular.eot);
@@ -3809,9 +3814,9 @@ tbody.collapse.in {
           text-align: center; } }
       .nav-tabs > li > a:hover {
         background-color: #e5e8ee; }
-    .nav-tabs > li.active > a {
+    .nav-tabs > li > a.active {
       padding-bottom: 10px; }
-      .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+      .nav-tabs > li > a.active, .nav-tabs > li > a.active:hover, .nav-tabs > li > a.active:focus {
         color: #333;
         background-color: #fafafa;
         cursor: default; }
@@ -4455,7 +4460,7 @@ ul li a[target=_blank]:after {
   .breadcrumb > li {
     display: inline-block; }
     .breadcrumb > li + li:before {
-      content: "/ ";
+      content: "/ ";
       padding: 0 5px;
       color: #ccd2de !important; }
   .breadcrumb > .active {

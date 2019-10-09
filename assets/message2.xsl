@@ -117,8 +117,9 @@
 								<xsl:choose>
 									<xsl:when test="Condition[@use=$messageType] != ''">D</xsl:when>
 									<xsl:when test="Condition[not(@*)] != ''">D</xsl:when>
-									<xsl:when test="MinOccurence=0">O</xsl:when>
-									<xsl:otherwise>R</xsl:otherwise>
+									<xsl:when test="MinOccurence[@use=$messageType]>0">R</xsl:when>
+									<xsl:when test="MinOccurence[not(@*)]>0">R</xsl:when>
+									<xsl:otherwise>O</xsl:otherwise>
 								</xsl:choose>
 							</td>
 							<td>

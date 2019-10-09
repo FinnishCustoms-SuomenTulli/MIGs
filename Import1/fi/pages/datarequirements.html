@@ -116,7 +116,7 @@
                             $(".messagetabs").append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '">' + message + '</a></li>');
                             // panels
                             $(".tab-content").append('<div role="tabpanel" class="tab-pane" id="' + message + '"></div>');
-                            $(".messagetabs").find("li").first().addClass("active");
+                            $(".messagetabs").find("a").first().addClass("active");
                             $(".tab-content").find(".tab-pane").first().addClass("active");
                             transform(path.concat(message, '.xml'), '../../../assets/message.xsl', document.getElementById(message), 'fi');
                             i++;
