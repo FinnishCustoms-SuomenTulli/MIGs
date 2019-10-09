@@ -368,7 +368,7 @@
 									</xsl:for-each>
 									<a>
 										<xsl:attribute name="href"><xsl:value-of select="Hyperlink[@lang=($language)]/URL"/></xsl:attribute>
-										<span class="icon icon-tulli-external" style="margin-right:3px"></span><xsl:value-of select="Hyperlink/Description"/>
+										<span class="icon icon-tulli-external" style="margin-right:3px"></span><xsl:value-of select="Hyperlink[@lang=($language)]/Description"/>
 									</a>
 								</td>
 							</tr>
