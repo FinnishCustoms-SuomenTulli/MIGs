@@ -26,6 +26,11 @@
 					<xs:restriction base="xs:string"/>
 				</xs:simpleType>
 			</xs:element>
+			<xs:element name="Filter" minOccurs="0" maxOccurs="99">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="XPath" type="XPathType"/>
 			<xs:element name="MinOccurence" maxOccurs="99">
 				<xs:complexType>
@@ -104,8 +109,13 @@
 					<xs:restriction base="xs:string"/>
 				</xs:simpleType>
 			</xs:element>
+			<xs:element name="Filter" minOccurs="0" maxOccurs="99">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="XPath" type="XPathType"/>
-			<xs:element name="MinOccurence"/>
+			<xs:element name="MinOccurence" maxOccurs="99"/>
 			<xs:element name="EUCDM" minOccurs="0"/>
 			<xs:element name="GeneralType"/>
 			<xs:element name="Codelist" minOccurs="0" maxOccurs="unbounded"/>

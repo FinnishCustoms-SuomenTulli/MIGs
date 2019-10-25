@@ -4,6 +4,11 @@
 	<xsl:param name="language"/>
 	<xsl:param name="messageType"/>
 	<xsl:template match="/">
+		<xsl:variable name="filteringapplied">
+			<xsl:for-each select="Message/DataGroup/Filter">
+				<xsl:if test="contains(.,$messageType)"><xsl:value-of select="'1'"/></xsl:if>
+			</xsl:for-each>
+		</xsl:variable>
 		<xsl:if test="Message/Rule!='' and Message/Rule/@use=$messageType">
 			<p>
 				<b>Rules:</b>
@@ -102,9 +107,21 @@
 			</thead>
 			<tbody>
 				<xsl:for-each select="descendant::DataGroup">
+					<xsl:variable name="filter">
+						<xsl:choose>
+							<xsl:when test="$filteringapplied=''"><xsl:value-of select="' all'"/></xsl:when>
+							<xsl:otherwise>
+						<xsl:for-each select="Filter">
+							<xsl:if test="substring(., 1, 6) = $messageType">
+								<xsl:value-of select="concat(' ',substring(.,7,2))"/>
+							</xsl:if>
+						</xsl:for-each>
+							</xsl:otherwise>
+						</xsl:choose>
+					</xsl:variable>
 					<xsl:if test="Use = $messageType">
 						<tr>
-							<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1)"/></xsl:attribute>
+							<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1,' oddeven',$filter)"/></xsl:attribute>
 							<td>
 								<a>
 									<xsl:attribute name="id"><xsl:value-of select="translate(concat('Group_',$messageType,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
@@ -124,8 +141,10 @@
 							</td>
 							<td>
 								<xsl:choose>
-									<xsl:when test="MaxOccurence[@use=$messageType] != ''"><xsl:value-of select="MaxOccurence[@use=$messageType]"/>x</xsl:when>
-									<xsl:otherwise><xsl:value-of select="MaxOccurence"/>x</xsl:otherwise>
+									<xsl:when test="MaxOccurence[@use=$messageType] != ''">
+										<xsl:value-of select="MaxOccurence[@use=$messageType]"/>x</xsl:when>
+									<xsl:otherwise>
+										<xsl:value-of select="MaxOccurence"/>x</xsl:otherwise>
 								</xsl:choose>
 							</td>
 							<td>
@@ -260,11 +279,18 @@
 				</tr>
 			</thead>
 			<xsl:for-each select="descendant::DataGroup | descendant::DataElement">
+				<xsl:variable name="filter">
+					<xsl:for-each select="Filter">
+						<xsl:if test="substring(., 1, 6) = $messageType">
+							<xsl:value-of select="concat(' ',substring(.,7,2))"/>
+						</xsl:if>
+					</xsl:for-each>
+				</xsl:variable>
 				<xsl:choose>
 					<xsl:when test="local-name()='DataGroup'">
 						<xsl:if test="Use = $messageType">
 							<tr>
-								<xsl:attribute name="class"><xsl:value-of select="concat('group indent-',count(ancestor::*)-1)"/></xsl:attribute>
+								<xsl:attribute name="class"><xsl:value-of select="concat('group indent-',count(ancestor::*)-1, $filter)"/></xsl:attribute>
 								<td colspan="6">
 									<a>
 										<xsl:attribute name="id"><xsl:value-of select="translate(concat('Element_',$messageType,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
@@ -281,18 +307,10 @@
 							<tr>
 								<xsl:choose>
 									<xsl:when test="count(ancestor::*)>2">
-										<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1)"/></xsl:attribute>
+										<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1,$filter,' oddeven')"/></xsl:attribute>
 									</xsl:when>
 									<xsl:otherwise>
-										<xsl:attribute name="class"><xsl:value-of select="'indent-2'"/></xsl:attribute>
-									</xsl:otherwise>
-								</xsl:choose>
-								<xsl:choose>
-									<xsl:when test="count(ancestor::*)>2">
-										<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1)"/></xsl:attribute>
-									</xsl:when>
-									<xsl:otherwise>
-										<xsl:attribute name="class"><xsl:value-of select="'indent-2'"/></xsl:attribute>
+										<xsl:attribute name="class"><xsl:value-of select="concat('indent-2', $filter,' oddeven')"/></xsl:attribute>
 									</xsl:otherwise>
 								</xsl:choose>
 								<td>
@@ -303,8 +321,9 @@
 									<xsl:choose>
 										<xsl:when test="Condition[@use=$messageType] != ''">D</xsl:when>
 										<xsl:when test="Condition[not(@*)] != ''">D</xsl:when>
-										<xsl:when test="MinOccurence = 0">O</xsl:when>
-										<xsl:otherwise>R</xsl:otherwise>
+										<xsl:when test="MinOccurence[@use=$messageType]>0">R</xsl:when>
+										<xsl:when test="MinOccurence[not(@*)]>0">R</xsl:when>
+										<xsl:otherwise>O</xsl:otherwise>
 									</xsl:choose>
 								</td>
 								<td>
@@ -340,10 +359,10 @@
 								<tr>
 									<xsl:choose>
 										<xsl:when test="count(ancestor::*)>2">
-											<xsl:attribute name="class"><xsl:value-of select="concat('description indent-',count(ancestor::*)-1)"/></xsl:attribute>
+											<xsl:attribute name="class"><xsl:value-of select="concat('description indent-',count(ancestor::*)-1, $filter)"/></xsl:attribute>
 										</xsl:when>
 										<xsl:otherwise>
-											<xsl:attribute name="class"><xsl:value-of select="'description indent-2'"/></xsl:attribute>
+											<xsl:attribute name="class"><xsl:value-of select="concat('description indent-2', $filter)"/></xsl:attribute>
 										</xsl:otherwise>
 									</xsl:choose>
 									<td colspan="6">
