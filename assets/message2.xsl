@@ -6,7 +6,9 @@
 	<xsl:template match="/">
 		<xsl:variable name="filteringapplied">
 			<xsl:for-each select="Message/DataGroup/Filter">
-				<xsl:if test="contains(.,$messageType)"><xsl:value-of select="'1'"/></xsl:if>
+				<xsl:if test="contains(.,$messageType)">
+					<xsl:value-of select="'1'"/>
+				</xsl:if>
 			</xsl:for-each>
 		</xsl:variable>
 		<xsl:if test="Message/Rule!='' and Message/Rule/@use=$messageType">
@@ -109,13 +111,15 @@
 				<xsl:for-each select="descendant::DataGroup">
 					<xsl:variable name="filter">
 						<xsl:choose>
-							<xsl:when test="$filteringapplied=''"><xsl:value-of select="' all'"/></xsl:when>
+							<xsl:when test="$filteringapplied=''">
+								<xsl:value-of select="' all'"/>
+							</xsl:when>
 							<xsl:otherwise>
-						<xsl:for-each select="Filter">
-							<xsl:if test="substring(., 1, 6) = $messageType">
-								<xsl:value-of select="concat(' ',substring(.,7,2))"/>
-							</xsl:if>
-						</xsl:for-each>
+								<xsl:for-each select="Filter">
+									<xsl:if test="substring(., 1, 6) = $messageType">
+										<xsl:value-of select="concat(' ',substring(.,7,2))"/>
+									</xsl:if>
+								</xsl:for-each>
 							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:variable>
@@ -166,7 +170,7 @@
 						</tr>
 						<xsl:if test="DescriptionLine[@lang=($language)]!=''">
 							<tr>
-								<xsl:attribute name="class"><xsl:value-of select="concat('description indent-',count(ancestor::*)-1)"/></xsl:attribute>
+								<xsl:attribute name="class"><xsl:value-of select="concat('description indent-',count(ancestor::*)-1,$filter)"/></xsl:attribute>
 								<td colspan="5">
 									<span class="icon icon-tulli-info" style="margin-right:3px"/>
 									<xsl:for-each select="DescriptionLine[@lang=($language)]">
@@ -280,17 +284,24 @@
 			</thead>
 			<xsl:for-each select="descendant::DataGroup | descendant::DataElement">
 				<xsl:variable name="filter">
-					<xsl:for-each select="Filter">
-						<xsl:if test="substring(., 1, 6) = $messageType">
-							<xsl:value-of select="concat(' ',substring(.,7,2))"/>
-						</xsl:if>
-					</xsl:for-each>
+					<xsl:choose>
+						<xsl:when test="$filteringapplied=''">
+							<xsl:value-of select="' all'"/>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:for-each select="Filter">
+								<xsl:if test="substring(., 1, 6) = $messageType">
+									<xsl:value-of select="concat(' ',substring(.,7,2))"/>
+								</xsl:if>
+							</xsl:for-each>
+						</xsl:otherwise>
+					</xsl:choose>
 				</xsl:variable>
 				<xsl:choose>
 					<xsl:when test="local-name()='DataGroup'">
 						<xsl:if test="Use = $messageType">
 							<tr>
-								<xsl:attribute name="class"><xsl:value-of select="concat('group indent-',count(ancestor::*)-1, $filter)"/></xsl:attribute>
+								<xsl:attribute name="class"><xsl:value-of select="concat('group indent-',count(ancestor::*)-1,$filter)"/></xsl:attribute>
 								<td colspan="6">
 									<a>
 										<xsl:attribute name="id"><xsl:value-of select="translate(concat('Element_',$messageType,'_',../XPath,'_',Name[@lang=($language)]),' ','')"/></xsl:attribute>
@@ -310,7 +321,7 @@
 										<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1,$filter,' oddeven')"/></xsl:attribute>
 									</xsl:when>
 									<xsl:otherwise>
-										<xsl:attribute name="class"><xsl:value-of select="concat('indent-2', $filter,' oddeven')"/></xsl:attribute>
+										<xsl:attribute name="class"><xsl:value-of select="concat('indent-2',$filter,' oddeven')"/></xsl:attribute>
 									</xsl:otherwise>
 								</xsl:choose>
 								<td>
