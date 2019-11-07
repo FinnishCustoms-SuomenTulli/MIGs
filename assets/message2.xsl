@@ -117,7 +117,7 @@
 							<xsl:otherwise>
 								<xsl:for-each select="Filter">
 									<xsl:if test="substring(., 1, 6) = $messageType">
-										<xsl:value-of select="concat(' ',substring(.,7,2))"/>
+										<xsl:value-of select="concat(' ',substring(.,7,3))"/>
 									</xsl:if>
 								</xsl:for-each>
 							</xsl:otherwise>
@@ -291,7 +291,7 @@
 						<xsl:otherwise>
 							<xsl:for-each select="Filter">
 								<xsl:if test="substring(., 1, 6) = $messageType">
-									<xsl:value-of select="concat(' ',substring(.,7,2))"/>
+									<xsl:value-of select="concat(' ',substring(.,7,3))"/>
 								</xsl:if>
 							</xsl:for-each>
 						</xsl:otherwise>

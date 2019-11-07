@@ -71,7 +71,7 @@
 			</xsl:for-each>
 		</table>
 		<xsl:for-each select="VersionHistory/Version">
-			<div class="modal fade" tabindex="-1" role="dialog" data-keyboard="false">
+			<div class="modal" tabindex="-1" role="dialog" data-keyboard="false">
 				<xsl:attribute name="id"><xsl:value-of select="concat('Version_',position())"/></xsl:attribute>
 				<div class="modal-dialog modal-lg" role="document">
 					<div class="modal-content">
