@@ -1,0 +1,167 @@
+﻿graph Import2 {
+   node [shape=plaintext, fontname = "helvetica"];
+	edge [fontname = "helvetica"];
+	{rank=same "Warehouse" "Notification" "Amendment"}
+	{rank=same "TotalTax" "TotalPayableTax" "TaxCalculation" "Payment" "Banking"}
+	"ImportOperation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Import operation</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">MRN<br align="left"/>LRN<br align="left"/>Additional LRN<br align="left"/>Declaration type<br align="left"/>Additional declaration type<br align="left"/>Accepance date<br align="left"/>Estimated presentation of goods date and time<br align="left"/>Gross mass<br align="left"/>Language code<br align="left"/></td></tr></table>>];
+	"GoodsShipment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Goods shipment   </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Nature of transaction<br align="left"/>Country of destination code<br align="left"/>Country of dispatch/export code<br align="left"/></td></tr></table>>];
+	"Consignment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Consignment  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Container</td></tr></table>>];
+	"GoodsItem" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Goods item</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Goods item number<br align="left"/>Statistical value<br align="left"/>Value<br align="left"/>Value, currency code<br align="left"/>Transport costs to the final destination<br align="left"/>Transport costs to the final destination, currency code<br align="left"/>Valuation indicators<br align="left"/>Description of goods<br align="left"/>Commodity code - Harmonised System code<br align="left"/>Commodity code - Combined nomenclature code<br align="left"/>Commodity code - TARIC code<br align="left"/>CUS code<br align="left"/>Customs valuation method<br align="left"/>Gross mass<br align="left"/>Net mass<br align="left"/>Supplementary units<br align="left"/>Requested procedure code<br align="left"/>Previous procedure code<br align="left"/>Country of origin<br align="left"/>Country of preferential origin<br align="left"/></td></tr></table>>];
+	"TotalTax" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Total tax</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tax determination date<br align="left"/>Type of tax<br align="left"/>Tax amount<br align="left"/></td></tr></table>>];
+	"TotalPayableTax" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Total payable tax  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Type of tax<br align="left"/>Tax amount<br align="left"/></td></tr></table>>];
+	"TaxCalculation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tax calculation  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Type of tax<br align="left"/>Tax amount<br align="left"/></td></tr></table>>];
+	"Payment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Payment</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Total payable amount<br align="left"/>Payment reference<br align="left"/>Due date<br align="left"/></td></tr></table>>];
+	"Banking" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Banking details  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Bank account number<br align="left"/>Bank identification<br align="left"/></td></tr></table>>];
+	"DutyTaxFee" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Duty, tax and fee</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Preference<br align="left"/>Quota order number<br align="left"/>Type of tax<br align="left"/>Tax rate<br align="left"/>Tax rate, unit<br align="left"/>Tax amount<br align="left"/></td></tr></table>>];
+	"TaxCalculationQuantity" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tax calculation quantity</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Quantity<br align="left"/>Measurement unit and qualifier<br align="left"/></td></tr></table>>];
+	"Adjustment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Adjustment</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Code<br align="left"/>Amount<br align="left"/>Amount, currency code<br align="left"/></td></tr></table>>];
+	"GoodsLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Location of goods </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Type of location<br align="left"/>Economic operator<br align="left"/>Authorisation number<br align="left"/>Additional identifier<br align="left"/>Street and number<br align="left"/>City<br align="left"/>Postcode<br align="left"/>Country<br align="left"/></td></tr></table>>];
+	"UnloadingLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Location of the goods at time of declaration submission        </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Street and number<br align="left"/>City<br align="left"/>Postcode<br align="left"/>Country<br align="left"/></td></tr></table>>];
+	"TradeTerm" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Delivery term</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">INCOTERM code<br align="left"/>UN/LOCODE<br align="left"/>Location name<br align="left"/>Country<br align="left"/></td></tr></table>>];
+	"UCR" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Reference number/UCR  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Reference number/UCR  </td></tr></table>>];
+	"AdditionalProcedure" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Additional procedure</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Additional procedure code</td></tr></table>>];
+	"TARICAdditional" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Commodity code - TARIC additional code(s)    </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Commodity code - TARIC additional code</td></tr></table>>];
+	"NationalAdditional" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Commodity code - National additional code(s)     </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Commodity code - National additional code</td></tr></table>>];
+	"Packaging" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Packaging</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Shipping marks<br align="left"/>Number of packages<br align="left"/>Type of packages<br align="left"/></td></tr></table>>];
+	"SupportingDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Supporting document    </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Document type<br align="left"/>Document identifier<br align="left"/>Issuing authority name<br align="left"/>Quantity<br align="left"/>Measurement unit and qualifier<br align="left"/>Amount<br align="left"/>Amount, currency code<br align="left"/>Document line item number<br align="left"/>Attachment reference<br align="left"/></td></tr></table>>];
+	"AdditionalReference" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Additional reference   </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Code</td></tr></table>>];
+	"PreviousDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Previous document</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Goods item identifier<br align="left"/>Previous document type<br align="left"/>Previous document reference<br align="left"/></td></tr></table>>];
+	"AdditionalInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Additional information</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Additional information code<br align="left"/>Additional information description<br align="left"/></td></tr></table>>];
+	"Warehouse" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Identification of warehouse    </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Warehouse identifier<br align="left"/>Warehouse type<br align="left"/>Name<br align="left"/>Street and number<br align="left"/>City<br align="left"/>Postcode<br align="left"/>Country<br align="left"/></td></tr></table>>];
+
+	"AdditionalSupplyChainActor" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Additional supply chain actor     </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identification no.<br align="left"/>Office code<br align="left"/>Role code<br align="left"/></td></tr></table>>];
+	"AdditionalFiscalReference" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Additional fiscal reference    </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identification no.<br align="left"/>Office code<br align="left"/>Role code<br align="left"/></td></tr></table>>];
+	"Buyer" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Buyer </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identification no.<br align="left"/>Office code<br align="left"/>Name<br align="left"/>Street and number<br align="left"/>City<br align="left"/>Postcode<br align="left"/>Country<br align="left"/></td></tr></table>>];
+	"Debtor" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Debtor </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Name</td></tr></table>>];
+	"Declarant" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Declarant</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identification no.<br align="left"/>Office code<br align="left"/>Name<br align="left"/>Nature<br align="left"/>Street and number<br align="left"/>City<br align="left"/>Postcode<br align="left"/>Country<br align="left"/></td></tr></table>>];
+	"Exporter" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Exporter </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identification no.<br align="left"/>Office code<br align="left"/>Name<br align="left"/>Street and number<br align="left"/>City<br align="left"/>Postcode<br align="left"/>Country<br align="left"/></td></tr></table>>];
+	"Importer" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Importer</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identification no.<br align="left"/>Office code<br align="left"/>Name<br align="left"/>Nature<br align="left"/>Street and number<br align="left"/>City<br align="left"/>Postcode<br align="left"/>Country<br align="left"/></td></tr></table>>];
+	"Representative" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Representative</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Representative status code<br align="left"/>Identification no.<br align="left"/>Office code<br align="left"/>Name<br align="left"/>Nature<br align="left"/>Street and number<br align="left"/>City<br align="left"/>Postcode<br align="left"/>Country<br align="left"/></td></tr></table>>];
+	"Seller" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Seller </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identification no.<br align="left"/>Office code<br align="left"/>Name<br align="left"/>Street and number<br align="left"/>City<br align="left"/>Postcode<br align="left"/>Country<br align="left"/></td></tr></table>>];
+	"ServiceProvider" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Service provider   </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identification no.</td></tr></table>>];
+	"MessageSender" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Message sender  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identification no.</td></tr></table>>];
+	"Submitter" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Submitter</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Name<br align="left"/>E-mail address<br align="left"/>Telephone number<br align="left"/></td></tr></table>>];
+
+	"ArrivalTransportMeans" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Arrival transport means    </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Inland mode of transport<br align="left"/>Identification number<br align="left"/>Type of identification<br align="left"/></td></tr></table>>];
+	"BorderTransportMeans" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Active border transport means    </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Mode of transport at the border<br align="left"/>Nationality<br align="left"/></td></tr></table>>];
+	"TransportEquipment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transport equipment</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Container identification number</td></tr></table>>];
+
+	"Amendment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Amendment</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Amendment date and time<br align="left"/>Reason for amendment request<br align="left"/>Request correlation<br align="left"/></td></tr></table>>];
+	"Notification" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Notification</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Notification type<br align="left"/>Notification date and time<br align="left"/>Notification description<br align="left"/>Invalidation reason<br align="left"/>Reason for contact<br align="left"/>Amendment reason<br align="left"/>Related goods item<br align="left"/>Request correlation<br align="left"/>Time limit for response<br align="left"/></td></tr></table>>];
+	"Error" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Error</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Error code<br align="left"/>Error reason<br align="left"/>Error pointer<br align="left"/>Original attribute value<br align="left"/></td></tr></table>>];
+	"ProvidedInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Provided information   </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Description<br align="left"/>Document link<br align="left"/></td></tr></table>>];
+	"ContactInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Contact information   </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Name<br align="left"/>E-mail address<br align="left"/>Telephone number<br align="left"/></td></tr></table>>];
+	"Control" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Control</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Control type<br align="left"/>Control location<br align="left"/>Contact<br align="left"/></td></tr></table>>];
+	"Decision" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Decision</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Decision date and time</td></tr></table>>];
+	"Note" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Note</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Note type<br align="left"/>Note text<br align="left"/></td></tr></table>>];
+	"ReplacingMRN" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Replacing MRN </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">MRN</td></tr></table>>];
+
+	"ImportOperation" -- "GoodsShipment" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Debtor" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Declarant" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Exporter" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Representative" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "ServiceProvider" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "MessageSender" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Submitter" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "BorderTransportMeans" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Consignment" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "SupportingDocument" [headlabel="0..99", taillabel="1" fontsize=10]
+	"ImportOperation" -- "AdditionalInformation" [headlabel="0..99", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Amendment" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Notification" [headlabel="1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "TotalTax" [headlabel="0..99", taillabel="1" fontsize=10]
+	"ImportOperation" -- "TotalPayableTax" [headlabel="0..99", taillabel="1" fontsize=10]
+	"ImportOperation" -- "TaxCalculation" [headlabel="0..99", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Payment" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Banking" [headlabel="0..3", taillabel="1" fontsize=10]
+	"Notification" -- "ContactInformation" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Notification" -- "Control" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Notification" -- "Decision" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Notification" -- "ProvidedInformation" [headlabel="0..999", taillabel="1" fontsize=10]
+	"Notification" -- "Error" [headlabel="0..999", taillabel="1" fontsize=10]
+	"Notification" -- "ReplacingMRN" [headlabel="0..2", taillabel="1" fontsize=10]
+	"Decision" -- "Note" [headlabel="0..999", taillabel="1" fontsize=10]
+	"GoodsShipment" -- "Consignment" [headlabel="0..1", taillabel="1" fontsize=10]
+	"GoodsShipment" -- "GoodsItem" [headlabel="1..99999", taillabel="1" fontsize=10]
+	"GoodsShipment" -- "UCR" [headlabel="0..1", taillabel="1" fontsize=10]
+	"GoodsShipment" -- "AdditionalSupplyChainActor" [headlabel="0..99", taillabel="1" fontsize=10]
+	"GoodsShipment" -- "Buyer" [headlabel="0..1", taillabel="1" fontsize=10]
+	"GoodsShipment" -- "AdditionalFiscalReference" [headlabel="0..99", taillabel="1" fontsize=10]
+	"GoodsShipment" -- "Importer" [headlabel="0..1", taillabel="1" fontsize=10]
+	"GoodsShipment" -- "Seller" [headlabel="0..1", taillabel="1" fontsize=10]
+	"GoodsShipment" -- "TradeTerm" [headlabel="0..1", taillabel="1" fontsize=10]
+	"GoodsShipment" -- "Warehouse" [headlabel="1", taillabel="1" fontsize=10]
+	"TransportEquipment" -- "GoodsItem" [headlabel="1", taillabel="0..9999" fontsize=10]
+	"SupportingDocument" -- "GoodsItem" [headlabel="1", taillabel="0..99" fontsize=10]
+	"GoodsItem" -- "AdditionalReference" [headlabel="0..99", taillabel="1" fontsize=10]
+	"AdditionalInformation" -- "GoodsItem" [headlabel="1", taillabel="0..99" fontsize=10]
+	"PreviousDocument" -- "GoodsItem" [headlabel="1", taillabel="0..99" fontsize=10]
+	"GoodsItem" -- "AdditionalProcedure" [headlabel="1..99", taillabel="1" fontsize=10]
+	"GoodsItem" -- "TARICAdditional" [headlabel="0..99", taillabel="1" fontsize=10]
+	"GoodsItem" -- "NationalAdditional" [headlabel="0..99", taillabel="1" fontsize=10]
+	"GoodsItem" -- "Packaging" [headlabel="1..99", taillabel="1" fontsize=10]
+	"GoodsItem" -- "DutyTaxFee" [headlabel="1", taillabel="0..99" fontsize=10]
+	"DutyTaxFee" -- "TaxCalculationQuantity" [headlabel="0..99", taillabel="1" fontsize=10]
+	"GoodsItem" -- "Adjustment" [headlabel="0..99", taillabel="1" fontsize=10]
+	"UCR" -- "GoodsItem" [headlabel="1", taillabel="0..1" fontsize=10]
+	"Consignment" -- "GoodsLocation" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "UnloadingLocation" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "ArrivalTransportMeans" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "TransportEquipment" [headlabel="0..9999", taillabel="1" fontsize=10]
+	"Consignment" -- "PreviousDocument" [headlabel="0..999", taillabel="1" fontsize=10]
+
+	// Adjust the layout, not real connections
+	"ServiceProvider" -- "GoodsShipment" [style=invis]
+	"Notification" -- "Consignment" [style=invis]
+	"Representative" -- "TaxCalculation" [style=invis]
+}
