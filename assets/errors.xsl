@@ -16,7 +16,7 @@
 				<xsl:otherwise>
 					<xsl:if test="$language='fi'">Ei tunnettuja virheitä.</xsl:if>
 					<xsl:if test="$language='sv'">Ej kända fel.</xsl:if>
-					<xsl:if test="$language='fi'">No known errors.</xsl:if>
+					<xsl:if test="$language='en'">No known errors.</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
 		</p>
