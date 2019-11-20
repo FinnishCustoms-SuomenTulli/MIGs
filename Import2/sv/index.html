@@ -164,6 +164,19 @@
                     </div>
 
                     <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
+						<a name="mainmenu">K&auml;nda fel</a>
+					</h2>
+                            </div>
+                            <div class="panel-body" id="errors">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h2 class="panel-title">
@@ -328,6 +341,9 @@
         })
         document.addEventListener('DOMContentLoaded', function() {
             transform('../common/intro.xml', '../../assets/notes.xsl', document.getElementById('notes'), 'sv');
+        })
+        document.addEventListener('DOMContentLoaded', function() {
+            transform('../common/intro.xml', '../../assets/errors.xsl', document.getElementById('errors'), 'sv');
         })
     </script>
     <script src='../../assets/javascripts/bootstrap.js'></script>

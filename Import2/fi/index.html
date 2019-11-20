@@ -167,6 +167,19 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h2 class="panel-title">
+						<a name="mainmenu">Tunnetut virheet</a>
+					</h2>
+                            </div>
+                            <div class="panel-body" id="errors">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
 						<a name="mainmenu">Muutokset verrattuna tullivarastointiin ja tuonnin ensimm&auml;iseen vaiheeseen</a>
 					</h2>
                             </div>
@@ -328,6 +341,9 @@
         })
         document.addEventListener('DOMContentLoaded', function() {
             transform('../common/intro.xml', '../../assets/notes.xsl', document.getElementById('notes'), 'fi');
+        })
+        document.addEventListener('DOMContentLoaded', function() {
+            transform('../common/intro.xml', '../../assets/errors.xsl', document.getElementById('errors'), 'fi');
         })
     </script>
     <script src='../../assets/javascripts/bootstrap.js'></script>
