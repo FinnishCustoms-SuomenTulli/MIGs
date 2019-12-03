@@ -3462,7 +3462,8 @@
 				<XPath>Warehouse</XPath>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
-				<Condition>NC0203</Condition>
+				<Condition use="FI413A">NC0203</Condition>
+				<Condition use="FI415A">NC0203</Condition>
 				<DataElement>
 					<Name lang="fi">Varaston tunniste</Name>
 					<Name lang="sv">Lageridentifierare</Name>
@@ -3804,8 +3805,9 @@
 						<Filter>FI413AH5N</Filter>
 						<Filter>FI415AH5N</Filter>
 						<XPath>Classification</XPath>
-						<MinOccurence>1</MinOccurence>
+						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
+						<Condition>NC####</Condition>
 						<DataElement>
 							<Name lang="fi">Tavaran koodi – yhdistetyn nimikkeistön koodi</Name>
 							<Name lang="sv">Varukod – KN-nummer</Name>
@@ -5045,30 +5047,6 @@
 					<DescriptionLine lang="sv">Om avsändningslandet är Norge och det inte finns något föregående förfarande, ska tidigare dokument inte anges.</DescriptionLine>
 					<DescriptionLine lang="en">If the country of dispatch is Norway and there is no previous procedure, previous document is not declared.</DescriptionLine>
 					<DataElement>
-						<Name lang="fi">Tavaraerän tunniste</Name>
-						<Name lang="sv">Varupostidentifierare</Name>
-						<Name lang="en">Goods item identifier</Name>
-						<Use>FI413A</Use>
-						<Use>FI415A</Use>
-						<Use>FI473A</Use>
-						<Use>FI475A</Use>
-						<Filter>FI413AI1</Filter>
-						<Filter>FI415AI1</Filter>
-						<Filter>FI413AH2</Filter>
-						<Filter>FI415AH2</Filter>
-						<Filter>FI413AH5E</Filter>
-						<Filter>FI415AH5E</Filter>
-						<Filter>FI413AH5N</Filter>
-						<Filter>FI415AH5N</Filter>
-						<XPath>Line</XPath>
-						<MinOccurence>0</MinOccurence>
-						<Condition>NC0028</Condition>
-						<Format>n..5</Format>
-						<DescriptionLine lang="fi">Ilmoita edeltävän asiakirjan MRN:än liittyvä tavaraerän järjestysnumero.</DescriptionLine>
-						<DescriptionLine lang="sv">Ange det ordningsnummer för varuposten som hänför sig till det tidigare dokumentets MRN.</DescriptionLine>
-						<DescriptionLine lang="en">Enter the goods item number related to the MRN of the previous document.</DescriptionLine>
-					</DataElement>
-					<DataElement>
 						<Name lang="fi">Edeltävä asiakirjatyyppi</Name>
 						<Name lang="sv">Tidigare dokumenttyp</Name>
 						<Name lang="en">Previous document type</Name>
@@ -5129,6 +5107,30 @@
 						<DescriptionLine lang="fi">Ilmoitetaan edeltävän asiakirjan (esimerkiksi saapumisen tai passituksen ilmoitus) viitenumero MRN tai muu viite.</DescriptionLine>
 						<DescriptionLine lang="sv">Det tidigare dokumentets (t.ex. ankomstanmälans eller transiteringsdeklarationens) MRN-nummer eller annan referens anges.</DescriptionLine>
 						<DescriptionLine lang="en">Previous document (eg. entry or transit declaration) MRN or other reference is entered.</DescriptionLine>
+					</DataElement>
+					<DataElement>
+						<Name lang="fi">Tavaraerän tunniste</Name>
+						<Name lang="sv">Varupostidentifierare</Name>
+						<Name lang="en">Goods item identifier</Name>
+						<Use>FI413A</Use>
+						<Use>FI415A</Use>
+						<Use>FI473A</Use>
+						<Use>FI475A</Use>
+						<Filter>FI413AI1</Filter>
+						<Filter>FI415AI1</Filter>
+						<Filter>FI413AH2</Filter>
+						<Filter>FI415AH2</Filter>
+						<Filter>FI413AH5E</Filter>
+						<Filter>FI415AH5E</Filter>
+						<Filter>FI413AH5N</Filter>
+						<Filter>FI415AH5N</Filter>
+						<XPath>Line</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Condition>NC0028</Condition>
+						<Format>n..5</Format>
+						<DescriptionLine lang="fi">Ilmoita edeltävän asiakirjan MRN:än liittyvä tavaraerän järjestysnumero.</DescriptionLine>
+						<DescriptionLine lang="sv">Ange det ordningsnummer för varuposten som hänför sig till det tidigare dokumentets MRN.</DescriptionLine>
+						<DescriptionLine lang="en">Enter the goods item number related to the MRN of the previous document.</DescriptionLine>
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
