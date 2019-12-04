@@ -884,12 +884,11 @@
 			<Filter>FI413AH5N</Filter>
 			<Filter>FI415AH5N</Filter>
 			<XPath>Declarant</XPath>
-			<MinOccurence>0</MinOccurence>
+			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<Condition>NC0011</Condition>
-			<DescriptionLine lang="fi">Ilmoitetaan menettelyyn asettamisesta ja ilmoituksen oikeellisuudesta vastaava. Jos käytetään välillistä edustajaa, tässä ilmoitetaan  edustaja. Jos tuoja on sama kuin ilmoittaja, tätä tietoa ei ilmoiteta.</DescriptionLine>
-			<DescriptionLine lang="sv">Aktören, som är ansvarig för hänförandet till förfarandet och för deklarationens riktighet anmäls. Om indirekt ombudskap används, anmäls här represesentantes uppgifter. Om importören och deklaranten är samma aktör, anges denna uppgift inte.</DescriptionLine>
-			<DescriptionLine lang="en">The actor in charge of placing the goods under the procedure and of the accuracy of the declaration is entered. If indirect representation is used, the representatives data is entered here. Is the importer and declarant are the same actor, this data is not entered.</DescriptionLine>
+			<DescriptionLine lang="fi">Ilmoitetaan menettelyyn asettamisesta ja ilmoituksen oikeellisuudesta vastaava. Jos käytetään välillistä edustajaa, tässä ilmoitetaan  edustaja.</DescriptionLine>
+			<DescriptionLine lang="sv">Aktören, som är ansvarig för hänförandet till förfarandet och för deklarationens riktighet anmäls. Om indirekt ombudskap används, anmäls här represesentantes uppgifter.</DescriptionLine>
+			<DescriptionLine lang="en">The actor in charge of placing the goods under the procedure and of the accuracy of the declaration is entered. If indirect representation is used, the representatives data is entered here.</DescriptionLine>
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
 				<Name lang="sv">Identifieringsnummer</Name>
@@ -1096,7 +1095,7 @@
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<Condition>NC####</Condition>
-			<DescriptionLine lang="fi">Ilmoitetaan menettelyyn asettamisesta ja ilmoituksen oikeellisuudesta vastaava. Jos käytetään välillistä edustajaa, tässä ilmoitetaan  edustaja.</DescriptionLine>
+			<DescriptionLine lang="fi">Ilmoitetaan menettelyyn asettamisesta ja ilmoituksen oikeellisuudesta vastaava. Jos käytetään välillistä edustajaa, tässä ilmoitetaan edustaja.</DescriptionLine>
 			<DescriptionLine lang="sv">Aktören, som är ansvarig för hänförandet till förfarandet och för deklarationens riktighet anmäls. Om indirekt ombudskap används, anmäls här represesentantes uppgifter.</DescriptionLine>
 			<DescriptionLine lang="en">The actor in charge of placing the goods under the procedure and of the accuracy of the declaration is entered. If indirect representation is used, the representatives data is entered here. </DescriptionLine>
 			<DataElement>
@@ -1787,9 +1786,9 @@
 				<MinOccurence>1</MinOccurence>
 				<Codelist>CL039H</Codelist>
 				<Format>an5</Format>
-				<DescriptionLine lang="fi">Ilmoiteaan koko ilmoitukselle yhteinen lisätiedon koodi, kuten esimerkiksi 00500 ilmoittaja ja tuoja ovat sama toimija. Tullivarastoinnissa voidaan ilmoittaa esimerkiksi lisätietokoodi FICWM, jota käytetään siirrettäessä tavaraa saapumispaikalta tullivarastoon.</DescriptionLine>
-				<DescriptionLine lang="sv">Kod för ytterligare uppgifter som är gemensam för hela deklarationen, t.ex. 00500: deklaranten är samma aktör som importören, anges. Vid tullagring kan till exempel anges koden för ytterligare uppgifter FICWM, som används vid befordran av varor från införselstället till ett tullager.</DescriptionLine>
-				<DescriptionLine lang="en">Additional information code for the whole declaration, such as 00500: the declarant and importer are the same actor, is entered. In customs warehousing you can for example provide the additional information code FICWM, which is used when goods are moved from the place of entry to a customs warehouse.</DescriptionLine>
+				<DescriptionLine lang="fi">Ilmoiteaan koko ilmoitukselle yhteinen lisätiedon koodi. Tullivarastoinnissa voidaan ilmoittaa esimerkiksi lisätietokoodi FICWM, jota käytetään siirrettäessä tavaraa saapumispaikalta tullivarastoon.</DescriptionLine>
+				<DescriptionLine lang="sv">Kod för ytterligare uppgifter som är gemensam för hela deklarationen anges. Vid tullagring kan till exempel anges koden för ytterligare uppgifter FICWM, som används vid befordran av varor från införselstället till ett tullager.</DescriptionLine>
+				<DescriptionLine lang="en">Additional information code for the whole declaration is entered. In customs warehousing you can for example provide the additional information code FICWM, which is used when goods are moved from the place of entry to a customs warehouse.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Lisätiedon kuvaus</Name>
@@ -2327,6 +2326,9 @@
 				<XPath>Importer</XPath>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
+				<DescriptionLine lang="fi">Ilmoitetaan tuoja. Tullivarastoinnissa ilmoitetaan toimeksiantaja, jos ilmoittaja on saanut toimeksiannon tavaran tuomisesta Suomeen joltakin muulta taholta.</DescriptionLine>
+				<DescriptionLine lang="sv">Importören anmäls. Vid tullagring anges huvudmannen om deklaranten har fått en order att importera varorna till Finland från en annan part.</DescriptionLine>
+				<DescriptionLine lang="en">The importer is entered. In the case of customs warehousing, the principal is indicated if the declarant has received an order to import the goods to Finland from another party.</DescriptionLine>
 				<DataElement>
 					<Name lang="fi">Tunnistenumero</Name>
 					<Name lang="sv">Identifieringsnummer</Name>
@@ -2791,6 +2793,8 @@
 					<Name lang="en">Location of goods</Name>
 					<Use>FI413A</Use>
 					<Use>FI415A</Use>
+					<Use>FI473A</Use>
+					<Use>FI475A</Use>
 					<Filter>FI413AI1</Filter>
 					<Filter>FI415AI1</Filter>
 					<Filter>FI413AH2</Filter>
@@ -2812,6 +2816,8 @@
 						<Name lang="en">Type of location</Name>
 						<Use>FI413A</Use>
 						<Use>FI415A</Use>
+						<Use>FI473A</Use>
+						<Use>FI475A</Use>
 						<Filter>FI413AI1</Filter>
 						<Filter>FI415AI1</Filter>
 						<Filter>FI413AH2</Filter>
@@ -2864,6 +2870,8 @@
 						<Name lang="en">Economic operator</Name>
 						<Use>FI413A</Use>
 						<Use>FI415A</Use>
+						<Use>FI473A</Use>
+						<Use>FI475A</Use>
 						<Filter>FI413AI1</Filter>
 						<Filter>FI415AI1</Filter>
 						<Filter>FI413AH2</Filter>
@@ -2876,9 +2884,9 @@
 						<MinOccurence>0</MinOccurence>
 						<Condition>NC####</Condition>
 						<Format>an..17</Format>
-						<DescriptionLine lang="fi">Ilmoitetaan toimijan EORI, jos kyseessä on tullin hyväksymä paikka.</DescriptionLine>
-						<DescriptionLine lang="sv">Aktörens EORI ska anges om fråga om en plats godtagen av Tullen.</DescriptionLine>
-						<DescriptionLine lang="en">The EORI of the operator, in the case of a place approved by Customs, is entered.</DescriptionLine>
+						<DescriptionLine lang="fi">Ilmoitetaan toimijan EORI, jos kyseessä on tullin hyväksymä paikka. Jos tavarat halutaan tarkastettavan varastossa, ilmoitetaan varaston tunniste muodossa EORI+3+2.</DescriptionLine>
+						<DescriptionLine lang="sv">Aktörens EORI ska anges om fråga om en plats godtagen av Tullen. Om varorna ska inspekteras i lager ska lageridentifieringen ha formen EORI+3+2.</DescriptionLine>
+						<DescriptionLine lang="en">The EORI of the operator, in the case of a place approved by Customs, is entered. If goods are to be inspected in a warehouse, the warehouse identifier shall be in the form EORI+3+2.</DescriptionLine>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Luvan numero</Name>
@@ -2886,6 +2894,8 @@
 						<Name lang="en">Authorisation number</Name>
 						<Use>FI413A</Use>
 						<Use>FI415A</Use>
+						<Use>FI473A</Use>
+						<Use>FI475A</Use>
 						<Filter>FI413AI1</Filter>
 						<Filter>FI415AI1</Filter>
 						<Filter>FI413AH2</Filter>
@@ -2908,6 +2918,8 @@
 						<Name lang="en">Additional identifier</Name>
 						<Use>FI413A</Use>
 						<Use>FI415A</Use>
+						<Use>FI473A</Use>
+						<Use>FI475A</Use>
 						<Filter>FI413AI1</Filter>
 						<Filter>FI415AI1</Filter>
 						<Filter>FI413AH2</Filter>
@@ -2926,6 +2938,8 @@
 						<Name lang="en">Address</Name>
 						<Use>FI413A</Use>
 						<Use>FI415A</Use>
+						<Use>FI473A</Use>
+						<Use>FI475A</Use>
 						<Filter>FI413AI1</Filter>
 						<Filter>FI415AI1</Filter>
 						<Filter>FI413AH2</Filter>
@@ -2947,6 +2961,8 @@
 							<Name lang="en">Street and number</Name>
 							<Use>FI413A</Use>
 							<Use>FI415A</Use>
+							<Use>FI473A</Use>
+							<Use>FI475A</Use>
 							<Filter>FI413AI1</Filter>
 							<Filter>FI415AI1</Filter>
 							<Filter>FI413AH2</Filter>
@@ -2965,6 +2981,8 @@
 							<Name lang="en">City</Name>
 							<Use>FI413A</Use>
 							<Use>FI415A</Use>
+							<Use>FI473A</Use>
+							<Use>FI475A</Use>
 							<Filter>FI413AI1</Filter>
 							<Filter>FI415AI1</Filter>
 							<Filter>FI413AH2</Filter>
@@ -2983,6 +3001,8 @@
 							<Name lang="en">Postcode</Name>
 							<Use>FI413A</Use>
 							<Use>FI415A</Use>
+							<Use>FI473A</Use>
+							<Use>FI475A</Use>
 							<Filter>FI413AI1</Filter>
 							<Filter>FI415AI1</Filter>
 							<Filter>FI413AH2</Filter>
@@ -3001,6 +3021,8 @@
 							<Name lang="en">Country</Name>
 							<Use>FI413A</Use>
 							<Use>FI415A</Use>
+							<Use>FI473A</Use>
+							<Use>FI475A</Use>
 							<Filter>FI413AI1</Filter>
 							<Filter>FI415AI1</Filter>
 							<Filter>FI413AH2</Filter>
@@ -3009,148 +3031,6 @@
 							<Filter>FI415AH5E</Filter>
 							<Filter>FI413AH5N</Filter>
 							<Filter>FI415AH5N</Filter>
-							<XPath>Country</XPath>
-							<MinOccurence>1</MinOccurence>
-							<Codelist>CL008</Codelist>
-							<Rule>NR0019</Rule>
-							<Format>a2</Format>
-						</DataElement>
-					</DataGroup>
-				</DataGroup>
-				<DataGroup>
-					<Name lang="fi">Tavaran sijaintipaikka</Name>
-					<Name lang="sv">Varornas förvaringsplats</Name>
-					<Name lang="en">Location of goods</Name>
-					<Use>FI473A</Use>
-					<Use>FI475A</Use>
-					<XPath>GoodsLocation</XPath>
-					<MinOccurence>1</MinOccurence>
-					<MaxOccurence>1</MaxOccurence>
-					<Condition>NC0233</Condition>
-					<DataElement>
-						<Name lang="fi">Sijaintipaikan tyyppi</Name>
-						<Name lang="sv">Typ av plats</Name>
-						<Name lang="en">Type of location</Name>
-						<Use>FI473A</Use>
-						<Use>FI475A</Use>
-						<XPath>Type</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Codelist>CL521</Codelist>
-						<Format>a1</Format>
-						<DescriptionLine lang="fi"/>
-						<DescriptionLine lang="sv"/>
-						<DescriptionLine lang="en"/>
-					</DataElement>
-					<!--DataElement>
-						<Name lang="fi">Tullitoimipaikka</Name>
-						<Name lang="sv">Tullkontor</Name>
-						<Name lang="en">Customs office</Name>
-						<Use>FI413A</Use>
-						<Use>FI415A</Use>
-						<Use>FI473A</Use>
-						<Use>FI475A</Use>
-						<Filter>FI413AI1</Filter>
-						<Filter>FI415AI1</Filter>
-						<Filter>FI413AH2</Filter>
-						<Filter>FI415AH2</Filter>
-						<Filter>FI413AH5E</Filter>
-						<Filter>FI415AH5E</Filter>
-						<Filter>FI413AH5N</Filter>
-						<Filter>FI415AH5N</Filter>
-						<XPath>Identification@function="CustomsOffice"</XPath>
-						<MinOccurence>0</MinOccurence>
-						<Format>an8</Format>
-						<Hyperlink lang="fi">
-							<URL>https://ec.europa.eu/taxation_customs/dds2/col/col_search_home.jsp?Screen=0&amp;Lang=fi</URL>
-							<Description>Tullitoimipaikkaluettelo</Description>
-						</Hyperlink>
-						<Hyperlink lang="sv">
-							<URL>https://ec.europa.eu/taxation_customs/dds2/col/col_search_home.jsp?Screen=0&amp;Lang=sv</URL>
-							<Description>Tullkontorslistan</Description>
-						</Hyperlink>
-						<Hyperlink lang="en">
-							<URL>https://ec.europa.eu/taxation_customs/dds2/col/col_search_home.jsp?Screen=0&amp;Lang=en</URL>
-							<Description>Customs office list</Description>
-						</Hyperlink>
-					</DataElement-->
-					<DataElement>
-						<Name lang="fi">Talouden toimija</Name>
-						<Name lang="sv">Ekonomisk aktör</Name>
-						<Name lang="en">Economic operator</Name>
-						<Use>FI473A</Use>
-						<Use>FI475A</Use>
-						<XPath>Identification@function="EO"</XPath>
-						<MinOccurence>0</MinOccurence>
-						<Condition>NC####</Condition>
-						<Format>an..17</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Luvan numero</Name>
-						<Name lang="sv">Tillståndets nummer</Name>
-						<Name lang="en">Authorisation number</Name>
-						<Use>FI473A</Use>
-						<Use>FI475A</Use>
-						<XPath>Identification@function="Authorisation"</XPath>
-						<MinOccurence>0</MinOccurence>
-						<Condition>NC####</Condition>
-						<Format>an..35</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Lisätunniste</Name>
-						<Name lang="sv">Tilläggsidentifiering</Name>
-						<Name lang="en">Additional identifier</Name>
-						<Use>FI473A</Use>
-						<Use>FI475A</Use>
-						<XPath>Identification@function="AdditionalIdentifier"</XPath>
-						<MinOccurence>0</MinOccurence>
-						<Format>an..4</Format>
-					</DataElement>
-					<DataGroup>
-						<Name lang="fi">Osoite</Name>
-						<Name lang="sv">Adress</Name>
-						<Name lang="en">Address</Name>
-						<Use>FI473A</Use>
-						<Use>FI475A</Use>
-						<XPath>Address</XPath>
-						<MinOccurence>0</MinOccurence>
-						<MaxOccurence>1</MaxOccurence>
-						<Condition>NC####</Condition>
-						<DataElement>
-							<Name lang="fi">Katuosoite</Name>
-							<Name lang="sv">Gatuadress</Name>
-							<Name lang="en">Street and number</Name>
-							<Use>FI473A</Use>
-							<Use>FI475A</Use>
-							<XPath>Line</XPath>
-							<MinOccurence>1</MinOccurence>
-							<Format>an..70</Format>
-						</DataElement>
-						<DataElement>
-							<Name lang="fi">Postitoimipaikka</Name>
-							<Name lang="sv">Ort</Name>
-							<Name lang="en">City</Name>
-							<Use>FI473A</Use>
-							<Use>FI475A</Use>
-							<XPath>CityName</XPath>
-							<MinOccurence>1</MinOccurence>
-							<Format>an..35</Format>
-						</DataElement>
-						<DataElement>
-							<Name lang="fi">Postinumero</Name>
-							<Name lang="sv">Postnummer</Name>
-							<Name lang="en">Postcode</Name>
-							<Use>FI473A</Use>
-							<Use>FI475A</Use>
-							<XPath>Postcode</XPath>
-							<MinOccurence>1</MinOccurence>
-							<Format>an..9</Format>
-						</DataElement>
-						<DataElement>
-							<Name lang="fi">Maa</Name>
-							<Name lang="sv">Land</Name>
-							<Name lang="en">Country</Name>
-							<Use>FI473A</Use>
-							<Use>FI475A</Use>
 							<XPath>Country</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Codelist>CL008</Codelist>
