@@ -111,85 +111,102 @@
 				<div class="panel-body">
 					<article>
 						<div class="content-area">
-							<ul>
-								<xsl:for-each select="MessageExchange/UseCases/UseCase">
-									<li>
-										<a>
-											<xsl:attribute name="href"><xsl:value-of select="concat('#CASE', position())"/></xsl:attribute>
-									CASE <xsl:number value="position()"/>: <xsl:value-of select="Name[@lang=($language)]"/>
-										</a>
-									</li>
-								</xsl:for-each>
-							</ul>
-							<xsl:for-each select="MessageExchange/UseCases/UseCase">
+							<xsl:for-each select="MessageExchange/UseCases">
 								<h3>
-									<xsl:attribute name="id"><xsl:value-of select="concat('CASE', position())"/></xsl:attribute>
-								CASE <xsl:number value="position()"/>: <xsl:value-of select="Name[@lang=($language)]"/>
+									<xsl:value-of select="Label[@lang=$language]"/>
 								</h3>
-								<table class="table table-striped table-responsive">
-									<xsl:choose>
-										<xsl:when test="$language='fi'">
-											<thead>
-												<tr>
-													<th class="tabledata">Talouden toimija</th>
-													<th/>
-													<th class="tabledata">Tulli</th>
-												</tr>
-											</thead>
-										</xsl:when>
-										<xsl:when test="$language='sv'">
-											<thead>
-												<tr>
-													<th class="tabledata">Ekonomisk aktör</th>
-													<th/>
-													<th class="tabledata">Tullen</th>
-												</tr>
-											</thead>
-										</xsl:when>
-										<xsl:when test="$language='en'">
-											<thead>
-												<tr>
-													<th class="tabledata">Economic operator</th>
-													<th/>
-													<th class="tabledata">Customs</th>
-												</tr>
-											</thead>
-										</xsl:when>
-									</xsl:choose>
-									<xsl:for-each select="Sequence/EO | Sequence/Customs">
-										<xsl:variable name="MSG" select="."/>
-										<xsl:choose>
-											<xsl:when test="local-name()='EO'">
-												<tr>
-													<td>
-														<xsl:value-of select="/MessageExchange/Messages/Message/Name[@lang=($language) and ../ID= $MSG]"/>
-													</td>
-													<td>→</td>
-													<td>&#8203;</td>
-												</tr>
-											</xsl:when>
-											<xsl:otherwise>
-												<tr>
-													<td>&#8203;</td>
-													<td>←</td>
-													<td>
-														<xsl:value-of select="/MessageExchange/Messages/Message/Name[@lang=($language) and ../ID= $MSG]"/>
-													</td>
-												</tr>
-											</xsl:otherwise>
-										</xsl:choose>
-									</xsl:for-each>
-								</table>
-								<ol>
-									<xsl:for-each select="SequenceDescription/Item">
+								<ul>
+									<xsl:for-each select="UseCase">
+										<xsl:variable name="casenum">
+											<xsl:number level="any" count="UseCase"/>
+										</xsl:variable>
+										<!--xsl:variable name="casenum"><xsl:number level="multiple" count="UseCases|UseCase"/></xsl:variable-->
 										<li>
-											<xsl:for-each select="ItemLine[@lang=($language)]">
-												<xsl:value-of select="."/>
-												<br/>
-											</xsl:for-each>
+											<a>
+												<xsl:attribute name="href"><xsl:value-of select="concat('#CASE', $casenum)"/></xsl:attribute>
+									Case <xsl:value-of select="$casenum"/>: <xsl:value-of select="Name[@lang=($language)]"/>
+											</a>
 										</li>
 									</xsl:for-each>
-								</ol>
+								</ul>
+							</xsl:for-each>
+							<xsl:for-each select="MessageExchange/UseCases">
+								<h3>
+									<xsl:value-of select="Label[@lang=$language]"/>
+								</h3>
+								<xsl:for-each select="UseCase">
+									<xsl:variable name="casenum">
+										<xsl:number level="any" count="UseCase"/>
+									</xsl:variable>
+									<h4>
+										<xsl:attribute name="id"><xsl:value-of select="concat('CASE', $casenum)"/></xsl:attribute>
+								Case <xsl:value-of select="$casenum"/>: <xsl:value-of select="Name[@lang=($language)]"/>
+									</h4>
+									<table class="table table-striped table-responsive">
+										<xsl:choose>
+											<xsl:when test="$language='fi'">
+												<thead>
+													<tr>
+														<th class="tabledata">Talouden toimija</th>
+														<th/>
+														<th class="tabledata">Tulli</th>
+													</tr>
+												</thead>
+											</xsl:when>
+											<xsl:when test="$language='sv'">
+												<thead>
+													<tr>
+														<th class="tabledata">Ekonomisk aktör</th>
+														<th/>
+														<th class="tabledata">Tullen</th>
+													</tr>
+												</thead>
+											</xsl:when>
+											<xsl:when test="$language='en'">
+												<thead>
+													<tr>
+														<th class="tabledata">Economic operator</th>
+														<th/>
+														<th class="tabledata">Customs</th>
+													</tr>
+												</thead>
+											</xsl:when>
+										</xsl:choose>
+										<xsl:for-each select="Sequence/EO | Sequence/Customs">
+											<xsl:variable name="MSG" select="."/>
+											<xsl:choose>
+												<xsl:when test="local-name()='EO'">
+													<tr>
+														<td>
+															<xsl:value-of select="/MessageExchange/Messages/Message/Name[@lang=($language) and ../ID= $MSG]"/>
+														</td>
+														<td>→</td>
+														<td>&#8203;</td>
+													</tr>
+												</xsl:when>
+												<xsl:otherwise>
+													<tr>
+														<td>&#8203;</td>
+														<td>←</td>
+														<td>
+															<xsl:value-of select="/MessageExchange/Messages/Message/Name[@lang=($language) and ../ID= $MSG]"/>
+														</td>
+													</tr>
+												</xsl:otherwise>
+											</xsl:choose>
+										</xsl:for-each>
+									</table>
+									<ol>
+										<xsl:for-each select="SequenceDescription/Item">
+											<li>
+												<xsl:for-each select="ItemLine[@lang=($language)]">
+													<xsl:value-of select="."/>
+													<br/>
+												</xsl:for-each>
+											</li>
+										</xsl:for-each>
+									</ol>
+								</xsl:for-each>
 							</xsl:for-each>
 						</div>
 					</article>

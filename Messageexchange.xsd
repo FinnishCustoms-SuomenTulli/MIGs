@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
+<!-- edited with XMLSpy v2019 rel. 3 sp1 (x64) (http://www.altova.com) by Tulli (Tulli) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:element name="MessageExchange" type="MessageExchangeType"/>
 	<xs:complexType name="MessagesType">
@@ -56,6 +56,7 @@
 	</xs:complexType>
 	<xs:complexType name="UseCasesType">
 		<xs:sequence>
+			<xs:element name="Label" maxOccurs="3"/>
 			<xs:element name="UseCase" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
@@ -118,7 +119,13 @@
 		<xs:sequence>
 			<xs:element name="Intro" type="IntroType" minOccurs="0"/>
 			<xs:element name="Messages" type="MessagesType" maxOccurs="unbounded"/>
-			<xs:element name="UseCases" type="UseCasesType" maxOccurs="unbounded"/>
+			<xs:element name="UseCases" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="UseCasesType"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="IntroType">
