@@ -25,6 +25,9 @@
 								Tietoelementti/-ryhmä
 							</th>
 							<th>
+								Dataelement/-grupp
+							</th>
+							<th>
 								Required?
 							</th>
 							<th>
@@ -48,7 +51,6 @@
 					<xsl:when test="local-name()='DataGroup'">
 						<xsl:if test="Use = $messageType">
 							<tr>
-								<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1)"/></xsl:attribute>
 								<td>
 									<b>
 										<xsl:value-of select="Name[@lang='en']"/>
@@ -64,6 +66,7 @@
 										<xsl:choose>
 											<xsl:when test="Condition[@use=$messageType] != ''">D</xsl:when>
 											<xsl:when test="Condition[not(@*)] != ''">D</xsl:when>
+											<xsl:when test="MinOccurence[@use=$messageType]=0">O</xsl:when>
 											<xsl:when test="MinOccurence[@use=$messageType]>0">R</xsl:when>
 											<xsl:when test="MinOccurence[not(@*)]>0">R</xsl:when>
 											<xsl:otherwise>O</xsl:otherwise>
@@ -92,10 +95,7 @@
 								<td>
 									<b>
 										<xsl:for-each select="Rule[@use=$messageType] | Rule[not(@*)] | Condition[@use=$messageType] | Condition[not(@*)]">
-											<a href="#" data-toggle="modal">
-												<xsl:attribute name="data-target"><xsl:value-of select="concat('#RC_',.)"/></xsl:attribute>
-												<xsl:value-of select="."/>
-											</a>
+											<xsl:value-of select="."/>
 											<xsl:if test="position() != last()">, </xsl:if>
 										</xsl:for-each>
 									</b>
@@ -103,41 +103,11 @@
 								<td>
 								</td>
 							</tr>
-							<xsl:if test="DescriptionLine[@lang=($language)]!=''">
-								<tr>
-									<xsl:attribute name="class"><xsl:value-of select="concat('description indent-',count(ancestor::*)-1)"/></xsl:attribute>
-									<td colspan="7">
-										<span class="icon icon-tulli-info" style="margin-right:3px"/>
-										<xsl:for-each select="DescriptionLine[@lang=($language)]">
-											<xsl:value-of select="."/>
-											<xsl:if test="position() != last()">
-												<br/>
-											</xsl:if>
-										</xsl:for-each>
-									</td>
-								</tr>
-							</xsl:if>
 						</xsl:if>
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:if test="Use = $messageType">
 							<tr>
-								<xsl:choose>
-									<xsl:when test="count(ancestor::*)>2">
-										<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1)"/></xsl:attribute>
-									</xsl:when>
-									<xsl:otherwise>
-										<xsl:attribute name="class"><xsl:value-of select="'indent-2'"/></xsl:attribute>
-									</xsl:otherwise>
-								</xsl:choose>
-								<xsl:choose>
-									<xsl:when test="count(ancestor::*)>2">
-										<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1)"/></xsl:attribute>
-									</xsl:when>
-									<xsl:otherwise>
-										<xsl:attribute name="class"><xsl:value-of select="'indent-2'"/></xsl:attribute>
-									</xsl:otherwise>
-								</xsl:choose>
 								<td>
 									<xsl:value-of select="Name[@lang='en']"/>
 								</td>
@@ -148,6 +118,7 @@
 									<xsl:choose>
 										<xsl:when test="Condition[@use=$messageType] != ''">D</xsl:when>
 										<xsl:when test="Condition[not(@*)] != ''">D</xsl:when>
+										<xsl:when test="MinOccurence[@use=$messageType]=0">O</xsl:when>
 										<xsl:when test="MinOccurence[@use=$messageType]>0">R</xsl:when>
 										<xsl:when test="MinOccurence[not(@*)]>0">R</xsl:when>
 										<xsl:otherwise>O</xsl:otherwise>
@@ -176,20 +147,6 @@
 									</xsl:for-each>
 								</td>
 							</tr>
-							<xsl:if test="DescriptionLine[@lang=($language)]!=''">
-								<tr>
-									<xsl:attribute name="class"><xsl:value-of select="concat('description indent-',count(ancestor::*)-1)"/></xsl:attribute>
-									<td colspan="7">
-										<span class="icon icon-tulli-info" style="margin-right:3px"/>
-										<xsl:for-each select="DescriptionLine[@lang=($language)]">
-											<xsl:value-of select="."/>
-											<xsl:if test="position() != last()">
-												<br/>
-											</xsl:if>
-										</xsl:for-each>
-									</td>
-								</tr>
-							</xsl:if>
 						</xsl:if>
 					</xsl:otherwise>
 				</xsl:choose>

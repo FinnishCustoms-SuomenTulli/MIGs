@@ -296,6 +296,9 @@
 		</Message>
 	</Messages>
 	<UseCases>
+		<Label lang="fi">Tuonti</Label>
+		<Label lang="sv">Import</Label>
+		<Label lang="en">Import</Label>
 		<UseCase>
 			<Name lang="fi">Vakiomuotoinen tuonnin tulli-ilmoitus – ilmoitus virheetön</Name>
 			<Name lang="sv">Standardtulldeklaration för import – felfri deklaration</Name>
@@ -1322,6 +1325,32 @@ Tarkastuksessa ei havaita sisällöllisiä virheitä.</ItemLine>
 					<ItemLine lang="fi">Tulli lähettää asiakkaalle tuonnin täydentävää tulli-ilmoitusta koskevan hylkäyssanoman (FI416). Hylkäyssanomalla Tulli hylkää täydentävän tulli-ilmoituksen. Asiakkaan tulee lähettää uusi täydentävä tulli-ilmoitus.</ItemLine>
 					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om avslag (FI416) gällande den kompletterande importtulldeklarationen. Med meddelandet om avslag avvisar Tullen den kompletterande deklarationen. Kunden ska skicka en ny kompletterande tulldeklaration.</ItemLine>
 					<ItemLine lang="en">Customs sends the customer a rejection notification (FI916) concerning the supplementary customs declaration for import. With the rejection notification, Customs rejects the supplementary customs declaration. The customer must submit a new supplementary declaration.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+	</UseCases>
+	<UseCases>
+		<Label lang="fi">Varaston luovutussanoma</Label>
+		<Label lang="sv">Meddelande om frigörande från lager</Label>
+		<Label lang="en">Storage release notification</Label>
+		<UseCase>
+			<Name lang="fi">Varaston luovutussanoma</Name>
+			<Name lang="sv">Meddelande om frigörande från lager</Name>
+			<Name lang="en">Storage release notification</Name>
+			<Sequence>
+				<Customs>FI419A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää väliaikaisen varaston luvanhaltijalle varaston luovutussanoman (FI419).</ItemLine>
+					<ItemLine lang="fi">Tällä sanomalla Tulli ilmoittaa, että tavarat on tulliselvitetty eli luovutettu tullimenettelyyn, eikä Tullin puolesta ole estettä luovuttaa tavaraa eteenpäin.</ItemLine>
+					<ItemLine lang="fi">Tullin järjestelmä tarkastaa tulli-ilmoitussanomalla ilmoitetun varaston tunnuksen perusteella, voiko varastoluvan haltija ottaa sanomamuotoisen tiedon varastosta luovutuksesta vastaan. Jos voi, Tullin järjestelmä lähettää luovutussanoman asiakkaalle.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar ett meddelande om frigörande från lager (FI419) till innehavaren av lagertillståndet genom direkt meddelandedeklarering.</ItemLine>
+					<ItemLine lang="sv">Med detta meddelande delges kunden att varorna har tullklarerats, dvs. frigjorts för ett tullförfarande, och att det för Tullens del inte förekommer hinder för att överlåta varorna vidare.</ItemLine>
+					<ItemLine lang="sv">Tullens system kontrollerar utifrån lagerkoden som angetts i tulldeklarationsmeddelandet huruvida innehavaren av lagertillståndet kan ta emot uppgiften om frigörande från lager i meddelandeform. Om svaret är ja, skickar Tullens system ett meddelande om frigörande till kunden.</ItemLine>
+					<ItemLine lang="en">Customs sends the storage release notification (FI419) to the holder of the temporary storage authorisation via direct message exchange.</ItemLine>
+					<ItemLine lang="en">With this notification, Customs notifies that the goods have been cleared through customs, that is, they have been released for a customs procedure and, as far as Customs is concerned, the goods can be released from temporary storage.</ItemLine>
+					<ItemLine lang="en">On the basis of the warehouse ID declared in the customs declaration message, Customs’ system checks if the holder of the temporary storage authorisation can receive the notification of release from storage in message format. If yes, Customs’ system will send the release notification to the customer.</ItemLine>
 				</Item>
 			</SequenceDescription>
 		</UseCase>

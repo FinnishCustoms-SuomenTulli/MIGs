@@ -466,6 +466,7 @@
 				<Use>FI453A</Use>
 				<XPath>RequestCorrelation</XPath>
 				<MinOccurence>0</MinOccurence>
+				<MinOccurence use="FI453A">1</MinOccurence>
 				<Format>an38</Format>
 			</DataElement>
 			<DataGroup>
@@ -2685,19 +2686,24 @@
 					<Name lang="en">Arrival transport means</Name>
 					<Use>FI413A</Use>
 					<Use>FI415A</Use>
+					<Use>FI483A</Use>
+					<Use>FI485A</Use>
 					<Filter>FI413AH5E</Filter>
 					<Filter>FI415AH5E</Filter>
 					<XPath>ArrivalTransportMeans</XPath>
-					<MinOccurence>0</MinOccurence>
+					<MinOccurence>1</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<Rule>R0641</Rule>
-					<Condition>NC####</Condition>
+					<Condition use="FI413A">NC####</Condition>
+					<Condition use="FI415A">NC####</Condition>
 					<DataElement>
 						<Name lang="fi">Sisämaan kuljetusmuoto</Name>
 						<Name lang="sv">Transportsätt inrikes</Name>
 						<Name lang="en">Inland mode of transport</Name>
 						<Use>FI413A</Use>
 						<Use>FI415A</Use>
+						<Use>FI483A</Use>
+						<Use>FI485A</Use>
 						<Filter>FI413AH5E</Filter>
 						<Filter>FI415AH5E</Filter>
 						<XPath>Mode</XPath>
