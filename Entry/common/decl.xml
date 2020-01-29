@@ -34,6 +34,9 @@
 			<XPath>Identification</XPath>
 			<MinOccurence>1</MinOccurence>
 			<Format>an..22</Format>
+			<DescriptionLine lang="fi">Tapahtuman tunniste on sanoman yksilöllinen tunniste. Ensimmäiset viisi merkkiä koostuvat Tullin antamasta yrityskohtaisesta merkkijonosta.</DescriptionLine>
+			<DescriptionLine lang="sv">Händelsens identifiering är meddelandets unika identifiering. De första fem tecknen består av en teckensträng som Tullen tilldelar.</DescriptionLine>
+			<DescriptionLine lang="en">The case identification is the message's unique identification. The first five characters are assigned by Customs.</DescriptionLine>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">MRN</Name>
@@ -71,9 +74,9 @@
 			<XPath>FunctionalReference@function="LRN"</XPath>
 			<MinOccurence>1</MinOccurence>
 			<Format>an..22</Format>
-			<DescriptionLine lang="fi">Ilmoittajan oma viitenumero, joka yksilöi tulli-ilmoituksen, esim. varastoonpanon numero tai keikkaviite.</DescriptionLine>
-			<DescriptionLine lang="sv">Deklarantens eget referensnummer som specificerar tulldeklarationen, t.ex. uppläggningsnummer eller ärendereferens.</DescriptionLine>
-			<DescriptionLine lang="en">Declarant's reference number which specifies the customs declaration, e.g. warehouse deposit number or case reference.</DescriptionLine>
+			<DescriptionLine lang="fi">Ilmoittajan oma viitenumero, joka yksilöi tulli-ilmoituksen.</DescriptionLine>
+			<DescriptionLine lang="sv">Deklarantens eget referensnummer som specificerar tulldeklarationen.</DescriptionLine>
+			<DescriptionLine lang="en">Declarant's reference number which specifies the customs declaration.</DescriptionLine>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">Toissijainen LRN</Name>
@@ -201,6 +204,9 @@
 				<XPath>RequestCorrelation</XPath>
 				<MinOccurence>0</MinOccurence>
 				<Format>an38</Format>
+				<DescriptionLine lang="fi">Käytetään vain, jos vastataan tällä sanomalla Tullin pyyntöön, ei käytössä toistaiseksi.</DescriptionLine>
+				<DescriptionLine lang="sv">Används endast om meddelandet används som svar på Tullens begäran, används inte tillsvidare.</DescriptionLine>
+				<DescriptionLine lang="en">Used only in response to the request of the Customs, not used at the monent.</DescriptionLine>
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
@@ -312,9 +318,6 @@
 					<XPath>Description</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an..70</Format>
-					<DescriptionLine lang="fi">Liitetiedoston kuvaus.</DescriptionLine>
-					<DescriptionLine lang="sv">Beskriving av den bilagda filen.</DescriptionLine>
-					<DescriptionLine lang="en">Description of the attachment.</DescriptionLine>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Asiakirjalinkki</Name>
@@ -324,9 +327,6 @@
 					<XPath>NationalReference</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an..500</Format>
-					<DescriptionLine lang="fi">Tullin järjestelmän antama liitetiedosoton viite.</DescriptionLine>
-					<DescriptionLine lang="sv">Den referens som givits till bilagda dokumentet av Tullens system.</DescriptionLine>
-					<DescriptionLine lang="en">The reference of the attachment that the Customs' system has provided.</DescriptionLine>
 				</DataElement>
 			</DataGroup>
 		</DataGroup>
@@ -376,9 +376,6 @@
 				<Rule>NR0028</Rule>
 				<Rule>NR0029</Rule>
 				<Format>an..4</Format>
-				<DescriptionLine lang="fi">Ilmoita luvan tyyppi (lupatiedot ilmoitetaan tietokentässä 'Esitetyt asiakirjat, todistukset ja luvat, lisäviitteet').</DescriptionLine>
-				<DescriptionLine lang="sv">Ange typ av tillstånd (tillståndsuppgifter anges i datafältet 'Framlagda dokument, certifikat och tillstånd, ytterligare referensuppgifter').</DescriptionLine>
-				<DescriptionLine lang="en">Enter the type of authorisation that the holder is linked to (authorisation data is entered in data group 'Documents produced, certificates and authorisations, additional references').</DescriptionLine>
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
@@ -398,9 +395,9 @@
 			<XPath>Agent</XPath>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<DescriptionLine lang="fi">Jos ilmoittaja on valtuuttanut sinut antamaan ilmoituksen puolestaan edustajana, tieto on pakollinen. Jos edustajaa ei käytetä, tietoa ei ilmoiteta.</DescriptionLine>
-			<DescriptionLine lang="sv">Om deklaranten har befullmäktigat dig att inge deklarationen som sitt ombud, är det obligatoriskt att ange denna uppgift. Om ombud inte används, anges inte denna uppgift.</DescriptionLine>
-			<DescriptionLine lang="en">If the declarant has authorised you to lodge the declaration as a representative, this data is required. If there is no representative, no data is entered.</DescriptionLine>
+			<DescriptionLine lang="fi">Ilmoitetaan edustaja. Jos edustajaa ei käytetä, tietoa ei ilmoiteta.</DescriptionLine>
+			<DescriptionLine lang="sv">Ombud anmäls. Om ombud inte används, anges inte denna uppgift.</DescriptionLine>
+			<DescriptionLine lang="en">Representative is entered. If there is no representative, no data is entered.</DescriptionLine>
 			<DataElement>
 				<Name lang="fi">Edustajan asemaa koskeva koodi</Name>
 				<Name lang="sv">Kod för ombudets status</Name>
@@ -419,6 +416,9 @@
 				<MinOccurence>1</MinOccurence>
 				<Codelist>CL530</Codelist>
 				<Format>n1</Format>
+				<DescriptionLine lang="fi">Saapumisen esittämisilmoituksella käytetään vain suoraa edustusta.</DescriptionLine>
+				<DescriptionLine lang="sv">På anmälan av varors ankomst används endast direkt ombudskap.</DescriptionLine>
+				<DescriptionLine lang="en">Only direct representation can be used in the entry presentation notification.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
@@ -440,9 +440,6 @@
 				<Rule>NR0035</Rule>
 				<Rule>R3005</Rule>
 				<Format>an..17</Format>
-				<DescriptionLine lang="fi">EORI ID</DescriptionLine>
-				<DescriptionLine lang="sv">EORI-nummer</DescriptionLine>
-				<DescriptionLine lang="en">EORI ID</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Toimipistekoodi</Name>
@@ -461,9 +458,9 @@
 				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
 				<Format>n..3</Format>
-				<DescriptionLine lang="fi">Ilmoita edustajan toimipisteen kansallinen tunniste, jos edustajalla on sellainen.</DescriptionLine>
-				<DescriptionLine lang="sv">Ange det nationella identifieringsnumret för ombudets verksamhetsställe, om ombudet har ett sådant nummer.</DescriptionLine>
-				<DescriptionLine lang="en">Enter nationally allocated trader office code, if representative has one.</DescriptionLine>
+				<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+				<DescriptionLine lang="sv">Det nationella identifieringsnumret förverksamhetsstället, om ett sådant nummer anvigits, anmäls.</DescriptionLine>
+				<DescriptionLine lang="en">The nationally allocated trader office code, if one is allocated, is entered.</DescriptionLine>
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
@@ -515,9 +512,6 @@
 				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
 				<Format>n..3</Format>
-				<DescriptionLine lang="fi">Ilmoittajan toimipisteen kansallinen tunniste, jos ilmoittajalla on sellainen, esim. "001".</DescriptionLine>
-				<DescriptionLine lang="sv">Ange det nationella identifieringsnumret för deklarantens verksamhetsställe, om deklaranten har ett sådant nummer, t.ex. "001".</DescriptionLine>
-				<DescriptionLine lang="en">Enter nationally allocated trader office code, if declarant has one.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Nimi</Name>
@@ -616,6 +610,9 @@
 			<XPath>Declarant</XPath>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
+			<DescriptionLine lang="fi">Ilmoittaja, yleisimmin kuljetusliike.</DescriptionLine>
+			<DescriptionLine lang="sv">Deklaranten, oftast transportföretaget.</DescriptionLine>
+			<DescriptionLine lang="en">Declarant, most often carrier.</DescriptionLine>
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
 				<Name lang="sv">Identifieringsnummer</Name>
@@ -638,9 +635,47 @@
 				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
 				<Format>n..3</Format>
-				<DescriptionLine lang="fi">Ilmoittajan toimipisteen kansallinen tunniste, jos ilmoittajalla on sellainen, esim. "001".</DescriptionLine>
-				<DescriptionLine lang="sv">Ange det nationella identifieringsnumret för deklarantens verksamhetsställe, om deklaranten har ett sådant nummer, t.ex. "001".</DescriptionLine>
-				<DescriptionLine lang="en">Enter nationally allocated trader office code, if declarant has one.</DescriptionLine>
+				<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+				<DescriptionLine lang="sv">Det nationella identifieringsnumret förverksamhetsstället, om ett sådant nummer anvigits, anmäls.</DescriptionLine>
+				<DescriptionLine lang="en">The nationally allocated trader office code, if one is allocated, is entered.</DescriptionLine>
+			</DataElement>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="fi">Palveluntarjoaja</Name>
+			<Name lang="sv">Tjänsteleverantör</Name>
+			<Name lang="en">Service provider</Name>
+			<Use>FI332A</Use>
+			<Use>FI334A</Use>
+			<Use>FI335A</Use>
+			<Use>FI336A</Use>
+			<Use>FI337A</Use>
+			<Use>FI338A</Use>
+			<Use>FI376A</Use>
+			<Use>FI377A</Use>
+			<Use>FI378A</Use>
+			<Use>FI379A</Use>
+			<XPath>ServiceProvider</XPath>
+			<MinOccurence>0</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="fi">Tunnistenumero</Name>
+				<Name lang="sv">Identifieringsnummer</Name>
+				<Name lang="en">Identification no.</Name>
+				<Use>FI332A</Use>
+				<Use>FI334A</Use>
+				<Use>FI335A</Use>
+				<Use>FI336A</Use>
+				<Use>FI337A</Use>
+				<Use>FI338A</Use>
+				<Use>FI376A</Use>
+				<Use>FI377A</Use>
+				<Use>FI378A</Use>
+				<Use>FI379A</Use>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<Rule>NR0049</Rule>
+				<Rule>NR1109</Rule>
+				<Format>an..17</Format>
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
@@ -701,9 +736,9 @@
 				<XPath>Name</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Format>an..70</Format>
-				<DescriptionLine lang="fi">Ilmoitusta tekevän henkilön nimi</DescriptionLine>
-				<DescriptionLine lang="sv">Namnet på personen som upprättar deklarationen</DescriptionLine>
-				<DescriptionLine lang="en">Name of the person actually filing the declaration</DescriptionLine>
+				<DescriptionLine lang="fi">Ilmoitusta tekevän henkilön nimi.</DescriptionLine>
+				<DescriptionLine lang="sv">Namnet på personen som upprättar deklarationen.</DescriptionLine>
+				<DescriptionLine lang="en">Name of the person actually filing the declaration.</DescriptionLine>
 			</DataElement>
 			<DataGroup>
 				<Name lang="fi">Ilmoituksen antajan sähköposti</Name>
@@ -743,9 +778,9 @@
 					<XPath>Identification</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an..320</Format>
-					<DescriptionLine lang="fi">Sähköpostiosoite, josta Tulli voi kysyä tarvittessa lisätietoa tästä ilmoituksesta</DescriptionLine>
-					<DescriptionLine lang="sv">E-postadress från vilken Tullen vid behov kan begära ytterligare uppgifter om denna deklaration</DescriptionLine>
-					<DescriptionLine lang="en">Email address for Customs' additional inquiries on this declaration</DescriptionLine>
+					<DescriptionLine lang="fi">Ilmoitetaan sähköpostiosoite, josta Tulli voi kysyä tarvittessa lisätietoa tästä ilmoituksesta.</DescriptionLine>
+					<DescriptionLine lang="sv">E-postadress från vilken Tullen vid behov kan begära ytterligare uppgifter om denna deklaration anmäls.</DescriptionLine>
+					<DescriptionLine lang="en">Email address for Customs' additional inquiries on this declaration is entered.</DescriptionLine>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Ilmoituksen antajan viestintätapa</Name>
@@ -807,9 +842,9 @@
 					<XPath>Identification</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an..20</Format>
-					<DescriptionLine lang="fi">Numero, josta Tulli voi kysyä tarvittaessa lisätietoa tästä ilmoituksesta</DescriptionLine>
-					<DescriptionLine lang="sv">Telefonnummer från vilken Tullen vid behov kan begära ytterligare uppgifter om denna deklaration</DescriptionLine>
-					<DescriptionLine lang="en">Phone number for Customs' additional inquiries on this declaration</DescriptionLine>
+					<DescriptionLine lang="fi">Ilmoitetaan puhelinnumero, josta Tulli voi kysyä tarvittaessa lisätietoa tästä ilmoituksesta.</DescriptionLine>
+					<DescriptionLine lang="sv">Telefonnummer från vilken Tullen vid behov kan begära ytterligare uppgifter om denna deklaration anmäls.</DescriptionLine>
+					<DescriptionLine lang="en">Phone number for Customs' additional inquiries on this declaration is entered.</DescriptionLine>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Ilmoituksen antajan viestintätapa</Name>
@@ -833,47 +868,6 @@
 					<Format>a2</Format>
 				</DataElement>
 			</DataGroup>
-		</DataGroup>
-		<DataGroup>
-			<Name lang="fi">Palveluntarjoaja</Name>
-			<Name lang="sv">Tjänsteleverantör</Name>
-			<Name lang="en">Service provider</Name>
-			<Use>FI332A</Use>
-			<Use>FI334A</Use>
-			<Use>FI335A</Use>
-			<Use>FI336A</Use>
-			<Use>FI337A</Use>
-			<Use>FI338A</Use>
-			<Use>FI376A</Use>
-			<Use>FI377A</Use>
-			<Use>FI378A</Use>
-			<Use>FI379A</Use>
-			<XPath>ServiceProvider</XPath>
-			<MinOccurence>0</MinOccurence>
-			<MaxOccurence>1</MaxOccurence>
-			<DescriptionLine lang="fi">Sanoman tekninen lähettäjä.</DescriptionLine>
-			<DescriptionLine lang="sv">Meddelandets tekniska avsändare.</DescriptionLine>
-			<DescriptionLine lang="en">The technical message sender.</DescriptionLine>
-			<DataElement>
-				<Name lang="fi">Tunnistenumero</Name>
-				<Name lang="sv">Identifieringsnummer</Name>
-				<Name lang="en">Identification no.</Name>
-				<Use>FI332A</Use>
-				<Use>FI334A</Use>
-				<Use>FI335A</Use>
-				<Use>FI336A</Use>
-				<Use>FI337A</Use>
-				<Use>FI338A</Use>
-				<Use>FI376A</Use>
-				<Use>FI377A</Use>
-				<Use>FI378A</Use>
-				<Use>FI379A</Use>
-				<XPath>Identification</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Rule>NR0049</Rule>
-				<Rule>NR1109</Rule>
-				<Format>an..17</Format>
-			</DataElement>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Toimitusketjun muu toimija</Name>
@@ -902,9 +896,6 @@
 				<MinOccurence>1</MinOccurence>
 				<Rule>R3005</Rule>
 				<Format>an..17</Format>
-				<DescriptionLine lang="fi">EORI ID</DescriptionLine>
-				<DescriptionLine lang="sv">EORI-nummer</DescriptionLine>
-				<DescriptionLine lang="en">EORI ID</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Toimitusketjun muun toimijan roolikoodi</Name>
@@ -936,7 +927,6 @@
 			<XPath>AdditionalDocument</XPath>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>99</MaxOccurence>
-			<DescriptionLine lang="fi">Tarvitaanko erätasoille? (jotain tavaraan liittyviä lupia?).</DescriptionLine>
 			<DataElement>
 				<Name lang="fi">Asiakirjatyyppi</Name>
 				<Name lang="sv">Dokumentets typ</Name>
@@ -1047,7 +1037,6 @@
 				<XPath>Action</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Format>n1</Format>
-				<DescriptionLine lang="fi">Complete/incomplete</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Saapumistiedonannon MRN, kun tavaroita siirretään väliaikaisessa varastoinnissa</Name>
@@ -1057,7 +1046,6 @@
 				<XPath>ArrivalConfirmation</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Format>an18</Format>
-				<DescriptionLine lang="fi">G5:n MRN</DescriptionLine>
 			</DataElement>
 			<DataGroup>
 				<Name lang="fi">Postisäkki</Name>
@@ -1513,8 +1501,6 @@
 				<Name lang="fi">Kuljetusväline saavuttaessa</Name>
 				<Name lang="sv">Transportmedlet vid ankomsten</Name>
 				<Name lang="en">Means of transport on arrival</Name>
-				<Use>FI334A</Use>
-				<Use>FI332A</Use>
 				<Use>FI337A</Use>
 				<Use>FI377A</Use>
 				<Use>FI338A</Use>
@@ -1528,8 +1514,6 @@
 					<Name lang="fi">Tunnistenumero</Name>
 					<Name lang="sv">Identifieringsnummer</Name>
 					<Name lang="en">Identification number</Name>
-					<Use>FI334A</Use>
-					<Use>FI332A</Use>
 					<Use>FI337A</Use>
 					<Use>FI377A</Use>
 					<Use>FI338A</Use>
@@ -1544,8 +1528,6 @@
 					<Name lang="fi">Tunnistetietojen tyyppi</Name>
 					<Name lang="sv">Typ av identifiering</Name>
 					<Name lang="en">Type of identification</Name>
-					<Use>FI334A</Use>
-					<Use>FI332A</Use>
 					<Use>FI337A</Use>
 					<Use>FI377A</Use>
 					<Use>FI338A</Use>
@@ -1590,9 +1572,6 @@
 							<XPath>GrossMass</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Format>n..16,6</Format>
-							<DescriptionLine lang="fi">Ilmoita bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa "0,654", enintään kuuden desimaalin tarkkuudella. Yli kilogramman painon voit pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti.</DescriptionLine>
-							<DescriptionLine lang="sv">Ange bruttovikt i kilogram. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen "0,654", dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler.</DescriptionLine>
-							<DescriptionLine lang="en">Enter the gross mass in kilograms. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. "0,654" up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, you can enter the value grounded to the closest full kilogram.</DescriptionLine>
 						</DataElement>
 					</DataGroup>
 				</DataGroup>
@@ -1614,9 +1593,6 @@
 						<MinOccurence>0</MinOccurence>
 						<Condition>NC0010</Condition>
 						<Format>n..8</Format>
-						<DescriptionLine lang="fi">Ilmoita pakkausten lukumäärä. Jos samaan pakkaukseen on pakattu enemmän kuin yksi tavaraerä, ilmoita vähintään yhdellä erällä pakkausten lukumääräksi '1'. Ilmoita loput samassa pakkauksessa olevat tavaraerät nollana (0).</DescriptionLine>
-						<DescriptionLine lang="sv">Ange antalet förpackningar. Om en förpackning innehåller varor från flera varuposter, ska man för minst en varupost som antal förpackningar ange '1'. För övriga varuposter som ingår i samma förpackning ska man ange '0'.</DescriptionLine>
-						<DescriptionLine lang="en">Enter the number of packages. If there are goods from several goods items within the one and same package, enter the value '1' at least in one of the goods items, and value '0' in the other goods items.</DescriptionLine>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Kollien laji</Name>
@@ -1627,9 +1603,6 @@
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL017</Codelist>
 						<Format>an2</Format>
-						<DescriptionLine lang="fi">Ilmoita pakkausten lajia ilmaiseva koodi. Pakkauksella tarkoitetaan yksikköä, jota ei voida jakaa ilman pakkauksen purkamista.</DescriptionLine>
-						<DescriptionLine lang="sv">Ange kod som anger förpackningsslag. Med förpackning avses en enhet som inte kan delas utan att förpackningen först packas upp.</DescriptionLine>
-						<DescriptionLine lang="en">Enter packaging type. Package means unit which can not be devided into several units without unpacking it.</DescriptionLine>
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
@@ -1649,9 +1622,6 @@
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL014</Codelist>
 						<Format>an..3</Format>
-						<DescriptionLine lang="fi">Ilmoita edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos lähetysmaa on Norja eikä ole edeltävää menettelyä, edeltävää asiakirjaa ei ilmoiteta. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, valitse MRN.</DescriptionLine>
-						<DescriptionLine lang="sv">Ange tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration. Om avsändningslandet är Norge och det inte finns något föregående förfarande, ska tidigare dokument inte anges. Om den tidigare deklarationen har ingetts till UTU-systemet, välj MRN.</DescriptionLine>
-						<DescriptionLine lang="en"> Enter previous document which is most often entry summary declaration, summary declaration or T1-transit declaration. If the country of dispatch is Norway and there is no previous procedure, previous document is not declared. If previous declaration is submitted to Finnish Customs UTU system, choose MRN.</DescriptionLine>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Edeltävän asiakirjan viite</Name>
@@ -1661,9 +1631,6 @@
 						<XPath>Identification</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Format>an..70</Format>
-						<DescriptionLine lang="fi">Ilmoita edeltävän asiakirjan (esimerkiksi saapumisen tai passituksen ilmoitus) viitenumero MRN tai muu viite.</DescriptionLine>
-						<DescriptionLine lang="sv">Ange det tidigare dokumentets (t.ex. ankomstanmälans eller transiteringsdeklarationens) MRN-nummer eller annan referens.</DescriptionLine>
-						<DescriptionLine lang="en">Enter previous document (eg. entry or transit declaration) MRN or other reference.</DescriptionLine>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Tavaraerän tunniste</Name>
@@ -1673,9 +1640,6 @@
 						<XPath>Line</XPath>
 						<MinOccurence>0</MinOccurence>
 						<Format>n..5</Format>
-						<DescriptionLine lang="fi">Ilmoita edeltävän asiakirjan MRN:än liittyvä tavaraerän järjestysnumero. </DescriptionLine>
-						<DescriptionLine lang="sv">Ange det ordningsnummer för varuposten som hänför sig till det tidigare dokumentets MRN. </DescriptionLine>
-						<DescriptionLine lang="en">Enter the goods item number related to the MRN of the previous document.</DescriptionLine>
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
@@ -1833,9 +1797,6 @@
 					<XPath>Identification</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an..17</Format>
-					<DescriptionLine lang="fi">Ilmoita merikontin, jalkalavakontin tai puoliperävaunun tunnistenumero(t). </DescriptionLine>
-					<DescriptionLine lang="sv">Ange identifieringsnummer för sjöcontainer, container med stödben eller påhängsvagn. </DescriptionLine>
-					<DescriptionLine lang="en">Enter the number(s) of sea container or semitrailer identification number(s). </DescriptionLine>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Sinettien lukumäärä</Name>
@@ -2507,9 +2468,6 @@
 						<XPath>Identification</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Format>an..17</Format>
-						<DescriptionLine lang="fi">Ilmoita merikontin, jalkalavakontin tai puoliperävaunun tunnistenumero(t). </DescriptionLine>
-						<DescriptionLine lang="sv">Ange identifieringsnummer för sjöcontainer, container med stödben eller påhängsvagn. </DescriptionLine>
-						<DescriptionLine lang="en">Enter the number(s) of sea container or semitrailer identification number(s). </DescriptionLine>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Sinettien lukumäärä</Name>
@@ -2627,9 +2585,6 @@
 							<XPath>Description</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Format>an..512</Format>
-							<DescriptionLine lang="fi">Ilmoita tavaroiden tavanomainen kauppanimitys, jolla tavarat voidaan tunnistaa. Et voi käyttää tavaraa kuvaavaa yleisnimitystä. Esimerkiksi "vaatteet" ei ole riittävän tarkka kuvaus, vaan pitää yksilöidä, mistä vaatteista on kyse, kuten "puuvillaisia T-paitoja". </DescriptionLine>
-							<DescriptionLine lang="sv">Ange den normala handelsbenämningen med hjälp av vilken varorna kan identifieras. En benämning på allmän nivå räcker inte som varubeskrivning. Benämningen ”kläder” är t.ex. inte tillräckligt exakt, utan man ska specificera vilken typ av kläder det är fråga om, t.ex. ”T-tröjor av bomull”. </DescriptionLine>
-							<DescriptionLine lang="en">Enter the common trade name accurate enough in order to identify the goods. You may not use general desciptions. E.g. "clothes" is not accurate enough but you need to specify which kind of clothes are declared, e.g. "Cotton T-shirts".</DescriptionLine>
 						</DataElement>
 						<DataGroup>
 							<Name lang="fi">Tavaran koodi - harmonoidun järjestelmän koodi</Name>
@@ -2702,9 +2657,6 @@
 								<XPath>Identification</XPath>
 								<MinOccurence>1</MinOccurence>
 								<Format>an2</Format>
-								<DescriptionLine lang="fi">Ilmoita tavaran nimike vähintään kuudella numerolla.</DescriptionLine>
-								<DescriptionLine lang="sv">Ange varukoden med minst sex siffrors noggrannhet.</DescriptionLine>
-								<DescriptionLine lang="en">A minimum of 6 digits must be declared.</DescriptionLine>
 							</DataElement>
 							<DataElement>
 								<Name lang="fi">Luokitustyyppi</Name>
@@ -2748,9 +2700,6 @@
 								<XPath>Identification</XPath>
 								<MinOccurence>1</MinOccurence>
 								<Format>an9</Format>
-								<DescriptionLine lang="fi">Ilmoita CUS-koodi, jos tavaraan kohdistuu Taricin mukaisia CUS-koodiin liittyviä toimenpiteitä. CUS-koodi on tiettyjen kemiallisten aineiden ja valmisteiden tunniste. Koodin ilmoittaminen ei vapauta tavarankuvauksen ilmoittamisesta.</DescriptionLine>
-								<DescriptionLine lang="sv">Ange CUS-kod om varorna omfattas av åtgärder som hänför sig till CUS-kod enligt Taric. CUS-koden är en identifieringskod för vissa kemiska ämnen och preparat. Angivandet av koden befriar inte från angivandet av varubeskrivningen.</DescriptionLine>
-								<DescriptionLine lang="en">Enter CUS code if the goods are subject to a TARIC measure in relation with a CUS code. CUS code applies to some chemical substances and preparations. Declaration of CUS code does not waive from the declaration of the description of goods.</DescriptionLine>
 							</DataElement>
 							<DataElement>
 								<Name lang="fi">Luokitustyyppi</Name>
@@ -2824,9 +2773,6 @@
 							<XPath>MarksNumbers</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Format>an..512</Format>
-							<DescriptionLine lang="fi">Ilmoita vapaamuotoinen kuvaus kollien tai pakkausten merkinnöistä ja numeroista. Jos kolleissa ei ole merkintöjä, ilmoita "ei merkkejä". Jos pakkauksen lukumääräksi on ilmoitettu nolla (0), pakkausmerkintöjen tulee olla samat kuin sillä erällä, jossa kokonaismäärä on ilmoitettu.</DescriptionLine>
-							<DescriptionLine lang="sv">Ange en fritt formulerad beskrivning av kollinas eller förpackningarnas märken och nummer. Om kollina inte har några märken, ange ”inga märken”. Om man som antal förpackningar angett noll (0), ska förpackningarnas märken och nummer vara de samma som för den varupost där totala antalet förpackningar har angetts.</DescriptionLine>
-							<DescriptionLine lang="en">Enter a free-form description of the marks and numbers on transport units or packages. If the packages are not marked, enter "no markings". If the number of packages is zero (0), the marks and numbers shall be the same as on the goods item for which the total number of packages has been entered.</DescriptionLine>
 						</DataElement>
 						<DataElement>
 							<Name lang="fi">Kolliluku</Name>
@@ -2842,9 +2788,6 @@
 							<MinOccurence>0</MinOccurence>
 							<Condition>NC0010</Condition>
 							<Format>n..8</Format>
-							<DescriptionLine lang="fi">Ilmoita pakkausten lukumäärä. Jos samaan pakkaukseen on pakattu enemmän kuin yksi tavaraerä, ilmoita vähintään yhdellä erällä pakkausten lukumääräksi '1'. Ilmoita loput samassa pakkauksessa olevat tavaraerät nollana (0).</DescriptionLine>
-							<DescriptionLine lang="sv">Ange antalet förpackningar. Om en förpackning innehåller varor från flera varuposter, ska man för minst en varupost som antal förpackningar ange '1'. För övriga varuposter som ingår i samma förpackning ska man ange '0'.</DescriptionLine>
-							<DescriptionLine lang="en">Enter the number of packages. If there are goods from several goods items within the one and same package, enter the value '1' at least in one of the goods items, and value '0' in the other goods items.</DescriptionLine>
 						</DataElement>
 						<DataElement>
 							<Name lang="fi">Kollien laji</Name>
@@ -2860,9 +2803,6 @@
 							<MinOccurence>1</MinOccurence>
 							<Codelist>CL017</Codelist>
 							<Format>an2</Format>
-							<DescriptionLine lang="fi">Ilmoita pakkausten lajia ilmaiseva koodi. Pakkauksella tarkoitetaan yksikköä, jota ei voida jakaa ilman pakkauksen purkamista.</DescriptionLine>
-							<DescriptionLine lang="sv">Ange kod som anger förpackningsslag. Med förpackning avses en enhet som inte kan delas utan att förpackningen först packas upp.</DescriptionLine>
-							<DescriptionLine lang="en">Enter packaging type. Package means unit which can not be devided into several units without unpacking it.</DescriptionLine>
 						</DataElement>
 					</DataGroup>
 					<DataGroup>
@@ -2966,9 +2906,6 @@
 							<MinOccurence>1</MinOccurence>
 							<Codelist>CL014</Codelist>
 							<Format>an..3</Format>
-							<DescriptionLine lang="fi">Ilmoita edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos lähetysmaa on Norja eikä ole edeltävää menettelyä, edeltävää asiakirjaa ei ilmoiteta. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, valitse MRN.</DescriptionLine>
-							<DescriptionLine lang="sv">Ange tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration. Om avsändningslandet är Norge och det inte finns något föregående förfarande, ska tidigare dokument inte anges. Om den tidigare deklarationen har ingetts till UTU-systemet, välj MRN.</DescriptionLine>
-							<DescriptionLine lang="en"> Enter previous document which is most often entry summary declaration, summary declaration or T1-transit declaration. If the country of dispatch is Norway and there is no previous procedure, previous document is not declared. If previous declaration is submitted to Finnish Customs UTU system, choose MRN.</DescriptionLine>
 						</DataElement>
 						<DataElement>
 							<Name lang="fi">Edeltävän asiakirjan viite</Name>
@@ -2983,9 +2920,6 @@
 							<XPath>Identification</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Format>an..70</Format>
-							<DescriptionLine lang="fi">Ilmoita edeltävän asiakirjan (esimerkiksi saapumisen tai passituksen ilmoitus) viitenumero MRN tai muu viite.</DescriptionLine>
-							<DescriptionLine lang="sv">Ange det tidigare dokumentets (t.ex. ankomstanmälans eller transiteringsdeklarationens) MRN-nummer eller annan referens.</DescriptionLine>
-							<DescriptionLine lang="en">Enter previous document (eg. entry or transit declaration) MRN or other reference.</DescriptionLine>
 						</DataElement>
 						<DataElement>
 							<Name lang="fi">Tavaraerän tunniste</Name>
@@ -3000,9 +2934,6 @@
 							<XPath>Line</XPath>
 							<MinOccurence>0</MinOccurence>
 							<Format>n..5</Format>
-							<DescriptionLine lang="fi">Ilmoita edeltävän asiakirjan MRN:än liittyvä tavaraerän järjestysnumero. </DescriptionLine>
-							<DescriptionLine lang="sv">Ange det ordningsnummer för varuposten som hänför sig till det tidigare dokumentets MRN. </DescriptionLine>
-							<DescriptionLine lang="en">Enter the goods item number related to the MRN of the previous document.</DescriptionLine>
 						</DataElement>
 					</DataGroup>
 					<DataGroup>
@@ -3031,9 +2962,6 @@
 							<XPath>Identification</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Format>an..17</Format>
-							<DescriptionLine lang="fi">Ilmoita merikontin, jalkalavakontin tai puoliperävaunun tunnistenumero(t). </DescriptionLine>
-							<DescriptionLine lang="sv">Ange identifieringsnummer för sjöcontainer, container med stödben eller påhängsvagn. </DescriptionLine>
-							<DescriptionLine lang="en">Enter the number(s) of sea container or semitrailer identification number(s). </DescriptionLine>
 						</DataElement>
 						<DataElement>
 							<Name lang="fi">Sinettien lukumäärä</Name>
@@ -3106,9 +3034,6 @@
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL014</Codelist>
 						<Format>an..3</Format>
-						<DescriptionLine lang="fi">Ilmoita edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos lähetysmaa on Norja eikä ole edeltävää menettelyä, edeltävää asiakirjaa ei ilmoiteta. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, valitse MRN.</DescriptionLine>
-						<DescriptionLine lang="sv">Ange tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration. Om avsändningslandet är Norge och det inte finns något föregående förfarande, ska tidigare dokument inte anges. Om den tidigare deklarationen har ingetts till UTU-systemet, välj MRN.</DescriptionLine>
-						<DescriptionLine lang="en"> Enter previous document which is most often entry summary declaration, summary declaration or T1-transit declaration. If the country of dispatch is Norway and there is no previous procedure, previous document is not declared. If previous declaration is submitted to Finnish Customs UTU system, choose MRN.</DescriptionLine>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Edeltävän asiakirjan viite</Name>
@@ -3123,9 +3048,6 @@
 						<XPath>Identification</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Format>an..70</Format>
-						<DescriptionLine lang="fi">Ilmoita edeltävän asiakirjan (esimerkiksi saapumisen tai passituksen ilmoitus) viitenumero MRN tai muu viite.</DescriptionLine>
-						<DescriptionLine lang="sv">Ange det tidigare dokumentets (t.ex. ankomstanmälans eller transiteringsdeklarationens) MRN-nummer eller annan referens.</DescriptionLine>
-						<DescriptionLine lang="en">Enter previous document (eg. entry or transit declaration) MRN or other reference.</DescriptionLine>
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
@@ -3143,6 +3065,9 @@
 					<XPath>TransportContractDocument</XPath>
 					<MinOccurence>1</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
+					<DescriptionLine lang="fi">Kuljetusasiakirja on ilmoitettava, jos edeltävä ilmoitus on ollut saapumisen yleisilmoitus.</DescriptionLine>
+					<DescriptionLine lang="sv">Transportdokumentet måste anmälas, on tidigare dokumentet har varit summarisk införseldeklaration.</DescriptionLine>
+					<DescriptionLine lang="en">Transport document is required, if the previous document is entry summary declaration.</DescriptionLine>
 					<DataElement>
 						<Name lang="fi">Asiakirjatyyppi</Name>
 						<Name lang="sv">Dokumentets typ</Name>
@@ -3203,9 +3128,6 @@
 						<XPath>TraderAssignedReference</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Format>an..35</Format>
-						<DescriptionLine lang="fi">Ilmoita, jos lähetykselle on annettu yhtenäisviite UCR, eli lähettäjän antama yksilöllinen ja pysyvä viite läpi koko toimitusketjun. Se voi olla WCO (ISO 15459) -koodi tai vastaava. </DescriptionLine>
-						<DescriptionLine lang="sv">Ange försändelsens eventuella unika referensnummer (UCR), dvs. av avsändaren tilldelad unik och permanent referens genom hela leveranskedjan. Det kan vara t.ex. en WCO (ISO 15459)-kod eller motsvarande. </DescriptionLine>
-						<DescriptionLine lang="en">Enter a unique consignment reference UCR, if one has been assigned by the consignor. UCR remains the same throughout the supply chain. It can be WCO (ISO 15459) -code or an equivalent.</DescriptionLine>
 					</DataElement>
 				</DataGroup>
 			</DataGroup>
@@ -3231,9 +3153,9 @@
 					<MinOccurence>1</MinOccurence>
 					<Codelist>CL014</Codelist>
 					<Format>an..3</Format>
-					<DescriptionLine lang="fi">Ilmoita edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos lähetysmaa on Norja eikä ole edeltävää menettelyä, edeltävää asiakirjaa ei ilmoiteta. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, valitse MRN.</DescriptionLine>
-					<DescriptionLine lang="sv">Ange tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration. Om avsändningslandet är Norge och det inte finns något föregående förfarande, ska tidigare dokument inte anges. Om den tidigare deklarationen har ingetts till UTU-systemet, välj MRN.</DescriptionLine>
-					<DescriptionLine lang="en"> Enter previous document which is most often entry summary declaration, summary declaration or T1-transit declaration. If the country of dispatch is Norway and there is no previous procedure, previous document is not declared. If previous declaration is submitted to Finnish Customs UTU system, choose MRN.</DescriptionLine>
+					<DescriptionLine lang="fi">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus.</DescriptionLine>
+					<DescriptionLine lang="sv">Tidigare dokument anmäls, oftast summarisk införseldeklaration.</DescriptionLine>
+					<DescriptionLine lang="en">Previous document which is most often entry summary declaration is entered.</DescriptionLine>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Edeltävän asiakirjan viite</Name>
@@ -3245,9 +3167,9 @@
 					<XPath>Identification</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an..70</Format>
-					<DescriptionLine lang="fi">Ilmoita edeltävän asiakirjan (esimerkiksi saapumisen tai passituksen ilmoitus) viitenumero MRN tai muu viite.</DescriptionLine>
-					<DescriptionLine lang="sv">Ange det tidigare dokumentets (t.ex. ankomstanmälans eller transiteringsdeklarationens) MRN-nummer eller annan referens.</DescriptionLine>
-					<DescriptionLine lang="en">Enter previous document (eg. entry or transit declaration) MRN or other reference.</DescriptionLine>
+					<DescriptionLine lang="fi">Ilmoita edeltävän asiakirjan viitenumero MRN.</DescriptionLine>
+					<DescriptionLine lang="sv">Ange det tidigare dokumentets MRN-nummer eller annan referens.</DescriptionLine>
+					<DescriptionLine lang="en">Enter previous document MRN.</DescriptionLine>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Tavaraerän tunniste</Name>
@@ -3259,9 +3181,9 @@
 					<XPath>Line</XPath>
 					<MinOccurence>0</MinOccurence>
 					<Format>n..5</Format>
-					<DescriptionLine lang="fi">Ilmoita edeltävän asiakirjan MRN:än liittyvä tavaraerän järjestysnumero. </DescriptionLine>
-					<DescriptionLine lang="sv">Ange det ordningsnummer för varuposten som hänför sig till det tidigare dokumentets MRN. </DescriptionLine>
-					<DescriptionLine lang="en">Enter the goods item number related to the MRN of the previous document.</DescriptionLine>
+					<DescriptionLine lang="fi">Ilmoita edeltävän asiakirjan MRN:än liittyvä tavaraerän järjestysnumero. Ei ilmoiteta postilähetyksistä.</DescriptionLine>
+					<DescriptionLine lang="sv">Ange det ordningsnummer för varuposten som hänför sig till det tidigare dokumentets MRN. Anmäls inteför postförsändelser.</DescriptionLine>
+					<DescriptionLine lang="en">Enter the goods item number related to the MRN of the previous document. Not used in case of postal consignments.</DescriptionLine>
 				</DataElement>
 			</DataGroup>
 			<DataGroup>
@@ -3338,9 +3260,6 @@
 					<XPath>TraderAssignedReference</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an..35</Format>
-					<DescriptionLine lang="fi">Ilmoita, jos lähetykselle on annettu yhtenäisviite UCR, eli lähettäjän antama yksilöllinen ja pysyvä viite läpi koko toimitusketjun. Se voi olla WCO (ISO 15459) -koodi tai vastaava. </DescriptionLine>
-					<DescriptionLine lang="sv">Ange försändelsens eventuella unika referensnummer (UCR), dvs. av avsändaren tilldelad unik och permanent referens genom hela leveranskedjan. Det kan vara t.ex. en WCO (ISO 15459)-kod eller motsvarande. </DescriptionLine>
-					<DescriptionLine lang="en">Enter a unique consignment reference UCR, if one has been assigned by the consignor. UCR remains the same throughout the supply chain. It can be WCO (ISO 15459) -code or an equivalent.</DescriptionLine>
 				</DataElement>
 			</DataGroup>
 			<DataGroup>
@@ -3371,9 +3290,9 @@
 					<MinOccurence>1</MinOccurence>
 					<Codelist>CL521</Codelist>
 					<Format>a1</Format>
-					<DescriptionLine lang="fi"/>
-					<DescriptionLine lang="sv"/>
-					<DescriptionLine lang="en"/>
+					<DescriptionLine lang="fi">Ilmoitetaan paikka, jossa tavarat ovat esittämishetkellä.</DescriptionLine>
+					<DescriptionLine lang="sv">Plats där varorna är belägna vid tiden av framläggande.</DescriptionLine>
+					<DescriptionLine lang="en">Location, where goods are located at the time of presentation.</DescriptionLine>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">UN/LOCODE</Name>
@@ -3458,6 +3377,9 @@
 					<MinOccurence>0</MinOccurence>
 					<Condition>NC####</Condition>
 					<Format>an..17</Format>
+					<DescriptionLine lang="fi">Jos tavara on talouden toimijan tiloissa, jotka voidaan yksilöidä ilmoittamalla EORI-numero ja sitä täsmentävä toimipistetunnus (3 numeroa), tai varastotunniste (kokonaisuudessaan muotoa EORI+3+2), tavaran sijaintipaikka ilmoitetaan talouden toimija tietoelementissä näiden tunnisteiden avulla.</DescriptionLine>
+					<DescriptionLine lang="sv">Om varorna finns i den ekonomiska aktörens lokaler, som kan identifieras av EORI-numret följt av artikelnummer (3 siffror), eller av lageridentifieraren (EORI + 3 + 2 i sin helhet), ska varornas förvaringsplats anges i dataelementet 'ekonomisk aktör' med hjälp av dessa identifierare.</DescriptionLine>
+					<DescriptionLine lang="en">Where the goods are on the premises of the economic operator, which may be identified by the EORI number followed by the item identification number (3 digits), or by the warehouse identifier (EORI + 3 + 2 in full), the location of the goods shall be indicated in the data element 'economic operator' using said identifiers.</DescriptionLine>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Luvan numero</Name>
@@ -3487,6 +3409,9 @@
 					<XPath>Identification@function="AdditionalIdentifier"</XPath>
 					<MinOccurence>0</MinOccurence>
 					<Format>an..4</Format>
+					<DescriptionLine lang="fi">Lisätunniste voi liittyä joko talouden toimijaan tai luvan numeroon.</DescriptionLine>
+					<DescriptionLine lang="sv">Tilläggsidentifieringen kan hänföra till akonomisk aktör eller tillståndets nummer.</DescriptionLine>
+					<DescriptionLine lang="en">Additional identifier may relate to economic operator or authorisation number.</DescriptionLine>
 				</DataElement>
 				<DataGroup>
 					<Name lang="fi">Osoite</Name>
@@ -3589,9 +3514,9 @@
 					<XPath>Identification</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an..35</Format>
-					<DescriptionLine lang="fi">Ilmoita sen tullivaraston numero, johon tavarat varastoidaan EORI+3+2, (esim. FI1234567-800101</DescriptionLine>
-					<DescriptionLine lang="sv">Ange identifieringsnumret för det tullager där varorna lagras EORI+3+2, (t.ex. FI1234567-800101).</DescriptionLine>
-					<DescriptionLine lang="en">Enter the ID of the customs warehouse where the goods are to be declared EORI+3+2, (for example FI1234567-800101).</DescriptionLine>
+					<DescriptionLine lang="fi">Ilmoita sen väliaikaisen varaston numero, johon tavarat puretaan ja jonka kirjanpitoon tavara otetaan. Varastotunniste on muotoa EORI+3+2, (esim. FI1234567-800101</DescriptionLine>
+					<DescriptionLine lang="sv">Ange identifieringsnumret för det tillfälliga lager dit varorna lossas och till vilkets bokföring de uptas. Identifieraren är av formatet EORI + 3 + 2, (till exempel FI1234567-800101).</DescriptionLine>
+					<DescriptionLine lang="en">Enter the ID of the temporary storage warehouse where the goods are to be unloaded and entered into the bookkeeping. Identifier is EORI+3+2, (for example FI1234567-800101).</DescriptionLine>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Varaston tyyppi</Name>
@@ -3610,6 +3535,37 @@
 				</DataElement>
 			</DataGroup>
 		</DataGroup>
+			<DataGroup>
+				<Name lang="fi">Kuljetusväline saavuttaessa</Name>
+				<Name lang="sv">Transportmedlet vid ankomsten</Name>
+				<Name lang="en">Means of transport on arrival</Name>
+				<Use>FI334A</Use>
+				<Use>FI332A</Use>
+				<XPath>GoodsShipment/Consignment/ArrivalTransportMeans</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Tunnistenumero</Name>
+					<Name lang="sv">Identifieringsnummer</Name>
+					<Name lang="en">Identification number</Name>
+					<Use>FI334A</Use>
+					<Use>FI332A</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Format>an..35</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="fi">Tunnistetietojen tyyppi</Name>
+					<Name lang="sv">Typ av identifiering</Name>
+					<Name lang="en">Type of identification</Name>
+					<Use>FI334A</Use>
+					<Use>FI332A</Use>
+					<XPath>IdentificationType</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Codelist>CL750</Codelist>
+					<Format>n2</Format>
+				</DataElement>
+			</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Tavaran sijaintipaikka</Name>
 			<Name lang="sv">Varornas förvaringsplats</Name>
@@ -3629,9 +3585,6 @@
 				<MinOccurence>1</MinOccurence>
 				<Codelist>CL521</Codelist>
 				<Format>a1</Format>
-				<DescriptionLine lang="fi"/>
-				<DescriptionLine lang="sv"/>
-				<DescriptionLine lang="en"/>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">UN/LOCODE</Name>
@@ -3794,9 +3747,6 @@
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Format>an..35</Format>
-				<DescriptionLine lang="fi">Ilmoita sen tullivaraston numero, johon tavarat varastoidaan EORI+3+2, (esim. FI1234567-800101</DescriptionLine>
-				<DescriptionLine lang="sv">Ange identifieringsnumret för det tullager där varorna lagras EORI+3+2, (t.ex. FI1234567-800101).</DescriptionLine>
-				<DescriptionLine lang="en">Enter the ID of the customs warehouse where the goods are to be declared EORI+3+2, (for example FI1234567-800101).</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Varaston tyyppi</Name>
