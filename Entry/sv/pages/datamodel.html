@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="../../../assets/tulli-mig-tables-style.css" type="text/css" />
     <link rel="stylesheet" href="../../../assets/joint.css" type="text/css" />
     <link rel="stylesheet" href="../../../assets/umlcd.css" type="text/css" />
+    <style>
+        #canvas svg {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body class="Site">
@@ -58,6 +64,12 @@
                                 <li>
                                     <a href="codes.html">Koder</a>
                                 </li>
+                                <li>
+                                    <a href="examples.html">Exempel</a>
+                                </li>
+                                <li>
+                                    <a href="examples.html">Exempel</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -78,7 +90,6 @@
     <main class="Site-content">
         <div class="col-xs-12" role="main">
             <div class="panel panel-primary" id="canvas">
-                <div class="panel-body" id="paper"></div>
             </div>
         </div>
     </main>
@@ -92,11 +103,8 @@
     </footer>
 
     <script src="../../../assets/javascripts/vendor/jquery.js"></script>
-    <script src="../../../assets/javascripts/lodash.js"></script>
-    <script src="../../../assets/javascripts/backbone.js"></script>
-
-    <script src="../../../assets/javascripts/joint.js"></script>
-    <script src="umlcd.js"></script>
+    <script src="../../../assets/javascripts/viz.js"></script>
+    <script src="../../../assets/javascripts/full.render.js"></script>
     <script>
         $(document).ready(function() {
             $.ajax({
@@ -136,13 +144,18 @@
     </script>
 
     <script>
-        $(window).resize(function() {
-            var canvas = $('#canvas');
-            paper.setDimensions(canvas.width() + 10);
-            paper.scaleContentToFit({
-                padding: 10
-            });
-        });
+      var viz = new Viz();
+      url = '../../common/sv.gv';
+      var request = new XMLHttpRequest();
+      request.addEventListener("load", function() {
+  
+        viz.renderSVGElement(this.responseText)
+        .then(function(element) {
+            document.getElementById("canvas").appendChild(element);
+          })
+      });
+      request.open("GET", url);
+      request.send();
     </script>
 
 </body>
