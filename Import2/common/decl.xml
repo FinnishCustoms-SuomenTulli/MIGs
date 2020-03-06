@@ -884,8 +884,6 @@
 			<Filter>FI415AH2</Filter>
 			<Filter>FI413AH5E</Filter>
 			<Filter>FI415AH5E</Filter>
-			<Filter>FI413AH5N</Filter>
-			<Filter>FI415AH5N</Filter>
 			<XPath>Declarant</XPath>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
@@ -908,8 +906,6 @@
 				<Filter>FI415AH2</Filter>
 				<Filter>FI413AH5E</Filter>
 				<Filter>FI415AH5E</Filter>
-				<Filter>FI413AH5N</Filter>
-				<Filter>FI415AH5N</Filter>
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Rule>NR0034</Rule>
@@ -936,8 +932,6 @@
 				<Filter>FI415AH2</Filter>
 				<Filter>FI413AH5E</Filter>
 				<Filter>FI415AH5E</Filter>
-				<Filter>FI413AH5N</Filter>
-				<Filter>FI415AH5N</Filter>
 				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
 				<Condition use="FI483A">NC0103</Condition>
@@ -963,8 +957,6 @@
 				<Filter>FI415AH2</Filter>
 				<Filter>FI413AH5E</Filter>
 				<Filter>FI415AH5E</Filter>
-				<Filter>FI413AH5N</Filter>
-				<Filter>FI415AH5N</Filter>
 				<XPath>Name</XPath>
 				<MinOccurence>0</MinOccurence>
 				<Condition>NC0016</Condition>
@@ -986,8 +978,6 @@
 				<Filter>FI415AH2</Filter>
 				<Filter>FI413AH5E</Filter>
 				<Filter>FI415AH5E</Filter>
-				<Filter>FI413AH5N</Filter>
-				<Filter>FI415AH5N</Filter>
 				<XPath>Role</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Codelist>CL###</Codelist>
@@ -1009,8 +999,6 @@
 				<Filter>FI415AH2</Filter>
 				<Filter>FI413AH5E</Filter>
 				<Filter>FI415AH5E</Filter>
-				<Filter>FI413AH5N</Filter>
-				<Filter>FI415AH5N</Filter>
 				<XPath>Address</XPath>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
@@ -1031,8 +1019,6 @@
 					<Filter>FI415AH2</Filter>
 					<Filter>FI413AH5E</Filter>
 					<Filter>FI415AH5E</Filter>
-					<Filter>FI413AH5N</Filter>
-					<Filter>FI415AH5N</Filter>
 					<XPath>Line</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an..70</Format>
@@ -1053,8 +1039,6 @@
 					<Filter>FI415AH2</Filter>
 					<Filter>FI413AH5E</Filter>
 					<Filter>FI415AH5E</Filter>
-					<Filter>FI413AH5N</Filter>
-					<Filter>FI415AH5N</Filter>
 					<XPath>CityName</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an..35</Format>
@@ -1075,8 +1059,6 @@
 					<Filter>FI415AH2</Filter>
 					<Filter>FI413AH5E</Filter>
 					<Filter>FI415AH5E</Filter>
-					<Filter>FI413AH5N</Filter>
-					<Filter>FI415AH5N</Filter>
 					<XPath>Postcode</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an..9</Format>
@@ -1097,8 +1079,6 @@
 					<Filter>FI415AH2</Filter>
 					<Filter>FI413AH5E</Filter>
 					<Filter>FI415AH5E</Filter>
-					<Filter>FI413AH5N</Filter>
-					<Filter>FI415AH5N</Filter>
 					<XPath>Country</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Codelist>CL008</Codelist>
@@ -1926,7 +1906,7 @@
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>99</MaxOccurence>
 				<Condition>NC####</Condition>
-				<DescriptionLine lang="fi">Ilmoitetaan toimitusketjun muun toimija, esim. AEO-ketjun toimija.</DescriptionLine>
+				<DescriptionLine lang="fi">Ilmoitetaan toimitusketjun muu toimija, esim. AEO-ketjun toimija.</DescriptionLine>
 				<DescriptionLine lang="sv">En ytterligare aktör i leveranskedjan, t.ex. en aktör i AEO-kedjan, anmäls.</DescriptionLine>
 				<DescriptionLine lang="en">An additional actor in the supply chain is entered, e.g. an actor in the AEO chain.</DescriptionLine>
 				<DataElement>
@@ -2228,9 +2208,18 @@
 				<XPath>Importer</XPath>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
-				<DescriptionLine lang="fi">Ilmoitetaan tuoja. Tullivarastoinnissa ilmoitetaan toimeksiantaja, jos ilmoittaja on saanut toimeksiannon tavaran tuomisesta Suomeen joltakin muulta taholta.</DescriptionLine>
-				<DescriptionLine lang="sv">Importören anmäls. Vid tullagring anges huvudmannen om deklaranten har fått en order att importera varorna till Finland från en annan part.</DescriptionLine>
-				<DescriptionLine lang="en">The importer is entered. In the case of customs warehousing, the principal is indicated if the declarant has received an order to import the goods to Finland from another party.</DescriptionLine>
+				<DescriptionLine lang="fi" use="FI413A">Ilmoitetaan tuoja. Tullivarastoinnissa ilmoitetaan toimeksiantaja, jos ilmoittaja on saanut toimeksiannon tavaran tuomisesta Suomeen joltakin muulta taholta.</DescriptionLine>
+				<DescriptionLine lang="fi" use="FI415A">Ilmoitetaan tuoja. Tullivarastoinnissa ilmoitetaan toimeksiantaja, jos ilmoittaja on saanut toimeksiannon tavaran tuomisesta Suomeen joltakin muulta taholta.</DescriptionLine>
+				<DescriptionLine lang="fi" use="FI483A">Ilmoitetaan tuoja.</DescriptionLine>
+				<DescriptionLine lang="fi" use="FI485A">Ilmoitetaan tuoja.</DescriptionLine>
+				<DescriptionLine lang="sv" use="FI413A">Importören anmäls. Vid tullagring anges huvudmannen om deklaranten har fått en order att importera varorna till Finland från en annan part.</DescriptionLine>
+				<DescriptionLine lang="sv" use="FI415A">Importören anmäls. Vid tullagring anges huvudmannen om deklaranten har fått en order att importera varorna till Finland från en annan part.</DescriptionLine>
+				<DescriptionLine lang="sv" use="FI483A">Importören anmäls.</DescriptionLine>
+				<DescriptionLine lang="sv" use="FI485A">Importören anmäls.</DescriptionLine>
+				<DescriptionLine lang="en" use="FI413A">The importer is entered. In the case of customs warehousing, the principal is indicated if the declarant has received an order to import the goods to Finland from another party.</DescriptionLine>
+				<DescriptionLine lang="en" use="FI415A">The importer is entered. In the case of customs warehousing, the principal is indicated if the declarant has received an order to import the goods to Finland from another party.</DescriptionLine>
+				<DescriptionLine lang="en" use="FI483A">The importer is entered.</DescriptionLine>
+				<DescriptionLine lang="en" use="FI485A">The importer is entered.</DescriptionLine>
 				<DataElement>
 					<Name lang="fi">Tunnistenumero</Name>
 					<Name lang="sv">Identifieringsnummer</Name>
@@ -4581,7 +4570,7 @@
 						<Filter>FI415AI1</Filter>
 						<XPath>Submitter/Name</XPath>
 						<MinOccurence>0</MinOccurence>
-						<Rule>R673</Rule>
+						<Rule>R0673</Rule>
 						<Format>an..70</Format>
 						<DescriptionLine lang="fi">Ilmoitetaan todistuksen myöntänyt viranomainen, jos kyseessä on merkintää vaativa lupa/todistus.</DescriptionLine>
 						<DescriptionLine lang="sv">Beviljande myndighetens namn anges, om det är fråga om ett tillstånd/intyg som kräver att en anteckning görs.</DescriptionLine>
