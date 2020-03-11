@@ -25,9 +25,6 @@
 								Tietoelementti/-ryhmä
 							</th>
 							<th>
-								Dataelement/-grupp
-							</th>
-							<th>
 								Required?
 							</th>
 							<th>
