@@ -88,6 +88,7 @@
                     <option value="H2">Customs warehousing</option>
                     <option value="H5E">Tax border declaration</option>
                     <!--option value="H5N">National tax border declaration</option-->
+                    <!--option value="H5R">National tax border declaration</option-->
                 </select>
                 <div class="tab-content"></div>
                 <div id="codemodal"></div>
@@ -249,6 +250,12 @@
                 case 'H5N':
                     $("tbody > tr").show();
                     $("tbody > tr:not(.H5N):not(.all)").hide();
+                    $("tbody > tr").removeClass("odd");
+                    $("tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    break;
+                case 'H5R':
+                    $("tbody > tr").show();
+                    $("tbody > tr:not(.H5R):not(.all)").hide();
                     $("tbody > tr").removeClass("odd");
                     $("tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
                     break;
