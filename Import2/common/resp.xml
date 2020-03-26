@@ -14,11 +14,14 @@
 		<Use>FI428A</Use>
 		<Use>FI429A</Use>
 		<Use>FI444A</Use>
+		<Use>FI445A</Use>
 		<Use>FI448A</Use>
 		<Use>FI450A</Use>
+		<Use>FI451A</Use>
 		<Use>FI452A</Use>
 		<Use>FI468A</Use>
 		<Use>FI470A</Use>
+		<Use>FI905A</Use>
 		<XPath/>
 		<MinOccurence>1</MinOccurence>
 		<MaxOccurence>1</MaxOccurence>
@@ -29,6 +32,7 @@
 			<Use>FI416A</Use>
 			<Use>FI426A</Use>
 			<Use>FI428A</Use>
+			<Use>FI445A</Use>
 			<XPath>Identification</XPath>
 			<MinOccurence>0</MinOccurence>
 			<Format>an..22</Format>
@@ -46,11 +50,14 @@
 			<Use>FI428A</Use>
 			<Use>FI429A</Use>
 			<Use>FI444A</Use>
+			<Use>FI445A</Use>
 			<Use>FI448A</Use>
 			<Use>FI450A</Use>
+			<Use>FI451A</Use>
 			<Use>FI452A</Use>
 			<Use>FI468A</Use>
 			<Use>FI470A</Use>
+			<Use>FI905A</Use>
 			<XPath>FunctionalReference@function="MRN"</XPath>
 			<MinOccurence>1</MinOccurence>
 			<MinOccurence use="FI416A">0</MinOccurence>
@@ -69,8 +76,10 @@
 			<Use>FI428A</Use>
 			<Use>FI429A</Use>
 			<Use>FI444A</Use>
+			<Use>FI445A</Use>
 			<Use>FI448A</Use>
 			<Use>FI450A</Use>
+			<Use>FI451A</Use>
 			<Use>FI452A</Use>
 			<Use>FI468A</Use>
 			<Use>FI470A</Use>
@@ -91,8 +100,10 @@
 			<Use>FI428A</Use>
 			<Use>FI429A</Use>
 			<Use>FI444A</Use>
+			<Use>FI445A</Use>
 			<Use>FI448A</Use>
 			<Use>FI450A</Use>
+			<Use>FI451A</Use>
 			<Use>FI452A</Use>
 			<Use>FI468A</Use>
 			<Use>FI470A</Use>
@@ -144,25 +155,6 @@
 			<Format>a3</Format>
 		</DataElement>
 		<DataElement>
-			<Name lang="fi">Hyväksymispäivä</Name>
-			<Name lang="sv">Datum för godkännande</Name>
-			<Name lang="en">Acceptance date</Name>
-			<Use>FI468A</Use>
-			<XPath>Acceptance</XPath>
-			<MinOccurence>0</MinOccurence>
-			<Format>date</Format>
-		</DataElement>
-		<DataElement>
-			<Name lang="fi">Tavaroiden arvioitu esittämispäivä ja -aika</Name>
-			<Name lang="sv">Beräknad dag och tid för anmälan av varors ankomst</Name>
-			<Name lang="en">Estimated presentation of goods date and time</Name>
-			<Use>FI403A</Use>
-			<Use>FI429A</Use>
-			<XPath>Jurisdiction</XPath>
-			<MinOccurence>0</MinOccurence>
-			<Format>dateTime</Format>
-		</DataElement>
-		<DataElement>
 			<Name lang="fi">Veronmääräytymispäivä</Name>
 			<Name lang="sv">Datum för skattebestämning</Name>
 			<Name lang="en">Tax determination date</Name>
@@ -179,8 +171,9 @@
 			<Use>FI403A</Use>
 			<Use>FI419A</Use>
 			<Use>FI429A</Use>
+			<Use>FI445A</Use>
 			<XPath>TotalGrossMass</XPath>
-			<MinOccurence>1</MinOccurence>
+			<MinOccurence>0</MinOccurence>
 			<Format>n..16,6</Format>
 		</DataElement>
 		<DataElement>
@@ -196,8 +189,10 @@
 			<Use>FI428A</Use>
 			<Use>FI429A</Use>
 			<Use>FI444A</Use>
+			<Use>FI445A</Use>
 			<Use>FI448A</Use>
 			<Use>FI450A</Use>
+			<Use>FI451A</Use>
 			<Use>FI452A</Use>
 			<Use>FI468A</Use>
 			<Use>FI470A</Use>
@@ -225,7 +220,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Luvan tyyppi</Name>
-				<Name lang="sv">Tillståndets typ</Name>
+				<Name lang="sv">Typ av tillstånd</Name>
 				<Name lang="en">Authorisation type</Name>
 				<Use>FI403A</Use><Use>FI429A</Use>
 				<XPath>Category</XPath>
@@ -234,38 +229,6 @@
 				<Format>an..4</Format>
 			</DataElement>
 		</DataGroup-->
-		<DataGroup>
-			<Name lang="fi">Korjaus</Name>
-			<Name lang="sv">Korrigering</Name>
-			<Name lang="en">Amendment</Name>
-			<XPath>Amendment</XPath>
-			<MinOccurence>1</MinOccurence>
-			<MaxOccurence>1</MaxOccurence>
-			<DataElement>
-				<Name lang="fi">Korjauksen päiväys ja aika</Name>
-				<Name lang="sv">Korrigeringens datum och tid</Name>
-				<Name lang="en">Amendment date and time</Name>
-				<XPath>Amendment</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Format>dateTime</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Korjauspyynnön syy</Name>
-				<Name lang="sv">Orsak till korrigeringsbegäran</Name>
-				<Name lang="en">Reason for amendment request</Name>
-				<XPath>ChangeReason</XPath>
-				<MinOccurence>0</MinOccurence>
-				<Format>an..512</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Pyynnön korrelaatio</Name>
-				<Name lang="sv">Begärans korrelation</Name>
-				<Name lang="en">Request correlation</Name>
-				<XPath>RequestCorrelation</XPath>
-				<MinOccurence>0</MinOccurence>
-				<Format>an38</Format>
-			</DataElement>
-		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Ilmoitus</Name>
 			<Name lang="sv">Underrättelse</Name>
@@ -279,11 +242,14 @@
 			<Use>FI428A</Use>
 			<Use>FI429A</Use>
 			<Use>FI444A</Use>
+			<Use>FI445A</Use>
 			<Use>FI448A</Use>
 			<Use>FI450A</Use>
+			<Use>FI451A</Use>
 			<Use>FI452A</Use>
 			<Use>FI468A</Use>
 			<Use>FI470A</Use>
+			<Use>FI905A</Use>
 			<XPath>Notification</XPath>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
@@ -300,11 +266,14 @@
 				<Use>FI428A</Use>
 				<Use>FI429A</Use>
 				<Use>FI444A</Use>
+				<Use>FI445A</Use>
 				<Use>FI448A</Use>
 				<Use>FI450A</Use>
+				<Use>FI451A</Use>
 				<Use>FI452A</Use>
 				<Use>FI468A</Use>
 				<Use>FI470A</Use>
+				<Use>FI905A</Use>
 				<XPath>Type</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Format>an3</Format>
@@ -322,8 +291,10 @@
 				<Use>FI428A</Use>
 				<Use>FI429A</Use>
 				<Use>FI444A</Use>
+				<Use>FI445A</Use>
 				<Use>FI448A</Use>
 				<Use>FI450A</Use>
+				<Use>FI451A</Use>
 				<Use>FI452A</Use>
 				<Use>FI468A</Use>
 				<Use>FI470A</Use>
@@ -332,11 +303,19 @@
 				<Format>dateTime</Format>
 			</DataElement>
 			<DataElement>
+				<Name lang="fi">Veronmääräytymispäivä</Name>
+				<Name lang="sv">Datum för skattebestämning</Name>
+				<Name lang="en">Tax determination date</Name>
+				<Use>FI468A</Use>
+				<XPath>TaxDetermination</XPath>
+				<MinOccurence>0</MinOccurence>
+				<Format>date</Format>
+			</DataElement>
+			<DataElement>
 				<Name lang="fi">Ilmoituksen kuvaus</Name>
 				<Name lang="sv">Underrättelsens beskrivning</Name>
 				<Name lang="en">Notification description</Name>
 				<Use>FI416A</Use>
-				<Use>FI426A</Use>
 				<Use>FI429A</Use>
 				<Use>FI444A</Use>
 				<Use>FI450A</Use>
@@ -346,6 +325,52 @@
 				<XPath>Text</XPath>
 				<MinOccurence>0</MinOccurence>
 				<Format>an..4096</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Katettava määrä</Name>
+				<Name lang="sv">Belopp som ska täckas</Name>
+				<Name lang="en">Amount to be covered</Name>
+				<Use>FI470A</Use>
+				<XPath>GuaranteeAmount</XPath>
+				<MinOccurence>0</MinOccurence>
+				<Format>n..16,2</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Ilmoituksen osa</Name>
+				<Name lang="sv">Deklarationens del</Name>
+				<Name lang="en">Declaration part</Name>
+				<Use>FI905A</Use>
+				<XPath>Element</XPath>
+				<MinOccurence>0</MinOccurence>
+				<Format>an..70</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Yhteenkuuluva tavaraerä</Name>
+				<Name lang="sv">Sammanhörande varupost</Name>
+				<Name lang="en">Related goods item</Name>
+				<Use>FI905A</Use>
+				<XPath>Sequence</XPath>
+				<MinOccurence>0</MinOccurence>
+				<Format>n..5</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Nykyinen tila</Name>
+				<Name lang="sv">Nuvarande tillstånd</Name>
+				<Name lang="en">Current state</Name>
+				<Use>FI905A</Use>
+				<XPath>CurrentState</XPath>
+				<MinOccurence>1</MinOccurence>
+				<Format>an..35</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Tilamuutoksen syy</Name>
+				<Name lang="sv">Orsak till tillståndsändring</Name>
+				<Name lang="en">Reason for state change</Name>
+				<Use>FI905A</Use>
+				<XPath>StateChangeReason</XPath>
+				<MinOccurence>1</MinOccurence>
+				<Codelist>NCL###</Codelist>
+				<Format>an..10</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Yhteydenoton syy</Name>
@@ -395,10 +420,12 @@
 				<Format>an38</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="fi">Vastauksen määräaika</Name>
-				<Name lang="sv">Tidsgräns för svar</Name>
-				<Name lang="en">Time limit for response</Name>
+				<Name lang="fi">Määräaika</Name>
+				<Name lang="sv">Tidsgräns</Name>
+				<Name lang="en">Time limit</Name>
 				<Use>FI444A</Use>
+				<Use>FI445A</Use>
+				<Use>FI451A</Use>
 				<Use>FI452A</Use>
 				<XPath>Limit</XPath>
 				<MinOccurence>0</MinOccurence>
@@ -414,7 +441,9 @@
 				<Use>FI410A</Use>
 				<Use>FI419A</Use>
 				<Use>FI429A</Use>
+				<Use>FI445A</Use>
 				<Use>FI448A</Use>
+				<Use>FI451A</Use>
 				<Use>FI468A</Use>
 				<XPath>Decision</XPath>
 				<MinOccurence>0</MinOccurence>
@@ -428,7 +457,9 @@
 					<Use>FI410A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<Use>FI448A</Use>
+					<Use>FI451A</Use>
 					<Use>FI468A</Use>
 					<XPath>Decision</XPath>
 					<MinOccurence>1</MinOccurence>
@@ -444,7 +475,9 @@
 					<Use>FI410A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<Use>FI448A</Use>
+					<Use>FI451A</Use>
 					<Use>FI468A</Use>
 					<XPath>Note</XPath>
 					<MinOccurence>0</MinOccurence>
@@ -458,7 +491,9 @@
 						<Use>FI410A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<Use>FI448A</Use>
+						<Use>FI451A</Use>
 						<Use>FI468A</Use>
 						<XPath>Note</XPath>
 						<MinOccurence>1</MinOccurence>
@@ -474,7 +509,9 @@
 						<Use>FI410A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<Use>FI448A</Use>
+						<Use>FI451A</Use>
 						<Use>FI468A</Use>
 						<XPath>NoteDescription</XPath>
 						<MinOccurence>1</MinOccurence>
@@ -494,8 +531,10 @@
 				<Use>FI419A</Use>
 				<Use>FI429A</Use>
 				<Use>FI444A</Use>
+				<Use>FI445A</Use>
 				<Use>FI448A</Use>
 				<Use>FI450A</Use>
+				<Use>FI451A</Use>
 				<Use>FI452A</Use>
 				<Use>FI468A</Use>
 				<Use>FI470A</Use>
@@ -513,8 +552,10 @@
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
 					<Use>FI444A</Use>
+					<Use>FI445A</Use>
 					<Use>FI448A</Use>
 					<Use>FI450A</Use>
+					<Use>FI451A</Use>
 					<Use>FI452A</Use>
 					<Use>FI468A</Use>
 					<Use>FI470A</Use>
@@ -534,8 +575,10 @@
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
 					<Use>FI444A</Use>
+					<Use>FI445A</Use>
 					<Use>FI448A</Use>
 					<Use>FI450A</Use>
+					<Use>FI451A</Use>
 					<Use>FI452A</Use>
 					<Use>FI468A</Use>
 					<Use>FI470A</Use>
@@ -555,8 +598,10 @@
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
 					<Use>FI444A</Use>
+					<Use>FI445A</Use>
 					<Use>FI448A</Use>
 					<Use>FI450A</Use>
+					<Use>FI451A</Use>
 					<Use>FI452A</Use>
 					<Use>FI468A</Use>
 					<Use>FI470A</Use>
@@ -570,6 +615,7 @@
 				<Name lang="fi">Tarkastus</Name>
 				<Name lang="sv">Kontroll</Name>
 				<Name lang="en">Control</Name>
+				<Use>FI445A</Use>
 				<Use>FI450A</Use>
 				<XPath>Control</XPath>
 				<MinOccurence>1</MinOccurence>
@@ -589,36 +635,66 @@
 					<Name lang="fi">Tarkastuksen sijainti</Name>
 					<Name lang="sv">Kontrollplats</Name>
 					<Name lang="en">Control location</Name>
+					<Use>FI445A</Use>
 					<Use>FI450A</Use>
 					<XPath>Location</XPath>
 					<MinOccurence>0</MinOccurence>
 					<GeneralType>String</GeneralType>
 					<Format>an..100</Format>
 				</DataElement>
-				<DataElement>
-					<Name lang="fi">Kontakti</Name>
-					<Name lang="sv">Kontakt</Name>
-					<Name lang="en">Contact</Name>
+				<DataGroup>
+					<Name lang="fi">Yhteystiedot</Name>
+					<Name lang="sv">Kontaktuppgifter</Name>
+					<Name lang="en">Contact information</Name>
 					<Use>FI450A</Use>
 					<XPath>Contact</XPath>
 					<MinOccurence>0</MinOccurence>
-					<GeneralType>String</GeneralType>
-					<Format>an..200</Format>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Tullitoimipaikan nimi</Name>
+						<Name lang="sv">Tullkontorets namn</Name>
+						<Name lang="en">Customs office name</Name>
+						<Use>FI450A</Use>
+						<XPath>Name</XPath>
+						<MinOccurence>1</MinOccurence>
+						<Format>an..70</Format>
+					</DataElement>
+					<DataElement>
+						<Name lang="fi">Sähköpostiosoite</Name>
+						<Name lang="sv">E-postadress</Name>
+						<Name lang="en">E-mail address</Name>
+						<Use>FI450A</Use>
+						<XPath>Email</XPath>
+						<MinOccurence>1</MinOccurence>
+						<Format>an..320</Format>
+					</DataElement>
+					<DataElement>
+						<Name lang="fi">Puhelinnumero</Name>
+						<Name lang="sv">Telefonnummer</Name>
+						<Name lang="en">Telephone number</Name>
+						<Use>FI450A</Use>
+						<XPath>Telephone</XPath>
+						<MinOccurence>1</MinOccurence>
+						<Format>an..20</Format>
+					</DataElement>
+				</DataGroup>
 			</DataGroup>
 			<DataGroup>
 				<Name lang="fi">Virhe</Name>
 				<Name lang="sv">Fel</Name>
 				<Name lang="en">Error</Name>
 				<Use>FI416A</Use>
+				<Use>FI444A</Use>
 				<XPath>Error</XPath>
 				<MinOccurence>1</MinOccurence>
+				<MinOccurence use="FI444A">0</MinOccurence>
 				<MaxOccurence>999</MaxOccurence>
 				<DataElement>
 					<Name lang="fi">Virhekoodi</Name>
 					<Name lang="sv">Felkod</Name>
 					<Name lang="en">Error code</Name>
 					<Use>FI416A</Use>
+					<Use>FI444A</Use>
 					<XPath>Code</XPath>
 					<MinOccurence>1</MinOccurence>
 					<GeneralType>String</GeneralType>
@@ -629,6 +705,7 @@
 					<Name lang="sv">Felorsak</Name>
 					<Name lang="en">Error reason</Name>
 					<Use>FI416A</Use>
+					<Use>FI444A</Use>
 					<XPath>Reason</XPath>
 					<MinOccurence>0</MinOccurence>
 					<GeneralType>String</GeneralType>
@@ -640,6 +717,7 @@
 					<Name lang="sv">Felpointer</Name>
 					<Name lang="en">Error pointer</Name>
 					<Use>FI416A</Use>
+					<Use>FI444A</Use>
 					<XPath>Pointer/Location</XPath>
 					<MinOccurence>1</MinOccurence>
 					<GeneralType>String</GeneralType>
@@ -650,6 +728,7 @@
 					<Name lang="sv">Ursprungligt attributvärde</Name>
 					<Name lang="en">Original attribute value</Name>
 					<Use>FI416A</Use>
+					<Use>FI444A</Use>
 					<XPath>OriginalValue</XPath>
 					<MinOccurence>0</MinOccurence>
 					<GeneralType>String</GeneralType>
@@ -688,6 +767,7 @@
 			<Use>FI403A</Use>
 			<Use>FI419A</Use>
 			<Use>FI429A</Use>
+			<Use>FI445A</Use>
 			<Use>FI468A</Use>
 			<XPath>Agent</XPath>
 			<MinOccurence>0</MinOccurence>
@@ -699,6 +779,7 @@
 				<Use>FI403A</Use>
 				<Use>FI419A</Use>
 				<Use>FI429A</Use>
+				<Use>FI445A</Use>
 				<Use>FI468A</Use>
 				<XPath>Function</XPath>
 				<MinOccurence>1</MinOccurence>
@@ -712,18 +793,20 @@
 				<Use>FI403A</Use>
 				<Use>FI419A</Use>
 				<Use>FI429A</Use>
+				<Use>FI445A</Use>
 				<Use>FI468A</Use>
 				<XPath>Identification</XPath>
-				<MinOccurence>0</MinOccurence>
+				<MinOccurence>1</MinOccurence>
 				<Format>an..17</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Toimipaikkakoodi</Name>
-				<Name lang="sv">Kontorskod</Name>
+				<Name lang="sv">Kod fär verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
 				<Use>FI403A</Use>
 				<Use>FI419A</Use>
 				<Use>FI429A</Use>
+				<Use>FI445A</Use>
 				<Use>FI468A</Use>
 				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
@@ -736,6 +819,7 @@
 				<Use>FI403A</Use>
 				<Use>FI419A</Use>
 				<Use>FI429A</Use>
+				<Use>FI445A</Use>
 				<Use>FI468A</Use>
 				<XPath>Name</XPath>
 				<MinOccurence>1</MinOccurence>
@@ -748,6 +832,7 @@
 				<Use>FI403A</Use>
 				<Use>FI419A</Use>
 				<Use>FI429A</Use>
+				<Use>FI445A</Use>
 				<Use>FI468A</Use>
 				<XPath>Role</XPath>
 				<MinOccurence>1</MinOccurence>
@@ -761,9 +846,10 @@
 				<Use>FI403A</Use>
 				<Use>FI419A</Use>
 				<Use>FI429A</Use>
+				<Use>FI445A</Use>
 				<Use>FI468A</Use>
 				<XPath>Address</XPath>
-				<MinOccurence>1</MinOccurence>
+				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
 					<Name lang="fi">Katuosoite</Name>
@@ -772,6 +858,7 @@
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<Use>FI468A</Use>
 					<XPath>Line</XPath>
 					<MinOccurence>1</MinOccurence>
@@ -779,11 +866,12 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Postitoimipaikka</Name>
-					<Name lang="sv">Ort</Name>
+					<Name lang="sv">Postanstalt</Name>
 					<Name lang="en">City</Name>
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<Use>FI468A</Use>
 					<XPath>CityName</XPath>
 					<MinOccurence>1</MinOccurence>
@@ -796,6 +884,7 @@
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<Use>FI468A</Use>
 					<XPath>Postcode</XPath>
 					<MinOccurence>1</MinOccurence>
@@ -808,6 +897,7 @@
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<Use>FI468A</Use>
 					<XPath>Country</XPath>
 					<MinOccurence>1</MinOccurence>
@@ -857,7 +947,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Toimipaikkakoodi</Name>
-				<Name lang="sv">Kontorskod</Name>
+				<Name lang="sv">Kod fär verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
 				<Use>FI403A</Use>
 				<Use>FI429A</Use>
@@ -897,7 +987,7 @@
 				<Use>FI429A</Use>
 				<Use>FI468A</Use>
 				<XPath>Address</XPath>
-				<MinOccurence>1</MinOccurence>
+				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
 					<Name lang="fi">Katuosoite</Name>
@@ -912,7 +1002,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Postitoimipaikka</Name>
-					<Name lang="sv">Ort</Name>
+					<Name lang="sv">Postanstalt</Name>
 					<Name lang="en">City</Name>
 					<Use>FI403A</Use>
 					<Use>FI429A</Use>
@@ -953,11 +1043,10 @@
 			<Use>FI403A</Use>
 			<Use>FI419A</Use>
 			<Use>FI429A</Use>
+			<Use>FI445A</Use>
 			<Use>FI468A</Use>
 			<XPath>Exporter</XPath>
 			<MinOccurence>0</MinOccurence>
-			<MinOccurence use="FI483A">1</MinOccurence>
-			<MinOccurence use="FI485A">1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
@@ -971,7 +1060,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Toimipaikkakoodi</Name>
-				<Name lang="sv">Kontorskod</Name>
+				<Name lang="sv">Kod fär verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
 				<Use>FI403A</Use>
 				<Use>FI429A</Use>
@@ -986,11 +1075,10 @@
 				<Use>FI403A</Use>
 				<Use>FI419A</Use>
 				<Use>FI429A</Use>
+				<Use>FI445A</Use>
 				<Use>FI468A</Use>
 				<XPath>Name</XPath>
 				<MinOccurence>1</MinOccurence>
-				<MinOccurence use="FI483A">1</MinOccurence>
-				<MinOccurence use="FI485A">1</MinOccurence>
 				<Format>an..70</Format>
 			</DataElement>
 			<DataGroup>
@@ -1001,8 +1089,6 @@
 				<Use>FI429A</Use>
 				<XPath>Address</XPath>
 				<MinOccurence>0</MinOccurence>
-				<MinOccurence use="FI483A">1</MinOccurence>
-				<MinOccurence use="FI485A">1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
 					<Name lang="fi">Katuosoite</Name>
@@ -1016,7 +1102,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Postitoimipaikka</Name>
-					<Name lang="sv">Ort</Name>
+					<Name lang="sv">Postanstalt</Name>
 					<Name lang="en">City</Name>
 					<Use>FI403A</Use>
 					<Use>FI429A</Use>
@@ -1048,104 +1134,6 @@
 			</DataGroup>
 		</DataGroup>
 		<DataGroup>
-			<Name lang="fi">Ilmoituksen antaja</Name>
-			<Name lang="sv">Inlämnare</Name>
-			<Name lang="en">Submitter</Name>
-			<Use>FI403A</Use>
-			<Use>FI419A</Use>
-			<Use>FI429A</Use>
-			<Use>FI468A</Use>
-			<XPath>Submitter</XPath>
-			<MinOccurence>1</MinOccurence>
-			<MaxOccurence>1</MaxOccurence>
-			<DataElement>
-				<Name lang="fi">Nimi</Name>
-				<Name lang="sv">Name</Name>
-				<Name lang="en">Name</Name>
-				<Use>FI403A</Use>
-				<Use>FI419A</Use>
-				<Use>FI429A</Use>
-				<Use>FI468A</Use>
-				<XPath>Name</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Format>an..70</Format>
-			</DataElement>
-			<DataGroup>
-				<Name lang="fi">Sähköposti</Name>
-				<Name lang="sv">E-post</Name>
-				<Name lang="en">E-mail</Name>
-				<Use>FI403A</Use>
-				<Use>FI419A</Use>
-				<Use>FI429A</Use>
-				<Use>FI468A</Use>
-				<XPath>Communication</XPath>
-				<MinOccurence>1</MinOccurence>
-				<MaxOccurence>1</MaxOccurence>
-				<DataElement>
-					<Name lang="fi">Sähköpostiosoite</Name>
-					<Name lang="sv">E-postadress</Name>
-					<Name lang="en">E-mail address</Name>
-					<Use>FI403A</Use>
-					<Use>FI419A</Use>
-					<Use>FI429A</Use>
-					<Use>FI468A</Use>
-					<XPath>Identification</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>an..320</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Viestintätapa</Name>
-					<Name lang="sv">Kommunikationsmedel</Name>
-					<Name lang="en">Communication means</Name>
-					<Use>FI403A</Use>
-					<Use>FI419A</Use>
-					<Use>FI429A</Use>
-					<Use>FI468A</Use>
-					<XPath>Type</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Codelist>CL707</Codelist>
-					<Format>a2</Format>
-				</DataElement>
-			</DataGroup>
-			<DataGroup>
-				<Name lang="fi">Puhelin</Name>
-				<Name lang="sv">Telefon</Name>
-				<Name lang="en">Telephone</Name>
-				<Use>FI403A</Use>
-				<Use>FI419A</Use>
-				<Use>FI429A</Use>
-				<Use>FI468A</Use>
-				<XPath>Communication</XPath>
-				<MinOccurence>0</MinOccurence>
-				<MaxOccurence>1</MaxOccurence>
-				<DataElement>
-					<Name lang="fi">Puhelinnumero</Name>
-					<Name lang="sv">Telefonnummer</Name>
-					<Name lang="en">Telephone number</Name>
-					<Use>FI403A</Use>
-					<Use>FI419A</Use>
-					<Use>FI429A</Use>
-					<Use>FI468A</Use>
-					<XPath>Identification</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>an..20</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Viestintätapa</Name>
-					<Name lang="sv">Kommunikationsmedel</Name>
-					<Name lang="en">Communication means</Name>
-					<Use>FI403A</Use>
-					<Use>FI419A</Use>
-					<Use>FI429A</Use>
-					<Use>FI468A</Use>
-					<XPath>Type</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Codelist>CL707</Codelist>
-					<Format>a2</Format>
-				</DataElement>
-			</DataGroup>
-		</DataGroup>
-		<DataGroup>
 			<Name lang="fi">Palveluntarjoaja</Name>
 			<Name lang="sv">Tjänsteleverantör</Name>
 			<Name lang="en">Service provider</Name>
@@ -1166,8 +1154,114 @@
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
+			<Name lang="fi">Ilmoituksen antaja</Name>
+			<Name lang="sv">Person som inger deklarationen</Name>
+			<Name lang="en">Submitter</Name>
+			<Use>FI403A</Use>
+			<Use>FI419A</Use>
+			<Use>FI429A</Use>
+			<Use>FI445A</Use>
+			<Use>FI468A</Use>
+			<XPath>Submitter</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="fi">Nimi</Name>
+				<Name lang="sv">Name</Name>
+				<Name lang="en">Name</Name>
+				<Use>FI403A</Use>
+				<Use>FI419A</Use>
+				<Use>FI429A</Use>
+				<Use>FI445A</Use>
+				<Use>FI468A</Use>
+				<XPath>Name</XPath>
+				<MinOccurence>1</MinOccurence>
+				<Format>an..70</Format>
+			</DataElement>
+			<DataGroup>
+				<Name lang="fi">Sähköposti</Name>
+				<Name lang="sv">E-post</Name>
+				<Name lang="en">E-mail</Name>
+				<Use>FI403A</Use>
+				<Use>FI419A</Use>
+				<Use>FI429A</Use>
+				<Use>FI445A</Use>
+				<Use>FI468A</Use>
+				<XPath>Communication</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Sähköpostiosoite</Name>
+					<Name lang="sv">E-postadress</Name>
+					<Name lang="en">E-mail address</Name>
+					<Use>FI403A</Use>
+					<Use>FI419A</Use>
+					<Use>FI429A</Use>
+					<Use>FI445A</Use>
+					<Use>FI468A</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Format>an..320</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="fi">Viestintätapa</Name>
+					<Name lang="sv">Kommunikationsmedel</Name>
+					<Name lang="en">Communication means</Name>
+					<Use>FI403A</Use>
+					<Use>FI419A</Use>
+					<Use>FI429A</Use>
+					<Use>FI445A</Use>
+					<Use>FI468A</Use>
+					<XPath>Type</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Codelist>CL707</Codelist>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+			<DataGroup>
+				<Name lang="fi">Puhelin</Name>
+				<Name lang="sv">Telefon</Name>
+				<Name lang="en">Telephone</Name>
+				<Use>FI403A</Use>
+				<Use>FI419A</Use>
+				<Use>FI429A</Use>
+				<Use>FI445A</Use>
+				<Use>FI468A</Use>
+				<XPath>Communication</XPath>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Puhelinnumero</Name>
+					<Name lang="sv">Telefonnummer</Name>
+					<Name lang="en">Telephone number</Name>
+					<Use>FI403A</Use>
+					<Use>FI419A</Use>
+					<Use>FI429A</Use>
+					<Use>FI445A</Use>
+					<Use>FI468A</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Format>an..20</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="fi">Viestintätapa</Name>
+					<Name lang="sv">Kommunikationsmedel</Name>
+					<Name lang="en">Communication means</Name>
+					<Use>FI403A</Use>
+					<Use>FI419A</Use>
+					<Use>FI429A</Use>
+					<Use>FI445A</Use>
+					<Use>FI468A</Use>
+					<XPath>Type</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Codelist>CL707</Codelist>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+		</DataGroup>
+		<DataGroup>
 			<Name lang="fi">Liiteasiakirja</Name>
-			<Name lang="sv">Bifogad handling</Name>
+			<Name lang="sv">Bifogat dokument</Name>
 			<Name lang="en">Supporting document</Name>
 			<Use>FI403A</Use>
 			<Use>FI429A</Use>
@@ -1176,7 +1270,7 @@
 			<MaxOccurence>99</MaxOccurence>
 			<DataElement>
 				<Name lang="fi">Asiakirjatyyppi</Name>
-				<Name lang="sv">Dokumentets typ</Name>
+				<Name lang="sv">Typ av dokument</Name>
 				<Name lang="en">Document type</Name>
 				<Use>FI403A</Use>
 				<Use>FI429A</Use>
@@ -1187,8 +1281,8 @@
 				<Format>an..4</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="fi">Asiakirjatunniste</Name>
-				<Name lang="sv">Dokumentets identifiering</Name>
+				<Name lang="fi">Asiakirjan tunniste</Name>
+				<Name lang="sv">Identifierare för dokument</Name>
 				<Name lang="en">Document identifier</Name>
 				<Use>FI403A</Use>
 				<Use>FI429A</Use>
@@ -1207,10 +1301,51 @@
 				<Format>an..35</Format>
 			</DataElement>
 		</DataGroup>
+		<DataGroup>
+			<Name lang="fi">Lupa</Name>
+			<Name lang="sv">Tillstånd</Name>
+			<Name lang="en">Authorisation</Name>
+			<Use>FI403A</Use>
+			<Use>FI429A</Use>
+			<XPath>Authorisation</XPath>
+			<MinOccurence>0</MinOccurence>
+			<MaxOccurence>9</MaxOccurence>
+			<DataElement>
+				<Name lang="fi">Luvan tyyppi</Name>
+				<Name lang="sv">Typ av tillstånd</Name>
+				<Name lang="en">Authorisation type</Name>
+				<Use>FI403A</Use>
+				<Use>FI429A</Use>
+				<XPath>Category</XPath>
+				<MinOccurence>1</MinOccurence>
+				<Codelist>CL605</Codelist>
+				<Format>an..4</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Asiakirjan tunniste</Name>
+				<Name lang="sv">Identifierare för dokument</Name>
+				<Name lang="en">Document identifier</Name>
+				<Use>FI403A</Use>
+				<Use>FI429A</Use>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<Format>an..35</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Luvanhaltijan tunnistenumero</Name>
+				<Name lang="sv">Tillståndshavarens identifieringsnummer</Name>
+				<Name lang="en">Holder of the authorisation identification no.</Name>
+				<Use>FI403A</Use>
+				<Use>FI429A</Use>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<Format>an..17</Format>
+			</DataElement>
+		</DataGroup>
 		<!-->TransportDocument!!<-->
 		<DataGroup>
 			<Name lang="fi">Lisätieto</Name>
-			<Name lang="sv">Ytterligare uppgift</Name>
+			<Name lang="sv">Ytterligare uppgifter</Name>
 			<Name lang="en">Additional information</Name>
 			<Use>FI403A</Use>
 			<Use>FI429A</Use>
@@ -1219,7 +1354,7 @@
 			<MaxOccurence>99</MaxOccurence>
 			<DataElement>
 				<Name lang="fi">Lisätietokoodi</Name>
-				<Name lang="sv">Kod för ytterligare uppgift</Name>
+				<Name lang="sv">Kod för ytterligare uppgifter</Name>
 				<Name lang="en">Additional information code</Name>
 				<Use>FI403A</Use>
 				<Use>FI429A</Use>
@@ -1230,7 +1365,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Lisätiedon kuvaus</Name>
-				<Name lang="sv">Beskrivning för ytterligare uppgifter</Name>
+				<Name lang="sv">Beskrivning av ytterligare uppgifter</Name>
 				<Name lang="en">Additional information description</Name>
 				<Use>FI403A</Use>
 				<Use>FI429A</Use>
@@ -1241,7 +1376,7 @@
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Rajan ylittävä aktiivinen kuljetusväline</Name>
-			<Name lang="sv">Aktiva transportmedlet vid gränsen</Name>
+			<Name lang="sv">Aktiva transportmedlet vid gränspassagen</Name>
 			<Name lang="en">Active border transport means</Name>
 			<Use>FI403A</Use>
 			<Use>FI429A</Use>
@@ -1250,7 +1385,7 @@
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
 				<Name lang="fi">Kuljetusmuoto rajalla</Name>
-				<Name lang="sv">Transportsätt vid gränsen</Name>
+				<Name lang="sv">Transportsätt vid gränspassagen</Name>
 				<Name lang="en">Mode of transport at the border</Name>
 				<Use>FI403A</Use>
 				<Use>FI429A</Use>
@@ -1279,15 +1414,6 @@
 			<XPath>DutyTaxFee</XPath>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>99</MaxOccurence>
-			<DataElement>
-				<Name lang="fi">Veronmääräytymispäivä</Name>
-				<Name lang="sv">Datum för skattebestämning</Name>
-				<Name lang="en">Tax determination date</Name>
-				<Use>FI468A</Use>
-				<XPath>ElectedEntry</XPath>
-				<MinOccurence>0</MinOccurence>
-				<Format>date</Format>
-			</DataElement>
 			<DataElement>
 				<Name lang="fi">Verolaji</Name>
 				<Name lang="sv">Skattetyp</Name>
@@ -1434,6 +1560,7 @@
 			<Use>FI403A</Use>
 			<Use>FI419A</Use>
 			<Use>FI429A</Use>
+			<Use>FI445A</Use>
 			<Use>FI468A</Use>
 			<XPath>GoodsShipment</XPath>
 			<MinOccurence>1</MinOccurence>
@@ -1456,7 +1583,7 @@
 				<Use>FI403A</Use>
 				<Use>FI429A</Use>
 				<XPath>Destination/Country</XPath>
-				<MinOccurence>1</MinOccurence>
+				<MinOccurence>0</MinOccurence>
 				<Codelist>CL010</Codelist>
 				<Format>a2</Format>
 			</DataElement>
@@ -1492,7 +1619,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Toimipaikkakoodi</Name>
-					<Name lang="sv">Kontorskod</Name>
+					<Name lang="sv">Kod fär verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI403A</Use>
 					<Use>FI429A</Use>
@@ -1533,7 +1660,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Toimipaikkakoodi</Name>
-					<Name lang="sv">Kontorskod</Name>
+					<Name lang="sv">Kod fär verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI403A</Use>
 					<Use>FI429A</Use>
@@ -1572,7 +1699,7 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Postitoimipaikka</Name>
-						<Name lang="sv">Ort</Name>
+						<Name lang="sv">Postanstalt</Name>
 						<Name lang="en">City</Name>
 						<Use>FI403A</Use>
 						<Use>FI429A</Use>
@@ -1624,7 +1751,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Toimipaikkakoodi</Name>
-					<Name lang="sv">Kontorskod</Name>
+					<Name lang="sv">Kod fär verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI403A</Use>
 					<Use>FI429A</Use>
@@ -1651,6 +1778,7 @@
 				<Use>FI403A</Use>
 				<Use>FI419A</Use>
 				<Use>FI429A</Use>
+				<Use>FI445A</Use>
 				<Use>FI468A</Use>
 				<XPath>Importer</XPath>
 				<MinOccurence>1</MinOccurence>
@@ -1662,6 +1790,7 @@
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<Use>FI468A</Use>
 					<XPath>Identification</XPath>
 					<MinOccurence>1</MinOccurence>
@@ -1669,11 +1798,12 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Toimipaikkakoodi</Name>
-					<Name lang="sv">Kontorskod</Name>
+					<Name lang="sv">Kod fär verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<Use>FI468A</Use>
 					<XPath>AdditionalIdentifier/Identification</XPath>
 					<MinOccurence>0</MinOccurence>
@@ -1686,6 +1816,7 @@
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<Use>FI468A</Use>
 					<XPath>Name</XPath>
 					<MinOccurence>1</MinOccurence>
@@ -1698,6 +1829,7 @@
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<Use>FI468A</Use>
 					<XPath>Role</XPath>
 					<MinOccurence>1</MinOccurence>
@@ -1711,9 +1843,10 @@
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<Use>FI468A</Use>
 					<XPath>Address</XPath>
-					<MinOccurence>1</MinOccurence>
+					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
 						<Name lang="fi">Katuosoite</Name>
@@ -1722,6 +1855,7 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<Use>FI468A</Use>
 						<XPath>Line</XPath>
 						<MinOccurence>1</MinOccurence>
@@ -1729,11 +1863,12 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Postitoimipaikka</Name>
-						<Name lang="sv">Ort</Name>
+						<Name lang="sv">Postanstalt</Name>
 						<Name lang="en">City</Name>
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<Use>FI468A</Use>
 						<XPath>CityName</XPath>
 						<MinOccurence>1</MinOccurence>
@@ -1746,6 +1881,7 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<Use>FI468A</Use>
 						<XPath>Postcode</XPath>
 						<MinOccurence>1</MinOccurence>
@@ -1758,6 +1894,7 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<Use>FI468A</Use>
 						<XPath>Country</XPath>
 						<MinOccurence>1</MinOccurence>
@@ -1773,6 +1910,7 @@
 				<Use>FI403A</Use>
 				<Use>FI419A</Use>
 				<Use>FI429A</Use>
+				<Use>FI445A</Use>
 				<Use>FI468A</Use>
 				<XPath>Seller</XPath>
 				<MinOccurence>0</MinOccurence>
@@ -1789,7 +1927,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Toimipaikkakoodi</Name>
-					<Name lang="sv">Kontorskod</Name>
+					<Name lang="sv">Kod fär verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI403A</Use>
 					<Use>FI429A</Use>
@@ -1804,6 +1942,7 @@
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<Use>FI468A</Use>
 					<XPath>Name</XPath>
 					<MinOccurence>1</MinOccurence>
@@ -1830,7 +1969,7 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Postitoimipaikka</Name>
-						<Name lang="sv">Ort</Name>
+						<Name lang="sv">Postanstalt</Name>
 						<Name lang="en">City</Name>
 						<Use>FI403A</Use>
 						<Use>FI429A</Use>
@@ -1868,8 +2007,9 @@
 				<Use>FI403A</Use>
 				<Use>FI419A</Use>
 				<Use>FI429A</Use>
+				<Use>FI445A</Use>
 				<XPath>Consignment</XPath>
-				<MinOccurence>1</MinOccurence>
+				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
 					<Name lang="fi">Kontti</Name>
@@ -1930,6 +2070,7 @@
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<XPath>TransportEquipment</XPath>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>9999</MaxOccurence>
@@ -1940,6 +2081,7 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<XPath>Identification</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Format>an..17</Format>
@@ -1951,12 +2093,13 @@
 					<Name lang="en">Location of goods</Name>
 					<Use>FI403A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<XPath>GoodsLocation</XPath>
-					<MinOccurence>1</MinOccurence>
+					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
 						<Name lang="fi">Sijaintipaikan tyyppi</Name>
-						<Name lang="sv">Typ av plats</Name>
+						<Name lang="sv">Typ av förvaringsplats</Name>
 						<Name lang="en">Type of location</Name>
 						<Use>FI403A</Use>
 						<Use>FI429A</Use>
@@ -1965,27 +2108,28 @@
 						<Codelist>CL521</Codelist>
 						<Format>a1</Format>
 					</DataElement>
-					<!--DataElement>
+					<DataElement>
 						<Name lang="fi">Tullitoimipaikka</Name>
 						<Name lang="sv">Tullkontor</Name>
 						<Name lang="en">Customs office</Name>
-						<Use>FI403A</Use><Use>FI429A</Use>
+						<Use>FI403A</Use>
+						<Use>FI419A</Use>
 						<XPath>Identification@function="CustomsOffice"</XPath>
 						<MinOccurence>0</MinOccurence>
 						<Format>an8</Format>
 						<Hyperlink lang="fi">
 							<URL>https://ec.europa.eu/taxation_customs/dds2/col/col_search_home.jsp?Screen=0&amp;Lang=fi</URL>
-							
+							<Description>Tullitoimipaikkaluettelo</Description>
 						</Hyperlink>
 						<Hyperlink lang="sv">
 							<URL>https://ec.europa.eu/taxation_customs/dds2/col/col_search_home.jsp?Screen=0&amp;Lang=sv</URL>
-							
+							<Description>Tullkontorslistan</Description>
 						</Hyperlink>
 						<Hyperlink lang="en">
 							<URL>https://ec.europa.eu/taxation_customs/dds2/col/col_search_home.jsp?Screen=0&amp;Lang=en</URL>
-							
+							<Description>Customs office list</Description>
 						</Hyperlink>
-					</DataElement-->
+					</DataElement>
 					<DataElement>
 						<Name lang="fi">Talouden toimija</Name>
 						<Name lang="sv">Ekonomisk aktör</Name>
@@ -2022,6 +2166,7 @@
 						<Name lang="en">Address</Name>
 						<Use>FI403A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<XPath>Address</XPath>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
@@ -2031,16 +2176,18 @@
 							<Name lang="en">Street and number</Name>
 							<Use>FI403A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<XPath>Line</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Format>an..70</Format>
 						</DataElement>
 						<DataElement>
 							<Name lang="fi">Postitoimipaikka</Name>
-							<Name lang="sv">Ort</Name>
+							<Name lang="sv">Postanstalt</Name>
 							<Name lang="en">City</Name>
 							<Use>FI403A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<XPath>CityName</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Format>an..35</Format>
@@ -2051,6 +2198,7 @@
 							<Name lang="en">Postcode</Name>
 							<Use>FI403A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<XPath>Postcode</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Format>an..9</Format>
@@ -2061,6 +2209,7 @@
 							<Name lang="en">Country</Name>
 							<Use>FI403A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<XPath>Country</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Codelist>CL008</Codelist>
@@ -2077,15 +2226,6 @@
 					<XPath>UnloadingLocation</XPath>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
-					<!--DataElement>
-						<Name lang="fi">Tullitoimipaikka</Name>
-						<Name lang="sv">Tullkontor</Name>
-						<Name lang="en">Customs office</Name>
-						<Use>FI403A</Use><Use>FI429A</Use>
-						<XPath>Identification@function="CustomsOffice"</XPath>
-						<MinOccurence>0</MinOccurence>
-						<Format>an8</Format>
-					</DataElement-->
 					<DataGroup>
 						<Name lang="fi">Osoite</Name>
 						<Name lang="sv">Adress</Name>
@@ -2107,7 +2247,7 @@
 						</DataElement>
 						<DataElement>
 							<Name lang="fi">Postitoimipaikka</Name>
-							<Name lang="sv">Ort</Name>
+							<Name lang="sv">Postanstalt</Name>
 							<Name lang="en">City</Name>
 							<Use>FI403A</Use>
 							<Use>FI429A</Use>
@@ -2223,7 +2363,7 @@
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
 					<Name lang="fi">Varaston tunniste</Name>
-					<Name lang="sv">Lageridentifierare</Name>
+					<Name lang="sv">Lagerkod</Name>
 					<Name lang="en">Warehouse identifier</Name>
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
@@ -2271,7 +2411,7 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Postitoimipaikka</Name>
-						<Name lang="sv">Ort</Name>
+						<Name lang="sv">Postanstalt</Name>
 						<Name lang="en">City</Name>
 						<Use>FI419A</Use>
 						<XPath>CityName</XPath>
@@ -2306,9 +2446,13 @@
 				<Use>FI403A</Use>
 				<Use>FI419A</Use>
 				<Use>FI429A</Use>
+				<Use>FI445A</Use>
 				<Use>FI468A</Use>
 				<XPath>GovernmentAgencyGoodsItem</XPath>
 				<MinOccurence>1</MinOccurence>
+				<MinOccurence use="FI403A">0</MinOccurence>
+				<MinOccurence use="FI429A">0</MinOccurence>
+				<MinOccurence use="FI468A">0</MinOccurence>
 				<MaxOccurence>99999</MaxOccurence>
 				<DataElement>
 					<Name lang="fi">Tavaraerän numero</Name>
@@ -2317,6 +2461,7 @@
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<Use>FI468A</Use>
 					<XPath>Sequence</XPath>
 					<MinOccurence>1</MinOccurence>
@@ -2370,9 +2515,13 @@
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<Use>FI468A</Use>
 					<XPath>Commodity</XPath>
 					<MinOccurence>1</MinOccurence>
+					<MinOccurence use="FI403A">0</MinOccurence>
+					<MinOccurence use="FI429A">0</MinOccurence>
+					<MinOccurence use="FI468A">0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
 						<Name lang="fi">Tavaran kuvaus</Name>
@@ -2381,13 +2530,14 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<XPath>Description</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Format>an..512</Format>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Erän laskutusarvo</Name>
-						<Name lang="sv">Fukturerat belopp</Name>
+						<Name lang="sv">Fakturerat belopp</Name>
 						<Name lang="en">Item amount invoiced</Name>
 						<Use>FI403A</Use>
 						<Use>FI429A</Use>
@@ -2413,9 +2563,10 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<Use>FI468A</Use>
 						<XPath>Classification</XPath>
-						<MinOccurence>1</MinOccurence>
+						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<DataElement>
 							<Name lang="fi">Tavaran koodi – harmonoidun järjestelmän koodi</Name>
@@ -2424,6 +2575,7 @@
 							<Use>FI403A</Use>
 							<Use>FI419A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<Use>FI468A</Use>
 							<XPath>Identification</XPath>
 							<MinOccurence>1</MinOccurence>
@@ -2436,6 +2588,7 @@
 							<Use>FI403A</Use>
 							<Use>FI419A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<Use>FI468A</Use>
 							<XPath>IdentificationType</XPath>
 							<MinOccurence>1</MinOccurence>
@@ -2450,11 +2603,10 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<Use>FI468A</Use>
 						<XPath>Classification</XPath>
-						<MinOccurence>1</MinOccurence>
-						<MinOccurence use="FI483A">0</MinOccurence>
-						<MinOccurence use="FI485A">0</MinOccurence>
+						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<DataElement>
 							<Name lang="fi">Tavaran koodi – yhdistetyn nimikkeistön koodi</Name>
@@ -2463,6 +2615,7 @@
 							<Use>FI403A</Use>
 							<Use>FI419A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<Use>FI468A</Use>
 							<XPath>Identification</XPath>
 							<MinOccurence>1</MinOccurence>
@@ -2475,6 +2628,7 @@
 							<Use>FI403A</Use>
 							<Use>FI419A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<Use>FI468A</Use>
 							<XPath>IdentificationType</XPath>
 							<MinOccurence>1</MinOccurence>
@@ -2489,6 +2643,7 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<Use>FI468A</Use>
 						<XPath>Classification</XPath>
 						<MinOccurence>0</MinOccurence>
@@ -2500,6 +2655,7 @@
 							<Use>FI403A</Use>
 							<Use>FI419A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<Use>FI468A</Use>
 							<XPath>Identification</XPath>
 							<MinOccurence>1</MinOccurence>
@@ -2512,6 +2668,7 @@
 							<Use>FI403A</Use>
 							<Use>FI419A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<Use>FI468A</Use>
 							<XPath>IdentificationType</XPath>
 							<MinOccurence>1</MinOccurence>
@@ -2526,6 +2683,7 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<Use>FI468A</Use>
 						<XPath>Classification</XPath>
 						<MinOccurence>0</MinOccurence>
@@ -2537,6 +2695,7 @@
 							<Use>FI403A</Use>
 							<Use>FI419A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<Use>FI468A</Use>
 							<XPath>Identification</XPath>
 							<MinOccurence>1</MinOccurence>
@@ -2549,6 +2708,7 @@
 							<Use>FI403A</Use>
 							<Use>FI419A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<Use>FI468A</Use>
 							<XPath>IdentificationType</XPath>
 							<MinOccurence>1</MinOccurence>
@@ -2563,6 +2723,7 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<Use>FI468A</Use>
 						<XPath>Classification</XPath>
 						<MinOccurence>0</MinOccurence>
@@ -2574,6 +2735,7 @@
 							<Use>FI403A</Use>
 							<Use>FI419A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<Use>FI468A</Use>
 							<XPath>Identification</XPath>
 							<MinOccurence>1</MinOccurence>
@@ -2587,6 +2749,7 @@
 							<Use>FI403A</Use>
 							<Use>FI419A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<Use>FI468A</Use>
 							<XPath>IdentificationType</XPath>
 							<MinOccurence>1</MinOccurence>
@@ -2601,6 +2764,7 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<XPath>Classification</XPath>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
@@ -2611,6 +2775,7 @@
 							<Use>FI403A</Use>
 							<Use>FI419A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<XPath>Identification</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Format>an9</Format>
@@ -2622,6 +2787,7 @@
 							<Use>FI403A</Use>
 							<Use>FI419A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<XPath>IdentificationType</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Codelist>NCL995</Codelist>
@@ -2868,6 +3034,7 @@
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<Use>FI468A</Use>
 					<XPath>GovernmentProcedure</XPath>
 					<MinOccurence>1</MinOccurence>
@@ -2879,6 +3046,7 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<Use>FI468A</Use>
 						<XPath>Current</XPath>
 						<MinOccurence>1</MinOccurence>
@@ -2892,6 +3060,7 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<Use>FI468A</Use>
 						<XPath>Previous</XPath>
 						<MinOccurence>1</MinOccurence>
@@ -2905,6 +3074,7 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<Use>FI468A</Use>
 						<XPath>AdditionalProcedure</XPath>
 						<MinOccurence>0</MinOccurence>
@@ -2916,6 +3086,7 @@
 							<Use>FI403A</Use>
 							<Use>FI419A</Use>
 							<Use>FI429A</Use>
+							<Use>FI445A</Use>
 							<Use>FI468A</Use>
 							<XPath>Procedure</XPath>
 							<MinOccurence>1</MinOccurence>
@@ -2931,6 +3102,7 @@
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<XPath>Packaging</XPath>
 					<MinOccurence>1</MinOccurence>
 					<MaxOccurence>99</MaxOccurence>
@@ -2941,6 +3113,7 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<XPath>MarksNumbers</XPath>
 						<MinOccurence>0</MinOccurence>
 						<Format>an..512</Format>
@@ -2952,6 +3125,7 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<XPath>Quantity</XPath>
 						<MinOccurence>0</MinOccurence>
 						<MinOccurence use="FI483A">1</MinOccurence>
@@ -2965,6 +3139,7 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<XPath>Type</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL017</Codelist>
@@ -2993,7 +3168,7 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Alkuperämaan tyyppi</Name>
-						<Name lang="sv">Ursprungslandstyp</Name>
+						<Name lang="sv">Typ av ursprungsland</Name>
 						<Name lang="en">Origin country type</Name>
 						<Use>FI403A</Use>
 						<Use>FI429A</Use>
@@ -3026,7 +3201,7 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Alkuperämaan tyyppi</Name>
-						<Name lang="sv">Ursprungslandstyp</Name>
+						<Name lang="sv">Typ av ursprungsland</Name>
 						<Name lang="en">Origin country type</Name>
 						<Use>FI403A</Use>
 						<Use>FI429A</Use>
@@ -3038,7 +3213,7 @@
 				</DataGroup>
 				<DataGroup>
 					<Name lang="fi">Liiteasiakirja</Name>
-					<Name lang="sv">Bifogad handling</Name>
+					<Name lang="sv">Bifogat dokument</Name>
 					<Name lang="en">Supporting document</Name>
 					<Use>FI403A</Use>
 					<Use>FI429A</Use>
@@ -3047,7 +3222,7 @@
 					<MaxOccurence>99</MaxOccurence>
 					<DataElement>
 						<Name lang="fi">Asiakirjatyyppi</Name>
-						<Name lang="sv">Dokumentets typ</Name>
+						<Name lang="sv">Typ av dokument</Name>
 						<Name lang="en">Document type</Name>
 						<Use>FI403A</Use>
 						<Use>FI429A</Use>
@@ -3057,8 +3232,8 @@
 						<Format>an..4</Format>
 					</DataElement>
 					<DataElement>
-						<Name lang="fi">Asiakirjatunniste</Name>
-						<Name lang="sv">Dokumentets identifiering</Name>
+						<Name lang="fi">Asiakirjan tunniste</Name>
+						<Name lang="sv">Identifierare för dokument</Name>
 						<Name lang="en">Document identifier</Name>
 						<Use>FI403A</Use>
 						<Use>FI429A</Use>
@@ -3141,7 +3316,7 @@
 				</DataGroup>
 				<DataGroup>
 					<Name lang="fi">Muu viite</Name>
-					<Name lang="sv">Ytterligare hänvisning</Name>
+					<Name lang="sv">Ytterligare referens</Name>
 					<Name lang="en">Additional reference</Name>
 					<Use>FI403A</Use>
 					<Use>FI429A</Use>
@@ -3156,14 +3331,14 @@
 						<Use>FI429A</Use>
 						<XPath>Type</XPath>
 						<MinOccurence>1</MinOccurence>
-						<Codelist>CL###</Codelist>
+						<Codelist>CL380</Codelist>
 						<Format>an..4</Format>
 					</DataElement>
 				</DataGroup>
 				<!-->TransportDocument<-->
 				<DataGroup>
 					<Name lang="fi">Lisätiedot</Name>
-					<Name lang="sv">Ytterligare uppgifter</Name>
+					<Name lang="sv">Ytterligare uppgifterer</Name>
 					<Name lang="en">Additional information</Name>
 					<Use>FI403A</Use>
 					<Use>FI429A</Use>
@@ -3172,7 +3347,7 @@
 					<MaxOccurence>99</MaxOccurence>
 					<DataElement>
 						<Name lang="fi">Lisätietokoodi</Name>
-						<Name lang="sv">Kod för ytterligare uppgifter</Name>
+						<Name lang="sv">Kod för ytterligare uppgifterer</Name>
 						<Name lang="en">Additional information code</Name>
 						<Use>FI403A</Use>
 						<Use>FI429A</Use>
@@ -3183,7 +3358,7 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Lisätiedon kuvaus</Name>
-						<Name lang="sv">Beskrivning för ytterligare uppgifter</Name>
+						<Name lang="sv">Beskrivning av ytterligare uppgifter</Name>
 						<Name lang="en">Additional information description</Name>
 						<Use>FI403A</Use>
 						<Use>FI429A</Use>
@@ -3199,16 +3374,18 @@
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<XPath>PreviousDocument</XPath>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>99</MaxOccurence>
 					<DataElement>
 						<Name lang="fi">Edeltävä asiakirjatyyppi</Name>
-						<Name lang="sv">Tidigare dokumenttyp</Name>
+						<Name lang="sv">Tidigare dokumentets typ</Name>
 						<Name lang="en">Previous document type</Name>
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<XPath>Type</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL014</Codelist>
@@ -3216,11 +3393,12 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Edeltävän asiakirjan viite</Name>
-						<Name lang="sv">Referens till tidigare dokument</Name>
+						<Name lang="sv">Referens för tidigare dokument</Name>
 						<Name lang="en">Previous document reference</Name>
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<XPath>Identification</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Format>an..70</Format>
@@ -3232,9 +3410,22 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<XPath>Line</XPath>
 						<MinOccurence>0</MinOccurence>
 						<Format>n..5</Format>
+					</DataElement>
+					<DataElement>
+						<Name lang="fi">Kuljetusasiakirjan viite</Name>
+						<Name lang="sv">Referens till transportdokument</Name>
+						<Name lang="en">Transport document reference</Name>
+						<Use>FI403A</Use>
+						<Use>FI419A</Use>
+						<Use>FI429A</Use>
+						<Use>FI445A</Use>
+						<XPath>TransportDocumentIdentification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>an..70</Format>
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
@@ -3244,6 +3435,7 @@
 					<Use>FI403A</Use>
 					<Use>FI419A</Use>
 					<Use>FI429A</Use>
+					<Use>FI445A</Use>
 					<XPath>TransportEquipment</XPath>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>9999</MaxOccurence>
@@ -3254,6 +3446,7 @@
 						<Use>FI403A</Use>
 						<Use>FI419A</Use>
 						<Use>FI429A</Use>
+						<Use>FI445A</Use>
 						<XPath>Identification</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Format>an..17</Format>
