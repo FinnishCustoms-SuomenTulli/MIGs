@@ -97,7 +97,7 @@
 	"ContactInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontaktuppgifter   </b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Namn<br align="left"/>E-postadress<br align="left"/>Telefonnummer<br align="left"/></td></tr></table>>];
 	"Control" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontroll</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Kontrolltyp<br align="left"/>Kontrollplats<br align="left"/>Kontakt<br align="left"/></td></tr></table>>];
+	<tr><td bgcolor="#fafafa" align="left">Kontrolltyp<br align="left"/>Kontrollplats<br align="left"/></td></tr></table>>];
 	"Decision" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Beslut</b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Beslutets datum och tid</td></tr></table>>];
 	"Note" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Anteckning</b></font></td></tr>
@@ -125,6 +125,7 @@
 	"ImportOperation" -- "Payment" [headlabel="0..1", taillabel="1" fontsize=10]
 	"ImportOperation" -- "Banking" [headlabel="0..3", taillabel="1" fontsize=10]
 	"Notification" -- "ContactInformation" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Control" -- "ContactInformation" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Notification" -- "Control" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Notification" -- "Decision" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Notification" -- "ProvidedInformation" [headlabel="0..999", taillabel="1" fontsize=10]
