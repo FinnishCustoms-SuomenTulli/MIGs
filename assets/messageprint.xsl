@@ -149,7 +149,7 @@
 										</xsl:for-each>
 									</td>
 									<td>
-										<xsl:for-each select="Codelist">
+										<xsl:for-each select="Codelist[@use=$messageType] | Codelist[not(@*)]">
 											<xsl:value-of select="."/>
 											<xsl:if test="position() != last()">, </xsl:if>
 										</xsl:for-each>
