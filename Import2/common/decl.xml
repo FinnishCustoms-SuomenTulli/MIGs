@@ -399,6 +399,7 @@
 				<Use>FI453A</Use>
 				<XPath>Text</XPath>
 				<MinOccurence>0</MinOccurence>
+				<Condition>NC####</Condition>
 				<Format>an..4096</Format>
 			</DataElement>
 			<DataElement>
@@ -473,17 +474,22 @@
 				<Name lang="fi">Toimitettu tieto</Name>
 				<Name lang="sv">Inlämnad information</Name>
 				<Name lang="en">Provided information</Name>
+				<Use>FI414A</Use>
+				<Use>FI439A</Use>
 				<Use>FI453A</Use>
 				<XPath>ProvidedInfo</XPath>
-				<MinOccurence>1</MinOccurence>
+				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>999</MaxOccurence>
+				<Condition>NC####</Condition>
 				<DataElement>
 					<Name lang="fi">Kuvaus</Name>
 					<Name lang="sv">Beskrivning</Name>
 					<Name lang="en">Description</Name>
+					<Use>FI414A</Use>
+					<Use>FI439A</Use>
 					<Use>FI453A</Use>
 					<XPath>Description</XPath>
-					<MinOccurence>0</MinOccurence>
+					<MinOccurence>1</MinOccurence>
 					<Condition>NC####</Condition>
 					<Format>an..70</Format>
 					<DescriptionLine lang="fi">Liitetiedoston kuvaus.</DescriptionLine>
@@ -491,12 +497,14 @@
 					<DescriptionLine lang="en">Description of the attachment.</DescriptionLine>
 				</DataElement>
 				<DataElement>
-					<Name lang="fi">Asiakirjalinkki</Name>
-					<Name lang="sv">Dokumentlänk</Name>
-					<Name lang="en">Document link</Name>
+					<Name lang="fi">Liitteen viite</Name>
+					<Name lang="sv">Bilagans referens</Name>
+					<Name lang="en">Attachment reference</Name>
+					<Use>FI414A</Use>
+					<Use>FI439A</Use>
 					<Use>FI453A</Use>
 					<XPath>NationalReference</XPath>
-					<MinOccurence>0</MinOccurence>
+					<MinOccurence>1</MinOccurence>
 					<Condition>NC####</Condition>
 					<Format>an..500</Format>
 					<DescriptionLine lang="fi">Tullin järjestelmän antama liitetiedosoton viite.</DescriptionLine>
@@ -1563,7 +1571,6 @@
 				<XPath>Type</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Codelist>CL013H</Codelist>
-				<Codelist>CL605</Codelist>
 				<Format>an..4</Format>
 				<DescriptionLine lang="fi">Ilmoitetaan koko tulliselvitettävää erää koskevan liiteasiakirjan / luvan koodi.</DescriptionLine>
 				<DescriptionLine lang="sv">Kod för det bifogade dokument / tillstånd som gäller hela deklarationspartiet anges.</DescriptionLine>
@@ -2025,7 +2032,7 @@
 					<Filter>FI415AH5E</Filter>
 					<XPath>Role</XPath>
 					<MinOccurence>0</MinOccurence>
-					<Codelist>NCL056</Codelist>
+					<Codelist>CL704</Codelist>
 					<Format>a..3</Format>
 				</DataElement>
 			</DataGroup>
@@ -3766,7 +3773,6 @@
 							<Filter>FI415AH5E</Filter>
 							<XPath>Identification</XPath>
 							<MinOccurence>1</MinOccurence>
-							<Codelist>NCL###</Codelist>
 							<Rule>NR0509</Rule>
 							<Rule>NR0510</Rule>
 							<Format>an4</Format>
