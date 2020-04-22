@@ -387,7 +387,7 @@
 											</xsl:if>
 										</xsl:for-each>
 									<xsl:if test="Hyperlink">
-									<a>
+									<a target="_blank">
 										<xsl:attribute name="href"><xsl:value-of select="Hyperlink[@lang=$language]/URL"/></xsl:attribute>
 										<span class="icon icon-tulli-external" style="margin-right:3px"></span><xsl:value-of select="Hyperlink[@lang=$language]/Description"/>
 									</a>
