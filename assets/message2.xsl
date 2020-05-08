@@ -169,7 +169,7 @@
 								</xsl:for-each>
 							</td>
 						</tr>
-						<xsl:if test="DescriptionLine[@lang=$language]!=''">
+						<xsl:if test="DescriptionLine[@lang=$language and @use=$messageType] | DescriptionLine[@lang=$language and not(@use)]!=''">
 							<tr>
 								<xsl:attribute name="class"><xsl:value-of select="concat('description indent-',count(ancestor::*)-1,$filter)"/></xsl:attribute>
 								<td colspan="5">
@@ -368,7 +368,7 @@
 									</xsl:for-each>
 								</td>
 							</tr>
-							<xsl:if test="DescriptionLine[@lang=$language]!='' or Hyperlink[@lang=$language]!=''">
+							<xsl:if test="DescriptionLine[@lang=$language and @use=$messageType] | DescriptionLine[@lang=$language and not(@use)]!='' or Hyperlink[@lang=$language]!=''">
 								<tr>
 									<xsl:choose>
 										<xsl:when test="count(ancestor::*)>2">
