@@ -193,8 +193,6 @@
 			<Filter>FI415AI1</Filter>
 			<Filter>FI413AH5E</Filter>
 			<Filter>FI415AH5E</Filter>
-			<Filter>FI413AH5N</Filter>
-			<Filter>FI415AH5N</Filter>
 			<Filter>FI413AH5R</Filter>
 			<Filter>FI415AH5R</Filter>
 			<XPath>Invoice</XPath>
@@ -217,8 +215,6 @@
 			<Filter>FI415AI1</Filter>
 			<Filter>FI413AH5E</Filter>
 			<Filter>FI415AH5E</Filter>
-			<Filter>FI413AH5N</Filter>
-			<Filter>FI415AH5N</Filter>
 			<Filter>FI413AH5R</Filter>
 			<Filter>FI415AH5R</Filter>
 			<XPath>Invoice@CurrencyUnit</XPath>
@@ -229,24 +225,6 @@
 			<DescriptionLine lang="fi">Ilmoitetaan kauppalaskulla käytetty valuuttalaji.</DescriptionLine>
 			<DescriptionLine lang="sv">Ange det valutaslag som används i fakturan.</DescriptionLine>
 			<DescriptionLine lang="en">Provide the currency code used in the invoice.</DescriptionLine>
-		</DataElement>
-		<DataElement>
-			<Name lang="fi">Veronmääräytymispäivä</Name>
-			<Name lang="sv">Datum för skattebestämning</Name>
-			<Name lang="en">Tax determination date</Name>
-			<Use>FI413A</Use>
-			<Use>FI415A</Use>
-			<Use>FI483A</Use>
-			<Use>FI485A</Use>
-			<Filter>FI413AH5N</Filter>
-			<Filter>FI415AH5N</Filter>
-			<Filter>FI413AH5R</Filter>
-			<Filter>FI415AH5R</Filter>
-			<XPath>DutyTaxFee/ElectedEntry</XPath>
-			<MinOccurence>0</MinOccurence>
-			<Rule>NR0225</Rule>
-			<Condition>NC0231</Condition>
-			<Format>date</Format>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">Bruttopaino</Name>
@@ -417,6 +395,7 @@
 				<Name lang="sv">Orsak till annullering</Name>
 				<Name lang="en">Invalidation reason</Name>
 				<Use>FI414A</Use>
+				<Use>FI439A</Use>
 				<XPath>Invalidation</XPath>
 				<MinOccurence>0</MinOccurence>
 				<Codelist>NCL061</Codelist>
@@ -452,24 +431,16 @@
 				<MinOccurence use="FI453A">1</MinOccurence>
 				<Format>an38</Format>
 			</DataElement>
-			<DataGroup>
+			<DataElement>
 				<Name lang="fi">Korvaava MRN</Name>
 				<Name lang="sv">Ersättande MRN</Name>
 				<Name lang="en">Replacing MRN</Name>
 				<Use>FI414A</Use>
 				<XPath>ReplacingMRN</XPath>
-				<MinOccurence>1</MinOccurence>
-				<MaxOccurence>2</MaxOccurence>
-				<DataElement>
-					<Name lang="fi">MRN</Name>
-					<Name lang="sv">MRN</Name>
-					<Name lang="en">MRN</Name>
-					<Use>FI414A</Use>
-					<XPath>MRN</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>an18</Format>
-				</DataElement>
-			</DataGroup>
+				<MinOccurence>0</MinOccurence>
+				<Condition>NC####</Condition>
+				<Format>an18</Format>
+			</DataElement>
 			<DataGroup>
 				<Name lang="fi">Toimitettu tieto</Name>
 				<Name lang="sv">Inlämnad information</Name>
@@ -572,6 +543,8 @@
 				<Rule use="FI473A">NR1106</Rule>
 				<Rule use="FI475A">NR1106</Rule>
 				<Format>n1</Format>
+				<DescriptionLine lang="fi">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
+				<DescriptionLine lang="sv">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
@@ -689,7 +662,7 @@
 				<Filter>FI415AH5R</Filter>
 				<XPath>Role</XPath>
 				<MinOccurence>0</MinOccurence>
-				<Codelist>CL###</Codelist>
+				<Codelist>NCL121</Codelist>
 				<Rule use="FI413A">NR0220</Rule>
 				<Rule use="FI415A">NR0220</Rule>
 				<Rule use="FI473A">NR0220</Rule>
@@ -842,8 +815,9 @@
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<Condition>NC####</Condition>
-			<DescriptionLine lang="fi">Ilmoitetaan menettelyyn asettamisesta ja ilmoituksen oikeellisuudesta vastaava. Jos käytetään välillistä edustajaa, tässä ilmoitetaan  edustaja.</DescriptionLine>
-			<DescriptionLine lang="sv">Aktören, som är ansvarig för hänförandet till förfarandet och för deklarationens riktighet anmäls. Om indirekt ombudskap används, anmäls här represesentantes uppgifter.</DescriptionLine>
+			<DescriptionLine lang="fi">Ilmoitetaan menettelyyn asettamisesta ja ilmoituksen oikeellisuudesta vastaava. Tässä ilmoitetaan sama toimija kuin tuoja -kohdassa. Jos käytetään välillistä edustajaa, tässä ilmoitetaan edustaja. Jos tehdään tullivarastoinnin ilmoitus yksityiseen tullivarastoon, ilmoitetaan varaston luvanhaltija. Jos tehdään tullivarastoinnin ilmoitus yleiseen tullivarastoon, tässä voidaan ilmoittaa muukin toimija kuin tuoja tai tullivaraston luvanhaltija.
+</DescriptionLine>
+			<DescriptionLine lang="sv">Aktören som är ansvarig för hänförandet till förfarandet och för deklarationens riktighet anges. Här anges samma aktör som i punkten Importör. Om indirekt ombud anlitas, anges här ombudet. Om man inger en deklaration för lagring i privat tullager, anges tillståndshavaren för lagret. Om man inger en deklaration för lagring i allmänt  tullager kan man här också ange någon annan aktör än importör eller tillståndshavare för tullagret.</DescriptionLine>
 			<DescriptionLine lang="en">The actor in charge of placing the goods under the procedure and of the accuracy of the declaration is entered. If indirect representation is used, the representatives data is entered here.</DescriptionLine>
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
@@ -934,7 +908,7 @@
 				<Filter>FI415AH5E</Filter>
 				<XPath>Role</XPath>
 				<MinOccurence>1</MinOccurence>
-				<Codelist>CL###</Codelist>
+				<Codelist>NCL121</Codelist>
 				<Format>a1</Format>
 			</DataElement>
 			<DataGroup>
@@ -1266,8 +1240,8 @@
 			<XPath>ServiceProvider</XPath>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<DescriptionLine lang="fi">Sanoman tekninen lähettäjä.</DescriptionLine>
-			<DescriptionLine lang="sv">Meddelandets tekniska avsändare.</DescriptionLine>
+			<DescriptionLine lang="fi">Suoran sanoma-asioinnin palveluntarjoaja (sanoman tekninen lähettäjä) ilmoitetaan, jos sanomailmoittaja itse ei välitä sanomaa Tullille.</DescriptionLine>
+			<DescriptionLine lang="sv">Tjänsteleverantören för direkt meddelandedeklarering (teknisk avsändare av meddelanden) anges, om meddelandedeklaranten inte själv förmedlar meddelanden till Tullen.</DescriptionLine>
 			<DescriptionLine lang="en">The technical message sender.</DescriptionLine>
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
@@ -1295,6 +1269,8 @@
 				<Rule>NR0049</Rule>
 				<Rule>NR1109</Rule>
 				<Format>an..17</Format>
+				<DescriptionLine lang="fi">Ilmoitetaan EORI.</DescriptionLine>
+				<DescriptionLine lang="sv">EORI-nummer anges.</DescriptionLine>
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
@@ -1572,9 +1548,9 @@
 				<MinOccurence>1</MinOccurence>
 				<Codelist>CL013H</Codelist>
 				<Format>an..4</Format>
-				<DescriptionLine lang="fi">Ilmoitetaan koko tulliselvitettävää erää koskevan liiteasiakirjan / luvan koodi.</DescriptionLine>
-				<DescriptionLine lang="sv">Kod för det bifogade dokument / tillstånd som gäller hela deklarationspartiet anges.</DescriptionLine>
-				<DescriptionLine lang="en">Code for a supporting document/licence that relates to the whole declaration at header level is entered.</DescriptionLine>
+				<DescriptionLine lang="fi">Ilmoitetaan koko tulliselvitettävää erää koskevan liiteasiakirjan koodi.</DescriptionLine>
+				<DescriptionLine lang="sv">Kod för det bifogade dokument som gäller hela deklarationspartiet anges.</DescriptionLine>
+				<DescriptionLine lang="en">Code for a supporting document that relates to the whole declaration at header level is entered.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Asiakirjan tunniste</Name>
@@ -1686,7 +1662,7 @@
 				<Use>FI415A</Use>
 				<Use>FI473A</Use>
 				<Use>FI475A</Use>
-				<XPath>Identification</XPath>
+				<XPath>HolderIdentification</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Rule>NR0025</Rule>
 				<Rule>NR1003</Rule>
@@ -1745,8 +1721,8 @@
 				<MinOccurence>1</MinOccurence>
 				<Codelist>CL039H</Codelist>
 				<Format>an5</Format>
-				<DescriptionLine lang="fi">Ilmoiteaan koko ilmoitukselle yhteinen lisätiedon koodi. Tullivarastoinnissa voidaan ilmoittaa esimerkiksi lisätietokoodi FICWM, jota käytetään siirrettäessä tavaraa saapumispaikalta tullivarastoon.</DescriptionLine>
-				<DescriptionLine lang="sv">Kod för ytterligare uppgifter som är gemensam för hela deklarationen anges. Vid tullagring kan till exempel anges koden för ytterligare uppgifter FICWM, som används vid befordran av varor från införselstället till ett tullager.</DescriptionLine>
+				<DescriptionLine lang="fi">Ilmoitetaan koko ilmoitukselle yhteinen lisätiedon koodi. Ilmoitetaan verkkolaskuosoite, jos jaksoerittely halutaan verkkolaskuna. Tullivarastoinnissa ilmoitetaan lisätietokoodi FICWM, jota käytetään siirrettäessä jos tavaraa siirretään saapumispaikalta tullivarastoon.</DescriptionLine>
+				<DescriptionLine lang="sv">Kod för ytterligare uppgifter som är gemensam för hela deklarationen anges. Nätfakturaadress anges om man vill ha periodspecifikationen som nätfaktura. Vid tullagring anges koden för ytterligare uppgifter FICWM, om varor befordras från införselstället till ett tullager.</DescriptionLine>
 				<DescriptionLine lang="en">Additional information code for the whole declaration is entered. In customs warehousing you can for example provide the additional information code FICWM, which is used when goods are moved from the place of entry to a customs warehouse.</DescriptionLine>
 			</DataElement>
 			<DataElement>
@@ -1773,6 +1749,40 @@
 				<MinOccurence>0</MinOccurence>
 				<Condition>NC0025_OPT</Condition>
 				<Format>an..512</Format>
+			</DataElement>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="fi">Tulli, vero ja maksu</Name>
+			<Name lang="sv">Tull, skatt och avgift</Name>
+			<Name lang="en">Duty, tax and fee</Name>
+			<Use>FI413A</Use>
+			<Use>FI415A</Use>
+			<Use>FI483A</Use>
+			<Use>FI485A</Use>
+			<Filter>FI413AH5N</Filter>
+			<Filter>FI415AH5N</Filter>
+			<Filter>FI413AH5R</Filter>
+			<Filter>FI415AH5R</Filter>
+			<XPath>DutyTaxFee</XPath>
+			<MinOccurence>0</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<Condition>NC0231</Condition>
+			<DataElement>
+				<Name lang="fi">Veronmääräytymispäivä</Name>
+				<Name lang="sv">Datum för skattebestämning</Name>
+				<Name lang="en">Tax determination date</Name>
+				<Use>FI413A</Use>
+				<Use>FI415A</Use>
+				<Use>FI483A</Use>
+				<Use>FI485A</Use>
+				<Filter>FI413AH5N</Filter>
+				<Filter>FI415AH5N</Filter>
+				<Filter>FI413AH5R</Filter>
+				<Filter>FI415AH5R</Filter>
+				<XPath>ElectedEntry</XPath>
+				<MinOccurence>1</MinOccurence>
+				<Rule>NR0225</Rule>
+				<Format>date</Format>
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
@@ -1803,8 +1813,8 @@
 				<MinOccurence>1</MinOccurence>
 				<Codelist>CL018</Codelist>
 				<Format>n1</Format>
-				<DescriptionLine lang="fi">Ilmoitetaan kuljetusmuoto sen mukaan, millä kulkuneuvolla tavara tuodaan yhteisön tullialueelle. Kuljetustavan määrää aktiivinen kuljetusväline. Aktiivinen kuljetusväline on se, joka mahdollistaa kokonaisuuden liikkumisen (esimerkiksi alus, jos kuorma-auto on lastattu merialukseen).</DescriptionLine>
-				<DescriptionLine lang="sv">Transportsättet enligt det transportmedel med vilket varorna förs in i unionens tullområde anges. Transportsättet bestäms enligt det aktiva transportmedlet. Det aktiva transportmedlet är det som framdriver hela kombinationen (till exempel ett fartyg, om en lastbil är lastad på fartyget).</DescriptionLine>
+				<DescriptionLine lang="fi">Ilmoitetaan kuljetusmuoto sen mukaan, millä kulkuneuvolla tavara tuodaan yhteisön tullialueelle tai veroalueen rajan yli. Kuljetusmuodontavan määrää aktiivinen kuljetusväline. Aktiivinen kuljetusväline on se, joka mahdollistaa kokonaisuuden liikkumisen (esimerkiksi alus, jos kuorma-auto on lastattu merialukseen).</DescriptionLine>
+				<DescriptionLine lang="sv">Transportsättet enligt det transportmedel med vilket varorna förs in i unionens tullområde eller över gränsen till skatteområdet anges. Transportsättet bestäms enligt det aktiva transportmedlet. Det aktiva transportmedlet är det som framdriver hela kombinationen (till exempel ett fartyg, om en lastbil är lastad på fartyget).</DescriptionLine>
 				<DescriptionLine lang="en">Mode of transport based on the means of transport used for the import of the goods into the customs territory of the Union is entered. The mode of transport is determined by the active means of transport. The active means of transport is the one which propels the whole combination (for example, if a lorry has been loaded onto a seagoing vessel, the ship is the active means of transport).</DescriptionLine>
 			</DataElement>
 			<DataElement>
@@ -2166,7 +2176,7 @@
 				<Filter>FI413AI1</Filter>
 				<Filter>FI415AI1</Filter>
 				<XPath>DomesticDutyTaxParty</XPath>
-				<MinOccurence>1</MinOccurence>
+				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>99</MaxOccurence>
 				<Condition use="FI413A">NC0227</Condition>
 				<Condition use="FI415A">NC0227</Condition>
@@ -2360,7 +2370,7 @@
 					<Filter>FI415AH5R</Filter>
 					<XPath>Role</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Codelist>CL###</Codelist>
+					<Codelist>NCL121</Codelist>
 					<Format>a1</Format>
 				</DataElement>
 				<DataGroup>
@@ -2799,6 +2809,8 @@
 						<XPath>Identification@function="CustomsOffice"</XPath>
 						<MinOccurence>0</MinOccurence>
 						<Format>an8</Format>
+						<DescriptionLine lang="fi">Tullitoimipaikan koodi ilmoitetaan vain tullivarastoinnin ilmoituksella, jos tavaraa tuodaan Norjan maarajan yli, ja tavaralle ei ole edeltävää tulli-ilmoitusta.</DescriptionLine>
+						<DescriptionLine lang="sv">Tullkontorskoden anges bara i deklarationer för tullagring, om varorna importeras över den norska landgränsen och varorna inte har en tidigare tulldeklaration.  </DescriptionLine>
 						<Hyperlink lang="fi">
 							<URL>https://ec.europa.eu/taxation_customs/dds2/col/col_search_home.jsp?Screen=0&amp;Lang=fi</URL>
 							<Description>Tullitoimipaikkaluettelo</Description>
@@ -2894,8 +2906,8 @@
 						<MaxOccurence>1</MaxOccurence>
 						<Condition>C0394</Condition>
 						<Condition>NC0037</Condition>
-						<DescriptionLine lang="fi">Ilmoitetaan sijaintipaikan osoite kun sijantipaikan tyyppi on 'D'.</DescriptionLine>
-						<DescriptionLine lang="sv">Förvaringsplatsens adress när typen av förvaringsplats är ’D’ anges.</DescriptionLine>
+						<DescriptionLine lang="fi">Ilmoitetaan sijaintipaikan osoite, kun tavara halutaan tarkastettavan esimerkiksi itärajan tullitoimipaikassa tai valvonta-asetuksessa edellytetyssä hyväksytyssä tarkastuspaikassa.</DescriptionLine>
+						<DescriptionLine lang="sv">Förvaringsplatsens adress anges när man vill att varorna granskas t.ex. vid ett tullkontor vid östgränsen eller på en godkänd kontrollplats enligt kontrollförordningen.</DescriptionLine>
 						<DescriptionLine lang="en">The address of the location of the goods when the type of location is ‘D’ is entered.</DescriptionLine>
 						<DataElement>
 							<Name lang="fi">Katuosoite</Name>
@@ -2994,8 +3006,8 @@
 					<Condition use="FI415A">NC0030</Condition>
 					<Condition use="FI473A">NC0030</Condition>
 					<Condition use="FI475A">NC0030</Condition>
-					<DescriptionLine lang="fi">Ilmoitetaan jos tavarat eivät sijaitse tullin hyväksymässä varastossa.</DescriptionLine>
-					<DescriptionLine lang="sv">Anges om varorna inte förvaras på en plats godtagen av Tullen.</DescriptionLine>
+					<DescriptionLine lang="fi">Ilmoitetaan vain, jos tavarat eivät sijaitse tullin hyväksymässä varastossa. Tullivarastoinnissa tätä tietoryhmää ei käytetä.  </DescriptionLine>
+					<DescriptionLine lang="sv">Anges bara om varorna inte förvaras på en plats godtagen av Tullen. Vid tullagring används denna datagrupp inte.</DescriptionLine>
 					<DescriptionLine lang="en">This detail should be provided if the goods are not located in a warehouse approved by Customs.</DescriptionLine>
 					<DataGroup>
 						<Name lang="fi">Osoite</Name>
@@ -3236,6 +3248,10 @@
 				<Filter>FI415AH2</Filter>
 				<Filter>FI413AH5E</Filter>
 				<Filter>FI415AH5E</Filter>
+				<Filter>FI413AH5N</Filter>
+				<Filter>FI415AH5N</Filter>
+				<Filter>FI413AH5R</Filter>
+				<Filter>FI415AH5R</Filter>
 				<XPath>Warehouse</XPath>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
@@ -3257,6 +3273,10 @@
 					<Filter>FI415AH2</Filter>
 					<Filter>FI413AH5E</Filter>
 					<Filter>FI415AH5E</Filter>
+					<Filter>FI413AH5N</Filter>
+					<Filter>FI415AH5N</Filter>
+					<Filter>FI413AH5R</Filter>
+					<Filter>FI415AH5R</Filter>
 					<XPath>Identification</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an..35</Format>
@@ -3293,6 +3313,10 @@
 					<Filter>FI415AH2</Filter>
 					<Filter>FI413AH5E</Filter>
 					<Filter>FI415AH5E</Filter>
+					<Filter>FI413AH5N</Filter>
+					<Filter>FI415AH5N</Filter>
+					<Filter>FI413AH5R</Filter>
+					<Filter>FI415AH5R</Filter>
 					<XPath>Type</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Codelist>CL099</Codelist>
@@ -3584,8 +3608,10 @@
 						<XPath>Classification</XPath>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
+						<Rule>NR0501</Rule>
 						<Rule>NR0502</Rule>
 						<Rule>NR1005</Rule>
+						<Condition>NC0218</Condition>
 						<DataElement>
 							<Name lang="fi">Tavaran koodi – yhdistetyn nimikkeistön koodi</Name>
 							<Name lang="sv">Varukod – KN-nummer</Name>
@@ -4428,9 +4454,9 @@
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<Condition>NC0236</Condition>
-					<DescriptionLine lang="fi">Ilmoitetaan etuuskohteluun oikeuttava alkuperämaa, jos tulli-ilmoituksella haetaan tullietuutta.</DescriptionLine>
-					<DescriptionLine lang="sv">Förmånsberättigande ursprungsland om tullförmån söks med tulldeklarationen anges.</DescriptionLine>
-					<DescriptionLine lang="en">The country of preferential origin, if preferential tariff treatment is sought in the customs declaration, is entered.</DescriptionLine>
+					<DescriptionLine lang="fi">Ilmoitetaan etuuskohteluun oikeuttava alkuperämaa tai maaryhmä, jos tulli-ilmoituksella haetaan tullietuutta.</DescriptionLine>
+					<DescriptionLine lang="sv">Förmånsberättigande ursprungsland, eller landgrupp om tullförmån söks med tulldeklarationen anges.</DescriptionLine>
+					<DescriptionLine lang="en">The country or country group of preferential origin, if preferential tariff treatment is sought in the customs declaration, is entered.</DescriptionLine>
 					<DataElement>
 						<Name lang="fi">Etuuskohteluun oikeuttavan alkuperämaan koodi</Name>
 						<Name lang="sv">Kod för förmånsursprungsland</Name>
@@ -4446,6 +4472,18 @@
 						<Codelist>CL008</Codelist>
 						<Codelist>CL###</Codelist>
 						<Format>an..4</Format>
+						<Hyperlink lang="fi">
+							<URL>https://asiointi.tulli.fi/asiointipalvelu/fintaric/BrowsingCodes/Countries</URL>
+							<Description>Maat ja maaryhmät</Description>
+						</Hyperlink>
+						<Hyperlink lang="sv">
+							<URL>https://asiointi.tulli.fi/asiointipalvelu/fintaric/BrowsingCodes/Countries</URL>
+							<Description>Länder och landgrupper</Description>
+						</Hyperlink>
+						<Hyperlink lang="en">
+							<URL>https://asiointi.tulli.fi/asiointipalvelu/fintaric/BrowsingCodes/Countries</URL>
+							<Description>Countries and country groups</Description>
+						</Hyperlink>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Alkuperämaan tyyppi</Name>
@@ -4482,9 +4520,12 @@
 					<MaxOccurence>99</MaxOccurence>
 					<Condition use="FI413A">NC0210</Condition>
 					<Condition use="FI415A">NC0210</Condition>
-					<DescriptionLine lang="fi">Jos tavaran nimikkeeseen liittyy rajoitus, rajoituksen mukainen asiakirjakoodi on ilmoitettava. Jos tuote ei ole rajoituksen alainen, asiakirjatunnisteena ilmoitetaan 'N/A' (esim. tuote ei ole CITES-rajoituksen alainen, ilmoitetaan nimikkeen mukainen Taric-asiakirjakoodi Y900, jonka tunnisteeksi ilmoitetaan 'N/A').</DescriptionLine>
-					<DescriptionLine lang="sv">Om varan är föremål för begränsningar måste dokumentkoden gällande restriktionen anmälas. Om varan inte är föremål för begränsningen anmäls 'N/A' som dokumentets identifiering (t.ex. varan är inte föremål för CITES-begränsningen, Taric-dokumentkoden Y900 med identifieringen 'N/A' anmäls).</DescriptionLine>
-					<DescriptionLine lang="en">If the goods are subject to a restriction, the document code corresponding with the restriction must be provided. If the goods are not subject to the restriction, the document identifier is 'N/A' (eg the product is not subject to the CITES restriction, the Taric document code Y900 with identifier 'N/A' is entered).</DescriptionLine>
+					<DescriptionLine lang="fi" use="FI413A">Jos tavaran nimikkeeseen liittyy rajoitus, rajoituksen mukainen asiakirjakoodi on ilmoitettava.</DescriptionLine>
+					<DescriptionLine lang="fi" use="FI415A">Jos tavaran nimikkeeseen liittyy rajoitus, rajoituksen mukainen asiakirjakoodi on ilmoitettava.</DescriptionLine>
+					<DescriptionLine lang="sv" use="FI413A">Om varan är föremål för begränsningar måste dokumentkoden gällande restriktionen anmälas.</DescriptionLine>
+					<DescriptionLine lang="sv" use="FI415A">Om varan är föremål för begränsningar måste dokumentkoden gällande restriktionen anmälas.</DescriptionLine>
+					<DescriptionLine lang="en" use="FI413A">If the goods are subject to a restriction, the document code corresponding with the restriction must be provided.</DescriptionLine>
+					<DescriptionLine lang="en" use="FI415A">If the goods are subject to a restriction, the document code corresponding with the restriction must be provided.</DescriptionLine>
 					<DataElement>
 						<Name lang="fi">Asiakirjatyyppi</Name>
 						<Name lang="sv">Typ av dokument</Name>
@@ -4656,6 +4697,8 @@
 					<XPath>AdditionalDocument@function="AdditionalReference"</XPath>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>99</MaxOccurence>
+					<DescriptionLine lang="fi">Ilmoitetaan rajoituksiin ja kieltoihin liittyviä Taric-koodeja.</DescriptionLine>
+					<DescriptionLine lang="sv">Här anges Taric-koder som hänför sig till förbud och restriktioner.</DescriptionLine>
 					<DataElement>
 						<Name lang="fi">Koodi</Name>
 						<Name lang="sv">Kod</Name>
@@ -4829,8 +4872,8 @@
 					<Condition use="FI415A">NC0233</Condition>
 					<Condition use="FI473A">NC0233</Condition>
 					<Condition use="FI475A">NC0233</Condition>
-					<DescriptionLine lang="fi">Jos lähetysmaa on Norja eikä ole edeltävää menettelyä, edeltävää asiakirjaa ei ilmoiteta.</DescriptionLine>
-					<DescriptionLine lang="sv">Om avsändningslandet är Norge och det inte finns något föregående förfarande, ska tidigare dokument inte anges.</DescriptionLine>
+					<DescriptionLine lang="fi">Jos lähetysmaa on Norja, tai ilmoitetaan unionitavaraa, eikä ole edeltävää menettelyä, edeltävää asiakirjaa ei ilmoiteta. </DescriptionLine>
+					<DescriptionLine lang="sv">Om avsändningslandet är Norge, eller om unionsvaror deklareras,  och det inte finns något föregående förfarande, ska tidigare dokument inte anges.</DescriptionLine>
 					<DescriptionLine lang="en">If the country of dispatch is Norway and there is no previous procedure, previous document is not declared.</DescriptionLine>
 					<DataElement>
 						<Name lang="fi">Edeltävä asiakirjatyyppi</Name>
@@ -4857,8 +4900,6 @@
 						<Codelist>CL014</Codelist>
 						<Rule use="FI413A">NR1319</Rule>
 						<Rule use="FI415A">NR1319</Rule>
-						<Rule use="FI483A">NR0506</Rule>
-						<Rule use="FI485A">NR0506</Rule>
 						<Format>an..3</Format>
 						<DescriptionLine lang="fi">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, ilmoitetaan MRN.</DescriptionLine>
 						<DescriptionLine lang="sv">Tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration anges. Om den tidigare deklarationen har ingetts till UTU-systemet, anges MRN.</DescriptionLine>
@@ -4923,6 +4964,8 @@
 						<Use>FI415A</Use>
 						<Use>FI473A</Use>
 						<Use>FI475A</Use>
+						<Use>FI483A</Use>
+						<Use>FI485A</Use>
 						<Filter>FI413AI1</Filter>
 						<Filter>FI415AI1</Filter>
 						<Filter>FI413AH2</Filter>
