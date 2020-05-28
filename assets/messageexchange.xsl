@@ -65,7 +65,7 @@
 										<xsl:when test=".='EO'">
 											<xsl:choose>
 												<xsl:when test="$language='fi'">Toimijan Tullille välittämät sanomat</xsl:when>
-												<xsl:when test="$language='sv'">Meddelanden från aktören till Tullen</xsl:when>
+												<xsl:when test="$language='sv'">Meddelanden som aktören skickar till Tullen</xsl:when>
 												<xsl:when test="$language='en'">Messages from economic operator to Customs</xsl:when>
 											</xsl:choose>
 										</xsl:when>
