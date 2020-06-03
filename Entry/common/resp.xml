@@ -66,6 +66,7 @@
 			<Use>FI370A</Use>
 			<XPath>FunctionalReference@function="LRN"</XPath>
 			<MinOccurence>1</MinOccurence>
+			<MinOccurence use="FI352A">0</MinOccurence>
 			<Format>an..22</Format>
 		</DataElement>
 		<DataElement>
@@ -291,7 +292,7 @@
 				<Use>FI350A</Use>
 				<XPath>Control</XPath>
 				<MinOccurence>1</MinOccurence>
-				<MaxOccurence>1</MaxOccurence>
+				<MaxOccurence>99</MaxOccurence>
 				<DataElement>
 					<Name lang="fi">Tarkastustyyppi</Name>
 					<Name lang="sv">Kontrolltyp</Name>
@@ -381,7 +382,10 @@
 				<Name lang="en">Decision</Name>
 				<Use>FI310A</Use>
 				<Use>FI348A</Use>
+				<Use>FI350A</Use>
 				<Use>FI351A</Use>
+				<Use>FI352A</Use>
+				<Use>FI370A</Use>
 				<XPath>Decision</XPath>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
@@ -401,7 +405,10 @@
 					<Name lang="en">Note</Name>
 					<Use>FI310A</Use>
 					<Use>FI348A</Use>
+					<Use>FI350A</Use>
 					<Use>FI351A</Use>
+					<Use>FI352A</Use>
+					<Use>FI370A</Use>
 					<XPath>Note</XPath>
 					<MinOccurence>1</MinOccurence>
 					<MaxOccurence>999</MaxOccurence>
@@ -411,7 +418,10 @@
 						<Name lang="en">Note type</Name>
 						<Use>FI310A</Use>
 						<Use>FI348A</Use>
+						<Use>FI350A</Use>
 						<Use>FI351A</Use>
+						<Use>FI352A</Use>
+						<Use>FI370A</Use>
 						<XPath>Note</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Format>an..6</Format>
@@ -422,7 +432,10 @@
 						<Name lang="en">Note text</Name>
 						<Use>FI310A</Use>
 						<Use>FI348A</Use>
+						<Use>FI350A</Use>
 						<Use>FI351A</Use>
+						<Use>FI352A</Use>
+						<Use>FI370A</Use>
 						<XPath>NoteDescription</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Format>an..4096</Format>
@@ -437,6 +450,7 @@
 				<Use>FI344A</Use>
 				<XPath>Error</XPath>
 				<MinOccurence>1</MinOccurence>
+				<MinOccurence use="FI344A">0</MinOccurence>
 				<MaxOccurence>999</MaxOccurence>
 				<DataElement>
 					<Name lang="fi">Virhekoodi</Name>
@@ -660,7 +674,7 @@
 				<Use>FI319A</Use>
 				<XPath>Role</XPath>
 				<MinOccurence>1</MinOccurence>
-				<Codelist>CL###</Codelist>
+				<Codelist>CL704</Codelist>
 				<Format>a..3</Format>
 			</DataElement>
 		</DataGroup>
@@ -669,30 +683,11 @@
 			<Name lang="sv">Leveransparti</Name>
 			<Name lang="en">Consignment</Name>
 			<Use>FI319A</Use>
-			<Use>FI326A</Use>
 			<Use>FI329A</Use>
 			<Use>FI351A</Use>
 			<XPath>Consignment</XPath>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<DataGroup>
-				<Name lang="fi">Postisäkki</Name>
-				<Name lang="sv">Postbehållare</Name>
-				<Name lang="en">Receptacle</Name>
-				<Use>FI319A</Use>
-				<XPath>PostalReceptacle</XPath>
-				<MinOccurence>0</MinOccurence>
-				<MaxOccurence>999</MaxOccurence>
-				<DataElement>
-					<Name lang="fi">Postisäkin tunnistenumero</Name>
-					<Name lang="sv">Postalt behållarnummer</Name>
-					<Name lang="en">Receptacle identification number</Name>
-					<Use>FI319A</Use>
-					<XPath>PostalReceptacle</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>an..35</Format>
-				</DataElement>
-			</DataGroup>
 			<DataGroup>
 				<Name lang="fi">Vastaanottaja</Name>
 				<Name lang="sv">Mottagare</Name>
@@ -735,6 +730,7 @@
 					<Use>FI319A</Use>
 					<XPath>Role</XPath>
 					<MinOccurence>1</MinOccurence>
+					<Codelist>CL729</Codelist>
 					<Format>n1</Format>
 				</DataElement>
 				<DataGroup>
@@ -817,6 +813,7 @@
 					<Use>FI319A</Use>
 					<XPath>Role</XPath>
 					<MinOccurence>1</MinOccurence>
+					<Codelist>CL729</Codelist>
 					<Format>n1</Format>
 				</DataElement>
 				<DataGroup>
@@ -908,6 +905,7 @@
 					<Use>FI319A</Use>
 					<XPath>Role</XPath>
 					<MinOccurence>1</MinOccurence>
+					<Codelist>CL729</Codelist>
 					<Format>n1</Format>
 				</DataElement>
 				<DataGroup>
@@ -1142,7 +1140,6 @@
 				<Name lang="sv">Leveransparti på lägre nivå</Name>
 				<Name lang="en">House consignment</Name>
 				<Use>FI319A</Use>
-				<Use>FI326A</Use>
 				<Use>FI329A</Use>
 				<Use>FI351A</Use>
 				<XPath>HouseConsignment</XPath>
@@ -1154,7 +1151,6 @@
 					<Name lang="sv">MRN</Name>
 					<Name lang="en">MRN</Name>
 					<Use>FI319A</Use>
-					<Use>FI326A</Use>
 					<XPath>FunctionalReference@function="MRN"</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an18</Format>
@@ -1164,7 +1160,6 @@
 					<Name lang="sv">LRN</Name>
 					<Name lang="en">LRN</Name>
 					<Use>FI319A</Use>
-					<Use>FI326A</Use>
 					<XPath>FunctionalReference@function="LRN"</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an..22</Format>
@@ -1220,6 +1215,7 @@
 						<Use>FI319A</Use>
 						<XPath>Role</XPath>
 						<MinOccurence>1</MinOccurence>
+						<Codelist>CL729</Codelist>
 						<Format>n1</Format>
 					</DataElement>
 					<DataGroup>
@@ -1302,6 +1298,7 @@
 						<Use>FI319A</Use>
 						<XPath>Role</XPath>
 						<MinOccurence>1</MinOccurence>
+						<Codelist>CL729</Codelist>
 						<Format>n1</Format>
 					</DataElement>
 					<DataGroup>
@@ -1393,6 +1390,7 @@
 						<Use>FI319A</Use>
 						<XPath>Role</XPath>
 						<MinOccurence>1</MinOccurence>
+						<Codelist>CL729</Codelist>
 						<Format>n1</Format>
 					</DataElement>
 					<DataGroup>
@@ -1497,26 +1495,6 @@
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL750</Codelist>
 						<Format>n2</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Kansallisuus</Name>
-						<Name lang="sv">Nationalitet</Name>
-						<Name lang="en">Nationality</Name>
-						<Use>FI319A</Use>
-						<XPath>RegistrationNationality</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Codelist>CL008</Codelist>
-						<Format>a2</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Kuljetusvälineen tyyppi</Name>
-						<Name lang="sv">Typ av transportmedel</Name>
-						<Name lang="en">Type of means of transport</Name>
-						<Use>FI319A</Use>
-						<XPath>IdentificationType</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Codelist>CL###</Codelist>
-						<Format>an..4</Format>
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
@@ -1789,26 +1767,6 @@
 							<MinOccurence>1</MinOccurence>
 							<Codelist>CL750</Codelist>
 							<Format>n2</Format>
-						</DataElement>
-						<DataElement>
-							<Name lang="fi">Kansallisuus</Name>
-							<Name lang="sv">Nationalitet</Name>
-							<Name lang="en">Nationality</Name>
-							<Use>FI319A</Use>
-							<XPath>RegistrationNationality</XPath>
-							<MinOccurence>1</MinOccurence>
-							<Codelist>CL008</Codelist>
-							<Format>a2</Format>
-						</DataElement>
-						<DataElement>
-							<Name lang="fi">Kuljetusvälineen tyyppi</Name>
-							<Name lang="sv">Typ av transportmedel</Name>
-							<Name lang="en">Type of means of transport</Name>
-							<Use>FI319A</Use>
-							<XPath>IdentificationType</XPath>
-							<MinOccurence>1</MinOccurence>
-							<Codelist>CL###</Codelist>
-							<Format>an..4</Format>
 						</DataElement>
 					</DataGroup>
 					<DataGroup>
@@ -2097,6 +2055,24 @@
 						<Format>a2</Format>
 					</DataElement>
 				</DataGroup>
+			</DataGroup>
+			<DataGroup>
+				<Name lang="fi">Esittämistullitoimipaikka</Name>
+				<Name lang="sv">Presentationstullkontor</Name>
+				<Name lang="en">Customs office of presentation</Name>
+				<Use>FI319A</Use>
+				<XPath>PresentationOffice</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Tullitoimipaikan tunniste</Name>
+					<Name lang="sv">Identifierare för tullkontor</Name>
+					<Name lang="en">Customs office identifier</Name>
+					<Use>FI319A</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Format>an8</Format>
+				</DataElement>
 			</DataGroup>
 			<DataGroup>
 				<Name lang="fi">Varaston tunnistetiedot</Name>
