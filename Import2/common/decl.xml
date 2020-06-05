@@ -32,7 +32,10 @@
 			<Name lang="fi">Tapahtuman tunniste</Name>
 			<Name lang="sv">Händelsens identifiering</Name>
 			<Name lang="en">Case identification</Name>
+			<Use>FI414A</Use>
 			<Use>FI415A</Use>
+			<Use>FI439A</Use>
+			<Use>FI453A</Use>
 			<Use>FI475A</Use>
 			<Use>FI485A</Use>
 			<Use>FI488A</Use>
@@ -545,6 +548,7 @@
 				<Format>n1</Format>
 				<DescriptionLine lang="fi">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
 				<DescriptionLine lang="sv">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
+				<DescriptionLine lang="en">If direct representation with the liability of a guarantor is used, the transaction level code FITAK is entered as well.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
@@ -818,7 +822,7 @@
 			<DescriptionLine lang="fi">Ilmoitetaan menettelyyn asettamisesta ja ilmoituksen oikeellisuudesta vastaava. Tässä ilmoitetaan sama toimija kuin tuoja -kohdassa. Jos käytetään välillistä edustajaa, tässä ilmoitetaan edustaja. Jos tehdään tullivarastoinnin ilmoitus yksityiseen tullivarastoon, ilmoitetaan varaston luvanhaltija. Jos tehdään tullivarastoinnin ilmoitus yleiseen tullivarastoon, tässä voidaan ilmoittaa muukin toimija kuin tuoja tai tullivaraston luvanhaltija.
 </DescriptionLine>
 			<DescriptionLine lang="sv">Aktören som är ansvarig för hänförandet till förfarandet och för deklarationens riktighet anges. Här anges samma aktör som i punkten Importör. Om indirekt ombud anlitas, anges här ombudet. Om man inger en deklaration för lagring i privat tullager, anges tillståndshavaren för lagret. Om man inger en deklaration för lagring i allmänt  tullager kan man här också ange någon annan aktör än importör eller tillståndshavare för tullagret.</DescriptionLine>
-			<DescriptionLine lang="en">The actor in charge of placing the goods under the procedure and of the accuracy of the declaration is entered. If indirect representation is used, the representatives data is entered here.</DescriptionLine>
+			<DescriptionLine lang="en">The actor in charge of placing the goods under the procedure and of the accuracy of the declaration is entered. Here the same declarant is entered as in the section Importer. If indirect representation is used, the representatives data is entered here. If a customs warehousing declaration is submitted for a private customs warehouse, the authorisation holder is entered. If a customs warehousing declaration is submitted for a public customs warehouse, some other operator than the importer or the holder of the authorisation can be entered here.</DescriptionLine>
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
 				<Name lang="sv">Identifieringsnummer</Name>
@@ -1242,7 +1246,7 @@
 			<MaxOccurence>1</MaxOccurence>
 			<DescriptionLine lang="fi">Suoran sanoma-asioinnin palveluntarjoaja (sanoman tekninen lähettäjä) ilmoitetaan, jos sanomailmoittaja itse ei välitä sanomaa Tullille.</DescriptionLine>
 			<DescriptionLine lang="sv">Tjänsteleverantören för direkt meddelandedeklarering (teknisk avsändare av meddelanden) anges, om meddelandedeklaranten inte själv förmedlar meddelanden till Tullen.</DescriptionLine>
-			<DescriptionLine lang="en">The technical message sender.</DescriptionLine>
+			<DescriptionLine lang="en">The service provider for direct message exchange (technical sender of the message) is entered if the message exchange customer does not transmit messages to Customs.</DescriptionLine>
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
 				<Name lang="sv">Identifieringsnummer</Name>
@@ -1271,6 +1275,7 @@
 				<Format>an..17</Format>
 				<DescriptionLine lang="fi">Ilmoitetaan EORI.</DescriptionLine>
 				<DescriptionLine lang="sv">EORI-nummer anges.</DescriptionLine>
+				<DescriptionLine lang="en">EORI is entered.</DescriptionLine>
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
@@ -1611,9 +1616,12 @@
 			<Use>FI415A</Use>
 			<Use>FI473A</Use>
 			<Use>FI475A</Use>
+			<Use>FI488A</Use>
 			<XPath>Authorisation</XPath>
 			<MinOccurence>0</MinOccurence>
+			<MinOccurence use="FI488A">1</MinOccurence>
 			<MaxOccurence>9</MaxOccurence>
+			<MaxOccurence use="FI488A">1</MaxOccurence>
 			<Condition use="FI413A">NC0021</Condition>
 			<Condition use="FI415A">NC0021</Condition>
 			<DataElement>
@@ -1662,6 +1670,7 @@
 				<Use>FI415A</Use>
 				<Use>FI473A</Use>
 				<Use>FI475A</Use>
+				<Use>FI488A</Use>
 				<XPath>HolderIdentification</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Rule>NR0025</Rule>
@@ -1723,7 +1732,7 @@
 				<Format>an5</Format>
 				<DescriptionLine lang="fi">Ilmoitetaan koko ilmoitukselle yhteinen lisätiedon koodi. Ilmoitetaan verkkolaskuosoite, jos jaksoerittely halutaan verkkolaskuna. Tullivarastoinnissa ilmoitetaan lisätietokoodi FICWM, jota käytetään siirrettäessä jos tavaraa siirretään saapumispaikalta tullivarastoon.</DescriptionLine>
 				<DescriptionLine lang="sv">Kod för ytterligare uppgifter som är gemensam för hela deklarationen anges. Nätfakturaadress anges om man vill ha periodspecifikationen som nätfaktura. Vid tullagring anges koden för ytterligare uppgifter FICWM, om varor befordras från införselstället till ett tullager.</DescriptionLine>
-				<DescriptionLine lang="en">Additional information code for the whole declaration is entered. In customs warehousing you can for example provide the additional information code FICWM, which is used when goods are moved from the place of entry to a customs warehouse.</DescriptionLine>
+				<DescriptionLine lang="en">Additional information code for the whole declaration is entered. Enter the e-invoice address if the periodic filing should be provided as an e-invoice. In customs warehousing the additional information code FICWMis entered, if the goods are moved from the place of entry to a customs warehouse.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Lisätiedon kuvaus</Name>
@@ -1815,7 +1824,7 @@
 				<Format>n1</Format>
 				<DescriptionLine lang="fi">Ilmoitetaan kuljetusmuoto sen mukaan, millä kulkuneuvolla tavara tuodaan yhteisön tullialueelle tai veroalueen rajan yli. Kuljetusmuodontavan määrää aktiivinen kuljetusväline. Aktiivinen kuljetusväline on se, joka mahdollistaa kokonaisuuden liikkumisen (esimerkiksi alus, jos kuorma-auto on lastattu merialukseen).</DescriptionLine>
 				<DescriptionLine lang="sv">Transportsättet enligt det transportmedel med vilket varorna förs in i unionens tullområde eller över gränsen till skatteområdet anges. Transportsättet bestäms enligt det aktiva transportmedlet. Det aktiva transportmedlet är det som framdriver hela kombinationen (till exempel ett fartyg, om en lastbil är lastad på fartyget).</DescriptionLine>
-				<DescriptionLine lang="en">Mode of transport based on the means of transport used for the import of the goods into the customs territory of the Union is entered. The mode of transport is determined by the active means of transport. The active means of transport is the one which propels the whole combination (for example, if a lorry has been loaded onto a seagoing vessel, the ship is the active means of transport).</DescriptionLine>
+				<DescriptionLine lang="en">Mode of transport based on the means of transport used for the import of the goods into the customs territory of the Union or across the border of the fiscal territory is entered. The mode of transport is determined by the active means of transport. The active means of transport is the one which propels the whole combination (for example, if a lorry has been loaded onto a seagoing vessel, the ship is the active means of transport).</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Kansallisuus</Name>
@@ -2810,7 +2819,8 @@
 						<MinOccurence>0</MinOccurence>
 						<Format>an8</Format>
 						<DescriptionLine lang="fi">Tullitoimipaikan koodi ilmoitetaan vain tullivarastoinnin ilmoituksella, jos tavaraa tuodaan Norjan maarajan yli, ja tavaralle ei ole edeltävää tulli-ilmoitusta.</DescriptionLine>
-						<DescriptionLine lang="sv">Tullkontorskoden anges bara i deklarationer för tullagring, om varorna importeras över den norska landgränsen och varorna inte har en tidigare tulldeklaration.  </DescriptionLine>
+						<DescriptionLine lang="sv">Tullkontorskoden anges bara i deklarationer för tullagring, om varorna importeras över den norska landgränsen och varorna inte har en tidigare tulldeklaration.</DescriptionLine>
+						<DescriptionLine lang="en">The Customs office code is only entered in the customs warehousing declaration if the goods are brought across the Norwegian border and there is no previous declaration for the goods.</DescriptionLine>
 						<Hyperlink lang="fi">
 							<URL>https://ec.europa.eu/taxation_customs/dds2/col/col_search_home.jsp?Screen=0&amp;Lang=fi</URL>
 							<Description>Tullitoimipaikkaluettelo</Description>
@@ -2908,7 +2918,7 @@
 						<Condition>NC0037</Condition>
 						<DescriptionLine lang="fi">Ilmoitetaan sijaintipaikan osoite, kun tavara halutaan tarkastettavan esimerkiksi itärajan tullitoimipaikassa tai valvonta-asetuksessa edellytetyssä hyväksytyssä tarkastuspaikassa.</DescriptionLine>
 						<DescriptionLine lang="sv">Förvaringsplatsens adress anges när man vill att varorna granskas t.ex. vid ett tullkontor vid östgränsen eller på en godkänd kontrollplats enligt kontrollförordningen.</DescriptionLine>
-						<DescriptionLine lang="en">The address of the location of the goods when the type of location is ‘D’ is entered.</DescriptionLine>
+						<DescriptionLine lang="en">The address of the location is provided, when a goods inspection is requested at a customs office on the eastern border or at a control location prescribed in the control regulation.</DescriptionLine>
 						<DataElement>
 							<Name lang="fi">Katuosoite</Name>
 							<Name lang="sv">Gatuadress</Name>
@@ -3008,7 +3018,7 @@
 					<Condition use="FI475A">NC0030</Condition>
 					<DescriptionLine lang="fi">Ilmoitetaan vain, jos tavarat eivät sijaitse tullin hyväksymässä varastossa. Tullivarastoinnissa tätä tietoryhmää ei käytetä.  </DescriptionLine>
 					<DescriptionLine lang="sv">Anges bara om varorna inte förvaras på en plats godtagen av Tullen. Vid tullagring används denna datagrupp inte.</DescriptionLine>
-					<DescriptionLine lang="en">This detail should be provided if the goods are not located in a warehouse approved by Customs.</DescriptionLine>
+					<DescriptionLine lang="en">Is provided only if the goods are not located in a warehouse approved by Customs. This data group is not used in customs warehousing.</DescriptionLine>
 					<DataGroup>
 						<Name lang="fi">Osoite</Name>
 						<Name lang="sv">Adress</Name>
@@ -4714,6 +4724,7 @@
 					<MaxOccurence>99</MaxOccurence>
 					<DescriptionLine lang="fi">Ilmoitetaan rajoituksiin ja kieltoihin liittyviä Taric-koodeja.</DescriptionLine>
 					<DescriptionLine lang="sv">Här anges Taric-koder som hänför sig till förbud och restriktioner.</DescriptionLine>
+					<DescriptionLine lang="en">Taric codes for restrictions and prohibitions are entered.</DescriptionLine>
 					<DataElement>
 						<Name lang="fi">Koodi</Name>
 						<Name lang="sv">Kod</Name>
@@ -4889,7 +4900,7 @@
 					<Condition use="FI475A">NC0233</Condition>
 					<DescriptionLine lang="fi">Jos lähetysmaa on Norja, tai ilmoitetaan unionitavaraa, eikä ole edeltävää menettelyä, edeltävää asiakirjaa ei ilmoiteta. </DescriptionLine>
 					<DescriptionLine lang="sv">Om avsändningslandet är Norge, eller om unionsvaror deklareras,  och det inte finns något föregående förfarande, ska tidigare dokument inte anges.</DescriptionLine>
-					<DescriptionLine lang="en">If the country of dispatch is Norway and there is no previous procedure, previous document is not declared.</DescriptionLine>
+					<DescriptionLine lang="en">If the country of dispatch is Norway, or if union goods are declared, and there is no previous procedure, previous document is not declared.</DescriptionLine>
 					<DataElement>
 						<Name lang="fi">Edeltävä asiakirjatyyppi</Name>
 						<Name lang="sv">Tidigare dokumentets typ</Name>
