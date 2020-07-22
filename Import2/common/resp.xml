@@ -30,12 +30,23 @@
 			<Name lang="fi">Tapahtuman tunniste</Name>
 			<Name lang="sv">Händelsens identifiering</Name>
 			<Name lang="en">Case identification</Name>
+			<Use>FI403A</Use>
+			<Use>FI405A</Use>
+			<Use>FI410A</Use>
 			<Use>FI416A</Use>
 			<Use>FI426A</Use>
 			<Use>FI428A</Use>
+			<Use>FI429A</Use>
+			<Use>FI444A</Use>
 			<Use>FI445A</Use>
+			<Use>FI448A</Use>
+			<Use>FI450A</Use>
+			<Use>FI451A</Use>
+			<Use>FI452A</Use>
+			<Use>FI468A</Use>
+			<Use>FI470A</Use>
 			<XPath>Identification</XPath>
-			<MinOccurence>0</MinOccurence>
+			<MinOccurence>1</MinOccurence>
 			<Format>an..22</Format>
 		</DataElement>
 		<DataElement>
@@ -389,7 +400,6 @@
 				<Use>FI452A</Use>
 				<XPath>Limit</XPath>
 				<MinOccurence>0</MinOccurence>
-				<GeneralType>DateTime</GeneralType>
 				<Format>dateTime</Format>
 			</DataElement>
 			<DataGroup>
@@ -428,7 +438,6 @@
 					<Use>FI468A</Use>
 					<XPath>Decision</XPath>
 					<MinOccurence>1</MinOccurence>
-					<GeneralType>DateTime</GeneralType>
 					<Format>dateTime</Format>
 				</DataElement>
 				<DataGroup>
@@ -470,7 +479,6 @@
 						<Use>FI470A</Use>
 						<XPath>Note</XPath>
 						<MinOccurence>1</MinOccurence>
-						<GeneralType>String</GeneralType>
 						<Format>an..6</Format>
 					</DataElement>
 					<DataElement>
@@ -492,7 +500,6 @@
 						<Use>FI470A</Use>
 						<XPath>NoteDescription</XPath>
 						<MinOccurence>1</MinOccurence>
-						<GeneralType>String</GeneralType>
 						<Format>an..4096</Format>
 					</DataElement>
 				</DataGroup>
@@ -540,7 +547,6 @@
 					<Use>FI470A</Use>
 					<XPath>Name</XPath>
 					<MinOccurence>1</MinOccurence>
-					<GeneralType>TraderName</GeneralType>
 					<Format>an..70</Format>
 				</DataElement>
 				<DataElement>
@@ -564,7 +570,6 @@
 					<Use>FI470A</Use>
 					<XPath>Email</XPath>
 					<MinOccurence>0</MinOccurence>
-					<GeneralType>String</GeneralType>
 					<Format>an..320</Format>
 				</DataElement>
 				<DataElement>
@@ -588,7 +593,6 @@
 					<Use>FI470A</Use>
 					<XPath>Telephone</XPath>
 					<MinOccurence>0</MinOccurence>
-					<GeneralType>TelephoneNumber</GeneralType>
 					<Format>an..20</Format>
 				</DataElement>
 			</DataGroup>
@@ -608,7 +612,6 @@
 					<Use>FI450A</Use>
 					<XPath>Type</XPath>
 					<MinOccurence>0</MinOccurence>
-					<GeneralType>String</GeneralType>
 					<Codelist>NCL421</Codelist>
 					<Format>an4</Format>
 				</DataElement>
@@ -621,7 +624,6 @@
 					<XPath>Location</XPath>
 					<MinOccurence>0</MinOccurence>
 					<MinOccurence use="FI445A">1</MinOccurence>
-					<GeneralType>String</GeneralType>
 					<Format>an..100</Format>
 				</DataElement>
 				<DataElement>
@@ -631,8 +633,16 @@
 					<Use>FI450A</Use>
 					<XPath>Control</XPath>
 					<MinOccurence>0</MinOccurence>
-					<GeneralType>String</GeneralType>
 					<Format>dateTime</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="fi">Tavaraerän numero</Name>
+					<Name lang="sv">Varupostnummer</Name>
+					<Name lang="en">Goods item number</Name>
+					<Use>FI450A</Use>
+					<XPath>Sequence</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Format>n..5</Format>
 				</DataElement>
 				<DataGroup>
 					<Name lang="fi">Yhteystiedot</Name>
@@ -689,7 +699,6 @@
 					<Use>FI444A</Use>
 					<XPath>Code</XPath>
 					<MinOccurence>1</MinOccurence>
-					<GeneralType>String</GeneralType>
 					<Format>an..200</Format>
 				</DataElement>
 				<DataElement>
@@ -700,7 +709,6 @@
 					<Use>FI444A</Use>
 					<XPath>Reason</XPath>
 					<MinOccurence>0</MinOccurence>
-					<GeneralType>String</GeneralType>
 					<!--Format>an..4096</Format-->
 					<Format>an..500</Format>
 				</DataElement>
@@ -712,7 +720,6 @@
 					<Use>FI444A</Use>
 					<XPath>Pointer/Location</XPath>
 					<MinOccurence>1</MinOccurence>
-					<GeneralType>String</GeneralType>
 					<Format>an..200</Format>
 				</DataElement>
 				<DataElement>
@@ -723,7 +730,6 @@
 					<Use>FI444A</Use>
 					<XPath>OriginalValue</XPath>
 					<MinOccurence>0</MinOccurence>
-					<GeneralType>String</GeneralType>
 					<Format>an..512</Format>
 				</DataElement>
 			</DataGroup>
@@ -1664,7 +1670,7 @@
 					<Use>FI403A</Use>
 					<Use>FI429A</Use>
 					<XPath>Identification</XPath>
-					<MinOccurence>1</MinOccurence>
+					<MinOccurence>0</MinOccurence>
 					<Format>an..17</Format>
 				</DataElement>
 				<DataElement>
@@ -2972,7 +2978,7 @@
 						<Use>FI403A</Use>
 						<Use>FI429A</Use>
 						<XPath>Method</XPath>
-						<MinOccurence>1</MinOccurence>
+						<MinOccurence>0</MinOccurence>
 						<Codelist>CL604</Codelist>
 						<Format>n3</Format>
 					</DataElement>
@@ -3015,7 +3021,7 @@
 							<XPath>ChargesType</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Codelist>CL###</Codelist>
-							<Format>a2</Format>
+							<Format>an2</Format>
 						</DataElement>
 						<DataElement>
 							<Name lang="fi">Arvo</Name>
