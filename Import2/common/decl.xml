@@ -100,6 +100,10 @@
 			<MinOccurence>1</MinOccurence>
 			<Condition use="FI413A">NC0027</Condition>
 			<Condition use="FI415A">NC0027</Condition>
+			<Condition use="FI413A">NC0301</Condition>
+			<Condition use="FI415A">NC0301</Condition>
+			<Condition use="FI413A">NC0302</Condition>
+			<Condition use="FI415A">NC0302</Condition>
 			<Condition use="FI483A">NC0242</Condition>
 			<Condition use="FI485A">NC0242</Condition>
 			<Format>an..22</Format>
@@ -152,6 +156,16 @@
 			<XPath>Type@function="DeclarationType"</XPath>
 			<MinOccurence>1</MinOccurence>
 			<Codelist>CL023</Codelist>
+			<Rule use="FI413A">NR0201</Rule>
+			<Rule use="FI415A">NR0201</Rule>
+			<Rule use="FI413A">NR0208</Rule>
+			<Rule use="FI415A">NR0208</Rule>
+			<Rule use="FI413A">NR0269</Rule>
+			<Rule use="FI415A">NR0269</Rule>
+			<Rule use="FI413A">NR0300</Rule>
+			<Rule use="FI415A">NR0300</Rule>
+			<Rule use="FI413A">NR1313</Rule>
+			<Rule use="FI415A">NR1313</Rule>
 			<Format>a2</Format>
 			<DescriptionLine lang="fi">Kolmasmaatavarasta käytetään koodia 'IM' ja unionitavarasta 'CO'.</DescriptionLine>
 			<DescriptionLine lang="sv">För tredjelandsvaror används koden 'IM' och för unionsvaror koden 'CO'.</DescriptionLine>
@@ -182,8 +196,6 @@
 			<Rule use="FI415A">NR0201</Rule>
 			<Rule use="FI413A">NR1313</Rule>
 			<Rule use="FI415A">NR1313</Rule>
-			<Rule use="FI483A">NR0702</Rule>
-			<Rule use="FI485A">NR0702</Rule>
 			<Format>a1</Format>
 		</DataElement>
 		<DataElement>
@@ -201,7 +213,8 @@
 			<XPath>Invoice</XPath>
 			<MinOccurence>0</MinOccurence>
 			<Rule>R0021</Rule>
-			<Condition>NC0201</Condition>
+			<Condition>C0619</Condition>
+			<Condition>NC0303</Condition>
 			<Format>n..16,2</Format>
 			<DescriptionLine lang="fi">Ilmoitetaan tulliselvitettävän erän valuuttamääräinen hinta, korkeintaan 2 desimaalin tarkkuudella. Hinnalla tarkoitetaan tavarasta tosiasiallisesti maksettua tai maksettavaa hintaa, jossa tullausarvoa määritettäessä hyväksyttävät kassa-, paljous- ja muut alennukset on otettu huomioon.</DescriptionLine>
 			<DescriptionLine lang="sv">Valuta-denominerade priset på deklarationspartiet med högst två decimalers noggrannhet anmäls. Med pris avses det pris som faktiskt betalats eller ska betalas för varan och i vilket de kassa-, mängd- och övriga rabatter som kan godkännas vid fastställande av varans tullvärde har beaktats. 
@@ -223,7 +236,6 @@
 			<XPath>Invoice@CurrencyUnit</XPath>
 			<MinOccurence>0</MinOccurence>
 			<Codelist>CL352</Codelist>
-			<Condition>NC0224</Condition>
 			<Format>a3</Format>
 			<DescriptionLine lang="fi">Ilmoitetaan kauppalaskulla käytetty valuuttalaji.</DescriptionLine>
 			<DescriptionLine lang="sv">Ange det valutaslag som används i fakturan.</DescriptionLine>
@@ -361,6 +373,7 @@
 			<XPath>Notification</XPath>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
+			<Rule>NR0044</Rule>
 			<DataElement>
 				<Name lang="fi">Ilmoituksen päiväys ja aika</Name>
 				<Name lang="sv">Underrättelsens datum och tid</Name>
@@ -380,7 +393,6 @@
 				<Use>FI453A</Use>
 				<XPath>Text</XPath>
 				<MinOccurence>0</MinOccurence>
-				<Condition>NC####</Condition>
 				<Format>an..4096</Format>
 			</DataElement>
 			<DataElement>
@@ -441,7 +453,8 @@
 				<Use>FI414A</Use>
 				<XPath>ReplacingMRN</XPath>
 				<MinOccurence>0</MinOccurence>
-				<Condition>NC####</Condition>
+				<Rule>NR0511</Rule>
+				<Condition>NC0240</Condition>
 				<Format>an18</Format>
 			</DataElement>
 			<DataGroup>
@@ -454,7 +467,7 @@
 				<XPath>ProvidedInfo</XPath>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>999</MaxOccurence>
-				<Condition>NC####</Condition>
+				<Rule>NR0045</Rule>
 				<DataElement>
 					<Name lang="fi">Kuvaus</Name>
 					<Name lang="sv">Beskrivning</Name>
@@ -464,7 +477,6 @@
 					<Use>FI453A</Use>
 					<XPath>Description</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Condition>NC####</Condition>
 					<Format>an..70</Format>
 					<DescriptionLine lang="fi">Liitetiedoston kuvaus.</DescriptionLine>
 					<DescriptionLine lang="sv">Beskriving av den bilagda filen.</DescriptionLine>
@@ -479,7 +491,6 @@
 					<Use>FI453A</Use>
 					<XPath>NationalReference</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Condition>NC####</Condition>
 					<Format>an..500</Format>
 					<DescriptionLine lang="fi">Tullin järjestelmän antama liitetiedosoton viite.</DescriptionLine>
 					<DescriptionLine lang="sv">Den referens som givits till bilagda dokumentet av Tullens system.</DescriptionLine>
@@ -540,11 +551,6 @@
 				<Codelist>CL530</Codelist>
 				<Rule use="FI413A">NR0002</Rule>
 				<Rule use="FI415A">NR0002</Rule>
-				<Rule>NR1105</Rule>
-				<Rule use="FI413A">NR1106</Rule>
-				<Rule use="FI415A">NR1106</Rule>
-				<Rule use="FI473A">NR1106</Rule>
-				<Rule use="FI475A">NR1106</Rule>
 				<Format>n1</Format>
 				<DescriptionLine lang="fi">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
 				<DescriptionLine lang="sv">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
@@ -574,16 +580,14 @@
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Rule>NR0034</Rule>
-				<Rule>NR0037</Rule>
-				<Rule>NR0038</Rule>
-				<Rule use="FI413A">NR0055</Rule>
-				<Rule use="FI415A">NR0055</Rule>
-				<Rule use="FI473A">NR0055</Rule>
-				<Rule use="FI475A">NR0055</Rule>
+				<Rule>NR0035</Rule>
+				<Rule>NR0036</Rule>
+				<Rule use="FI483A">NR0055</Rule>
+				<Rule use="FI485A">NR0055</Rule>
 				<Rule use="FI413A">NR0286</Rule>
 				<Rule use="FI415A">NR0286</Rule>
-				<Rule use="FI473A">NR0286</Rule>
-				<Rule use="FI475A">NR0286</Rule>
+				<Rule use="FI483A">NR0286</Rule>
+				<Rule use="FI485A">NR0286</Rule>
 				<Format>an..17</Format>
 				<DescriptionLine lang="fi">EORI-tunniste</DescriptionLine>
 				<DescriptionLine lang="sv">EORI-nummer</DescriptionLine>
@@ -816,9 +820,10 @@
 			<Filter>FI413AH5E</Filter>
 			<Filter>FI415AH5E</Filter>
 			<XPath>Declarant</XPath>
-			<MinOccurence>1</MinOccurence>
+			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<Condition>NC####</Condition>
+			<Condition use="FI413A">NC0209</Condition>
+			<Condition use="FI415A">NC0209</Condition>
 			<DescriptionLine lang="fi">Ilmoitetaan menettelyyn asettamisesta ja ilmoituksen oikeellisuudesta vastaava. Tässä ilmoitetaan sama toimija kuin tuoja -kohdassa. Jos käytetään välillistä edustajaa, tässä ilmoitetaan edustaja. Jos tehdään tullivarastoinnin ilmoitus yksityiseen tullivarastoon, ilmoitetaan varaston luvanhaltija. Jos tehdään tullivarastoinnin ilmoitus yleiseen tullivarastoon, tässä voidaan ilmoittaa muukin toimija kuin tuoja tai tullivaraston luvanhaltija.
 </DescriptionLine>
 			<DescriptionLine lang="sv">Aktören som är ansvarig för hänförandet till förfarandet och för deklarationens riktighet anges. Här anges samma aktör som i punkten Importör. Om indirekt ombud anlitas, anges här ombudet. Om man inger en deklaration för lagring i privat tullager, anges tillståndshavaren för lagret. Om man inger en deklaration för lagring i allmänt  tullager kan man här också ange någon annan aktör än importör eller tillståndshavare för tullagret.</DescriptionLine>
@@ -842,7 +847,8 @@
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Rule>NR0034</Rule>
-				<Rule>NR0037</Rule>
+				<Rule>NR0035</Rule>
+				<Rule>NR0036</Rule>
 				<Format>an..17</Format>
 				<DescriptionLine lang="fi">Jos yrityksellä on muun kuin suomen myöntämä  EORI-numero ja  suomalainen yritystunnus, tässä ilmoitetaan EORI.</DescriptionLine>
 				<DescriptionLine lang="sv">Om företaget har ett EORI-nummer som beviljats av ett annat land än Finland och ett finskt FO-nummer, anges EORI här.</DescriptionLine>
@@ -913,6 +919,7 @@
 				<XPath>Role</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Codelist>NCL121</Codelist>
+				<Rule>NR0220</Rule>
 				<Format>a1</Format>
 			</DataElement>
 			<DataGroup>
@@ -1531,6 +1538,8 @@
 			<XPath>AdditionalDocument@function="SupportingDocument"</XPath>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>99</MaxOccurence>
+			<Condition use="FI413A">NC0304</Condition>
+			<Condition use="FI415A">NC0304</Condition>
 			<DataElement>
 				<Name lang="fi">Asiakirjatyyppi</Name>
 				<Name lang="sv">Typ av dokument</Name>
@@ -1638,8 +1647,10 @@
 				<Rule>NR0001</Rule>
 				<Rule>NR0028</Rule>
 				<Rule>NR0029</Rule>
-				<Rule>NR1002</Rule>
-				<Rule>NR1102</Rule>
+				<Rule use="FI413A">NR1002</Rule>
+				<Rule use="FI415A">NR1002</Rule>
+				<Rule use="FI413A">NR1102</Rule>
+				<Rule use="FI415A">NR1102</Rule>
 				<Format>an..4</Format>
 			</DataElement>
 			<DataElement>
@@ -1652,14 +1663,9 @@
 				<Use>FI475A</Use>
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
-				<Rule>NR1001</Rule>
-				<Rule>NR1002</Rule>
-				<Rule>NR1003</Rule>
-				<Rule>NR1004</Rule>
-				<Rule>NR1005</Rule>
-				<Rule>NR1006</Rule>
-				<Rule>NR1007</Rule>
-				<Rule>NR1008</Rule>
+				<Rule>NR0001</Rule>
+				<Rule>NR0028</Rule>
+				<Rule>NR0029</Rule>
 				<Format>an..35</Format>
 			</DataElement>
 			<DataElement>
@@ -1674,7 +1680,6 @@
 				<XPath>HolderIdentification</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Rule>NR0025</Rule>
-				<Rule>NR1003</Rule>
 				<Format>an..17</Format>
 			</DataElement>
 		</DataGroup>
@@ -1702,10 +1707,8 @@
 			<XPath>AdditionalInformation</XPath>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>99</MaxOccurence>
-			<Rule use="FI413A">NR083</Rule>
-			<Rule use="FI415A">NR083</Rule>
-			<Rule use="FI413A">NR084</Rule>
-			<Rule use="FI415A">NR084</Rule>
+			<Rule use="FI413A">NR283</Rule>
+			<Rule use="FI415A">NR283</Rule>
 			<DataElement>
 				<Name lang="fi">Lisätietokoodi</Name>
 				<Name lang="sv">Kod för ytterligare uppgifter</Name>
@@ -1776,6 +1779,9 @@
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<Condition>NC0231</Condition>
+			<Condition>NC0248</Condition>
+			<Condition use="FI413A">NC0305</Condition>
+			<Condition use="FI415A">NC0305</Condition>
 			<DataElement>
 				<Name lang="fi">Veronmääräytymispäivä</Name>
 				<Name lang="sv">Datum för skattebestämning</Name>
@@ -1808,6 +1814,7 @@
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<Condition>NC0212</Condition>
+			<Condition>NC0233</Condition>
 			<DataElement>
 				<Name lang="fi">Kuljetusmuoto rajalla</Name>
 				<Name lang="sv">Transportsätt vid gränspassagen</Name>
@@ -1839,7 +1846,6 @@
 				<XPath>RegistrationNationality</XPath>
 				<MinOccurence>0</MinOccurence>
 				<Codelist>CL008</Codelist>
-				<Condition>C0010</Condition>
 				<Condition>NC0031</Condition>
 				<Format>a2</Format>
 			</DataElement>
@@ -1995,6 +2001,7 @@
 				<XPath>AEOMutualRecognitionParty</XPath>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>99</MaxOccurence>
+				<Condition>NC0210</Condition>
 				<DescriptionLine lang="fi">Ilmoitetaan toimitusketjun muu toimija, esim. AEO-ketjun toimija.</DescriptionLine>
 				<DescriptionLine lang="sv">En ytterligare aktör i leveranskedjan, t.ex. en aktör i AEO-kedjan, anmäls.</DescriptionLine>
 				<DescriptionLine lang="en">An additional actor in the supply chain is entered, e.g. an actor in the AEO chain.</DescriptionLine>
@@ -2067,6 +2074,8 @@
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<Rule>R0671</Rule>
+				<Condition>NC0213</Condition>
+				<Condition>NC0249</Condition>
 				<DescriptionLine lang="fi">Ostaja ilmoitetaan, jos tullausarvon määrittämisessä käytetään toissijaisia arvonmäärityksen menetelmiä ja ostaja on tiedossa. Ilmoita ostaja, jos eri toimija kuin tuoja.</DescriptionLine>
 				<DescriptionLine lang="sv">Köparen anges om sekundära värdebestämningsmetoder används vid fastställandet av tullvärdet och om köparen är känd. Ange köparen om annan än importören.</DescriptionLine>
 				<DescriptionLine lang="en">The buyer shall be provided if secondary valuation methods are used for determining the customs value and the buyer is known. Enter the buyer if not the same as the importer.</DescriptionLine>
@@ -2080,6 +2089,7 @@
 					<Filter>FI415AI1</Filter>
 					<XPath>Identification</XPath>
 					<MinOccurence>0</MinOccurence>
+					<Rule>NR0233</Rule>
 					<Format>an..17</Format>
 				</DataElement>
 				<DataElement>
@@ -2204,6 +2214,9 @@
 					<Filter>FI415AI1</Filter>
 					<XPath>Identification</XPath>
 					<MinOccurence>1</MinOccurence>
+					<Rule use="FI413A">NR0224</Rule>
+					<Rule use="FI415A">NR0224</Rule>
+					<Rule>NR0291</Rule>
 					<Format>an..17</Format>
 					<DescriptionLine lang="fi" use="FI413A">Ilmoitetaan veroedustajan tai IOSS-rekisteröidyn myyjän toimijan alv-tunniste.</DescriptionLine>
 					<DescriptionLine lang="fi" use="FI415A">Ilmoitetaan veroedustajan tai IOSS-rekisteröidyn myyjän toimijan alv-tunniste.</DescriptionLine>
@@ -2507,6 +2520,7 @@
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<Rule>R0672</Rule>
+				<Condition>NC0213</Condition>
 				<DescriptionLine lang="fi">Ilmoitetaan, jos toimija on eri kuin viejä. Myyjä ilmoitetaan, jos tullausarvon määrittämisessä käytetään toissijaisia arvonmäärityksen menetelmiä ja myyjä on tiedossa.</DescriptionLine>
 				<DescriptionLine lang="sv">Ska anges om annan än exportören. Säljaren anges om sekundära värdebestämningsmetoder används vid fastställandet av tullvärdet och om säljaren är känd. 
 </DescriptionLine>
@@ -2647,8 +2661,8 @@
 					<Filter>FI415AH2</Filter>
 					<XPath>Container</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Rule>NR0287</Rule>
 					<Condition>NC0200</Condition>
+					<Condition>NC0233</Condition>
 					<Format>n1</Format>
 					<DescriptionLine lang="fi">Jos tavarat olivat kontissa unionin ulkorajaa ylitettäessä ilmoitetaaan '1', muuten '0'.</DescriptionLine>
 					<DescriptionLine lang="sv">Om varorna var i en container då unionens yttergräns passerades anges '1', i annat fall '0'.</DescriptionLine>
@@ -2670,6 +2684,7 @@
 					<Rule>R0641</Rule>
 					<Condition use="FI413A">NC0208</Condition>
 					<Condition use="FI415A">NC0208</Condition>
+					<Condition>NC0233</Condition>
 					<DataElement>
 						<Name lang="fi">Sisämaan kuljetusmuoto</Name>
 						<Name lang="sv">Transportsätt inrikes</Name>
@@ -2780,7 +2795,7 @@
 					<XPath>GoodsLocation</XPath>
 					<MinOccurence>1</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
-					<Condition>NC0233</Condition>
+					<Condition>NC0234</Condition>
 					<DescriptionLine lang="fi">Ilmoitetaan paikka, jossa tavarat halutaan tarkastettavan. Tullivarastoinnissa ilmoitetaan paikka, jossa tavarat sijaitsevat esittämishetkellä. 'B' tarkoittaa väliaikaista tai tullivarastoa, 'A' tarkoittaa saapumistullitoimipaikkaa, 'C' tarkoittaa muuta Tullin hyväksymää paikkaa väliaikaiseen varastointiin ja 'D' "force majeure" -tilannetta.</DescriptionLine>
 					<DescriptionLine lang="sv">Den plats där man vill att varorna granskas anges. Vid tullagring anges varornas förvaringsplats vid tidpunkten då deras ankomst anmäls. 'B' avser tillfälligt lager eller tullager, 'A' avser införseltullkontoret, 'C' avser en annan av Tullen godtagen plats för tillfällig lagring och 'D' en "force majeure"-situation.</DescriptionLine>
 					<DescriptionLine lang="en">The desired location for the inspection of the goods is entered. In customs warehousing, provide the location of the goods at the time of presentation. 'B' refers to a temporary storage facility or customs warehouse, 'A' refers to the office of entry, 'C' refers to another place approved by Customs for temporary storage and 'D' refers to a force majeure situation.</DescriptionLine>
@@ -2817,6 +2832,7 @@
 						<Filter>FI415AH5E</Filter>
 						<XPath>Identification@function="CustomsOffice"</XPath>
 						<MinOccurence>0</MinOccurence>
+						<Condition>NC0038</Condition>
 						<Format>an8</Format>
 						<DescriptionLine lang="fi">Tullitoimipaikan koodi ilmoitetaan vain tullivarastoinnin ilmoituksella, jos tavaraa tuodaan Norjan maarajan yli, ja tavaralle ei ole edeltävää tulli-ilmoitusta.</DescriptionLine>
 						<DescriptionLine lang="sv">Tullkontorskoden anges bara i deklarationer för tullagring, om varorna importeras över den norska landgränsen och varorna inte har en tidigare tulldeklaration.</DescriptionLine>
@@ -2914,7 +2930,6 @@
 						<XPath>Address</XPath>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
-						<Condition>C0394</Condition>
 						<Condition>NC0037</Condition>
 						<DescriptionLine lang="fi">Ilmoitetaan sijaintipaikan osoite, kun tavara halutaan tarkastettavan esimerkiksi itärajan tullitoimipaikassa tai valvonta-asetuksessa edellytetyssä hyväksytyssä tarkastuspaikassa.</DescriptionLine>
 						<DescriptionLine lang="sv">Förvaringsplatsens adress anges när man vill att varorna granskas t.ex. vid ett tullkontor vid östgränsen eller på en godkänd kontrollplats enligt kontrollförordningen.</DescriptionLine>
@@ -3012,10 +3027,11 @@
 					<XPath>UnloadingLocation</XPath>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
-					<Condition use="FI413A">NC0030</Condition>
-					<Condition use="FI415A">NC0030</Condition>
-					<Condition use="FI473A">NC0030</Condition>
-					<Condition use="FI475A">NC0030</Condition>
+					<Condition>NC0030</Condition>
+					<Condition use="FI413A">NC0233</Condition>
+					<Condition use="FI415A">NC0233</Condition>
+					<Condition use="FI473A">NC0233</Condition>
+					<Condition use="FI475A">NC0233</Condition>
 					<DescriptionLine lang="fi">Ilmoitetaan vain, jos tavarat eivät sijaitse tullin hyväksymässä varastossa. Tullivarastoinnissa tätä tietoryhmää ei käytetä.  </DescriptionLine>
 					<DescriptionLine lang="sv">Anges bara om varorna inte förvaras på en plats godtagen av Tullen. Vid tullagring används denna datagrupp inte.</DescriptionLine>
 					<DescriptionLine lang="en">Is provided only if the goods are not located in a warehouse approved by Customs. This data group is not used in customs warehousing.</DescriptionLine>
@@ -3126,6 +3142,7 @@
 				<MaxOccurence>1</MaxOccurence>
 				<Rule>NR0202</Rule>
 				<Condition>NC0219</Condition>
+				<Condition>NC0233</Condition>
 				<DataElement>
 					<Name lang="fi">INCOTERM-koodi</Name>
 					<Name lang="sv">INCOTERM-kod</Name>
@@ -3267,8 +3284,10 @@
 				<MaxOccurence>1</MaxOccurence>
 				<Condition use="FI413A">NC0203</Condition>
 				<Condition use="FI415A">NC0203</Condition>
-				<Condition use="FI473A">NC0203</Condition>
-				<Condition use="FI475A">NC0203</Condition>
+				<Condition use="FI413A">NC0233</Condition>
+				<Condition use="FI415A">NC0233</Condition>
+				<Condition use="FI473A">NC0233</Condition>
+				<Condition use="FI475A">NC0233</Condition>
 				<DataElement>
 					<Name lang="fi">Varaston tunniste</Name>
 					<Name lang="sv">Lagerkod</Name>
@@ -3277,6 +3296,8 @@
 					<Use>FI415A</Use>
 					<Use>FI473A</Use>
 					<Use>FI475A</Use>
+					<Use>FI483A</Use>
+					<Use>FI485A</Use>
 					<Filter>FI413AI1</Filter>
 					<Filter>FI415AI1</Filter>
 					<Filter>FI413AH2</Filter>
@@ -3290,22 +3311,18 @@
 					<XPath>Identification</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an..35</Format>
-					<DescriptionLine lang="fi">Asetettaessa tavaroita tullivarastointimenettelyyn, ilmoitetaan sen tullivaraston tunniste, johon tavarat varastoidaan. Varaston tunniste on muotoa EORI+3+2 (esim. FI1234567-800101). Asetettaessa tavaroita muuhun menettelyyn, ilmoitetaan varasto, jonka kirjanpidossa tavara on.</DescriptionLine>
-					<DescriptionLine lang="sv">Då varor hänförs till tullagerförfarandet, anges koden för det tullager där varorna ska förvaras. Lagerkoden har formen EORI+3+2 (t.ex. FI1234567-800101). Då varor hänförs till något annat förfarande, anges det lager i vars bokföring varorna finns upptagna.</DescriptionLine>
-					<DescriptionLine lang="en">When placing goods under the customs warehousing procedure, the identifier of the customs warehouse where the goods will be stored is entered. The warehouse identifier has the form EORI+3+2 (e.g. FI1234567-800101). When placing goods under another procedure, the warehouse in whose records the goods have been entered is provided.</DescriptionLine>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Varaston tunniste</Name>
-					<Name lang="sv">Lagerkod</Name>
-					<Name lang="en">Warehouse identifier</Name>
-					<Use>FI483A</Use>
-					<Use>FI485A</Use>
-					<XPath>Identification</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>an..35</Format>
-					<DescriptionLine lang="fi">Ilmoitetaan sen väliaikisen varaston tunniste, jonka kirjanpidossa tavara on. Varaston tunniste on muotoa EORI+3+2 (esim. FI1234567-800101).</DescriptionLine>
-					<DescriptionLine lang="sv">Koden för det tillfälliga lager i vars bokföring varorna finns upptagna anges. Lagerkoden har formen EORI+3+2 (t.ex. FI1234567-800101).</DescriptionLine>
-					<DescriptionLine lang="en">The identifier of the temporary storage facility in whose records the goods have been entered is provided. The warehouse identifier has the form EORI+3+2 (e.g. FI1234567-800101).</DescriptionLine>
+					<DescriptionLine use="FI413A" lang="fi">Asetettaessa tavaroita tullivarastointimenettelyyn, ilmoitetaan sen tullivaraston tunniste, johon tavarat varastoidaan. Varaston tunniste on muotoa EORI+3+2 (esim. FI1234567-800101). Asetettaessa tavaroita muuhun menettelyyn, ilmoitetaan varasto, jonka kirjanpidossa tavara on.</DescriptionLine>
+					<DescriptionLine use="FI415A" lang="fi">Asetettaessa tavaroita tullivarastointimenettelyyn, ilmoitetaan sen tullivaraston tunniste, johon tavarat varastoidaan. Varaston tunniste on muotoa EORI+3+2 (esim. FI1234567-800101). Asetettaessa tavaroita muuhun menettelyyn, ilmoitetaan varasto, jonka kirjanpidossa tavara on.</DescriptionLine>
+					<DescriptionLine use="FI413A" lang="sv">Då varor hänförs till tullagerförfarandet, anges koden för det tullager där varorna ska förvaras. Lagerkoden har formen EORI+3+2 (t.ex. FI1234567-800101). Då varor hänförs till något annat förfarande, anges det lager i vars bokföring varorna finns upptagna.</DescriptionLine>
+					<DescriptionLine use="FI415A" lang="sv">Då varor hänförs till tullagerförfarandet, anges koden för det tullager där varorna ska förvaras. Lagerkoden har formen EORI+3+2 (t.ex. FI1234567-800101). Då varor hänförs till något annat förfarande, anges det lager i vars bokföring varorna finns upptagna.</DescriptionLine>
+					<DescriptionLine use="FI413A" lang="en">When placing goods under the customs warehousing procedure, the identifier of the customs warehouse where the goods will be stored is entered. The warehouse identifier has the form EORI+3+2 (e.g. FI1234567-800101). When placing goods under another procedure, the warehouse in whose records the goods have been entered is provided.</DescriptionLine>
+					<DescriptionLine use="FI415A" lang="en">When placing goods under the customs warehousing procedure, the identifier of the customs warehouse where the goods will be stored is entered. The warehouse identifier has the form EORI+3+2 (e.g. FI1234567-800101). When placing goods under another procedure, the warehouse in whose records the goods have been entered is provided.</DescriptionLine>
+					<DescriptionLine use="FI413A" lang="fi">Ilmoitetaan sen väliaikisen varaston tunniste, jonka kirjanpidossa tavara on. Varaston tunniste on muotoa EORI+3+2 (esim. FI1234567-800101).</DescriptionLine>
+					<DescriptionLine use="FI415A" lang="fi">Ilmoitetaan sen väliaikisen varaston tunniste, jonka kirjanpidossa tavara on. Varaston tunniste on muotoa EORI+3+2 (esim. FI1234567-800101).</DescriptionLine>
+					<DescriptionLine use="FI413A" lang="sv">Koden för det tillfälliga lager i vars bokföring varorna finns upptagna anges. Lagerkoden har formen EORI+3+2 (t.ex. FI1234567-800101).</DescriptionLine>
+					<DescriptionLine use="FI415A" lang="sv">Koden för det tillfälliga lager i vars bokföring varorna finns upptagna anges. Lagerkoden har formen EORI+3+2 (t.ex. FI1234567-800101).</DescriptionLine>
+					<DescriptionLine use="FI413A" lang="en">The identifier of the temporary storage facility in whose records the goods have been entered is provided. The warehouse identifier has the form EORI+3+2 (e.g. FI1234567-800101).</DescriptionLine>
+					<DescriptionLine use="FI415A" lang="en">The identifier of the temporary storage facility in whose records the goods have been entered is provided. The warehouse identifier has the form EORI+3+2 (e.g. FI1234567-800101).</DescriptionLine>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Varaston tyyppi</Name>
@@ -3381,6 +3398,7 @@
 					<Filter>FI415AH5R</Filter>
 					<XPath>Sequence</XPath>
 					<MinOccurence>1</MinOccurence>
+					<Rule>R0005</Rule>
 					<Rule>R0007</Rule>
 					<Format>n..5</Format>
 				</DataElement>
@@ -3464,6 +3482,10 @@
 					<XPath>Commodity</XPath>
 					<MinOccurence>1</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
+					<Condition use="FI413A">NC0214</Condition>
+					<Condition use="FI415A">NC0214</Condition>
+					<Condition use="FI413A">NC0300</Condition>
+					<Condition use="FI415A">NC0300</Condition>
 					<DataElement>
 						<Name lang="fi">Tavaran kuvaus</Name>
 						<Name lang="sv">Varubeskrivning</Name>
@@ -3559,8 +3581,6 @@
 						<MinOccurence>1</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<Rule>NR0501</Rule>
-						<Rule use="FI413A">NR0502</Rule>
-						<Rule use="FI415A">NR0502</Rule>
 						<Condition use="FI413A">NC0223</Condition>
 						<Condition use="FI415A">NC0223</Condition>
 						<Condition use="FI483A">NC0105</Condition>
@@ -3622,7 +3642,8 @@
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<Rule>NR0501</Rule>
-						<Rule>NR0502</Rule>
+						<Rule use="FI413A">NR0502</Rule>
+						<Rule use="FI415A">NR0502</Rule>
 						<Rule>NR1005</Rule>
 						<Condition>NC0218</Condition>
 						<DataElement>
@@ -4209,6 +4230,7 @@
 					<XPath>GovernmentProcedure</XPath>
 					<MinOccurence>1</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
+					<Condition>NC0301</Condition>
 					<DataElement>
 						<Name lang="fi">Pyydetty menettelykoodi</Name>
 						<Name lang="sv">Kod för begärt förfarande</Name>
@@ -4231,10 +4253,9 @@
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL092</Codelist>
 						<Rule>NR0027</Rule>
-						<Rule use="FI413A">NR0264</Rule>
-						<Rule use="FI415A">NR0264</Rule>
-						<Rule use="FI413A">NR0265</Rule>
-						<Rule use="FI415A">NR0265</Rule>
+						<Rule>NR0231</Rule>
+						<Rule>NR0264</Rule>
+						<Rule>NR0265</Rule>
 						<Format>an2</Format>
 					</DataElement>
 					<DataElement>
@@ -4256,6 +4277,10 @@
 						<XPath>Previous</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL093</Codelist>
+						<Rule>NR0005</Rule>
+						<Rule>NR0006</Rule>
+						<Rule>NR0007</Rule>
+						<Rule>NR0232</Rule>
 						<Format>an2</Format>
 					</DataElement>
 					<DataGroup>
@@ -4278,13 +4303,9 @@
 						<Filter>FI415AH5R</Filter>
 						<XPath>AdditionalProcedure</XPath>
 						<MinOccurence>0</MinOccurence>
+						<MinOccurence use="FI483A">1</MinOccurence>
+						<MinOccurence use="FI485A">1</MinOccurence>
 						<MaxOccurence>99</MaxOccurence>
-						<Rule use="FI413A">NR0005</Rule>
-						<Rule use="FI415A">NR0005</Rule>
-						<Rule use="FI413A">NR0006</Rule>
-						<Rule use="FI415A">NR0006</Rule>
-						<Rule use="FI413A">NR0007</Rule>
-						<Rule use="FI415A">NR0007</Rule>
 						<Condition use="FI413A">NC0228</Condition>
 						<Condition use="FI415A">NC0228</Condition>
 						<DataElement>
@@ -4308,12 +4329,14 @@
 							<XPath>Procedure</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Codelist>CL102</Codelist>
+							<Rule use="FI413A">NR0261</Rule>
+							<Rule use="FI415A">NR0261</Rule>
+							<Rule>NR0262</Rule>
 							<Rule use="FI413A">NR0263</Rule>
 							<Rule use="FI415A">NR0263</Rule>
 							<Rule use="FI413A">NR0267</Rule>
 							<Rule use="FI415A">NR0267</Rule>
-							<Rule use="FI413A">NR0281</Rule>
-							<Rule use="FI415A">NR0281</Rule>
+							<Rule>NR0281</Rule>
 							<Format>an3</Format>
 							<DescriptionLine lang="fi">Ilmoitetaan tarvittava(t) lisämenettelykoodi(t).</DescriptionLine>
 							<DescriptionLine lang="sv">De kod(er) för ytterligare förfarande som behövs anges.</DescriptionLine>
@@ -4429,8 +4452,9 @@
 					<Filter>FI413AH2</Filter>
 					<Filter>FI415AH2</Filter>
 					<XPath>Origin</XPath>
-					<MinOccurence>1</MinOccurence>
+					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
+					<Condition>NC0222</Condition>
 					<DescriptionLine lang="fi">Ilmoitetaan tavaran alkuperämaa.</DescriptionLine>
 					<DescriptionLine lang="sv">Varornas ursprungsland anges.</DescriptionLine>
 					<DescriptionLine lang="en">The country of origin of the goods is entered.</DescriptionLine>
@@ -4765,10 +4789,13 @@
 					<XPath>AdditionalInformation</XPath>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>99</MaxOccurence>
+					<Rule>NR0011</Rule>
 					<Rule use="FI413A">NR0288</Rule>
 					<Rule use="FI415A">NR0288</Rule>
-					<Rule use="FI413A">NR0011</Rule>
-					<Rule use="FI415A">NR0011</Rule>
+					<Rule use="FI413A">NR0302</Rule>
+					<Rule use="FI415A">NR0302</Rule>
+					<Condition use="FI413A">NC0300</Condition>
+					<Condition use="FI415A">NC0300</Condition>
 					<DataElement>
 						<Name lang="fi">Lisätietokoodi</Name>
 						<Name lang="sv">Kod för ytterligare uppgifter</Name>
@@ -4851,53 +4878,38 @@
 					<Rule use="FI415A">NR0010</Rule>
 					<Rule use="FI413A">NR0021</Rule>
 					<Rule use="FI415A">NR0021</Rule>
-					<Rule use="FI413A">NR0022</Rule>
-					<Rule use="FI415A">NR0022</Rule>
+					<Rule>NR0022</Rule>
 					<Rule>NR0067</Rule>
 					<Rule use="FI413A">NR1318</Rule>
 					<Rule use="FI415A">NR1318</Rule>
 					<Rule use="FI473A">NR1302</Rule>
 					<Rule use="FI475A">NR1302</Rule>
-					<Rule use="FI483A">NR1302</Rule>
-					<Rule use="FI485A">NR1302</Rule>
 					<Rule use="FI473A">NR1303</Rule>
-					<Rule use="FI485A">NR1303</Rule>
-					<Rule use="FI483A">NR1303</Rule>
 					<Rule use="FI475A">NR1303</Rule>
 					<Rule use="FI473A">NR1304</Rule>
 					<Rule use="FI475A">NR1304</Rule>
-					<Rule use="FI483A">NR1304</Rule>
-					<Rule use="FI485A">NR1304</Rule>
 					<Rule use="FI473A">NR1305</Rule>
 					<Rule use="FI475A">NR1305</Rule>
-					<Rule use="FI483A">NR1305</Rule>
-					<Rule use="FI485A">NR1305</Rule>
 					<Rule use="FI473A">NR1309</Rule>
 					<Rule use="FI475A">NR1309</Rule>
-					<Rule use="FI483A">NR1309</Rule>
-					<Rule use="FI485A">NR1309</Rule>
 					<Rule use="FI473A">NR1310</Rule>
 					<Rule use="FI475A">NR1310</Rule>
-					<Rule use="FI483A">NR1310</Rule>
-					<Rule use="FI485A">NR1310</Rule>
 					<Rule use="FI413A">NR1318</Rule>
 					<Rule use="FI415A">NR1318</Rule>
 					<Rule use="FI483A">NR1318</Rule>
 					<Rule use="FI485A">NR1318</Rule>
-					<Rule use="FI413A">NR1320</Rule>
-					<Rule use="FI415A">NR1320</Rule>
-					<Rule use="FI473A">NR1320</Rule>
-					<Rule use="FI475A">NR1320</Rule>
+					<Rule>NR1320</Rule>
 					<Condition use="FI413A">C0644</Condition>
 					<Condition use="FI415A">C0644</Condition>
 					<Condition use="FI473A">C0644</Condition>
 					<Condition use="FI475A">C0644</Condition>
 					<Condition use="FI413A">NC0022</Condition>
 					<Condition use="FI415A">NC0022</Condition>
-					<Condition use="FI413A">NC0233</Condition>
-					<Condition use="FI415A">NC0233</Condition>
-					<Condition use="FI473A">NC0233</Condition>
-					<Condition use="FI475A">NC0233</Condition>
+					<Condition use="FI473A">NC0022</Condition>
+					<Condition use="FI475A">NC0022</Condition>
+					<Condition>NC0234</Condition>
+					<Condition use="FI413A">NC0300</Condition>
+					<Condition use="FI415A">NC0300</Condition>
 					<DescriptionLine lang="fi">Jos lähetysmaa on Norja, tai ilmoitetaan unionitavaraa, eikä ole edeltävää menettelyä, edeltävää asiakirjaa ei ilmoiteta. </DescriptionLine>
 					<DescriptionLine lang="sv">Om avsändningslandet är Norge, eller om unionsvaror deklareras,  och det inte finns något föregående förfarande, ska tidigare dokument inte anges.</DescriptionLine>
 					<DescriptionLine lang="en">If the country of dispatch is Norway, or if union goods are declared, and there is no previous procedure, previous document is not declared.</DescriptionLine>
@@ -4926,6 +4938,8 @@
 						<Codelist>CL014</Codelist>
 						<Rule use="FI413A">NR1319</Rule>
 						<Rule use="FI415A">NR1319</Rule>
+						<Rule use="FI473A">NR1319</Rule>
+						<Rule use="FI475A">NR1319</Rule>
 						<Format>an..3</Format>
 						<DescriptionLine lang="fi">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, ilmoitetaan MRN.</DescriptionLine>
 						<DescriptionLine lang="sv">Tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration anges. Om den tidigare deklarationen har ingetts till UTU-systemet, anges MRN.</DescriptionLine>
@@ -4954,27 +4968,13 @@
 						<XPath>Identification</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Rule use="FI413A">NR0268</Rule>
-						<Rule use="FI413A">NR0268</Rule>
+						<Rule use="FI415A">NR0268</Rule>
 						<Rule use="FI413A">NR1315</Rule>
-						<Rule use="FI413A">NR1315</Rule>
+						<Rule use="FI415A">NR1315</Rule>
 						<Rule use="FI473A">NR1315</Rule>
 						<Rule use="FI475A">NR1315</Rule>
-						<Rule use="FI413A">NR1316</Rule>
-						<Rule use="FI415A">NR1316</Rule>
-						<Rule use="FI473A">NR1316</Rule>
-						<Rule use="FI475A">NR1316</Rule>
-						<Rule use="FI413A">NR1317</Rule>
-						<Rule use="FI415A">NR1317</Rule>
-						<Rule use="FI473A">NR1317</Rule>
-						<Rule use="FI475A">NR1317</Rule>
-						<Rule use="FI413A">NR1321</Rule>
-						<Rule use="FI415A">NR1321</Rule>
-						<Rule use="FI473A">NR1321</Rule>
-						<Rule use="FI475A">NR1321</Rule>
-						<Rule use="FI413A">NR1322</Rule>
-						<Rule use="FI415A">NR1322</Rule>
-						<Rule use="FI473A">NR1322</Rule>
-						<Rule use="FI475A">NR1322</Rule>
+						<Rule>NR1316</Rule>
+						<Rule>NR1317</Rule>
 						<Rule use="FI483A">R0905</Rule>
 						<Rule use="FI485A">R0905</Rule>
 						<Format>an..35</Format>
@@ -5030,6 +5030,7 @@
 						<Filter>FI415AH5R</Filter>
 						<XPath>TransportDocumentIdentification</XPath>
 						<MinOccurence>0</MinOccurence>
+						<Condition>NC0329</Condition>
 						<Format>an..70</Format>
 					</DataElement>
 				</DataGroup>
