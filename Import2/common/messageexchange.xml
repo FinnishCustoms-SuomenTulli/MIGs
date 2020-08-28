@@ -174,6 +174,16 @@
 		</Message>
 		<Message>
 			<Sender>Customs</Sender>
+			<ID>FI420A</ID>
+			<Name lang="fi">Varaston siirtolupasanoma</Name>
+			<Name lang="sv">Meddelande om tillstånd till befordran från lager </Name>
+			<Name lang="en">Storage movement permit</Name>
+			<DescriptionLine lang="fi">Tulli lähettää varastonpitäjälle tiedon siitä, että tavarat saa luovuttaa varastosta.</DescriptionLine>
+			<DescriptionLine lang="sv">Tullen meddelar lagerhavaren att varorna får utlämnas från lagret.</DescriptionLine>
+			<DescriptionLine lang="en">Customs notifies the storage operator or the warehouse keeper that the goods can be released from the warehouse.</DescriptionLine>
+		</Message>
+		<Message>
+			<Sender>Customs</Sender>
 			<ID>FI426A</ID>
 			<Name lang="fi">Rekisteröintisanoma</Name>
 			<Name lang="sv">Meddelande om registrering</Name>
@@ -281,6 +291,16 @@
 			<DescriptionLine lang="fi">Tullin ilmoitus on monikäyttöinen sanoma, jota käytetään, kun Tullilla on jotain kerrottavaa tai ilmoitettavaa asiakkaalle lukuun ottamatta päätöksiä, tarkastusilmoituksia ja siirtolupaa. Tulli ei odota asiakkaan vastaavan tähän sanomalla.</DescriptionLine>
 			<DescriptionLine lang="sv">Tullens anmälan är ett meddelande som kan användas i många slags situationer då Tullen har något att berätta eller meddela kunden, förutom då det är fråga om beslut, anmälningar om kontroll eller tillstånd till befordran. Tullen förväntar sig inte att kunden svarar på den med ett meddelande.</DescriptionLine>
 			<DescriptionLine lang="en">Customs’ notification is a versatile notification. Customs uses it to inform or notify the customer of something other than decisions, control notifications and movement permits. Customs does not expect the customer to reply to this notification with a message.</DescriptionLine>
+		</Message>
+		<Message>
+			<Sender>Customs</Sender>
+			<ID>FI905A</ID>
+			<Name lang="fi">Tilamuutossanoma</Name>
+			<Name lang="sv">Meddelande om statusändring</Name>
+			<Name lang="en">Status update notification</Name>
+			<DescriptionLine lang="fi">Tulli lähettää asiakkaalle tiedon ilmoituksen tilan muuttumisesta esimerkiksi silloin kun pyydettyä lisäselvitystä tai korjausta ei enää tarvita tai kun ilmoituksen asiointitapa on muutettu sanoma-asioinnista Tullin asiointipalveluun.</DescriptionLine>
+			<DescriptionLine lang="sv">Tullen meddelar kunden om att deklarationens status har ändrats, till exempel då en tilläggsutredning eller korrigering som begärts inte längre behövs, eller när deklareringssättet har ändrats från meddelandedeklarering till Tullens e-tjänst.</DescriptionLine>
+			<DescriptionLine lang="en">Customs notifies the customer of the status update e.g. when the requested additional information or amendment is no longer needed or when the transaction type for this declaration has been switched from message exchange to Customs’ online service.</DescriptionLine>
 		</Message>
 	</Messages>
 	<UseCases>
@@ -836,10 +856,13 @@
 				</Item>
 				<Item>
 					<ItemLine lang="fi">Tulli lähettää asiakkaalle siirtoluvan (FI445A) ja muodostaa erillisen siirtolupatulosteen asiakkaan noudettavaksi. Siirtolupa sallii tavaran siirrettäväksi nykyisestä sijaintipaikasta tarkastuspaikkaan, jossa tavara tarkastetaan tai siitä otetaan näyte laboratoriotutkimusta varten.</ItemLine>
+					<ItemLine lang="fi">Tulli lähettää väliaikaisen- tai tullivarastonpitäjälle varaston siirtolupasanoman (FI420A), jos varastonpitäjällä on Tulliin sanomayhteys, joka mahdollistaa varaston siirtolupasanoman vastaanottamisen.</ItemLine>
 					<ItemLine lang="fi">Tulli suorittaa tarvittavat tavaraan kohdistuvat tarkastustoimenpiteet. Tavarantarkastuksessa ei havaita ilmoituksesta poikkeavia tietoja eikä tarkastuksen tulos edellytä jatkotoimenpiteitä. Tarkastuksen tulos mahdollistaa ilmoituksen käsittelyn jatkamisen.</ItemLine>
 					<ItemLine lang="sv">Tullen skickar kunden ett tillstånd till befordran (FI445A) och genererar en separat utskrift av detta tillstånd som kunden kan hämta. Tillståndet till befordran tillåter att varorna befordras från sin förvaringsplats till platsen där varorna kontrolleras eller där ett prov tas av varorna för laboratorieundersökning.</ItemLine>
+					<ItemLine lang="sv">TTullen skickar innehavaren av det tillfälliga lagret eller av tullagret ett meddelande om tillstånd till befordran från lager (FI420A), förutsatt att lagerhavaren har en förbindelse med Tullen som gör det möjligt att ta emot meddelandet.</ItemLine>
 					<ItemLine lang="sv">Tullen vidtar de kontrollåtgärder som riktas mot varan. Vid undersökningen av varorna upptäcks inget som avviker från uppgifterna i deklarationen och kontrollresultatet leder inte till några fortsatta åtgärder. Kontrollresultatet möjliggör att handläggningen av deklarationen kan fortsätta.</ItemLine>
 					<ItemLine lang="en">Customs sends the customer a movement permit (FI445A) and generates a separate movement permit printout for the customer to retrieve. With the movement permit, the goods can be moved from their current location to the control location, where the goods will be controlled or sampled for laboratory examination.</ItemLine>
+					<ItemLine lang="en">Customs sends the temporary storage operator or the keeper of the customs warehouse a warehouse movement permit (FI420A), if the storage operator or the warehouse keeper has a message connection to Customs enabling the receipt of the warehouse movement permit.</ItemLine>
 					<ItemLine lang="en">Customs carries out the necessary control measures on the goods. The goods control does not reveal any discrepancies, and the result of the control will not require any further measures. The control result enables further processing of the declaration.</ItemLine>
 				</Item>
 				<Item>
