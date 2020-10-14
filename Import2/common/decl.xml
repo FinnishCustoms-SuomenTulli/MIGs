@@ -237,9 +237,9 @@
 			<MinOccurence>0</MinOccurence>
 			<Codelist>CL352</Codelist>
 			<Format>a3</Format>
-			<DescriptionLine lang="fi">Ilmoitetaan kauppalaskulla käytetty valuuttalaji.</DescriptionLine>
-			<DescriptionLine lang="sv">Ange det valutaslag som används i fakturan.</DescriptionLine>
-			<DescriptionLine lang="en">Provide the currency code used in the invoice.</DescriptionLine>
+			<DescriptionLine lang="fi">Ilmoitetaan kauppalaskulla käytetty valuuttalaji. Jos ilmoituksella on useita kauppalaskuja eri valuuttalajeissa, ilmoitetaan laskutusvaluuttana EUR ja laskutettu kokonaissumma ilmoitetaan euroina käyttäen Tullin muuntokursseja.</DescriptionLine>
+			<DescriptionLine lang="sv">Ange det valutaslag som används i fakturan. Om deklarationen har flera fakturor i olika valutor är faktureringsvalutan EUR och det fakturerade totala beloppet uttrycks i euro med hjälp av Tullens valutakurser.</DescriptionLine>
+			<DescriptionLine lang="en">Provide the currency code used in the invoice. If the declaration has several invoices in different currencies, the invoicing currency is EUR and the invoiced total amount is expressed in euros using the Customs conversion rates.</DescriptionLine>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">Bruttopaino</Name>
@@ -4089,7 +4089,7 @@
 							<Filter>FI415AH5E</Filter>
 							<XPath>ChargesType</XPath>
 							<MinOccurence>1</MinOccurence>
-							<Codelist>CL###</Codelist>
+							<Codelist>NCL123</Codelist>
 							<Format>an2</Format>
 						</DataElement>
 						<DataElement>
@@ -4900,13 +4900,12 @@
 					<Rule>NR1320</Rule>
 					<Condition use="FI413A">C0644</Condition>
 					<Condition use="FI415A">C0644</Condition>
-					<Condition use="FI473A">C0644</Condition>
-					<Condition use="FI475A">C0644</Condition>
 					<Condition use="FI413A">NC0022</Condition>
 					<Condition use="FI415A">NC0022</Condition>
-					<Condition use="FI473A">NC0022</Condition>
-					<Condition use="FI475A">NC0022</Condition>
-					<Condition>NC0234</Condition>
+					<Condition use="FI413A">NC0234</Condition>
+					<Condition use="FI415A">NC0234</Condition>
+					<Condition use="FI483A">NC0234</Condition>
+					<Condition use="FI485A">NC0234</Condition>
 					<Condition use="FI413A">NC0300</Condition>
 					<Condition use="FI415A">NC0300</Condition>
 					<DescriptionLine lang="fi">Jos lähetysmaa on Norja, tai ilmoitetaan unionitavaraa, eikä ole edeltävää menettelyä, edeltävää asiakirjaa ei ilmoiteta. </DescriptionLine>

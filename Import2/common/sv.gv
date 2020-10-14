@@ -89,7 +89,7 @@
 	"Amendment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Korrigering</b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Korrigeringens datum och tid<br align="left"/>Orsak till korrigeringsbegäran<br align="left"/>Begärans korrelations<br align="left"/></td></tr></table>>];
 	"Notification" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Underrättelse</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Underrättelsens typ<br align="left"/>Underrättelsens datum och tid<br align="left"/>Underrättelsens beskrivning<br align="left"/>Orsak till ogiltigförklaring<br align="left"/>Anledning till kontakt<br align="left"/>Orsak till korrigering<br align="left"/>Sammanhörande varupost<br align="left"/>Begärans korrelation<br align="left"/>Tidsgräns för svar<br align="left"/></td></tr></table>>];
+	<tr><td bgcolor="#fafafa" align="left">Underrättelsens typ<br align="left"/>Underrättelsens datum och tid<br align="left"/>Underrättelsens beskrivning<br align="left"/>Orsak till ogiltigförklaring<br align="left"/>Anledning till kontakt<br align="left"/>Orsak till korrigering<br align="left"/>Sammanhörande varupost<br align="left"/>Begärans korrelation<br align="left"/>Tidsgräns för svar<br align="left"/>Ersättande MRN<br align="left"/></td></tr></table>>];
 	"Error" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Fel</b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Felkod<br align="left"/>Felorsak<br align="left"/>Felpointer<br align="left"/>Ursprungligt attributvärde<br align="left"/></td></tr></table>>];
 	"ProvidedInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Inlämnad information   </b></font></td></tr>
@@ -98,12 +98,12 @@
 	<tr><td bgcolor="#fafafa" align="left">Namn<br align="left"/>E-postadress<br align="left"/>Telefonnummer<br align="left"/></td></tr></table>>];
 	"Control" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontroll</b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Kontrolltyp<br align="left"/>Kontrollplats<br align="left"/>Uppskattad tid för kontroll<br align="left"/>Varupostnummer<br align="left"/></td></tr></table>>];
+	"Movement" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Befordran</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Befordrans plats<br align="left"/></td></tr></table>>];
 	"Decision" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Beslut</b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Beslutets datum och tid</td></tr></table>>];
 	"Note" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Anteckning</b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Anteckningens typ<br align="left"/>Anteckningens text<br align="left"/></td></tr></table>>];
-	"ReplacingMRN" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ersättande MRN </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">MRN</td></tr></table>>];
 
 	"ImportOperation" -- "GoodsShipment" [headlabel="0..1", taillabel="1" fontsize=10]
 	"ImportOperation" -- "Debtor" [headlabel="0..1", taillabel="1" fontsize=10]
@@ -127,10 +127,10 @@
 	"Notification" -- "ContactInformation" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Control" -- "ContactInformation" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Notification" -- "Control" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Notification" -- "Movement" [headlabel="0..2", taillabel="1" fontsize=10]
 	"Notification" -- "Decision" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Notification" -- "ProvidedInformation" [headlabel="0..999", taillabel="1" fontsize=10]
 	"Notification" -- "Error" [headlabel="0..999", taillabel="1" fontsize=10]
-	"Notification" -- "ReplacingMRN" [headlabel="0..2", taillabel="1" fontsize=10]
 	"Decision" -- "Note" [headlabel="0..999", taillabel="1" fontsize=10]
 	"GoodsShipment" -- "Consignment" [headlabel="0..1", taillabel="1" fontsize=10]
 	"GoodsShipment" -- "GoodsItem" [headlabel="1..99999", taillabel="1" fontsize=10]

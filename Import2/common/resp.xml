@@ -600,7 +600,6 @@
 				<Name lang="fi">Tarkastus</Name>
 				<Name lang="sv">Kontroll</Name>
 				<Name lang="en">Control</Name>
-				<Use>FI445A</Use>
 				<Use>FI450A</Use>
 				<XPath>Control</XPath>
 				<MinOccurence>1</MinOccurence>
@@ -619,11 +618,9 @@
 					<Name lang="fi">Tarkastuksen sijainti</Name>
 					<Name lang="sv">Kontrollplats</Name>
 					<Name lang="en">Control location</Name>
-					<Use>FI445A</Use>
 					<Use>FI450A</Use>
 					<XPath>Location</XPath>
 					<MinOccurence>0</MinOccurence>
-					<MinOccurence use="FI445A">1</MinOccurence>
 					<Format>an..100</Format>
 				</DataElement>
 				<DataElement>
@@ -643,6 +640,15 @@
 					<XPath>Sequence</XPath>
 					<MinOccurence>0</MinOccurence>
 					<Format>n..5</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="fi">Tarkastuksen lisätiedot</Name>
+					<Name lang="sv">Ytterligare information gällande kontrollen</Name>
+					<Name lang="en">Additonal information regarding control</Name>
+					<Use>FI450A</Use>
+					<XPath>Text</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Format>an..4096</Format>
 				</DataElement>
 				<DataGroup>
 					<Name lang="fi">Yhteystiedot</Name>
@@ -680,6 +686,24 @@
 						<Format>an..20</Format>
 					</DataElement>
 				</DataGroup>
+			</DataGroup>
+			<DataGroup>
+				<Name lang="fi">Siirto</Name>
+				<Name lang="sv">Befordran</Name>
+				<Name lang="en">Movement</Name>
+				<Use>FI445A</Use>
+				<XPath>Movement</XPath>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>99</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Siirron sijainti</Name>
+					<Name lang="sv">Befordrans plats</Name>
+					<Name lang="en">Movement location</Name>
+					<Use>FI445A</Use>
+					<XPath>Location</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Format>an..100</Format>
+				</DataElement>
 			</DataGroup>
 			<DataGroup>
 				<Name lang="fi">Virhe</Name>
@@ -2908,6 +2932,7 @@
 							<Name lang="fi">Verolaji</Name>
 							<Name lang="sv">Skattetyp</Name>
 							<Name lang="en">Type of tax</Name>
+							<Use>FI403A</Use>
 							<Use>FI468A</Use>
 							<XPath>Type</XPath>
 							<MinOccurence>1</MinOccurence>
@@ -2918,6 +2943,7 @@
 							<Name lang="fi">Verokanta</Name>
 							<Name lang="sv">Skattesats</Name>
 							<Name lang="en">Tax rate</Name>
+							<Use>FI403A</Use>
 							<Use>FI468A</Use>
 							<XPath>TaxRate</XPath>
 							<MinOccurence>1</MinOccurence>
@@ -2937,6 +2963,7 @@
 							<Name lang="fi">Veron määrä</Name>
 							<Name lang="sv">Skattebelopp</Name>
 							<Name lang="en">Tax amount</Name>
+							<Use>FI403A</Use>
 							<Use>FI468A</Use>
 							<XPath>Payment/TaxAssessed</XPath>
 							<MinOccurence>1</MinOccurence>

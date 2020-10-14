@@ -89,7 +89,7 @@
 	"Amendment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Amendment</b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Amendment date and time<br align="left"/>Reason for amendment request<br align="left"/>Request correlation<br align="left"/></td></tr></table>>];
 	"Notification" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Notification</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Notification type<br align="left"/>Notification date and time<br align="left"/>Notification description<br align="left"/>Invalidation reason<br align="left"/>Reason for contact<br align="left"/>Amendment reason<br align="left"/>Related goods item<br align="left"/>Request correlation<br align="left"/>Time limit for response<br align="left"/></td></tr></table>>];
+	<tr><td bgcolor="#fafafa" align="left">Notification type<br align="left"/>Notification date and time<br align="left"/>Notification description<br align="left"/>Invalidation reason<br align="left"/>Reason for contact<br align="left"/>Amendment reason<br align="left"/>Related goods item<br align="left"/>Request correlation<br align="left"/>Time limit for response<br align="left"/>Replacing MRN<br align="left"/></td></tr></table>>];
 	"Error" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Error</b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Error code<br align="left"/>Error reason<br align="left"/>Error pointer<br align="left"/>Original attribute value<br align="left"/></td></tr></table>>];
 	"ProvidedInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Provided information   </b></font></td></tr>
@@ -98,12 +98,12 @@
 	<tr><td bgcolor="#fafafa" align="left">Name<br align="left"/>E-mail address<br align="left"/>Telephone number<br align="left"/></td></tr></table>>];
 	"Control" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Control</b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Control type<br align="left"/>Control location<br align="left"/>Estimated control time<br align="left"/>Goods item number<br align="left"/></td></tr></table>>];
+	"Movement" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Movement</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Movement location<br align="left"/></td></tr></table>>];
 	"Decision" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Decision</b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Decision date and time</td></tr></table>>];
 	"Note" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Note</b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Note type<br align="left"/>Note text<br align="left"/></td></tr></table>>];
-	"ReplacingMRN" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Replacing MRN </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">MRN</td></tr></table>>];
 
 	"ImportOperation" -- "GoodsShipment" [headlabel="0..1", taillabel="1" fontsize=10]
 	"ImportOperation" -- "Debtor" [headlabel="0..1", taillabel="1" fontsize=10]
@@ -127,10 +127,10 @@
 	"Notification" -- "ContactInformation" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Control" -- "ContactInformation" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Notification" -- "Control" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Notification" -- "Movement" [headlabel="0..2", taillabel="1" fontsize=10]
 	"Notification" -- "Decision" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Notification" -- "ProvidedInformation" [headlabel="0..999", taillabel="1" fontsize=10]
 	"Notification" -- "Error" [headlabel="0..999", taillabel="1" fontsize=10]
-	"Notification" -- "ReplacingMRN" [headlabel="0..2", taillabel="1" fontsize=10]
 	"Decision" -- "Note" [headlabel="0..999", taillabel="1" fontsize=10]
 	"GoodsShipment" -- "Consignment" [headlabel="0..1", taillabel="1" fontsize=10]
 	"GoodsShipment" -- "GoodsItem" [headlabel="1..99999", taillabel="1" fontsize=10]

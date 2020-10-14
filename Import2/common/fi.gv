@@ -89,13 +89,15 @@
 	"Amendment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Korjaus</b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Korjauksen päiväys ja aika<br align="left"/>Korjauspyynnön syy<br align="left"/>Pyynnön korrelaatio<br align="left"/></td></tr></table>>];
 	"Notification" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ilmoitus</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Ilmoituksen tyyppi<br align="left"/>Ilmoituksen päiväys ja aika<br align="left"/>Ilmoituksen kuvaus<br align="left"/>Mitätöinnin syy<br align="left"/>Yhteydenoton syy<br align="left"/>Korjauksen syy<br align="left"/>Yhteenkuuluva tavaraerä<br align="left"/>Pyynnön korrelaation<br align="left"/>Vastauksen määräaika<br align="left"/></td></tr></table>>];
+	<tr><td bgcolor="#fafafa" align="left">Ilmoituksen tyyppi<br align="left"/>Ilmoituksen päiväys ja aika<br align="left"/>Ilmoituksen kuvaus<br align="left"/>Mitätöinnin syy<br align="left"/>Yhteydenoton syy<br align="left"/>Korjauksen syy<br align="left"/>Yhteenkuuluva tavaraerä<br align="left"/>Pyynnön korrelaation<br align="left"/>Vastauksen määräaika<br align="left"/>Korvaava MRN<br align="left"/></td></tr></table>>];
 	"Error" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Virhe</b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Virhekoodi<br align="left"/>Virhesyy<br align="left"/>Virheosoitin<br align="left"/>Tiedon alkuperäinen arvo<br align="left"/></td></tr></table>>];
 	"ProvidedInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Toimitettu tieto  </b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Kuvaus<br align="left"/>Liitteen viite<br align="left"/></td></tr></table>>];
 	"Control" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tarkastus</b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Tarkastustyyppi<br align="left"/>Tarkastuksen sijainti<br align="left"/>Arvioitu tarkastusaika<br align="left"/>Tavaraerän numero<br align="left"/></td></tr></table>>];
+	"Movement" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Siirto</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Siirron sijainti</td></tr></table>>];
 	"ContactInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Yhteystiedot</b></font></td></tr>
 	<tr><td bgcolor="#fafafa" align="left">Nimi<br align="left"/>Sähköpostiosoite<br align="left"/>Puhelinnumero<br align="left"/></td></tr></table>>];
 	"Decision" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Päätös</b></font></td></tr>
@@ -127,10 +129,10 @@
 	"Notification" -- "ContactInformation" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Control" -- "ContactInformation" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Notification" -- "Control" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Notification" -- "Movement" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Notification" -- "Decision" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Notification" -- "ProvidedInformation" [headlabel="0..999", taillabel="1" fontsize=10]
 	"Notification" -- "Error" [headlabel="0..999", taillabel="1" fontsize=10]
-	"Notification" -- "ReplacingMRN" [headlabel="0..2", taillabel="1" fontsize=10]
 	"Decision" -- "Note" [headlabel="0..999", taillabel="1" fontsize=10]
 	"GoodsShipment" -- "Consignment" [headlabel="0..1", taillabel="1" fontsize=10]
 	"GoodsShipment" -- "GoodsItem" [headlabel="1..99999", taillabel="1" fontsize=10]
