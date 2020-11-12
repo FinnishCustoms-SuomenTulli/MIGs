@@ -32,6 +32,7 @@
 				</tr>
 			</thead>
 			<xsl:for-each select="VersionHistory/Version">
+				<xsl:sort select="position()" data-type="number" order="descending"/>
 				<tr>
 					<td>
 						<a href="#" data-toggle="modal">
