@@ -12,7 +12,7 @@
 							<th>Muutoksen syy</th>
 							<th>Skeema</th>
 							<th>Tietosisältö</th>
-							<th>Sanomaliikenneopas</th>
+							<th>Sanoma- liikenneopas</th>
 						</xsl:when>
 						<xsl:when test="$language='sv'">
 							<th>Version och datum</th>
@@ -36,7 +36,7 @@
 				<tr>
 					<td>
 						<a href="#" data-toggle="modal">
-							<xsl:attribute name="data-target"><xsl:value-of select="concat('#Version_',position())"/></xsl:attribute>
+							<xsl:attribute name="data-target"><xsl:value-of select="concat('#Version_',last()-position()+1)"/></xsl:attribute>
 							<xsl:value-of select="Number"/>
 							<br/>
 							<xsl:choose>
@@ -71,6 +71,23 @@
 				</tr>
 			</xsl:for-each>
 		</table>
+		<xsl:choose>
+			<xsl:when test="$language='fi'">
+				<p class="read-more">
+					<a href="#" class="button">Lisää</a>
+				</p>
+			</xsl:when>
+			<xsl:when test="$language='sv'">
+				<p class="read-more">
+					<a href="#" class="button">Mera</a>
+				</p>
+			</xsl:when>
+			<xsl:when test="$language='en'">
+				<p class="read-more">
+					<a href="#" class="button">More</a>
+				</p>
+			</xsl:when>
+		</xsl:choose>
 		<xsl:for-each select="VersionHistory/Version">
 			<div class="modal" tabindex="-1" role="dialog" data-keyboard="false">
 				<xsl:attribute name="id"><xsl:value-of select="concat('Version_',position())"/></xsl:attribute>
