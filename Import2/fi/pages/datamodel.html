@@ -1,161 +1,165 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fi" xml:lang="fi">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Luokkakaavio -</title>
+        <link rel="icon" href="../../../assets/favicon.ico" />
+        <link rel="stylesheet" href="../../../assets/tulli-bootstrap-style.css" type="text/css" />
+        <link rel="stylesheet" href="../../../assets/tulli-mig-tables-style.css" type="text/css" />
+        <link rel="stylesheet" href="../../../assets/joint.css" type="text/css" />
+        <link rel="stylesheet" href="../../../assets/umlcd.css" type="text/css" />
+        <style>
+            #canvas svg {
+                width: 100%;
+                height: auto;
+            }
+        </style>
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <title>Luokkakaavio -</title>
-    <link rel="icon" href="../../../assets/favicon.ico">
-    <link rel="stylesheet" href="../../../assets/tulli-bootstrap-style.css" type="text/css" />
-    <link rel="stylesheet" href="../../../assets/tulli-mig-tables-style.css" type="text/css" />
-    <link rel="stylesheet" href="../../../assets/joint.css" type="text/css" />
-    <link rel="stylesheet" href="../../../assets/umlcd.css" type="text/css" />
-    <style>
-        #canvas svg {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-</head>
-
-<body class="Site">
-
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-                <span class="navbar-text main-navbar">Luokkakaavio versio </span>
-                <a href="../../sv/pages/datamodel.html">Svenska</a>
-                <a href="../../en/pages/datamodel.html">English</a>
-            </div>
-        </div>
-        <!-- /.container -->
-    </nav>
-    <!-- /.navbar -->
-
-    <header>
-        <div class="upper">
+    <body class="Site">
+        <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <a class="" href="../index.html">
-                            <img class="img-responsive pull-left" src="../../../assets/images/logo-tulli.svg" alt="Suomen tullin logo" /></a>
+                <div class="navbar-header">
+                    <span class="navbar-text main-navbar">Luokkakaavio versio </span>
+                    <a href="../../sv/pages/datamodel.html">Svenska</a>
+                    <a href="../../en/pages/datamodel.html">English</a>
+                </div>
+            </div>
+            <!-- /.container -->
+        </nav>
+        <!-- /.navbar -->
 
-                        <button type="button" class="navbar-toggle collapsed pull-right margin-0" data-toggle="collapse" data-target="#navbar-mainmenu" aria-expanded="false" aria-controls="navbar-mainmenu">
-                            <span class="sr-only">Valikko</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    <div class="col-md-9 col-sm-12 col-xs-12">
-                        <nav id="navbar-mainmenu" role="menu" class="mainmenu collapse navbar-collapse">
-                            <ul class="nav nav-pills">
-                                <li>
-                                    <a href="../index.html">P&auml;&auml;sivu</a>
-                                </li>
-                                <li>
-                                    <a href="messageexchange.html">Sanomaliikenneopas</a>
-                                </li>
-                                <li class='current'>
-                                    <a class='current' href="datamodel.html">Luokkakaavio</a>
-                                </li>
-                                <li>
-                                    <a href="datarequirements.html">Tietosis&auml;ll&ouml;t</a>
-                                </li>
-                                <li>
-                                    <a href="codes.html">Koodit</a>
-                                </li>
-                                <li>
-                                    <a href="examples.html">Esimerkit</a>
-                                </li>
-                            </ul>
-                        </nav>
+        <header>
+            <div class="upper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12 col-xs-12">
+                            <a class="" href="../index.html"> <img class="img-responsive pull-left" src="../../../assets/images/logo-tulli.svg" alt="Suomen tullin logo" /></a>
+
+                            <button type="button" class="navbar-toggle collapsed pull-right margin-0" data-toggle="collapse" data-target="#navbar-mainmenu" aria-expanded="false" aria-controls="navbar-mainmenu">
+                                <span class="sr-only">Valikko</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="col-md-9 col-sm-12 col-xs-12">
+                            <nav id="navbar-mainmenu" role="menu" class="mainmenu collapse navbar-collapse">
+                                <ul class="nav nav-pills">
+                                    <li>
+                                        <a href="../index.html">P&auml;&auml;sivu</a>
+                                    </li>
+                                    <li>
+                                        <a href="messageexchange.html">Sanomaliikenneopas</a>
+                                    </li>
+                                    <li class="current">
+                                        <a class="current" href="datamodel.html">Luokkakaavio</a>
+                                    </li>
+                                    <li>
+                                        <a href="datarequirements.html">Tietosis&auml;ll&ouml;t</a>
+                                    </li>
+                                    <li>
+                                        <a href="codes.html">Koodit</a>
+                                    </li>
+                                    <li>
+                                        <a href="examples.html">Esimerkit</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="lower">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h1>Luokkakaavio</h1>
+            <div class="lower">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h1>Luokkakaavio</h1>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
-    <main class="Site-content">
-        <div class="col-xs-12" role="main">
-            <div class="panel panel-primary" id="canvas">
+        </header>
+        <main class="Site-content">
+            <div class="col-xs-12" role="main">
+                <div class="panel panel-primary" id="canvas"></div>
             </div>
-        </div>
-    </main>
-    <footer>
-        <div class="container">
-            <div class="row">
-                &copy; Tulli 2018
-
+        </main>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    &copy; Tulli 2018
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <script src="../../../assets/javascripts/vendor/jquery.js"></script>
-    <script src="../../../assets/javascripts/viz.js"></script>
-    <script src="../../../assets/javascripts/full.render.js"></script>
-    <script>
-        $(document).ready(function() {
-            $.ajax({
-                url: '../../common/intro.xml',
-                type: 'GET',
-                dataType: 'xml',
-                success: function(returnedXMLResponse) {
-                        $('VersionHistory Version:last Number', returnedXMLResponse).each(function() {
+        <script src="../../../assets/javascripts/vendor/jquery.js"></script>
+        <script src="../../../assets/javascripts/viz.js"></script>
+        <script src="../../../assets/javascripts/svg-pan-zoom.min.js"></script>
+        <script src="../../../assets/javascripts/full.render.js"></script>
+        <script>
+            $(document).ready(function () {
+                $.ajax({
+                    url: "../../common/intro.xml",
+                    type: "GET",
+                    dataType: "xml",
+                    success: function (returnedXMLResponse) {
+                        $("VersionHistory Version:last Number", returnedXMLResponse).each(function () {
                             var version = $(this).text();
                             $(".main-navbar").append(version + " ");
-
-                        })
-                        $('VersionHistory Version:last Date', returnedXMLResponse).each(function() {
+                        });
+                        $("VersionHistory Version:last Date", returnedXMLResponse).each(function () {
                             var generated = new Date($(this).text());
                             var generated = generated.toLocaleDateString("fi-FI");
                             $(".main-navbar").append(generated);
-                        })
+                        });
 
-                        $('System[lang="fi"]', returnedXMLResponse).each(function() {
+                        $('System[lang="fi"]', returnedXMLResponse).each(function () {
                             var system = $(this).text();
                             document.title += " " + system;
+                        });
+                    }, // End Success
+                }); // End AJAX
+            });
+        </script>
+        <script src="../../../assets/javascripts/bootstrap.js"></script>
 
-                        })
+        <script src="../../../assets/javascripts/custom-ui.js"></script>
 
-                    } // End Success
-            }); // End AJAX
-        });
-    </script>
-    <script src='../../../assets/javascripts/bootstrap.js'></script>
+        <script>
+            $(function () {});
+        </script>
 
-    <script src='../../../assets/javascripts/custom-ui.js'></script>
+        <script>
+            var viz = new Viz();
+            url = "../../common/fi.gv";
+            var request = new XMLHttpRequest();
+            request.addEventListener("load", function () {
+                viz.renderSVGElement(this.responseText).then(function (element) {
+                    document.getElementById("canvas").appendChild(element);
+                    panZoom = svgPanZoom(element, {
+                        zoomEnabled: true,
+                        controlIconsEnabled: true,
+                        fit: true,
+                        center: true,
+                        minZoom: 0.1,
+                    });
 
-    <script>
-        $(function() {
-
-        });
-    </script>
-
-    <script>
-      var viz = new Viz();
-      url = '../../common/fi.gv';
-      var request = new XMLHttpRequest();
-      request.addEventListener("load", function() {
-  
-        viz.renderSVGElement(this.responseText)
-        .then(function(element) {
-            document.getElementById("canvas").appendChild(element);
-          })
-      });
-      request.open("GET", url);
-      request.send();
-    </script>
-
-
-</body>
-
+                    element.addEventListener(
+                        "paneresize",
+                        function (e) {
+                            panZoom.resize();
+                        },
+                        false
+                    );
+                    window.addEventListener("resize", function (e) {
+                        panZoom.resize();
+                    });
+                });
+            });
+            request.open("GET", url);
+            request.send();
+        </script>
+    </body>
 </html>
