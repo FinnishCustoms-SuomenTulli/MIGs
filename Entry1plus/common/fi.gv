@@ -1,0 +1,146 @@
+﻿graph Entry {
+   node [shape=plaintext, fontname = "helvetica"];
+	edge [fontname = "helvetica"];
+	{rank=same "Amendment" "Notification" "HouseConsignment"}
+	"ImportOperation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tuontitapahtuma</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tapahtuman tunniste<br align="left"/>MRN<br align="left"/>LRN<br align="left"/>Toissijainen LRN<br align="left"/>Tavaroiden arvioitu esittämispäivä ja -aika<br align="left"/>Tavaroiden todellinen esittämispäivä ja -aika<br align="left"/>Tavaroiden alkuperäinen esittämispäivä ja -aika<br align="left"/>Kielikoodi<br align="left"/></td></tr></table>>];
+	"Consignment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Lähetyserä  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Siirron jälkeisen väliaikaisen varastoinnin MRN</td></tr></table>>];
+	"HouseConsignment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Alatason lähetyserä   </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">MRN<br align="left"/>LRN<br align="left"/>Kokonaisbruttopaino<br align="left"/></td></tr></table>>];
+	
+	"GoodsItem" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tavaraerä</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tavaraerän numero<br align="left"/>Unioniasema<br align="left"/>Tavaran kuvaus<br align="left"/>Tavaran koodi - harmonoidun järjestelmän koodi<br align="left"/>Tavaran koodi - yhdistetyn nimikkeistön koodi<br align="left"/>CUS-koodi<br align="left"/></td></tr></table>>];
+	"GoodsLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tavaran sijaintipaikka   </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Sijaintipaikan tyyppi<br align="left"/>UN/LOCODE<br align="left"/>Tullitoimipaikka<br align="left"/>GNSS<br align="left"/>Talouden toimija<br align="left"/>Luvan numero<br align="left"/>Lisätunniste<br align="left"/>Katuosoite<br align="left"/>Postitoimipaikka<br align="left"/>Postinumero<br align="left"/>Maa<br align="left"/></td></tr></table>>];
+	"LoadingLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Lastauspaikka</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Paikan nimi<br align="left"/>Maa<br align="left"/>Lähettävän varaston tunniste<br align="left"/>Arvioitu siirtopäivä ja -aika<br align="left"/></td></tr></table>>];
+	"UnloadingLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Purkauspaikka</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Vastaanottavan varaston tunniste</td></tr></table>>];
+	"UCR" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Viitenumero/UCR  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Viitenumero/UCR  </td></tr></table>>];
+	"DangerousGoods" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Vaaralliset aineet  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">UNDG</td></tr></table>>];
+	"Packaging" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Pakkaukset</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Lähetysmerkinnät<br align="left"/>Kolliluku<br align="left"/>Kollien laji<br align="left"/></td></tr></table>>];
+	"SupportingDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Liiteasiakirja</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Asiakirjatyyppi<br align="left"/>Asiakirjatunniste<br align="left"/></td></tr></table>>];
+	"Authorisation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Lupa</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tyyppi<br align="left"/>Viitenumero<br align="left"/>Luvanhaltijan tunnistenumero<br align="left"/></td></tr></table>>];
+	"TransportDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kuljetusasiakirja   </b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Asiakirjatyyppi<br align="left"/>Asiakirjatunniste<br align="left"/></td></tr></table>>];
+	"PreviousDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Edeltävä asiakirja</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Edeltävä asiakirjatyyppi<br align="left"/>Edeltävän asiakirjan viite<br align="left"/>Tavaraerän tunniste<br align="left"/>Kuljetusasiakirjan viite<br align="left"/></td></tr></table>>];
+	"AdditionalInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Lisätiedot</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Lisätietokoodi<br align="left"/>Lisätiedon kuvaus<br align="left"/></td></tr></table>>];
+	"Warehouse" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varaston tunnistetiedot    </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Varaston tunniste<br align="left"/>Varaston tyyppi<br align="left"/></td></tr></table>>];
+
+	"AdditionalSupplyChainActor" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Toimitusketjun lisätoimija    </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tunnistenumero<br align="left"/>Toimipaikkakoodi<br align="left"/>Toimitusketjun muun toimijan roolikoodi<br align="left"/></td></tr></table>>];
+	"Consignee" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Vastaanottaja</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tunnistenumero<br align="left"/>Toimipaikkakoodi<br align="left"/>Nimi<br align="left"/>Type<br align="left"/>Katuosoite<br align="left"/>Postitoimipaikka<br align="left"/>Postinumero<br align="left"/>Maa<br align="left"/></td></tr></table>>];
+	"Consignor" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Lähettäjä</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tunnistenumero<br align="left"/>Toimipaikkakoodi<br align="left"/>Nimi<br align="left"/>Type<br align="left"/>Katuosoite<br align="left"/>Postitoimipaikka<br align="left"/>Postinumero<br align="left"/>Maa<br align="left"/></td></tr></table>>];
+	"Declarant" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ilmoittaja</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tunnistenumero<br align="left"/>Toimipaikkakoodi<br align="left"/></td></tr></table>>];
+	"Holder" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varastonpitäjä</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tunnistenumero<br align="left"/>Toimipaikkakoodi<br align="left"/></td></tr></table>>];
+	"NotifyParty" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Osapuoli, jolle tiedot on annettava     </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tunnistenumero<br align="left"/>Toimipaikkakoodi<br align="left"/>Nimi<br align="left"/>Type<br align="left"/>Katuosoite<br align="left"/>Postitoimipaikka<br align="left"/>Postinumero<br align="left"/>Maa<br align="left"/></td></tr></table>>];
+	"PersonPresenting" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tavarat tullille esittävä henkilö   </b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Tunnistenumero<br align="left"/>Toimipaikkakoodi<br align="left"/></td></tr></table>>];
+	"Representative" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Edustaja</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Edustajan asemaa koskeva koodi<br align="left"/>Tunnistenumero<br align="left"/>Toimipaikkakoodi<br align="left"/></td></tr></table>>];
+	"ServiceProvider" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Palveluntarjoaja  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tunnistenumero</td></tr></table>>];
+	"Submitter" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ilmoituksen antaja   </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Nimi<br align="left"/>Sähköpostiosoite<br align="left"/>Puhelinnumero<br align="left"/></td></tr></table>>];
+	"PresentationOffice" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Esittämistullitoimipaikka     </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tullitoimipaikan tunniste<br align="left"/></td></tr></table>>];
+
+	"ArrivalTransportMeans" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kuljetusväline saavuttaessa    </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tunnistenumero<br align="left"/>Tunnistetietojen tyyppi<br align="left"/></td></tr></table>>];
+	"PassiveBorderTransportMeans" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Rajan ylittävä passiivinen kuljetusväline      </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tunnistenumero<br align="left"/>Tunnistetietojen tyyppi<br align="left"/></td></tr></table>>];
+	"TransportEquipment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kuljetusvälineet</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Kontin tunnistenumero</td></tr></table>>];
+	"Seal" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Sinetti</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Sinetin tunnus<br align="left"/></td></tr></table>>];
+
+	"Amendment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Korjaus</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Korjauksen päiväys ja aika<br align="left"/>Korjauspyynnön syy<br align="left"/>Pyynnön korrelaatio<br align="left"/></td></tr></table>>];
+	"Notification" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ilmoitus</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Ilmoituksen tyyppi<br align="left"/>Ilmoituksen päiväys ja aika<br align="left"/>Ilmoituksen kuvaus<br align="left"/>Mitätöinnin syy<br align="left"/>Yhteydenoton syy<br align="left"/>Ilmoituksen osa<br align="left"/>Yhteenkuuluva tavaraerä<br align="left"/>Korvaava MRN<br align="left"/>Pyynnön korrelaation<br align="left"/>Vastauksen määräaika<br align="left"/></td></tr></table>>];
+	"Error" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Virhe</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Virhekoodi<br align="left"/>Virhesyy<br align="left"/>Virheosoitin<br align="left"/>Tiedon alkuperäinen arvo<br align="left"/></td></tr></table>>];
+	"ProvidedInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Toimitettu tieto  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Kuvaus<br align="left"/>Liitteen viite<br align="left"/></td></tr></table>>];
+	"Control" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tarkastus</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tarkastustyyppi<br align="left"/>Tarkastuksen sijainti<br align="left"/>Tarkastuksen arvioitu aika<br align="left"/>Tarkastuksen kohde<br align="left"/>Yhteenkuuluva tavaraerä<br align="left"/></td></tr></table>>];
+	"ContactInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Yhteystiedot</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tullitoimipaikan nimi<br align="left"/>Nimi<br align="left"/>Sähköpostiosoite<br align="left"/>Puhelinnumero<br align="left"/></td></tr></table>>];
+	"Decision" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Päätös</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Päätöksen päiväys ja aika</td></tr></table>>];
+	"Note" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Huomautus</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Huomautuksen tyyppi<br align="left"/>Huomautuksen teksti<br align="left"/></td></tr></table>>];
+
+	"ImportOperation" -- "Consignment" [headlabel="0..9999", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Amendment" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "AdditionalSupplyChainActor" [headlabel="0..99", taillabel="1" fontsize=10]
+	"ImportOperation" -- "PersonPresenting" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Representative" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Holder" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "ServiceProvider" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Submitter" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "AdditionalInformation" [headlabel="0..99", taillabel="1" fontsize=10]
+	"ImportOperation" -- "ArrivalTransportMeans" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "GoodsLocation" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Warehouse" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "PresentationOffice" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Declarant" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "SupportingDocument" [headlabel="0..99", taillabel="1" fontsize=10]
+	"ImportOperation" -- "AdditionalInformation" [headlabel="0..99", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Authorisation" [headlabel="0..9", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Notification" [headlabel="1", taillabel="1" fontsize=10]
+	"Notification" -- "ContactInformation" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Notification" -- "Control" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Notification" -- "Decision" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Notification" -- "ProvidedInformation" [headlabel="0..999", taillabel="1" fontsize=10]
+	"Notification" -- "Error" [headlabel="0..999", taillabel="1" fontsize=10]
+	"ContactInformation"-- "Control" [headlabel="1", taillabel="0..1" fontsize=10]
+	"Decision" -- "Note" [headlabel="0..999", taillabel="1" fontsize=10]
+	"Consignment" -- "GoodsLocation" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "LoadingLocation" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "UnloadingLocation" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "ArrivalTransportMeans" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "Warehouse" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "Consignee" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "Consignor" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "NotifyParty" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "TransportEquipment" [headlabel="0..9999", taillabel="1" fontsize=10]
+	"Consignment" -- "HouseConsignment" [headlabel="0..99999", taillabel="1" fontsize=10]
+	"Consignment" -- "PreviousDocument" [headlabel="0..9999", taillabel="1" fontsize=10]
+	"Consignment" -- "TransportDocument" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "GoodsItem" [headlabel="0..9999", taillabel="1" fontsize=10]
+	"Consignment" -- "UCR" [headlabel="0..1", taillabel="1" fontsize=10]
+
+	"AdditionalInformation" -- "HouseConsignment" [headlabel="1", taillabel="0..99" fontsize=10]
+	"Consignee" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
+	"Consignor" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
+	"NotifyParty" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
+	"LoadingLocation" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
+	"HouseConsignment" -- "TransportEquipment" [headlabel="0..9999", taillabel="1" fontsize=10]
+	"TransportDocument" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
+	"HouseConsignment" -- "PreviousDocument" [headlabel="0..1", taillabel="1" fontsize=10]
+	"HouseConsignment" -- "PassiveBorderTransportMeans" [headlabel="0..1", taillabel="1" fontsize=10]
+	"HouseConsignment" -- "GoodsItem" [headlabel="0..9999", taillabel="1" fontsize=10]
+	"UCR" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
+
+	"TransportEquipment" -- "GoodsItem" [headlabel="1", taillabel="0..9999" fontsize=10]
+	"TransportEquipment" -- "Seal" [headlabel="0..9999", taillabel="1" fontsize=10]
+	"GoodsItem" --"DangerousGoods" [headlabel="0..99", taillabel="1" fontsize=10]
+	"GoodsItem" --"Packaging" [headlabel="0..99", taillabel="1" fontsize=10]
+	"PassiveBorderTransportMeans" -- "GoodsItem" [headlabel="1", taillabel="0..1" fontsize=10]
+	"PreviousDocument" -- "GoodsItem" [headlabel="1", taillabel="0..1" fontsize=10]
+	// Adjust the layout, not real connections
+	//"Notification" -- "Consignment" [style=invis]
+}
