@@ -1,0 +1,23 @@
+﻿graph Import2 {
+   node [shape=plaintext, fontname = "helvetica"];
+	edge [fontname = "helvetica"];
+	"Envelope" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kuvert</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Kuvertets identifiering<br align="left"/>Datum för kuverters skapande<br align="left"/>Tid för kuvertets skapande<br align="left"/>Test-indikator<br align="left"/></td></tr></table>>];
+	"IntrastatEnvelope" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Intrastat-kuvert</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Kuvertets identifiering<br align="left"/>Indikator för godkännande eller avslag<br align="left"/>Felkod<br align="left"/>Kommentar eller förklaring av felet<br align="left"/></td></tr></table>>];
+	"EnvelopeDateTime" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Datum och tid för det mottagna kuvertet     </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Kuvertets datum<br align="left"/>Kuvertets tid<br align="left"/></td></tr></table>>];
+	"Party" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Aktör</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Aktörens identifiering<br align="left"/>Aktörens typ<br align="left"/>Aktörens roll<br align="left"/>Kontaktpersonens namn<br align="left"/></td></tr></table>>];
+	"Declaration" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Deklaration</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">(Mottagna) deklarationens statistiknummer<br align="left"/>Statistikperoid<br align="left"/>Uppgiftslämnare<br align="left"/>Deklarationens funktion<br align="left"/>Precision av framställning av data (fullständiga)<br align="left"/>Varuflödets riktning<br align="left"/>Intrastat-deklarationens valuta<br align="left"/>Faktureringsvärde totalt<br align="left"/>Antal varupartier totalt<br align="left"/>Indikator för avslag av deklarationen<br align="left"/>Felkod<br align="left"/>Kommentar eller förklaring av felet<br align="left"/></td></tr></table>>];
+	"Item" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varuparti</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Varupartiets ordningsnummer<br align="left"/>EU-medlemsland<br align="left"/>Ursprungsland<br align="left"/>Nettovikt<br align="left"/>Annan kvantiet<br align="left"/>Annan kvantitet enhet<br align="left"/>Varukod<br align="left"/>Faktureringsvärde<br align="left"/>Statistiskt värde<br align="left"/>Varupartiets referensnummer<br align="left"/>Handelspartner<br align="left"/>Transaktionstyp<br align="left"/>Transportsätt<br align="left"/>Felkod<br align="left"/>Kommentar eller förklaring av felet<br align="left"/></td></tr></table>>];
+
+	"Envelope" -- "Party" [headlabel="1..2", taillabel="1" fontsize=10]
+	"Envelope" -- "IntrastatEnvelope" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Envelope" -- "Declaration" [headlabel="1", taillabel="1" fontsize=10]
+	"IntrastatEnvelope" -- "Declaration" [headlabel="1", taillabel="1" fontsize=10]
+	"IntrastatEnvelope" -- "EnvelopeDateTime" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Declaration" -- "Item" [headlabel="0..3000", taillabel="1" fontsize=10]
+}

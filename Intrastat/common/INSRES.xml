@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
+<Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Message.xsd">
+	<Type>INSTAT</Type>
+	<Name lang="fi">Sisäkaupan tilastoinnin vastaussanoma</Name>
+	<Name lang="sv">Svarsmeddelandet för statistikföring av EU-intern handel</Name>
+	<Name lang="en">Intra-Community trade statistical response message</Name>
+	<DataGroup>
+		<Name lang="fi">Kuori</Name>
+		<Name lang="sv">Kuvert</Name>
+		<Name lang="en">Envelope</Name>
+		<XPath>Envelope</XPath>
+		<MinOccurence>1</MinOccurence>
+		<MaxOccurence>1</MaxOccurence>
+		<DataElement>
+			<Name lang="fi">Kuoren tunniste</Name>
+			<Name lang="sv">Kuvertets identifiering</Name>
+			<Name lang="en">Identification of the envelope</Name>
+			<XPath>envelopeId</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>string</GeneralType>
+			<Format>an..14</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Testi-indikaattori</Name>
+			<Name lang="sv">Test-indikator</Name>
+			<Name lang="en">Test indicator</Name>
+			<XPath>testIndicator</XPath>
+			<MinOccurence>0</MinOccurence>
+			<GeneralType>boolean</GeneralType>
+			<Condition>NC001</Condition>
+			<Format>boolean</Format>
+			<DescriptionLine lang="fi">Koodi ilmaisee onko ilmoitus tai vastaus testi. Tuotannossa arvon tulee olla 'false' jos indikaattori ilmoitetaan.</DescriptionLine>
+			<DescriptionLine lang="sv">Koden visar om deklarationen eller svaret är ett test. I produktion bör värdet vara 'false' om indikatorn anmäls.</DescriptionLine>
+			<DescriptionLine lang="en">Code indicating if the submission or response is a test. In production, the value must be 'false' if given.</DescriptionLine>
+		</DataElement>
+		<DataGroup>
+			<Name lang="fi">Toimija</Name>
+			<Name lang="sv">Aktör</Name>
+			<Name lang="en">Party</Name>
+			<XPath>Party</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>2</MaxOccurence>
+			<DescriptionLine lang="fi">Kaksi pakollista esiintymää, joilla "partyRole" = "sender" (lähettäjä) ja "receiver" (vastaanottaja). Tullin vastaussanomissa "sender" on Tulli ja "receiver" on tiedonantovelvollinen tai asiamies joka on lähettänyt Intrastat-ilmoituksen.</DescriptionLine>
+			<DescriptionLine lang="sv">Två obligatoriska förekomster, för vilka "partyRole" = "sender" (avsändare) och "receiver" (mottagare). På Tullens svarsmeddelanden är "sender" Tullen och "receiver" är deklaranten eller ombudet som skickat Intrastat-deklarationen.</DescriptionLine>
+			<DescriptionLine lang="en">Two occurrences with "partyRole" = "sender" and "receiver" are mandatory, "sender" being Customs and "receiver" the Provider of Statistical Information or Third Declaring Agent sending the original Intrastat declarations to be acknowledged.</DescriptionLine>
+			<DataElement>
+				<Name lang="fi">Toimijan tunniste</Name>
+				<Name lang="sv">Aktörens identifiering</Name>
+				<Name lang="en">Party identification</Name>
+				<XPath>partyId</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>an..20</Format>
+				<DescriptionLine lang="fi">Tietoelementti koostuu maakoodista, jota seuraa Y-tunnus (kotimaiset toimijat) tai ALV-tunnus (ulkomaiset toimijat).</DescriptionLine>
+				<DescriptionLine lang="sv">Dataelementet består av landskoden som följs av FO-numret (inhemska aktörer) eller MOMS-numret (utländska aktörer).</DescriptionLine>
+				<DescriptionLine lang="en">The data element consists of the country code followed by the Business ID (Finnish traders) or VAT number (foreign traders).</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Toimijan tyyppi</Name>
+				<Name lang="sv">Aktörens typ</Name>
+				<Name lang="en">Party type</Name>
+				<XPath>@PartyType</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>a..3</Format>
+				<DescriptionLine lang="fi">Attribuutti joka määrittelee toimijan tyypin.</DescriptionLine>
+				<DescriptionLine lang="fi">Mahdolliset arvot ovat:</DescriptionLine>
+				<DescriptionLine lang="fi">PSI = Tiedonantovelvollinen</DescriptionLine>
+				<DescriptionLine lang="fi">TDP = Asiamies</DescriptionLine>
+				<DescriptionLine lang="fi">CC = Vastaanottotaho</DescriptionLine>
+				<DescriptionLine lang="sv">Attribut som definierar aktörens typ.</DescriptionLine>
+				<DescriptionLine lang="sv">Möjliga värden är:</DescriptionLine>
+				<DescriptionLine lang="sv">PSI = Deklarant</DescriptionLine>
+				<DescriptionLine lang="sv">TDP = Ombud</DescriptionLine>
+				<DescriptionLine lang="sv">CC = Mottagarepart</DescriptionLine>
+				<DescriptionLine lang="en">Attribute specifying the type of party.</DescriptionLine>
+				<DescriptionLine lang="en">Possible values are:</DescriptionLine>
+				<DescriptionLine lang="en">PSI = Provider of Statistical Information</DescriptionLine>
+				<DescriptionLine lang="en">TDP = Third Declaring Agent</DescriptionLine>
+				<DescriptionLine lang="en">CC = Collecting Centre</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Toimijan rooli</Name>
+				<Name lang="sv">Aktörens roll</Name>
+				<Name lang="en">Party role</Name>
+				<XPath>@PartyRole</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>a..8</Format>
+				<DescriptionLine lang="fi">Attribuutti joka määrittelee toimijan roolin.</DescriptionLine>
+				<DescriptionLine lang="fi">Mahdolliset arvot ovat:</DescriptionLine>
+				<DescriptionLine lang="fi">sender = Ilmoituksen lähettävä toimija</DescriptionLine>
+				<DescriptionLine lang="fi">receiver = Ilmoituksen vastaanottaja</DescriptionLine>
+				<DescriptionLine lang="sv">Attribut som definierar aktörens roll.</DescriptionLine>
+				<DescriptionLine lang="sv">Möjliga värden är:</DescriptionLine>
+				<DescriptionLine lang="sv">sender = Aktören som skickar deklarationen</DescriptionLine>
+				<DescriptionLine lang="sv">receiver = Deklarationens mottagare</DescriptionLine>
+				<DescriptionLine lang="en">Attribute specifying the role of the party.</DescriptionLine>
+				<DescriptionLine lang="en">Possible values are:</DescriptionLine>
+				<DescriptionLine lang="en">sender = party sending the declaration</DescriptionLine>
+				<DescriptionLine lang="en">receiver = party receiving the declaration</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Yhteyshenkilön nimi</Name>
+				<Name lang="sv">Kontaktpersonens namn</Name>
+				<Name lang="en">Contact person name</Name>
+				<XPath>ContactPerson/contactPersonName</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>an..35</Format>
+			</DataElement>
+		</DataGroup>
+	</DataGroup>
+	<DataGroup>
+		<Name lang="fi">Intrastat-kuori</Name>
+		<Name lang="sv">Intrastat-kuvert</Name>
+		<Name lang="en">Intrastat-envelope</Name>
+		<XPath>Envelope/INSTATEnvelope</XPath>
+		<MinOccurence>1</MinOccurence>
+		<MaxOccurence>1</MaxOccurence>
+		<DataElement>
+			<Name lang="fi">Kuoren tunniste</Name>
+			<Name lang="sv">Kuvertets identifiering</Name>
+			<Name lang="en">Identification of the envelope</Name>
+			<XPath>EnvelopeId</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>string</GeneralType>
+			<Format>an..14</Format>
+			<DescriptionLine lang="fi">Intrastat-ilmoitukset sisältävän kuoren tunniste.</DescriptionLine>
+			<DescriptionLine lang="sv">Identifiering av kuvertet innehållande Intrastat-deklarationerna.</DescriptionLine>
+			<DescriptionLine lang="en">Identification code of the received envelope containing the Intrastat declarations.</DescriptionLine>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Hyväksynnän tai hylkäyksen ilmaisin</Name>
+			<Name lang="sv">Indikator för godkännande eller avslag</Name>
+			<Name lang="en">Indicator of acceptance or rejection</Name>
+			<XPath>envelopeActionId</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>string</GeneralType>
+			<Format>a2</Format>
+			<DescriptionLine lang="fi">Seuraavat koodit ovat käytössä:</DescriptionLine>
+			<DescriptionLine lang="fi">AC = Intrastat-ilmoitukset sisältävän kuoren hyväksyntä</DescriptionLine>
+			<DescriptionLine lang="fi">RE = Intrastat-ilmoitukset sisältävän kuoren hylkäys</DescriptionLine>
+			<DescriptionLine lang="sv">Följande koder används:</DescriptionLine>
+			<DescriptionLine lang="sv">AC = Godkännande av kuvertet innehållande Intrastat-deklarationerna</DescriptionLine>
+			<DescriptionLine lang="sv">RE = Avslag av kuvertet innehållande Intrastat-deklarationerna</DescriptionLine>
+			<DescriptionLine lang="fi">The following codes are used:</DescriptionLine>
+			<DescriptionLine lang="fi">AC = Acceptance of the envelope containing the Intrastat declarations</DescriptionLine>
+			<DescriptionLine lang="fi">RE = Rejection of the envelope containing the Intrastat declarations</DescriptionLine>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Virhekoodi</Name>
+			<Name lang="sv">Felkod</Name>
+			<Name lang="en">Code of application error</Name>
+			<XPath>envelopeErrorCode</XPath>
+			<MinOccurence>0</MinOccurence>
+			<GeneralType>string</GeneralType>
+			<Condition>NC007</Condition>
+			<Format>a..6</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Virheen kommentti tai selite</Name>
+			<Name lang="sv">Kommentar eller förklaring av felet</Name>
+			<Name lang="en">Comment or description of the application error</Name>
+			<XPath>envelopeComment</XPath>
+			<MinOccurence>0</MinOccurence>
+			<GeneralType>string</GeneralType>
+			<Condition>NC007</Condition>
+			<Format>an..70</Format>
+			<DescriptionLine lang="fi">Intrastat-ilmoitukset sisältävästä kuoresta löydettyyn virheeseen liittyvä kommentti tai selite.</DescriptionLine>
+			<DescriptionLine lang="sv">Kommentar eller förklaring av felet som hittats i kuvertet innehållande Intrastat-deklarationerna.</DescriptionLine>
+			<DescriptionLine lang="en">Comment or description of the application error found in the envelope containing the Intrastat declarations.</DescriptionLine>
+		</DataElement>
+		<DataGroup>
+			<Name lang="fi">Vastaanotetun kuoren päivämäärä ja aika</Name>
+			<Name lang="sv">Datum och tid för det mottagna kuvertet</Name>
+			<Name lang="en">Date and time of the envelope of received Intrastat declarations</Name>
+			<XPath>DateTime</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="fi">Kuoren päivämäärä</Name>
+				<Name lang="sv">Kuvertets datum</Name>
+				<Name lang="en">Date of the envelope</Name>
+				<XPath>date</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>date</GeneralType>
+				<Format>date</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Kuoren aika</Name>
+				<Name lang="sv">Kuvertets tid</Name>
+				<Name lang="en">Time of the envelope</Name>
+				<XPath>time</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>time</GeneralType>
+				<Format>time</Format>
+			</DataElement>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="fi">Ilmoitus</Name>
+			<Name lang="sv">Deklaration</Name>
+			<Name lang="en">Declaration</Name>
+			<XPath>Declaration</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<Condition>NC008</Condition>
+			<DataElement>
+				<Name lang="fi">Vastaanotetun ilmoituksen tilastonumero</Name>
+				<Name lang="sv">Mottagna deklarationens statistiknummer</Name>
+				<Name lang="en">Identification of the received Intrastat declaration</Name>
+				<XPath>declarationId</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>an13</Format>
+				<DescriptionLine lang="fi">Vastaanotetun Intrastat-ilmoituksen tunnus.</DescriptionLine>
+				<DescriptionLine lang="sv">Identifiering av Intrastat-deklarationen som tagits emot.</DescriptionLine>
+				<DescriptionLine lang="en">Identification of the received Intrastat declaration.</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Ilmoituksen hylkäyksen ilmaisin</Name>
+				<Name lang="sv">Indikator för avslag av deklarat-ionen</Name>
+				<Name lang="en">Indicator of rejection of declaration</Name>
+				<XPath>declarationActionCode</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Condition>NC009</Condition>
+				<Format>a2</Format>
+				<DescriptionLine lang="fi">Seuraava koodi on käytössä:</DescriptionLine>
+				<DescriptionLine lang="fi">RE = Intrastat-ilmoituksen hylkäys</DescriptionLine>
+				<DescriptionLine lang="sv">Följande kod används:</DescriptionLine>
+				<DescriptionLine lang="sv">RE = Avslag av Intrastat-deklarationen</DescriptionLine>
+				<DescriptionLine lang="en">The following code is used:</DescriptionLine>
+				<DescriptionLine lang="en">RE = Rejection of the Intrastat declaration</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Virhekoodi</Name>
+				<Name lang="sv">Felkod</Name>
+				<Name lang="en"/>
+				<XPath>declarationErrorCode</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Condition>NC007</Condition>
+				<Format>a..6</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Virheen kommentti tai selite</Name>
+				<Name lang="sv">Kommentar eller förklaring av felet</Name>
+				<Name lang="en">Code of application error</Name>
+				<XPath>declarationComment</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Condition>NC007</Condition>
+				<Format>an..70</Format>
+				<DescriptionLine lang="fi">Intrastat-ilmoituksesta löydettyyn virheeseen liittyvä kommentti tai selite.</DescriptionLine>
+				<DescriptionLine lang="sv">Kommentar eller förklaring av felet som hittats i kuvertet innehållande Intrastat-deklarationerna.</DescriptionLine>
+				<DescriptionLine lang="en">Comment or description of the application error found in the received Intrastat declaration.</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Tilastojakso</Name>
+				<Name lang="sv">Statistikperiod</Name>
+				<Name lang="en">Reference period</Name>
+				<XPath>referencePeriod</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>an7</Format>
+				<DescriptionLine lang="fi">Tilastojakso koostuu kahdesta väliviivalla jaetusta osiosta.</DescriptionLine>
+				<DescriptionLine lang="fi">Ensimmäinen osa on tilastojakson vuosi neljällä numerolla.</DescriptionLine>
+				<DescriptionLine lang="fi">Toinen osa on jakson numero:</DescriptionLine>
+				<DescriptionLine lang="fi">• numero 01 ja 12 välillä, vastaten kuukautta (ilmoitetaan kahdella numerolla)</DescriptionLine>
+				<DescriptionLine lang="sv">Statistiska perioden består av två delar åtskilda med ett bindestreck.</DescriptionLine>
+				<DescriptionLine lang="sv">Första delen är statistiska periodens år med fyra siffror.</DescriptionLine>
+				<DescriptionLine lang="sv">Andra delen är periodens nummer:</DescriptionLine>
+				<DescriptionLine lang="sv">• ett nummer mellan 01 och 12 motsvarande månaden (anmäls med två siffror)</DescriptionLine>
+				<DescriptionLine lang="en">Reference period is composed of two parts separated by a dash.</DescriptionLine>
+				<DescriptionLine lang="en">The first part is the year of period with four digits.</DescriptionLine>
+				<DescriptionLine lang="en">The second part is the period number:</DescriptionLine>
+				<DescriptionLine lang="en">• a number from 01 to 12 corresponding to the month (using two digits)</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Tiedonantovelvollinen</Name>
+				<Name lang="sv">Uppgiftslämnare</Name>
+				<Name lang="en">PSI responsible of the declara-
+tion</Name>
+				<XPath>PSIId</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>an..20</Format>
+				<DescriptionLine lang="fi">Vastaanotettuun Intrastat-ilmoitukseen liittyvän tiedonantovelvollisen tunniste.</DescriptionLine>
+				<DescriptionLine lang="sv">Identifiering av deklaranten som hänger samman med den mottagna Intrastat-deklarationen.</DescriptionLine>
+				<DescriptionLine lang="en">Identification code of the PSI associated with the received Intrastat declaration.</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Tietojen esittämistarkkuus (täydelliset)</Name>
+				<Name lang="sv">Precision av framställning av data (fullständiga)</Name>
+				<Name lang="en">Type of declaration (threshold)</Name>
+				<XPath>declarationTypeCode</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>a1</Format>
+				<DescriptionLine lang="fi">Koodi 'T' ilmoitetaan.</DescriptionLine>
+				<DescriptionLine lang="sv">Koden 'T' anmäls.</DescriptionLine>
+				<DescriptionLine lang="en">Code 'T' is declared.</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Tavaravirran suunta</Name>
+				<Name lang="sv">Varuflödets riktning</Name>
+				<Name lang="en">Flow</Name>
+				<XPath>flowCode</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>a1</Format>
+				<DescriptionLine lang="fi">Ilmoitetaan tavaravirran suunta. Mahdolliset arvot ovat:</DescriptionLine>
+				<DescriptionLine lang="fi">A = Tuonti</DescriptionLine>
+				<DescriptionLine lang="fi">D = Vienti</DescriptionLine>
+				<DescriptionLine lang="sv">Varuflödets riktning anmäls. Möjliga värden är:</DescriptionLine>
+				<DescriptionLine lang="sv">A = Import</DescriptionLine>
+				<DescriptionLine lang="sv">D = Export</DescriptionLine>
+				<DescriptionLine lang="en">Flow of goods reported in the Intrastat declaration. Possible values are:</DescriptionLine>
+				<DescriptionLine lang="en">A = Import</DescriptionLine>
+				<DescriptionLine lang="en">D = Export</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Ilmoituksen laskutusarvo yhteensä</Name>
+				<Name lang="sv">Faktureringsvärde totalt</Name>
+				<Name lang="en">Total invoiced amount for the declaration</Name>
+				<XPath>rTotalInvoicedAmount</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>integer</GeneralType>
+				<Rule>NR001</Rule>
+				<Format>n..18</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Nimike-erien kokonaismäärä</Name>
+				<Name lang="sv">Antal varupartier totalt</Name>
+				<Name lang="en">Total number of lines</Name>
+				<XPath>rTotalNumberLines</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>integer</GeneralType>
+				<Format>n..4</Format>
+				<DescriptionLine lang="fi">Vastaanotetun Intrastat-ilmoituksen tavaraerien kokonaismäärä.</DescriptionLine>
+				<DescriptionLine lang="sv">Totala antalet varuposter på den mottagna deklarationen.</DescriptionLine>
+				<DescriptionLine lang="en">Total number of lines of the received Intrastat declaration.</DescriptionLine>
+			</DataElement>
+			<DataGroup>
+				<Name lang="fi">Nimike-erä</Name>
+				<Name lang="sv">Varuparti</Name>
+				<Name lang="en">Item</Name>
+				<XPath>Item</XPath>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>3000</MaxOccurence>
+				<Condition>NC010</Condition>
+				<DataElement>
+					<Name lang="fi">Nimike-erän järjestysnumero</Name>
+					<Name lang="sv">Varupartiets ordningsnummer</Name>
+					<Name lang="en">Item number</Name>
+					<XPath>itemNumber</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>integer</GeneralType>
+					<Format>n..4</Format>
+					<DescriptionLine lang="fi">Vastaanotetun Intrastat-ilmoituksen virheellisen nimike-erän järjestysnumero.</DescriptionLine>
+					<DescriptionLine lang="sv">Ordningsnumret för det felaktiga varupartiet på den mottagna Intrastat-deklarationen.</DescriptionLine>
+					<DescriptionLine lang="en">Serial item (or line) number containing an error in the received Intrastat declaration.</DescriptionLine>
+				</DataElement>
+				<DataElement>
+					<Name lang="fi">Virhekoodi</Name>
+					<Name lang="sv">Felkod</Name>
+					<Name lang="en">Code of application error</Name>
+					<XPath>itemErrorCode</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>string</GeneralType>
+					<Format>a..6</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="fi">Virheen kommentti tai selite</Name>
+					<Name lang="sv">Kommentar eller förklaring av felet</Name>
+					<Name lang="en">Comment or description of the application error</Name>
+					<XPath>itemComment</XPath>
+					<MinOccurence>1</MinOccurence>
+					<GeneralType>string</GeneralType>
+					<Format>an..70</Format>
+					<DescriptionLine lang="fi">Vastaanotetun Intrastat-ilmoituksen nimike-erältä löydettyyn virheeseen liittyvä kommentti tai selite.</DescriptionLine>
+					<DescriptionLine lang="sv">Kommentar eller förklaring av felet som hittats på varupartiet på den mottagna Intrastat-deklarationen.</DescriptionLine>
+					<DescriptionLine lang="en">Comment or description of the application error found in the item of the received Intrastat declaration.</DescriptionLine>
+				</DataElement>
+			</DataGroup>
+		</DataGroup>
+	</DataGroup>
+</Message>

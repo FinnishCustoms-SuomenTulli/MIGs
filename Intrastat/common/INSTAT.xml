@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
+<Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Message.xsd">
+	<Type>INSTAT</Type>
+	<Name lang="fi">Sisäkaupan tilastoinnin ilmoitussanoma</Name>
+	<Name lang="sv">Deklarationsmeddelandet för statistikföring av EU-intern handel</Name>
+	<Name lang="en">Intra-Community trade statistical declaration message</Name>
+	<DataGroup>
+		<Name lang="fi">Kuori</Name>
+		<Name lang="sv">Kuvert</Name>
+		<Name lang="en">Envelope</Name>
+		<XPath>Envelope</XPath>
+		<MinOccurence>1</MinOccurence>
+		<MaxOccurence>1</MaxOccurence>
+		<DataElement>
+			<Name lang="fi">Kuoren tunniste</Name>
+			<Name lang="sv">Kuvertets identifiering</Name>
+			<Name lang="en">Identification of the envelope</Name>
+			<XPath>envelopeId</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>string</GeneralType>
+			<Format>an..14</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Kuoren luomisen päivämäärä</Name>
+			<Name lang="sv">Datum för kuvertets skapande</Name>
+			<Name lang="en">Date of creation of the envelope</Name>
+			<XPath>DateTime/date</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>date</GeneralType>
+			<Format>date</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Kuoren luomisen aika</Name>
+			<Name lang="sv">Tid för kuvertets skapande</Name>
+			<Name lang="en">Time of creation of the envelope</Name>
+			<XPath>DateTime/time</XPath>
+			<MinOccurence>0</MinOccurence>
+			<GeneralType>time</GeneralType>
+			<Format>time</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Testi-indikaattori</Name>
+			<Name lang="sv">Test-indikator</Name>
+			<Name lang="en">Test indicator</Name>
+			<XPath>testIndicator</XPath>
+			<MinOccurence>0</MinOccurence>
+			<GeneralType>boolean</GeneralType>
+			<Condition>NC001</Condition>
+			<Format>boolean</Format>
+			<DescriptionLine lang="fi">Koodi ilmaisee onko ilmoitus tai vastaus testi. Tuotannossa arvon tulee olla 'false' jos indikaattori ilmoitetaan.</DescriptionLine>
+			<DescriptionLine lang="sv">Koden visar om deklarationen eller svaret är ett test. I produktion bör värdet vara 'false' om indikatorn anmäls.</DescriptionLine>
+			<DescriptionLine lang="en">Code indicating if the submission or response is a test. In production, the value must be 'false' if given.</DescriptionLine>
+		</DataElement>
+		<DataGroup>
+			<Name lang="fi">Toimija</Name>
+			<Name lang="sv">Aktör</Name>
+			<Name lang="en">Party</Name>
+			<XPath>Party</XPath>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>2</MaxOccurence>
+			<DescriptionLine lang="fi">Tietoryhmästä on oltava ainakin yksi esiintymä. Tällä tulee olla "partyRole" = "sender" (lähettäjä) ja partyType on PSI tai TDP.</DescriptionLine>
+			<DescriptionLine lang="fi">Jos ilmoitetaan toimija jolla "partyType" = "TDP" ja "partyRole" = "sender", voidaan ilmoittaa PSI joka vastaa kuoressa olevista ilmoituksista. Tällä tulee olla "partyType" ja "partyRole" = "PSI". Kun ilmoituksen oikeellisuudesta vastaa asiamies, tulee asiamies ilmoittaa "partyType" = "TDP" ja "partyRole" = "PSI".</DescriptionLine>
+			<DescriptionLine lang="sv">Datagruppen måste förekomma åtminstone en gång. Denna förekomst måste ha "partyRole" = "sender" (avsändare) och partyType är antingen PSI eller TDP.</DescriptionLine>
+			<DescriptionLine lang="sv">Om en aktör med "partyType" = "TDP" och "partyRole" = "sender" anmäls, kan en PSI som ansvarar för deklarationerna i kuvertet anmälas. Den bör ha "partyType" och "partyRole" = "PSI". Då ett ombud ansvarar för uppgifternas riktighet, bör ombudet anmälas med "partyType" = "TDP" ja "partyRole" = "PSI".</DescriptionLine>
+			<DescriptionLine lang="en">At least one occurrence of the data group must be present. This must have the "partyRole" of "sender" (partyType is PSI or TDP).</DescriptionLine>
+			<DescriptionLine lang="en">If Party with "partyType" = "TDP" and "partyRole" = "sender" is declared, one PSI responsible for the declarations contained in the envelope can be declared, this is to have "partyType" and "partyRole" set to "PSI". When an agent is liable for the accuracy of a decla-
+ration, the agent is to be declared "partyType" = "TDP" and "partyRole" = "PSI".</DescriptionLine>
+			<DataElement>
+				<Name lang="fi">Toimijan tunniste</Name>
+				<Name lang="sv">Aktörens identifiering</Name>
+				<Name lang="en">Party identification</Name>
+				<XPath>partyId</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>an..20</Format>
+				<DescriptionLine lang="fi">Tietoelementti koostuu maakoodista, jota seuraa Y-tunnus (kotimaiset toimijat) tai ALV-tunnus (ulkomaiset toimijat).</DescriptionLine>
+				<DescriptionLine lang="sv">Dataelementet består av landskoden som följs av FO-numret (inhemska aktörer) eller MOMS-numret (utländska aktörer).</DescriptionLine>
+				<DescriptionLine lang="en">The data element consists of the country code followed by the Business ID (Finnish traders) or VAT number (foreign traders).</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Toimijan tyyppi</Name>
+				<Name lang="sv">Aktörens typ</Name>
+				<Name lang="en">Party type</Name>
+				<XPath>@PartyType</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>a..3</Format>
+				<DescriptionLine lang="fi">Attribuutti joka määrittelee toimijan tyypin.</DescriptionLine>
+				<DescriptionLine lang="fi">Mahdolliset arvot ovat:</DescriptionLine>
+				<DescriptionLine lang="fi">PSI = Tiedonantovelvollinen</DescriptionLine>
+				<DescriptionLine lang="fi">TDP = Asiamies</DescriptionLine>
+				<DescriptionLine lang="sv">Attribut som definierar aktörens typ.</DescriptionLine>
+				<DescriptionLine lang="sv">Möjliga värden är:</DescriptionLine>
+				<DescriptionLine lang="sv">PSI = Deklarant</DescriptionLine>
+				<DescriptionLine lang="sv">TDP = Ombud</DescriptionLine>
+				<DescriptionLine lang="en">Attribute specifying the type of party.</DescriptionLine>
+				<DescriptionLine lang="en">Possible values are:</DescriptionLine>
+				<DescriptionLine lang="en">PSI = Provider of Statistical Information</DescriptionLine>
+				<DescriptionLine lang="en">TDP = Third Declaring Agent</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Toimijan rooli</Name>
+				<Name lang="sv">Aktörens roll</Name>
+				<Name lang="en">Party role</Name>
+				<XPath>@PartyRole</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>a..8</Format>
+				<DescriptionLine lang="fi">Attribuutti joka määrittelee toimijan roolin.</DescriptionLine>
+				<DescriptionLine lang="fi">Mahdolliset arvot ovat:</DescriptionLine>
+				<DescriptionLine lang="fi">sender = Ilmoituksen lähettävä toimija</DescriptionLine>
+				<DescriptionLine lang="fi">PSI = Tiedonantovelvollinen</DescriptionLine>
+				<DescriptionLine lang="sv">Attribut som definierar aktörens roll.</DescriptionLine>
+				<DescriptionLine lang="sv">Möjliga värden är:</DescriptionLine>
+				<DescriptionLine lang="sv">sender = Aktören som skickar deklarationen</DescriptionLine>
+				<DescriptionLine lang="sv">PSI = Deklarant</DescriptionLine>
+				<DescriptionLine lang="en">Attribute specifying the role of the party.</DescriptionLine>
+				<DescriptionLine lang="en">Possible values are:</DescriptionLine>
+				<DescriptionLine lang="en">sender = party sending the declaration</DescriptionLine>
+				<DescriptionLine lang="en">PSI = Provider of Statistical Information</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Yhteyshenkilön nimi</Name>
+				<Name lang="sv">Kontaktpersonens namn</Name>
+				<Name lang="en">Contact person name</Name>
+				<XPath>ContactPerson/contactPersonName</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>an..35</Format>
+			</DataElement>
+		</DataGroup>
+	</DataGroup>
+	<DataGroup>
+		<Name lang="fi">Ilmoitus</Name>
+		<Name lang="sv">Deklaration</Name>
+		<Name lang="en">Declaration</Name>
+		<XPath>Envelope/Declaration</XPath>
+		<MinOccurence>1</MinOccurence>
+		<MaxOccurence>1</MaxOccurence>
+		<DataElement>
+			<Name lang="fi">Ilmoituksen tilastonumero</Name>
+			<Name lang="sv">Deklarationens statistiknummer</Name>
+			<Name lang="en">Identification of the declaration</Name>
+			<XPath>declarationId</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>string</GeneralType>
+			<Format>an13</Format>
+			<DescriptionLine lang="fi">Ilmoituksen yksilöllinen tilastonumero.</DescriptionLine>
+			<DescriptionLine lang="fi">Tilastonumeron esittämistapa sanomassa on:</DescriptionLine>
+			<DescriptionLine lang="fi">VVTTPPPTAANNN</DescriptionLine>
+			<DescriptionLine lang="fi">Koodi muodostuu seuraavista osista:</DescriptionLine>
+			<DescriptionLine lang="fi">VV = Vuoden kaksi viimeistä numeroa</DescriptionLine>
+			<DescriptionLine lang="fi">TT = Tullin antama Intrastat-palvelupisteen tunnus, uusilla lähettäjillä aina 11</DescriptionLine>
+			<DescriptionLine lang="fi">PPP = Lähetyspäivän järjestysnumero (Esimerkiksi 1 päivä helmikuuta = 032.)</DescriptionLine>
+			<DescriptionLine lang="fi">TAA = Sarjanumero, jonka Tulli vahvistaa sanoman lähettäjälle.</DescriptionLine>
+			<DescriptionLine lang="fi">NNN = Järjestysnumero, joka muodostetaan päivittäin, alkaen numerosta 001.</DescriptionLine>
+			<DescriptionLine lang="fi">Kukin tilastosanoma saa sanoman lähetyspäivän mukaan määräytyvän numeron. Järjestysnumeron tulee pääsääntöisesti alkaa päivit-täin numerosta 001 ja jatkua siitä yhdellä lisääntyen. Tarvittaessa voidaan jokin numero kuitenkin ohittaa. Ilmoittajan on huolehdittava siitä, että numero annetaan vain kerran eikä kahta samanlaista numeroa lähetetä.</DescriptionLine>
+			<DescriptionLine lang="fi">Kun ilmoittaja saa Tullilta lähettämäänsä sanomaa koskevan virhesanoman tulee korjaus suorittaa siten, että sanoma lähetetään uudel-leen korjattuna ja sille tulee antaa uusi lähetyspäivän mukainen tilastonumero.</DescriptionLine>
+			<DescriptionLine lang="sv">Deklarationens unika statistiknummer.</DescriptionLine>
+			<DescriptionLine lang="sv">Statistiknumret presenteras i meddelandet i formatet:</DescriptionLine>
+			<DescriptionLine lang="sv">ÅÅTTDDDTAANNN</DescriptionLine>
+			<DescriptionLine lang="sv">Koden består av följande delar:</DescriptionLine>
+			<DescriptionLine lang="sv">ÅÅ = Två sista siffrorna av året</DescriptionLine>
+			<DescriptionLine lang="sv">TT = Intrastat-servicepunktens nummer som Tullen tilldelar, alltid 11 för nya avsändare</DescriptionLine>
+			<DescriptionLine lang="sv">DDD = Sändningsdatumets ordningsnummer (Till exempel 1:a februari = 032.)</DescriptionLine>
+			<DescriptionLine lang="sv">TAA = Serienummer som Tullen bekräftar för avsändaren.</DescriptionLine>
+			<DescriptionLine lang="sv">NNN = Ordningsnummer som bildas dagligen börjande från nummer 001.</DescriptionLine>
+			<DescriptionLine lang="sv">Varje statistiska meddelande får ett nummer som grundar sig på datumet då meddelandet skickats. Ordningsnumret bör huvudsakligen dagligen börja från 001 och därefter växa med ett. Vid behov kan ett nummer kringgås. Deklaranten måste ta hand om att varje nummer bara ges en gång och att samma nummer inte skickas flera gånger.</DescriptionLine>
+			<DescriptionLine lang="sv">Då deklaranten mottar ett felmeddelande från Tullen gällande ett meddelande bör korrigeringen göras så, att det korrigerade med-delandet skickas åter och ges ett nytt statistiskt nummer enligt sändningsdatumet.</DescriptionLine>
+			<DescriptionLine lang="en">Unique reference number for the declaration.</DescriptionLine>
+			<DescriptionLine lang="en">The identification is generated in the following fashion:</DescriptionLine>
+			<DescriptionLine lang="en">YYCODDDREGNNN</DescriptionLine>
+			<DescriptionLine lang="en">The code consists of the following parts:</DescriptionLine>
+			<DescriptionLine lang="en">YY = Two last digits of the year</DescriptionLine>
+			<DescriptionLine lang="en">CO = Identification of the Intrastat service point as issued by Customs, always 11 for new traders</DescriptionLine>
+			<DescriptionLine lang="en">DDD = Serial number of the day (E.g. February 1 = 032)</DescriptionLine>
+			<DescriptionLine lang="en">REG = Serial number of sender as issued by Customs.</DescriptionLine>
+			<DescriptionLine lang="en">NNN = Serial number, generated daily, starting from 001.</DescriptionLine>
+			<DescriptionLine lang="en">Each statistical declaration receives a number that is determined by the sending date. The serial number is a rule to start from 001 and increase by one for each subsequent declaration. On demand a number can be omitted. The declarant is to see that each number is used only once.</DescriptionLine>
+			<DescriptionLine lang="en">When a declarant received an error message from Customs, the message is amended in such a way that a new serial number is issued by date of sending.</DescriptionLine>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Tilastojakso</Name>
+			<Name lang="sv">Statistikperiod</Name>
+			<Name lang="en">Reference period</Name>
+			<XPath>referencePeriod</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>string</GeneralType>
+			<Format>an7</Format>
+			<DescriptionLine lang="fi">Tilastojakso koostuu kahdesta väliviivalla jaetusta osiosta.</DescriptionLine>
+			<DescriptionLine lang="fi">Ensimmäinen osa on tilastojakson vuosi neljällä numerolla.</DescriptionLine>
+			<DescriptionLine lang="fi">Toinen osa on jakson numero:</DescriptionLine>
+			<DescriptionLine lang="fi">• numero 01 ja 12 välillä, vastaten kuukautta (ilmoitetaan kahdella numerolla)</DescriptionLine>
+			<DescriptionLine lang="sv">Statistiska perioden består av två delar åtskilda med ett bindestreck.</DescriptionLine>
+			<DescriptionLine lang="sv">Första delen är statistiska periodens år med fyra siffror.</DescriptionLine>
+			<DescriptionLine lang="sv">Andra delen är periodens nummer:</DescriptionLine>
+			<DescriptionLine lang="sv">• ett nummer mellan 01 och 12 motsvarande månaden (anmäls med två siffror)</DescriptionLine>
+			<DescriptionLine lang="en">Reference period is composed of two parts separated by a dash.</DescriptionLine>
+			<DescriptionLine lang="en">The first part is the year of period with four digits.</DescriptionLine>
+			<DescriptionLine lang="en">The second part is the period number:</DescriptionLine>
+			<DescriptionLine lang="en">• a number from 01 to 12 corresponding to the month (using two digits)</DescriptionLine>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Tiedonantovelvollinen</Name>
+			<Name lang="sv">Uppgiftslämnare</Name>
+			<Name lang="en">PSI responsible of the declaration</Name>
+			<XPath>PSIId</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>string</GeneralType>
+			<Format>an..20</Format>
+			<DescriptionLine lang="fi">Intrastat-ilmoitukseen liittyvän tiedonantovelvollisen tunniste. Tietoelementti koostuu maakoodista FI jota seuraa Y-tunnus ja mahdollinen toimipaikkakoodi (INT-koodi).</DescriptionLine>
+			<DescriptionLine lang="sv">Identifikation av deklaranten samhörande med Intrastat-deklarationen. Dataelementet består av landskoden FI som följs av FO-numret och eventuell kontorskod (INT-kod).</DescriptionLine>
+			<DescriptionLine lang="en">Identification code of the provider of statistical information associated with the Intrastat declaration. The data element consists of the country code FI followed by the Business ID and possible code for the reporting unit (INT code).</DescriptionLine>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Ilmoituksen tarkoitus</Name>
+			<Name lang="sv">Deklarationens funktion</Name>
+			<Name lang="en">Function of the declaration</Name>
+			<XPath>Function/functionCode</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>string</GeneralType>
+			<Format>a1</Format>
+			<DescriptionLine lang="fi">Seuraavat koodit ovat käytössä:</DescriptionLine>
+			<DescriptionLine lang="fi">O = Alkuperäinen ilmoitus</DescriptionLine>
+			<DescriptionLine lang="fi">N = Nollailmoitus</DescriptionLine>
+			<DescriptionLine lang="sv">Följande koder används:</DescriptionLine>
+			<DescriptionLine lang="sv">O = Ursprunglig deklaration</DescriptionLine>
+			<DescriptionLine lang="sv">N = Nolldeklaration</DescriptionLine>
+			<DescriptionLine lang="en">The following codes are used:</DescriptionLine>
+			<DescriptionLine lang="en">O = Original declaration</DescriptionLine>
+			<DescriptionLine lang="en">N = Nil declaration</DescriptionLine>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Tietojen esittämistarkkuus (täydelliset)</Name>
+			<Name lang="sv">Precision av framställning av data (fullständiga)</Name>
+			<Name lang="en">Type of declaration (threshold)</Name>
+			<XPath>declarationTypeCode</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>string</GeneralType>
+			<Format>a1</Format>
+			<DescriptionLine lang="fi">Koodi 'T' ilmoitetaan.</DescriptionLine>
+			<DescriptionLine lang="sv">Koden 'T' anmäls.</DescriptionLine>
+			<DescriptionLine lang="en">Code 'T' is declared.</DescriptionLine>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Tavaravirran suunta</Name>
+			<Name lang="sv">Varuflödets riktning</Name>
+			<Name lang="en">Flow</Name>
+			<XPath>flowCode</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>string</GeneralType>
+			<Format>a1</Format>
+			<DescriptionLine lang="fi">Ilmoitetaan tavaravirran suunta. Mahdolliset arvot ovat:</DescriptionLine>
+			<DescriptionLine lang="fi">A = Tuonti</DescriptionLine>
+			<DescriptionLine lang="fi">D = Vienti</DescriptionLine>
+			<DescriptionLine lang="sv">Varuflödets riktning anmäls. Möjliga värden är:</DescriptionLine>
+			<DescriptionLine lang="sv">A = Import</DescriptionLine>
+			<DescriptionLine lang="sv">D = Export</DescriptionLine>
+			<DescriptionLine lang="en">Flow of goods reported in the Intrastat declaration. Possible values are:</DescriptionLine>
+			<DescriptionLine lang="en">A = Import</DescriptionLine>
+			<DescriptionLine lang="en">D = Export</DescriptionLine>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Intrastat-ilmoituksen valuutta</Name>
+			<Name lang="sv">Intrastat-deklarationens valuta</Name>
+			<Name lang="en">Currency of the Intrastat declaration</Name>
+			<XPath>currencyCode</XPath>
+			<MinOccurence>1</MinOccurence>
+			<GeneralType>string</GeneralType>
+			<Format>a3</Format>
+			<DescriptionLine lang="fi">Valuuttakoodi 'EUR' ilmoitetaan.</DescriptionLine>
+			<DescriptionLine lang="sv">Valutakoden 'EUR' anmäls.</DescriptionLine>
+			<DescriptionLine lang="en">Currency code 'EUR' is declared.</DescriptionLine>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Ilmoituksen laskutusarvo yhteensä</Name>
+			<Name lang="sv">Faktureringsvärde totalt</Name>
+			<Name lang="en">Total invoiced amount for the declaration</Name>
+			<XPath>totalInvoicedAmount</XPath>
+			<MinOccurence>0</MinOccurence>
+			<GeneralType>integer</GeneralType>
+			<Condition>NC003</Condition>
+			<Format>n..18</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Nimike-erien kokonaismäärä</Name>
+			<Name lang="sv">Antal varupartier totalt</Name>
+			<Name lang="en">Total number of items</Name>
+			<XPath>totalNumberLines</XPath>
+			<MinOccurence>0</MinOccurence>
+			<GeneralType>integer</GeneralType>
+			<Condition>NC003</Condition>
+			<Format>n..4</Format>
+			<DescriptionLine lang="fi">Ilmoitetaan nimike-erien kokonaismäärä.</DescriptionLine>
+			<DescriptionLine lang="sv">Totala antalet varupartier anmäls.</DescriptionLine>
+			<DescriptionLine lang="en">The total number of items of the declaration is entered.</DescriptionLine>
+		</DataElement>
+		<DataGroup>
+			<Name lang="fi">Nimike-erä</Name>
+			<Name lang="sv">Varuparti</Name>
+			<Name lang="en">Item</Name>
+			<XPath>Item</XPath>
+			<MinOccurence>0</MinOccurence>
+			<MaxOccurence>3000</MaxOccurence>
+			<Condition>NC002</Condition>
+			<DataElement>
+				<Name lang="fi">Nimike-erän järjestysnumero</Name>
+				<Name lang="sv">Varupartiets ordningsnummer</Name>
+				<Name lang="en">Item number</Name>
+				<XPath>itemNumber</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>integer</GeneralType>
+				<Format>n..4</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">EU-jäsenmaa</Name>
+				<Name lang="sv">EU-medlemsland</Name>
+				<Name lang="en">Member State of consignment/destination</Name>
+				<XPath>MSConsDestCode</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Codelist>0058</Codelist>
+				<Format>a2</Format>
+				<DescriptionLine lang="fi">Koodiluettelo on saatavilla myös Intrastat-oppaassa, joka sisältää myös lisätietoja maiden luokittelusta.</DescriptionLine>
+				<DescriptionLine lang="fi">Tuonnissa EU-maa, josta tavara on lähetetty Suomeen (lähetysmaa), viennissä EU-maa, jonne tavarat lähetetään Suomesta (määrämaa).</DescriptionLine>
+				<DescriptionLine lang="sv">Kodförteckningen finns även i Intrastat-guiden, som dessutom innehåller tilläggsuppgifter om ländernas klassificering.</DescriptionLine>
+				<DescriptionLine lang="sv">Vid införsel det EU-land varifrån varorna skickats till Finland (avsändningsland), vid utförsel det EU-land vart varorna skickas från Finland (bestämmelseland).</DescriptionLine>
+				<DescriptionLine lang="en">Code list is also available in the publication Intrastat Guide, which also includes further information of the classification of countries.</DescriptionLine>
+				<DescriptionLine lang="en">In import the country from which the goods have been sent to Finland (country of consignment), in export the country to which the goods are sent from Finland (country of
+destination).</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Alkuperämaa</Name>
+				<Name lang="sv">Ursprungsland</Name>
+				<Name lang="en">Country of origin</Name>
+				<XPath>MSConsDestCode</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Codelist>0058</Codelist>
+				<Condition>NC004</Condition>
+				<Format>a2</Format>
+				<DescriptionLine lang="fi">Alkuperämaa eli alkuperämaan koodi, esim. SE. Myös Euroopan Unionin ulkopuolinen maa on mahdollinen. Pakollinen tieto tuonnissa, viennissä vapaaehtoinen tieto vuonna 2021, pakollinen vuoden 2022 tammikuun ilmoituksesta alkaen. Viennissä alkuperämaa voi olla myös FI Suomi.</DescriptionLine>
+				<DescriptionLine lang="sv">Ursprungsland, dvs. koden för ursprungslandet, t.ex. SE. Ett land utanför Europeiska unionen är också möjligt. Obligatorisk information för import, frivillig information för export 2021, obligatorisk från januari 2022-anmälan. Vid export kan ursprungslandet också vara FI Finland.</DescriptionLine>
+				<DescriptionLine lang="en">Country of origin, ie the code of the country of origin, eg SE. A country outside the European Union is also possible. Mandatory information for imports, optional information for exports in 2021, mandatory from the January 2022 notification. In exports, the country of origin may also be FI Finland.</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Nettopaino</Name>
+				<Name lang="sv">Nettovikt</Name>
+				<Name lang="en">Net mass</Name>
+				<XPath>netMass</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>integer</GeneralType>
+				<Condition>NC005</Condition>
+				<Format>n..10</Format>
+				<DescriptionLine lang="fi">Tavaran paino ilman päällystä tai pakkausta. Voi olla nolla (0).</DescriptionLine>
+				<DescriptionLine lang="sv">Varans vikt (massa) utan förpackningar. Kan vara noll (0).</DescriptionLine>
+				<DescriptionLine lang="en">The mass of the goods without packaging. May be zero (0).</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Toinen paljous</Name>
+				<Name lang="sv">Annan kvantitet</Name>
+				<Name lang="en">Supplementary units quantity</Name>
+				<XPath>quantityInSU</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>integer</GeneralType>
+				<Condition>NC006</Condition>
+				<Format>n..10</Format>
+				<DescriptionLine lang="fi">Pitää olla vähintään 1.</DescriptionLine>
+				<DescriptionLine lang="sv">Måste vara åtminstone 1.</DescriptionLine>
+				<DescriptionLine lang="en">Must be at least 1.</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Toisen paljouden yksikkö</Name>
+				<Name lang="sv">Annan kvantitet enhet</Name>
+				<Name lang="en">Supplementary units code</Name>
+				<XPath>CN8/SUCode</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>integer</GeneralType>
+				<Codelist>0079</Codelist>
+				<Format>a..4</Format>
+				<DescriptionLine lang="fi">Nimikkeeseen liittyvä toisen paljouden yksikkö, jos se on pakollinen nimikkeelle.</DescriptionLine>
+				<DescriptionLine lang="sv">Enhet för annan kvantitet associerad med tullpositionen, om andra kvantiteten är obligatorisk för tullpositionen.</DescriptionLine>
+				<DescriptionLine lang="en">Supplementary units code associated with CN8 code, if it is mandatory for the commodity code.</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Tavaran nimike</Name>
+				<Name lang="sv">Varukod</Name>
+				<Name lang="en">Commodity Code</Name>
+				<XPath>CN8/CN8Code</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>n8</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Laskutusarvo</Name>
+				<Name lang="sv">Faktureringsvärde</Name>
+				<Name lang="en">Invoiced value</Name>
+				<XPath>invoicedAmount</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>integer</GeneralType>
+				<Format>n..10</Format>
+				<DescriptionLine lang="fi">Laskutusarvolla tarkoitetaan:</DescriptionLine>
+				<DescriptionLine lang="fi">• tavaroista laskutettua verotonta hintaa. Vastikkeettomien tavaroiden laskutusarvo on hinta, joka niistä olisi laskutettu normaalisti ostettaessa tai myytäessä.</DescriptionLine>
+				<DescriptionLine lang="sv">Med det fakturerade värdet menas:</DescriptionLine>
+				<DescriptionLine lang="sv">• det skattefria pris som fakturerats för varorna. Som faktureringsvärde för en vederlagsfri vara deklareras det pris som nor-malt skulle ha varit dess pris vid transaktionen.</DescriptionLine>
+				<DescriptionLine lang="en">Invoice value means the:</DescriptionLine>
+				<DescriptionLine lang="en">• invoiced amount of goods, exclusive of taxes. For goods supplied free of charge, the price which would be invoiced for the good in the event of a normal transaction shall be declared as the invoice value.</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Tilastoarvo</Name>
+				<Name lang="sv">Statistiskt värde</Name>
+				<Name lang="en">Statistical value</Name>
+				<XPath>statisticalValue</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>integer</GeneralType>
+				<Format>n..10</Format>
+				<DescriptionLine lang="fi">Tilastoarvo on tavaran arvo Suomen rajalla (tuonnissa CIF, viennissä FOB).</DescriptionLine>
+				<DescriptionLine lang="sv">Det statiska värdet är varans värde vid Finska gränsen (CIF vid införsel, FOB vid utförsel).</DescriptionLine>
+				<DescriptionLine lang="en">The statistical value is the value at the Finnish border (CIF at import, FOB at export).</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Nimikerivin viite</Name>
+				<Name lang="sv">Varupartiets referens</Name>
+				<Name lang="en">Item reference</Name>
+				<XPath>invoiceNumber</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>an..15</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Kauppakumppani</Name>
+				<Name lang="sv">Handelspartner</Name>
+				<Name lang="en">Trading partner</Name>
+				<XPath>partnerId</XPath>
+				<MinOccurence>0</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Format>an..14</Format>
+				<DescriptionLine lang="fi">Vain viennissä: Kauppakumppanin alv-tunnus, esim. SE01234569. Ei pakollinen tieto vuonna 2021, mutta voi ilmoittaa vapaaehtoisena tietona. Pakollinen tieto viennissä vuoden 2022 tammikuun ilmoituksesta alkaen. Kauppakumppanin maan pitää olla sama kuin määrämaa paitsi erikoistapauksissa:</DescriptionLine>
+				<DescriptionLine lang="fi">1. XX999999999999: kolmikantakaupassa, jos kauppakumppani tavaran lopullisessa määrämaassa on tuntematon. XX on sen maan koodi, johon lasku lähetetään.
+</DescriptionLine>
+				<DescriptionLine lang="fi">2. QN999999999999: tavara toimitetaan yksityishenkilölle</DescriptionLine>
+				<DescriptionLine lang="fi">3. QV999999999999: muusta syystä tuntematon kauppakumppani</DescriptionLine>
+				<DescriptionLine lang="sv">Endast för export: handelsnummer för handelspartner, t.ex. SE01234569. Ej obligatoriskt 2021, men kan rapporteras som frivilligt. Obligatorisk information för export från januari 2022-anmälan. Handelspartnerns land måste vara detsamma som destinationslandet, utom i särskilda fall:</DescriptionLine>
+				<DescriptionLine lang="sv">1. XX999999999999: i triangulär handel, om handelspartnern i det land där varan slutligt bestäms är okänd. XX är koden för det land fakturan skickas till.</DescriptionLine>
+				<DescriptionLine lang="sv">2. QN999999999999: varorna levereras till en privatperson</DescriptionLine>
+				<DescriptionLine lang="sv">3. QV999999999999: annars okänd handelspartner</DescriptionLine>
+				<DescriptionLine lang="en">For export only: VAT ID of the trading partner, eg SE01234569. Not mandatory in 2021, but may be reported as optional. Mandatory information for exports from the January 2022 notification. The country of the trading partner must be the same as the country of destination, except in special cases:</DescriptionLine>
+				<DescriptionLine lang="en">1. XX999999999999: in triangular trade, if the trading partner in the country of final destination of the goods is unknown. XX is the code of the country to which the invoice is sent.</DescriptionLine>
+				<DescriptionLine lang="en">2. QN999999999999: the goods are delivered to a private individual</DescriptionLine>
+				<DescriptionLine lang="en">3. QV999999999999: otherwise unknown trading partner</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Kauppatapahtuman luonne</Name>
+				<Name lang="sv">Transaktionstyp</Name>
+				<Name lang="en">Nature of transaction</Name>
+				<XPath>NatureOfTransaction/natureOfTransactionCode</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Codelist>0034</Codelist>
+				<Format>n2</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Kuljetusmuoto</Name>
+				<Name lang="sv">Transportsätt</Name>
+				<Name lang="en">Mode of transport</Name>
+				<XPath>modeOfTransportCode</XPath>
+				<MinOccurence>1</MinOccurence>
+				<GeneralType>string</GeneralType>
+				<Codelist>0041</Codelist>
+				<Format>n1</Format>
+				<DescriptionLine lang="fi">Sen aktiivisen kuljetusmuodon koodi jolla tavarat tuodaan tai viedään Suomen rajan yli.</DescriptionLine>
+				<DescriptionLine lang="sv">Koden för det aktiva transportsättet med vilka varorna transporteras över Finska gränsen.</DescriptionLine>
+				<DescriptionLine lang="en">Code of the active mode of transport by which the goods are imported or exported across the Finnish border.</DescriptionLine>
+			</DataElement>
+		</DataGroup>
+	</DataGroup>
+</Message>

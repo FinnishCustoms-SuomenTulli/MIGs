@@ -1,0 +1,23 @@
+﻿graph Import2 {
+   node [shape=plaintext, fontname = "helvetica"];
+	edge [fontname = "helvetica"];
+	"Envelope" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Envelope</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identification of the envelope<br align="left"/>Date of creation of the envelope<br align="left"/>Time of creation of the envelope<br align="left"/>Test indicator<br align="left"/></td></tr></table>>];
+	"IntrastatEnvelope" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Intrastat envelope</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identification of the envelope<br align="left"/>Indicator of acceptance or rejection<br align="left"/>Code of application error<br align="left"/>Comment or description of the application error<br align="left"/></td></tr></table>>];
+	"EnvelopeDateTime" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Date and time of the received envelope     </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Date of the envelope<br align="left"/>Time of the envelope<br align="left"/></td></tr></table>>];
+	"Party" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Party</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Party identification<br align="left"/>Party type<br align="left"/>Party role<br align="left"/>Contact person name<br align="left"/></td></tr></table>>];
+	"Declaration" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Declaration</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identification of the (received) declaration<br align="left"/>Reference period<br align="left"/>PSI responsible ofr the declaration<br align="left"/>Function of the declaration<br align="left"/>Type of declaration (threshold)<br align="left"/>Flow<br align="left"/>Currency of the Intrastat declaration<br align="left"/>Total invoiced amount for the declaration<br align="left"/>Total number of line items<br align="left"/>Indicator of rejection of the declaration<br align="left"/>Code of application error<br align="left"/>Comment or description of the application error<br align="left"/></td></tr></table>>];
+	"Item" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Item</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Item number<br align="left"/>Member state of consignment/destination<br align="left"/>Country of origin<br align="left"/>Net mass<br align="left"/>Supplementary units quantity<br align="left"/>Supplementary units code<br align="left"/>Commodity code<br align="left"/>Invoiced value<br align="left"/>Statistical value<br align="left"/>Item reference<br align="left"/>Trading partner<br align="left"/>Nature of transaction<br align="left"/>Mode of transport<br align="left"/>Code of application error<br align="left"/>Comment or description of the application error<br align="left"/></td></tr></table>>];
+
+	"Envelope" -- "Party" [headlabel="1..2", taillabel="1" fontsize=10]
+	"Envelope" -- "IntrastatEnvelope" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Envelope" -- "Declaration" [headlabel="1", taillabel="1" fontsize=10]
+	"IntrastatEnvelope" -- "Declaration" [headlabel="1", taillabel="1" fontsize=10]
+	"IntrastatEnvelope" -- "EnvelopeDateTime" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Declaration" -- "Item" [headlabel="0..3000", taillabel="1" fontsize=10]
+}

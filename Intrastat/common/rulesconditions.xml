@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RulesConditions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="RulesConditions.xsd">
+	<RuleCondition>
+		<ID>NC001</ID>
+		<DescriptionLine lang="fi">Testauksen aikana tietoelementti on pakollinen</DescriptionLine>
+		<DescriptionLine lang="sv">Under testperioden är dataelementet obligatoriskt</DescriptionLine>
+		<DescriptionLine lang="en">While testing the data element is required</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
+		<ID>NC002</ID>
+		<DescriptionLine lang="fi">JOS 'Ilmoituksen tarkoitus' = 'O'</DescriptionLine>
+		<DescriptionLine lang="fi">  NIIN tämä tietoryhmä on 'R'</DescriptionLine>
+		<DescriptionLine lang="fi">  MUUTEN tietoryhmä ei ole käytössä</DescriptionLine>
+		<DescriptionLine lang="sv">OM 'Deklarationens funktion' = 'O'</DescriptionLine>
+		<DescriptionLine lang="sv">  DÅ är denna datagrupp 'R'</DescriptionLine>
+		<DescriptionLine lang="sv">  ANNARS är datagruppen inte i bruk</DescriptionLine>
+		<DescriptionLine lang="en">IF 'Function of the declaration' = 'O'</DescriptionLine>
+		<DescriptionLine lang="en">  THEN this data group is 'R'</DescriptionLine>
+		<DescriptionLine lang="en">  ELSE this data group cannot be used</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
+		<ID>NC003</ID>
+		<DescriptionLine lang="fi">JOS 'Ilmoituksen tarkoitus' = 'O'</DescriptionLine>
+		<DescriptionLine lang="fi">  NIIN tämä tietoelementti on 'R'</DescriptionLine>
+		<DescriptionLine lang="fi">  MUUTEN tietoelementti ei ole käytössä</DescriptionLine>
+		<DescriptionLine lang="sv">OM 'Deklarationens funktion' = 'O'</DescriptionLine>
+		<DescriptionLine lang="sv">  DÅ är detta dataelement 'R'</DescriptionLine>
+		<DescriptionLine lang="sv">  ANNARS är dataelementet inte i bruk</DescriptionLine>
+		<DescriptionLine lang="en">IF 'Function of the declaration' = 'O'</DescriptionLine>
+		<DescriptionLine lang="en">  THEN this data element is 'R'</DescriptionLine>
+		<DescriptionLine lang="en">  ELSE this data element cannot be used</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
+		<ID>NC004</ID>
+		<DescriptionLine lang="fi">JOS 'Tavaravirran suunta' = 'A'</DescriptionLine>
+		<DescriptionLine lang="fi">  NIIN ilmoitetaan tavaran tilastollisen alkuperämaan ISO-koodi</DescriptionLine>
+		<DescriptionLine lang="fi">  MUUTEN tietoelementti ei ole käytössä</DescriptionLine>
+		<DescriptionLine lang="sv">OM 'Varuflödets riktning' = 'A'</DescriptionLine>
+		<DescriptionLine lang="sv">  DÅ anmäls ISO-koden för det statistiska ursprungslandet</DescriptionLine>
+		<DescriptionLine lang="sv">  ANNARS är dataelementet inte i bruk</DescriptionLine>
+		<DescriptionLine lang="en">IF 'Flow' = 'A'</DescriptionLine>
+		<DescriptionLine lang="en">  THEN the ISO code of the country where the goods originate for Intrastat purposes in entered</DescriptionLine>
+		<DescriptionLine lang="en">  ELSE data element is not used</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
+		<ID>NC005</ID>
+		<DescriptionLine lang="fi">JOS nimikkeellä on toinen paljous</DescriptionLine>
+		<DescriptionLine lang="fi">  NIIN tieto on 'O'</DescriptionLine>
+		<DescriptionLine lang="sv">OM tullpositionen har en associerad annan kvantitet</DescriptionLine>
+		<DescriptionLine lang="sv">  DÅ är uppgiften 'O'</DescriptionLine>
+		<DescriptionLine lang="en">IF the commodity code has an associated supplementary unit</DescriptionLine>
+		<DescriptionLine lang="en">  THEN this data element is 'O'</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
+		<ID>NC006</ID>
+		<DescriptionLine lang="fi">JOS 'Toisen paljouden yksikkö' on ilmoitettu</DescriptionLine>
+		<DescriptionLine lang="fi">  NIIN 'Toinen paljous' on myös ilmoitettava</DescriptionLine>
+		<DescriptionLine lang="fi">  MUUTEN tietoelementti ei ole käytössä</DescriptionLine>
+		<DescriptionLine lang="sv">OM 'Annan kvantitet enhet' är anmält</DescriptionLine>
+		<DescriptionLine lang="sv">  DÅ måste även ‘Annan kvantiet’ anmälas</DescriptionLine>
+		<DescriptionLine lang="sv">  ANNARS är dataelementet inte i bruk</DescriptionLine>
+		<DescriptionLine lang="en">IF 'Supplementary units code' is entered</DescriptionLine>
+		<DescriptionLine lang="en">  THEN 'Supplementary units quantity' must also be entered.</DescriptionLine>
+		<DescriptionLine lang="en">  ELSE this data element cannot be used.</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
+		<ID>NC007</ID>
+		<DescriptionLine lang="fi">JOS 'Hyväksynnän tai hylkäyksen ilmaisin' = 'RE'</DescriptionLine>
+		<DescriptionLine lang="fi">  NIIN tämä tietoelementti on 'R'</DescriptionLine>
+		<DescriptionLine lang="fi">  MUUTEN tietoelementti ei ole käytössä</DescriptionLine>
+		<DescriptionLine lang="sv">OM 'Indikator för godkännande eller avslag' = 'RE'</DescriptionLine>
+		<DescriptionLine lang="sv">  DÅ är detta dataelement 'R'</DescriptionLine>
+		<DescriptionLine lang="sv">  ANNARS är dataelementet inte i bruk</DescriptionLine>
+		<DescriptionLine lang="en">IF 'Indicator of acceptance or rejection' = 'RE'</DescriptionLine>
+		<DescriptionLine lang="en">  THEN this data element = 'R'</DescriptionLine>
+		<DescriptionLine lang="en">  ELSE this data element cannot be used</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
+		<ID>NC008</ID>
+		<DescriptionLine lang="fi">JOS Intrastat-kuoren 'Hyväksynnän tai hylkäyksen ilmaisin' = 'AC'</DescriptionLine>
+		<DescriptionLine lang="fi">  NIIN tämä tietoryhmä on 'R'</DescriptionLine>
+		<DescriptionLine lang="fi">  MUUTEN tietryhmä ei ole käytössä</DescriptionLine>
+		<DescriptionLine lang="sv">OM Intrastat-kuvertets 'Indikator för godkännande eller avslag' = 'AC'</DescriptionLine>
+		<DescriptionLine lang="sv">  DÅ är denna datagrupp 'R'</DescriptionLine>
+		<DescriptionLine lang="sv">  ANNARS är datagruppen inte i bruk</DescriptionLine>
+		<DescriptionLine lang="en">IF Intrastat envelope 'Indicator of acceptance or rejection' = 'AC'</DescriptionLine>
+		<DescriptionLine lang="en">  THEN this data group is 'R'</DescriptionLine>
+		<DescriptionLine lang="en">  ELSE this data group cannot be used</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
+		<ID>NC009</ID>
+		<DescriptionLine lang="fi">JOS ilmoitus hylätään</DescriptionLine>
+		<DescriptionLine lang="fi">  NIIN tämä tietoelementti on 'R'</DescriptionLine>
+		<DescriptionLine lang="fi">  MUUTEN tietoelementti ei ole käytössä</DescriptionLine>
+		<DescriptionLine lang="sv">OM 'Indikator för godkännande eller avslag' = 'RE'</DescriptionLine>
+		<DescriptionLine lang="sv">  DÅ är detta dataelement 'R'</DescriptionLine>
+		<DescriptionLine lang="sv">  ANNARS är dataelementet inte i bruk</DescriptionLine>
+		<DescriptionLine lang="en">IF the declaration is rejected</DescriptionLine>
+		<DescriptionLine lang="en">  THEN this data element = 'R'</DescriptionLine>
+		<DescriptionLine lang="en">  ELSE this data element cannot be used</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
+		<ID>NC010</ID>
+		<DescriptionLine lang="fi">JOS tältä tasolta löydetään virheitä</DescriptionLine>
+		<DescriptionLine lang="fi">  NIIN tämä tietoryhmä on 'R'</DescriptionLine>
+		<DescriptionLine lang="fi">  MUUTEN tietoryhmä ei ole käytössä</DescriptionLine>
+		<DescriptionLine lang="sv">OM fel upptäcks på denna nivå</DescriptionLine>
+		<DescriptionLine lang="sv">  DÅ är denna datagrupp 'R'</DescriptionLine>
+		<DescriptionLine lang="sv">  ANNARS är datagruppen inte i bruk</DescriptionLine>
+		<DescriptionLine lang="en">IF errors are found on item level</DescriptionLine>
+		<DescriptionLine lang="en">  THEN this data group is 'R'</DescriptionLine>
+		<DescriptionLine lang="en">  ELSE this data group cannot be used</DescriptionLine>
+	</RuleCondition>
+	<RuleCondition>
+		<ID>NR001</ID>
+		<DescriptionLine lang="fi">JOS alkuperäisen ilmoituksen 'Ilmoituksen tarkoitus' on 'N'</DescriptionLine>
+		<DescriptionLine lang="fi">  NIIN tietoelementti sisältää arvon '0'.</DescriptionLine>
+		<DescriptionLine lang="sv">OM 'Deklarationens funktion' på den ursprungliga deklarationen är 'N'</DescriptionLine>
+		<DescriptionLine lang="sv">  DÅ innehåller dataelementet värdet '0'.</DescriptionLine>
+		<DescriptionLine lang="en">IF 'Function of the declaration' of the original declaration is 'N'</DescriptionLine>
+		<DescriptionLine lang="en">  THEN this data element is not used contains the value '0'</DescriptionLine>
+	</RuleCondition>
+</RulesConditions>

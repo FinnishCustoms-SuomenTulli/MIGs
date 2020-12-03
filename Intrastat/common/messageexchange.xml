@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
+<MessageExchange xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../MessageExchange.xsd">
+	<Intro>
+		<TextLine lang="fi">Tämän oppaan tavoitteena on antaa Tullin suorasanomailmoittajille yleiskuva sisäkaupan tilastoinnin sanomaliikenteestä. Sanomat ovat XML-muodossa.</TextLine>
+		<TextLine lang="sv">Syftet med denna guide är att ge Tullens direktmeddelandedeklaranter en allmän bild av den meddelandetrafik som används vid statistikföring av EU-intern handel. Meddelandena är i XML-format.</TextLine>
+		<TextLine lang="en">The purpose of this guide is to give Customs’ direct message exchange customers an overview of message exchange in the compilation of intra-Community trade statistics. The messages are in XML format.</TextLine>
+		<TextLine lang="fi">SISÄKAUPAN TILASTOINNIN SUORASANOMA-ASIOINNIN ILMOITUSSANOMA INSTAT (INTRASTAT)</TextLine>
+		<TextLine lang="sv">DEKLARATIONSMEDDELANDET INSTAT (INTRASTAT) FÖR DIREKT MEDDELANDEDEKLARERING VID STATISTIKFÖRING AV EU-INTERN HANDEL</TextLine>
+		<TextLine lang="en">INSTAT - INTRA-COMMUNITY TRADE STATISTICAL DECLARATION MESSAGE IN DIRECT MESSAGE EXCHANGE (INTRASTAT)</TextLine>
+		<TextLine lang="fi">INSTAT-sanoma muodostuu seuraavista asiakokonaisuuksista:</TextLine>
+		<TextLine lang="sv">INSTAT-meddelandet består av följande sakhelheter:</TextLine>
+		<TextLine lang="en">The INSTAT message comprises the following elements:</TextLine>
+		<List>
+			<ListItem lang="fi">KUORI, joka sisältää kuoren tunnisteen ja kuoren luomisen päivämäärän. Osa on pakollinen kaikissa sanomissa.</ListItem>
+			<ListItem lang="sv">KUVERT som innehåller kuvertets identifikation och datum då kuvertet skapats. Denna del är obligatorisk i alla meddelanden.</ListItem>
+			<ListItem lang="en">ENVELOPE, containing the envelope ID and the envelope creation date. This element is obligatory for all messages.</ListItem>
+			<ListItem lang="fi">TOIMIJA, joka sisältää toimijatiedot. Toimijoita voi olla enintään kaksi mutta vähintään yksi. Osa on pakollinen kaikissa sanomissa.</ListItem>
+			<ListItem lang="sv">AKTÖR som innehåller aktörsuppgifterna. Aktörerna kan vara högst två men ska vara minst en. Denna del är obligatorisk i alla meddelanden.</ListItem>
+			<ListItem lang="en">TRADER, containing the trader details. There can be no more than two traders, but there must be at least one trader. This element is obligatory for all messages.</ListItem>
+			<ListItem lang="fi">ILMOITUS, joka sisältää ilmoituksen otsikkotiedot. Tiedot ovat tilastonumero, tilastojakso, tiedonantovelvollisen tunnus, ilmoituksen tekniset tiedot, suunta (tuonti tai vienti), valuuttakoodi ja nimike-erien kokonaismäärä. Yhdessä sanomassa voi olla vain yksi ilmoitus.</ListItem>
+			<ListItem lang="sv">DEKLARATION som innehåller deklarationens rubrikuppgifter. Dessa uppgifter är statistiskt nummer, statistikperiod, den uppgiftsskyldiges identifikation, deklarationens tekniska data, riktning (införsel eller utförsel), valutakod och totalantal varuposter. Ett meddelande kan innehålla bara en deklaration.</ListItem>
+			<ListItem lang="en">DECLARATION, containing the header details of the declaration. The details comprise the statistical number, statistical period, ID of the party obliged to provide information, technical declaration details, direction (import or export), currency code and the total number of items. An individual message can contain only one declaration.</ListItem>
+			<ListItem lang="fi">NIMIKE-ERÄ, joka sisältää nimike-eräkohtaiset tiedot. Nimike-eriä voi olla enintään 999 kappaletta. Nimike-erän tiedot ovat järjestysnumero, EUjäsenmaa (tuonnissa lähetysmaa ja viennissä määrämaa), alkuperämaa, nettopaino, toinen paljous ja yksikkö, tavaran nimike, laskutusarvo, tilastoarvo, viite, kauppatapahtuman luonnekoodi ja kuljetusmuoto. Osa on pakollinen silloin, kun tilastoilmoituksella välitetään nimikekohtaisia tietoja. Osa toistetaan jokaiselle ilmoitettavalle nimikkeelle erikseen.</ListItem>
+			<ListItem lang="sv">VARUPOST som innehåller uppgifter om varuposter. Det kan finnas högst 999 varuposter. Varupostuppgifterna är ordningsnummer, EU-medlemsland (vid införsel avsändningsland, vid utförsel bestämmelseland) ursprungsland, nettovikt, annan kvantitet och enhet, varukod, faktureringsvärde, statistiskt värde, referens, kod för transaktionens art och transportsätt. Denna del är obligatorisk när statistikdeklarationen innehåller uppgifter om varuposter. Delen upprepas separat för varje varukod som deklareras.</ListItem>
+			<ListItem lang="en">ITEM, containing the goods item details. There can be a maximum of 999 items. The goods item details comprise the item number, EU Member State (country of consignment in import and country of destination in export), country of origin, net weight, supplementary units quantity, commodity code, invoiced value, statistical value, item reference, code indicating the nature of trade transaction, and mode of transport. The element is obligatory when the statistical declaration involves itemspecific information. The element is repeated separately for each item to be declared.</ListItem>
+		</List>
+		<TextLine lang="fi">VASTAUSSANOMA INSRES</TextLine>
+		<TextLine lang="sv">SVARSMEDDELANDET INSRES</TextLine>
+		<TextLine lang="en">INSRES RESPONSE MESSAGE</TextLine>
+		<TextLine lang="fi">Sanoman lähettäjä saa sanomaansa vastauksena aina vastaussanoman. Vastaussanoma voi olla hyväksymissanoma, sanoman hylkäyssanoma tai virhesanoma. Jos lähettäjä saa hylkäyssanoman, on sanomassa rakenteellinen virhe ja sanomaa ei voi käsitellä. Virhesanoma lähetetään, kun sanomassa on sisällöllinen virhe ja samalla ilmoitetaan virhe ja sen selitys. Molemmissa tapauksissa lähettäjän tulee lähettää uusi korjattu sanoma.</TextLine>
+		<TextLine lang="sv">Avsändaren av meddelandet får alltid ett svarsmeddelande som svar på sitt meddelande. Svarsmeddelandet kan vara ett meddelande om godkännande, ett meddelande om avslag eller ett felmeddelande. Om avsändaren får ett meddelande om avslag, har meddelandet ett strukturellt fel som gör att meddelandet inte kan handläggas. Ett felmeddelande skickas när meddelandet har ett innehållsfel. Samtidigt uppges felet och dess förklaring. I båda fallen ska avsändaren skicka ett nytt, korrigerat meddelande.</TextLine>
+		<TextLine lang="en">The message sender always receives a response message. The response message can be an acceptance message, rejection message or error message. If the sender receives a rejection message, the message contains a structural error and cannot be processed. The error message is sent when the message contains a content error. The error message also identifies and explains the error. In both cases, the sender must send a new and corrected message.</TextLine>
+		<TextLine lang="fi">Vastaussanoma muodostuu seuraavista osista:</TextLine>
+		<TextLine lang="sv">Svarsmeddelande består av följande delar:</TextLine>
+		<TextLine lang="en">The response message comprises the following elements:</TextLine>
+		<List>
+			<ListItem lang="fi">KUORI, joka sisältää kuoren tunnisteen ja koodin hyväksymisestä tai hylkäämisestä. Hylkäyssanomassa on lisäksi virhekoodi, virheselite ja kuoren luomisen päivämäärä. Osa on pakollinen kaikissa sanomissa.</ListItem>
+			<ListItem lang="sv">KUVERT som innehåller kuvertets identifikation och koden för godkännande eller avslag. Meddelandet om avslag har också en felkod, felförklaring och datum då kuvertet skapats. Denna del är obligatorisk i alla medelanden.</ListItem>
+			<ListItem lang="en">ENVELOPE, containing the envelope ID and the code indicating acceptance or rejection. The rejection message also contains the error code, an explanation of the error and the envelope creation date. This element is obligatory for all messages.</ListItem>
+			<ListItem lang="fi">ILMOITUS, joka sisältää vastaanotetun ilmoituksen tunnisteen ja koodin hyväksymisestä tai hylkäämisestä. Lisäksi on tilastojakso, tiedonantovelvollisen tunnus, ilmoituksen tekniset tiedot, suunta (tuonti tai vienti), ilmoituksen laskutusarvo yhteensä ja nimike-erien kokonaismäärä. Virhesanomassa on lisäksi virhekoodi ja virheselite.</ListItem>
+			<ListItem lang="sv">DEKLARATION som innehåller den mottagna deklarationens identifikation och koden för godkännande eller avslag. Dessutom finns statistiskt nummer, statistikperiod, den uppgiftsskyldiges identifikation, deklarationens tekniska data, riktning (införsel eller utförsel), fakturerat värde totalt och antalet varuposter totalt. Felmeddelandet innehåller också en felkod och felförklaring.</ListItem>
+			<ListItem lang="en">DECLARATION, containing the ID of the received declaration and the code indicating acceptance or rejection. The declaration also includes the statistical period, ID of the party obliged to provide information, technical declaration details, direction (import or export), the total invoice value of the declaration and the total number of goods items. The error message also indicates the error code and an explanation of the error.</ListItem>
+			<ListItem lang="fi">NIMIKE-ERÄ, joka sisältää nimike-eräkohtaiset tiedot, jos ilmoituksessa on ollut nimike-eräkohtaisia virheitä. Nimike-eriä voi olla enintään 999 kappaletta. Nimike-erän tiedot ovat järjestysnumero, virhekoodi ja virheselite.</ListItem>
+			<ListItem lang="sv">VARUPOST som innehåller uppgifter om varuposter, om deklarationen haft fel på varuposter. Det kan finnas högst 999 varuposter. Varupostuppgifterna är ordningsnummer, felkod och felförklaring.</ListItem>
+			<ListItem lang="en">GOODS ITEM, which indicates goods item information if the declaration contains errors relating to goods items. There can be a maximum of 999 goods items. The goods item information comprises the sequence number, error code and an explanation of the error.</ListItem>
+		</List>
+	</Intro>
+	<Messages>
+		<Message>
+			<Sender>EO</Sender>
+			<ID>INSTAT</ID>
+			<Name lang="fi">Intrastat-ilmoitus</Name>
+			<Name lang="sv">Intrastatdeklaration</Name>
+			<Name lang="en">Intrastat declaration</Name>
+			<DescriptionLine lang="fi">Asiakas lähettää Tullille sisäkaupan tilastoilmoituksen.</DescriptionLine>
+			<DescriptionLine lang="sv">Kunden skickar till Tullen en deklaration för statistikföring av EU-intern handel.</DescriptionLine>
+			<DescriptionLine lang="en">The customer sends to Customs a declaration for intra-Community trade statistics.</DescriptionLine>
+		</Message>
+		<Message>
+			<Sender>Customs</Sender>
+			<ID>INSRES</ID>
+			<Name lang="fi">Vastaussanoma</Name>
+			<Name lang="sv">Svarsmeddelande</Name>
+			<Name lang="en">Response message</Name>
+			<DescriptionLine lang="fi">Tulli lähettää asiakkaalle vastauksen INSTAT-sanomaan.</DescriptionLine>
+			<DescriptionLine lang="sv">Tullen meddelar kunden om svar på INSTAT-meddelandet.</DescriptionLine>
+			<DescriptionLine lang="en">Customs notifies the customer of its response to the INSTAT message.</DescriptionLine>
+		</Message>
+	</Messages>
+	<UseCases>
+		<UseCase>
+			<Name lang="fi">Ilmoitus on virheetön</Name>
+			<Name lang="sv">Deklaration är felfri</Name>
+			<Name lang="en">Correct declaration</Name>
+			<Sequence>
+				<EO>INSTAT</EO>
+				<Customs>INSRES</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tulliin sisäkaupan tilastoilmoitus -sanoman. Asiakas odottaa Tullin toimenpiteitä. Tullin järjestelmä tarkastaa sisäkaupan tilastoilmoitus -sanomasta asiakkaan tunnistetiedot ja ilmoituksen tietosisällön määrämuotoisuuden. Sovellus tarkastaa tietojen oikeellisuuden. Ilmoitus on muodollisesti virheetön.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar meddelandet Statistikdeklaration över EU-intern handel till Tullen. Kunden inväntar Tullens åtgärder. Tullens system granskar kundens identifieringsuppgifter och datainnehållets formbundenhet i meddelandet. Programmet granskar uppgifternas riktighet. Deklarationen är formellt felfri.</ItemLine>
+					<ItemLine lang="en">The customer sends an intra-Community trade statistical declaration message to Customs. The customer waits for the response from Customs. Customs’ system checks the intra-Community trade statistical declaration message for the customer’s ID details and ensures that the declaration data meets the specified form requirement. The application checks the correctness of the information. The declaration is formally correct.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle hyväksymissanoman.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar ett meddelande om godkännande till kunden.</ItemLine>
+					<ItemLine lang="en">Customs send an acceptance message to the customer.</ItemLine>
+					<ItemLine lang="fi">Asiakas noutaa vastaussanoman ja voi todeta sanoman hyväksytysti vastaanotetuksi.</ItemLine>
+					<ItemLine lang="sv">Kunden hämtar svarsmeddelandet och kan konstatera att medelandet blivit mottaget och godkänt.</ItemLine>
+					<ItemLine lang="en">The customer retrieves the response message and concludes that the message was received and accepted.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Ilmoituksessa on muotovirhe</Name>
+			<Name lang="sv">Deklarationen har ett formfel</Name>
+			<Name lang="en">Declaration  with a formal error</Name>
+			<Sequence>
+				<EO>INSTAT</EO>
+				<Customs>INSRES</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää sisäkaupan tilastoilmoitus -sanoman. Asiakas odottaa Tullin toimenpiteitä. Tullin järjestelmä tarkastaa sisäkaupan tilastoilmoitus - sanomasta asiakkaan tunnistetiedot ja ilmoituksen teknisen määrämuotoisuuden eli onko ilmoitus skeeman mukainen. </ItemLine>
+					<ItemLine lang="sv">Kunden skickar meddelandet Statistikdeklaration över EU-intern handel. Kunden inväntar Tullens åtgärder. Tullens system granskar kundens identifieringsuppgifter och datainnehållets formbundenhet i meddelandet, dvs. att deklarationen motsvarar schemat.</ItemLine>
+					<ItemLine lang="en">The customer sends an intra-Community trade statistical declaration message to Customs. The customer waits for the response from Customs. Customs’ system checks the intra-Community trade statistical declaration message for the customer’s ID details and ensures that the declaration data meets the specified technical form requirement, i.e. its compliance with the schema.</ItemLine>
+					<ItemLine lang="fi">Ilmoituksella ilmoitetut tiedot eivät täytä määrämuotoisuuden vaatimuksia eli ilmoitus ei
+ole skeeman mukainen.</ItemLine>
+					<ItemLine lang="sv">Uppgifterna i deklarationen uppfyller inte kraven på formbundenhet, vilket gör att deklarationen inte motsvarar schemat.</ItemLine>
+					<ItemLine lang="en">The information given in the declaration does not meet the form requirements, i.e. the declaration does not comply with the schema.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle hylkäävän vastaussanoman. Sanomalla Tulli ilmoittaa sanoman virheestä, ilmoitusta ei ole hyväksytty.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar ett svarsmeddelande om avslag till kunden. I meddelandet uppger Tullen att kundens meddelande innehållit fel och att deklarationen inte godkänts.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a rejection message. Customs informs the customer about the error and the rejection of the declaration.</ItemLine>
+					<ItemLine lang="fi">Asiakas noutaa vastaussanoman ja voi todeta sanoman hylätyksi.</ItemLine>
+					<ItemLine lang="sv">Kunden hämtar svarsmeddelandet och kan konstatera att meddelandet blivit avslaget.</ItemLine>
+					<ItemLine lang="en">The customer retrieves the response message and concludes that the message is rejected.</ItemLine>
+					<ItemLine lang="fi">Huom. Asiakkaan tulee käynnistää prosessi uudelleen, korjata virheet ja
+lähettää Tullille uusi sisäkaupan tilastoilmoitus.</ItemLine>
+					<ItemLine lang="sv">Obs. Kunden ska starta processen på nytt, korrigera felen och skicka en ny statistikdeklaration till Tullen.</ItemLine>
+					<ItemLine lang="en">Please note: The customer must start the process again, correct the errors and send a new intra-Community trade statistical declaration to Customs.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Ilmoituksessa on sisältövirhe</Name>
+			<Name lang="sv">Deklarationen har ett innehållsfel</Name>
+			<Name lang="en">Declaration with a content error</Name>
+			<Sequence>
+				<EO>INSTAT</EO>
+				<Customs>INSRES</Customs>
+				<EO>INSTAT</EO>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tulliin sisäkaupan tilastoilmoitus -sanoman. Asiakas odottaa Tullin
+toimenpiteitä.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar meddelandet Statistikdeklaration över EU-intern handel. Kunden inväntar Tullens åtgärder.</ItemLine>
+					<ItemLine lang="en">The customer sends an intra-Community trade statistical declaration message to Customs. The customer waits for the response from Customs.</ItemLine>
+					<ItemLine lang="fi">Tullin järjestelmä tarkastaa sisäkaupan tilastoilmoitus -sanomasta asiakkaan tunnistetiedot ja ilmoituksen tietosisällön määrämuotoisuuden.</ItemLine>
+					<ItemLine lang="sv">Tullens system granskar kundens identifieringsuppgifter och datainnehållets formbundenhet i meddelandet Statistikdeklaration över EU-intern handel.</ItemLine>
+					<ItemLine lang="en">Customs’ system checks the intra-Community trade statistical declaration message for the customer’s ID details and ensures that the declaration data meets the specified form requirement.</ItemLine>
+					<ItemLine lang="fi">Tämän jälkeen Tullin sovellus tarkastaa tietojen oikeellisuuden. Ilmoitus on muodollisesti virheetön, mutta ilmoitetuissa tiedoissa on virheitä. Tarkastuksessa havaitaan ristiriitaisuuksia ja/tai virhe/virheitä, joiden johdosta tilastoinnin oikeellisuus vaarantuu.</ItemLine>
+					<ItemLine lang="sv">Därefter granskar Tullens system uppgifternas riktighet. Deklarationen är formellt felfri men uppgifterna innehåller fel. Vid granskningen upptäcks motstridigheter och/eller fel som äventyrar statistikens riktighet.</ItemLine>
+					<ItemLine lang="en">Customs’ application then checks the correctness of the information. The declaration does not contain any formal errors, but there are errors in the declared information. The check reveals discrepancies and/or an error/errors, because of which the accuracy of the compilation of statistics is at risk.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle vastaussanomana virhesanoman, jossa kerrotaan virheet ja niiden selitteet.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett felmeddelande som innehåller de fel som upptäckts och felförklaringarna.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer an error message specifying the errors and their explanations.</ItemLine>
+					<ItemLine lang="fi">Asiakas noutaa virhesanoman, jossa eritellään sisäkaupan tilastoilmoituksella esiintyvät virheellisyydet.</ItemLine>
+					<ItemLine lang="sv">Kunden hämtar felmeddelandet i vilket felaktigheterna i statistikdeklarationen specificeras.</ItemLine>
+					<ItemLine lang="en">The customer retrieves the error message that specifies the errors contained in the intra-Community trade statistical declaration.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää sisäkaupan tilastoilmoituksen uudestaan korjattuna.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar meddelandet Statistikdeklaration över EU-intern handel på nytt i korrigerad form.</ItemLine>
+					<ItemLine lang="en">The customer sends a corrected intra-Community trade statistical declaration.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+	</UseCases>
+</MessageExchange>
