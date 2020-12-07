@@ -2006,8 +2006,8 @@
 				<XPath>HouseConsignment</XPath>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>99999</MaxOccurence>
-				<MaxOccurence use="FI334A">99</MaxOccurence>
-				<MaxOccurence use="FI332A">99</MaxOccurence>
+				<MaxOccurence use="FI334A">9999</MaxOccurence>
+				<MaxOccurence use="FI332A">9999</MaxOccurence>
 				<DataElement>
 					<Name lang="fi">Kokonaisbruttopaino</Name>
 					<Name lang="sv">Total bruttovikt</Name>
@@ -2081,7 +2081,7 @@
 						<Use>FI336A</Use>
 						<XPath>Name</XPath>
 						<MinOccurence>0</MinOccurence>
-						<Condition>NC0050</Condition>
+						<Condition>C0050</Condition>
 						<Format>an..70</Format>
 					</DataElement>
 					<DataElement>
@@ -2198,7 +2198,7 @@
 						<Use>FI336A</Use>
 						<XPath>Identification</XPath>
 						<MinOccurence>0</MinOccurence>
-						<Rule>NR3005</Rule>
+						<Rule>R3005</Rule>
 						<Condition>NC3012</Condition>
 						<Format>an..17</Format>
 					</DataElement>
@@ -3256,7 +3256,7 @@
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
-					<Name lang="fi">Kuljetusasiakirjat</Name>
+					<Name lang="fi">Kuljetusasiakirja</Name>
 					<Name lang="sv">Transportdokument</Name>
 					<Name lang="en">Transport document</Name>
 					<Use>FI334A</Use>
@@ -3307,6 +3307,16 @@
 						<XPath>Identification</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Format>an..70</Format>
+					</DataElement>
+					<DataElement>
+						<Name lang="fi">Tavaraerän tunniste</Name>
+						<Name lang="sv">Varupostidentifierare</Name>
+						<Name lang="en">Goods item identifier</Name>
+						<Use>FI332A</Use>
+						<Use>FI334A</Use>
+						<XPath>Line</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>n..5</Format>
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
