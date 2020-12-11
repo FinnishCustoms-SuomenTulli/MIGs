@@ -213,6 +213,9 @@
 															<tr>
 																<td>
 																	<xsl:value-of select="/MessageExchange/Messages/Message/Name[@lang=($language) and ../ID= $MSG]"/>
+																	<xsl:if test="@labelfi and $language='fi'"><i> (<xsl:value-of select="@labelfi"/>)</i></xsl:if>
+																	<xsl:if test="@labelsv and $language='sv'"><i> (<xsl:value-of select="@labelsv"/>)</i></xsl:if>
+																	<xsl:if test="@labelen and $language='en'"><i> (<xsl:value-of select="@labelen"/>)</i></xsl:if>
 																</td>
 																<td>→</td>
 																<td>&#8203;</td>
@@ -220,7 +223,12 @@
 														</xsl:when>
 														<xsl:otherwise>
 															<tr>
-																<td>&#8203;</td>
+																<td>
+																	<xsl:if test="@labelfi and $language='fi'"><i> (<xsl:value-of select="@labelfi"/>)</i></xsl:if>
+																	<xsl:if test="@labelsv and $language='sv'"><i> (<xsl:value-of select="@labelsv"/>)</i></xsl:if>
+																	<xsl:if test="@labelen and $language='en'"><i> (<xsl:value-of select="@labelen"/>)</i></xsl:if>
+																	&#8203;
+																</td>
 																<td>←</td>
 																<td>
 																	<xsl:value-of select="/MessageExchange/Messages/Message/Name[@lang=($language) and ../ID= $MSG]"/>

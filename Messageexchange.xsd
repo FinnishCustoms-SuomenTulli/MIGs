@@ -150,8 +150,28 @@
 							<xs:element name="Sequence">
 								<xs:complexType>
 									<xs:sequence maxOccurs="unbounded">
-										<xs:element name="EO" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-										<xs:element name="Customs" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element name="EO" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute name="labelfi"/>
+														<xs:attribute name="labelsv"/>
+														<xs:attribute name="labelen"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Customs" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute name="labelfi"/>
+														<xs:attribute name="labelsv"/>
+														<xs:attribute name="labelen"/>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
