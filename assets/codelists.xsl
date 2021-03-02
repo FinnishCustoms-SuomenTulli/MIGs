@@ -73,6 +73,7 @@
 													<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
 														<th>Selite</th>
 													</xsl:if>
+													<th>Voimassaolo</th>
 												</xsl:when>
 												<xsl:when test="$language='sv'">
 													<th>Kod</th>
@@ -80,6 +81,7 @@
 													<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
 														<th>Beskrivning</th>
 													</xsl:if>
+													<th>Giltighet</th>
 												</xsl:when>
 												<xsl:when test="$language='en'">
 													<th>Code</th>
@@ -87,6 +89,7 @@
 													<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
 														<th>Description</th>
 													</xsl:if>
+													<th>Validity</th>
 												</xsl:when>
 											</xsl:choose>
 										</tr>
@@ -131,6 +134,23 @@
 													</xsl:choose>
 												</td>
 											</xsl:if>
+											<xsl:choose>
+											<xsl:when test="$language='fi'">
+												<td>
+													<xsl:value-of select="format-number(substring(StartDate,9,2), '#')"/>.<xsl:value-of select="format-number(substring(StartDate,6,2), '#')"/>.<xsl:value-of select="substring(StartDate,1,4)"/> - <xsl:value-of select="format-number(substring(EndDate,9,2), '#')"/>.<xsl:value-of select="format-number(substring(EndDate,6,2), '#')"/>.<xsl:value-of select="substring(EndDate,1,4)"/>
+												</td>
+											</xsl:when>
+											<xsl:when test="$language='sv'">
+												<td>
+													<xsl:value-of select="substring(StartDate,1,4)"/>-<xsl:value-of select="substring(StartDate,6,2)"/>-<xsl:value-of select="substring(StartDate,9,2)"/> - <xsl:value-of select="substring(EndDate,1,4)"/>-<xsl:value-of select="substring(EndDate,6,2)"/>-<xsl:value-of select="substring(EndDate,9,2)"/>
+												</td>
+											</xsl:when>
+											<xsl:when test="$language='en'">
+												<td>
+													<xsl:value-of select="substring(StartDate,9,2)"/>/<xsl:value-of select="substring(StartDate,6,2)"/>/<xsl:value-of select="substring(StartDate,1,4)"/> - <xsl:value-of select="substring(EndDate,9,2)"/>/<xsl:value-of select="substring(EndDate,6,2)"/>/<xsl:value-of select="substring(EndDate,1,4)"/>
+												</td>
+											</xsl:when>
+											</xsl:choose>
 										</tr>
 									</xsl:for-each>
 								</table>
