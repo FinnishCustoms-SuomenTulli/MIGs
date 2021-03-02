@@ -45,49 +45,47 @@
 										</xsl:choose>
 									</tr>
 								</thead>
-								<xsl:for-each select="CodeItem">
-									<xsl:if test="Valid!='False'">
-										<tr>
-											<td>
-												<xsl:choose>
-													<xsl:when test="Header=1">
-														<b>
-															<xsl:value-of select="Code"/>
-														</b>
-													</xsl:when>
-													<xsl:otherwise>
+								<xsl:for-each select="CodeItem[Valid!='False']">
+									<tr>
+										<td>
+											<xsl:choose>
+												<xsl:when test="Header=1">
+													<b>
 														<xsl:value-of select="Code"/>
-													</xsl:otherwise>
-												</xsl:choose>
-											</td>
+													</b>
+												</xsl:when>
+												<xsl:otherwise>
+													<xsl:value-of select="Code"/>
+												</xsl:otherwise>
+											</xsl:choose>
+										</td>
+										<td>
+											<xsl:choose>
+												<xsl:when test="Header=1">
+													<b>
+														<xsl:value-of select="Name[@lang=($language)]"/>
+													</b>
+												</xsl:when>
+												<xsl:otherwise>
+													<xsl:value-of select="Name[@lang=($language)]"/>
+												</xsl:otherwise>
+											</xsl:choose>
+										</td>
+										<xsl:if test="count(../CodeItem/Description[@lang=($language)][string(.)]) > 0">
 											<td>
 												<xsl:choose>
 													<xsl:when test="Header=1">
 														<b>
-															<xsl:value-of select="Name[@lang=($language)]"/>
+															<xsl:value-of select="Description[@lang=($language)]"/>
 														</b>
 													</xsl:when>
 													<xsl:otherwise>
-														<xsl:value-of select="Name[@lang=($language)]"/>
+														<xsl:value-of select="Description[@lang=($language)]"/>
 													</xsl:otherwise>
 												</xsl:choose>
 											</td>
-											<xsl:if test="count(../CodeItem/Description[@lang=($language)][string(.)]) > 0">
-												<td>
-													<xsl:choose>
-														<xsl:when test="Header=1">
-															<b>
-																<xsl:value-of select="Description[@lang=($language)]"/>
-															</b>
-														</xsl:when>
-														<xsl:otherwise>
-															<xsl:value-of select="Description[@lang=($language)]"/>
-														</xsl:otherwise>
-													</xsl:choose>
-												</td>
-											</xsl:if>
-										</tr>
-									</xsl:if>
+										</xsl:if>
+									</tr>
 								</xsl:for-each>
 							</table>
 						</div>
