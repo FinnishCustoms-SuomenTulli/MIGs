@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <RulesCondition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<RC>
+		<Code>MandatoryAdditionalDocumentIdentifier</Code>
+		<DescriptionEn>For the Additional document type with length 3 the corresponding Identifier element is mandatory
+Otherwise optional</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>C0010</Code>
+		<DescriptionEn>IF (first digit of ‘Mode of Transport at the border’ = ‘2’, ‘5’ or ‘7’) OR (Additional procedure = 615)
+THEN ‘Nationality of active means of transport crossing the border ’ can not be used
+ELSE ‘Nationality of active means of transport crossing the border ’ = ‘R’</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>C0028</Code>
 		<DescriptionEn>IF the attribute 'Requested Procedure Code' = '31', '71', '76', '77' or '78' 
  THEN this attribute = 'O'
@@ -765,97 +776,9 @@ else optional.</DescriptionEn>
 		<DescriptionEn>Amount in supplementary measure unitis is required by TARIC codelist</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>SC_DateTime</Code>
-		<DescriptionEn>Element DateTime can be used only for DateTime search</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>SC_OptionalValue</Code>
-		<DescriptionEn>Optional element Value2 can be used only for trader identification number.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>CommodityCodeRequired</Code>
-		<DescriptionEn>Commodity code is required for dataset H1</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>ExportOptional</Code>
-		<DescriptionEn>If Import Export Flag value = Import, then this element is not used.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>ExportRequired</Code>
-		<DescriptionEn>If Import Export Flag value = Export, then this element is required.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>GoodsMeasureRequired</Code>
-		<DescriptionEn>Goods Measure is required for dataset H1</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>ImportOptional</Code>
-		<DescriptionEn>If Import Export Flag value = Export, then this element is not used.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>ImportRequired</Code>
-		<DescriptionEn>If Import Export Flag value = Import, then this element is required.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC0356</Code>
-		<DescriptionEn>Implementation based on UTUK-1391 referring UTU Internal User Interface Specification Part 2, page
-IF IB914A/ChangeRequest/Reason = D
-THEN
-          ReplacingMRN is Required
-ELSE
-       IF IB914A/ChangeRequest/Reason = V
-       THEN
-          ReplacingMRN is Optional
-       ELSE 
-          ReplacingMRN is NotUsed</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>CR_BaseArticle</Code>
-		<DescriptionEn>If case has TUL or MAK decision and decision type is JAL, PAL or OIK, base article is required</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>CR_ErrorStatistics</Code>
-		<DescriptionEn>When decision is final (state = finished), group Error statistics is required.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>MC0001_Common</Code>
-		<DescriptionEn>If Proposed Action starts with "CO", Control Group is Mandatory, else Not Used.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>MC0002_Common</Code>
-		<DescriptionEn>if Status is finished ("F)", 
-then element is required 
-else element must not be used.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>MC0002_ControlResult_Common</Code>
-		<DescriptionEn>if Status is finished ("F)", 
-then element is required 
-else element must not be used.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>MC0002_ControlTimeReport_Common</Code>
-		<DescriptionEn>if Status is finished ("F)", 
-then element is required 
-else element must not be used.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>MC0003_Common</Code>
-		<DescriptionEn>if Status is finished ("F)", 
-then element is optional
-else element must not be used.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>MeasureInstructions_Common</Code>
-		<DescriptionEn>For manually added measure instructions must be present,
-for risk measures the instructions are optional,
-else measure instructions must not be present.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>BillingDetailsData</Code>
-		<DescriptionEn>If message contains clearanceCaseNotificationProcessing group (i.e. error)
-this group is Required
-otherwise Not used</DescriptionEn>
+		<Code>AdditionalDocumentForAuthorisationTypeCode</Code>
+		<DescriptionEn>There must be exactly one additional document with the same authorisation typecode specified
+Identifier element of this AdditionalDocument group contains the authorisation id</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>AdditionalDocumentTypeCodelist</Code>
@@ -2454,182 +2377,5 @@ If the format of the trader id is FI + 11 characters, then modulus validation of
 	<RC>
 		<Code>SCI022</Code>
 		<DescriptionEn>Additional information description cannot be given alone without Additional information code (SCI014)</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>TARIC3Templates_ChoiceRule_T3CALC_FOOTN</Code>
-	</RC>
-	<RC>
-		<Code>TARIC3Templates_ChoiceRule_T3CALC_GOODS</Code>
-	</RC>
-	<RC>
-		<Code>TARIC3Templates_ChoiceRule_T3CERTS</Code>
-	</RC>
-	<RC>
-		<Code>TARIC3Templates_ChoiceRule_T3CERTUNIT</Code>
-	</RC>
-	<RC>
-		<Code>TARIC3Templates_ChoiceRule_T3CODES</Code>
-	</RC>
-	<RC>
-		<Code>TARIC3Templates_ChoiceRule_T3GOODS</Code>
-	</RC>
-	<RC>
-		<Code>CountryOfOriginRequired</Code>
-		<DescriptionEn>In case of SDR Import declaration, Country Of Origin or Country Of Preferential Origin must be filled.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>CR_PendingAmendment</Code>
-		<DescriptionEn>It is not possible to have more than one change requests for amendment in state in progress</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>CR_ReasonType</Code>
-		<DescriptionEn>If Change request type is "I", Reason must be from codeset AdditionalReasonForContact;Invalidation
-If Change request type is "O", Reason must be from codeset AdditionalReasonForContact;Amendment</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>CR_SubmissionDate</Code>
-		<DescriptionEn>Submission date of a change request cannot be in the future</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0511</Code>
-		<DescriptionEn>MRN must exist in UTU</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>CR_AllMeasuresClosed</Code>
-		<DescriptionEn>Before making a finalization decision on a change request, all measures must be closed.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>CR_AllowedDecisionType</Code>
-		<DescriptionEn>If there is incerase in taxation, only JAL decision is possible.
-If there is decrease in taxation or there are changes in tax types (though the final change is = 0), only PAL decision is possible.
-If there are no changes to taxation, only OIK decision is possible</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>CR_IBANform</Code>
-		<DescriptionEn>Form of IBAN account</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>CR_InvalidDecisionForm</Code>
-		<DescriptionEn>If decision type is OIK, JAL, PAL, RAU, OHY or MHY, it must be issued on related change request (form finalization), not as a basic decision.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>CR_MIT_AfterMovementPermitIssued</Code>
-		<DescriptionEn>MIT decision after movement permit issued is allowed only if no control result is KO (B1 - Release prohibited)</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>CR_OfficerForbidden</Code>
-		<DescriptionEn>Customs Officer who previously manually confirmed following decisions, cannot make finalization decision on amendment
-- TUL, LUO, OIK
-- LUO/TUL performed automatically, but Officer manually handled service charges or calculation (MK5, MK9, MKA)</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>CR_RemoveNotAllowed</Code>
-		<DescriptionEn>Change request be removed only if it was submitted manually by the Customs Officer. All other change requests must be finalized with a proper decision.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>CR_RepaymentInfoRequired</Code>
-		<DescriptionEn>For finalization of this change request, repayment info is mandatory.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>DataChanged</Code>
-		<DescriptionEn>Data was changed in DB by other user/action</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>DataChanged_Common</Code>
-		<DescriptionEn>Data was changed in DB by other user/action</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>DataLocked</Code>
-		<DescriptionEn>Data is (not) locked by another user</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>ManuallyAddedMeasure_Common</Code>
-		<DescriptionEn>Manually added measure must be of type manually added.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>MeasureState_Common</Code>
-		<DescriptionEn>It is not possible to change finished measure.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>MeasureWait_Common</Code>
-		<DescriptionEn>It is possible to mark for waiting only open measure.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR1264</Code>
-		<DescriptionEn>Measure cannot be finisthed, if Quota request has not been sent yet</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR1270</Code>
-		<DescriptionEn>Measure cannot be finisthed, until a notification message about secured liability is sent</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR1330</Code>
-		<DescriptionEn>Control with status New or Response delayed must exist to be send.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR1360</Code>
-		<DescriptionEn>Additional remarks to inspector can be changed till control assignment is send to VALVON</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR1361</Code>
-		<DescriptionEn>Abnormal control location can be changed until measure is finished</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR1362</Code>
-		<DescriptionEn>Instructions to trader can be changed until control results are received from VALVON or saved by officer</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR1363</Code>
-		<DescriptionEn>Measure for movement permit is not possible to finish before control notification is sent to the trader</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>CR_InvalidationDecision</Code>
-		<DescriptionEn>After any Customs debt has been paid, invalidation decision can be made only by creating change request.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0235</Code>
-		<DescriptionEn>If additional information code FITAK is used, credit direct representative (status code 2) must be declared.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0237</Code>
-		<DescriptionEn>If transaction channel is message exhange, requested procedure is different than 71 and representation status is either 1 (self representation/no representative exists) or 2 (standard direct representation without code FITAK),
-then declarant must be a credit trader.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0238</Code>
-		<DescriptionEn>If transaction channel is message exchange, requested procedure is different than 71 and representation status is either 2 with additional code FITAK (direct representative providing the guarantee) or 3 (indirect representative),
-then representative must be a credit trader.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR2006</Code>
-		<DescriptionEn>Discharge cannot be done, because on the requested declaration (or one of the declarations), there is currently ongoing electronic request for amendment.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NSP046</Code>
-		<DescriptionEn>If Requested procedure is 61 and Previous procedure is 21 then previous authorization holder id and the current identification number of the declarant need not to be the same.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NSP115</Code>
-		<DescriptionEn>If additional procedure is 160 THEN authorisation must cover equivalent goods</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NSP115_internal</Code>
-		<DescriptionEn>If additional procedure is 160 THEN authorisation must cover equivalent goods</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NOT001</Code>
-		<DescriptionEn>Min Datetime is current datetime - 2 hours, Max Datetime is current datetime + 1 year</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NOT002</Code>
-		<DescriptionEn>Datetime from must be earlier than Datetime to</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NOT003</Code>
-		<DescriptionEn>Min DateteTime is current datetime, max DateTime is ValidFrom + 1 Year</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR1364</Code>
-		<DescriptionEn>Location type must exist on declaration</DescriptionEn>
 	</RC>
 </RulesCondition>
