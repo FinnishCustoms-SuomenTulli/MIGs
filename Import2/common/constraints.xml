@@ -746,6 +746,25 @@ else optional.</DescriptionEn>
 		<DescriptionEn>Amount in supplementary measure unitis is required by TARIC codelist</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NC0356</Code>
+		<DescriptionEn>Implementation based on UTUK-1391 referring UTU Internal User Interface Specification Part 2, page
+IF IB914A/ChangeRequest/Reason = D
+THEN
+          ReplacingMRN is Required
+ELSE
+       IF IB914A/ChangeRequest/Reason = V
+       THEN
+          ReplacingMRN is Optional
+       ELSE 
+          ReplacingMRN is NotUsed</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>C0638</Code>
+		<DescriptionEn>IF this data item different to D.E. '3/18 - declarant identification No.' 
+THEN it is REQUIRED 
+ELSE it can NOT BE USED</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NC0106_C</Code>
 		<DescriptionEn>If dataset type is POR and additional information code FIFIX is not used on each goods item,
 then this is required,
@@ -796,8 +815,17 @@ then if commodity code starts with 8701 - 8705, additional information code FIXB
 		<DescriptionEn>If qualifier identification (of location) is X, trader identification number and trader office code must be declared in LocationID</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NR0018</Code>
+		<Code>NR0017</Code>
 		<DescriptionEn>If declaration is low value consignment (FI485A), sum value of declared goods cannot be over 150€.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0017_internal</Code>
+		<DescriptionEn>If declaration is low value consignment (FI485A), sum value of declared goods cannot be over 150€.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0018</Code>
+		<DescriptionEn>If declaration is low value consignment (FI485A), sum value of declared goods cannot be over 150€.
+If the case is IOSS valid (additional procedure F48 and valid additional fiscal trader reference with role FR5), the limit is 155€ (configurable in T2config).</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0019</Code>
@@ -1122,7 +1150,8 @@ the trader declared under Additional Fiscal Trader Reference cannot be finnish -
 	<RC>
 		<Code>NR0225</Code>
 		<DescriptionEn>For retrospectively lodged cases, ElectedEntry must be in the past and maximally one year old for private persons, maximally five years old for companies.
-For H5N, ElectedEntry must be maximum 30 days (one month) in the past, today or maximum 30 days (one month) in the future</DescriptionEn>
+For H5N, ElectedEntry must be maximum 30 days (one month) in the past, today or maximum 30 days (one month) in the future.
+For split declarations (additional information code FIJAE used), ElectedEntry must be maximum 30 days (one month) in the past or today.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0230</Code>
@@ -1168,15 +1197,10 @@ Remark:  the rule is currently switched off - a new definition due to CR 109 sho
 	</RC>
 	<RC>
 		<Code>NR0261</Code>
-		<DescriptionEn>IF H1 and (Requested Procedure = 40)
-then
-	IF (Sum of GoodsShipment/GoodsItem/Commodity/InvoiceLine) &lt;= 150 euro
-	THEN
-		Additional procedure code could be C07 
-	ELSE
-		Additional procedure may not be equal to C07
-	ENDIF
-ENDIF</DescriptionEn>
+		<DescriptionEn>If dataset type is H1 with requested procedure 40 and additional procedure C07 is used, 
+then sum of goods items invoice value must be less than or equal to 150€. 
+If such case is IOSS valid (additional procedure F48 and valid additional fiscal trader reference with role FR5),
+the liimt is 155€ (configurable in T2config).</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0262</Code>
@@ -1250,7 +1274,7 @@ ENDIF</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0281</Code>
-		<DescriptionEn>IF declaration is lodged retrospectively (DutyTaxFee/ElectedEntry is in the past)
+		<DescriptionEn>IF declaration is lodged retrospectively (DutyTaxFee/ElectedEntry is in the past; does not apply for H5N and split declarations (additional info code FIJAE))
 THEN Additional procedure code 680 must be declared (in every goods item)
 ELSE Additional procedure code 680 cannot be declared</DescriptionEn>
 	</RC>
@@ -1726,6 +1750,10 @@ then authorization holder must not be the same as Representative</DescriptionEn>
 		<DescriptionEn>Submiter ID must be the same as for declarant, representative or service provider in the original/amended declaration.</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NR2003_internal</Code>
+		<DescriptionEn>Submiter ID must be the same as for declarant, representative or service provider in the original/amended declaration.</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NR2004</Code>
 		<DescriptionEn>The case needs to have subsequent cases in order to be discharged.</DescriptionEn>
 	</RC>
@@ -1869,6 +1897,10 @@ then additional document type C019 must exist on the corresponding goods item.</
 		<DescriptionEn>If information is required but does in fact not exist, N/A shall be used.</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NR0511</Code>
+		<DescriptionEn>MRN must exist in UTU</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NR1264</Code>
 		<DescriptionEn>Measure cannot be finisthed, if Quota request has not been sent yet</DescriptionEn>
 	</RC>
@@ -1921,6 +1953,10 @@ then representative must be a credit trader.</DescriptionEn>
 	<RC>
 		<Code>NR2006</Code>
 		<DescriptionEn>Discharge cannot be done, because on the requested declaration (or one of the declarations), there is currently ongoing electronic request for amendment.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NSP046</Code>
+		<DescriptionEn>If Requested procedure is 61 and Previous procedure is 21 then previous authorization holder id and the current identification number of the declarant need not to be the same.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR1364</Code>
