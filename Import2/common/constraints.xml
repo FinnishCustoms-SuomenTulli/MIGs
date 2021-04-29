@@ -26,11 +26,6 @@ THEN 'City' AND ‘Street and Number’ = 'R' AND ‘Postcode’ = 'O', 'Identif
 		<DescriptionEn>IF 'Additional declaration type' = 'A', 'D', 'Y' THEN this data group / data element is = REQUIRED ELSE this data group / data element is = OPTIONAL</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>C0615_notUsed</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'C', 'F' OR 'Requested procedure code' = '51', '71'
-THEN this data group / data element is = 'O' ELSE this data group / data element is Required.</DescriptionEn>
-	</RC>
-	<RC>
 		<Code>C0617</Code>
 		<DescriptionEn>IF 'Buyer Identification No.' 
 OR 'Representative Identification No.'
@@ -59,12 +54,6 @@ else
 	<RC>
 		<Code>C0619</Code>
 		<DescriptionEn>IF Requested Procedure Code = '71'  THEN this data item can not be used ELSE it is Optional.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0620_notUsed</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'C', 'F' OR Requested Procedure Code = '71' OR the dataset type = H5 National
-THEN this data group / data item can not be used
-ELSE it is Required</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0623</Code>
@@ -102,24 +91,6 @@ THEN this data group / data item is Optional
 ELSE it is Required 
 (except where additional conditions
 or rules for the same data group/attribute imply something else)</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0631_modif</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'Y'
-AND 'Requested procedure code' = '01', '07', '40', '43', '44', '45', '46', '48',
-'51', '61', '68'
-THEN this data group / data item is Required
-ELSE cannot be used except where additional conditions
-or rules for the same data group/attribute imply something else.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0631_notUsed</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'Y'
-AND 'Requested procedure code' = '01', '07', '40', '43', '44', '45', '46', '48',
-'51', '61', '68'
-THEN this data group / data item is Required
-ELSE cannot be used except where additional conditions
-or rules for the same data group/attribute imply something else.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0633</Code>
@@ -213,15 +184,6 @@ ELSE it it OPTIONAL</DescriptionEn>
           if (declaration type is IM, country of departure is NO and transport mode at border is 3)
           then previous document is optional
           else previous document is required</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC0022_internal_H2</Code>
-		<DescriptionEn>If previous procedure is ’00’ and declaration type is ‘CO’ or goods locations is one of the following: [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801], 
-THEN
-previous document is optional
-
-ELSE
- (meaning that declaration type is ‘IM’ and goods location is something else), previous document is mandatory</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0025_OPT</Code>
@@ -563,12 +525,8 @@ else if dataset type is H1, Taric code is required (unless NC0223 applies).</Des
 		<DescriptionEn>If declaration is H2 dataset or declaration type is different than A, B, C, then cannot be used, else optional.</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NC0232_internal</Code>
-		<DescriptionEn>If Item charge is bigger than 0 (zero), item charge currency unit must be used. Otherwise it is optional.</DescriptionEn>
-	</RC>
-	<RC>
 		<Code>NC0233</Code>
-		<DescriptionEn>IF Declaration is lodged retrospectively (Additional procedure code is 680 AND DutyTaxFee/ElectedEntry is declared)
+		<DescriptionEn>IF Declaration is lodged retrospectively except Dataset H1 (Additional procedure code is 680 AND DutyTaxFee/ElectedEntry is declared)
 THEN this data group/element is optional, else it is required (or as other conditions suggest).</DescriptionEn>
 	</RC>
 	<RC>
@@ -642,12 +600,6 @@ ELSE
 		<Code>NC0242</Code>
 		<DescriptionEn>IF (Declaration is lodged by private person AND inland mode of transport = 5 (mail)
 THEN this data group / data element (Trader reference number) is OPTIONAL
-ELSE it is REQUIRED</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC0242_internal</Code>
-		<DescriptionEn>IF (Declaration is lodged by private person AND inland mode of transport = 5 (mail)
-THEN this data group / data element is OPTIONAL
 ELSE it is REQUIRED</DescriptionEn>
 	</RC>
 	<RC>
@@ -1750,10 +1702,6 @@ then authorization holder must not be the same as Representative</DescriptionEn>
 		<DescriptionEn>Submiter ID must be the same as for declarant, representative or service provider in the original/amended declaration.</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NR2003_internal</Code>
-		<DescriptionEn>Submiter ID must be the same as for declarant, representative or service provider in the original/amended declaration.</DescriptionEn>
-	</RC>
-	<RC>
 		<Code>NR2004</Code>
 		<DescriptionEn>The case needs to have subsequent cases in order to be discharged.</DescriptionEn>
 	</RC>
@@ -1953,10 +1901,6 @@ then representative must be a credit trader.</DescriptionEn>
 	<RC>
 		<Code>NR2006</Code>
 		<DescriptionEn>Discharge cannot be done, because on the requested declaration (or one of the declarations), there is currently ongoing electronic request for amendment.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NSP046</Code>
-		<DescriptionEn>If Requested procedure is 61 and Previous procedure is 21 then previous authorization holder id and the current identification number of the declarant need not to be the same.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR1364</Code>
