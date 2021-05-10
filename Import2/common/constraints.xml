@@ -186,6 +186,15 @@ ELSE it it OPTIONAL</DescriptionEn>
           else previous document is required</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NC0022_internal_H2</Code>
+		<DescriptionEn>If previous procedure is ’00’ and declaration type is ‘CO’ or goods locations is one of the following: [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801], 
+THEN
+previous document is optional
+
+ELSE
+ (meaning that declaration type is ‘IM’ and goods location is something else), previous document is mandatory</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NC0025_OPT</Code>
 		<DescriptionEn>If specified by the relevant 'Additional information code
 THEN this data element is REQUIRED
@@ -379,22 +388,6 @@ THEN data item is OPTIONAL
 ELSE data item can NOT be USED</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NC0213_H7</Code>
-		<DescriptionEn>IF exists Additional procedure 607 on each goodsItem
-THEN
-    IF
-          Requested procedure = 40
-          and exists Additional procedure code F48 for each goods item
-    THEN
-            Required
-    ELSE
-            Optional
-ELSE 
-       IF exists Additional procedure 648 on each goodsItem
-       THEN cannot be used
-       ELSE optional</DescriptionEn>
-	</RC>
-	<RC>
 		<Code>NC0214</Code>
 		<DescriptionEn>IF  Additional procedure = 615
 THEN data item is OPTIONAL
@@ -525,6 +518,10 @@ else if dataset type is H1, Taric code is required (unless NC0223 applies).</Des
 		<DescriptionEn>If declaration is H2 dataset or declaration type is different than A, B, C, then cannot be used, else optional.</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NC0232_internal</Code>
+		<DescriptionEn>If Item charge is bigger than 0 (zero), item charge currency unit must be used. Otherwise it is optional.</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NC0233</Code>
 		<DescriptionEn>IF Declaration is lodged retrospectively except Dataset H1 (Additional procedure code is 680 AND DutyTaxFee/ElectedEntry is declared)
 THEN this data group/element is optional, else it is required (or as other conditions suggest).</DescriptionEn>
@@ -564,7 +561,7 @@ then VAT rate code (NationalAdditionalCode beginning with Q) is optional, else a
 	</RC>
 	<RC>
 		<Code>NC0238</Code>
-		<DescriptionEn>If dataset type is H7 (low value consignment) and additional procedure F49 is used, representative must exist</DescriptionEn>
+		<DescriptionEn>If dataset type is H5 (both H5N and H5E), or H7 (low value consignment) and additional procedure F49 is used, representative must exist</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0240</Code>
@@ -600,6 +597,12 @@ ELSE
 		<Code>NC0242</Code>
 		<DescriptionEn>IF (Declaration is lodged by private person AND inland mode of transport = 5 (mail)
 THEN this data group / data element (Trader reference number) is OPTIONAL
+ELSE it is REQUIRED</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC0242_internal</Code>
+		<DescriptionEn>IF (Declaration is lodged by private person AND inland mode of transport = 5 (mail)
+THEN this data group / data element is OPTIONAL
 ELSE it is REQUIRED</DescriptionEn>
 	</RC>
 	<RC>
@@ -717,12 +720,6 @@ THEN it is REQUIRED
 ELSE it can NOT BE USED</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NC0106_C</Code>
-		<DescriptionEn>If dataset type is POR and additional information code FIFIX is not used on each goods item,
-then this is required,
-else not used.</DescriptionEn>
-	</RC>
-	<RC>
 		<Code>NR0001</Code>
 		<DescriptionEn>If authorisation type is CWP, authorisation holder id and the identification number of the declarant must be the same</DescriptionEn>
 	</RC>
@@ -776,8 +773,8 @@ then if commodity code starts with 8701 - 8705, additional information code FIXB
 	</RC>
 	<RC>
 		<Code>NR0018</Code>
-		<DescriptionEn>If declaration is low value consignment (FI485A), sum value of declared goods cannot be over 150€.
-If the case is IOSS valid (additional procedure F48 and valid additional fiscal trader reference with role FR5), the limit is 155€ (configurable in T2config).</DescriptionEn>
+		<DescriptionEn>If declaration is low value consignment (FI485A) or customs declaration (FI415A) with dataset type H5 and additional procedure F49, sum value of declared goods cannot be over 150€.
+If the case is H7 and IOSS valid (additional procedure F48 and valid additional fiscal trader reference with role FR5), the limit is 155€ (configurable in T2config).</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0019</Code>
@@ -1140,6 +1137,10 @@ Remark:  the rule is currently switched off - a new definition due to CR 109 sho
 		<DescriptionEn>If declaration is postal (mode of transport = 5) and additional declaration type is D, previous document must be 355.</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NR0241</Code>
+		<DescriptionEn>If dataset type is H5 (both H5N and H5E) or H7 (low value consignment) and additional procedure F49 is used, representative with credit trader status must exist.</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NR0255</Code>
 		<DescriptionEn>If the seconds or milliseconds are used in this element, they will be ignored.</DescriptionEn>
 	</RC>
@@ -1264,6 +1265,14 @@ Not applicable for dataset H5N.</DescriptionEn>
 	<RC>
 		<Code>NR0292</Code>
 		<DescriptionEn>If requested procedure is 42/63, declared additional fiscal trader reference (role FR1, FR2, FR3 or FR7) must be valid in VIES.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0293</Code>
+		<DescriptionEn>If additional procedure code F49 is declared, then importer must be a private person (Role C, P or H).</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0294</Code>
+		<DescriptionEn>If additional procedure code F48 and additional fiscal trader reference with role FR5 are declared, then Importer must be a private person (Role C, P or H).</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0301</Code>
@@ -1702,6 +1711,10 @@ then authorization holder must not be the same as Representative</DescriptionEn>
 		<DescriptionEn>Submiter ID must be the same as for declarant, representative or service provider in the original/amended declaration.</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NR2003_internal</Code>
+		<DescriptionEn>Submiter ID must be the same as for declarant, representative or service provider in the original/amended declaration.</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NR2004</Code>
 		<DescriptionEn>The case needs to have subsequent cases in order to be discharged.</DescriptionEn>
 	</RC>
@@ -1893,10 +1906,6 @@ then declarant must be a credit trader.</DescriptionEn>
 		<Code>NR0238</Code>
 		<DescriptionEn>If transaction channel is message exchange, requested procedure is different than 71 and representation status is either 2 with additional code FITAK (direct representative providing the guarantee) or 3 (indirect representative),
 then representative must be a credit trader.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0241</Code>
-		<DescriptionEn>If dataset type is H7 (low value consignment) and additional procedure F49 is used, representative with credit trader status must exist.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR2006</Code>
