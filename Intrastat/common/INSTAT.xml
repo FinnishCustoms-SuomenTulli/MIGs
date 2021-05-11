@@ -320,7 +320,7 @@ ration, the agent is to be declared "partyType" = "TDP" and "partyRole" = "PSI".
 				<XPath>MSConsDestCode</XPath>
 				<MinOccurence>1</MinOccurence>
 				<GeneralType>string</GeneralType>
-				<Codelist>0058</Codelist>
+				<Codelist>0059</Codelist>
 				<Format>a2</Format>
 				<DescriptionLine lang="fi">Koodiluettelo on saatavilla myös Intrastat-oppaassa, joka sisältää myös lisätietoja maiden luokittelusta.</DescriptionLine>
 				<DescriptionLine lang="fi">Tuonnissa EU-maa, josta tavara on lähetetty Suomeen (lähetysmaa), viennissä EU-maa, jonne tavarat lähetetään Suomesta (määrämaa).</DescriptionLine>
@@ -337,7 +337,7 @@ destination).</DescriptionLine>
 				<XPath>MSConsDestCode</XPath>
 				<MinOccurence>0</MinOccurence>
 				<GeneralType>string</GeneralType>
-				<Codelist>0058</Codelist>
+				<Codelist>0060</Codelist>
 				<Condition>NC004</Condition>
 				<Format>a2</Format>
 				<DescriptionLine lang="fi">Alkuperämaa eli alkuperämaan koodi, esim. SE. Myös Euroopan Unionin ulkopuolinen maa on mahdollinen. Pakollinen tieto tuonnissa, viennissä vapaaehtoinen tieto vuonna 2021, pakollinen vuoden 2022 tammikuun ilmoituksesta alkaen. Viennissä alkuperämaa voi olla myös FI Suomi.</DescriptionLine>
@@ -379,9 +379,9 @@ destination).</DescriptionLine>
 				<GeneralType>integer</GeneralType>
 				<Codelist>0079</Codelist>
 				<Format>a..4</Format>
-				<DescriptionLine lang="fi">Nimikkeeseen liittyvä toisen paljouden yksikkö, jos se on pakollinen nimikkeelle.</DescriptionLine>
-				<DescriptionLine lang="sv">Enhet för annan kvantitet associerad med tullpositionen, om andra kvantiteten är obligatorisk för tullpositionen.</DescriptionLine>
-				<DescriptionLine lang="en">Supplementary units code associated with CN8 code, if it is mandatory for the commodity code.</DescriptionLine>
+				<DescriptionLine lang="fi">Nimikkeeseen liittyvä toisen paljouden yksikkö, jos se on pakollinen nimikkeelle. Yksikön sijaan voi ilmoittaa koodin ZZZ, jolloin yksikkö haetaan nimikkeistöstä.</DescriptionLine>
+				<DescriptionLine lang="sv">Enhet för annan kvantitet associerad med tullpositionen, om andra kvantiteten är obligatorisk för tullpositionen. I stället för en enhet kan koden ZZZ anges, i vilket fall enheten hämtas från nomenklaturen.</DescriptionLine>
+				<DescriptionLine lang="en">Supplementary units code associated with CN8 code, if it is mandatory for the commodity code. Instead of a unit, the code ZZZ can be entered, in which case the unit is retrieved from the nomenclature.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Tavaran nimike</Name>
@@ -440,15 +440,15 @@ destination).</DescriptionLine>
 				<DescriptionLine lang="fi">1. XX999999999999: kolmikantakaupassa, jos kauppakumppani tavaran lopullisessa määrämaassa on tuntematon. XX on sen maan koodi, johon lasku lähetetään.
 </DescriptionLine>
 				<DescriptionLine lang="fi">2. QN999999999999: tavara toimitetaan yksityishenkilölle</DescriptionLine>
-				<DescriptionLine lang="fi">3. QV999999999999: muusta syystä tuntematon kauppakumppani</DescriptionLine>
+				<DescriptionLine lang="fi">3. QV999999999999: muusta syystä tuntematon kauppakumppani (käytössä ainoastaan vuonna 2021)</DescriptionLine>
 				<DescriptionLine lang="sv">Endast för export: handelsnummer för handelspartner, t.ex. SE01234569. Ej obligatoriskt 2021, men kan rapporteras som frivilligt. Obligatorisk information för export från januari 2022-anmälan. Handelspartnerns land måste vara detsamma som destinationslandet, utom i särskilda fall:</DescriptionLine>
 				<DescriptionLine lang="sv">1. XX999999999999: i triangulär handel, om handelspartnern i det land där varan slutligt bestäms är okänd. XX är koden för det land fakturan skickas till.</DescriptionLine>
 				<DescriptionLine lang="sv">2. QN999999999999: varorna levereras till en privatperson</DescriptionLine>
-				<DescriptionLine lang="sv">3. QV999999999999: annars okänd handelspartner</DescriptionLine>
+				<DescriptionLine lang="sv">3. QV999999999999: annars okänd handelspartner (används endast 2021)</DescriptionLine>
 				<DescriptionLine lang="en">For export only: VAT ID of the trading partner, eg SE01234569. Not mandatory in 2021, but may be reported as optional. Mandatory information for exports from the January 2022 notification. The country of the trading partner must be the same as the country of destination, except in special cases:</DescriptionLine>
 				<DescriptionLine lang="en">1. XX999999999999: in triangular trade, if the trading partner in the country of final destination of the goods is unknown. XX is the code of the country to which the invoice is sent.</DescriptionLine>
 				<DescriptionLine lang="en">2. QN999999999999: the goods are delivered to a private individual</DescriptionLine>
-				<DescriptionLine lang="en">3. QV999999999999: otherwise unknown trading partner</DescriptionLine>
+				<DescriptionLine lang="en">3. QV999999999999: otherwise unknown trading partner (only used during 2021)</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Kauppatapahtuman luonne</Name>
