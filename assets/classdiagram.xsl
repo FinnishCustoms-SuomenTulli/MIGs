@@ -8,9 +8,10 @@
 	version="3.0">
 
   <xsl:output method="text"/>
+	<xsl:param name="language"/>
+      <xsl:param name="system"/>
 
   <xsl:template match="/">
-      <xsl:variable name="system" select="'Transit'"/>
 Graph <xsl:value-of select="$system"/> {
     node [shape=plaintext, fontname = "helvetica"];
     edge [fontname = "helvetica"];
@@ -28,9 +29,9 @@ Graph <xsl:value-of select="$system"/> {
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-    "<xsl:value-of select="$currentNode"/>" [label=&lt;&lt;table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"&gt;&lt;tr&gt;&lt;td bgcolor="#00205B"&gt;&lt;font color="white"&gt;&lt;b&gt;<xsl:value-of select="Name[@lang='fi']"/>&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td bgcolor="#fafafa" align="left"&gt;<xsl:for-each select="DataElement"><xsl:value-of select="Name[@lang='fi']"/>&lt;br align="left"/&gt;</xsl:for-each>&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&gt;];</xsl:for-each-group>
+    "<xsl:value-of select="$currentNode"/>" [label=&lt;&lt;table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"&gt;&lt;tr&gt;&lt;td bgcolor="#00205B"&gt;&lt;font color="white"&gt;&lt;b&gt;<xsl:value-of select="Name[@lang=$language]"/>&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td bgcolor="#fafafa" align="left"&gt;<xsl:for-each select="DataElement"><xsl:value-of select="Name[@lang=$language]"/>&lt;br align="left"/&gt;</xsl:for-each>&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&gt;];</xsl:for-each-group>
 
-    <xsl:for-each select="descendant::DataGroup">
+    <xsl:for-each-group select="descendant::DataGroup" group-by="concat(parent::DataGroup/XPath,XPath)">
         <xsl:variable name="parentNode">
             <xsl:choose>
                 <xsl:when test="parent::DataGroup/XPath=''">
@@ -53,7 +54,7 @@ Graph <xsl:value-of select="$system"/> {
         </xsl:variable>
     <xsl:if test="$parentNode!=''">
     "<xsl:value-of select="$parentNode"/>" -- "<xsl:value-of select="$currentNode"/>" [headlabel="<xsl:value-of select="min(MinOccurence)"/>..<xsl:value-of select="max(MaxOccurence)"/>", taillabel="1" fontsize=10]</xsl:if>
-    </xsl:for-each>
+    </xsl:for-each-group>
 }
   </xsl:template>
   
