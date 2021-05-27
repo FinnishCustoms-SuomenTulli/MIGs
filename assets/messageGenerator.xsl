@@ -67,7 +67,6 @@
 										<xsl:call-template name="numbers">
 											<xsl:with-param name="n" select="substring-after(Format,',')"/>
 										</xsl:call-template>
-										<!--xsl:value-of select=" concat((substring-after(substring-before(Format,','),'..')-substring-after(Format,',')),'.',substring-after(Format,','))"/-->
 									</xsl:when>
 									<xsl:when test="substring(Format,1,1)='n'">
 										<xsl:choose>
@@ -83,7 +82,26 @@
 											</xsl:otherwise>
 										</xsl:choose>
 									</xsl:when>
-									<xsl:when test="substring(Format,1,4)='an..'">
+									<xsl:when test="XPath='Language'">fi</xsl:when>
+									<xsl:when test="contains(Name,'MRN')">21FI12345678909876</xsl:when>
+									<xsl:when test="contains(parent::*/Name[@lang='fi'],'harmonoidun') and XPath='Identification'">123456</xsl:when>
+									<xsl:when test="contains(parent::*/Name[@lang='fi'],'harmonoidun') and XPath='IdentificationType'">HS</xsl:when>
+									<xsl:when test="contains(parent::*/Name[@lang='fi'],'yhdistetyn') and XPath='Identification'">78</xsl:when>
+									<xsl:when test="contains(parent::*/Name[@lang='fi'],'yhdistetyn') and XPath='IdentificationType'">CN</xsl:when>
+									<xsl:when test="contains(parent::*/Name[@lang='fi'],'Taric-koodi') and XPath='Identification'">90</xsl:when>
+									<xsl:when test="contains(parent::*/Name[@lang='fi'],'Taric-koodi') and XPath='IdentificationType'">TAR</xsl:when>
+									<xsl:when test="contains(parent::*/Name[@lang='fi'],'Taric-lisäkoodi') and XPath='Identification'">C999</xsl:when>
+									<xsl:when test="contains(parent::*/Name[@lang='fi'],'Taric-lisäkoodi') and XPath='IdentificationType'">TAN</xsl:when>
+									<xsl:when test="contains(parent::*/Name[@lang='fi'],'kansalliset lisäkoodit') and XPath='Identification'">Q227</xsl:when>
+									<xsl:when test="contains(parent::*/Name[@lang='fi'],'kansalliset lisäkoodit') and XPath='IdentificationType'">NAT</xsl:when>
+									<xsl:when test="contains(parent::*/Name[@lang='fi'],'CUS') and XPath='Identification'">1234567-8</xsl:when>
+									<xsl:when test="contains(parent::*/Name[@lang='fi'],'CUS') and XPath='IdentificationType'">CUS</xsl:when>
+									<xsl:when test="XPath='RequestCorrelation'">{9fb38fad-9fc3-f93a-1dc2-1ad76bdf29af}</xsl:when>
+									<xsl:when test="XPath='Email' or Name[@lang='fi']='Sähköpostiosoite'">bij9QF2wZyvID7UlEtomTTdPm7ON02XSSB3l5Q3duyYhoOGWn6isHbRYsahiilUP5GTJcj1WCbFNvZ4N27F7BlpB1XBtYM4jJwTBZ89gHHcCp8QEzNx40hugDd1wD4MaYM0djZEnUTmPNrzoSq@v4j1B3ZIAwaYBtJRwmjJtjjPkjO2kZXSUfmxh14YeMDyJk6ksuOEJkhKZShchmixTlS6HOphKahK1JKLam3Pm0imxHh6tOpGht9lAOQ.D1m</xsl:when>
+									<xsl:when test="parent::*/Name[@lang='fi']='Sähköposti' and XPath='Type'">EM</xsl:when>
+									<xsl:when test="XPath='Telephone' or Name[@lang='fi']='Puhelinnumero'">+3581079426524443248</xsl:when>
+									<xsl:when test="parent::*/Name[@lang='fi']='Puhelin' and XPath='Type'">TE</xsl:when>
+									<xsl:when test="substring(Format,1,4)='an..' or substring(Format,1,3)='a..'">
 										<xsl:call-template name="characters">
 											<xsl:with-param name="n" select="substring-after(Format,'..')"/>
 										</xsl:call-template>
@@ -156,8 +174,10 @@
 								<xsl:when test="contains(parent::*/Name[@lang='fi'],'CUS') and XPath='Identification'">1234567-8</xsl:when>
 								<xsl:when test="contains(parent::*/Name[@lang='fi'],'CUS') and XPath='IdentificationType'">CUS</xsl:when>
 								<xsl:when test="XPath='RequestCorrelation'">{9fb38fad-9fc3-f93a-1dc2-1ad76bdf29af}</xsl:when>
-								<xsl:when test="XPath='Email'">bij9QF2wZyvID7UlEtomTTdPm7ON02XSSB3l5Q3duyYhoOGWn6isHbRYsahiilUP5GTJcj1WCbFNvZ4N27F7BlpB1XBtYM4jJwTBZ89gHHcCp8QEzNx40hugDd1wD4MaYM0djZEnUTmPNrzoSq@v4j1B3ZIAwaYBtJRwmjJtjjPkjO2kZXSUfmxh14YeMDyJk6ksuOEJkhKZShchmixTlS6HOphKahK1JKLam3Pm0imxHh6tOpGht9lAOQ.D1m</xsl:when>
-								<xsl:when test="XPath='Telephone'">+3581079426524443248</xsl:when>
+								<xsl:when test="XPath='Email' or Name[@lang='fi']='Sähköpostiosoite'">bij9QF2wZyvID7UlEtomTTdPm7ON02XSSB3l5Q3duyYhoOGWn6isHbRYsahiilUP5GTJcj1WCbFNvZ4N27F7BlpB1XBtYM4jJwTBZ89gHHcCp8QEzNx40hugDd1wD4MaYM0djZEnUTmPNrzoSq@v4j1B3ZIAwaYBtJRwmjJtjjPkjO2kZXSUfmxh14YeMDyJk6ksuOEJkhKZShchmixTlS6HOphKahK1JKLam3Pm0imxHh6tOpGht9lAOQ.D1m</xsl:when>
+								<xsl:when test="parent::*/Name[@lang='fi']='Sähköposti' and XPath='Type'">EM</xsl:when>
+								<xsl:when test="XPath='Telephone' or Name[@lang='fi']='Puhelinnumero'">+3581079426524443248</xsl:when>
+								<xsl:when test="parent::*/Name[@lang='fi']='Puhelin' and XPath='Type'">TE</xsl:when>
 								<xsl:when test="substring(Format,1,4)='an..' or substring(Format,1,3)='a..'">
 									<xsl:call-template name="characters">
 										<xsl:with-param name="n" select="substring-after(Format,'..')"/>
