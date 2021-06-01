@@ -3,7 +3,7 @@
 	<xsl:template match="/Message">
 		<xsl:copy>
 			<xsl:apply-templates select="DataGroup"/>
-			<xsl:apply-templates select="document('../Export/common/resp.xml')/Message/DataGroup"/>
+			<xsl:apply-templates select="document('../Transit/common/resp.xml')/Message/DataGroup"/>
 		</xsl:copy>
 	</xsl:template>
 	<xsl:template match="@*|node()">
@@ -11,7 +11,6 @@
 			<xsl:apply-templates select="@*|node()"/>
 		</xsl:copy>
 	</xsl:template>
-
 	<xsl:template match="Use"/>
 	<xsl:template match="DescriptionLine"/>
 	<xsl:template match="Format"/>
@@ -19,6 +18,12 @@
 	<xsl:template match="Condition"/>
 	<xsl:template match="Codelist"/>
 	<xsl:template match="Hyperlink"/>
-	<xsl:template match="/">
-	</xsl:template>
+	<!--xsl:template match="DataGroup/XPath">
+		<XPath>
+			<xsl:value-of select="."/>
+		</XPath>
+		<Group>
+			<xsl:value-of select="."/>
+		</Group>
+	</xsl:template-->
 </xsl:stylesheet>

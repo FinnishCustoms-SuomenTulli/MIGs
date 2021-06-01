@@ -2,38 +2,21 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://tulli.fi/schema/external/export/ext/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<xsl:output method="xml" indent="yes"/>
 	<xsl:param name="messageType"/>
+	<xsl:param name="maxRep"/>
 	<xsl:template match="Message">
 		<xsl:apply-templates select="DataGroup"/>
 	</xsl:template>
 	<xsl:template match="DataGroup">
-		<xsl:if test="Use = $messageType">
-			<xsl:variable name="path">
-				<xsl:choose>
-					<xsl:when test="XPath=''">
-						<xsl:value-of select="$messageType"/>
-					</xsl:when>
-					<xsl:when test="contains(XPath,'/')">
-						<xsl:value-of select="substring-before(XPath,'/')"/>
-					</xsl:when>
-					<xsl:when test="contains(XPath,'@')">
-						<xsl:value-of select="substring-before(XPath,'@')"/>
-					</xsl:when>
-					<xsl:otherwise>
-						<xsl:value-of select="XPath"/>
-					</xsl:otherwise>
-				</xsl:choose>
-			</xsl:variable>
-			<xsl:element name="{$path}">
-				<xsl:if test="XPath=''">
-					<xsl:attribute name="xsi:schemaLocation"><xsl:value-of select="concat('http://tulli.fi/schema/external/export/ext/v1 ',$messageType,'.xsd')"/></xsl:attribute>
-				</xsl:if>
-				<xsl:if test="contains(XPath,'@')">
-					<xsl:attribute name="{substring-after(substring-before(XPath,'='),'@')}"><xsl:value-of select="translate(substring-after(XPath,'&quot;'),'&quot;','')"/></xsl:attribute>
-				</xsl:if>
-				<xsl:apply-templates select="DataElement"/>
-				<xsl:apply-templates select="DataGroup"/>
-			</xsl:element>
-		</xsl:if>
+		<xsl:variable name="reps">
+			<xsl:choose>
+				<!--xsl:when test="MaxOccurence=1">1</xsl:when-->
+				<xsl:when test="$maxRep > MaxOccurence"><xsl:value-of select="MaxOccurence"/></xsl:when>
+				<xsl:otherwise><xsl:value-of select="$maxRep"/></xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:call-template name="GroupContents">
+			<xsl:with-param name="n" select="$reps"/>
+		</xsl:call-template>
 	</xsl:template>
 	<xsl:template match="DataElement">
 		<xsl:if test="Use = $messageType">
@@ -87,6 +70,42 @@
 					</xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
+		</xsl:if>
+	</xsl:template>
+	<xsl:template name="GroupContents">
+		<xsl:param name="n"/>
+		<xsl:if test="$n > 1">
+			<xsl:call-template name="GroupContents">
+				<xsl:with-param name="n" select="$n - 1"/>
+			</xsl:call-template>
+		</xsl:if>
+		<xsl:if test="Use = $messageType">
+			<xsl:variable name="path">
+				<xsl:choose>
+					<xsl:when test="XPath=''">
+						<xsl:value-of select="$messageType"/>
+					</xsl:when>
+					<xsl:when test="contains(XPath,'/')">
+						<xsl:value-of select="substring-before(XPath,'/')"/>
+					</xsl:when>
+					<xsl:when test="contains(XPath,'@')">
+						<xsl:value-of select="substring-before(XPath,'@')"/>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of select="XPath"/>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:variable>
+			<xsl:element name="{$path}">
+				<xsl:if test="XPath=''">
+					<xsl:attribute name="xsi:schemaLocation"><xsl:value-of select="concat('http://tulli.fi/schema/external/export/ext/v1 ',$messageType,'.xsd')"/></xsl:attribute>
+				</xsl:if>
+				<xsl:if test="contains(XPath,'@')">
+					<xsl:attribute name="{substring-after(substring-before(XPath,'='),'@')}"><xsl:value-of select="translate(substring-after(XPath,'&quot;'),'&quot;','')"/></xsl:attribute>
+				</xsl:if>
+				<xsl:apply-templates select="DataElement"/>
+				<xsl:apply-templates select="DataGroup"/>
+			</xsl:element>
 		</xsl:if>
 	</xsl:template>
 	<xsl:template name="ElementContents">
