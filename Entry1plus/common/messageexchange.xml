@@ -299,9 +299,9 @@
 			<Name lang="fi">Lisäselvityspyyntö</Name>
 			<Name lang="sv">Begäran om tilläggsutredning</Name>
 			<Name lang="en">Request for additional information</Name>
-			<DescriptionLine lang="fi">Tulli lähettää asiakkaalle sanoman (FI352), kun haluaa lisäselvitystä johonkin asiakkaan antamaan ilmoitukseen (FI332, FI334, FI337, FI338, FI335, FI336, FI376, FI378, FI377) liittyvään asiaan.</DescriptionLine>
-			<DescriptionLine lang="sv">Skickas av Tullen till kunden när Tullen önskar få ytterligare information om någonting som hänför sig till en deklaration eller anmälan (FI332, FI334, FI337, FI338, FI335, FI336, FI376, FI378, FI377) som kunden ingett.</DescriptionLine>
-			<DescriptionLine lang="en">This notification (FI352) is sent to the customer when Customs wants additional information on a matter related to a declaration (FI332, FI334, FI337, FI338, FI335, FI336, FI376, FI378, FI377) submitted by the customer.</DescriptionLine>
+			<DescriptionLine lang="fi">Tulli lähettää asiakkaalle sanoman (FI352), kun haluaa lisäselvitystä johonkin asiakkaan antamaan ilmoitukseen (FI332, FI334, FI337, FI338, FI335, FI336, FI378, FI377) liittyvään asiaan.</DescriptionLine>
+			<DescriptionLine lang="sv">Skickas av Tullen till kunden när Tullen önskar få ytterligare information om någonting som hänför sig till en deklaration eller anmälan (FI332, FI334, FI337, FI338, FI335, FI336, FI378, FI377) som kunden ingett.</DescriptionLine>
+			<DescriptionLine lang="en">This notification (FI352) is sent to the customer when Customs wants additional information on a matter related to a declaration (FI332, FI334, FI337, FI338, FI335, FI336, FI378, FI377) submitted by the customer.</DescriptionLine>
 		</Message>
 		<Message>
 			<Sender>Customs</Sender>
@@ -312,6 +312,26 @@
 			<DescriptionLine lang="fi">Tulli lähettää asiakkaalle sanomalla (FI370) ilmoituksen (esim. hallinnollinen huomautus tai muu ilmoitus), johon Tulli ei odota asiakkaan vastaavan sanomalla.</DescriptionLine>
 			<DescriptionLine lang="sv">Tullen skickar kunden ett meddelande (FI370) med en anmälan (t.ex. administrativ anmärkning eller annan anmälan) som Tullen inte förväntar sig att kunden svarar på med ett meddelande.</DescriptionLine>
 			<DescriptionLine lang="en">Customs sends this notification (FI370) (e.g. administrative notice or other notification) to the customer and does not expect the customer to reply with a message.</DescriptionLine>
+		</Message>
+		<Message>
+			<Sender>Customs</Sender>
+			<ID>FI330A</ID>
+			<Name lang="fi">Kuulemissanoma</Name>
+			<Name lang="sv">Meddelande om hörande</Name>
+			<Name lang="en">Hearing request</Name>
+			<DescriptionLine lang="fi">Tulli lähettää asiakkaalle kuulemissanoman (FI330) tilanteessa, jolloin tulli aikoo tehdä asiakkaalle kielteisen päätöksen. </DescriptionLine>
+			<DescriptionLine lang="sv">Tullen skickar kunden ett meddelande om hörande (FI330) i en situation där Tullen kommer att fatta ett beslut som är negativt för kunden.</DescriptionLine>
+			<DescriptionLine lang="en">Customs sends the customer a hearing request (FI330) in a situation where Customs intends to take a decision which would adversely affect the customer. </DescriptionLine>
+		</Message>
+		<Message>
+			<Sender>EO</Sender>
+			<ID>FI346A</ID>
+			<Name lang="fi">Kuulemisen vastaussanoma</Name>
+			<Name lang="sv">Svar på meddelande om hörande</Name>
+			<Name lang="en">Hearing response</Name>
+			<DescriptionLine lang="fi">Asiakas lähettää tullille vastauksen (FI346) tullin lähettämään kuulemispyyntöön (FI330).</DescriptionLine>
+			<DescriptionLine lang="sv">Kunden skickar Tullen ett svar (FI346) på det meddelande om hörande (FI330) som Tullen skickat till kunden.</DescriptionLine>
+			<DescriptionLine lang="en">The customer sends Customs a response (FI346) to the hearing request (FI330) sent by Customs.</DescriptionLine>
 		</Message>
 	</Messages>
 	<UseCases>
@@ -1611,7 +1631,7 @@
 		</UseCase>
 	</UseCases>
 	<UseCases>
-		<Label lang="fi">lmoituksen mitätöinti</Label>
+		<Label lang="fi">Ilmoituksen mitätöinti</Label>
 		<Label lang="sv">Ogiltigförklaring av deklaration</Label>
 		<Label lang="en">Invalidation of a declaration</Label>
 		<Description>
@@ -1639,11 +1659,17 @@
 				<ListItem lang="en">temporary storage declaration after movement (FI377), amendment request for temporary storage declaration after movement (FI378).</ListItem>
 			</List>
 			<TextLine lang="fi">Tulli lähettää asiakkaalle tiedon päätöksestään hyväksyä asiakkaan mitätöintipyyntö lähettämällä mitätöintisanoman (FI310) tai tiedon päätöksestään hylätä pyyntö mitätöidä ilmoitus lähettämällä mitätöintipyynnön hylkäyssanoman (FI348).</TextLine>
+			<TextLine lang="fi">Jos tulli aikoo hylätä asiakkaan mitätöintipyynnön, lähettää tulli asiakkaalle ennen hylkäystä kuulemissanoman (FI330). Asiakkaalla on mahdollisuus antaa vastineensa kuulemisen vastaussanomalla (FI346).</TextLine>
 			<TextLine lang="fi">Tulli lähettää asiakkaalle myös tiedon päätöksestään (FI310) mitätöidä ilmoitus (tullialoitteinen mitätöinti).</TextLine>
+			<TextLine lang="fi">Kuuleminen voi liittyä myös virhemaksun kantamiseen. Tässä sanomaliikenneoppaassa ei ole erillistä case –tapausta tästä.</TextLine>
 			<TextLine lang="sv">Tullen meddelar kunden om sitt beslut att godta kundens begäran om ogiltigförklaring genom att skicka ett meddelande om ogiltigförklaring (FI310) eller om sitt beslut att avslå begäran om ogiltigförklaring genom att skicka ett meddelande om avslag på begäran om ogiltigförklaring (FI348).</TextLine>
+			<TextLine lang="sv">Om Tullen kommer att avslå kundens begäran om ogiltigförklaring, skickar Tullen ett meddelande om hörande (FI330) till kunden före avslaget.  Kunden har möjlighet att avge sitt bemötande med ett svar på meddelande om hörande (FI346).</TextLine>
 			<TextLine lang="sv">Tullen skickar kunden också ett meddelande (FI310) om sitt beslut att ogiltigförklara deklarationen (ogiltigförklaring på Tullens initiativ).</TextLine>
+			<TextLine lang="sv">Hörandeförfarandet kan också hänföra sig till uppbörd av felavgift. I denna guide finns ingen separat beskrivning av ett sådant fall.</TextLine>
 			<TextLine lang="en">Customs notifies the customer of its decision to accept the customer’s invalidation request by sending an invalidation notification (FI310) or of its decision to reject the customer’s invalidation request by sending an invalidation request rejection notification (FI348).</TextLine>
+			<TextLine lang="en">If Customs intends to reject the customer’s invalidation request, Customs will send the customer a hearing request (FI330) before rejection. The customer will be given an opportunity to submit a rejoinder in the matter with the hearing response (FI346).</TextLine>
 			<TextLine lang="en">Customs also notifies the customer of its decision (FI310) to invalidate the declaration (Customs-initiated invalidation).</TextLine>
+			<TextLine lang="en">The hearing may also be related to the collection of a penalty fee. This guide for message exchange doesn’t include a separate case about this.</TextLine>
 		</Description>
 		<UseCase>
 			<Name lang="fi">Ennakolta annettu väliaikaisen varastoinnin ilmoitus, jota ei esitetä määräajassa – ilmoitus mitätöidään</Name>
@@ -1756,6 +1782,102 @@
 					<ItemLine lang="fi">Tulli lähettää asiakkaalle mitätöintipyynnön hylkäyssanoman (FI348), jolla Tulli ilmoittaa asiakkaalle päätöksestään hylätä asiakkaan mitätöintipyyntö. Tullin järjestelmä muodostaa erillisen mitätöintipyynnön hylkäystä koskevan päätöstulosteen asiakkaan noudettavaksi.</ItemLine>
 					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om avslag på begäran om ogiltigförklaring (FI348), med vilket Tullen meddelar kunden om sitt beslut att avslå kundens begäran om ogiltigförklaring. Tullens system genererar en separat beslutsutskrift om avslaget på begäran om ogiltigförklaring som kunden kan hämta.</ItemLine>
 					<ItemLine lang="en">Customs sends the customer an invalidation request rejection notification (FI348) to notify the customer of its decision to reject the customer’s invalidation request. Customs’ system generates a separate decision printout concerning the rejection of the invalidation request for the customer to retrieve.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Väliaikaisen varastoinnin ilmoituksen asiakaslähtöisen mitätöintipyynnön hylkäys</Name>
+			<Name lang="sv">Avslag på kundens begäran om ogiltigförklaring av deklaration för tillfällig lagring </Name>
+			<Name lang="en">Rejection of a customer-initiated invalidation request concerning a temporary storage declaration </Name>
+			<Sequence>
+				<EO>FI314A</EO>
+				<Customs>FI326A</Customs>
+				<Customs>FI330A</Customs>
+				<EO>FI346A</EO>
+				<Customs>FI348A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille mitätöintipyynnön (FI314), jolla asiakas pyytää Tullia mitätöimään aiemmin antamansa ilmoituksen (FI337, FI338, FI335, FI336, FI377, FI378).</ItemLine>
+					<ItemLine lang="fi">Asiakas odottaa Tullin toimenpiteitä.</ItemLine>
+					<ItemLine lang="fi">Tullin järjestelmä tarkastaa mitätöintipyynnöltä asiakkaan tunnistetiedot ja ilmoituksen tietosisällön määrämuotoisuuden sekä aineellisen oikeellisuuden.</ItemLine>
+					<ItemLine lang="fi">Ilmoitus on muodollisesti virheetön, mutta siinä havaitaan aineellinen virhe.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar Tullen en begäran om ogiltigförklaring (FI314) med vilken kunden begär att Tullen ogiltigförklarar en deklaration som kunden ingett tidigare (FI337, FI338, FI335, FI336, FI377, FI378).</ItemLine>
+					<ItemLine lang="sv">Kunden inväntar Tullens åtgärder.</ItemLine>
+					<ItemLine lang="sv">Tullens system kontrollerar kundens identifieringsuppgifter i begäran om ogiltigförklaring samt datainnehållets formbundenhet och materiella riktighet i deklarationen.</ItemLine>
+					<ItemLine lang="sv">Begäran är formellt felfri men den konstateras innehålla ett materiellt fel.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs an invalidation request (FI314) to request Customs to invalidate a declaration submitted earlier (FI337, FI338, FI335, FI336, FI377, FI378).</ItemLine>
+					<ItemLine lang="en">The customer waits for measures to be taken by Customs.</ItemLine>
+					<ItemLine lang="en">Customs' system checks the customer’s identification data provided in the invalidation request as well as the specified form and material correctness of the data content. </ItemLine>
+					<ItemLine lang="en">The request is formally correct, but a material error is detected in it.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI326). Tällä sanomalla asiakkaalle ilmoitetaan mitätöintipyynnön rekisteröintipäivä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar ett meddelande om registrering (FI326) till kunden. Med detta meddelande delges kunden datumet för registrering av begäran om ogiltigförklaring.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI326). It notifies the customer of the registration date of the invalidation request.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle kuulemissanoman (FI330). Tällä sanomalla asiakkaalle ilmoitetaan kuulemisesta tilanteessa, jolloin tulli aikoo hylätä asiakkaan mitätöintipyynnön.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar ett meddelande om hörande (FI330) till kunden. Med detta meddelande underrättas kunden om hörande i en situation där Tullen kommer att avslå kundens begäran om ogiltigförklaring.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a hearing request (FI330). The hearing request notifies the customer of hearing in a situation where Customs intends to reject the customer’s invalidation request.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Asiakas antaa vastineensa lähettämällä tullille kuulemisen vastaussanoman (FI346).</ItemLine>
+					<ItemLine lang="sv">Kunden avger sitt bemötande genom att skicka ett svar på meddelandet om hörande (FI346) till Tullen.</ItemLine>
+					<ItemLine lang="en">The customer will submit a rejoinder by sending a hearing response (FI346) to Customs.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle saatuaan asiakkaan vastauksen mitätöintipyynnön hylkäyssanoman (FI348), jolla Tulli ilmoittaa asiakkaalle päätöksestään hylätä asiakkaan mitätöintipyyntö. Tullin järjestelmä muodostaa erillisen mitätöintipyynnön hylkäystä koskevan päätöstulosteen asiakkaan noudettavaksi.</ItemLine>
+					<ItemLine lang="sv">När Tullen har fått kundens svar skickar Tullen till kunden ett meddelande om avslag på begäran om ogiltigförklaring (FI348), med vilket Tullen meddelar kunden sitt beslut att avslå kundens begäran om ogiltigförklaring. Tullens system genererar en separat beslutsutskrift om avslaget på begäran om ogiltigförklaring som kunden kan hämta.</ItemLine>
+					<ItemLine lang="en">After receiving the customer’s response, Customs will send the customer an invalidation request rejection notification (FI348) to notify the customer of its decision to reject the customer’s invalidation request. Customs’ system generates a separate decision printout concerning the rejection of the invalidation request for the customer to retrieve.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Väliaikaisen varastoinnin ilmoituksen asiakaslähtöisen mitätöintipyynnön hyväksyminen</Name>
+			<Name lang="sv">Godkännande av kundens begäran om ogiltigförklaring av deklaration för tillfällig lagring </Name>
+			<Name lang="en">Acceptance of a customer-initiated invalidation request concerning a temporary storage declaration </Name>
+			<Sequence>
+				<EO>FI314A</EO>
+				<Customs>FI326A</Customs>
+				<Customs>FI330A</Customs>
+				<EO>FI346A</EO>
+				<Customs>FI310A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille mitätöintipyynnön (FI314), jolla asiakas pyytää Tullia mitätöimään aiemmin antamansa ilmoituksen (FI337, FI338, FI335, FI336, FI377, FI378).</ItemLine>
+					<ItemLine lang="fi">Asiakas odottaa Tullin toimenpiteitä.</ItemLine>
+					<ItemLine lang="fi">Tullin järjestelmä tarkastaa mitätöintipyynnöltä asiakkaan tunnistetiedot ja ilmoituksen tietosisällön määrämuotoisuuden sekä aineellisen oikeellisuuden.</ItemLine>
+					<ItemLine lang="fi">Ilmoitus on muodollisesti virheetön, mutta siinä havaitaan aineellinen virhe.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar Tullen en begäran om ogiltigförklaring (FI314) med vilken kunden begär att Tullen ogiltigförklarar en deklaration som kunden ingett tidigare (FI337, FI338, FI335, FI336, FI377, FI378).</ItemLine>
+					<ItemLine lang="sv">Kunden inväntar Tullens åtgärder.</ItemLine>
+					<ItemLine lang="sv">Tullens system kontrollerar kundens identifieringsuppgifter i begäran om ogiltigförklaring samt datainnehållets formbundenhet och materiella riktighet i deklarationen.</ItemLine>
+					<ItemLine lang="sv">Begäran är formellt felfri men den konstateras innehålla ett materiellt fel.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs an invalidation request (FI314) to request Customs to invalidate a declaration submitted earlier (FI337, FI338, FI335, FI336, FI377, FI378).</ItemLine>
+					<ItemLine lang="en">The customer waits for measures to be taken by Customs.</ItemLine>
+					<ItemLine lang="en">Customs' system checks the customer’s identification data provided in the invalidation request as well as the specified form and material correctness of the data content. </ItemLine>
+					<ItemLine lang="en">The request is formally correct, but a material error is detected in it.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI326). Tällä sanomalla asiakkaalle ilmoitetaan mitätöintipyynnön rekisteröintipäivä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar ett meddelande om registrering (FI326) till kunden. Med detta meddelande delges kunden datumet för registrering av begäran om ogiltigförklaring.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI326). It notifies the customer of the registration date of the invalidation request.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle kuulemissanoman (FI330). Tällä sanomalla asiakkaalle ilmoitetaan kuulemisesta tilanteessa, jolloin tulli aikoo hylätä asiakkaan mitätöintipyynnön.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar ett meddelande om hörande (FI330) till kunden. Med detta meddelande underrättas kunden om hörande i en situation där Tullen kommer att avslå kundens begäran om ogiltigförklaring.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a hearing request (FI330). The hearing request notifies the customer of hearing in a situation where Customs intends to reject the customer’s invalidation request.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Asiakas antaa vastineensa lähettämällä tullille kuulemisen vastaussanoman (FI346).</ItemLine>
+					<ItemLine lang="sv">Kunden avger sitt bemötande genom att skicka ett svar på meddelandet om hörande (FI346) till Tullen.</ItemLine>
+					<ItemLine lang="en">The customer will submit a rejoinder by sending a hearing response (FI346) to Customs.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle saatuaan asiakkaan vastauksen mitätöintisanoman (FI310), jolla Tulli ilmoittaa asiakkaalle päätöksestään hyväksyä asiakkaan mitätöintipyyntö. Tullin järjestelmä muodostaa erillisen mitätöintiä koskevan päätöstulosteen asiakkaan noudettavaksi.</ItemLine>
+					<ItemLine lang="sv">När Tullen har fått kundens svar skickar Tullen till kunden ett meddelande om ogiltigförklaring (FI310), med vilket Tullen meddelar kunden sitt beslut att godta kundens begäran om ogiltigförklaring. Tullens system genererar en separat beslutsutskrift om ogiltigförklaringen som kunden kan hämta.</ItemLine>
+					<ItemLine lang="en">After receiving the customer’s response, Customs will send the customer an invalidation notification (FI310) to notify the customer of its decision to accept the customer’s invalidation request. Customs’ system generates a separate decision printout concerning invalidation for the customer to retrieve.</ItemLine>
 				</Item>
 			</SequenceDescription>
 		</UseCase>
