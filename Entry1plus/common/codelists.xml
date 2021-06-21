@@ -14790,6 +14790,36 @@ Vehicle production number</Description>
       </Filter>
     </CodeItem>
     <CodeItem>
+      <Code>FIKAT</Code>
+      <Name lang="fi">Haluan maksaa käteisellä</Name>
+      <Name lang="sv">Jag vill betala kontant</Name>
+      <Name lang="en">I wish to pay in cash</Name>
+      <StartDate>2021-06-18T00:00:00Z</StartDate>
+      <EndDate>2099-12-31T00:00:00Z</EndDate>
+      <Valid>True</Valid>
+      <Filter>
+        <Name>Filter_CWAR</Name>
+        <Value>0</Value>
+      </Filter>
+      <Filter>
+        <Name>Filter_ENTRY</Name>
+        <Value>0</Value>
+      </Filter>
+      <Filter>
+        <Name>Filter_EXP</Name>
+        <Value>
+        </Value>
+      </Filter>
+      <Filter>
+        <Name>Filter_IMP</Name>
+        <Value>1</Value>
+      </Filter>
+      <Filter>
+        <Name>Filter_TRA</Name>
+        <Value>0</Value>
+      </Filter>
+    </CodeItem>
+    <CodeItem>
       <Code>FILVT</Code>
       <Name lang="fi">Lähettävän varaston tiedot, jos kyseessä siirto toisesta jäsenmaasta</Name>
       <Name lang="sv">Det avsändande lagrets uppgifter om varor överförs från ett annat medlemsland</Name>
@@ -24396,7 +24426,7 @@ customs warehousing procedure</Description>
       <Code>NC0034</Code>
       <Name lang="fi">EI tarvitse ilmoittaa nimikettä</Name>
       <Name lang="sv">sv: EI tarvitse ilmoittaa nimikettä</Name>
-      <Name lang="en">en: EI tarvitse ilmoittaa nimikettä</Name>
+      <Name lang="en">Commodity code is not necessary</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -24477,7 +24507,7 @@ customs warehousing procedure</Description>
       <Code>NC0040</Code>
       <Name lang="fi">Ilmoitetun tullijärjestelmän ja tullikohtelun yhdistelmä ei ole mahdollinen</Name>
       <Name lang="sv">sv:Ilmoitetun tullijärjestelmän ja tullikohtelun yhdistelmä ei ole mahdollinen</Name>
-      <Name lang="en">en: Ilmoitetun tullijärjestelmän ja tullikohtelun yhdistelmä ei ole mahdollinen</Name>
+      <Name lang="en">The entered customs system and customs treatment combination is not possible</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -24486,7 +24516,7 @@ customs warehousing procedure</Description>
       <Code>NC0041</Code>
       <Name lang="fi">Jos lisämenettelyksi ilmoitettu F16, Lähetysmaa on oltava AD, TR tai SM</Name>
       <Name lang="sv">sv: Jos lisämenettelyksi ilmoitettu F16, Lähetysmaa on oltava AD, TR tai SM</Name>
-      <Name lang="en">en: Jos lisämenettelyksi ilmoitettu F16, Lähetysmaa on oltava AD, TR tai SM</Name>
+      <Name lang="en">If F16 is declared as additional procedure, the country of dispatch must be AD, TR or SM</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -24533,9 +24563,8 @@ customs warehousing procedure</Description>
     <CodeItem>
       <Code>NC0046</Code>
       <Name lang="fi">Jos lisämenettely on F15, 615 (tai voi asettaa jos declaration type on CO) tai 680 (jälkikäteen annettu ilmoitus) niin on vapaaehtoinen.</Name>
-      <Name lang="sv">
-      </Name>
-      <Name lang="en">en: Jos lisämenettely on F15, 615 (tai voi asettaa jos declaration type on CO) tai 680 (jälkikäteen annettu ilmoitus) niin on vapaaehtoinen.</Name>
+      <Name lang="sv">sv:Optional if the additional procedure is F15, 615 (or can be used if the declaration type is CO) or 680 (customs declaration lodged retrospectively)</Name>
+      <Name lang="en">Optional if the additional procedure is F15, 615 (or can be used if the declaration type is CO) or 680 (customs declaration lodged retrospectively)</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -24648,18 +24677,17 @@ customs warehousing procedure</Description>
     <CodeItem>
       <Code>NC0058</Code>
       <Name lang="fi">Lisämenettely 204 tai 205 vaatii lisätietokoodin FIUKV</Name>
-      <Name lang="sv">
-      </Name>
-      <Name lang="en">en:Lisämenettely 204 tai 205 vaatii lisätietokoodin FIUKV</Name>
+      <Name lang="sv">sv: The additional procedure 204 or 205 requires the additional information code FIUKV</Name>
+      <Name lang="en">The additional procedure 204 or 205 requires the additional information code FIUKV</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
     </CodeItem>
     <CodeItem>
       <Code>NC0059</Code>
-      <Name lang="fi">Tuojan on oltava arvonlisäverovelvollseksi rekisteröity</Name>
+      <Name lang="fi">Tuojan on oltava arvonlisäverovelvolliseksi rekisteröity</Name>
       <Name lang="sv">sv: Tuojan on oltava arvonlisäverovelvollseksi rekisteröity</Name>
-      <Name lang="en">en: Tuojan on oltava arvonlisäverovelvollseksi rekisteröity</Name>
+      <Name lang="en">The importer must be registered as liable to pay VAT</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -24668,7 +24696,7 @@ customs warehousing procedure</Description>
       <Code>NC0060</Code>
       <Name lang="fi">Taloudellinen toimijan rooli on oltava FR2</Name>
       <Name lang="sv">sv: Taloudellinen toimijan rooli on oltava FR2</Name>
-      <Name lang="en">en: Taloudellinen toimijan rooli on oltava FR2</Name>
+      <Name lang="en">The economic trader role must be FR2</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -24677,16 +24705,16 @@ customs warehousing procedure</Description>
       <Code>NC0061</Code>
       <Name lang="fi">Tullikohtelu ei ole sallittu</Name>
       <Name lang="sv">sv: Tullikohtelu ei ole sallittu</Name>
-      <Name lang="en">en: Tullikohtelu ei ole sallittu</Name>
+      <Name lang="en">The customs treatment is not permitted</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
     </CodeItem>
     <CodeItem>
       <Code>NC0062</Code>
-      <Name lang="fi">fi: If declaration is low value consignment (FI485A) sum value of declared goods cannot be over 155 €.</Name>
+      <Name lang="fi">Jos kyseessä vähäarvoinen lähetys. Kauppahinta yhteensä ei voi olla yli 150 euroa</Name>
       <Name lang="sv">sv: If declaration is low value consignment (FI485A) sum value of declared goods cannot be over 155 €.</Name>
-      <Name lang="en">If declaration is low value consignment (FI485A) sum value of declared goods cannot be over 155 €.</Name>
+      <Name lang="en">If the consignment is of low value, the total transaction price cannot exceed 150 euros</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -24695,7 +24723,7 @@ customs warehousing procedure</Description>
       <Code>NC0063</Code>
       <Name lang="fi">Sallittu kauppatapahtuma voi olla vain jokin seuraavista: 21, 22, 51, 52, 60</Name>
       <Name lang="sv">sv:Sallittu kauppatapahtuma voi olla vain jokin seuraavista: 21, 22, 51, 52, 60</Name>
-      <Name lang="en">en:Sallittu kauppatapahtuma voi olla vain jokin seuraavista: 21, 22, 51, 52, 60</Name>
+      <Name lang="en">The permitted nature of transaction can only be one of the following: 21, 22, 51, 52, 60</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -24704,7 +24732,7 @@ customs warehousing procedure</Description>
       <Code>NC0064</Code>
       <Name lang="fi">Tuojan on oltava yksityinen henkilö jos lisämenettely on F48 tai F49</Name>
       <Name lang="sv">sv: Tuojan on oltava yksityinen henkilö jos lisämenettely on F48 tai F49</Name>
-      <Name lang="en">en:Tuojan on oltava yksityinen henkilö jos lisämenettely on F48 tai F49</Name>
+      <Name lang="en">The importer must be a private person if the additional procedure is F48 or F49</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -24713,7 +24741,7 @@ customs warehousing procedure</Description>
       <Code>NC0065</Code>
       <Name lang="fi">Sallittu kauppatapahtuma voi olla vain 21</Name>
       <Name lang="sv">sv: Sallittu kauppatapahtuma voi olla vain 21</Name>
-      <Name lang="en">en: Sallittu kauppatapahtuma voi olla vain 21</Name>
+      <Name lang="en">The permitted nature of transaction can only be 21</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -24722,7 +24750,7 @@ customs warehousing procedure</Description>
       <Code>NC0066</Code>
       <Name lang="fi">Tilastoarvo pitää olla isompi kuin 0 euroa</Name>
       <Name lang="sv">sv: Tilastoarvo pitää olla isompi kuin 0 euroa</Name>
-      <Name lang="en">en: Tilastoarvo pitää olla isompi kuin 0 euroa</Name>
+      <Name lang="en">The statistical value must be more than 0 euros</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -24731,7 +24759,7 @@ customs warehousing procedure</Description>
       <Code>NC0067</Code>
       <Name lang="fi">Postitullausten nettopaino ja bruttopaino ei saa olla yli 250 kg</Name>
       <Name lang="sv">sv: Postitullausten nettopaino ja bruttopaino ei saa olla yli 250 kg</Name>
-      <Name lang="en">en: Postitullausten nettopaino ja bruttopaino ei saa olla yli 250 kg</Name>
+      <Name lang="en">The net weight and gross weight of postal clearances must not exceed 250 kg</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -24740,7 +24768,7 @@ customs warehousing procedure</Description>
       <Code>NC0068</Code>
       <Name lang="fi">Toimijan tunnus on oltava suomalainen yritystunnus muotoa  FI1234567-8, mikäli ilmoitettu toimijan luonteeksi Y (Yritys/suomi)</Name>
       <Name lang="sv">sv: Toimijan tunnus on oltava suomalainen yritystunnus muotoa  FI1234567-8, mikäli ilmoitettu toimijan luonteeksi Y (Yritys/suomi)</Name>
-      <Name lang="en">en: Toimijan tunnus on oltava suomalainen yritystunnus muotoa  FI1234567-8, mikäli ilmoitettu toimijan luonteeksi Y (Yritys/suomi)</Name>
+      <Name lang="en">The operator’s ID must be a Finnish business ID (format FI1234567-8) if the trader nature provided is Y (Company/Finland)</Name>
       <StartDate>2021-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -24749,7 +24777,7 @@ customs warehousing procedure</Description>
       <Code>NC0069</Code>
       <Name lang="fi">Pyydetty menettely on  42 tai 63. Tuojan on oltava rekisteröity arvonlisäverovelvolliseksi. Menettely ei muuten sallittu.</Name>
       <Name lang="sv">sv: Pyydetty menettely on  42 tai 63. Tuojan on oltava rekisteröity arvonlisäverovelvolliseksi. Menettely ei muuten sallittu.</Name>
-      <Name lang="en">en: Pyydetty menettely on  42 tai 63. Tuojan on oltava rekisteröity arvonlisäverovelvolliseksi. Menettely ei muuten sallittu.</Name>
+      <Name lang="en">Requested procedure is 42 or 63. The importer must be registered as liable to pay VAT. The procedure is not permitted in other cases.</Name>
       <StartDate>2021-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -24765,19 +24793,10 @@ customs warehousing procedure</Description>
     </CodeItem>
     <CodeItem>
       <Code>NC0071</Code>
-      <Name lang="fi">Jos olet ilmoittanut lisämenettelyn 642, ilmoita myös lisämenettely F02 tai F03.</Name>
-      <Name lang="sv">Om du har angett ytterligare förfarande 642, ange också ytterligare förfarande F02 eller F03.</Name>
-      <Name lang="en">If you have provided the additional procedure 642, provide also the additional procedure F02 or F03.</Name>
-      <StartDate>2021-04-28T00:00:00Z</StartDate>
-      <EndDate>2021-06-09T00:00:00Z</EndDate>
-      <Valid>False</Valid>
-    </CodeItem>
-    <CodeItem>
-      <Code>NC0071</Code>
       <Name lang="fi">Jos olet ilmoittanut lisämenettelyn 642, ilmoita myös lisämenettely F01, F02 tai F03.</Name>
       <Name lang="sv">Om du har angett ytterligare förfarande 642, ange också ytterligare förfarande F01, F02 eller F03.</Name>
       <Name lang="en">If you have provided the additional procedure 642, provide also the additional procedure F01, F02 or F03.</Name>
-      <StartDate>2021-06-10T00:00:00Z</StartDate>
+      <StartDate>2021-04-28T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
     </CodeItem>
@@ -25179,7 +25198,7 @@ customs warehousing procedure</Description>
       <Code>NC0235</Code>
       <Name lang="fi">Esitettävän erän ilmoituksen käsittely on Tullissa kesken. Yritä esittämistä myöhemmin uudelleen</Name>
       <Name lang="sv">sv Esitettävän erän ilmoituksen käsittely on Tullissa kesken. Yritä esittämistä myöhemmin uudelleen.</Name>
-      <Name lang="en">Declaration of presented item is still under processing. Please try to send presentation notification later.</Name>
+      <Name lang="en">Customs is still processing the declaration regarding the consignment to be presented. Please try presenting the consignment later</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -25191,6 +25210,15 @@ customs warehousing procedure</Description>
       <Name lang="sv">sv: Ilmoitettua edeltävää asiakirjaa ei löydy annetulla viitteellä.</Name>
       <Name lang="en">Preference code starts with 2,3,4 then Country of preferential origin required</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
+      <EndDate>2021-06-17T00:00:00Z</EndDate>
+      <Valid>False</Valid>
+    </CodeItem>
+    <CodeItem>
+      <Code>NC0236</Code>
+      <Name lang="fi">Ilmoitettua edeltävää asiakirjaa ei löydy annetulla viitteellä.</Name>
+      <Name lang="sv">sv: Ilmoitettua edeltävää asiakirjaa ei löydy annetulla viitteellä.</Name>
+      <Name lang="en">The previous document cannot be found with the provided reference.</Name>
+      <StartDate>2021-06-18T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
     </CodeItem>
@@ -25328,9 +25356,9 @@ customs warehousing procedure</Description>
     </CodeItem>
     <CodeItem>
       <Code>NC3006</Code>
-      <Name lang="fi">fi: If Type of location is is A, C or D, location "Address" can be used ELSE If Type of location = B , Location "Address" cannot be used</Name>
+      <Name lang="fi">Jos sijaintipaikan tyyppi on A, C tai D, sijainniksi voi ilmoittaa osoitteen. Jos sijaintipaikan tyyppi on B, osoitetta ei voi ilmoittaa.</Name>
       <Name lang="sv">sv: If Type of location is is A, C or D, location "Address" can be used ELSE If Type of location = B , Location "Address" cannot be used</Name>
-      <Name lang="en">If Type of location is is A, C or D, location "Address" can be used ELSE If Type of location = B , Location "Address" cannot be used</Name>
+      <Name lang="en">If the type of location is A, C or D, you can provide the address as the location. If the type of location is B, the address cannot be provided.</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -25346,9 +25374,9 @@ customs warehousing procedure</Description>
     </CodeItem>
     <CodeItem>
       <Code>NC3007</Code>
-      <Name lang="fi">fi: If additional information code FISSL or FITSH, THEN cannot be used. ELSE IF additional information code FIHPL or FIOSP THEN = 'O'; ELSE 'R'</Name>
+      <Name lang="fi">jos ilmoitettu suoran siirtolastauksen lisätietokoodi (FISSL) niin varastotietoja ei ilmoiteta. Hyväksytty paikka (FIHPL), osoitettu paikka (FIOSP): O</Name>
       <Name lang="sv">sv: If additional information code FISSL or FITSH, THEN cannot be used. ELSE IF additional information code FIHPL or FIOSP THEN = 'O'; ELSE 'R'</Name>
-      <Name lang="en">If additional information code FISSL or FITSH, THEN cannot be used. ELSE IF additional information code FIHPL or FIOSP THEN = 'O'; ELSE 'R'</Name>
+      <Name lang="en">If the additional information code (FISSL) for direct transhipment is entered, then warehouse details are not entered. Approved place (FIHPL), assigned place (FIOSP): O</Name>
       <StartDate>2021-05-11T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -25357,7 +25385,7 @@ customs warehousing procedure</Description>
       <Code>NC3008</Code>
       <Name lang="fi">Voidaan ilmoittaa joko otsikkotason tai lähetystason tietoina, mutta ei molemmilla tasoilla.</Name>
       <Name lang="sv">sv: Either Consignment or HouseConsignment, but not both</Name>
-      <Name lang="en">Either Consignment or HouseConsignment, but not both</Name>
+      <Name lang="en">Can be provided either as information on heading level or consignment level, but not on both levels.</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -25366,7 +25394,7 @@ customs warehousing procedure</Description>
       <Code>NC3009</Code>
       <Name lang="fi">Ei voi ilmoittaa, jos on käytetty lisätietokoodia 10600.</Name>
       <Name lang="sv">sv: If additional information = 10600, THEN cannot be used</Name>
-      <Name lang="en">If additional information = 10600, THEN cannot be used</Name>
+      <Name lang="en">Cannot be provided if additional information code 10600 was used.</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -25375,7 +25403,7 @@ customs warehousing procedure</Description>
       <Code>NC3010</Code>
       <Name lang="fi">Ilmoitetaan, jos tavara on kontissa. Voidaan ilmoittaa joko otsikkotason, lähetystason tai tavaraerätason tietona, mutta vain yhdellä tasolla.</Name>
       <Name lang="sv">sv: If goods are containerised, entered on either Consignment,HouseConsignment or ConsignmentItem level, but not on multiple</Name>
-      <Name lang="en">If goods are containerised, entered on either Consignment,HouseConsignment or ConsignmentItem level, but not on multiple</Name>
+      <Name lang="en">Is provided if the goods are in a container. Can be provided either as information on heading level, consignment level or goods item level, but only on one level.</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -25384,7 +25412,7 @@ customs warehousing procedure</Description>
       <Code>NC3011</Code>
       <Name lang="fi">Ilmoitettava, jos on käytetty lisätietokoodia 10600.</Name>
       <Name lang="sv">sv: If additional information = 10600, THEN must be used.</Name>
-      <Name lang="en">If additional information = 10600, THEN must be used.</Name>
+      <Name lang="en">Must be provided if additional information code 10600 was used.</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -25393,7 +25421,7 @@ customs warehousing procedure</Description>
       <Code>NC3012</Code>
       <Name lang="fi">Samaa tunnistenumeroa ei voi ilmoittaa eri lähetystasoilla.</Name>
       <Name lang="sv">sv: Identification number can not be same for all HouseConsignments.</Name>
-      <Name lang="en">Identification number can not be same for all HouseConsignments.</Name>
+      <Name lang="en">The same identification number cannot be entered on different consignment levels.</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -25402,7 +25430,7 @@ customs warehousing procedure</Description>
       <Code>NC3013</Code>
       <Name lang="fi">Ei ilmoiteta, jos on ilmoitettu edeltävä asiakirja lähetystason tiedoissa.</Name>
       <Name lang="sv">sv: If House level previous document is given, THEN item = 'N'. ELSE = 'R'</Name>
-      <Name lang="en">If House level previous document is given, THEN item = 'N'. ELSE = 'R'</Name>
+      <Name lang="en">Is not entered if a previous document must be provided in the consignment level data.</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -25411,7 +25439,7 @@ customs warehousing procedure</Description>
       <Code>NC3014</Code>
       <Name lang="fi">Joko tavarankuvaus tai nimike ilmoitettava</Name>
       <Name lang="sv">sv: Either goods description or commodity code must be given</Name>
-      <Name lang="en">Either goods description or commodity code must be given</Name>
+      <Name lang="en">Enter either the description of the goods or the commodity code</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -25420,7 +25448,7 @@ customs warehousing procedure</Description>
       <Code>NC3015</Code>
       <Name lang="fi">Käytetään, jos halutaan uudelleenkäyttää ENS:n tietoja. Vaaditaan FIRUE-lisätietokoodi, jolloin myös edeltävä asiakirja tällä tasolla = R</Name>
       <Name lang="sv">sv: Used if trader wants to reuse ENS data to form a TSD. IF additional information code FIRUE is entered, then this group = 'R'. ELSE = 'N'</Name>
-      <Name lang="en">Used if trader wants to reuse ENS data to form a TSD. IF additional information code FIRUE is entered, then this group = 'R'. ELSE = 'N'</Name>
+      <Name lang="en">Is used, if the wish is to reuse ENS data. The additional FIRUE code is required, in which case the previous document on this level = R</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -25429,7 +25457,7 @@ customs warehousing procedure</Description>
       <Code>NC3016</Code>
       <Name lang="fi">Jos on ilmoitettu suoran siirtolastauksen lisätietokoodi (FISSL) niin varastotietoja ei ilmoiteta. Jos on ilmoitettu hyväksytyn paikan (FIHPL) tai osoitetun paikan koodi (FIOSP) niin varastotiedot voi ilmoittaa. Muutoin varastotieto on pakollinen tieto.</Name>
       <Name lang="sv">sv: If additional information code (FISSL), THEN cannot be used. ELSE IF additional information code FIHPL or FIOSP THEN = 'O', ELSE required</Name>
-      <Name lang="en">If additional information code (FISSL), THEN cannot be used. ELSE IF additional information code FIHPL or FIOSP THEN = 'O', ELSE required</Name>
+      <Name lang="en">If the additional information code (FISSL) for direct transhipment is entered, than warehouse details are not entered. If an approved location (FIHPL) or the code for assigned place (FIOSP) is entered, the warehouse details can be entered. In other cases the warehouse details are mandatory.</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -25438,7 +25466,7 @@ customs warehousing procedure</Description>
       <Code>NC3017</Code>
       <Name lang="fi">Sijaintipaikan tyyppi on oltava 'B'</Name>
       <Name lang="sv">sv: Type of location must be 'B'</Name>
-      <Name lang="en">Type of location must be 'B'</Name>
+      <Name lang="en">Type of location must be ‘B’</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -26376,7 +26404,7 @@ customs warehousing procedure</Description>
       <Code>NR0078</Code>
       <Name lang="fi">EIDR-ilmoituksella tulee tullivaraston ja tavaran sijainnin tunnisteiden vastata toisiaan</Name>
       <Name lang="sv">sv: EIDR-ilmoituksella tulee tullivaraston ja tavaran sijainnin tunnisteiden vastata toisiaan</Name>
-      <Name lang="en">en: EIDR-ilmoituksella tulee tullivaraston ja tavaran sijainnin tunnisteiden vastata toisiaan</Name>
+      <Name lang="en">In an EIDR notification, the location identifier of the customs warehouse and the goods must be the same</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -26395,7 +26423,7 @@ customs warehousing procedure</Description>
       <Code>NR0081</Code>
       <Name lang="fi">Lisäilmoitustyyppi D ei ole sallittu, kun pyydetty menettely on 07 tai  kun pyydetty menettely 45 ja lisämenettely on F06</Name>
       <Name lang="sv">sv:Lisäilmoitustyyppi D ei ole sallittu, kun pyydetty menettely on 07 tai  kun pyydetty menettely 45 ja lisämenettely on F06</Name>
-      <Name lang="en">en: Lisäilmoitustyyppi D ei ole sallittu, kun pyydetty menettely on 07 tai  kun pyydetty menettely 45 ja lisämenettely on F06</Name>
+      <Name lang="en">The additional declaration type D is not permitted.</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -26404,7 +26432,7 @@ customs warehousing procedure</Description>
       <Code>NR0082</Code>
       <Name lang="fi">Etuuskohteluun oikeuttava alkuperämaa on virheellinen</Name>
       <Name lang="sv">sv: Etuuskohteluun oikeuttava alkuperämaa on virheellinen</Name>
-      <Name lang="en">en: Etuuskohteluun oikeuttava alkuperämaa on virheellinen</Name>
+      <Name lang="en">The country of origin entitling to preferential treatment is incorrect</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -26413,7 +26441,7 @@ customs warehousing procedure</Description>
       <Code>NR0083</Code>
       <Name lang="fi">Verkkolaskuosoite on virheellinen</Name>
       <Name lang="sv">sv:Verkkolaskuosoite on virheellinen</Name>
-      <Name lang="en">en:Verkkolaskuosoite on virheellinen</Name>
+      <Name lang="en">The e-invoicing address is incorrect</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -26422,7 +26450,7 @@ customs warehousing procedure</Description>
       <Code>NR0084</Code>
       <Name lang="fi">UTU:un ei voi vielä antaa kansallisen valmisteveron alaista tuotetta (658) tai siirtää arvonlisäverottomaan varastoon (659)</Name>
       <Name lang="sv">sv:UTU:un ei voi vielä antaa kansallisen valmisteveron alaista tuotetta (658) tai siirtää arvonlisäverottomaan varastoon (659)</Name>
-      <Name lang="en">en:UTU:un ei voi vielä antaa kansallisen valmisteveron alaista tuotetta (658) tai siirtää arvonlisäverottomaan varastoon (659)</Name>
+      <Name lang="en">Using additional procedures 658 or 659 is not yet permitted</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -26460,6 +26488,15 @@ customs warehousing procedure</Description>
       <Name lang="sv">sv:  Ilmoittamasi nimike on rajoitusten alainen tuote!</Name>
       <Name lang="en">en:  Ilmoittamasi nimike on rajoitusten alainen tuote!</Name>
       <StartDate>2021-05-24T00:00:00Z</StartDate>
+      <EndDate>2021-06-14T00:00:00Z</EndDate>
+      <Valid>False</Valid>
+    </CodeItem>
+    <CodeItem>
+      <Code>NR0088</Code>
+      <Name lang="fi">Ilmoittamasi nimike on rajoitusten alainen tuote. Et voi tehdä vähäarvoisen tavaran ilmoitusta (enintään 150 €) tälle tuotteelle. Tee uusi tulli-ilmoitus.</Name>
+      <Name lang="sv">sv:  Ilmoittamasi nimike on rajoitusten alainen tuote!</Name>
+      <Name lang="en">en:  Ilmoittamasi nimike on rajoitusten alainen tuote!</Name>
+      <StartDate>2021-06-15T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
     </CodeItem>
@@ -26478,6 +26515,15 @@ customs warehousing procedure</Description>
       <Name lang="sv">sv: Toimijanluonne R ei ole vielä käytössä</Name>
       <Name lang="en">en: Toimijanluonne R ei ole vielä käytössä</Name>
       <StartDate>2021-05-26T00:00:00Z</StartDate>
+      <EndDate>2099-12-31T00:00:00Z</EndDate>
+      <Valid>True</Valid>
+    </CodeItem>
+    <CodeItem>
+      <Code>NR0091</Code>
+      <Name lang="fi">Lisämenettely on F49, Muun toimijan tunnuksen (IOSS) ilmoittaminen ei sallittu</Name>
+      <Name lang="sv">sv: Lisämenettely on F49, Muun toimijan tunnuksen (IOSS) ilmoittaminen ei sallittu</Name>
+      <Name lang="en">en: Lisämenettely on F49, Muun toimijan tunnuksen (IOSS) ilmoittaminen ei sallittu</Name>
+      <StartDate>2021-06-08T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
     </CodeItem>
@@ -28511,7 +28557,7 @@ customs warehousing procedure</Description>
       <Code>NRS001</Code>
       <Name lang="fi">Ilmoitettua nimikettä ei löydy tai se ei ole voimassa.</Name>
       <Name lang="sv">sv: Ilmoitettua nimikettä ei löydy tai se ei ole voimassa.</Name>
-      <Name lang="en">en: Ilmoitettua nimikettä ei löydy tai se ei ole voimassa.</Name>
+      <Name lang="en">The declared commodity code is not found or it is invalid.</Name>
       <StartDate>2021-04-21T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -28520,7 +28566,7 @@ customs warehousing procedure</Description>
       <Code>NRS002</Code>
       <Name lang="fi">Esittämisilmoituksella ilmoitetun varaston tunnisteen pitää vastata edeltävän ilmoituksen varaston tunnistetta.</Name>
       <Name lang="sv">sv: Esittämisilmoituksella ilmoitetun varaston tunnisteen pitää vastata edeltävän ilmoituksen varaston tunnistetta.</Name>
-      <Name lang="en">en: Esittämisilmoituksella ilmoitetun varaston tunnisteen pitää vastata edeltävän ilmoituksen varaston tunnistetta.</Name>
+      <Name lang="en">The warehouse ID entered in the presentation notification must be the same as the warehouse ID of the previous declaration.</Name>
       <StartDate>2021-04-21T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -28529,7 +28575,7 @@ customs warehousing procedure</Description>
       <Code>NRS003</Code>
       <Name lang="fi">Ilmoitettu edeltävän asiakirjan tavaraerän numero on tuntematon.</Name>
       <Name lang="sv">sv: Ilmoitettu edeltävän asiakirjan tavaraerän numero on tuntematon.</Name>
-      <Name lang="en">en: Ilmoitettu edeltävän asiakirjan tavaraerän numero on tuntematon.</Name>
+      <Name lang="en">The goods item number entered in the previous document is unknown.</Name>
       <StartDate>2021-04-21T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -28547,7 +28593,7 @@ customs warehousing procedure</Description>
       <Code>NRS005</Code>
       <Name lang="fi">Esittäminen on mahdollista suorittaa vain joko koko kuljetusasiakirjalle tai tavaraerille, mutta ei molemmille.</Name>
       <Name lang="sv">sv: Esittäminen on mahdollista suorittaa vain joko koko kuljetusasiakirjalle tai tavaraerille, mutta ei molemmille.</Name>
-      <Name lang="en">en: Esittäminen on mahdollista suorittaa vain joko koko kuljetusasiakirjalle tai tavaraerille, mutta ei molemmille.</Name>
+      <Name lang="en">Presentation can only be done either regarding the whole transport document or the goods items, but not both.</Name>
       <StartDate>2021-04-21T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -28556,7 +28602,7 @@ customs warehousing procedure</Description>
       <Code>NRS006</Code>
       <Name lang="fi">Esittämisilmoituksella voi ilmoittaa vain yhden tyyppisiä edeltäviä asiakirjoja.</Name>
       <Name lang="sv">sv: Esittämisilmoituksella voi ilmoittaa vain yhden tyyppisiä edeltäviä asiakirjoja.</Name>
-      <Name lang="en">en: Esittämisilmoituksella voi ilmoittaa vain yhden tyyppisiä edeltäviä asiakirjoja.</Name>
+      <Name lang="en">Only one type of previous documents can be entered in the presentation notification.</Name>
       <StartDate>2021-04-21T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -28565,7 +28611,7 @@ customs warehousing procedure</Description>
       <Code>NRS007</Code>
       <Name lang="fi">Korjaussanomalla ei ole mahdollista lisätä tai poistaa tavaraeriä tavaroiden esittämisen jälkeen.</Name>
       <Name lang="sv">sv: Korjaussanomalla ei ole mahdollista lisätä tai poistaa tavaraeriä tavaroiden esittämisen jälkeen.</Name>
-      <Name lang="en">en: Korjaussanomalla ei ole mahdollista lisätä tai poistaa tavaraeriä tavaroiden esittämisen jälkeen.</Name>
+      <Name lang="en">With an amendment request it is not possible to add or remove goods items after presentation of the goods.</Name>
       <StartDate>2021-04-21T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -28574,7 +28620,7 @@ customs warehousing procedure</Description>
       <Code>NRS008</Code>
       <Name lang="fi">Samaa viestintätavan tyyppiä ei voi ilmoittaa useaan kertaan.</Name>
       <Name lang="sv">sv: Samaa viestintätavan tyyppiä ei voi ilmoittaa useaan kertaan.</Name>
-      <Name lang="en">en: Samaa viestintätavan tyyppiä ei voi ilmoittaa useaan kertaan.</Name>
+      <Name lang="en">With an amendment request it is not possible to add or remove goods items after presentation of the goods.</Name>
       <StartDate>2021-04-21T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -28583,7 +28629,7 @@ customs warehousing procedure</Description>
       <Code>NRS009</Code>
       <Name lang="fi">Toimijalla ei ole muutospyynnön edellyttämää roolia alkuperäisellä ilmoituksella.</Name>
       <Name lang="sv">sv: Toimijalla ei ole muutospyynnön edellyttämää roolia alkuperäisellä ilmoituksella.</Name>
-      <Name lang="en">en: Toimijalla ei ole muutospyynnön edellyttämää roolia alkuperäisellä ilmoituksella.</Name>
+      <Name lang="en">In the original declaration, the operator does not have the role required for an amendment request.</Name>
       <StartDate>2021-04-21T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -28592,7 +28638,7 @@ customs warehousing procedure</Description>
       <Code>NRS010</Code>
       <Name lang="fi">Väliaikaisen varastoinnin lupa on ilmoitettava, kun tavaroita  siirretään  ja tätä koskeva  ilmoitus annetaan tullille.</Name>
       <Name lang="sv">sv: Väliaikaisen varastoinnin lupa on ilmoitettava, kun tavaroita  siirretään  ja tätä koskeva  ilmoitus annetaan tullille.</Name>
-      <Name lang="en">en: Väliaikaisen varastoinnin lupa on ilmoitettava, kun tavaroita  siirretään  ja tätä koskeva  ilmoitus annetaan tullille.</Name>
+      <Name lang="en">The authorisation for temporary storage must be provided when goods are moved and a notification of this is submitted to Customs.</Name>
       <StartDate>2021-04-28T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -29480,7 +29526,7 @@ customs warehousing procedure</Description>
       <Code>TARICPossiblePreferences</Code>
       <Name lang="fi">Nimike edellyttää etuuskohtelun ilmoittamista. Ilmoita jokin seuraavista:</Name>
       <Name lang="sv">sv: Nimike edellyttää etuuskohtelun ilmoittamista. Ilmoita jokin seuraavista:</Name>
-      <Name lang="en">en: Nimike edellyttää etuuskohtelun ilmoittamista. Ilmoita jokin seuraavista:</Name>
+      <Name lang="en">The commodity code requires a preferential treatment declaration. Declare one of the following:</Name>
       <StartDate>2017-01-01T00:00:00Z</StartDate>
       <EndDate>2099-12-31T00:00:00Z</EndDate>
       <Valid>True</Valid>
@@ -34721,5 +34767,5 @@ customs warehousing procedure</Description>
       <Valid>True</Valid>
     </CodeItem>
   </CodeList>
-  <Generated>2021-06-16T13:08:47</Generated>
+  <Generated>2021-06-21T08:33:49</Generated>
 </CodeLists>
