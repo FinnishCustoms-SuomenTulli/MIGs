@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <title>Datainneh&aring;ll -</title>
-    <link rel="icon" href="../../../assets/favicon.ico">
+    <link rel="icon" href="../../../assets/favicon.ico" />
     <link rel="stylesheet" href="../../../assets/tulli-bootstrap-style.css" type="text/css" />
     <link rel="stylesheet" href="../../../assets/tulli-mig-tables-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../assets/scroll-style.css" type="text/css" />
 </head>
 
 <body class="Site">
@@ -15,8 +16,8 @@
         <div class="container">
             <div class="navbar-header">
                 <span class="navbar-text main-navbar">Datainneh&aring;ll version  </span>
-                <a class="navbar-text" href="../../fi/pages/datarequirements.html">Suomi</a>
-                <a class="navbar-text" href="../../en/pages/datarequirements.html">English</a>
+                <a href="../../fi/pages/datarequirements.html">Suomi</a>
+                <a href="../../en/pages/datarequirements.html">English</a>
             </div>
         </div>
         <!-- /.container -->
@@ -56,6 +57,9 @@
                                 <li>
                                     <a href="codes.html">Koder</a>
                                 </li>
+                                <li>
+                                    <a href="examples.html">Exempel</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -73,7 +77,7 @@
             </div>
         </div>
     </header>
-    <main class="Site-content">
+    <div class="Site-content">
         <div class="col-xs-12" role="main">
             <div>
                 <ul class="nav nav-tabs messagetabs" role="tablist"></ul>
@@ -82,7 +86,7 @@
                 <div id="rulesmodal"></div>
             </div>
         </div>
-    </main>
+    </div>
     <footer>
         <div class="container">
             <div class="row">
@@ -95,6 +99,7 @@
     <!-- Bootstrap core JavaScript
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../../assets/javascripts/popper.js"></script>
     <script src='../../../assets/javascripts/vendor/jquery.js'></script>
     <script>
         var i = 1;
@@ -113,7 +118,7 @@
                             $(".tab-content").append('<div role="tabpanel" class="tab-pane" id="' + message + '"></div>');
                             $(".messagetabs").find("a").first().addClass("active");
                             $(".tab-content").find(".tab-pane").first().addClass("active");
-                            transform(path.concat(message, '.xml'), 'message.xsl', document.getElementById(message));
+                            transform(path.concat(message, '.xml'), '../../../assets/message.xsl', document.getElementById(message), 'sv', 'na');
                             i++;
                         })
                         $('VersionHistory Version:last Number', returnedXMLResponse).each(function() {
@@ -127,65 +132,22 @@
                             $(".main-navbar").append(generated);
                         })
 
-                        $('System[lang="sv"]', returnedXMLResponse).each(function() {
+                        $('System[lang="fi"]', returnedXMLResponse).each(function() {
                             var system = $(this).text();
                             document.title += " " + system;
 
                         })
                         $('.nav-tabs').tabdrop({
-                            text: 'Mera'
+                            text: 'Lis&auml;&auml;'
                         });
 
                     } // End Success
             }); // End AJAX
         });
     </script>
-    <script>
-        function loadXML(url) {
-            return new Promise(function(resolve) {
-                var req = new XMLHttpRequest();
-                req.open("GET", url);
-                if (typeof XSLTProcessor === 'undefined') {
-                    try {
-                        req.responseType = 'msxml-document';
-                    } catch (e) {}
-                }
-                req.onload = function() {
-                    resolve(this.responseXML)
-                }
-                req.send();
-            });
-        }
 
-        function transform(xmlUrl, xslUrl, targetElement) {
-            Promise.all([loadXML(xmlUrl), loadXML(xslUrl)]).then(function(data) {
-                var xmlDoc = data[0];
-                var xslDoc = data[1];
+    <script src='../../../assets/xsltProcessor2.js'></script>
 
-                if (typeof XSLTProcessor !== 'undefined') {
-                    var proc = new XSLTProcessor();
-                    proc.importStylesheet(xslDoc);
-
-                    var resultFrag = proc.transformToFragment(xmlDoc, targetElement.ownerDocument);
-
-                    targetElement.textContent = '';
-                    targetElement.appendChild(resultFrag);
-                } else {
-                    var template = new ActiveXObject('Msxml2.XslTemplate.6.0');
-                    template.stylesheet = xslDoc;
-                    var proc = template.createProcessor();
-
-                    proc.input = xmlDoc;
-
-                    proc.transform();
-
-                    var resultHTML = proc.output;
-
-                    targetElement.innerHTML = resultHTML;
-                }
-            });
-        }
-    </script>
     <script src='../../../assets/javascripts/bootstrap.js'></script>
 
     <script src='../../../assets/javascripts/custom-ui.js'></script>
@@ -194,8 +156,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            transform('../../common/codelists.xml', 'codedata.xsl', document.getElementById('codemodal'));
-            transform('../../common/rulesconditions.xml', 'rulesconditions.xsl', document.getElementById('rulesmodal'));
+            transform('../../common/codelists.xml', '../../../assets/codedata.xsl', document.getElementById('codemodal'), 'sv', 'na');
+            transform('../../common/rulesconditions.xml', '../../../assets/rcintrastat.xsl', document.getElementById('rulesmodal'), 'sv', 'na');
         })
     </script>
     <script>
@@ -228,8 +190,27 @@
     </script>
 
     <script>
+        $(document).ready(function() {
+            $('body').append('<span id="toTop" class="badge"><i class="media-object icon-md icon icon-tulli-arrow-up"></i></span>');
+            $(window).scroll(function() {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function() {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 600);
+                return false;
+            });
+        });
+    </script>
+
+    <script>
         $(document).on('DOMNodeInserted', 'table', function() {
-            $("table tbody tr").filter(":not(.group, .description)").filter(":nth-child(odd)").addClass("odd");
+            $("tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
         });
     </script>
 
