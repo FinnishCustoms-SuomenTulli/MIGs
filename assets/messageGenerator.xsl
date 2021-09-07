@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://tulli.fi/schema/external/export/ext/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://tulli.fi/schema/external/import/ext/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<!--xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://tulli.fi/schema/external/export/ext/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
 	<xsl:output method="xml" indent="yes"/>
 	<xsl:param name="messageType"/>
 	<xsl:param name="maxRep"/>
@@ -98,7 +100,9 @@
 			</xsl:variable>
 			<xsl:element name="{$path}">
 				<xsl:if test="XPath=''">
-					<xsl:attribute name="xsi:schemaLocation"><xsl:value-of select="concat('http://tulli.fi/schema/external/export/ext/v1 ',$messageType,'.xsd')"/></xsl:attribute>
+					<xsl:attribute name="xsi:schemaLocation"><xsl:value-of select="concat('http://tulli.fi/schema/external/import/ext/v3 e',$messageType,'.xsd')"/></xsl:attribute>
+					<!--xsl:attribute name="xsi:schemaLocation"><xsl:value-of select="concat('http://tulli.fi/schema/external/export/ext/v1 ',$messageType,'.xsd')"/></xsl:attribute-->
+					<!--xsl:attribute name="xsi:noNamespaceSchemaLocation"><xsl:value-of select="concat($messageType,'.xsd')"/></xsl:attribute-->
 				</xsl:if>
 				<xsl:if test="contains(XPath,'@')">
 					<xsl:attribute name="{substring-after(substring-before(XPath,'='),'@')}"><xsl:value-of select="translate(substring-after(XPath,'&quot;'),'&quot;','')"/></xsl:attribute>
@@ -141,6 +145,7 @@
 								<xsl:with-param name="n" select="substring-after(Format,',')"/>
 							</xsl:call-template>
 						</xsl:when>
+						<xsl:when test="XPath='Function'">2</xsl:when>
 						<xsl:when test="substring(Format,1,1)='n'">
 							<xsl:choose>
 								<xsl:when test="substring(Format,2,2)='..'">
