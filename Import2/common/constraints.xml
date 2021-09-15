@@ -93,6 +93,15 @@ ELSE it is Required
 or rules for the same data group/attribute imply something else)</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>C0631_modif</Code>
+		<DescriptionEn>IF 'Additional declaration type' = 'Y'
+AND 'Requested procedure code' = '01', '07', '40', '43', '44', '45', '46', '48',
+'51', '61', '68'
+THEN this data group / data item is Required
+ELSE cannot be used except where additional conditions
+or rules for the same data group/attribute imply something else.</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>C0633</Code>
 		<DescriptionEn>IF 'Additional declaration type' = 'Y' 
 	AND 
@@ -564,6 +573,10 @@ then VAT rate code (NationalAdditionalCode beginning with Q) is optional, else a
 		<DescriptionEn>If dataset type is H5 (both H5N and H5E), or H7 (low value consignment) and additional procedure F49 is used, representative must exist</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NC0239</Code>
+		<DescriptionEn>If additional information code FISUR is provided, DutyTaxFee/ElectedEntry must be declared</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NC0240</Code>
 		<DescriptionEn>New implementation based on UTUK-1391 referring UTU Internal User Interface Specification Part 2, page:
 
@@ -718,6 +731,12 @@ ELSE
 		<DescriptionEn>IF this data item different to D.E. '3/18 - declarant identification No.' 
 THEN it is REQUIRED 
 ELSE it can NOT BE USED</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC0106_C</Code>
+		<DescriptionEn>If dataset type is POR and additional information code FIFIX is not used on each goods item,
+then this is required,
+else not used.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0001</Code>
@@ -1100,7 +1119,8 @@ the trader declared under Additional Fiscal Trader Reference cannot be finnish -
 		<Code>NR0225</Code>
 		<DescriptionEn>For retrospectively lodged cases, ElectedEntry must be in the past and maximally one year old for private persons, maximally five years old for companies.
 For H5N, ElectedEntry must be maximum 30 days (one month) in the past, today or maximum 30 days (one month) in the future.
-For split declarations (additional information code FIJAE used), ElectedEntry must be maximum 30 days (one month) in the past or today.</DescriptionEn>
+For split declarations (additional information code FIJAE used), ElectedEntry must be maximum 30 days (one month) in the past or today.
+For declarations with additional information code FISUR, ElectedEntry must be be maximally five years in the past.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0230</Code>
@@ -1138,7 +1158,11 @@ Remark:  the rule is currently switched off - a new definition due to CR 109 sho
 	</RC>
 	<RC>
 		<Code>NR0241</Code>
-		<DescriptionEn>If dataset type is H5 (both H5N and H5E) or H7 (low value consignment) and additional procedure F49 is used, representative with credit trader status must exist.</DescriptionEn>
+		<DescriptionEn>If dataset type is H5 (both H5N and H5E) or H7 (low value consignment) and additional procedure F49 is used, direct FITAK representative with credit trader status must exist.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0242</Code>
+		<DescriptionEn>Specific tax base quantity unit must be upper case string [A-Z0-9]*.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0255</Code>
@@ -1207,11 +1231,11 @@ ENDIF</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0268</Code>
-		<DescriptionEn>Postal ID must be unique</DescriptionEn>
+		<DescriptionEn>Postal ID must be unique. For previous document type 781 only PD reference is checked, for type 355 combination reference+transportdocument is checked</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0268_H7</Code>
-		<DescriptionEn>Postal ID must be unique</DescriptionEn>
+		<DescriptionEn>Postal ID must be unique. For previous document type 781 only PD reference is checked, for type 355 combination reference+transportdocument is checked</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0269</Code>
@@ -1227,7 +1251,7 @@ ENDIF</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0281</Code>
-		<DescriptionEn>IF declaration is lodged retrospectively (DutyTaxFee/ElectedEntry is in the past; does not apply for H5N and split declarations (additional info code FIJAE))
+		<DescriptionEn>IF declaration is lodged retrospectively (DutyTaxFee/ElectedEntry is in the past; does not apply for H5N, split declarations (additional info code FIJAE) and cases with addtl. info code FISUR)
 THEN Additional procedure code 680 must be declared (in every goods item)
 ELSE Additional procedure code 680 cannot be declared</DescriptionEn>
 	</RC>
@@ -1239,7 +1263,7 @@ ELSE is Required</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0283</Code>
-		<DescriptionEn>IF Code = FIJAE,  THEN Description must be a valid UTU import MRN (second last difgit is R or V) in state registered or accepted</DescriptionEn>
+		<DescriptionEn>IF additional information code is FIJAE or FISUR, THEN description must be a valid UTU import MRN (second last difgit is R or V).</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0285</Code>
@@ -1407,6 +1431,10 @@ If change request exists (GUID is provided), change type can be "M" or "O" (Amen
 	<RC>
 		<Code>NR0514</Code>
 		<DescriptionEn>On amendment request messages (currently IB431A, IB432A, IB931A), change type must be "O" (AmendmentAfterRelease).</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0525</Code>
+		<DescriptionEn>If Additional information code if FIPRE, then description must be valid in codelist Preference</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0700</Code>
@@ -1692,6 +1720,14 @@ and they must have the same reference.</DescriptionEn>
 	<RC>
 		<Code>NR1357</Code>
 		<DescriptionEn>Declaration cannot be amneded before release if requested procedure is 07 or 45  and Additional procedure is F06</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR1358</Code>
+		<DescriptionEn>If Additional info FIKAT exists, then indirect representative or direct FITAK representative cannot be used.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR1359</Code>
+		<DescriptionEn>During  amendment is not possible to remove or add  Additional information code FIKAT.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR2000</Code>
