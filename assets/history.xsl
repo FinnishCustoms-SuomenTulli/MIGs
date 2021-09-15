@@ -72,17 +72,17 @@
 			</xsl:for-each>
 		</table>
 		<xsl:choose>
-			<xsl:when test="$language='fi'">
+			<xsl:when test="$language='fi' and count(//VersionHistory/Version) > 8">
 				<p class="read-more">
 					<a href="#" class="button">Lisää</a>
 				</p>
 			</xsl:when>
-			<xsl:when test="$language='sv'">
+			<xsl:when test="$language='sv' and count(//VersionHistory/Version) > 8">
 				<p class="read-more">
 					<a href="#" class="button">Mera</a>
 				</p>
 			</xsl:when>
-			<xsl:when test="$language='en'">
+			<xsl:when test="$language='en' and count(//VersionHistory/Version) > 8">
 				<p class="read-more">
 					<a href="#" class="button">More</a>
 				</p>
