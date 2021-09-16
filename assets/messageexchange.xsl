@@ -42,6 +42,34 @@
 				</div>
 			</div>
 		</div>
+		<xsl:if test="MessageExchange/Glossary">
+			<div class="panel panel-primary">
+				<div class="panel-heading" role="tab" id="heading-glossary">
+					<h2 class="panel-title">
+						<a role="button" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="glossary">
+							<xsl:choose>
+								<xsl:when test="$language='fi'">Sanasto</xsl:when>
+								<xsl:when test="$language='sv'">Ordlista</xsl:when>
+								<xsl:when test="$language='en'">Glossary</xsl:when>
+							</xsl:choose>
+						</a>
+					</h2>
+				</div>
+				<div id="glossary" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-glossary">
+					<div class="panel-body">
+						<article>
+							<div class="content-area">
+								<xsl:for-each select="MessageExchange/Glossary/GlossaryItem[@lang=($language)]">
+									<b><xsl:value-of select="Term"/></b>
+									<xsl:for-each select="Description">
+									<p><xsl:value-of select="."/></p></xsl:for-each>
+								</xsl:for-each>
+							</div>
+						</article>
+					</div>
+				</div>
+			</div>
+		</xsl:if>
 		<div class="panel panel-primary">
 			<div class="panel-heading" role="tab" id="heading-messages">
 				<h2 class="panel-title">
@@ -213,9 +241,15 @@
 															<tr>
 																<td>
 																	<xsl:value-of select="/MessageExchange/Messages/Message/Name[@lang=($language) and ../ID= $MSG]"/>
-																	<xsl:if test="@labelfi and $language='fi'"><i> (<xsl:value-of select="@labelfi"/>)</i></xsl:if>
-																	<xsl:if test="@labelsv and $language='sv'"><i> (<xsl:value-of select="@labelsv"/>)</i></xsl:if>
-																	<xsl:if test="@labelen and $language='en'"><i> (<xsl:value-of select="@labelen"/>)</i></xsl:if>
+																	<xsl:if test="@labelfi and $language='fi'">
+																		<i> (<xsl:value-of select="@labelfi"/>)</i>
+																	</xsl:if>
+																	<xsl:if test="@labelsv and $language='sv'">
+																		<i> (<xsl:value-of select="@labelsv"/>)</i>
+																	</xsl:if>
+																	<xsl:if test="@labelen and $language='en'">
+																		<i> (<xsl:value-of select="@labelen"/>)</i>
+																	</xsl:if>
 																</td>
 																<td>→</td>
 																<td>&#8203;</td>
@@ -224,9 +258,15 @@
 														<xsl:otherwise>
 															<tr>
 																<td>
-																	<xsl:if test="@labelfi and $language='fi'"><i> (<xsl:value-of select="@labelfi"/>)</i></xsl:if>
-																	<xsl:if test="@labelsv and $language='sv'"><i> (<xsl:value-of select="@labelsv"/>)</i></xsl:if>
-																	<xsl:if test="@labelen and $language='en'"><i> (<xsl:value-of select="@labelen"/>)</i></xsl:if>
+																	<xsl:if test="@labelfi and $language='fi'">
+																		<i> (<xsl:value-of select="@labelfi"/>)</i>
+																	</xsl:if>
+																	<xsl:if test="@labelsv and $language='sv'">
+																		<i> (<xsl:value-of select="@labelsv"/>)</i>
+																	</xsl:if>
+																	<xsl:if test="@labelen and $language='en'">
+																		<i> (<xsl:value-of select="@labelen"/>)</i>
+																	</xsl:if>
 																	&#8203;
 																</td>
 																<td>←</td>
