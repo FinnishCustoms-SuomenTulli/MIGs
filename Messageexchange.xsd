@@ -153,21 +153,22 @@
 										<xs:element name="EO" minOccurs="0" maxOccurs="unbounded">
 											<xs:complexType>
 												<xs:simpleContent>
-													<xs:extension base="xs:string">
-														<xs:attribute name="labelfi"/>
-														<xs:attribute name="labelsv"/>
-														<xs:attribute name="labelen"/>
-													</xs:extension>
+													<xs:extension base="xs:string"/>
 												</xs:simpleContent>
 											</xs:complexType>
 										</xs:element>
 										<xs:element name="Customs" minOccurs="0" maxOccurs="unbounded">
 											<xs:complexType>
 												<xs:simpleContent>
+													<xs:extension base="xs:string"/>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Manual" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:simpleContent>
 													<xs:extension base="xs:string">
-														<xs:attribute name="labelfi"/>
-														<xs:attribute name="labelsv"/>
-														<xs:attribute name="labelen"/>
+														<xs:attribute name="lang" use="required"/>
 													</xs:extension>
 												</xs:simpleContent>
 											</xs:complexType>

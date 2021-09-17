@@ -234,7 +234,7 @@
 														</thead>
 													</xsl:when>
 												</xsl:choose>
-												<xsl:for-each select="Sequence/EO | Sequence/Customs">
+												<xsl:for-each select="Sequence/EO | Sequence/Customs | Sequence/Manual[@lang=$language]">
 													<xsl:variable name="MSG" select="."/>
 													<xsl:choose>
 														<xsl:when test="local-name()='EO'">
@@ -253,6 +253,14 @@
 																</td>
 																<td>→</td>
 																<td>&#8203;</td>
+															</tr>
+														</xsl:when>
+														<xsl:when test="local-name()='Manual'">
+														aaa
+															<tr>
+																<td colspan="100%">
+																	<xsl:value-of select="."/>
+																</td>
 															</tr>
 														</xsl:when>
 														<xsl:otherwise>
