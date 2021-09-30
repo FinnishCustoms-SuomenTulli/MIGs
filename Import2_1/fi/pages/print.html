@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fi" xml:lang="fi">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Sanomakuvaukset -</title>
+    <link rel="icon" href="../../../assets/favicon.ico" />
+    <link rel="stylesheet" href="../../../assets/print.css" type="text/css"/>
+</head>
+<body class="Site">
+    <div class="Site-content">
+        <div class="col-xs-12" role="main">
+        <div class="row mainheader">
+            <div class="col-xs-6 headerleft"><img class="img-responsive pull-left" src="../../../assets/images/logo-tulli.svg" alt="Suomen tullin logo" /><p class="tullifi">tulli.fi</p></div>
+            <div class="col-xs-6 headerright"><p class="headertext">Sanomakuvaukset</p><p class="headertext" id="system"></p><p></p><p id="version">versio </p></div>
+        </div>
+    <div class="panel-body"><h1>Versiohistoria</h1></div>
+    <div class="panel-body" id="history"></div>
+    <div class="panel-body"><h1>Uusimman version huomautukset</h1></div>
+    <div class="panel-body" id="notes"></div>
+    <div class="panel-body"><h1>Tunnetut virheet</h1></div>
+    <div class="panel-body" id="errors"></div>
+    <div class="panel-body"><h1>Teknisi&auml; ohjeita</h1></div>
+    <div class="panel-body">
+            <p>Sanomaliikenne ja tietosis&auml;ll&ouml;t perustuvat Euroopan Unionin tullikoodeksiin (UTK) ja l&auml;hemmin sen delegoidussa ja soveltamisasetuksessa (UTK DA ja vastaavasti IA) tietosis&auml;lt&ouml;taulukoihin sek&auml; niiss&auml; m&auml;&auml;riteltyyn
+                <a href="https://svn.taxud.gefeg.com/svn/Documentation/EUCDM/EN/index.htm"><span class="icon icon-tulli-external"></span>EU:n tullitietomalliin (EUCDM)</a>, muokattuina vastaamaan kansallisia tarpeita. Sanomat ovat mahdollisuuksien mukaan kuvattuna EUCDM:&auml;&auml; ja sen pohjalla olevaa
+                <a href="http://www.wcoomd.org/en/topics/facilitation/instrument-and-tools/tools/data-model.aspx"><span class="icon icon-tulli-external"></span>
+    Maailman tullij&auml;rjest&ouml;n tietomallin versiota 3.8.1</a> vastaan. On mahdollista, ett&auml; sanomia joudutaan jatkossa korjaamaan, kun uusia kuvausprojekteja WCO:n tietomallia vastaan toteutetaan, jotta mahdollisestaan maksimaalinen yhteentoimivuus eri j&auml;senmaiden v&auml;lill&auml;.</p>
+            <p></p>
+            <p>Sanomat l&auml;hetet&auml;&auml;n k&auml;ytt&auml;m&auml;ll&auml; xml-syntaksia (eXtensible Mark-up Language).</p>
+            <p>Yksi l&auml;hetyskerta sis&auml;lt&auml;&auml; vain yhden sanoman.</p>
+            <p>Sanomien tulee vastata annettuja XML-m&auml;&auml;rityksi&auml;. Tiedot l&auml;hetet&auml;&auml;n aina k&auml;ytt&auml;en Suomen tullin laatimia m&auml;&auml;rityksi&auml;. Jos sanoma sis&auml;lt&auml;&auml; ylim&auml;&auml;r&auml;isi&auml; tietoja jotka eiv&auml;t johda virhesanoman luomiseen, k&auml;sittelee Tulli sanoman kuin ylim&auml;&auml;r&auml;isi&auml; tietoja ei olisi.</p>
+            <h2>Luokkamalli ja tietosis&auml;ll&ouml;t</h2>
+            <p>P&auml;iv&auml;m&auml;&auml;r&auml;t ja ajat esitet&auml;&auml;n aikavy&ouml;hyketiedolla. Jos aikavy&ouml;hykett&auml; ei ilmoiteta, oletetaan ajan olevan Suomen aikavy&ouml;hykkeen aika (EET/EEST). P&auml;iv&auml;m&auml;&auml;r&auml;t ja ajat esitet&auml;&auml;n XML-m&auml;&auml;ritysten mukaisina, jotka vastaavat ISO-standardia 8601. Esimerkiksi:</p>
+            <pre>2010-09-29
+2012-02-29T12:30:05
+1997-07-16T19:20:30.45+01:00</pre>
+            <p>Lis&auml;tietoja p&auml;iv&auml;m&auml;&auml;r&auml;n ilmoittamisesta l&ouml;ytyy esimerkiksi osoitteesta: <a href="http://www.w3.org/TR/NOTE-datetime"><span class="icon icon-tulli-external"></span>http://www.w3.org/TR/NOTE-datetime</a>.</p>
+            <h3>Muoto</h3>
+            <p>Tiedon muoto ja pituus esitet&auml;&auml;n sarakkeessa &quot;Muoto&quot;. Eri tietomuotojen koodit ovat:</p>
+            <div class="row">
+                    <div class="column left">
+                        <p>a</p>
+                        <p>n</p>
+                        <p>an</p>
+                    </div>
+                    <div class="column right">
+                        <p>aakkosellinen</p>
+                        <p>numeerinen</p>
+                        <p>aakkosnumeerinen</p>
+                    </div>
+            </div>
+            <p>Koodin j&auml;lkeinen numero ilmaisee tiedon maksimaalisen pituuden. Kaksi pistett&auml; ennen pituuden m&auml;&auml;ritelm&auml;&auml; tarkoittaa, ettei tiedolla ole kiinte&auml;&auml; pituutta, vaan ett&auml; tieto voi sis&auml;lt&auml;&auml; tietyn merkkim&auml;&auml;r&auml;n ilmoitettuun pituuteen asti. Pilkku numeroiden v&auml;liss&auml; tarkoittaa, ett&auml; desimaalit ovat sallittuja ja pilkun j&auml;lkeinen numero kertoo desimaalien enimm&auml;ism&auml;&auml;r&auml;n. Desimaalierottimena k&auml;ytet&auml;&auml;n pistettä. Esimerkiksi:</p>
+            <div class="row">
+                    <div class="column left">
+                        <p>an..35</p>
+                        <p>a2</p>
+                        <p>n..15,2</p>
+                    </div>
+                    <div class="column right">
+                        <p>aakkosnumeerista tietoa enint&auml;&auml;n 35 merkki&auml;</p>
+                        <p>aakkosellista tietoa kaksi merkki&auml;</p>
+                        <p>numeerista tietoa 15 merkkiin asti, mukaan lukien enint&auml;&auml;n 2 (liukuvaa) desimaalia</p>
+                    </div>
+            </div>
+            <h3>Esitt&auml;minen (RDO)</h3>
+            <p>Tiedon esitt&auml;misen koodit ovat:</p>
+            <div class="row">
+                <div class="column left">
+                    <p>R</p>
+                    <p>D</p>
+                    <p>O</p>
+                </div>
+                <div class="column right">
+                    <p>pakollinen</p>
+                    <p>ehdollinen</p>
+                    <p>vapaaehtoinen</p>
+                </div>
+            </div>
+            <p>Numeerinen tieto on aina positiivista, plusmerkki&auml; (+) ei l&auml;hetet&auml;. Pilkkua ja pistett&auml; voidaan molempia k&auml;ytt&auml;&auml; desimaalierottimena, Suomen tulli k&auml;ytt&auml;&auml; pilkkua. Etunollia voi k&auml;ytt&auml;&auml;, Suomen tulli ei niit&auml; k&auml;yt&auml;.</p>
+        </div>
+        <div class="panel-body"><h1>Sanomaliikenneopas</h1></div>
+        <div class="panel-body" id="messageexchange"></div>
+        <div class="panel-body"><h1>Tietosisällöt</h1></div>
+        <div class="panel-body" id="tab-content"></div>
+</div>
+</div>
+    <script src='../../../assets/javascripts/vendor/jquery.js'></script>
+    <script src='../../../assets/xsltProcessor2.js'></script>
+    <script>
+        var i = 1;
+        $(document).ready(function() {
+            $.ajax({
+                url: '../../common/intro.xml',
+                type: 'GET',
+                dataType: 'xml',
+                success: function(returnedXMLResponse) {
+                        $('Message', returnedXMLResponse).each(function() {
+                            var path = '../../common/';
+                            var message = $(this).text();
+                            var base = $(this).attr('base');
+                            $("#tab-content").append('<div id=header' + message + '></div><div id="contents' + message + '"></div>');
+                            transform('../../common/messageexchange.xml', '../../../assets/messageheaderprint.xsl', document.getElementById('header' + message), 'fi', message);
+                            transform(path.concat(base, '.xml'), '../../../assets/messageprint.xsl', document.getElementById('contents' + message), 'fi', message);
+                            i++;
+                        })
+                        $('VersionHistory Version:last Number', returnedXMLResponse).each(function() {
+                            var version = $(this).text();
+                            $("#version").append(version);
+
+                        })
+                        $('VersionHistory Version:last Date', returnedXMLResponse).each(function() {
+                            var generated = new Date($(this).text());
+                            var generated = generated.toLocaleDateString("fi-FI");
+                            $("#version").append(", ", generated);
+                        })
+                        $('System[lang="fi"]', returnedXMLResponse).each(function() {
+                            var system = $(this).text();
+                            document.title += " " + system;
+                            $("#system").append(system);
+                        })
+
+                    } // End Success
+            }); // End AJAX
+        });
+    </script>
+    <script src='../../../assets/javascripts/bootstrap.js'></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+//            transform('../../common/intro.xml', '../../../assets/historyprint.xsl', document.getElementById('history'), 'fi');
+//            transform('../../common/intro.xml', '../../../assets/notes.xsl', document.getElementById('notes'), 'fi');
+//            transform('../../common/intro.xml', '../../../assets/errors.xsl', document.getElementById('errors'), 'fi');
+//            transform('../../common/messageexchange.xml', '../../../assets/messageexchangeprint.xsl', document.getElementById('messageexchange'), 'fi');
+//              transform('../../common/codelists.xml', '../../../assets/rulesconditions.xsl', , 'fi');
+
+        })
+    </script>
+    <script>
+        $(document).on('DOMNodeInserted', 'table', function() {
+            $("tbody > tr.oddeven").filter(":even").addClass("odd");
+        });
+    </script>
+</body>
