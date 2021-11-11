@@ -272,8 +272,11 @@
 														</xsl:when>
 														<xsl:when test="local-name()='Manual'">
 															<tr>
+																<td>
+																	<xsl:value-of select="concat(position(),'.')"/>
+																</td>
 																<td colspan="100%">
-																	<xsl:value-of select="concat(position(),'. ',.)"/>
+																	<xsl:value-of select="."/>
 																</td>
 															</tr>
 														</xsl:when>
