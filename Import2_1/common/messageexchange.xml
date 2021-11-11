@@ -797,22 +797,12 @@
 					<ItemLine lang="en">Customs sends the customer an error notification (FI444). With the error notification, Customs requests the customer to amend the errors detected in the customs declaration or, if the customer disagrees with Customs, to provide a response concerning the errors.</ItemLine>
 				</Item>
 				<Item>
-					<ItemLine lang="fi">Tulli lähettää asiakkaalle virhesanoman (FI444). Virhesanomalla Tulli pyytää asiakasta korjaamaan ilmoituksella havaitut virheet tai ollessaan eri mieltä Tullin kanssa, antamaan niitä koskevan vastineen.</ItemLine>
-					<ItemLine lang="sv">Tullen skickar ett felmeddelande (FI444) till kunden. Med felmeddelandet begär Tullen kunden att korrigera felen som upptäckts i deklarationen, eller om kunden är av annan åsikt än Tullen, att ge ett bemötande om felen.</ItemLine>
-					<ItemLine lang="en">Customs sends the customer an error notification (FI444). With the error notification, Customs requests the customer to amend the errors detected in the customs declaration or, if the customer disagrees with Customs, to provide a response concerning the errors.</ItemLine>
-				</Item>
-				<Item>
 					<ItemLine lang="fi">Asiakas lähettää Tullille korjauspyynnön (FI413 tai FI483, joka koskee vain luovutusta vapaaseen liikkeeseen), johon hän on tehnyt tarvittavat korjaukset.</ItemLine>
 					<ItemLine lang="fi">Tullin järjestelmä tarkastaa korjauspyynnössä ilmoitetut asiakkaan tunnistetiedot ja tietosisällön määrämuotoisuuden. Ilmoitus on muodollisesti virheetön.</ItemLine>
 					<ItemLine lang="sv">Kunden skickar Tullen en begäran om korrigering (FI413 eller FI483, som endast gäller övergång till fri omsättning) i vilken kunden gjort de korrigeringar som behövs.</ItemLine>
 					<ItemLine lang="sv">Tullens system kontrollerar kundens identifieringsuppgifter i begäran om korrigering och datainnehållets formbundenhet. Deklarationen är formellt felfri.</ItemLine>
 					<ItemLine lang="en">The customer sends Customs an amendment request (FI413 or FI483, which only concerns release for free circulation) containing the required amendments.</ItemLine>
 					<ItemLine lang="en">Customs' system checks the customer’s identification data provided in the amendment request as well as the specified form of the data content. The request is formally correct.</ItemLine>
-				</Item>
-				<Item>
-					<ItemLine lang="fi">Tulli lähettää asiakkaalle tullaussanoman (FI468).</ItemLine>
-					<ItemLine lang="sv">Tullen skickar kunden ett förtullningsmeddelande (FI468).</ItemLine>
-					<ItemLine lang="en">Customs sends the customer a notification of customs debt (FI468).</ItemLine>
 				</Item>
 				<Item>
 					<ItemLine lang="fi">Tulli lähettää asiakkaalle menettelyyn luovutusta koskevan luovutussanoman (FI429).</ItemLine>
@@ -832,7 +822,6 @@
 			<Name lang="en">Placing of goods under the procedure – the declaration has only one goods item, which will be moved with a movement permit to another location for controls – The result of the goods control corresponds with the declaration details</Name>
 			<Sequence>
 				<EO>FI415B</EO>
-				<Customs>FI428B</Customs>
 				<Customs>FI428B</Customs>
 				<Customs>FI450B</Customs>
 				<Customs>FI445B</Customs>
@@ -883,6 +872,16 @@
 					<ItemLine lang="en">Customs sends a storage release notification (FI420) to the storage operator or to the warehouse keeper.</ItemLine>
 					<ItemLine lang="en">Customs carries out the necessary control measures on the goods.</ItemLine>
 					<ItemLine lang="en">The goods control does not reveal any discrepancies, and the result of the control will not require any further measures. The control result enables further processing of the declaration.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle menettelyyn luovutusta koskevan luovutussanoman (FI429).</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om frigörande (FI429) som gäller frigörande av varorna för förfarandet.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a release notification (FI429) concerning release for the customs procedure.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle tullaussanoman (FI468). (Ei koske tullivarastointia.)</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett förtullningsmeddelande (FI468). (Gäller ej tullagring.)</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a notification of customs debt (FI468). (Does not concern customs warehousing.)</ItemLine>
 				</Item>
 			</SequenceDescription>
 		</UseCase>
@@ -1131,9 +1130,6 @@
 				<Customs>FI428B</Customs>
 				<Customs>FI429B</Customs>
 				<EO>FI415B</EO>
-				<Customs>FI428B</Customs>
-				<Customs>FI429B</Customs>
-				<EO>FI415B</EO>
 				<Customs>FI426B</Customs>
 				<Customs>FI468B</Customs>
 			</Sequence>
@@ -1190,9 +1186,6 @@
 			<Name lang="sv">Hänförande av varor till förfarandet genom registrering i bokföringen med flera anmälningar av varors ankomst som inges för en period samt med en sammanfattande kompletterande deklaration – anmälningarna och deklarationen är felfria</Name>
 			<Name lang="en">Placing of goods under the procedure by EIDR with several presentation notifications for the period and one supplementary summarising declaration – the presentation notifications and the declaration are correct</Name>
 			<Sequence>
-				<EO>FI475B</EO>
-				<Customs>FI426B</Customs>
-				<Customs>FI429B</Customs>
 				<EO>FI475B</EO>
 				<Customs>FI426B</Customs>
 				<Customs>FI429B</Customs>
@@ -1253,9 +1246,6 @@
 			<Name lang="sv">Hänförande av varor till förfarandet med flera förenklade deklarationer som inges för en period samt med en sammanfattande kompletterande deklaration – den kompletterande deklarationen innehåller fel</Name>
 			<Name lang="en">Placing of goods under the procedure by EIDR with several presentation notifications for the period and one supplementary summarising declaration – the presentation notifications and the declaration are correct</Name>
 			<Sequence>
-				<EO>FI415B</EO>
-				<Customs>FI426B</Customs>
-				<Customs>FI429B</Customs>
 				<EO>FI415B</EO>
 				<Customs>FI426B</Customs>
 				<Customs>FI429B</Customs>
