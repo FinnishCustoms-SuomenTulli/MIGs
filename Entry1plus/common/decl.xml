@@ -7,11 +7,11 @@
 		<Use>FI314A</Use>
 		<Use>FI332A</Use>
 		<Use>FI334A</Use>
+		<Use>FI335A</Use>
+		<Use>FI336A</Use>
 		<Use>FI337A</Use>
 		<Use>FI338A</Use>
 		<Use>FI339A</Use>
-		<Use>FI335A</Use>
-		<Use>FI336A</Use>
 		<Use>FI346A</Use>
 		<Use>FI353A</Use>
 		<Use>FI364A</Use>
@@ -24,16 +24,22 @@
 		<MaxOccurence>1</MaxOccurence>
 		<DataElement>
 			<Name lang="fi">Tapahtuman tunniste</Name>
-			<Name lang="sv">Händelsens identifiering</Name>
+			<Name lang="sv">Händelsens identifierare</Name>
 			<Name lang="en">Case identification</Name>
 			<Use>FI314A</Use>
 			<Use>FI332A</Use>
+			<Use>FI334A</Use>
 			<Use>FI335A</Use>
+			<Use>FI336A</Use>
 			<Use>FI337A</Use>
+			<Use>FI338A</Use>
+			<Use>FI339A</Use>
 			<Use>FI346A</Use>
+			<Use>FI353A</Use>
 			<Use>FI364A</Use>
 			<Use>FI376A</Use>
 			<Use>FI377A</Use>
+			<Use>FI378A</Use>
 			<Use>FI379A</Use>
 			<XPath>Identification</XPath>
 			<MinOccurence>1</MinOccurence>
@@ -248,7 +254,7 @@
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
 				<Name lang="fi">Korjauksen päiväys ja aika</Name>
-				<Name lang="sv">Korrigeringens datum och tid</Name>
+				<Name lang="sv">Datum och tid för korrigeringen</Name>
 				<Name lang="en">Amendment date and time</Name>
 				<Use>FI334A</Use>
 				<Use>FI336A</Use>
@@ -260,7 +266,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Korjauspyynnön syy</Name>
-				<Name lang="sv">Orsak till korrigeringsbegäran</Name>
+				<Name lang="sv">Beskrivning av orsaken till korrigeringsbegäran</Name>
 				<Name lang="en">Reason for amendment request</Name>
 				<Use>FI334A</Use>
 				<Use>FI336A</Use>
@@ -301,7 +307,7 @@
 			<Condition use="FI379A">NC####</Condition>
 			<DataElement>
 				<Name lang="fi">Ilmoituksen päiväys ja aika</Name>
-				<Name lang="sv">Underrättelsens datum och tid</Name>
+				<Name lang="sv">Datum och tid för underrättelsen</Name>
 				<Name lang="en">Notification date and time</Name>
 				<Use>FI314A</Use>
 				<Use>FI339A</Use>
@@ -322,7 +328,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Yhteydenoton syy</Name>
-				<Name lang="sv">Anledning till kontakt</Name>
+				<Name lang="sv">Orsak till kontakt</Name>
 				<Name lang="en">Reason for contact</Name>
 				<Use>FI339A</Use>
 				<XPath>ContactReason</XPath>
@@ -332,7 +338,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Ilmoituksen kuvaus</Name>
-				<Name lang="sv">Underrättelsens beskrivning</Name>
+				<Name lang="sv">Beskrivning av underrättelsen</Name>
 				<Name lang="en">Notification description</Name>
 				<Use>FI314A</Use>
 				<Use>FI339A</Use>
@@ -352,7 +358,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Ilmoituksen osa</Name>
-				<Name lang="sv">Deklarationens del</Name>
+				<Name lang="sv">Del av deklarationen</Name>
 				<Name lang="en">Declaration part</Name>
 				<Use>FI314A</Use>
 				<Use>FI339A</Use>
@@ -363,7 +369,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Mitätöinnin syy</Name>
-				<Name lang="sv">Orsak till annullering</Name>
+				<Name lang="sv">Orsak till ogiltigförklaring</Name>
 				<Name lang="en">Invalidation reason</Name>
 				<Use>FI314A</Use>
 				<XPath>Invalidation</XPath>
@@ -379,7 +385,7 @@
 				<XPath>ReplacingMRN</XPath>
 				<MinOccurence>0</MinOccurence>
 				<Condition>NC5###</Condition>
-				<Format>an18</Format>
+				<Format>an..18</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Yhteenkuuluva tavaraerä</Name>
@@ -465,7 +471,7 @@
 			<DescriptionLine lang="en">Representative is entered. If there is no representative, no data is entered.</DescriptionLine>
 			<DataElement>
 				<Name lang="fi">Edustajan asemaa koskeva koodi</Name>
-				<Name lang="sv">Kod för ombudets status</Name>
+				<Name lang="sv">Kod för ombuds status</Name>
 				<Name lang="en">Representative status code</Name>
 				<Use>FI314A</Use>
 				<Use>FI332A</Use>
@@ -547,7 +553,7 @@
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Muutoksenhakija</Name>
-			<Name lang="sv">Sökande</Name>
+			<Name lang="sv">Ändringssökande</Name>
 			<Name lang="en">Applicant</Name>
 			<Use>FI314A</Use>
 			<XPath>Applicant</XPath>
@@ -562,7 +568,7 @@
 				<MinOccurence>1</MinOccurence>
 				<Rule>NR0034</Rule>
 				<Rule>NR0035</Rule>
-				<Rule>NR3005</Rule>
+				<Rule>NR3505</Rule>
 				<Format>an..17</Format>
 				<DescriptionLine lang="fi">Jos yrityksellä on muun kuin suomen myöntämä  EORI-numero ja  suomalainen yritystunnus, tässä ilmoitetaan EORI.</DescriptionLine>
 				<DescriptionLine lang="sv">Om företaget har ett EORI-nummer som beviljats av ett annat land än Finland och ett finskt FO-nummer, anges EORI här.</DescriptionLine>
@@ -570,7 +576,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Toimipaikkakoodi</Name>
-				<Name lang="sv">Kod fär verksamhetsställe</Name>
+				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
 				<Use>FI314A</Use>
 				<XPath>AdditionalIdentifier/Identification</XPath>
@@ -617,6 +623,8 @@
 				<MinOccurence>1</MinOccurence>
 				<Rule>NR0034</Rule>
 				<Rule>NR0035</Rule>
+				<Rule use="FI377A">NR3507</Rule>
+				<Rule use="FI378A">NR3507</Rule>
 				<Rule use="FI334A">R0862</Rule>
 				<Rule use="FI336A">R0862</Rule>
 				<Rule use="FI338A">R0862</Rule>
@@ -790,9 +798,9 @@
 			<XPath>Submitter</XPath>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<Rule use="FI314A">NR3002</Rule>
-			<Rule use="FI339A">NR3002</Rule>
-			<Rule use="FI376A">NR3002</Rule>
+			<Rule use="FI314A">NR3502</Rule>
+			<Rule use="FI339A">NR3502</Rule>
+			<Rule use="FI376A">NR3502</Rule>
 			<DescriptionLine lang="fi">Ilmoitetaan ilmoituksen antajan tiedot.</DescriptionLine>
 			<DescriptionLine lang="sv">Ange uppgifter om den som inlämnar deklarationen/anmälan.</DescriptionLine>
 			<DescriptionLine lang="en">Enter the details of the submitter of the declaration/notification.</DescriptionLine>
@@ -1053,7 +1061,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Asiakirjatunniste</Name>
-				<Name lang="sv">Identifierare för dokument</Name>
+				<Name lang="sv">Dokumentets identifierare</Name>
 				<Name lang="en">Document identifier</Name>
 				<Use>FI335A</Use>
 				<Use>FI336A</Use>
@@ -1064,6 +1072,23 @@
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Format>an..70</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Liitteen viite</Name>
+				<Name lang="sv">Bilagans referens</Name>
+				<Name lang="en">Attachment reference</Name>
+				<Use>FI335A</Use>
+				<Use>FI336A</Use>
+				<Use>FI337A</Use>
+				<Use>FI338A</Use>
+				<Use>FI377A</Use>
+				<Use>FI378A</Use>
+				<XPath>NationalReference/Identification</XPath>
+				<MinOccurence>0</MinOccurence>
+				<Format>an..35</Format>
+				<DescriptionLine lang="fi">Ilmoitetaan liiteasiakirjan liitteiden lähetyspalvelun viite, jos liite on toimitettu Tullille.</DescriptionLine>
+				<DescriptionLine lang="sv">Referensen för bilagan från tjänsten för leverans av bifogade filer, om en bilaga har levererats till Tullen, anmäls.</DescriptionLine>
+				<DescriptionLine lang="en">The attachment reference for the supporting document from the Attachment Upload service, if the attachment has been submitted to Customs, is entered.</DescriptionLine>
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
@@ -1190,7 +1215,7 @@
 				<Rule use="FI336A">NR0028</Rule>
 				<Rule use="FI377A">NR0028</Rule>
 				<Rule use="FI378A">NR0028</Rule>
-				<Rule use="FI376A">NR3005</Rule>
+				<Rule use="FI376A">NR3505</Rule>
 				<Format>an..4</Format>
 				<DescriptionLine lang="fi" use="FI376A">Ilmoitetaan väliaikaisen varaston lupa TST, jossa tavaroiden siirtäminen väliaikaisesti varastoituna on sallittua.</DescriptionLine>
 				<DescriptionLine lang="sv" use="FI376A">Ange det tillstånd till tillfälligt lager (TST) enligt vilket befordran av varor under tillfällig lagring är tillåten.</DescriptionLine>
@@ -1387,7 +1412,7 @@
 					<Use>FI378A</Use>
 					<XPath>Role</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Codelist>CL729</Codelist>
+					<Codelist>NCL121</Codelist>
 					<Format>n1</Format>
 				</DataElement>
 				<DataGroup>
@@ -1525,7 +1550,7 @@
 					<Use>FI378A</Use>
 					<XPath>Role</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Codelist>CL729</Codelist>
+					<Codelist>NCL121</Codelist>
 					<Format>n1</Format>
 				</DataElement>
 				<DataGroup>
@@ -1678,7 +1703,7 @@
 					<Use>FI378A</Use>
 					<XPath>Role</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Codelist>CL729</Codelist>
+					<Codelist>NCL121</Codelist>
 					<Format>n1</Format>
 				</DataElement>
 				<DataGroup>
@@ -1834,7 +1859,7 @@
 					<Use>FI376A</Use>
 					<XPath>Identification</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Rule>NR3006</Rule>
+					<Rule>NR3506</Rule>
 					<Format>an..35</Format>
 				</DataElement>
 				<DataElement>
@@ -1904,7 +1929,7 @@
 					<Use>FI376A</Use>
 					<XPath>Identification</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Rule>NR3006</Rule>
+					<Rule>NR3506</Rule>
 					<Format>an..35</Format>
 				</DataElement>
 			</DataGroup>
@@ -2151,7 +2176,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Luvan numero</Name>
-					<Name lang="sv">Tillståndets nummer</Name>
+					<Name lang="sv">Tillståndsnummer</Name>
 					<Name lang="en">Authorisation number</Name>
 					<Use>FI337A</Use>
 					<Use>FI338A</Use>
@@ -2165,7 +2190,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Lisätunniste</Name>
-					<Name lang="sv">Tilläggsidentifiering</Name>
+					<Name lang="sv">Tilläggskod</Name>
 					<Name lang="en">Additional identifier</Name>
 					<Use>FI335A</Use>
 					<Use>FI336A</Use>
@@ -2396,7 +2421,7 @@
 						<Use>FI378A</Use>
 						<XPath>Role</XPath>
 						<MinOccurence>1</MinOccurence>
-						<Codelist>CL729</Codelist>
+						<Codelist>NCL121</Codelist>
 						<Format>n1</Format>
 					</DataElement>
 					<DataGroup>
@@ -2532,7 +2557,7 @@
 						<Use>FI378A</Use>
 						<XPath>Role</XPath>
 						<MinOccurence>1</MinOccurence>
-						<Codelist>CL729</Codelist>
+						<Codelist>NCL121</Codelist>
 						<Format>n1</Format>
 					</DataElement>
 					<DataGroup>
@@ -2689,7 +2714,7 @@
 						<Use>FI378A</Use>
 						<XPath>Role</XPath>
 						<MinOccurence>1</MinOccurence>
-						<Codelist>CL729</Codelist>
+						<Codelist>NCL121</Codelist>
 						<Format>n1</Format>
 					</DataElement>
 					<DataGroup>
@@ -3422,9 +3447,9 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 						<XPath>PreviousDocument</XPath>
 						<MinOccurence>0</MinOccurence>
 						<MinOccurence use="FI376A">1</MinOccurence>
+						<MinOccurence use="FI377A">1</MinOccurence>
+						<MinOccurence use="FI378A">1</MinOccurence>
 						<MaxOccurence>9999</MaxOccurence>
-						<Condition use="FI377A">NC3018</Condition>
-						<Condition use="FI378A">NC3018</Condition>
 						<DescriptionLine lang="fi" use="FI335A">Suomen Arex-järjestelmään annetun saapumisen yleisilmoituksen viitenumero, jos tavara on saapunut samalla aluksella ja josta on jo ensimmäisessä Suomessa sijaitsevassa tullitoimipaikassa annettu saapumisen yleisilmoitus.</DescriptionLine>
 						<DescriptionLine lang="sv" use="FI335A">Referensnumret för den summariska införseldeklaration som inlämnats till Finlands AREX-system, om varan anlänt med samma fartyg för vilket det redan vid det första tullkontoret i Finland ingetts en summarisk införseldeklaration.</DescriptionLine>
 						<DescriptionLine lang="en" use="FI335A">The reference number of the entry summary declaration submitted to the Finnish Arex system, if the goods have arrived on board the same vessel for which an entry summary declaration has already been submitted at the first customs office in Finland.</DescriptionLine>
@@ -3445,7 +3470,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 						<DescriptionLine lang="en" use="FI378A">Declaration for previous temporary storage.</DescriptionLine>
 						<DataElement>
 							<Name lang="fi">Edeltävä asiakirjatyyppi</Name>
-							<Name lang="sv">Tidigare dokumentets typ</Name>
+							<Name lang="sv">Typ av tidigare dokument</Name>
 							<Name lang="en">Previous document type</Name>
 							<Use>FI335A</Use>
 							<Use>FI336A</Use>
@@ -3495,7 +3520,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 							<Use>FI377A</Use>
 							<Use>FI378A</Use>
 							<XPath>Line</XPath>
-							<MinOccurence>0</MinOccurence>
+							<MinOccurence>1</MinOccurence>
 							<Format>n..5</Format>
 						</DataElement>
 						<DataElement>
@@ -3637,7 +3662,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 					<DescriptionLine lang="en">Not in use for the time being.</DescriptionLine>
 					<DataElement>
 						<Name lang="fi">Edeltävä asiakirjatyyppi</Name>
-						<Name lang="sv">Tidigare dokumentets typ</Name>
+						<Name lang="sv">Typ av tidigare dokument</Name>
 						<Name lang="en">Previous document type</Name>
 						<Use>FI335A</Use>
 						<Use>FI336A</Use>
@@ -3672,10 +3697,10 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 					<Use>FI337A</Use>
 					<Use>FI338A</Use>
 					<Use>FI364A</Use>
+					<Use>FI377A</Use>
+					<Use>FI378A</Use>
 					<XPath>TransportContractDocument</XPath>
 					<MinOccurence>1</MinOccurence>
-					<MinOccurence use="FI377A">0</MinOccurence>
-					<MinOccurence use="FI378A">0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DescriptionLine lang="fi" use="FI332A">Esitettävän erän kuljetusasiakirjat on ilmoitettava.</DescriptionLine>
 					<DescriptionLine lang="fi" use="FI334A">Esitettävän erän kuljetusasiakirjat on ilmoitettava.</DescriptionLine>
@@ -3697,6 +3722,8 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 						<Use>FI337A</Use>
 						<Use>FI338A</Use>
 						<Use>FI364A</Use>
+						<Use>FI377A</Use>
+						<Use>FI378A</Use>
 						<XPath>Type</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL754</Codelist>
@@ -3713,6 +3740,8 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 						<Use>FI337A</Use>
 						<Use>FI338A</Use>
 						<Use>FI364A</Use>
+						<Use>FI377A</Use>
+						<Use>FI378A</Use>
 						<XPath>Identification</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Format>an..70</Format>
@@ -3779,7 +3808,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 				<MaxOccurence use="FI379A">99</MaxOccurence>
 				<DataElement>
 					<Name lang="fi">Edeltävä asiakirjatyyppi</Name>
-					<Name lang="sv">Tidigare dokumentets typ</Name>
+					<Name lang="sv">Typ av tidigare dokument</Name>
 					<Name lang="en">Previous document type</Name>
 					<Use>FI332A</Use>
 					<Use>FI334A</Use>
@@ -3845,7 +3874,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 					<Use>FI376A</Use>
 					<Use>FI379A</Use>
 					<XPath>TransportDocumentIdentification</XPath>
-					<MinOccurence>0</MinOccurence>
+					<MinOccurence>1</MinOccurence>
 					<Format>an..70</Format>
 				</DataElement>
 				<DataElement>
@@ -3873,8 +3902,6 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 				<Use>FI378A</Use>
 				<XPath>TransportContractDocument</XPath>
 				<MinOccurence>1</MinOccurence>
-				<MinOccurence use="FI377">0</MinOccurence>
-				<MinOccurence use="FI378">0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DescriptionLine lang="fi" use="FI335A">Master-tason kuljetusasiakirjan tiedot.</DescriptionLine>
 				<DescriptionLine lang="sv" use="FI335A">Uppgifter om transportdokumentet på huvudnivå.</DescriptionLine>
@@ -3985,7 +4012,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Varaston tyyppi</Name>
-					<Name lang="sv">Lagertyp</Name>
+					<Name lang="sv">Typ av lager</Name>
 					<Name lang="en">Warehouse type</Name>
 					<Use>FI335A</Use>
 					<Use>FI336A</Use>
@@ -3996,7 +4023,12 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 					<XPath>Type</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Codelist>CL099</Codelist>
-					<Rule>NR3003</Rule>
+					<Rule use="FI335A">NR3503</Rule>
+					<Rule use="FI336A">NR3503</Rule>
+					<Rule use="FI337A">NR3503</Rule>
+					<Rule use="FI338A">NR3503</Rule>
+					<Rule use="FI377A">NR3503</Rule>
+					<Rule use="FI378A">NR3504</Rule>
 					<Format>a1</Format>
 				</DataElement>
 			</DataGroup>
@@ -4097,7 +4129,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Luvan numero</Name>
-				<Name lang="sv">Tillståndets nummer</Name>
+				<Name lang="sv">Tillståndsnummer</Name>
 				<Name lang="en">Authorisation number</Name>
 				<Use>FI332A</Use>
 				<Use>FI334A</Use>
@@ -4111,7 +4143,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Lisätunniste</Name>
-				<Name lang="sv">Tilläggsidentifiering</Name>
+				<Name lang="sv">Tilläggskod</Name>
 				<Name lang="en">Additional identifier</Name>
 				<Use>FI332A</Use>
 				<Use>FI334A</Use>
@@ -4119,7 +4151,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 				<MinOccurence>0</MinOccurence>
 				<Format>an..4</Format>
 				<DescriptionLine lang="fi">Lisätunniste voi liittyä joko talouden toimijaan tai luvan numeroon.</DescriptionLine>
-				<DescriptionLine lang="sv">Tilläggsidentifieringen kan hänföra till akonomisk aktör eller tillståndets nummer.</DescriptionLine>
+				<DescriptionLine lang="sv">Tilläggskoden kan hänföra till ekonomisk aktör eller tillståndets nummer.</DescriptionLine>
 				<DescriptionLine lang="en">Additional identifier may relate to economic operator or authorisation number.</DescriptionLine>
 			</DataElement>
 			<DataGroup>
@@ -4230,7 +4262,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Varaston tyyppi</Name>
-				<Name lang="sv">Lagertyp</Name>
+				<Name lang="sv">Typ av lager</Name>
 				<Name lang="en">Warehouse type</Name>
 				<Use>FI332A</Use>
 				<Use>FI334A</Use>
