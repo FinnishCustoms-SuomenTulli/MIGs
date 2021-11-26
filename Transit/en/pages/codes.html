@@ -93,7 +93,6 @@
     <!-- Bootstrap core JavaScript
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
     <script src='../../../assets/javascripts/vendor/jquery.js'></script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -128,11 +127,17 @@
         });
     </script>
 
-    <script src='../../../assets/xsltProcessor.js'></script>
+    <script src='../../../assets/xsltProcessor2.js'></script>
 
     <script>
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = yyyy + mm + dd;
+
         document.addEventListener('DOMContentLoaded', function() {
-            transform('../../common/codelists.xml', '../../../assets/codelists.xsl', document.getElementById('contents'), 'en');
+            transform('../../common/codelists.xml', '../../../assets/codelists.xsl', document.getElementById('contents'), 'en', today );
         })
     </script>
     <script src='../../../assets/javascripts/bootstrap.js'></script>
