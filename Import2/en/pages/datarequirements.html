@@ -84,7 +84,6 @@
                 <select name="filter" id="Select" class="form-control">
                     <option value="null">-- Filter data requirements --</option>
                     <option value="all">Show everything</option>
-                    <!--option value="I1">Simplified declaration</option-->
                     <option value="H2">Customs warehousing</option>
                     <option value="H5E">Tax border declaration</option>
                     <option value="H5N">National tax border declaration - non-VAT registered traders</option>
@@ -168,8 +167,14 @@
     <script src="../../../assets/javascripts/bootstrap-tabdrop.js"></script>
 
     <script>
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = yyyy + mm + dd;
+
         document.addEventListener('DOMContentLoaded', function() {
-            transform('../../common/codelists.xml', '../../../assets/codedata.xsl', document.getElementById('codemodal'), 'en', 'na');
+            transform('../../common/codelists.xml', '../../../assets/codedata.xsl', document.getElementById('codemodal'), 'en', today);
             transform('../../common/constraints.xml', '../../../assets/constraints.xsl', document.getElementById('rulesmodal'), 'en', 'na');
         })
     </script>

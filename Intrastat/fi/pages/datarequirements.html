@@ -145,7 +145,7 @@
             }); // End AJAX
         });
     </script>
-    <script src='../../../assets/xsltProcessor.js'></script>
+    <script src='../../../assets/xsltProcessor2.js'></script>
 
     <script src='../../../assets/javascripts/bootstrap.js'></script>
 
@@ -154,9 +154,15 @@
     <script src="../../../assets/javascripts/bootstrap-tabdrop.js"></script>
 
     <script>
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = yyyy + mm + dd;
+
         document.addEventListener('DOMContentLoaded', function() {
-            transform('../../common/codelists.xml', '../../../assets/codedata.xsl', document.getElementById('codemodal'), 'fi');
-            transform('../../common/rulesconditions.xml', '../../../assets/rcintrastat.xsl', document.getElementById('rulesmodal'), 'fi');
+            transform('../../common/codelists.xml', '../../../assets/codedata.xsl', document.getElementById('codemodal'), 'fi', today);
+            transform('../../common/rulesconditions.xml', '../../../assets/rcintrastat.xsl', document.getElementById('rulesmodal'), 'fi'), 'na';
         })
     </script>
     <script>

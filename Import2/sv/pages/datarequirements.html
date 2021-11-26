@@ -84,7 +84,6 @@
                 <select name="filter" id="Select" class="form-control">
                     <option value="null">-- Filtrera datainneh&aring;llen --</option>
                     <option value="all">Visa allt</option>
-                    <!--option value="I1">F&ouml;renklad deklaration</option-->
                     <option value="H2">Tullagring</option>
                     <option value="H5E">Skattegr&auml;nsanm&auml;älan</option>
                     <option value="H5N">Nationell skattegr&auml;nsanm&auml;lan - Icke-momsregistrerade akt&ouml;rer </option>
@@ -170,8 +169,14 @@
     <script src="../../../assets/javascripts/bootstrap-tabdrop.js"></script>
 
     <script>
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = yyyy + mm + dd;
+
         document.addEventListener('DOMContentLoaded', function() {
-            transform('../../common/codelists.xml', '../../../assets/codedata.xsl', document.getElementById('codemodal'), 'sv', 'na');
+            transform('../../common/codelists.xml', '../../../assets/codedata.xsl', document.getElementById('codemodal'), 'sv', today);
             transform('../../common/constraints.xml', '../../../assets/constraints.xsl', document.getElementById('rulesmodal'), 'sv', 'na');
         })
     </script>
