@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Kodf&ouml;rteckningarna -</title>
+    <title>Kodförteckningarna -</title>
     <link rel="icon" href="../../../assets/favicon.ico">
     <link rel="stylesheet" href="../../../assets/tulli-bootstrap-style.css" type="text/css" />
     <link rel="stylesheet" href="../../../assets/tulli-mig-tables-style.css" type="text/css" />
+    <link id="bsdp-css" href="../../../assets/datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../assets/scroll-style.css" type="text/css" />
 </head>
 
@@ -15,7 +16,7 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <span class="navbar-text main-navbar">Kodf&ouml;rteckningarna uppdaterade </span>
+                <span class="navbar-text main-navbar">Kodförteckningarna uppdaterade </span>
                 <a href="../../fi/pages/codes.html">Suomi</a>
                 <a href="../../en/pages/codes.html">English</a>
             </div>
@@ -49,10 +50,10 @@
                                     <a href="datamodel.html">Klassdiagram</a>
                                 </li>
                                 <li>
-                                    <a href="messageexchange.html">Guide f&ouml;r meddelandetrafik</a>
+                                    <a href="messageexchange.html">Guide för meddelandetrafik</a>
                                 </li>
                                 <li>
-                                    <a href="datarequirements.html">Datainneh&aring;ll</a>
+                                    <a href="datarequirements.html">Datainnehåll</a>
                                 </li>
                                 <li class='current'>
                                     <a class='current' href="codes.html">Koder</a>
@@ -68,7 +69,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h1>Kodf&ouml;rteckningarna</h1>
+                        <h1>Kodförteckningarna</h1>
                     </div>
                 </div>
             </div>
@@ -77,8 +78,16 @@
 
     <main class="Site-content">
         <div class="col-xs-12" role="main">
-
             <div class="panel panel-primary">
+                <div class="panel-body">
+                    <div class="container">
+                        <label>Giltighetsdatum</label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control" aria-describedby="form-instruction-visuallyHidden"><span class="input-group-addon" aria-hidden="true"><i class="icon icon-tulli-calendar"></i></span>
+                        </div>
+                        <div class="sr-only" id="form-instruction-visuallyHidden">Ange datum i formatet åååå bindestreck mm bindestreck dd</div>
+                    </div>
+                </div>
                 <div class="panel-body" id="contents"></div>
             </div>
         </div>
@@ -95,6 +104,9 @@
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src='../../../assets/javascripts/vendor/jquery.js'></script>
+    <script src="../../../assets/datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="../../../assets/datepicker/locales/bootstrap-datepicker.sv.min.js" charset="UTF-8"></script>
+    <script src="../../../assets/datepicker/moment/moment.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $.ajax({
@@ -112,7 +124,26 @@
             }); // End AJAX
         });
     </script>
-    <script>
+
+    <script type="text/javascript">
+        $('.input-group.date').datepicker({
+            format: "yyyy-mm-dd",
+            startDate: "-6m",
+            endDate: "+1y",
+            maxViewMode: 2,
+            language: "sv",
+            orientation: "bottom auto",
+            keyboardNavigation: false,
+            autoclose: true,
+            todayHighlight: true
+        }).datepicker("setDate",'now');
+        $('.input-group.date').on('changeDate', function(e){
+            var checkDate = moment(e.date).format('YYYYMMDD');
+            transform('../../common/codelists.xml', '../../../assets/codelists.xsl', document.getElementById('contents'), 'sv', checkDate);
+        });
+    </script>
+
+<script>
         $(document).ready(function() {
             $.ajax({
                 url: '../../common/intro.xml',
