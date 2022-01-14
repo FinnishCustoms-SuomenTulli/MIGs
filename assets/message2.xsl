@@ -16,7 +16,9 @@
 				<b>Rules:</b>
 				<xsl:for-each select="Message/Rule">
 					<a href="#" data-toggle="modal">
-						<xsl:attribute name="data-target"><xsl:value-of select="concat('#RC_',.)"/></xsl:attribute>
+						<xsl:attribute name="data-target">
+							<xsl:value-of select="concat('#RC_',.)"/>
+						</xsl:attribute>
 						<xsl:value-of select="."/>
 					</a>
 					<xsl:if test="position() != last()">, </xsl:if>
@@ -125,11 +127,17 @@
 					</xsl:variable>
 					<xsl:if test="Use = $messageType">
 						<tr>
-							<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1,' oddeven',$filter)"/></xsl:attribute>
+							<xsl:attribute name="class">
+								<xsl:value-of select="concat('indent-',count(ancestor::*)-1,' oddeven',$filter)"/>
+							</xsl:attribute>
 							<td>
 								<a>
-									<xsl:attribute name="id"><xsl:value-of select="translate(concat('Group_',$messageType,'_',../XPath,'_',Name[@lang=$language]),' ','')"/></xsl:attribute>
-									<xsl:attribute name="href"><xsl:value-of select="translate(concat('#Element_',$messageType,'_',../XPath,'_',Name[@lang=$language]),' ','')"/></xsl:attribute>
+									<xsl:attribute name="id">
+										<xsl:value-of select="translate(concat('Group_',$messageType,'_',../XPath,'_',Name[@lang=$language]),' ','')"/>
+									</xsl:attribute>
+									<xsl:attribute name="href">
+										<xsl:value-of select="translate(concat('#Element_',$messageType,'_',../XPath,'_',Name[@lang=$language]),' ','')"/>
+									</xsl:attribute>
 									<span class="icon icon-tulli-treeview" style="margin-right:0.2em"/>
 									<xsl:value-of select="Name[@lang=$language]"/>
 								</a>
@@ -162,8 +170,19 @@
 							<td>
 								<xsl:for-each select="Rule[@use=$messageType] | Rule[not(@*)] | Condition[@use=$messageType] | Condition[not(@*)]">
 									<a href="#" data-toggle="modal">
-										<xsl:attribute name="data-target"><xsl:value-of select="concat('#RC_',.)"/></xsl:attribute>
-										<xsl:value-of select="."/>
+										<xsl:attribute name="data-target">
+											<xsl:value-of select="concat('#RC_',.)"/>
+										</xsl:attribute>
+										<xsl:choose>
+											<xsl:when test="substring(., 1, 1)='B' or substring(., 1, 1)='E' or substring(., 1, 2)='NB' or substring(., 1, 2)='NE'">
+												<b>
+													<xsl:value-of select="."/>
+												</b>
+											</xsl:when>
+											<xsl:otherwise>
+												<xsl:value-of select="."/>
+											</xsl:otherwise>
+										</xsl:choose>
 									</a>
 									<xsl:if test="position() != last()">, </xsl:if>
 								</xsl:for-each>
@@ -171,7 +190,9 @@
 						</tr>
 						<xsl:if test="DescriptionLine[@lang=$language and @use=$messageType] | DescriptionLine[@lang=$language and not(@use)]!=''">
 							<tr>
-								<xsl:attribute name="class"><xsl:value-of select="concat('description indent-',count(ancestor::*)-1,$filter)"/></xsl:attribute>
+								<xsl:attribute name="class">
+									<xsl:value-of select="concat('description indent-',count(ancestor::*)-1,$filter)"/>
+								</xsl:attribute>
 								<td colspan="5">
 									<span class="icon icon-tulli-info" style="margin-right:3px"/>
 									<xsl:for-each select="DescriptionLine[@lang=$language and not(@use)] | DescriptionLine[@lang=$language and @use=$messageType]">
@@ -302,11 +323,17 @@
 					<xsl:when test="local-name()='DataGroup'">
 						<xsl:if test="Use = $messageType">
 							<tr>
-								<xsl:attribute name="class"><xsl:value-of select="concat('group indent-',count(ancestor::*)-1,$filter)"/></xsl:attribute>
+								<xsl:attribute name="class">
+									<xsl:value-of select="concat('group indent-',count(ancestor::*)-1,$filter)"/>
+								</xsl:attribute>
 								<td colspan="6">
 									<a>
-										<xsl:attribute name="id"><xsl:value-of select="translate(concat('Element_',$messageType,'_',../XPath,'_',Name[@lang=$language]),' ','')"/></xsl:attribute>
-										<xsl:attribute name="href"><xsl:value-of select="translate(concat('#Group_',$messageType,'_',../XPath,'_',Name[@lang=$language]),' ','')"/></xsl:attribute>
+										<xsl:attribute name="id">
+											<xsl:value-of select="translate(concat('Element_',$messageType,'_',../XPath,'_',Name[@lang=$language]),' ','')"/>
+										</xsl:attribute>
+										<xsl:attribute name="href">
+											<xsl:value-of select="translate(concat('#Group_',$messageType,'_',../XPath,'_',Name[@lang=$language]),' ','')"/>
+										</xsl:attribute>
 										<span class="icon icon-tulli-treeview" style="margin-right:0.2em"/>
 										<xsl:value-of select="Name[@lang=$language]"/>
 									</a>
@@ -319,10 +346,14 @@
 							<tr>
 								<xsl:choose>
 									<xsl:when test="count(ancestor::*)>2">
-										<xsl:attribute name="class"><xsl:value-of select="concat('indent-',count(ancestor::*)-1,$filter,' oddeven')"/></xsl:attribute>
+										<xsl:attribute name="class">
+											<xsl:value-of select="concat('indent-',count(ancestor::*)-1,$filter,' oddeven')"/>
+										</xsl:attribute>
 									</xsl:when>
 									<xsl:otherwise>
-										<xsl:attribute name="class"><xsl:value-of select="concat('indent-2',$filter,' oddeven')"/></xsl:attribute>
+										<xsl:attribute name="class">
+											<xsl:value-of select="concat('indent-2',$filter,' oddeven')"/>
+										</xsl:attribute>
 									</xsl:otherwise>
 								</xsl:choose>
 								<td>
@@ -352,7 +383,9 @@
 								<td>
 									<xsl:for-each select="Codelist[@use=$messageType] | Codelist[not(@*)]">
 										<a href="#" data-toggle="modal">
-											<xsl:attribute name="data-target"><xsl:value-of select="concat('#CODELIST_',.)"/></xsl:attribute>
+											<xsl:attribute name="data-target">
+												<xsl:value-of select="concat('#CODELIST_',.)"/>
+											</xsl:attribute>
 											<xsl:value-of select="."/>
 										</a>
 										<xsl:if test="position() != last()">, </xsl:if>
@@ -361,8 +394,19 @@
 								<td>
 									<xsl:for-each select="Rule[@use=$messageType] | Rule[not(@*)] | Condition[@use=$messageType] | Condition[not(@*)]">
 										<a href="#" data-toggle="modal">
-											<xsl:attribute name="data-target"><xsl:value-of select="concat('#RC_',.)"/></xsl:attribute>
-											<xsl:value-of select="."/>
+											<xsl:attribute name="data-target">
+												<xsl:value-of select="concat('#RC_',.)"/>
+											</xsl:attribute>
+											<xsl:choose>
+												<xsl:when test="substring(., 1, 1)='B' or substring(., 1, 1)='E' or substring(., 1, 2)='NB' or substring(., 1, 2)='NE'">
+													<b>
+														<xsl:value-of select="."/>
+													</b>
+												</xsl:when>
+												<xsl:otherwise>
+													<xsl:value-of select="."/>
+												</xsl:otherwise>
+											</xsl:choose>
 										</a>
 										<xsl:if test="position() != last()">, </xsl:if>
 									</xsl:for-each>
@@ -372,10 +416,14 @@
 								<tr>
 									<xsl:choose>
 										<xsl:when test="count(ancestor::*)>2">
-											<xsl:attribute name="class"><xsl:value-of select="concat('description indent-',count(ancestor::*)-1, $filter)"/></xsl:attribute>
+											<xsl:attribute name="class">
+												<xsl:value-of select="concat('description indent-',count(ancestor::*)-1, $filter)"/>
+											</xsl:attribute>
 										</xsl:when>
 										<xsl:otherwise>
-											<xsl:attribute name="class"><xsl:value-of select="concat('description indent-2', $filter)"/></xsl:attribute>
+											<xsl:attribute name="class">
+												<xsl:value-of select="concat('description indent-2', $filter)"/>
+											</xsl:attribute>
 										</xsl:otherwise>
 									</xsl:choose>
 									<td colspan="6">
@@ -386,12 +434,15 @@
 												<br/>
 											</xsl:if>
 										</xsl:for-each>
-									<xsl:if test="Hyperlink">
-									<a target="_blank">
-										<xsl:attribute name="href"><xsl:value-of select="Hyperlink[@lang=$language]/URL"/></xsl:attribute>
-										<span class="icon icon-tulli-external" style="margin-right:3px"></span><xsl:value-of select="Hyperlink[@lang=$language]/Description"/>
-									</a>
-									</xsl:if>
+										<xsl:if test="Hyperlink">
+											<a target="_blank">
+												<xsl:attribute name="href">
+													<xsl:value-of select="Hyperlink[@lang=$language]/URL"/>
+												</xsl:attribute>
+												<span class="icon icon-tulli-external" style="margin-right:3px"/>
+												<xsl:value-of select="Hyperlink[@lang=$language]/Description"/>
+											</a>
+										</xsl:if>
 									</td>
 								</tr>
 							</xsl:if>
