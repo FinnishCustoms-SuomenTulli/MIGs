@@ -20,6 +20,7 @@
 		<Use>FI378A</Use>
 		<Use>FI379A</Use>
 		<XPath/>
+		<Group>ImportOperation</Group>
 		<MinOccurence>1</MinOccurence>
 		<MaxOccurence>1</MaxOccurence>
 		<DataElement>
@@ -43,10 +44,13 @@
 			<Use>FI379A</Use>
 			<XPath>Identification</XPath>
 			<MinOccurence>1</MinOccurence>
-			<Format>an..22</Format>
+			<Format>an..14</Format>
 			<DescriptionLine lang="fi">Tapahtuman tunniste on sanoman yksilöllinen tunniste. Ensimmäiset viisi merkkiä koostuvat Tullin antamasta yrityskohtaisesta merkkijonosta.</DescriptionLine>
+			<DescriptionLine lang="fi">Toistaiseksi Tulli hyväksyy vain enintään 14 merkin pituisen tunnisteen.</DescriptionLine>
 			<DescriptionLine lang="sv">Händelsens identifiering är meddelandets unika identifiering. De första fem tecknen består av en teckensträng som Tullen tilldelar.</DescriptionLine>
+			<DescriptionLine lang="sv">Tills vidare accepterar Tullen endast en identifierare på upp till 14 tecken.</DescriptionLine>
 			<DescriptionLine lang="en">The case identification is the message's unique identification. The first five characters are assigned by Customs.</DescriptionLine>
+			<DescriptionLine lang="en">For the time being, Customs will only accept an identifier of up to 14 characters..</DescriptionLine>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">MRN</Name>
@@ -250,6 +254,7 @@
 			<Use>FI338A</Use>
 			<Use>FI378A</Use>
 			<XPath>Amendment</XPath>
+			<Group>Amendment</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
@@ -302,9 +307,10 @@
 			<Use>FI353A</Use>
 			<Use>FI379A</Use>
 			<XPath>Notification</XPath>
+			<Group>Notification</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<Condition use="FI379A">NC####</Condition>
+			<Condition use="FI379A">NCS005</Condition>
 			<DataElement>
 				<Name lang="fi">Ilmoituksen päiväys ja aika</Name>
 				<Name lang="sv">Datum och tid för underrättelsen</Name>
@@ -417,6 +423,7 @@
 				<Use>FI346A</Use>
 				<Use>FI353A</Use>
 				<XPath>ProvidedInfo</XPath>
+				<Group>ProvidedInfo</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>999</MaxOccurence>
 				<Condition>NC####</Condition>
@@ -441,7 +448,7 @@
 					<Use>FI346A</Use>
 					<Use>FI353A</Use>
 					<XPath>NationalReference</XPath>
-					<MinOccurence>1</MinOccurence>
+					<MinOccurence>0</MinOccurence>
 					<Format>an..22</Format>
 				</DataElement>
 			</DataGroup>
@@ -464,6 +471,7 @@
 			<Use>FI378A</Use>
 			<Use>FI379A</Use>
 			<XPath>Agent</XPath>
+			<Group>Agent</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DescriptionLine lang="fi">Ilmoitetaan edustaja. Jos edustajaa ei käytetä, tietoa ei ilmoiteta.</DescriptionLine>
@@ -557,6 +565,7 @@
 			<Name lang="en">Applicant</Name>
 			<Use>FI314A</Use>
 			<XPath>Applicant</XPath>
+			<Group>Applicant</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
@@ -601,6 +610,7 @@
 			<Use>FI378A</Use>
 			<Use>FI379A</Use>
 			<XPath>Declarant</XPath>
+			<Group>Declarant</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DescriptionLine lang="fi" use="FI376A">Ilmoittaja on lähettävän väliaikaisen varaston luvanhaltija.</DescriptionLine>
@@ -660,6 +670,7 @@
 			<Use>FI332A</Use>
 			<Use>FI334A</Use>
 			<XPath>Declarant</XPath>
+			<Group>PersonPresentingGoods</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DescriptionLine lang="fi">Ilmoittaja, yleisimmin kuljetusliike.</DescriptionLine>
@@ -702,6 +713,7 @@
 			<Name lang="en">Holder of temporary storage</Name>
 			<Use>FI364A</Use>
 			<XPath>Declarant</XPath>
+			<Group>WarehouseKeeper</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
@@ -711,13 +723,8 @@
 				<Use>FI364A</Use>
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
-				<Rule>NR0034</Rule>
-				<Rule>NR0035</Rule>
-				<Rule>R3005</Rule>
+				<Rule>NR3509</Rule>
 				<Format>an..17</Format>
-				<DescriptionLine lang="fi">Ilmoitetaan EORI-numero.</DescriptionLine>
-				<DescriptionLine lang="sv">Ange EORI-nummer.</DescriptionLine>
-				<DescriptionLine lang="en">Enter the EORI number.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Toimipaikkakoodi</Name>
@@ -748,6 +755,7 @@
 			<Use>FI378A</Use>
 			<Use>FI379A</Use>
 			<XPath>ServiceProvider</XPath>
+			<Group>ServiceProvider</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DescriptionLine lang="fi">Suoran sanoma-asioinnin palveluntarjoaja (sanoman tekninen lähettäjä) ilmoitetaan, jos sanomailmoittaja itse ei välitä sanomaa Tullille.</DescriptionLine>
@@ -796,6 +804,7 @@
 			<Use>FI378A</Use>
 			<Use>FI379A</Use>
 			<XPath>Submitter</XPath>
+			<Group>Submitter</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<Rule use="FI314A">NR3502</Rule>
@@ -864,6 +873,7 @@
 				<Use>FI378A</Use>
 				<Use>FI379A</Use>
 				<XPath>Communication</XPath>
+				<Group>ContactInfo</Group>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -931,6 +941,7 @@
 				<Use>FI378A</Use>
 				<Use>FI379A</Use>
 				<XPath>Communication</XPath>
+				<Group>ContactInfo</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -992,6 +1003,7 @@
 			<Use>FI378A</Use>
 			<Use>FI335A</Use>
 			<XPath>AEOMutualRecognitionParty</XPath>
+			<Group>AEOMutualRecognitionParty</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>99</MaxOccurence>
 			<DescriptionLine lang="fi">Ilmoitetaan toimitusketjun muu toimija, esim. AEO-ketjun toimija.</DescriptionLine>
@@ -1042,6 +1054,7 @@
 			<Use>FI377A</Use>
 			<Use>FI378A</Use>
 			<XPath>AdditionalDocument</XPath>
+			<Group>AdditionalDocument</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>99</MaxOccurence>
 			<DataElement>
@@ -1085,7 +1098,7 @@
 				<Use>FI378A</Use>
 				<XPath>NationalReference/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
-				<Format>an..35</Format>
+				<Format>an..22</Format>
 				<DescriptionLine lang="fi">Ilmoitetaan liiteasiakirjan liitteiden lähetyspalvelun viite, jos liite on toimitettu Tullille.</DescriptionLine>
 				<DescriptionLine lang="sv">Referensen för bilagan från tjänsten för leverans av bifogade filer, om en bilaga har levererats till Tullen, anmäls.</DescriptionLine>
 				<DescriptionLine lang="en">The attachment reference for the supporting document from the Attachment Upload service, if the attachment has been submitted to Customs, is entered.</DescriptionLine>
@@ -1106,6 +1119,7 @@
 			<Use>FI377A</Use>
 			<Use>FI378A</Use>
 			<XPath>AdditionalInformation</XPath>
+			<Group>AdditionalInformation</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>99</MaxOccurence>
 			<DataElement>
@@ -1177,6 +1191,7 @@
 			<Use>FI377A</Use>
 			<Use>FI378A</Use>
 			<XPath>Authorisation</XPath>
+			<Group>Aothorisation</Group>
 			<MinOccurence>0</MinOccurence>
 			<MinOccurence use="FI376A">1</MinOccurence>
 			<MinOccurence use="FI377A">1</MinOccurence>
@@ -1264,6 +1279,7 @@
 			<Use>FI332A</Use>
 			<Use>FI334A</Use>
 			<XPath>ArrivalTransportMeans</XPath>
+			<Group>ArrivalTransportMeans</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
@@ -1310,6 +1326,7 @@
 			<Use>FI378A</Use>
 			<Use>FI379A</Use>
 			<XPath>Consignment</XPath>
+			<Group>Consignment</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<MaxOccurence use="FI332A">9999</MaxOccurence>
@@ -1349,6 +1366,7 @@
 				<Use>FI377A</Use>
 				<Use>FI378A</Use>
 				<XPath>Consignee</XPath>
+				<Group>Consignee</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<Condition>NC3008</Condition>
@@ -1426,6 +1444,7 @@
 					<Use>FI377A</Use>
 					<Use>FI378A</Use>
 					<XPath>Address</XPath>
+					<Group>Address</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<Condition>C0050</Condition>
@@ -1502,6 +1521,7 @@
 				<Use>FI377A</Use>
 				<Use>FI378A</Use>
 				<XPath>Consignor</XPath>
+				<Group>Consignor</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<Condition>NC3008</Condition>
@@ -1564,6 +1584,7 @@
 					<Use>FI377A</Use>
 					<Use>FI378A</Use>
 					<XPath>Address</XPath>
+					<Group>Address</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<Condition>C0050</Condition>
@@ -1637,6 +1658,7 @@
 				<Use>FI377A</Use>
 				<Use>FI378A</Use>
 				<XPath>NotifyParty</XPath>
+				<Group>NotifyParty</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<Condition>NC3008</Condition>
@@ -1717,6 +1739,7 @@
 					<Use>FI377A</Use>
 					<Use>FI378A</Use>
 					<XPath>Address</XPath>
+					<Group>Address</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<Condition>C0050</Condition>
@@ -1790,6 +1813,7 @@
 				<Use>FI377A</Use>
 				<Use>FI378A</Use>
 				<XPath>ArrivalTransportMeans</XPath>
+				<Group>ArrivalTransportMeans</Group>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DescriptionLine lang="fi" use="FI377A">Ilmoitetaan kuljetusväline jolla siirretty vastaanottavaan varastoon. Jos siirretään sataman sisällä konttilukilla, ilmoitetaan "lukki".</DescriptionLine>
@@ -1843,6 +1867,7 @@
 				<Use>FI377A</Use>
 				<Use>FI378A</Use>
 				<XPath>LoadingLocation</XPath>
+				<Group>LoadingLocation</Group>
 				<MinOccurence>0</MinOccurence>
 				<MinOccurence use="FI376A">1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
@@ -1919,6 +1944,7 @@
 				<Name lang="en">Place of unloading</Name>
 				<Use>FI376A</Use>
 				<XPath>UnloadingLocation</XPath>
+				<Group>UnloadingLocation</Group>
 				<MinOccurence>0</MinOccurence>
 				<MinOccurence use="FI376A">1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
@@ -1945,6 +1971,7 @@
 				<Use>FI377A</Use>
 				<Use>FI378A</Use>
 				<XPath>TransportEquipment</XPath>
+				<Group>TransportEquipment</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>9999</MaxOccurence>
 				<Condition>NC3010</Condition>
@@ -1996,6 +2023,7 @@
 					<Use>FI377A</Use>
 					<Use>FI378A</Use>
 					<XPath>Seal</XPath>
+					<Group>Seal</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>9999</MaxOccurence>
 					<DescriptionLine lang="fi" use="FI364A">Jos tietoon liittyy poikkeama, ilmoitetaan purettaessa havaittujen sinettien tiedot.</DescriptionLine>
@@ -2029,6 +2057,7 @@
 				<Use>FI377A</Use>
 				<Use>FI378A</Use>
 				<XPath>GoodsLocation</XPath>
+				<Group>GoodsLocation</Group>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DescriptionLine lang="fi" use="FI335A">Ilmoitetaan sijaintipaikka jossa tavarat ovat niiden esittämishetkellä.</DescriptionLine>
@@ -2214,6 +2243,7 @@
 					<Use>FI337A</Use>
 					<Use>FI338A</Use>
 					<XPath>Address</XPath>
+					<Group>Address</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<Condition>NC3006</Condition>
@@ -2286,12 +2316,13 @@
 				<Use>FI377A</Use>
 				<Use>FI378A</Use>
 				<XPath>HouseConsignment</XPath>
+				<Group>HouseConsignment</Group>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>99999</MaxOccurence>
 				<MaxOccurence use="FI334A">9999</MaxOccurence>
 				<MaxOccurence use="FI332A">9999</MaxOccurence>
-				<Condition use="FI332A">NC####</Condition>
-				<Condition use="FI334A">NC####</Condition>
+				<Condition use="FI332A">NCS001</Condition>
+				<Condition use="FI334A">NCS001</Condition>
 				<DescriptionLine lang="fi" use="FI335A">Ilmoitetaan lentoliikenteessä HAWB-tason yhteiset tiedot ja meriliikenteessä konossementin tai linerwaybill-tason yhteiset tiedot.</DescriptionLine>
 				<DescriptionLine lang="sv" use="FI335A">I flygtrafik anges gemensamma uppgifter på HAWB-nivå och i sjötrafik konossementets uppgifter eller gemensamma uppgifter på linerwaybill-nivå.</DescriptionLine>
 				<DescriptionLine lang="en" use="FI335A">In air traffic, enter the common details on the HAWB level and in sea traffic the bill of lading details or the common details on the liner waybill level.</DescriptionLine>
@@ -2354,6 +2385,7 @@
 					<Use>FI377A</Use>
 					<Use>FI378A</Use>
 					<XPath>Consignee</XPath>
+					<Group>Consignee</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<Condition>NC3008</Condition>
@@ -2435,6 +2467,7 @@
 						<Use>FI377A</Use>
 						<Use>FI378A</Use>
 						<XPath>Address</XPath>
+						<Group>Address</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<Condition>C0050</Condition>
@@ -2508,6 +2541,7 @@
 					<Use>FI377A</Use>
 					<Use>FI378A</Use>
 					<XPath>Consignor</XPath>
+					<Group>Consignor</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<Condition>NC3008</Condition>
@@ -2571,6 +2605,7 @@
 						<Use>FI377A</Use>
 						<Use>FI378A</Use>
 						<XPath>Address</XPath>
+						<Group>Address</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<Condition>C0050</Condition>
@@ -2644,6 +2679,7 @@
 					<Use>FI377A</Use>
 					<Use>FI378A</Use>
 					<XPath>NotifyParty</XPath>
+					<Group>NotifyParty</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<Condition>NC3008</Condition>
@@ -2728,6 +2764,7 @@
 						<Use>FI377A</Use>
 						<Use>FI378A</Use>
 						<XPath>Address</XPath>
+						<Group>Address</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<Condition>C0050</Condition>
@@ -2804,6 +2841,7 @@
 					<Use>FI377A</Use>
 					<Use>FI378A</Use>
 					<XPath>AdditionalInformation</XPath>
+					<Group>AdditionalInformation</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>99</MaxOccurence>
 					<DataElement>
@@ -2852,6 +2890,7 @@
 					<Use>FI337A</Use>
 					<Use>FI338A</Use>
 					<XPath>LoadingLocation</XPath>
+					<Group>LoadingLocation</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<Condition>NC3008</Condition>
@@ -2895,6 +2934,7 @@
 					<Use>FI377A</Use>
 					<Use>FI378A</Use>
 					<XPath>PassiveTransportMeans</XPath>
+					<Group>PassiveTransportMeans</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>999</MaxOccurence>
 					<Condition>NC3008</Condition>
@@ -2949,6 +2989,7 @@
 					<Use>FI377A</Use>
 					<Use>FI378A</Use>
 					<XPath>TransportEquipment</XPath>
+					<Group>TransportEquipment</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>9999</MaxOccurence>
 					<Condition>NC3010</Condition>
@@ -3000,6 +3041,7 @@
 						<Use>FI377A</Use>
 						<Use>FI378A</Use>
 						<XPath>Seal</XPath>
+						<Group>Seal</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>9999</MaxOccurence>
 						<DescriptionLine lang="fi" use="FI364A">Jos tietoon liittyy poikkeama, ilmoitetaan purettaessa havaittujen sinettien tiedot.</DescriptionLine>
@@ -3034,6 +3076,7 @@
 					<Use>FI377A</Use>
 					<Use>FI378A</Use>
 					<XPath>ConsignmentItem</XPath>
+					<Group>GoodsItem</Group>
 					<MinOccurence>1</MinOccurence>
 					<MaxOccurence>9999</MaxOccurence>
 					<DataElement>
@@ -3069,9 +3112,9 @@
 						<DescriptionLine lang="en" use="FI364A">Enter the goods item in the temporary storage declaration where the discrepancy was detected and for which the unloading report is submitted. If no goods have arrived, the warehouse keeper can request invalidation of the temporary storage declaration or the details of a particular goods item.</DescriptionLine>
 					</DataElement>
 					<DataElement>
-						<Name lang="fi">Unioniasema</Name>
-						<Name lang="sv">Unionsstatus</Name>
-						<Name lang="en">Union status</Name>
+						<Name lang="fi">Tullistatus</Name>
+						<Name lang="sv">Tullstatus</Name>
+						<Name lang="en">Customs status</Name>
 						<Use>FI335A</Use>
 						<Use>FI336A</Use>
 						<Use>FI337A</Use>
@@ -3079,7 +3122,7 @@
 						<XPath>GoodsStatus</XPath>
 						<MinOccurence>0</MinOccurence>
 						<Codelist>NCL###</Codelist>
-						<Condition>NC####</Condition>
+						<Condition>NCS002</Condition>
 						<Format>an..3</Format>
 					</DataElement>
 					<DataGroup>
@@ -3094,6 +3137,7 @@
 						<Use>FI377A</Use>
 						<Use>FI378A</Use>
 						<XPath>Commodity</XPath>
+						<Group>GoodsItem</Group>
 						<MinOccurence>1</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<DataElement>
@@ -3127,6 +3171,7 @@
 							<Use>FI377A</Use>
 							<Use>FI378A</Use>
 							<XPath>Classification</XPath>
+							<Group>GoodsItem</Group>
 							<MinOccurence>0</MinOccurence>
 							<MaxOccurence>1</MaxOccurence>
 							<Rule>NR0501</Rule>
@@ -3178,6 +3223,7 @@
 							<Use>FI377A</Use>
 							<Use>FI378A</Use>
 							<XPath>Classification</XPath>
+							<Group>GoodsItem</Group>
 							<MinOccurence>0</MinOccurence>
 							<MaxOccurence>1</MaxOccurence>
 							<Rule>NR0501</Rule>
@@ -3225,6 +3271,7 @@
 							<Use>FI377A</Use>
 							<Use>FI378A</Use>
 							<XPath>Classification</XPath>
+							<Group>GoodsItem</Group>
 							<MinOccurence>0</MinOccurence>
 							<MaxOccurence>1</MaxOccurence>
 							<DescriptionLine lang="fi">Jos nimike edellyttää Taricin mukaan CUS-koodia, se on ilmoitettava.</DescriptionLine>
@@ -3277,6 +3324,7 @@
 							<Use>FI377A</Use>
 							<Use>FI378A</Use>
 							<XPath>DangerousGoods</XPath>
+							<Group>DangerousGoods</Group>
 							<MinOccurence>0</MinOccurence>
 							<MaxOccurence>99</MaxOccurence>
 							<DataElement>
@@ -3311,6 +3359,7 @@
 						<Use>FI377A</Use>
 						<Use>FI378A</Use>
 						<XPath>Packaging</XPath>
+						<Group>Packaging</Group>
 						<MinOccurence>1</MinOccurence>
 						<MaxOccurence>99</MaxOccurence>
 						<Rule>NR0026</Rule>
@@ -3398,6 +3447,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 						<Use>FI377A</Use>
 						<Use>FI378A</Use>
 						<XPath>PassiveTransportMeans</XPath>
+						<Group>PassiveTransportMeans</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>999</MaxOccurence>
 						<Condition>NC3008</Condition>
@@ -3445,6 +3495,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 						<Use>FI377A</Use>
 						<Use>FI378A</Use>
 						<XPath>PreviousDocument</XPath>
+						<Group>PreviousDocument</Group>
 						<MinOccurence>0</MinOccurence>
 						<MinOccurence use="FI376A">1</MinOccurence>
 						<MinOccurence use="FI377A">1</MinOccurence>
@@ -3568,6 +3619,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 						<Use>FI377A</Use>
 						<Use>FI378A</Use>
 						<XPath>TransportEquipment</XPath>
+						<Group>TransportEquipment</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>9999</MaxOccurence>
 						<Condition>NC3010</Condition>
@@ -3619,6 +3671,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 							<Use>FI377A</Use>
 							<Use>FI378A</Use>
 							<XPath>Seal</XPath>
+							<Group>Seal</Group>
 							<MinOccurence>0</MinOccurence>
 							<MaxOccurence>9999</MaxOccurence>
 							<DescriptionLine lang="fi" use="FI364A">Jos tietoon liittyy poikkeama, ilmoitetaan purettaessa havaittujen sinettien tiedot.</DescriptionLine>
@@ -3654,6 +3707,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 					<Use>FI337A</Use>
 					<Use>FI338A</Use>
 					<XPath>PreviousDocument</XPath>
+					<Group>PreviousDocument</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<Condition>NC3015</Condition>
@@ -3700,8 +3754,11 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 					<Use>FI377A</Use>
 					<Use>FI378A</Use>
 					<XPath>TransportContractDocument</XPath>
+					<Group>TransportContractDocument</Group>
 					<MinOccurence>1</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
+					<Condition use="FI332A">NCS007</Condition>
+					<Condition use="FI334A">NCS007</Condition>
 					<DescriptionLine lang="fi" use="FI332A">Esitettävän erän kuljetusasiakirjat on ilmoitettava.</DescriptionLine>
 					<DescriptionLine lang="fi" use="FI334A">Esitettävän erän kuljetusasiakirjat on ilmoitettava.</DescriptionLine>
 					<DescriptionLine lang="sv" use="FI332A">Transportdokumenten för det leveransparti vars ankomst anmäls  ska anges.</DescriptionLine>
@@ -3771,6 +3828,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 					<Use>FI377A</Use>
 					<Use>FI378A</Use>
 					<XPath>UCR</XPath>
+					<Group>UCR</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
@@ -3801,6 +3859,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 				<Use>FI376A</Use>
 				<Use>FI379A</Use>
 				<XPath>PreviousDocument</XPath>
+				<Group>PreviousDocument</Group>
 				<MinOccurence>1</MinOccurence>
 				<MinOccurence use="FI334A">0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
@@ -3817,6 +3876,8 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 					<XPath>Type</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Codelist>CL014</Codelist>
+					<Rule use="FI332A">NR3508</Rule>
+					<Rule use="FI334A">NR3508</Rule>
 					<Format>an..3</Format>
 					<DescriptionLine lang="fi" use="FI332A">Ilmoitetaan saapumisen yleisilmoitus tai väliaikaisen varastoinnin ilmoitus.</DescriptionLine>
 					<DescriptionLine lang="sv" use="FI332A">Ange summarisk införseldeklaration eller deklaration för tillfällig lagring.</DescriptionLine>
@@ -3862,6 +3923,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 					<Use>FI379A</Use>
 					<XPath>Line</XPath>
 					<MinOccurence>0</MinOccurence>
+					<Condition use="FI332A">NCS006</Condition>
 					<Format>n..5</Format>
 					<DescriptionLine lang="fi">Ilmoita edeltävän asiakirjan MRN:än liittyvä tavaraerän järjestysnumero. Ei ilmoiteta postilähetyksistä.</DescriptionLine>
 					<DescriptionLine lang="sv">Ange det ordningsnummer för varuposten som hänför sig till det tidigare dokumentets MRN. Anmäls inteför postförsändelser.</DescriptionLine>
@@ -3901,6 +3963,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 				<Use>FI377A</Use>
 				<Use>FI378A</Use>
 				<XPath>TransportContractDocument</XPath>
+				<Group>TransportContractDocument</Group>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DescriptionLine lang="fi" use="FI335A">Master-tason kuljetusasiakirjan tiedot.</DescriptionLine>
@@ -3956,6 +4019,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 				<Use>FI377A</Use>
 				<Use>FI378A</Use>
 				<XPath>UCR</XPath>
+				<Group>UCR</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -3987,6 +4051,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 				<Use>FI377A</Use>
 				<Use>FI378A</Use>
 				<XPath>Warehouse</XPath>
+				<Group>Warehouse</Group>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<Condition use="FI335A">NC3016</Condition>
@@ -4040,6 +4105,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 			<Use>FI332A</Use>
 			<Use>FI334A</Use>
 			<XPath>GoodsLocation</XPath>
+			<Group>GoodsLocation</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
@@ -4161,6 +4227,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 				<Use>FI332A</Use>
 				<Use>FI334A</Use>
 				<XPath>Address</XPath>
+				<Group>Address</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<Condition>NC3006</Condition>
@@ -4217,6 +4284,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 			<Use>FI335A</Use>
 			<Use>FI336A</Use>
 			<XPath>PresentationOffice</XPath>
+			<Group>PresentationOffice</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
@@ -4241,6 +4309,7 @@ UCR tai viittaukset kuljetusasiakirjoissa jotka mahdollistavat lähetyksen kaikk
 			<Use>FI332A</Use>
 			<Use>FI334A</Use>
 			<XPath>Warehouse</XPath>
+			<Group>Warehouse</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<Condition>NC3007</Condition>
