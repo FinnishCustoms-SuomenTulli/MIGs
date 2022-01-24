@@ -407,7 +407,6 @@
 				<Name lang="en">Time limit</Name>
 				<Use>FI530A</Use>
 				<Use>FI544A</Use>
-				<Use>FI551A</Use>
 				<Use>FI552A</Use>
 				<XPath>Limit</XPath>
 				<MinOccurence>0</MinOccurence>
@@ -420,7 +419,6 @@
 				<Name lang="en">Time limit type</Name>
 				<Use>FI530A</Use>
 				<Use>FI544A</Use>
-				<Use>FI551A</Use>
 				<Use>FI552A</Use>
 				<XPath>Limit@LimitType</XPath>
 				<MinOccurence>0</MinOccurence>
@@ -437,6 +435,7 @@
 				<Use>FI522A</Use>
 				<Use>FI529A</Use>
 				<Use>FI530A</Use>
+				<Use>FI544A</Use>
 				<Use>FI548A</Use>
 				<Use>FI550A</Use>
 				<Use>FI551A</Use>
@@ -456,6 +455,7 @@
 					<Use>FI505A</Use>
 					<Use>FI510A</Use>
 					<Use>FI529A</Use>
+					<Use>FI544A</Use>
 					<Use>FI548A</Use>
 					<Use>FI551A</Use>
 					<Use>FI599A</Use>
@@ -474,6 +474,7 @@
 					<Use>FI522A</Use>
 					<Use>FI529A</Use>
 					<Use>FI530A</Use>
+					<Use>FI544A</Use>
 					<Use>FI548A</Use>
 					<Use>FI550A</Use>
 					<Use>FI551A</Use>
@@ -494,6 +495,7 @@
 						<Use>FI522A</Use>
 						<Use>FI529A</Use>
 						<Use>FI530A</Use>
+						<Use>FI544A</Use>
 						<Use>FI548A</Use>
 						<Use>FI550A</Use>
 						<Use>FI551A</Use>
@@ -515,6 +517,7 @@
 						<Use>FI522A</Use>
 						<Use>FI529A</Use>
 						<Use>FI530A</Use>
+						<Use>FI544A</Use>
 						<Use>FI548A</Use>
 						<Use>FI550A</Use>
 						<Use>FI551A</Use>
@@ -1561,7 +1564,7 @@
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
-				<Name lang="fi">Liiketoimen luonne</Name>
+				<Name lang="fi">Liiketoiminnan luonne</Name>
 				<Name lang="sv">Typ av transaktion</Name>
 				<Name lang="en">Nature of transaction</Name>
 				<Use>FI503A</Use>
@@ -2160,6 +2163,18 @@
 						<Format>a1</Format>
 					</DataElement>
 					<DataElement>
+						<Name lang="fi">Tullitoimipaikka</Name>
+						<Name lang="sv">Tullkontor</Name>
+						<Name lang="en">Customs office</Name>
+						<Use>FI503A</Use>
+						<Use>FI529A</Use>
+						<Use>FI599A</Use>
+						<XPath>Identification@function="CustomsOffice"</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Codelist>CL141</Codelist>
+						<Format>an8</Format>
+					</DataElement>
+					<DataElement>
 						<Name lang="fi">Talouden toimija</Name>
 						<Name lang="sv">Ekonomisk aktör</Name>
 						<Name lang="en">Economic operator</Name>
@@ -2169,6 +2184,17 @@
 						<XPath>Identification@function="EO"</XPath>
 						<MinOccurence>0</MinOccurence>
 						<Format>an..17</Format>
+					</DataElement>
+					<DataElement>
+						<Name lang="fi">Luvan numero</Name>
+						<Name lang="sv">Tillståndsnummer</Name>
+						<Name lang="en">Authorisation number</Name>
+						<Use>FI503A</Use>
+						<Use>FI529A</Use>
+						<Use>FI599A</Use>
+						<XPath>Identification@function="Authorisation"</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>an..35</Format>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Lisätunniste</Name>
@@ -2181,6 +2207,64 @@
 						<MinOccurence>0</MinOccurence>
 						<Format>an..4</Format>
 					</DataElement>
+					<DataElement>
+						<Name lang="fi">UN/LOCODE</Name>
+						<Name lang="sv">UN/LOCODE</Name>
+						<Name lang="en">UN/LOCODE</Name>
+						<Use>FI503A</Use>
+						<Use>FI529A</Use>
+						<Use>FI599A</Use>
+						<XPath>UNLOCODE</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Codelist>CL244</Codelist>
+						<Format>an..17</Format>
+						<Hyperlink lang="fi">
+							<URL>https://www.unece.org/cefact/locode/service/location.html</URL>
+							<Description>UN/LOCODE-koodisto (englanniksi)</Description>
+						</Hyperlink>
+						<Hyperlink lang="sv">
+							<URL>https://www.unece.org/cefact/locode/service/location.html</URL>
+							<Description>UN/LOCODE-kodförteckning (på engelska)</Description>
+						</Hyperlink>
+						<Hyperlink lang="en">
+							<URL>https://www.unece.org/cefact/locode/service/location.html</URL>
+							<Description>UN/LOCODE codelist</Description>
+						</Hyperlink>
+					</DataElement>
+					<DataGroup>
+						<Name lang="fi">GNSS</Name>
+						<Name lang="sv">GNSS</Name>
+						<Name lang="en">GNSS</Name>
+						<Use>FI503A</Use>
+						<Use>FI529A</Use>
+						<Use>FI599A</Use>
+						<XPath>GNSS</XPath>
+						<Group>Location</Group>
+						<MinOccurence>0</MinOccurence>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Leveysaste</Name>
+							<Name lang="sv">Latitud</Name>
+							<Name lang="en">Latitude</Name>
+							<Use>FI503A</Use>
+							<Use>FI529A</Use>
+							<Use>FI599A</Use>
+							<XPath>Latitude</XPath>
+							<MinOccurence>1</MinOccurence>
+							<Format>an..17</Format>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Pituusaste</Name>
+							<Name lang="sv">Longitud</Name>
+							<Name lang="en">Longitude</Name>
+							<Use>FI503A</Use>
+							<Use>FI529A</Use>
+							<Use>FI599A</Use>
+							<XPath>Longitude</XPath>
+							<MinOccurence>1</MinOccurence>
+							<Format>an..17</Format>
+						</DataElement>
+					</DataGroup>
 					<DataGroup>
 						<Name lang="fi">Osoite</Name>
 						<Name lang="sv">Adress</Name>
@@ -2235,6 +2319,53 @@
 							<XPath>Country</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Codelist>CL008</Codelist>
+							<Format>a2</Format>
+						</DataElement>
+					</DataGroup>
+					<DataGroup>
+						<Name lang="fi">Postinumero-osoite</Name>
+						<Name lang="sv">Postnummeradress</Name>
+						<Name lang="en">Postcode address</Name>
+						<Use>FI503A</Use>
+						<Use>FI529A</Use>
+						<Use>FI599A</Use>
+						<XPath>PostcodeAddress</XPath>
+						<Group>Address</Group>
+						<MinOccurence>0</MinOccurence>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Rakennuksen numero</Name>
+							<Name lang="sv">Byggnadens nummer</Name>
+							<Name lang="en">House number</Name>
+							<Use>FI503A</Use>
+							<Use>FI529A</Use>
+							<Use>FI599A</Use>
+							<XPath>Line</XPath>
+							<MinOccurence>1</MinOccurence>
+							<Condition>C0382</Condition>
+							<Format>an..17</Format>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Postinumero</Name>
+							<Name lang="sv">Postnummer</Name>
+							<Name lang="en">Postcode</Name>
+							<Use>FI503A</Use>
+							<Use>FI529A</Use>
+							<Use>FI599A</Use>
+							<XPath>Postcode</XPath>
+							<MinOccurence>1</MinOccurence>
+							<Format>an..17</Format>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Maa</Name>
+							<Name lang="sv">Land</Name>
+							<Name lang="en">Country</Name>
+							<Use>FI503A</Use>
+							<Use>FI529A</Use>
+							<Use>FI599A</Use>
+							<XPath>Country</XPath>
+							<MinOccurence>1</MinOccurence>
+							<Codelist>CL190</Codelist>
 							<Format>a2</Format>
 						</DataElement>
 					</DataGroup>
