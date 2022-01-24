@@ -1,127 +1,70 @@
 ﻿graph Import2 {
    node [shape=plaintext, fontname = "helvetica"];
 	edge [fontname = "helvetica"];
-	{rank=same "Warehouse" "Notification" "Amendment"}
-	{rank=same "TotalTax" "TotalPayableTax" "TaxCalculation" "Payment" "Banking"}
-	"ImportOperation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Importhändelse</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">MRN<br align="left"/>LRN<br align="left"/>Ytterligare LRN<br align="left"/>Typ av deklaration<br align="left"/>Typ av tilläggsdeklaration<br align="left"/>Datum för skattebestämning<br align="left"/>Bruttovikt<br align="left"/>Språkkod<br align="left"/></td></tr></table>>];
-	"GoodsShipment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varuförsändelse</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Typ av transaktion<br align="left"/>Kod för destinationsland<br align="left"/>Kod för avsändnings-/exportland<br align="left"/></td></tr></table>>];
-	"Consignment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Leveransparti  </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Container</td></tr></table>>];
-	"GoodsItem" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varupost</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Varupostnummer<br align="left"/>Statistiskt värde<br align="left"/>Värde<br align="left"/>Värde, valutaslag<br align="left"/>Transportkostnaderna till slutdestinationen<br align="left"/>Transportkostnaderna till slutdestinationen, valutaslag<br align="left"/>Värderingsindikatorer<br align="left"/>Varubeskrivning<br align="left"/>Varukod - HS-nummer<br align="left"/>Varukod - KN-nummer<br align="left"/>Varukod - Taric-nummer<br align="left"/>CUS-kod<br align="left"/>Värderingsmetod för tullvärdering<br align="left"/>Bruttovikt<br align="left"/>Nettovikt<br align="left"/>Extra mängenheter<br align="left"/>Kod för begärt förfarande<br align="left"/>Kod för göregående förfarande<br align="left"/>Ursprungsland<br align="left"/>Förmånsursprungsland<br align="left"/></td></tr></table>>];
-	"TotalTax" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Skatt totalt</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Skattetyp<br align="left"/>Skattebelopp<br align="left"/></td></tr></table>>];
-	"TotalPayableTax" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Betalbar skatt totalt   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Skattetyp<br align="left"/>Skattebelopp<br align="left"/></td></tr></table>>];
-	"TaxCalculation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Skattberäkning  </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Skattetyp<br align="left"/>Skattebelopp<br align="left"/></td></tr></table>>];
-	"Payment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Betalning</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Totalt betalningsbelopp<br align="left"/>Betalningsreferens<br align="left"/>Förfallodag<br align="left"/></td></tr></table>>];
-	"PaymentDetails" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Betalningsinformation   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Part ansvarig för betalning<br align="left"/>Ansökt belopp<br align="left"/>Liten återbetalning<br align="left"/>Betalningssätt<br align="left"/>Kontonummer<br align="left"/>Bankidentifiering<br align="left"/>Kontoinnehavarens namn<br align="left"/></td></tr></table>>];
-	"Banking" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Bankuppgifter </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Kontonummer<br align="left"/>Bankidentifiering<br align="left"/></td></tr></table>>];
-	"DutyTaxFee" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tull, skatt och avgift    </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Förmån<br align="left"/>Kvotens löpnummer<br align="left"/>Skattetyp<br align="left"/>Skattesats<br align="left"/>Skattestas, enhet<br align="left"/>Skattebelopp<br align="left"/></td></tr></table>>];
-	"TaxCalculationQuantity" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Skatteberäkningsmängd   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Kvantitet<br align="left"/>Mängdenhet och kvalificerare<br align="left"/></td></tr></table>>];
-	"Adjustment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Justering</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Kod<br align="left"/>Värde<br align="left"/>Värde, valutaslag<br align="left"/></td></tr></table>>];
-	"GoodsLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varornas förvaringsplats   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Typ av förvaringsplats<br align="left"/>Ekonomisk aktör<br align="left"/>Tillståndets nummer<br align="left"/>Tilläggsidentifiering<br align="left"/></td></tr></table>>];
-	"UnloadingLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varornas förvaringsplats när deklarationen inges      </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left"></td></tr></table>>];
-	"TradeTerm" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Leveransvillkor   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">INCOTERM-kod<br align="left"/>UN/LOCODE<br align="left"/>Platsens namn<br align="left"/>Land<br align="left"/></td></tr></table>>];
-	"UCR" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Referensnummer/UCR  </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Referensnummer/UCR</td></tr></table>>];
-	"AdditionalProcedure" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare förfarande</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Kod för ytterligare förfarande</td></tr></table>>];
-	"TARICAdditional" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varukod - Taric-tilläggsnummer    </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Varukod - Taric-tilläggsnummer</td></tr></table>>];
-	"NationalAdditional" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varukod - nationellt/nationella tilläggsnummer       </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Varukod - nationellt tilläggsnummer</td></tr></table>>];
-	"Packaging" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Förpackningar </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Märken<br align="left"/>Antal kollin<br align="left"/>Kollislag<br align="left"/></td></tr></table>>];
-	"SupportingDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Bifogat dokument</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Typ av dokument<br align="left"/>Identifierare för dokument<br align="left"/>Utfärdande myndighetens namn<br align="left"/>Kvantitet<br align="left"/>Mängdenhet och kvalificerare<br align="left"/>Värde<br align="left"/>Värde, valutaslag<br align="left"/>Dokumentradens artikelnummer<br align="left"/>Bilagans referens<br align="left"/></td></tr></table>>];
-	"AdditionalReference" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare referens   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Kod</td></tr></table>>];
-	"PreviousDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tidigare dokument</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Tidigare dokumentets typ<br align="left"/>Referens för tidigare dokument<br align="left"/>Varupostidentifierare<br align="left"/>Referens för transportdokument<br align="left"/></td></tr></table>>];
-	"AdditionalInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare uppgifter</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Kod för ytterligare uppgifter<br align="left"/>Beskrivning av ytterligare uppgifter<br align="left"/></td></tr></table>>];
-	"Warehouse" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Identifiering av lager   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Lagerkod<br align="left"/>Lagetyp<br align="left"/>Namn<br align="left"/></td></tr></table>>];
-
-	"AdditionalSupplyChainActor" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare aktör i leveranskedjan   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Rollkod<br align="left"/></td></tr></table>>];
-	"AdditionalFiscalReference" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare skatterelaterad referensuppgift      </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Rollkod<br align="left"/></td></tr></table>>];
-	"Buyer" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Köpare</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/></td></tr></table>>];
-	"Debtor" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Gäldenär  </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Namn</td></tr></table>>];
-	"Declarant" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Deklarant</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/>Natur<br align="left"/></td></tr></table>>];
-	"Exporter" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Exportör</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/></td></tr></table>>];
-	"Importer" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Importör</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/>Natur<br align="left"/></td></tr></table>>];
-	"Representative" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ombud</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Kod för ombudets status<br align="left"/>Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/>Natur<br align="left"/></td></tr></table>>];
-	"Seller" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Försäljare</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/></td></tr></table>>];
-	"ServiceProvider" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tjänsteleverantör</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer</td></tr></table>>];
-	"MessageSender" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Meddelandets avsändare   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer</td></tr></table>>];
-	"Submitter" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Person som inger deklarationen    </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Namn<br align="left"/>E-postadress<br align="left"/>Telefonnummer<br align="left"/></td></tr></table>>];
-
-	"Address" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Adress</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Gatuadress<br align="left"/>Postanstalt<br align="left"/>Postnummer<br align="left"/>Land<br align="left"/></td></tr></table>>];
-
-	"ArrivalTransportMeans" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportmedlet vid ankomsten    </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Transportsätt inrikes<br align="left"/>Identifieringsnummer<br align="left"/>Typ av identifiering<br align="left"/></td></tr></table>>];
-	"BorderTransportMeans" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Aktiva transportmedlet vid gränspassagen     </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Transportsätt vid gränspassagen<br align="left"/>Nationalitet<br align="left"/></td></tr></table>>];
-	"TransportEquipment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportutrustning   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Containernummer</td></tr></table>>];
-
-	"Amendment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Korrigering</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Ändringens typ<br align="left"/>Korrigeringens datum och tid<br align="left"/>Orsak till korrigeringsbegäran<br align="left"/>Begärans korrelations<br align="left"/></td></tr></table>>];
-	"Notification" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Underrättelse</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Underrättelsens typ<br align="left"/>Underrättelsens datum och tid<br align="left"/>Underrättelsens beskrivning<br align="left"/>Orsak till ogiltigförklaring<br align="left"/>Anledning till kontakt<br align="left"/>Orsak till korrigering<br align="left"/>Sammanhörande varupost<br align="left"/>Begärans korrelation<br align="left"/>Tidsgräns<br align="left"/>Tidsgränsens typ<br align="left"/>Ersättande MRN<br align="left"/></td></tr></table>>];
-	"Error" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Fel</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Felkod<br align="left"/>Felorsak<br align="left"/>Felbeskrivning<br align="left"/>Felpointer<br align="left"/>Ursprungligt attributvärde<br align="left"/></td></tr></table>>];
-	"ProvidedInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Inlämnad information   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Beskrivning<br align="left"/>Bilagans referens<br align="left"/></td></tr></table>>];
-	"ContactInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontaktuppgifter   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Namn<br align="left"/>E-postadress<br align="left"/>Telefonnummer<br align="left"/></td></tr></table>>];
-	"Control" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontroll</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Kontrolltyp<br align="left"/>Kontrollplats<br align="left"/>Uppskattad tid för kontroll<br align="left"/>Varupostnummer<br align="left"/></td></tr></table>>];
-	"Movement" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Befordran</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Befordrans plats<br align="left"/></td></tr></table>>];
-	"Decision" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Beslut</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Beslutets datum och tid</td></tr></table>>];
-	"Note" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Anteckning</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Anteckningens typ<br align="left"/>Anteckningens text<br align="left"/></td></tr></table>>];
-
-	"ImportOperation" -- "GoodsShipment" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "Applicant" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "Debtor" [headlabel="0..1", taillabel="1" fontsize=10]
+	{rank=same "TotalTax" "TotalPayableTax" "TaxCalculation" "Payment" "Bank" "PaymentDetails"}
+	"ImportOperation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Importhändelse</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Händelsens identifierare<br align="left"/>MRN<br align="left"/>LRN<br align="left"/>Ytterligare LRN<br align="left"/>Typ av deklaration<br align="left"/>Ytterligare typ av deklaration<br align="left"/>Fakturerat totalbelopp<br align="left"/>Fakturerat totalbelopp, valutaslag<br align="left"/>Bruttovikt<br align="left"/>Språkkod<br align="left"/>Datum för skattebestämning<br align="left"/>Skatter uppburna<br align="left"/></td></tr></table>>];
+	"Amendment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Korrigering</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Typ av ändring<br align="left"/>Datum och tid för korrigeringen<br align="left"/>Beskrivning av orsaken till korrigeringsbegäran<br align="left"/>Begärans korrelation<br align="left"/></td></tr></table>>];
+	"ProvidedInfo" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Inlämnad information</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Beskrivning<br align="left"/>Bilagans referens<br align="left"/></td></tr></table>>];
+	"Notification" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Underrättelse</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Datum och tid för underrättelsen<br align="left"/>Svarskod<br align="left"/>Beskrivning av underrättelsen<br align="left"/>Orsak till kontakt<br align="left"/>Orsak till ogiltigförklaring<br align="left"/>Orsak till korrigering<br align="left"/>Sammanhörande varupost<br align="left"/>Begärans korrelation<br align="left"/>Tidsfrist<br align="left"/>Typ av tidsfrist<br align="left"/>Ersättande MRN<br align="left"/>Typ av underrättelse<br align="left"/>Datum för skattebestämning<br align="left"/>Belopp som ska täckas<br align="left"/>Del av deklarationen<br align="left"/>Nuvarande status<br align="left"/>Orsak till statusändring<br align="left"/></td></tr></table>>];
+	"PaymentDetails" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Betalningsinformation</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Part ansvarig för betalning<br align="left"/>Ansökt belopp<br align="left"/>Liten återbetalning<br align="left"/>Betalningssätt<br align="left"/>Kontonummer<br align="left"/>Bankidentifiering<br align="left"/>Kontoinnehavarens namn<br align="left"/></td></tr></table>>];
+	"Address" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Adress</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Gatuadress<br align="left"/>Postanstalt<br align="left"/>Postnummer<br align="left"/>Land<br align="left"/></td></tr></table>>];
+	"Agent" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ombud</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Kod för ombuds status<br align="left"/>Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/>Natur<br align="left"/></td></tr></table>>];
+	"Applicant" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ändringssökande</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/>Natur<br align="left"/></td></tr></table>>];
+	"Declarant" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Deklarant</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/>Natur<br align="left"/></td></tr></table>>];
+	"Exporter" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Exportör</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/></td></tr></table>>];
+	"ServiceProvider" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tjänsteleverantör</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/></td></tr></table>>];
+	"Submitter" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Person som inger deklarationen</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Namn<br align="left"/>E-postadress<br align="left"/>Telefonnummer<br align="left"/>Identifieringsnummer<br align="left"/>Name<br align="left"/></td></tr></table>>];
+	"SupportingDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Bifogat dokument</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Typ av dokument<br align="left"/>Dokumentets identifierare<br align="left"/>Bilagans referens<br align="left"/>Utfärdande myndighets namn<br align="left"/>Kvantitet<br align="left"/>Mängdenhet och kvalificerare<br align="left"/>Värde<br align="left"/>Värde, valutaslag<br align="left"/>Varupostnummer i dokumentraden<br align="left"/></td></tr></table>>];
+	"Authorisation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tillstånd</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Typ av tillstånd<br align="left"/>Dokumentets identifierare<br align="left"/>Tillståndshavarens identifieringsnummer<br align="left"/></td></tr></table>>];
+	"AdditionalInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare uppgifter</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Kod för ytterligare uppgifter<br align="left"/>Beskrivning av ytterligare uppgifter<br align="left"/></td></tr></table>>];
+	"DutyTaxFee" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tull, skatt och avgift</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Datum för skattebestämning<br align="left"/>Förmån<br align="left"/>Kvotens löpnummer<br align="left"/>Skattetyp<br align="left"/>Skattesats<br align="left"/>Skattesats, enhet<br align="left"/>Skattebelopp<br align="left"/></td></tr></table>>];
+	"BorderTransportMeans" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Aktivt transportmedel vid gränspassagen</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Transportsätt vid gränsen<br align="left"/>Nationalitet<br align="left"/></td></tr></table>>];
+	"PreviousDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tidigare dokument</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Typ av tidigare dokument<br align="left"/>Referens för tidigare dokument<br align="left"/>Varupostidentifierare<br align="left"/>Referens till transportdokument<br align="left"/></td></tr></table>>];
+	"Consignment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Leveransparti</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Container<br align="left"/></td></tr></table>>];
+	"Warehouse" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Identifiering av lager</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Lagerkod<br align="left"/>Typ av lager<br align="left"/>Namn<br align="left"/></td></tr></table>>];
+	"GoodsShipment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varuförsändelse</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Typ av transaktion<br align="left"/>Kod för destinationsland<br align="left"/>Kod för avsändnings-/exportland<br align="left"/>Typ av transaktionen<br align="left"/></td></tr></table>>];
+	"AEOMutualRecognitionParty" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare aktör i leveranskedjan</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Rollkod<br align="left"/></td></tr></table>>];
+	"Buyer" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Köpare</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/></td></tr></table>>];
+	"DomesticDutyTaxParty" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare skatterelaterad referensuppgift</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Rollkod<br align="left"/></td></tr></table>>];
+	"Importer" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Importör</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/>Natur<br align="left"/></td></tr></table>>];
+	"Seller" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Försäljare</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/></td></tr></table>>];
+	"ArrivalTransportMeans" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportmedlet vid ankomsten</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Transportsätt inrikes<br align="left"/>Identifieringsnummer<br align="left"/>Typ av identifiering<br align="left"/></td></tr></table>>];
+	"TransportEquipment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportutrustning</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Containernummer<br align="left"/></td></tr></table>>];
+	"GoodsLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varornas förvaringsplats</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Typ av förvaringsplats<br align="left"/>Tullkontor<br align="left"/>Ekonomisk aktör<br align="left"/>Tillståndsnummer<br align="left"/>Tilläggskod<br align="left"/></td></tr></table>>];
+	"UnloadingLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varornas förvaringsplats när deklarationen inges</b></font></td></tr><tr><td bgcolor="#fafafa" align="left"></td></tr></table>>];
+	"TradeTerms" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Leveransvillkor</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">INCOTERM-kod<br align="left"/>UN/LOCODE<br align="left"/>Platsens namn<br align="left"/>Land<br align="left"/></td></tr></table>>];
+	"UCR" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Referensnummer/UCR</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Referensnummer/UCR<br align="left"/></td></tr></table>>];
+	"GoodsItem" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varupost</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Varupostnummer<br align="left"/>Statistiskt värde<br align="left"/>Värde<br align="left"/>Värde, valutaslag<br align="left"/>Värderingsindikatorer<br align="left"/>Varubeskrivning<br align="left"/>Fakturerat belopp<br align="left"/>Fakturerat belopp, valutaslag<br align="left"/>Varukod – HS-nummer<br align="left"/>Varukod – KN-nummer<br align="left"/>Varukod – Taric-nummer<br align="left"/>CUS-kod<br align="left"/>Värderingsmetod<br align="left"/>Transportkostnaderna till slutdestinationen<br align="left"/>Transportkostnaderna till slutdestinationen, valutaslag<br align="left"/>Bruttovikt<br align="left"/>Nettovikt<br align="left"/>Extra mängdenheter<br align="left"/>Kod för begärt förfarande<br align="left"/>Kod för föregående förfarande<br align="left"/>Kod för ursprungsland<br align="left"/>Kod för förmånsursprungsland<br align="left"/></td></tr></table>>];
+	"TaricAdditional" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varukod – Taric-tilläggsnummer</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Varukod – Taric-tilläggsnummer<br align="left"/></td></tr></table>>];
+	"NationalAdditional" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varukod – nationellt/nationella tilläggsnummer</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Varukod – nationellt tilläggsnummer<br align="left"/></td></tr></table>>];
+	"SpecificTaxBase" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Skatteberäkningsmängd</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Kvantitet<br align="left"/>Mängdenhet och kvalificerare<br align="left"/></td></tr></table>>];
+	"ChargeDeduction" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Justering</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Kod<br align="left"/>Värde<br align="left"/>Värde, valutaslag<br align="left"/></td></tr></table>>];
+	"AdditionalProcedure" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare förfarande</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Kod för ytterligare förfarande<br align="left"/></td></tr></table>>];
+	"Packaging" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Förpackningar</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Märken<br align="left"/>Antal kollin<br align="left"/>Kollislag<br align="left"/></td></tr></table>>];
+	"Decision" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Beslut</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Beslutets datum och tid<br align="left"/></td></tr></table>>];
+	"Note" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Anmärkning</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Typ av anmärkning<br align="left"/>Anmärkningens text<br align="left"/></td></tr></table>>];
+	"Control" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontroll</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Kontrolltyp<br align="left"/>Kontrollplats<br align="left"/>Tilläggsuppgifter om kontroll<br align="left"/>Uppskattad tid för kontroll<br align="left"/>Varupostnummer<br align="left"/></td></tr></table>>];
+	"Contact" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontaktuppgifter</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Tullkontorets namn<br align="left"/>E-postadress<br align="left"/>Telefonnummer<br align="left"/>Namn<br align="left"/></td></tr></table>>];
+	"Movement" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Befordran</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Befordrans plats<br align="left"/></td></tr></table>>];
+	"Error" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Fel</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Felkod<br align="left"/>Felorsak<br align="left"/>Felets förklaring<br align="left"/>Felpekare<br align="left"/>Ursprungligt attributvärde<br align="left"/></td></tr></table>>];
+	"Debtor" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Gäldenär</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Namn<br align="left"/></td></tr></table>>];
+	"TotalTax" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Skatt totalt</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Skattetyp<br align="left"/>Skattebelopp<br align="left"/></td></tr></table>>];
+	"TaxCalculation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Skattberäkning</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Skattetyp<br align="left"/>Skattebelopp<br align="left"/></td></tr></table>>];
+	"TotalPayableTax" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Betalbar skatt totalt</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Skattetyp<br align="left"/>Skattebelopp<br align="left"/></td></tr></table>>];
+	"Payment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Betalning</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Totalt betalningsbelopp<br align="left"/>Betalningsreferens<br align="left"/>Förfallodag<br align="left"/></td></tr></table>>];
+	"Bank" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Bankuppgifter</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Kontonummer<br align="left"/>Bankidentifiering<br align="left"/></td></tr></table>>];
+	"AdditionalReference" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare referens</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Kod<br align="left"/></td></tr></table>>];
 	"ImportOperation" -- "Declarant" [headlabel="0..1", taillabel="1" fontsize=10]
 	"ImportOperation" -- "Exporter" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "Representative" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Agent" [headlabel="0..1", taillabel="1" fontsize=10]
 	"ImportOperation" -- "ServiceProvider" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "MessageSender" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Debtor" [headlabel="0..1", taillabel="1" fontsize=10]
 	"ImportOperation" -- "Submitter" [headlabel="0..1", taillabel="1" fontsize=10]
 	"ImportOperation" -- "BorderTransportMeans" [headlabel="0..1", taillabel="1" fontsize=10]
 	"ImportOperation" -- "Consignment" [headlabel="0..1", taillabel="1" fontsize=10]
 	"ImportOperation" -- "SupportingDocument" [headlabel="0..99", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Authorisation" [headlabel="0..9", taillabel="1" fontsize=10]
+	"ImportOperation" -- "PreviousDocument" [headlabel="0..9999", taillabel="1" fontsize=10]
 	"ImportOperation" -- "AdditionalInformation" [headlabel="0..99", taillabel="1" fontsize=10]
 	"ImportOperation" -- "Amendment" [headlabel="0..1", taillabel="1" fontsize=10]
 	"ImportOperation" -- "Notification" [headlabel="1", taillabel="1" fontsize=10]
@@ -129,25 +72,26 @@
 	"ImportOperation" -- "TotalPayableTax" [headlabel="0..99", taillabel="1" fontsize=10]
 	"ImportOperation" -- "TaxCalculation" [headlabel="0..99", taillabel="1" fontsize=10]
 	"ImportOperation" -- "Payment" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "PaymentDetails" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "Banking" [headlabel="0..3", taillabel="1" fontsize=10]
-	"Notification" -- "ContactInformation" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Control" -- "ContactInformation" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Notification" -- "PaymentDetails" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Amendment" -- "PaymentDetails" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Bank" [headlabel="0..3", taillabel="1" fontsize=10]
+	"Notification" -- "Contact" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Control" -- "Contact" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Notification" -- "Control" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Notification" -- "Movement" [headlabel="0..2", taillabel="1" fontsize=10]
+	"Notification" -- "Movement" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Notification" -- "Decision" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Notification" -- "ProvidedInformation" [headlabel="0..999", taillabel="1" fontsize=10]
+	"Notification" -- "ProvidedInfo" [headlabel="0..999", taillabel="1" fontsize=10]
 	"Notification" -- "Error" [headlabel="0..999", taillabel="1" fontsize=10]
 	"Decision" -- "Note" [headlabel="0..999", taillabel="1" fontsize=10]
 	"GoodsShipment" -- "Consignment" [headlabel="0..1", taillabel="1" fontsize=10]
 	"GoodsShipment" -- "GoodsItem" [headlabel="1..99999", taillabel="1" fontsize=10]
 	"GoodsShipment" -- "UCR" [headlabel="0..1", taillabel="1" fontsize=10]
-	"GoodsShipment" -- "AdditionalSupplyChainActor" [headlabel="0..99", taillabel="1" fontsize=10]
+	"GoodsShipment" -- "AEOMutualRecognitionParty" [headlabel="0..99", taillabel="1" fontsize=10]
 	"GoodsShipment" -- "Buyer" [headlabel="0..1", taillabel="1" fontsize=10]
-	"GoodsShipment" -- "AdditionalFiscalReference" [headlabel="0..99", taillabel="1" fontsize=10]
+	"GoodsShipment" -- "DomesticDutyTaxParty" [headlabel="0..99", taillabel="1" fontsize=10]
 	"GoodsShipment" -- "Importer" [headlabel="0..1", taillabel="1" fontsize=10]
 	"GoodsShipment" -- "Seller" [headlabel="0..1", taillabel="1" fontsize=10]
-	"GoodsShipment" -- "TradeTerm" [headlabel="0..1", taillabel="1" fontsize=10]
+	"GoodsShipment" -- "TradeTerms" [headlabel="0..1", taillabel="1" fontsize=10]
 	"GoodsShipment" -- "Warehouse" [headlabel="1", taillabel="1" fontsize=10]
 	"TransportEquipment" -- "GoodsItem" [headlabel="1", taillabel="0..9999" fontsize=10]
 	"SupportingDocument" -- "GoodsItem" [headlabel="1", taillabel="0..99" fontsize=10]
@@ -155,12 +99,12 @@
 	"AdditionalInformation" -- "GoodsItem" [headlabel="1", taillabel="0..99" fontsize=10]
 	"PreviousDocument" -- "GoodsItem" [headlabel="1", taillabel="0..99" fontsize=10]
 	"GoodsItem" -- "AdditionalProcedure" [headlabel="1..99", taillabel="1" fontsize=10]
-	"GoodsItem" -- "TARICAdditional" [headlabel="0..99", taillabel="1" fontsize=10]
+	"GoodsItem" -- "TaricAdditional" [headlabel="0..99", taillabel="1" fontsize=10]
 	"GoodsItem" -- "NationalAdditional" [headlabel="0..99", taillabel="1" fontsize=10]
 	"GoodsItem" -- "Packaging" [headlabel="1..99", taillabel="1" fontsize=10]
 	"GoodsItem" -- "DutyTaxFee" [headlabel="1", taillabel="0..99" fontsize=10]
-	"DutyTaxFee" -- "TaxCalculationQuantity" [headlabel="0..99", taillabel="1" fontsize=10]
-	"GoodsItem" -- "Adjustment" [headlabel="0..99", taillabel="1" fontsize=10]
+	"DutyTaxFee" -- "SpecificTaxBase" [headlabel="0..99", taillabel="1" fontsize=10]
+	"GoodsItem" -- "ChargeDeduction" [headlabel="0..99", taillabel="1" fontsize=10]
 	"UCR" -- "GoodsItem" [headlabel="1", taillabel="0..1" fontsize=10]
 	"Consignment" -- "GoodsLocation" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Consignment" -- "UnloadingLocation" [headlabel="0..1", taillabel="1" fontsize=10]
@@ -174,7 +118,7 @@
 	"GoodsLocation" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Importer" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
 	"PaymentDetails" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Representative" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Agent" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
 	"Seller" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
 	"UnloadingLocation" -- "Address" [headlabel="1", taillabel="1" fontsize=10]
 	"Warehouse" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
@@ -182,5 +126,4 @@
 	// Adjust the layout, not real connections
 	"ServiceProvider" -- "GoodsShipment" [style=invis]
 	"Notification" -- "Consignment" [style=invis]
-	"Representative" -- "TaxCalculation" [style=invis]
 }

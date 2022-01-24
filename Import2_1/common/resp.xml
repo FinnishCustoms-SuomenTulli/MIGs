@@ -25,11 +25,12 @@
 		<Use>FI470B</Use>
 		<Use>FI905B</Use>
 		<XPath/>
+		<Group>ImportOperation</Group>
 		<MinOccurence>1</MinOccurence>
 		<MaxOccurence>1</MaxOccurence>
 		<DataElement>
 			<Name lang="fi">Tapahtuman tunniste</Name>
-			<Name lang="sv">Händelsens identifiering</Name>
+			<Name lang="sv">Händelsens identifierare</Name>
 			<Name lang="en">Case identification</Name>
 			<Use>FI403B</Use>
 			<Use>FI405B</Use>
@@ -145,7 +146,7 @@
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">Lisäilmoitustyyppi</Name>
-			<Name lang="sv">Typ av tilläggsdeklaration</Name>
+			<Name lang="sv">Ytterligare typ av deklaration</Name>
 			<Name lang="en">Additional declaration type</Name>
 			<Use>FI403B</Use>
 			<Use>FI429B</Use>
@@ -184,6 +185,16 @@
 			<XPath>DutyTaxFee/ElectedEntry</XPath>
 			<MinOccurence>0</MinOccurence>
 			<Format>date</Format>
+		</DataElement>
+		<DataElement>
+			<Name lang="fi">Veroja kannettu</Name>
+			<Name lang="sv">Skatter uppburna</Name>
+			<Name lang="en">Taxes levied</Name>
+			<Use>FI419B</Use>
+			<XPath>TaxesLevied</XPath>
+			<MinOccurence>0</MinOccurence>
+			<Codelist>CL027</Codelist>
+			<Format>n1</Format>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">Bruttopaino</Name>
@@ -249,11 +260,12 @@
 			<Use>FI470B</Use>
 			<Use>FI905B</Use>
 			<XPath>Notification</XPath>
+			<Group>Notification</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
 				<Name lang="fi">Ilmoituksen tyyppi</Name>
-				<Name lang="sv">Underrättelsens typ</Name>
+				<Name lang="sv">Typ av underrättelse</Name>
 				<Name lang="en">Notification type</Name>
 				<Use>FI403B</Use>
 				<Use>FI405B</Use>
@@ -281,7 +293,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Ilmoituksen päiväys ja aika</Name>
-				<Name lang="sv">Underrättelsens datum och tid</Name>
+				<Name lang="sv">Datum och tid för underrättelsen</Name>
 				<Name lang="en">Notification date and time</Name>
 				<Use>FI403B</Use>
 				<Use>FI405B</Use>
@@ -316,7 +328,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Ilmoituksen kuvaus</Name>
-				<Name lang="sv">Underrättelsens beskrivning</Name>
+				<Name lang="sv">Beskrivning av underrättelsen</Name>
 				<Name lang="en">Notification description</Name>
 				<Use>FI403B</Use>
 				<Use>FI405B</Use>
@@ -347,7 +359,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Ilmoituksen osa</Name>
-				<Name lang="sv">Deklarationens del</Name>
+				<Name lang="sv">Del av deklarationen</Name>
 				<Name lang="en">Declaration part</Name>
 				<Use>FI905B</Use>
 				<XPath>Element</XPath>
@@ -368,7 +380,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Nykyinen tila</Name>
-				<Name lang="sv">Nuvarande tillstånd</Name>
+				<Name lang="sv">Nuvarande status</Name>
 				<Name lang="en">Current state</Name>
 				<Use>FI905B</Use>
 				<XPath>CurrentState</XPath>
@@ -377,7 +389,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Tilamuutoksen syy</Name>
-				<Name lang="sv">Orsak till tillståndsändring</Name>
+				<Name lang="sv">Orsak till statusändring</Name>
 				<Name lang="en">Reason for state change</Name>
 				<Use>FI905B</Use>
 				<XPath>StateChangeReason</XPath>
@@ -392,13 +404,14 @@
 				<Use>FI430B</Use>
 				<Use>FI444B</Use>
 				<Use>FI452B</Use>
+				<Use>FI470B</Use>
 				<XPath>RequestCorrelation</XPath>
 				<MinOccurence>0</MinOccurence>
 				<Format>an38</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Määräaika</Name>
-				<Name lang="sv">Tidsgräns</Name>
+				<Name lang="sv">Tidsfrist</Name>
 				<Name lang="en">Time limit</Name>
 				<Use>FI429B</Use>
 				<Use>FI430B</Use>
@@ -415,7 +428,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Määräajan laji</Name>
-				<Name lang="sv">Tidsgränsens typ</Name>
+				<Name lang="sv">Typ av tidsfrist</Name>
 				<Name lang="en">Time limit type</Name>
 				<Use>FI429B</Use>
 				<Use>FI430B</Use>
@@ -449,6 +462,7 @@
 				<Use>FI468B</Use>
 				<Use>FI470B</Use>
 				<XPath>Decision</XPath>
+				<Group>Decision</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -472,7 +486,7 @@
 				</DataElement>
 				<DataGroup>
 					<Name lang="fi">Huomautus</Name>
-					<Name lang="sv">Anteckning</Name>
+					<Name lang="sv">Anmärkning</Name>
 					<Name lang="en">Note</Name>
 					<Use>FI403B</Use>
 					<Use>FI405B</Use>
@@ -490,11 +504,12 @@
 					<Use>FI468B</Use>
 					<Use>FI470B</Use>
 					<XPath>Note</XPath>
+					<Group>Note</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>999</MaxOccurence>
 					<DataElement>
 						<Name lang="fi">Huomautuksen tyyppi</Name>
-						<Name lang="sv">Anteckningens typ</Name>
+						<Name lang="sv">Typ av anmärkning</Name>
 						<Name lang="en">Note type</Name>
 						<Use>FI403B</Use>
 						<Use>FI405B</Use>
@@ -517,7 +532,7 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Huomautuksen teksti</Name>
-						<Name lang="sv">Anteckningens text</Name>
+						<Name lang="sv">Anmärkningens text</Name>
 						<Name lang="en">Note text</Name>
 						<Use>FI403B</Use>
 						<Use>FI405B</Use>
@@ -546,6 +561,7 @@
 				<Name lang="en">Control</Name>
 				<Use>FI450B</Use>
 				<XPath>Control</XPath>
+				<Group>Control</Group>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>99</MaxOccurence>
 				<DataElement>
@@ -569,7 +585,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Tarkastuksen lisätiedot</Name>
-					<Name lang="sv">Ytterligare information gällande kontrollen</Name>
+					<Name lang="sv">Tilläggsuppgifter om kontroll</Name>
 					<Name lang="en">Additonal information regarding control</Name>
 					<Use>FI450B</Use>
 					<XPath>Text</XPath>
@@ -600,6 +616,7 @@
 					<Name lang="en">Contact information</Name>
 					<Use>FI450B</Use>
 					<XPath>Contact</XPath>
+					<Group>Contact</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
@@ -652,6 +669,7 @@
 				<Use>FI468B</Use>
 				<Use>FI470B</Use>
 				<XPath>ContactInfo</XPath>
+				<Group>Contact</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -733,6 +751,7 @@
 				<Name lang="en">Movement</Name>
 				<Use>FI445B</Use>
 				<XPath>Movement</XPath>
+				<Group>Movement</Group>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>99</MaxOccurence>
 				<DataElement>
@@ -752,6 +771,7 @@
 				<Use>FI416B</Use>
 				<Use>FI444B</Use>
 				<XPath>Error</XPath>
+				<Group>Error</Group>
 				<MinOccurence>1</MinOccurence>
 				<MinOccurence use="FI444B">0</MinOccurence>
 				<MaxOccurence>999</MaxOccurence>
@@ -788,7 +808,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Virheosoitin</Name>
-					<Name lang="sv">Felpointer</Name>
+					<Name lang="sv">Felpekare</Name>
 					<Name lang="en">Error pointer</Name>
 					<Use>FI416B</Use>
 					<Use>FI444B</Use>
@@ -819,11 +839,12 @@
 			<Use>FI445B</Use>
 			<Use>FI468B</Use>
 			<XPath>Agent</XPath>
+			<Group>Agent</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
 				<Name lang="fi">Edustajan asemaa koskeva koodi</Name>
-				<Name lang="sv">Kod för ombudets status</Name>
+				<Name lang="sv">Kod för ombuds status</Name>
 				<Name lang="en">Status code</Name>
 				<Use>FI403B</Use>
 				<Use>FI419B</Use>
@@ -852,7 +873,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Toimipaikkakoodi</Name>
-				<Name lang="sv">Kod fär verksamhetsställe</Name>
+				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
 				<Use>FI403B</Use>
 				<Use>FI419B</Use>
@@ -904,6 +925,7 @@
 				<Use>FI445B</Use>
 				<Use>FI468B</Use>
 				<XPath>Address</XPath>
+				<Group>Address</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -971,6 +993,7 @@
 			<Name lang="en">Debtor</Name>
 			<Use>FI468B</Use>
 			<XPath>Debtor</XPath>
+			<Group>Debtor</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
@@ -993,6 +1016,7 @@
 			<Use>FI429B</Use>
 			<Use>FI468B</Use>
 			<XPath>Declarant</XPath>
+			<Group>Declarant</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
@@ -1010,7 +1034,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Toimipaikkakoodi</Name>
-				<Name lang="sv">Kod fär verksamhetsställe</Name>
+				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
 				<Use>FI403B</Use>
 				<Use>FI419B</Use>
@@ -1058,6 +1082,7 @@
 				<Use>FI429B</Use>
 				<Use>FI468B</Use>
 				<XPath>Address</XPath>
+				<Group>Address</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -1126,6 +1151,7 @@
 			<Use>FI445B</Use>
 			<Use>FI468B</Use>
 			<XPath>Exporter</XPath>
+			<Group>Exporter</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
@@ -1140,7 +1166,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Toimipaikkakoodi</Name>
-				<Name lang="sv">Kod fär verksamhetsställe</Name>
+				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
@@ -1169,6 +1195,7 @@
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
 				<XPath>Address</XPath>
+				<Group>Address</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -1221,6 +1248,7 @@
 			<Use>FI403B</Use>
 			<Use>FI429B</Use>
 			<XPath>ServiceProvider</XPath>
+			<Group>ServiceProvider</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
@@ -1245,6 +1273,7 @@
 			<Use>FI445B</Use>
 			<Use>FI468B</Use>
 			<XPath>Submitter</XPath>
+			<Group>Submitter</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
@@ -1272,6 +1301,7 @@
 				<Use>FI445B</Use>
 				<Use>FI468B</Use>
 				<XPath>Communication</XPath>
+				<Group>Submitter</Group>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -1315,6 +1345,7 @@
 				<Use>FI445B</Use>
 				<Use>FI468B</Use>
 				<XPath>Communication</XPath>
+				<Group>Submitter</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -1355,6 +1386,7 @@
 			<Use>FI403B</Use>
 			<Use>FI429B</Use>
 			<XPath>AdditionalDocument@function="SupportingDocument"</XPath>
+			<Group>SupportingDocument</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>99</MaxOccurence>
 			<DataElement>
@@ -1370,7 +1402,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Asiakirjan tunniste</Name>
-				<Name lang="sv">Identifierare för dokument</Name>
+				<Name lang="sv">Dokumentets identifierare</Name>
 				<Name lang="en">Document identifier</Name>
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
@@ -1396,6 +1428,7 @@
 			<Use>FI403B</Use>
 			<Use>FI429B</Use>
 			<XPath>Authorisation</XPath>
+			<Group>Authorisation</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>9</MaxOccurence>
 			<DataElement>
@@ -1411,7 +1444,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Asiakirjan tunniste</Name>
-				<Name lang="sv">Identifierare för dokument</Name>
+				<Name lang="sv">Dokumentets identifierare</Name>
 				<Name lang="en">Document identifier</Name>
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
@@ -1438,6 +1471,7 @@
 			<Use>FI403B</Use>
 			<Use>FI429B</Use>
 			<XPath>AdditionalInformation</XPath>
+			<Group>AdditionalInformation</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>99</MaxOccurence>
 			<DataElement>
@@ -1464,16 +1498,17 @@
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Rajan ylittävä aktiivinen kuljetusväline</Name>
-			<Name lang="sv">Aktiva transportmedlet vid gränspassagen</Name>
+			<Name lang="sv">Aktivt transportmedel vid gränspassagen</Name>
 			<Name lang="en">Active border transport means</Name>
 			<Use>FI403B</Use>
 			<Use>FI429B</Use>
 			<XPath>BorderTransportMeans</XPath>
+			<Group>BorderTransportMeans</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
 				<Name lang="fi">Kuljetusmuoto rajalla</Name>
-				<Name lang="sv">Transportsätt vid gränspassagen</Name>
+				<Name lang="sv">Transportsätt vid gränsen</Name>
 				<Name lang="en">Mode of transport at the border</Name>
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
@@ -1501,11 +1536,12 @@
 			<Use>FI403B</Use>
 			<Use>FI429B</Use>
 			<XPath>PreviousDocument</XPath>
+			<Group>PreviousDocument</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>9999</MaxOccurence>
 			<DataElement>
 				<Name lang="fi">Edeltävä asiakirjatyyppi</Name>
-				<Name lang="sv">Tidigare dokumentets typ</Name>
+				<Name lang="sv">Typ av tidigare dokument</Name>
 				<Name lang="en">Previous document type</Name>
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
@@ -1535,6 +1571,7 @@
 			<Use>FI403B</Use>
 			<Use>FI468B</Use>
 			<XPath>DutyTaxFee</XPath>
+			<Group>TotalTax</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>99</MaxOccurence>
 			<DataElement>
@@ -1566,6 +1603,7 @@
 			<Use>FI403B</Use>
 			<Use>FI468B</Use>
 			<XPath>TaxCalculation</XPath>
+			<Group>TaxCalculation</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>99</MaxOccurence>
 			<DataElement>
@@ -1597,6 +1635,7 @@
 			<Use>FI403B</Use>
 			<Use>FI468B</Use>
 			<XPath>TotalPayableTax</XPath>
+			<Group>TotalPayableTax</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>99</MaxOccurence>
 			<DataElement>
@@ -1628,6 +1667,7 @@
 			<Use>FI403B</Use>
 			<Use>FI468B</Use>
 			<XPath>Payment</XPath>
+			<Group>Payment</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
@@ -1668,6 +1708,7 @@
 			<Use>FI403B</Use>
 			<Use>FI468B</Use>
 			<XPath>Bank</XPath>
+			<Group>Bank</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>3</MaxOccurence>
 			<DataElement>
@@ -1702,11 +1743,12 @@
 			<Use>FI445B</Use>
 			<Use>FI468B</Use>
 			<XPath>GoodsShipment</XPath>
+			<Group>GoodsShipment</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
-				<Name lang="fi">Kauppatapahtuman luonne</Name>
-				<Name lang="sv">Transaktionens art</Name>
+				<Name lang="fi">Liiketoiminnan luonne</Name>
+				<Name lang="sv">Typ av transaktion</Name>
 				<Name lang="en">Nature of transaction</Name>
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
@@ -1744,6 +1786,7 @@
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
 				<XPath>AEOMutualRecognitionParty</XPath>
+				<Group>AEOMutualRecognitionParty</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>99</MaxOccurence>
 				<DataElement>
@@ -1758,7 +1801,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Toimipaikkakoodi</Name>
-					<Name lang="sv">Kod fär verksamhetsställe</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
@@ -1785,6 +1828,7 @@
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
 				<XPath>Buyer</XPath>
+				<Group>Buyer</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -1799,7 +1843,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Toimipaikkakoodi</Name>
-					<Name lang="sv">Kod fär verksamhetsställe</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
@@ -1824,6 +1868,7 @@
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
 					<XPath>Address</XPath>
+					<Group>Address</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
@@ -1876,6 +1921,7 @@
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
 				<XPath>DomesticDutyTaxParty</XPath>
+				<Group>DomesticDutyTaxParty</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>99</MaxOccurence>
 				<DataElement>
@@ -1890,7 +1936,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Toimipaikkakoodi</Name>
-					<Name lang="sv">Kod fär verksamhetsställe</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
@@ -1921,6 +1967,7 @@
 				<Use>FI445B</Use>
 				<Use>FI468B</Use>
 				<XPath>Importer</XPath>
+				<Group>Importer</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -1939,7 +1986,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Toimipaikkakoodi</Name>
-					<Name lang="sv">Kod fär verksamhetsställe</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI403B</Use>
 					<Use>FI419B</Use>
@@ -1991,6 +2038,7 @@
 					<Use>FI445B</Use>
 					<Use>FI468B</Use>
 					<XPath>Address</XPath>
+					<Group>Address</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
@@ -2063,6 +2111,7 @@
 				<Use>FI445B</Use>
 				<Use>FI468B</Use>
 				<XPath>Seller</XPath>
+				<Group>Seller</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -2077,7 +2126,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Toimipaikkakoodi</Name>
-					<Name lang="sv">Kod fär verksamhetsställe</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
@@ -2106,6 +2155,7 @@
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
 					<XPath>Address</XPath>
+					<Group>Address</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
@@ -2161,6 +2211,7 @@
 				<Use>FI429B</Use>
 				<Use>FI445B</Use>
 				<XPath>Consignment</XPath>
+				<Group>Consignment</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -2180,6 +2231,7 @@
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
 					<XPath>ArrivalTransportMeans</XPath>
+					<Group>ArrivalTransportMeans</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
@@ -2225,6 +2277,7 @@
 					<Use>FI429B</Use>
 					<Use>FI445B</Use>
 					<XPath>TransportEquipment</XPath>
+					<Group>TransportEquipment</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>9999</MaxOccurence>
 					<DataElement>
@@ -2249,6 +2302,7 @@
 					<Use>FI429B</Use>
 					<Use>FI445B</Use>
 					<XPath>GoodsLocation</XPath>
+					<Group>GoodsLocation</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
@@ -2297,7 +2351,7 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Luvan numero</Name>
-						<Name lang="sv">Tillståndets nummer</Name>
+						<Name lang="sv">Tillståndsnummer</Name>
 						<Name lang="en">Authorisation number</Name>
 						<Use>FI403B</Use>
 						<Use>FI429B</Use>
@@ -2307,7 +2361,7 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Lisätunniste</Name>
-						<Name lang="sv">Tilläggsidentifiering</Name>
+						<Name lang="sv">Tilläggskod</Name>
 						<Name lang="en">Additional identifier</Name>
 						<Use>FI403B</Use>
 						<Use>FI429B</Use>
@@ -2323,6 +2377,7 @@
 						<Use>FI429B</Use>
 						<Use>FI445B</Use>
 						<XPath>Address</XPath>
+						<Group>Address</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<DataElement>
@@ -2379,6 +2434,7 @@
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
 					<XPath>UnloadingLocation</XPath>
+					<Group>UnloadingLocation</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataGroup>
@@ -2388,6 +2444,7 @@
 						<Use>FI403B</Use>
 						<Use>FI429B</Use>
 						<XPath>Address</XPath>
+						<Group>Address</Group>
 						<MinOccurence>1</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<DataElement>
@@ -2441,6 +2498,7 @@
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
 				<XPath>TradeTerms</XPath>
+				<Group>TradeTerms</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -2493,6 +2551,7 @@
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
 				<XPath>UCR</XPath>
+				<Group>UCR</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -2515,6 +2574,7 @@
 				<Use>FI420B</Use>
 				<Use>FI429B</Use>
 				<XPath>Warehouse</XPath>
+				<Group>Warehouse</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
 				<DataElement>
@@ -2541,7 +2601,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Varaston tyyppi</Name>
-					<Name lang="sv">Lagertyp</Name>
+					<Name lang="sv">Typ av lager</Name>
 					<Name lang="en">Warehouse type</Name>
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
@@ -2557,6 +2617,7 @@
 					<Use>FI419B</Use>
 					<Use>FI420B</Use>
 					<XPath>Address</XPath>
+					<Group>Address</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
@@ -2613,6 +2674,7 @@
 				<Use>FI445B</Use>
 				<Use>FI468B</Use>
 				<XPath>GovernmentAgencyGoodsItem</XPath>
+				<Group>GoodsItem</Group>
 				<MinOccurence>1</MinOccurence>
 				<MinOccurence use="FI403B">0</MinOccurence>
 				<MinOccurence use="FI429B">0</MinOccurence>
@@ -2684,6 +2746,7 @@
 					<Use>FI445B</Use>
 					<Use>FI468B</Use>
 					<XPath>Commodity</XPath>
+					<Group>GoodsItem</Group>
 					<MinOccurence>0</MinOccurence>
 					<MinOccurence use="FI445B">1</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
@@ -2732,6 +2795,7 @@
 						<Use>FI445B</Use>
 						<Use>FI468B</Use>
 						<XPath>Classification</XPath>
+						<Group>GoodsItem</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<DataElement>
@@ -2775,6 +2839,7 @@
 						<Use>FI445B</Use>
 						<Use>FI468B</Use>
 						<XPath>Classification</XPath>
+						<Group>GoodsItem</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<DataElement>
@@ -2818,6 +2883,7 @@
 						<Use>FI445B</Use>
 						<Use>FI468B</Use>
 						<XPath>Classification</XPath>
+						<Group>GoodsItem</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<DataElement>
@@ -2861,6 +2927,7 @@
 						<Use>FI445B</Use>
 						<Use>FI468B</Use>
 						<XPath>Classification</XPath>
+						<Group>TaricAdditional</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>99</MaxOccurence>
 						<DataElement>
@@ -2904,6 +2971,7 @@
 						<Use>FI445B</Use>
 						<Use>FI468B</Use>
 						<XPath>Classification</XPath>
+						<Group>NationalAdditional</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>99</MaxOccurence>
 						<DataElement>
@@ -2946,6 +3014,7 @@
 						<Use>FI429B</Use>
 						<Use>FI445B</Use>
 						<XPath>Classification</XPath>
+						<Group>GoodsItem</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<DataElement>
@@ -2984,6 +3053,7 @@
 						<Use>FI429B</Use>
 						<Use>FI468B</Use>
 						<XPath>DutyTaxFee</XPath>
+						<Group>DutyTaxFee</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<MaxOccurence use="FI403B">99</MaxOccurence>
@@ -3060,6 +3130,7 @@
 							<Use>FI429B</Use>
 							<Use>FI468B</Use>
 							<XPath>SpecificTaxBase</XPath>
+							<Group>SpecificTaxBase</Group>
 							<MinOccurence>0</MinOccurence>
 							<MaxOccurence>99</MaxOccurence>
 							<DataElement>
@@ -3095,6 +3166,7 @@
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
 					<XPath>CustomsValuation</XPath>
+					<Group>GoodsItem</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
@@ -3136,6 +3208,7 @@
 						<Use>FI403B</Use>
 						<Use>FI429B</Use>
 						<XPath>ChargeDeduction</XPath>
+						<Group>ChargeDeduction</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>99</MaxOccurence>
 						<DataElement>
@@ -3179,6 +3252,7 @@
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
 					<XPath>GoodsMeasure</XPath>
+					<Group>GoodsItem</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
@@ -3223,6 +3297,7 @@
 					<Use>FI445B</Use>
 					<Use>FI468B</Use>
 					<XPath>GovernmentProcedure</XPath>
+					<Group>GoodsItem</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
@@ -3266,6 +3341,7 @@
 						<Use>FI445B</Use>
 						<Use>FI468B</Use>
 						<XPath>AdditionalProcedure</XPath>
+						<Group>AdditionalProcedure</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>99</MaxOccurence>
 						<DataElement>
@@ -3295,6 +3371,7 @@
 					<Use>FI429B</Use>
 					<Use>FI445B</Use>
 					<XPath>Packaging</XPath>
+					<Group>Packaging</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>99</MaxOccurence>
 					<DataElement>
@@ -3345,6 +3422,7 @@
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
 					<XPath>Origin</XPath>
+					<Group>GoodsItem</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
@@ -3377,6 +3455,7 @@
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
 					<XPath>Origin</XPath>
+					<Group>GoodsItem</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
@@ -3410,6 +3489,7 @@
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
 					<XPath>AdditionalDocument@function="SupportingDocument"</XPath>
+					<Group>SupportingDocument</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>99</MaxOccurence>
 					<DataElement>
@@ -3425,7 +3505,7 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Asiakirjan tunniste</Name>
-						<Name lang="sv">Identifierare för dokument</Name>
+						<Name lang="sv">Dokumentets identifierare</Name>
 						<Name lang="en">Document identifier</Name>
 						<Use>FI403B</Use>
 						<Use>FI429B</Use>
@@ -3435,7 +3515,7 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Myöntävän viranomaisen nimi</Name>
-						<Name lang="sv">Utfärdande myndighetens namn</Name>
+						<Name lang="sv">Utfärdande myndighets namn</Name>
 						<Name lang="en">Issuing authority name</Name>
 						<Use>FI403B</Use>
 						<Use>FI429B</Use>
@@ -3486,8 +3566,8 @@
 						<Format>a3</Format>
 					</DataElement>
 					<DataElement>
-						<Name lang="fi">Asiakirjan rivikohta</Name>
-						<Name lang="sv">Dokumentradens artikelnummer</Name>
+						<Name lang="fi">Asiakirjan rivin numero</Name>
+						<Name lang="sv">Varupostnummer i dokumentraden</Name>
 						<Name lang="en">Document line item number</Name>
 						<Use>FI403B</Use>
 						<Use>FI429B</Use>
@@ -3513,6 +3593,7 @@
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
 					<XPath>AdditionalDocument@function="AdditionalReference"</XPath>
+					<Group>AdditionalReference</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>99</MaxOccurence>
 					<DataElement>
@@ -3530,16 +3611,17 @@
 				<!-->TransportDocument<-->
 				<DataGroup>
 					<Name lang="fi">Lisätiedot</Name>
-					<Name lang="sv">Ytterligare uppgifterer</Name>
+					<Name lang="sv">Ytterligare uppgifter</Name>
 					<Name lang="en">Additional information</Name>
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
 					<XPath>AdditionalInformation</XPath>
+					<Group>AdditionalInformation</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>99</MaxOccurence>
 					<DataElement>
 						<Name lang="fi">Lisätietokoodi</Name>
-						<Name lang="sv">Kod för ytterligare uppgifterer</Name>
+						<Name lang="sv">Kod för ytterligare uppgifter</Name>
 						<Name lang="en">Additional information code</Name>
 						<Use>FI403B</Use>
 						<Use>FI429B</Use>
@@ -3569,11 +3651,12 @@
 					<Use>FI429B</Use>
 					<Use>FI445B</Use>
 					<XPath>PreviousDocument</XPath>
+					<Group>PreviousDocument</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>99</MaxOccurence>
 					<DataElement>
 						<Name lang="fi">Edeltävä asiakirjatyyppi</Name>
-						<Name lang="sv">Tidigare dokumentets typ</Name>
+						<Name lang="sv">Typ av tidigare dokument</Name>
 						<Name lang="en">Previous document type</Name>
 						<Use>FI403B</Use>
 						<Use>FI419B</Use>
@@ -3635,6 +3718,7 @@
 					<Use>FI429B</Use>
 					<Use>FI445B</Use>
 					<XPath>TransportEquipment</XPath>
+					<Group>TransportEquipment</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>9999</MaxOccurence>
 					<DataElement>
@@ -3658,6 +3742,7 @@
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
 					<XPath>UCR</XPath>
+					<Group>UCR</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<DataElement>
