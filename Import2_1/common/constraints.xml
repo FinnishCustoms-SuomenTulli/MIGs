@@ -1,58 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <RulesCondition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<RC>
-		<Code>C0010</Code>
-		<DescriptionEn>IF (first digit of ‘Mode of Transport at the border’ = ‘2’, ‘5’ or ‘7’) OR (Additional procedure = 615)
-THEN ‘Nationality of active means of transport crossing the border ’ can not be used
-ELSE ‘Nationality of active means of transport crossing the border ’ = ‘R’</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0028</Code>
-		<DescriptionEn>IF the attribute 'Requested Procedure Code' = '31', '71', '76', '77' or '78' 
- THEN this attribute = 'O'
- ELSE this attribute = 'R'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0394</Code>
-		<DescriptionEn>IF Requested procedure &lt;&gt;71
-THEN
-IF 'ADDRESS.Qualifier of the Identification' = 'Z'
-THEN 'City' AND ‘Street and Number’ = 'R' AND ‘Postcode’ = 'O', 'Identification of Location' AND 'Additional Identifier cannot be used ELSE IF 'ADDRESS.Qualifier of the Identification' = 'X' or 'Y' THEN 'Identification of Location' AND 'Additional Identifier' = 'R', 'City' AND ‘Street and Number’ AND ‘Postcode’ cannot be used ELSE
-'Identification of Location' = 'R', 'Additional Identifier' ='O',
-'City' AND ‘Street and Number’ AND ‘Postcode’ cannot be used.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0614</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'A', 'D', 'Y' THEN this data group / data element is = REQUIRED ELSE this data group / data element is = OPTIONAL</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0615_notUsed</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'C', 'F' OR 'Requested procedure code' = '51', '71'
-THEN this data group / data element is = 'O' ELSE this data group / data element is Required.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0617</Code>
-		<DescriptionEn>IF 'Buyer Identification No.' 
-OR 'Representative Identification No.'
-OR 'Declarant Identification No.'
-OR 'Exporter identification No.'
-OR 'Seller Identification No.'
-OR 'Importer Identification No.' is used
-THEN 'Name' and 'ADDRESS' CAN NOT BE USED
-ELSE 'Name' and 'ADDRESS' are REQUIRED</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0617_NC0023</Code>
-		<DescriptionEn>IF Declarant Nature code is private and IF Representative is used and Representative Nature code is private THEN  address is not required 
-
-IF 'Buyer Identification No.' or 'Representative Identification No.' or 'Declarant Identification No.' or 'Exporter identification No.' or 'Seller Identification No.' or 'Importer Identification No.' is used                                                                                                THEN 'Name' and 'ADDRESS' cannot be used                                ELSE 
-
-IF Declarant Nature code is private and IF Representative is used and Representative Nature code is private THEN  address is not required 
-
-else
-'Name' and 'ADDRESS'= "R"</DescriptionEn>
-	</RC>
-	<RC>
 		<Code>C0618</Code>
 		<DescriptionEn>IF 'Requested procedure code' = '71' THEN this data group / data element can not be used ELSE it is Required.</DescriptionEn>
 	</RC>
@@ -61,77 +9,26 @@ else
 		<DescriptionEn>IF Requested Procedure Code = '71'  THEN this data item can not be used ELSE it is Optional.</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>C0625</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'C', 'F' THEN this data group / data item can not be used ELSE it is Optional.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0626</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'A', 'D', AND 'Requested procedure code' = '71' THEN this data group is Required
-ELSE it is Optional except where additional conditions
-or rules for the same data group/attribute imply something else.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0628</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'D', 'F' THEN this data group is Optional ELSE it is Required.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0629</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'Y' AND 'Requested procedure code' = '01', '07', '40', '43', '44', '45', '46', '48','51', '61', '68'                                                                                       
-THEN this data group / data item is REQUIRED
-ELSE it CAN NOT BE USED 
-	except where additional conditions or rules for the same data group/attribute imply something else.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0630</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'A', 'D' AND 'Requested procedure code'= '71'
-
-THEN this data group / data item is Optional
-
-ELSE it is Required 
-(except where additional conditions
-or rules for the same data group/attribute imply something else)</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0631_modif</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'Y'
-AND 'Requested procedure code' = '01', '07', '40', '43', '44', '45', '46', '48',
-'51', '61', '68'
-THEN this data group / data item is Required
-ELSE cannot be used except where additional conditions
-or rules for the same data group/attribute imply something else.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0633</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'Y' 
-	AND 
-	'Requested procedure code' = '51', '71'
-THEN this data group / data item can NOT BE USED  
-ELSE it is REQUIRED 
-except where additional conditions
-or rules for the same data group/attribute imply something else.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0634</Code>
-		<DescriptionEn>IF 'additional declaration type' = 'A', 'D', 'Y'  AND  'Requested Procedure code' = '51', '71'
-THEN this data group / data item CAN NOT BE USED 
-ELSE it is REQUIRED 
-except where additional conditions or rules for the same data group/attribute imply something else.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0644</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'C', 'F' THEN this data group/element is Optional,
-ELSE it is Required except where additional conditions or rules for the same data group/attribute imply something else.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0645</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'Y' THEN this data group/element is Required, ELSE it is Optional.</DescriptionEn>
-	</RC>
-	<RC>
 		<Code>C0646</Code>
-		<DescriptionEn>"IF first digit of 'Inland transport mode' = '5' or '7'
+		<DescriptionEn>IF first digit of 'Inland transport mode' = '5' or '7'
 THEN the 'Identification number' AND 'Type of identification' cannot be used
-ELSE the 'Identification number' AND 'Type of identification' = 'R'"
-</DescriptionEn>
+ELSE the 'Identification number' AND 'Type of identification' = 'R'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>MC0001</Code>
+		<DescriptionEn>If Proposed Action starts with "CO", Control Group is Mandatory, else Not Used.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>MC0002</Code>
+		<DescriptionEn>if Status is finished ("F)", 
+then element is required 
+else element must not be used.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>MC0003</Code>
+		<DescriptionEn>if Status is finished ("F)", 
+then element is optional
+else element must not be used.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0010</Code>
@@ -163,7 +60,7 @@ TraderOfficeCode is Optional</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0018</Code>
-		<DescriptionEn>If declaration is standard customs declaration (FI415A) and previous procedure is 10, 22, 23, 53, 54, 71 or 78,
+		<DescriptionEn>If declaration is standard customs declaration (FI415) and previous procedure is 10, 22, 23, 53, 54, 71 or 78,
 then previous document must be declared.</DescriptionEn>
 	</RC>
 	<RC>
@@ -368,7 +265,7 @@ ELSE data item is OPTIONAL</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0207</Code>
-		<DescriptionEn>If dataset type is H3, H4 or H5, then this is not used,
+		<DescriptionEn>If dataset type is H3, H4 or H5 then this is not used,
 else optional.</DescriptionEn>
 	</RC>
 	<RC>
@@ -480,12 +377,9 @@ ELSE
 	</RC>
 	<RC>
 		<Code>NC0226</Code>
-		<DescriptionEn>IF Requested Procedure code = 71
+		<DescriptionEn>IF dataset type is H2
 THEN data item can NOT be USED
-ELSE
-    IF 'Additional declaration type' = {'A', 'D', 'Y'} 
-    THEN this data group / data element is REQUIRED 
-    ELSE this data group / data element is OPTIONAL</DescriptionEn>
+ELSE this data group / data element is REQUIRED</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0227</Code>
@@ -496,10 +390,9 @@ else if (requested procedure is 42 or 63) or (additional procedure F48 is used)
 	</RC>
 	<RC>
 		<Code>NC0228</Code>
-		<DescriptionEn>IF 'Additional declaration type' = 'C', 'F' 
-THEN this data group/element is OPTIONAL
-ELSE it is REQUIRED 
-except where additional conditions or rules for the same data group/attribute imply something else.</DescriptionEn>
+		<DescriptionEn>If requested procedure is 71,
+then this is optional,
+else it is required.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0229</Code>
@@ -536,7 +429,7 @@ If dataset type is H2, then this is not used,
 Optional for other cases (or as other conditions imply).</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NC0232_internal</Code>
+		<Code>NC0232</Code>
 		<DescriptionEn>If Item charge is bigger than 0 (zero), item charge currency unit must be used. Otherwise it is optional.</DescriptionEn>
 	</RC>
 	<RC>
@@ -589,11 +482,11 @@ then VAT rate code (NationalAdditionalCode beginning with Q) is optional, else a
 		<Code>NC0240</Code>
 		<DescriptionEn>New implementation based on UTUK-1391 referring UTU Internal User Interface Specification Part 2, page:
 
-IF FI414A/Invalidation/FreeFormInvalidationReason = D
+IF FI414/Invalidation/FreeFormInvalidationReason = D
 THEN
           ReplacingMRN is Required
 ELSE
-      IF FI414A/Invalidation/FreeFormInvalidationReason = V
+      IF FI414/Invalidation/FreeFormInvalidationReason = V
        THEN
           ReplacingMRN is Optional
        ELSE 
@@ -601,11 +494,11 @@ ELSE
 	</RC>
 	<RC>
 		<Code>NC0241</Code>
-		<DescriptionEn>IF FI414A/Invalidation/FreeFormInvalidationReason in (E,U)
+		<DescriptionEn>IF FI414/Invalidation/FreeFormInvalidationReason in (E,U)
 THEN
           Text is Required
 ELSE
-          IF FI414A/Invalidation/FreeFormInvalidationReason = V
+          IF FI414/Invalidation/FreeFormInvalidationReason = V
           THEN
                     IF declaration was lodged by private person
                     THEN
@@ -619,12 +512,6 @@ ELSE
 		<Code>NC0242</Code>
 		<DescriptionEn>IF (Declaration is lodged by private person AND inland mode of transport = 5 (mail)
 THEN this data group / data element (Trader reference number) is OPTIONAL
-ELSE it is REQUIRED</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC0242_internal</Code>
-		<DescriptionEn>IF (Declaration is lodged by private person AND inland mode of transport = 5 (mail)
-THEN this data group / data element is OPTIONAL
 ELSE it is REQUIRED</DescriptionEn>
 	</RC>
 	<RC>
@@ -674,7 +561,7 @@ else this is required.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0252</Code>
-		<DescriptionEn>If dataset type is I1, H3 or H4, then this is not used,
+		<DescriptionEn>If dataset type is H3 (without additional procedure D51)  or H4, then this is not used,
 else this is optional.</DescriptionEn>
 	</RC>
 	<RC>
@@ -686,11 +573,6 @@ else this is optional.</DescriptionEn>
 		<Code>NC0254</Code>
 		<DescriptionEn>IF Declaration is lodged retrospectively (additional declaration type is R)
 THEN this data group/element is optional, else it is required (or as other conditions suggest).</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC0255</Code>
-		<DescriptionEn>If dataset type is H1, H3 or H4 then this is optional (or conditional as other conditions imply),
-else this is not used.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0256</Code>
@@ -709,6 +591,18 @@ else this cannot be used.</DescriptionEn>
 		<Code>NC0259</Code>
 		<DescriptionEn>If requested procedure is 51 or 53, then this is not used,
 else required.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC0260</Code>
+		<DescriptionEn>If additional declaration type is  U, then this is required,
+else if additional declaration type is V, then this is conditional (NR1014),
+else this is not used.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC0261</Code>
+		<DescriptionEn>If dataset type is H5N, then this is not used,
+else if dataset type is H2 or (H5E lodged by private person), then this is optional,
+else this is required.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0300</Code>
@@ -781,15 +675,11 @@ else optional.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0402</Code>
-		<DescriptionEn>IF ProductCode IN [Alcohol, Tobacco, Fuel, MostCommon]
-THEN Price is Required
-ELSE Price is Not used</DescriptionEn>
+		<DescriptionEn>Manual calculation Required for UsedItem else NotUsed on new declaration, Optional elsewhere</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0403</Code>
-		<DescriptionEn>IF ProductCode IN [Alcohol, Tobacco, Fuel, MostCommon]
-THEN SetByCustoms is Required
-ELSE SetByCustoms is Not used</DescriptionEn>
+		<DescriptionEn>TaxLine Required for UsedItem else NotUsed on new declaration, Optional elsewhere</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0404</Code>
@@ -801,7 +691,7 @@ ELSE SetByCustoms is Not used</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0406</Code>
-		<DescriptionEn>Origin country not used with ProductCode FlatRate and UsedItem else Required</DescriptionEn>
+		<DescriptionEn>Origin country not used with ProductCode FlatRate, UsedItem and NewItem else Required</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0407</Code>
@@ -817,7 +707,11 @@ ELSE SetByCustoms is Not used</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0410</Code>
-		<DescriptionEn>Required with ProductCode FlatRate, LivingAnimal, MostCommon, CommodityCode and UsedItem else NotUsed</DescriptionEn>
+		<DescriptionEn>Required with ProductCode FlatRate, LivingAnimal, MostCommon, CommodityCode, UsedItem and NewItem else NotUsed</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC0411</Code>
+		<DescriptionEn>Tax base unit and tax rate unit is required for UsedItem else NotUsed on new declaration, Optional elsewhere</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NC0420</Code>
@@ -839,6 +733,10 @@ ELSE
           ReplacingMRN is Optional
        ELSE 
           ReplacingMRN is NotUsed</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC0421</Code>
+		<DescriptionEn>Not used if declined, else required.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0638</Code>
@@ -884,12 +782,12 @@ then if case is customs warehousing declarations (requested procedure 71), previ
 	</RC>
 	<RC>
 		<Code>NR0010</Code>
-		<DescriptionEn>If declaration is standard customs declaration (FI415A) and previous procedure is 51m
+		<DescriptionEn>If declaration is standard customs declaration (FI415) and previous procedure is 51m
 then previous document type must be one of IM, 821 or ZZZ.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0011</Code>
-		<DescriptionEn>If declaration is standard customs declaration (FI415A) and requested procedure is 40, 42, 61, 63 or 71,
+		<DescriptionEn>If declaration is standard customs declaration (FI415) and requested procedure is 40, 42, 61, 63 or 71,
 then if commodity code starts with 8701 - 8705, additional information code FIXBC (and vehicle identification number (VIN) / chassis number as a value for it) must be declared.</DescriptionEn>
 	</RC>
 	<RC>
@@ -898,15 +796,11 @@ then if commodity code starts with 8701 - 8705, additional information code FIXB
 	</RC>
 	<RC>
 		<Code>NR0017</Code>
-		<DescriptionEn>If declaration is low value consignment (FI485A), sum value of declared goods cannot be over 150€.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0017_internal</Code>
-		<DescriptionEn>If declaration is low value consignment (FI485A), sum value of declared goods cannot be over 150€.</DescriptionEn>
+		<DescriptionEn>If declaration is low value consignment (FI485), sum value of declared goods cannot be over 150€.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0018</Code>
-		<DescriptionEn>If declaration is low value consignment (FI485A) or customs declaration (FI415A) with dataset type H5 and additional procedure F49, sum value of declared goods cannot be over 150€.
+		<DescriptionEn>If declaration is low value consignment (FI485) or customs declaration (FI415) with dataset type H5 and additional procedure F49, sum value of declared goods cannot be over 150€.
 If the case is H7 and IOSS valid (additional procedure F48 and valid additional fiscal trader reference with role FR5), the limit is 155€ (configurable in T2config).</DescriptionEn>
 	</RC>
 	<RC>
@@ -915,10 +809,6 @@ If the case is H7 and IOSS valid (additional procedure F48 and valid additional 
 	</RC>
 	<RC>
 		<Code>NR0020</Code>
-		<DescriptionEn>All goods items must have the same value</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0020_Prev</Code>
 		<DescriptionEn>All goods items must have the same value</DescriptionEn>
 	</RC>
 	<RC>
@@ -932,7 +822,7 @@ THEN
 	</RC>
 	<RC>
 		<Code>NR0022</Code>
-		<DescriptionEn>If declaration is standard customs declaration (FI415A) and previous procedure is 00,
+		<DescriptionEn>If declaration is standard customs declaration (FI415) and previous procedure is 00,
 then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of 337, 355, 820, 821, 952, ZZZ,
         else the  previous document type must be one of 337, 355, 820, 821, 952, ZZZ or 781.</DescriptionEn>
 	</RC>
@@ -1110,35 +1000,35 @@ If representative does not exist and declarant is a private person, then importe
 	</RC>
 	<RC>
 		<Code>NR0060</Code>
-		<DescriptionEn>If declaration is standard customs declaration (FI415A) and previous procedure is 53,
+		<DescriptionEn>If declaration is standard customs declaration (FI415) and previous procedure is 53,
 then if previous document type must be one of IM, 821 or ZZZ.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0061</Code>
-		<DescriptionEn>If declaration is standard customs declaration (FI415A) and previous procedure is 10,
+		<DescriptionEn>If declaration is standard customs declaration (FI415) and previous procedure is 10,
 then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of 337, 355, 820, 821, 952, ZZZ,
         else the  previous document type must be one of 337, 355, 820, 821, 952, ZZZ or 781.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0062</Code>
-		<DescriptionEn>If declaration is standard customs declaration (FI415A) and previous procedure is 22,
+		<DescriptionEn>If declaration is standard customs declaration (FI415) and previous procedure is 22,
 then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of 337, 355, 820, 821, 952, ZZZ,
         else the  previous document type must be one of 337, 355, 820, 821, 952, ZZZ or 781.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0063</Code>
-		<DescriptionEn>If declaration is standard customs declaration (FI415A) and previous procedure is 23,
+		<DescriptionEn>If declaration is standard customs declaration (FI415) and previous procedure is 23,
 then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of 337, 355, 820, 821, 952, ZZZ,
         else the  previous document type must be one of 337, 355, 820, 821, 952, ZZZ or 781.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0064</Code>
-		<DescriptionEn>If declaration is standard customs declaration (FI415A) and previous procedure is 54,
+		<DescriptionEn>If declaration is standard customs declaration (FI415) and previous procedure is 54,
 then the previous document type must be one of 337, 355, 820, 821, 952 or ZZZ.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0065</Code>
-		<DescriptionEn>If declaration is standard customs declaration (FI415A) and previous procedure is 54,
+		<DescriptionEn>If declaration is standard customs declaration (FI415) and previous procedure is 54,
 then the previous document type must be one of 337, 355, 820, 821, 952, ZZZ or 781.</DescriptionEn>
 	</RC>
 	<RC>
@@ -1166,12 +1056,55 @@ then the previous document type must be one of 337, 355, 820, 821, 952, ZZZ or 7
 		<DescriptionEn>Combination of requested, previous and additional procedure must be correct according to the codelist.</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NR0101</Code>
+		<DescriptionEn>If case is supplementary declaration (additional declaration type U, V, X, Y, Z) and this data element or group was already declared on simplified declaration/EIDR notification, it cannot change.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0102</Code>
+		<DescriptionEn>If case is 1..1 supplementary declaration (additional declaration type X, Y or Z with notification) and this data element or group was already declared on simplified declaration/EIDR notification, it cannot change.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0103</Code>
+		<DescriptionEn>If case is recapitulative supplementary declaration (additional declaration type U or V with notification), then all simplified declarations must be lodged in the same period.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0104</Code>
+		<DescriptionEn>Simplified declaration in question must be in state released (sub state Waiting for supplementary) and there cannot exist any unresolved change request.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0105</Code>
+		<DescriptionEn>If additional declaration type is U, then this must be case with additional declaration type C or F and with additional information code FIPER.
+If additional declaration type is V, then this must be EIDR presentation notification.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0106</Code>
+		<DescriptionEn>If additional declaration type is X, then the original simplified case must have additional declaration type B or E.
+If additional declaration type is Y, then the original simplified case must have additional declaration type C or F and without additional information code FIPER.
+If additional declaration type is Z, then the original case must be EIDR presentation notification.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0107</Code>
+		<DescriptionEn>The simplified declaration cannot be amended after it has been supplemented.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0108</Code>
+		<DescriptionEn>Supplementary case cannot be invalidated if discharge notification/bill of discharge was registered for any of the simplified</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0110</Code>
+		<DescriptionEn>Case identification (/Identification) of incoming request must be unique in the declaration.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0111</Code>
+		<DescriptionEn>Case identification (/Identification) of incoming request must be unique</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NR0200</Code>
 		<DescriptionEn>It is forbiden to combine both F15 and 615 Additional procedure codes in the same customs declaration</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0201</Code>
-		<DescriptionEn>If dataset type is H5 (both H5EU and FI), additional declaration type must be A or R</DescriptionEn>
+		<DescriptionEn>If dataset type is H5FI, additional declaration type must be A or R</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0202</Code>
@@ -1217,6 +1150,10 @@ THEN this must be present on Consignment level or at GI level
 ELSE it cannot be used</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NR0220</Code>
+		<DescriptionEn>If dataset type is H5EU, additional declaration type must be A, D or R</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NR0223</Code>
 		<DescriptionEn>If Addtl. procedure F48 exists on all goods items, Role of Domestic Duty Tax Party must be FR5</DescriptionEn>
 	</RC>
@@ -1239,7 +1176,7 @@ the trader declared under Additional Fiscal Trader Reference cannot be finnish -
 	</RC>
 	<RC>
 		<Code>NR0228</Code>
-		<DescriptionEn>If additional declaration type is C or F and additional information code FIPER is used, then
+		<DescriptionEn>If additional declaration type is U, V or (C or F with additional information code FIPER), then
 - if period is week ("W"), then elected entry must be the Monday of this week,
 - if period is month ("M"), then elected entry must be the first day of this month.</DescriptionEn>
 	</RC>
@@ -1309,6 +1246,28 @@ then there must exists authorisation with type EIR.</DescriptionEn>
 		<DescriptionEn>If additional declaration type is U, V then additional information code FIPER with description "W" or "M" is required,
 else if additional declaration type is C, F or case is presentation notification I2 then additional information code FIPER with description "W" or "M"  is optional,
 else additional information FIPER cannot be used.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0249</Code>
+		<DescriptionEn>If requested procedure is 44, 46 or 48,
+then additional information code FIPER cannot be used.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0250</Code>
+		<DescriptionEn>If additional declaration type is X, Y or U, then this must be SDE,
+else if additional declaration type is V or Z, then this must be CLE.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0251</Code>
+		<DescriptionEn>If case is simplified (additional declaration type B, C, E, F) or supplementary (additional declaration type X, Y, U, V, Z) declaration, then additional information code FIKAT cannot be used.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0252</Code>
+		<DescriptionEn>If case is special procedure declaration (requested procedure is 44, 46, 48, 51 or 53), then additional information code FIKAT cannot be used.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0253</Code>
+		<DescriptionEn>All referenced simplified declarations must be unique.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0255</Code>
@@ -1392,6 +1351,18 @@ ENDIF</DescriptionEn>
 		<DescriptionEn>Previous document 781  for postal declaration cannot be amended, goods item cannot be removed</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NR0271</Code>
+		<DescriptionEn>Date cannot be in the past</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0272</Code>
+		<DescriptionEn>Timelimit for discharge can be set manually only if procedure is 5121, or additional information code FIGLO exists.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0273</Code>
+		<DescriptionEn>If additional information code FIGLO is used, then its description must be one of (1, 3, 6).</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NR0280</Code>
 		<DescriptionEn>There must be exactly one GoodsShipment.</DescriptionEn>
 	</RC>
@@ -1441,11 +1412,11 @@ Not applicable for dataset H5N.</DescriptionEn>
 	<RC>
 		<Code>NR0295</Code>
 		<DescriptionEn>If additional declaration type is C or F and additional information code FIPER is used,
-then there cannot exist any manually added liabilities, goods with quota, goods with antidumping or countervailling duties.</DescriptionEn>
+then there cannot exist any manually added liabilities, goods with quota, goods with antidumping or countervailling duties, goods with liability based on proof of origin.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0296</Code>
-		<DescriptionEn>For EIDR presentation notification requested procedure must be one of following: 01, 40, 44, 46, 48, 51, 53, 61.</DescriptionEn>
+		<DescriptionEn>For EIDR presentation notification requested procedure must be one of following: 01, 07, 40, 44, 45, 46, 48, 51, 53, 61, 71.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0297</Code>
@@ -1614,7 +1585,7 @@ If change request exists (GUID is provided), change type can be "M" or "O" (Amen
 	</RC>
 	<RC>
 		<Code>NR0701</Code>
-		<DescriptionEn>UsedItem can't be used with DeclarationType IM, FlatRate, LivingAnimal, MostCommon and CommodityCode can't be used with DeclarationType CO</DescriptionEn>
+		<DescriptionEn>UsedItem and NewItem can't be used with DeclarationType IM, FlatRate, LivingAnimal, MostCommon and CommodityCode can't be used with DeclarationType CO</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0702</Code>
@@ -1638,7 +1609,7 @@ If change request exists (GUID is provided), change type can be "M" or "O" (Amen
 	</RC>
 	<RC>
 		<Code>NR0707</Code>
-		<DescriptionEn>Flat rate (Add. info. FIFIX) can't be used with ProductCode Tobacco</DescriptionEn>
+		<DescriptionEn>Flat rate (Add. info. FIFIX) can be used for ProductCodes Alcohol, Fuel and FlatRate only</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0708</Code>
@@ -1650,7 +1621,7 @@ If change request exists (GUID is provided), change type can be "M" or "O" (Amen
 	</RC>
 	<RC>
 		<Code>NR0710</Code>
-		<DescriptionEn>VAT code must be used with ProductCode FlatRate, LivingAnimal, UsedItem and CommodityCode</DescriptionEn>
+		<DescriptionEn>VAT code must be used with ProductCode FlatRate, LivingAnimal, CommodityCode and NewItem</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR0711</Code>
@@ -1669,6 +1640,14 @@ If change request exists (GUID is provided), change type can be "M" or "O" (Amen
 		<DescriptionEn>Passenger must be private person</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NR0715</Code>
+		<DescriptionEn>If FIFIX (flat rate) is used it must be used on all goods items except those with ProductCode Tobacco</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0716</Code>
+		<DescriptionEn>Manufacture year (Add. info. FIBEG with description) must be used with ProductCode UsedItem</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NR0720</Code>
 		<DescriptionEn>Increase in taxation/penalty fee cannot be added/amended manually on Passengers oral</DescriptionEn>
 	</RC>
@@ -1683,6 +1662,10 @@ If change request exists (GUID is provided), change type can be "M" or "O" (Amen
 	<RC>
 		<Code>NR0723</Code>
 		<DescriptionEn>Manual calculation, amendment, change to penalty decision can't be done after Change to Penalty decision on Passengers oral</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0726</Code>
+		<DescriptionEn>Case is waiting for risk result</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR1001</Code>
@@ -1742,7 +1725,7 @@ THEN each declared commodity code must begin with one of the commodity codes lis
 	</RC>
 	<RC>
 		<Code>NR1014</Code>
-		<DescriptionEn>IF Additional declaration type is one of (V,Z) and Previous document type is not CLE, then Authorisation must have waiver of the presentation notification</DescriptionEn>
+		<DescriptionEn>IF Additional declaration type is one of (V,Z) and there is no previous eidr notification, then Authorisation must have waiver of the presentation notification</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR1101</Code>
@@ -1851,6 +1834,17 @@ THEN each declared commodity code must begin with one of the commodity codes lis
 	<RC>
 		<Code>NR1273</Code>
 		<DescriptionEn>Control location form VALVON must exist</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR1276</Code>
+		<DescriptionEn>Time limit does not exist</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR1278</Code>
+	</RC>
+	<RC>
+		<Code>NR1279</Code>
+		<DescriptionEn>Subsequent declaration is already written off</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR1302</Code>
@@ -1970,6 +1964,10 @@ and they must have the same reference.</DescriptionEn>
 		<DescriptionEn>Declaration cannot be amneded before release if requested procedure is 07 or 45  and Additional procedure is F06</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NR1357_FI</Code>
+		<DescriptionEn>Declaration cannot be amneded before release if requested procedure is 07 or 45  and Additional procedure is F06</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NR1358</Code>
 		<DescriptionEn>If Additional info FIKAT exists, then indirect representative or direct FITAK representative cannot be used.</DescriptionEn>
 	</RC>
@@ -1995,16 +1993,43 @@ then authorization holder must not be the same as Representative</DescriptionEn>
 		<DescriptionEn>Submiter ID must be the same as for declarant, representative or service provider in the original/amended declaration.</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NR2003_internal</Code>
-		<DescriptionEn>Submiter ID must be the same as for declarant, representative or service provider in the original/amended declaration.</DescriptionEn>
-	</RC>
-	<RC>
 		<Code>NR2004</Code>
 		<DescriptionEn>The case needs to have subsequent cases in order to be discharged.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR2005</Code>
 		<DescriptionEn>Authorisation holder ID must be the same as for declarant</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR2007</Code>
+		<DescriptionEn>Unfinished change request</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR2008</Code>
+		<DescriptionEn>Unfinished change request or measure exists</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR2009</Code>
+	</RC>
+	<RC>
+		<Code>NR2010</Code>
+		<DescriptionEn>Time limit extension is not possible for Time limit type</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR2011</Code>
+		<DescriptionEn>Time limit T2 cannot be extended,  if case is waiting for supplementary declaration</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR2012</Code>
+		<DescriptionEn>Time limit T3 cannot be extended, if requested procedure in case details is 46, 48 or 53.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR2013</Code>
+		<DescriptionEn>Time limit T3 cannot be extended before time limit T2 expired</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR2020</Code>
+		<DescriptionEn>Time limit does not exist</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR3001</Code>
@@ -2025,9 +2050,9 @@ then there must exist either:
 	</RC>
 	<RC>
 		<Code>NR3004</Code>
-		<DescriptionEn>If requested procedure is different than 71 and
-previous procedure is 21,
-then nature of transaction (8/5) must be one of 21, 22, 51, 52, 60.</DescriptionEn>
+		<DescriptionEn>"If requested procedure is 51 and previous procedure is 21, 
+then nature of transaction must be 41, 42, or 60.
+Else if requested procedure is other than 51 or 71, and previous procedure is 21, then nature of transaction must be 21, 22, 51, 52 or 60."</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR3005</Code>
@@ -2118,7 +2143,7 @@ then additional document type C019 must exist on the corresponding goods item.</
 	</RC>
 	<RC>
 		<Code>NR3021</Code>
-		<DescriptionEn>If Requested procedure is 44, then Additional information code FIALV must be declared</DescriptionEn>
+		<DescriptionEn>If Requested procedure is 44 and additional procedure 653 exists, then Additional information code FIALV must be declared</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR3022</Code>
@@ -2156,9 +2181,8 @@ then additional document type C019 must exist on the corresponding goods item.</
 	<RC>
 		<Code>NR3028</Code>
 		<DescriptionEn>IF Requested procedure = 51 AND Previous procedure = 11 THEN
-    one of the following must be declared on the same goods item:
-    - Previous document type 830 (with export MRN)
-    - Additional document tyoe C710</DescriptionEn>
+there must exist Previous document type 830 (with export MRN) and
+either additional document type C710 or additional information code FIOEI.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR3029</Code>
@@ -2181,11 +2205,11 @@ o only one previous document for temporary re-export for futher processing (MRN 
 		<DescriptionEn>If Requested procedure is 53 then Nature of transaction must be 60</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NR3038</Code>
-		<DescriptionEn>If Requested procedure is 53 then Additional procedure must always be the same for each goods item</DescriptionEn>
+		<Code>NR3037</Code>
+		<DescriptionEn>If Requested procedure is 53 then Additional procedure must be Dxx for each goods item</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NR3038_internal</Code>
+		<Code>NR3038</Code>
 		<DescriptionEn>If Requested procedure is 53 then Additional procedure must always be the same for each goods item</DescriptionEn>
 	</RC>
 	<RC>
@@ -2217,6 +2241,10 @@ or
 o Additional document type C710(detail of used  the standardized exchange of information exists</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NR3062</Code>
+		<DescriptionEn>If Previous Procedure is 54 then either Additional document type = C610 (INF9) or Additional information code = FIOEI must excist</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NR3068</Code>
 		<DescriptionEn>If Additional procedure code is D02 then Period of discharge (FIXBH) must be 1-12 months</DescriptionEn>
 	</RC>
@@ -2240,7 +2268,8 @@ o Additional document type C710(detail of used  the standardized exchange of inf
 		<Code>NR3078</Code>
 		<DescriptionEn>If  Authorisation type is  one of the following: (IPO, EUS, TEA) then
 Authorization holder ID and the Identification number of the declarant must be the same, except in case:
-o Requested procedure is 51 and Previous procedure is 11 and Additional document type is C710 (INF IP EX/IM) or Additional information code = FIOEI (then Authorization holder id and the identification number of the declarant need not to be the same).</DescriptionEn>
+o Requested procedure is 51 and Previous procedure is 11 and Additional document type is C710 (INF IP EX/IM) 
+or Additional information code = FIOEI (then Authorization holder id and the identification number of the declarant need not to be the same).</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR3079</Code>
@@ -2284,23 +2313,11 @@ THEN Authorisation register must return authorisation type TEA</DescriptionEn>
 		<DescriptionEn>If Additional information code is 00100 and  requested procedure is one of the following: 44 , 51 then First place of use or processing is optional if Declarant ID EORI is Finnish or other EU otherwise mandatory  (FIFPU)</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NR3094_internal</Code>
-		<DescriptionEn>If Additional information code is 00100 and  requested procedure is one of the following: 44 , 51 then First place of use or processing is optional if Declarant ID EORI is Finnish or other EU otherwise mandatory  (FIFPU)</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3096</Code>
-		<DescriptionEn>If Additional information code is 00100 and  requested procedure is 53 then First place of use  is mandatory   (FIFPU)</DescriptionEn>
-	</RC>
-	<RC>
 		<Code>NR3097</Code>
 		<DescriptionEn>If Additional information code is 00100 and requested procedure is 44,48 or 51 then At least one CN code of Processed products is mandatory (FIXBP)</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR3098</Code>
-		<DescriptionEn>If Additional information code is 00100 and Additional information code FIXBP exists  then Free description of Processed products is mandatory (FIXBB)</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3098_internal</Code>
 		<DescriptionEn>If Additional information code is 00100 and Additional information code FIXBP exists  then Free description of Processed products is mandatory (FIXBB)</DescriptionEn>
 	</RC>
 	<RC>
@@ -2369,6 +2386,42 @@ THEN UTU checks automatically in Authorisation register: TARIC code (6/15) in th
 		<DescriptionEn>IF Additional information code in [FIXBJ, FIXBO, FID85, FID86, FIXBG, FIXBN, FIXBP, FIXBQ, FIXIG, FIXAC, FIFPU, FIOOG, FISPI, FIXBH] THEN Additional information code 00100 must exist</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NSC0002</Code>
+		<DescriptionEn>There is a prohibition for goods (from Taric)</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NSC0003</Code>
+		<DescriptionEn>There is a restriction for goods (from Taric) and condition code has been declared</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NSC0004</Code>
+		<DescriptionEn>There is a restriction for goods (from Taric) and exemption code has been declared</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NSC0005</Code>
+		<DescriptionEn>Previous procedure is 21 (manual checking of INF2 or ELEX export (outward processing) must be performed)</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NSP056</Code>
+		<DescriptionEn>If Previous Procedure is 51, then Additional information code 00700 must exist</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NSP058</Code>
+		<DescriptionEn>If Previous Procedure is 53, then Additional information code 00900 must exist</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NSP065</Code>
+		<DescriptionEn>If requested procedure is 44 or 61 and previous procedure is 21, there must be declared one of following:
+- Additional document type C660 (national previous document type) and case identification number (MRN) of outward procession declaration (ELEX)
+- Previous document type MRN and case identification number (MRN) of outward procession declaration. (UTU)
+- Additional document type C710 (detail of used the standardized exchange of information)
+- Additional information code FIOEI</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NSP116</Code>
+		<DescriptionEn>If exists Additional information with code FIXEG, then requested procedure must be 61, previoius procedure must be 21 and additional document type must C019 exist in goods item level.</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>R0005</Code>
 		<DescriptionEn>‘Goods Item Number’ is always used even if ‘Items’ = ‘1’, ‘Goods Item Number’ is also ‘1’.</DescriptionEn>
 	</RC>
@@ -2387,10 +2440,6 @@ THEN UTU checks automatically in Authorisation register: TARIC code (6/15) in th
 	<RC>
 		<Code>R0285</Code>
 		<DescriptionEn>When a detail is common to all goods items, it must be declared at declaration header level. The details are declared at goods item level only if they differ from each other.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>R0285_C0055</Code>
-		<DescriptionEn>R0285 + C0055</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>R0671</Code>
@@ -2413,6 +2462,13 @@ THEN UTU checks automatically in Authorisation register: TARIC code (6/15) in th
 		<DescriptionEn>MRN must exist in UTU</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NR0724</Code>
+		<DescriptionEn>MAK or MIT decision must be issued after Change to Penalty decision</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0725</Code>
+	</RC>
+	<RC>
 		<Code>NR1264</Code>
 		<DescriptionEn>Measure cannot be finisthed, if Quota request has not been sent yet</DescriptionEn>
 	</RC>
@@ -2421,12 +2477,20 @@ THEN UTU checks automatically in Authorisation register: TARIC code (6/15) in th
 		<DescriptionEn>Measure Control phase 5, cannot be created manually</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NR1266</Code>
+		<DescriptionEn>Measure cannot be finished, if timer for special procedure has not yet been set</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NR1270</Code>
 		<DescriptionEn>Measure cannot be finisthed, until a notification message about secured liability is sent</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NR1275</Code>
+		<DescriptionEn>Decided extension value must be later than time limit.</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NR1330</Code>
-		<DescriptionEn>Control with status New or Response delayed must exist to be send.</DescriptionEn>
+		<DescriptionEn>Control with status New or Response delayed must exist to be send and not Passenger oral declaration</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR1360</Code>
@@ -2467,12 +2531,12 @@ then representative must be a credit trader.</DescriptionEn>
 		<DescriptionEn>Discharge cannot be done, because on the requested declaration (or one of the declarations), there is currently ongoing electronic request for amendment.</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NR3100_internal</Code>
-		<DescriptionEn>IF authorisation type is EUS AND Authorisation Register returned national code 89A in commodity code data (5/1) THEN footnote EU003 must exist for each goods item</DescriptionEn>
+		<Code>NSP046</Code>
+		<DescriptionEn>If Requested procedure is 61 and Previous procedure is 21 then previous authorization holder id and the current identification number of the declarant need not to be the same.</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NR3101_internal</Code>
-		<DescriptionEn>IF authorisation type is EUS AND Authorisation Register returned national code 88B in commodity code data (5/1) THEN footnote EU001 must exist for each goods item</DescriptionEn>
+		<Code>NSP115</Code>
+		<DescriptionEn>If additional procedure is 160 THEN authorisation must cover equivalent goods</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR1364</Code>
