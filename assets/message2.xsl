@@ -36,7 +36,7 @@
 				<h3>Structure of groups</h3>
 			</xsl:when>
 		</xsl:choose>
-		<table class="table table-responsive">
+		<table class="datatable table table-responsive">
 			<thead>
 				<tr>
 					<xsl:choose>
