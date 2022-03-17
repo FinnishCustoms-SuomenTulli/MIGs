@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2020 sp1 (x64) (http://www.altova.com) by Tulli (Tulli) -->
+<!-- edited with XMLSpy v2021 rel. 3 (x64) (http://www.altova.com) by Tulli (Tulli) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:element name="Message" type="MessageType"/>
 	<xs:element name="DataGroup" type="DataGroupType"/>
@@ -123,7 +123,17 @@
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="XPath" type="XPathType"/>
-			<xs:element name="MinOccurence" maxOccurs="99"/>
+			<xs:element name="MinOccurence" maxOccurs="99">
+				<xs:complexType>
+					<xs:attribute name="use">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="6"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="GeneralType" minOccurs="0"/>
 			<xs:element name="Codelist" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="Rule" minOccurs="0" maxOccurs="unbounded">
