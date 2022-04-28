@@ -112,7 +112,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $.ajax({
-                url: '../../common/codelists.xml',
+                url: '../../../../codelists/codelists.xml',
                 type: 'GET',
                 dataType: 'xml',
                 success: function(returnedXMLResponse) {
@@ -141,7 +141,7 @@
         }).datepicker("setDate",'now');
         $('.input-group.date').on('changeDate', function(e){
             var checkDate = moment(e.date).format('YYYYMMDD');
-            transform('../../common/codelists.xml', '../../../assets/codelists.xsl', document.getElementById('contents'), 'fi', checkDate);
+            transform('../../../../codelists/codelists.xml', '../../../assets/codelists.xsl', document.getElementById('contents'), 'fi', checkDate);
         });
     </script>
 
@@ -171,7 +171,7 @@
         today = yyyy + mm + dd;
 
         document.addEventListener('DOMContentLoaded', function() {
-            transform('../../common/codelists.xml', '../../../assets/codelists.xsl', document.getElementById('contents'), 'fi', today);
+            transform('../../../../codelists/codelists.xml', '../../../assets/codelists.xsl', document.getElementById('contents'), 'fi', today);
         })
     </script>
 
