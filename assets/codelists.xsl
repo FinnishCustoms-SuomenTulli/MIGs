@@ -6,7 +6,7 @@
 	<xsl:template match="/">
 		<div class="container">
 			<div>
-				<a href="../../common/codelists.xml">
+				<a href="../../../../codelists/codelists.xml">
 					<xsl:choose>
 						<xsl:when test="$language='fi'">
 							<span class="icon icon-tulli-external" style="margin-right:3px"/>Lataa koodistot XML-muodossa</xsl:when>
