@@ -86,7 +86,21 @@
 															</b>
 														</xsl:when>
 														<xsl:otherwise>
-															<xsl:value-of select="Description[@lang=($language)]"/>
+															<xsl:choose>
+																<xsl:when test="contains(Description[@lang=($language)], 'http')">
+																	<xsl:value-of select="substring-before(Description[@lang=($language)], 'http')"/>
+																	<a target="_blank">
+																		<xsl:attribute name="href">
+																			<xsl:value-of select="concat('http', substring-before(substring-after(Description[@lang=($language)], 'http'), ' '))"/>
+																		</xsl:attribute>
+																		<xsl:value-of select="concat('http', substring-before(substring-after(Description[@lang=($language)], 'http'), ' '))"/>
+																	</a>
+																	<xsl:value-of select="concat(' ',substring-after(substring-after(Description[@lang=($language)], 'http'), ' '))"/>
+																</xsl:when>
+																<xsl:otherwise>
+																	<xsl:value-of select="Description[@lang=($language)]"/>
+																</xsl:otherwise>
+															</xsl:choose>
 														</xsl:otherwise>
 													</xsl:choose>
 												</td>
