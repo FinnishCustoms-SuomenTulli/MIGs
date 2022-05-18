@@ -196,7 +196,21 @@
 								<td colspan="5">
 									<span class="icon icon-tulli-info" style="margin-right:3px"/>
 									<xsl:for-each select="DescriptionLine[@lang=$language and not(@use)] | DescriptionLine[@lang=$language and @use=$messageType]">
-										<xsl:value-of select="."/>
+										<xsl:choose>
+											<xsl:when test="contains(., '&lt;a')">
+												<xsl:value-of select="substring-before(., '&lt;a')"/>
+												<a target="_blank">
+													<xsl:attribute name="href">
+														<xsl:value-of select="substring-before(substring-after(., 'href=&quot;'), '&quot;')"/>
+													</xsl:attribute>
+													<xsl:value-of select="substring-before(substring-after(., '&quot;>'), '&lt;/a>')"/>
+												</a>
+												<xsl:value-of select="substring-after(., '&lt;/a>')"/>
+											</xsl:when>
+											<xsl:otherwise>
+												<xsl:value-of select="."/>
+											</xsl:otherwise>
+										</xsl:choose>
 										<xsl:if test="position() != last()">
 											<br/>
 										</xsl:if>
@@ -429,7 +443,21 @@
 									<td colspan="6">
 										<span class="icon icon-tulli-info" style="margin-right:3px"/>
 										<xsl:for-each select="DescriptionLine[@lang=$language and not(@use)] | DescriptionLine[@lang=$language and @use=$messageType]">
-											<xsl:value-of select="."/>
+											<xsl:choose>
+												<xsl:when test="contains(., '&lt;a')">
+													<xsl:value-of select="substring-before(., '&lt;a')"/>
+													<a target="_blank">
+														<xsl:attribute name="href">
+															<xsl:value-of select="substring-before(substring-after(., 'href=&quot;'), '&quot;')"/>
+														</xsl:attribute>
+														<xsl:value-of select="substring-before(substring-after(., '&quot;>'), '&lt;/a>')"/>
+													</a>
+													<xsl:value-of select="substring-after(., '&lt;/a>')"/>
+												</xsl:when>
+												<xsl:otherwise>
+													<xsl:value-of select="."/>
+												</xsl:otherwise>
+											</xsl:choose>
 											<xsl:if test="position() != last()">
 												<br/>
 											</xsl:if>
