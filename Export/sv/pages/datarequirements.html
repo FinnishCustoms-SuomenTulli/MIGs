@@ -108,8 +108,18 @@
     <!-- Bootstrap core JavaScript
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../assets/javascripts/popper.js"></script>
     <script src='../../../assets/javascripts/vendor/jquery.js'></script>
+
+    <script src='../../../assets/xsltProcessor2.js'></script>
+
+    <script src="../../../assets/javascripts/popper.min.js"></script>
+
+    <script src='../../../assets/javascripts/bootstrap.js'></script>
+
+    <script src='../../../assets/javascripts/custom-ui.js'></script>
+
+    <script src="../../../assets/javascripts/bootstrap-tabdrop.js"></script>
+    
     <script>
         var i = 1;
         $(document).ready(function() {
@@ -160,14 +170,6 @@
             }); // End AJAX
         });
     </script>
-
-    <script src='../../../assets/xsltProcessor2.js'></script>
-
-    <script src='../../../assets/javascripts/bootstrap.js'></script>
-
-    <script src='../../../assets/javascripts/custom-ui.js'></script>
-
-    <script src="../../../assets/javascripts/bootstrap-tabdrop.js"></script>
 
     <script>
         var today = new Date();
@@ -226,48 +228,6 @@
                 }, 600);
                 return false;
             });
-        });
-    </script>
-
-    <script>
-        $('#Select').on('change', function() {
-            switch (this.value) {
-                case 'all':
-                    $("tbody > tr").show();
-                    $("tbody > tr").removeClass("odd");
-                    $("tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
-                    break;
-                case 'H2':
-                    $("tbody > tr").show();
-                    $("tbody > tr:not(.H2):not(.all)").hide();
-                    $("tbody > tr").removeClass("odd");
-                    $("tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
-                    break;
-                case 'I1':
-                    $("tbody > tr").show();
-                    $("tbody > tr:not(.I1):not(.all)").hide();
-                    $("tbody > tr").removeClass("odd");
-                    $("tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
-                    break;
-                case 'H5E':
-                    $("tbody > tr").show();
-                    $("tbody > tr:not(.H5E):not(.all)").hide();
-                    $("tbody > tr").removeClass("odd");
-                    $("tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
-                    break;
-                case 'H5N':
-                    $("tbody > tr").show();
-                    $("tbody > tr:not(.H5N):not(.all)").hide();
-                    $("tbody > tr").removeClass("odd");
-                    $("tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
-                    break;
-                case 'H5R':
-                    $("tbody > tr").show();
-                    $("tbody > tr:not(.H5R):not(.all)").hide();
-                    $("tbody > tr").removeClass("odd");
-                    $("tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
-                    break;
-            }
         });
     </script>
 

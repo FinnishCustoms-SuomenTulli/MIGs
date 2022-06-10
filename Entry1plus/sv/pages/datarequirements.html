@@ -57,6 +57,9 @@
                                 <li>
                                     <a href="codes.html">Koder</a>
                                 </li>
+                                <li>
+                                    <a href="examples.html">Exempel</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -78,6 +81,15 @@
         <div class="col-xs-12" role="main">
             <div>
                 <ul class="nav nav-tabs messagetabs" role="tablist"></ul>
+                <!--select name="filter" id="Select" class="form-control">
+                    <option value="null">-- Filtrera datainneh&aring;llen --</option>
+                    <option value="all">Visa allt</option>
+                    <option value="I1">F&ouml;renklad deklaration</option>
+                    <option value="H2">Tullagring</option>
+                    <option value="H5E">Skattegr&auml;nsanm&auml;älan</option>
+                    <option value="H5N">Nationell skattegr&auml;nsanm&auml;lan - icke-momsregistrerade akt&ouml;rer </option>
+                    <option value="H5R">Nationell skattegr&auml;nsanm&auml;lan - Momsregistrerade akt&ouml;rer</option>
+                </select-->
                 <div class="tab-content"></div>
                 <div id="codemodal"></div>
                 <div id="rulesmodal"></div>
@@ -96,8 +108,18 @@
     <!-- Bootstrap core JavaScript
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../assets/javascripts/popper.js"></script>
     <script src='../../../assets/javascripts/vendor/jquery.js'></script>
+
+    <script src='../../../assets/xsltProcessor2.js'></script>
+
+    <script src="../../../assets/javascripts/popper.min.js"></script>
+
+    <script src='../../../assets/javascripts/bootstrap.js'></script>
+
+    <script src='../../../assets/javascripts/custom-ui.js'></script>
+
+    <script src="../../../assets/javascripts/bootstrap-tabdrop.js"></script>
+    
     <script>
         var i = 1;
         $(document).ready(function() {
@@ -111,7 +133,7 @@
                             var message = $(this).text();
                             var base = $(this).attr('base');
                             // nav-tabs
-                            if(base=='decl'){
+                            if (base == 'decl') {
                                 $(".messagetabs").append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '"><span class="icon icon-tulli-file-export"/>' + message + '</a></li>');
                             } else {
                                 $(".messagetabs").append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '"><span class="icon icon-tulli-file-import"/>' + message + '</a></li>');
@@ -148,14 +170,6 @@
             }); // End AJAX
         });
     </script>
-
-    <script src='../../../assets/xsltProcessor2.js'></script>
-
-    <script src='../../../assets/javascripts/bootstrap.js'></script>
-
-    <script src='../../../assets/javascripts/custom-ui.js'></script>
-
-    <script src="../../../assets/javascripts/bootstrap-tabdrop.js"></script>
 
     <script>
         var today = new Date();
@@ -199,17 +213,19 @@
     </script>
 
     <script>
-        $(document).ready(function(){
-              $('body').append('<span id="toTop" class="badge"><i class="media-object icon-md icon icon-tulli-arrow-up"></i></span>');
-    	        $(window).scroll(function () {
-			        if ($(this).scrollTop() != 0) {
-				        $('#toTop').fadeIn();
-			        } else {
-				        $('#toTop').fadeOut();
-			        }
-		        }); 
-            $('#toTop').click(function(){
-                $("html, body").animate({ scrollTop: 0 }, 600);
+        $(document).ready(function() {
+            $('body').append('<span id="toTop" class="badge"><i class="media-object icon-md icon icon-tulli-arrow-up"></i></span>');
+            $(window).scroll(function() {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function() {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 600);
                 return false;
             });
         });
@@ -217,13 +233,7 @@
 
     <script>
         $(document).on('DOMNodeInserted', 'table', function() {
-            $("table tbody tr").filter(":not(.group, .description)").filter(":nth-child(odd)").addClass("odd");
-        });
-    </script>
-
-    <script>
-        $(document).on('DOMNodeInserted', 'table', function() {
-            $("tbody > tr:not(.group, .description)").filter(":nth-child(odd)").addClass("odd");
+            $("tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
         });
     </script>
 
