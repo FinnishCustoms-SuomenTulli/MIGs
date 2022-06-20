@@ -4,7 +4,7 @@
 	<xsl:param name="language"/>
 	<xsl:template match="/">
 		<xsl:for-each select="RulesCondition/RC">
-			<div class="modal" tabindex="-1" role="dialog" data-keyboard="false">
+			<div class="modal fade" tabindex="-1" role="dialog" data-keyboard="false">
 				<xsl:attribute name="id"><xsl:value-of select="concat('RC_',Code)"/></xsl:attribute>
 				<div class="modal-dialog modal-lg" role="document">
 					<div class="modal-content">

@@ -5,7 +5,7 @@
 	<xsl:param name="messageType"/>
 	<xsl:template match="/">
 		<xsl:for-each select="CodeLists/CodeList">
-			<div class="modal" tabindex="-1" role="dialog" data-keyboard="false">
+			<div class="modal fade" tabindex="-1" role="dialog" data-keyboard="false">
 				<xsl:attribute name="id">
 					<xsl:value-of select="concat('CODELIST_',Identification)"/>
 				</xsl:attribute>

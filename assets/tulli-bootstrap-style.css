@@ -298,9 +298,6 @@ th {
   .table {
     width: 100%;
     border-collapse: collapse !important; }
-    .table td,
-    .table th {
-/*      background-color: #fff !important;*/ }
 
   .table-bordered th,
   .table-bordered td {
@@ -1582,9 +1579,6 @@ button.code-example {
 button.code-example[aria-expanded="true"] {
   color: #fff;
   background-color: #00205b; }
-
-.content-area .collapse, .content-area .collapsing {
-  /* margin-top: 20px;*/ }
 
 span.colorbox {
   display: inline-block;
@@ -3369,11 +3363,11 @@ button {
   overflow-wrap: break-word !important; }
 
 /* TULLI-VERSION */
-.fade {
+/*.fade {
   opacity: 0;
   transition: opacity 0.15s linear; }
   .fade.in {
-    opacity: 1; }
+    opacity: 1; }*/
 
 .collapse {
   display: none; }
@@ -4012,7 +4006,6 @@ p a {
   text-decoration: underline; }
 p a[target=_blank]:after {
   font-family: 'Tulli-Icons' !important;
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -4027,7 +4020,6 @@ p a[target=_blank].link-to-eservice:after {
 
 ul li a[target=_blank]:after {
   font-family: 'Tulli-Icons' !important;
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -5714,7 +5706,6 @@ button.close {
         color: #333;
         font-weight: normal;
         text-align: center;
-        vertical-align: top;
         background-image: none;
         border: 2px solid #00205b;
         white-space: nowrap;
@@ -5807,127 +5798,241 @@ a, table tr, button {
   border-bottom: 1px solid #00205b; }
 
 /* TULLI-VERSION */
-.modal-open {
-  overflow: hidden; }
-
-.modal {
-  display: none;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1050;
-  -webkit-overflow-scrolling: touch;
-  outline: 0; }
+  .modal-open {
+    overflow: hidden;
+  }
+  
+  .modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: 0;
+  }
+  
+  .modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 0.5rem;
+    pointer-events: none;
+  }
+  
   .modal.fade .modal-dialog {
-    transform: translate(0, -25%);
-    transition: transform 0.3s ease-out; }
-  .modal.in .modal-dialog {
-    transform: translate(0, 0); }
+    transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+    -webkit-transform: translate(0, -50px);
+    transform: translate(0, -50px);
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .modal.fade .modal-dialog {
+      transition: none;
+    }
+  }
+  
+  .modal.show .modal-dialog {
+    -webkit-transform: none;
+    transform: none;
+  }
+  
+  .modal-dialog-scrollable {
+    display: -ms-flexbox;
+    display: flex;
+    max-height: calc(100% - 1rem);
+  }
+  
+  .modal-dialog-scrollable .modal-content {
+    max-height: calc(100vh - 1rem);
+    overflow: hidden;
+  }
+  
+  .modal-dialog-scrollable .modal-header,
+  .modal-dialog-scrollable .modal-footer {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+  }
+  
+  .modal-dialog-scrollable .modal-body {
+    overflow-y: auto;
+  }
+  
+  .modal-dialog-centered {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: calc(100% - 1rem);
+  }
+  
+  .modal-dialog-centered::before {
+    display: block;
+    height: calc(100vh - 1rem);
+    content: "";
+  }
+  
+  .modal-dialog-centered.modal-dialog-scrollable {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .modal-dialog-centered.modal-dialog-scrollable .modal-content {
+    max-height: none;
+  }
+  
+  .modal-dialog-centered.modal-dialog-scrollable::before {
+    content: none;
+  }
+  
+  .modal-content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fafafa;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: 0;
+  }
 
-.modal-open .modal {
-  overflow-x: hidden;
-  overflow-y: auto; }
-
-.modal-dialog {
-  position: relative;
-  width: auto;
-  margin: 10px; }
-
-.modal-content {
-  position: relative;
-  background-color: #fafafa;
-  border: 1px solid transparent;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  background-clip: padding-box;
-  outline: 0; }
-
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1040;
-  background-color: #000; }
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+  }
+  
   .modal-backdrop.fade {
     opacity: 0;
-    filter: alpha(opacity=0); }
-  .modal-backdrop.in {
-    opacity: 0.7;
-    filter: alpha(opacity=70); }
+  }
+  
+  .modal-backdrop.show {
+    opacity: 0.5;
+  }
+  
+  .modal-header {
+    padding: 5px;
+    background: #00205b;
+    color: #fff; }
+    .modal-header:before, .modal-header:after {
+      content: " ";
+      display: table; }
+    .modal-header:after {
+      clear: both; }
+  
+  .modal-header .close {
+    padding: 1rem 1rem;
+    margin: -1rem -1rem -1rem auto;
+  }
+  
+  .modal-title {
+    font-size: 18px;
+    color: inherit;
+    line-height: 30px;
+    font-weight: bold;
+    text-transform: none;
+    letter-spacing: initial;
+    margin: 0;
+    display: block;
+    text-align: center;
+  }
 
-.modal-header {
-  padding: 5px;
-  background: #00205b;
-  color: #fff; }
-  .modal-header:before, .modal-header:after {
-    content: " ";
-    display: table; }
-  .modal-header:after {
-    clear: both; }
-
-.modal-header .close {
-  margin-top: -2px; }
-
-.modal-title {
-  font-size: 18px;
-  color: inherit;
-  line-height: 30px;
-  font-weight: bold;
-  text-transform: none;
-  letter-spacing: initial;
-  margin: 0;
-  display: block;
-  text-align: center; }
-
-.modal-body {
-  position: relative;
-  padding: 20px; }
-
-.modal-footer {
-  vertical-align: top;
-  padding: 20px;
-  text-align: right;
-  border-top: 1px solid transparent;
-  background-color: #e3e5e9; }
-  .modal-footer:before, .modal-footer:after {
-    content: " ";
-    display: table; }
-  .modal-footer:after {
-    clear: both; }
-  .modal-footer .btn + .btn {
-    margin-left: 5px;
-    margin-bottom: 0; }
-  .modal-footer .btn-group .btn + .btn {
-    margin-left: -1px; }
-  .modal-footer .btn-block + .btn-block {
-    margin-left: 0; }
-
-.modal-scrollbar-measure {
-  position: absolute;
-  top: -9999px;
-  width: 50px;
-  height: 50px;
-  overflow: scroll; }
-
-@media (min-width: 768px) {
-  .modal-dialog {
-    width: 580px;
-    margin: 30px auto; }
-
-  .modal-content {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); }
-
-  .modal-sm {
-    width: 348px; } }
-@media (min-width: 992px) {
-  .modal-lg {
-    width: 870px; } }
+  .modal-body {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+  }
+  
+  .modal-footer {
+    vertical-align: top;
+    padding: 20px;
+    text-align: right;
+    border-top: 1px solid transparent;
+    background-color: #e3e5e9; }
+    .modal-footer:before, .modal-footer:after {
+      content: " ";
+      display: table; }
+    .modal-footer:after {
+      clear: both; }
+    .modal-footer .btn + .btn {
+      margin-left: 5px;
+      margin-bottom: 0; }
+    .modal-footer .btn-group .btn + .btn {
+      margin-left: -1px; }
+    .modal-footer .btn-block + .btn-block {
+      margin-left: 0; }
+  
+  .modal-footer > :not(:first-child) {
+    margin-left: .25rem;
+  }
+  
+  .modal-footer > :not(:last-child) {
+    margin-right: .25rem;
+  }
+  
+  .modal-scrollbar-measure {
+    position: absolute;
+    top: -9999px;
+    width: 50px;
+    height: 50px;
+    overflow: scroll;
+  }
+  
+  @media (min-width: 576px) {
+    .modal-dialog {
+      max-width: 500px;
+      margin: 1.75rem auto;
+    }
+    .modal-dialog-scrollable {
+      max-height: calc(100% - 3.5rem);
+    }
+    .modal-dialog-scrollable .modal-content {
+      max-height: calc(100vh - 3.5rem);
+    }
+    .modal-dialog-centered {
+      min-height: calc(100% - 3.5rem);
+    }
+    .modal-dialog-centered::before {
+      height: calc(100vh - 3.5rem);
+    }
+    .modal-sm {
+      max-width: 300px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .modal-lg,
+    .modal-xl {
+      max-width: 800px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .modal-xl {
+      max-width: 1140px;
+    }
+  }
+    
 /* TULLI-VERSION */
   .tooltip {
     position: absolute;
@@ -6593,7 +6698,6 @@ ul.release-notes-list {
 [class^="icon-tulli-"], [class*=" icon-tulli-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'Tulli-Icons' !important;
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -6605,7 +6709,6 @@ ul.release-notes-list {
 
 .icon {
   font-family: 'Tulli-Icons' !important;
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -7727,7 +7830,6 @@ header .lower {
     .navbar .navbar-nav.navbar-right {
       float: right; }
     .navbar .navbar-nav > li {
-      float: left;
       display: inline-block; }
       .navbar .navbar-nav > li > a {
         display: inline-block; } }
@@ -7746,7 +7848,6 @@ select.form-control {
   position: relative; }
   select.form-control ~ span:after {
     font-family: 'Tulli-Icons' !important;
-    speak: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -8155,8 +8256,7 @@ footer {
         height: 20px;
         margin-left: -20px;
         font-family: 'Tulli-Icons' !important;
-        speak: none;
-        font-style: normal;
+       font-style: normal;
         font-weight: normal;
         font-variant: normal;
         text-transform: none;
