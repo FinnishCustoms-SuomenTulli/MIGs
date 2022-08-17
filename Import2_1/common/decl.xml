@@ -85,6 +85,7 @@
 			<Filter>FI413BH5R</Filter>
 			<XPath>FunctionalReference@function="MRN"</XPath>
 			<MinOccurence>1</MinOccurence>
+			<Rule use="FI413B">NR0102</Rule>
 			<Condition use="FI415B">NC0109</Condition>
 			<Format>an18</Format>
 		</DataElement>
@@ -117,8 +118,9 @@
 			<MinOccurence>1</MinOccurence>
 			<MinOccurence use="FI446B">0</MinOccurence>
 			<Condition use="FI413B">NC0027</Condition>
-			<Condition use="FI414B">NC0027</Condition>
 			<Condition use="FI415B">NC0027</Condition>
+			<Condition use="FI439B">NC0027</Condition>
+			<Condition use="FI453B">NC0027</Condition>
 			<!--Condition use="FI413B">H7! NC0102</Condition>
 			<Condition use="FI415B">NC0102</Condition-->
 			<Condition use="FI483B">NC0242</Condition>
@@ -153,6 +155,8 @@
 			<Filter>FI415BH5E</Filter>
 			<XPath>FunctionalReference@function="AdditionalLRN"</XPath>
 			<MinOccurence>0</MinOccurence>
+			<Condition use="FI413B">NC0302</Condition>
+			<Condition use="FI415B">NC0302</Condition>
 			<Format>an..22</Format>
 			<DescriptionLine lang="fi">Ilmoitetaan lisäviite, esimerkiksi edustajaa käytettäessä ilmoittajan oma viite.</DescriptionLine>
 			<DescriptionLine lang="sv">Ytterligare referens för deklaranten, till exempel deklarantens egen referens då ombud anlitas, anmäls.</DescriptionLine>
@@ -180,16 +184,6 @@
 			<Rule>NR0207</Rule>
 			<Rule use="FI413B">NR0101</Rule>
 			<Rule use="FI415B">NR0101</Rule>
-			<Rule use="FI413B">NR0208</Rule>
-			<Rule use="FI415B">NR0208</Rule>
-			<Rule use="FI413B">NR0300</Rule>
-			<Rule use="FI415B">NR0300</Rule>
-			<Rule use="FI413B">NR0308</Rule>
-			<Rule use="FI415B">NR0308</Rule>
-			<Rule use="FI413B">NR1313</Rule>
-			<Rule use="FI415B">NR1313</Rule>
-			<Rule use="FI413B">NR3008</Rule>
-			<Rule use="FI415B">NR3008</Rule>
 			<Format>an..5</Format>
 			<DescriptionLine lang="fi">Kolmasmaatavarasta käytetään koodia 'IM' ja unionitavarasta 'CO'.</DescriptionLine>
 			<DescriptionLine lang="sv">För tredjelandsvaror används koden 'IM' och för unionsvaror koden 'CO'.</DescriptionLine>
@@ -217,8 +211,6 @@
 			<MinOccurence>1</MinOccurence>
 			<Codelist>CL024</Codelist>
 			<Rule>NR0046</Rule>
-			<Rule use="FI413B">NR0101</Rule>
-			<Rule use="FI415B">NR0101</Rule>
 			<Rule use="FI413B">NR0201</Rule>
 			<Rule use="FI415B">NR0201</Rule>
 			<Rule use="FI413B">NR0220</Rule>
@@ -229,9 +221,12 @@
 			<Rule use="FI415B">NR0245</Rule>
 			<Rule use="FI413B">NR0246</Rule>
 			<Rule use="FI415B">NR0246</Rule>
-			<Rule>NR0269</Rule>
+			<Rule use="FI483B">NR0269</Rule>
+			<Rule use="FI485B">NR0269</Rule>
 			<Rule use="FI413B">NR1313</Rule>
 			<Rule use="FI415B">NR1313</Rule>
+			<Rule use="FI415B">NR1314</Rule>
+			<Rule use="FI415B">NR1314</Rule>
 			<Rule use="FI413B">NR3008</Rule>
 			<Rule use="FI415B">NR3008</Rule>
 			<Format>a1</Format>
@@ -273,8 +268,7 @@
 			<XPath>Invoice@CurrencyUnit</XPath>
 			<MinOccurence>0</MinOccurence>
 			<Codelist>CL352</Codelist>
-			<Condition>C0619</Condition>
-			<Condition>NC0303</Condition>
+			<Condition>NC0224</Condition>
 			<Format>a3</Format>
 			<DescriptionLine lang="fi">Ilmoitetaan kauppalaskulla käytetty valuuttalaji. Jos ilmoituksella on useita kauppalaskuja eri valuuttalajeissa, ilmoitetaan laskutusvaluuttana EUR ja laskutettu kokonaissumma ilmoitetaan euroina käyttäen Tullin muuntokursseja.</DescriptionLine>
 			<DescriptionLine lang="sv">Ange det valutaslag som används i fakturan. Om deklarationen har flera fakturor i olika valutor är faktureringsvalutan EUR och det fakturerade totala beloppet uttrycks i euro med hjälp av Tullens valutakurser.</DescriptionLine>
@@ -292,6 +286,7 @@
 			<Filter>FI415BH5E</Filter>
 			<XPath>TotalGrossMass</XPath>
 			<MinOccurence>1</MinOccurence>
+			<Rule>NR0032</Rule>
 			<Condition>NC0246</Condition>
 			<Condition>NC0250</Condition>
 			<Format>n..16,6</Format>
@@ -362,8 +357,8 @@
 				<Filter>FI413BH5R</Filter>
 				<XPath>Type</XPath>
 				<MinOccurence>0</MinOccurence>
-				<Codelist>NCL###</Codelist>
-				<Condition>NC####</Condition>
+				<Codelist>NCL063</Codelist>
+				<Rule>NR0351</Rule>
 				<Format>a3</Format>
 			</DataElement>
 			<DataElement>
@@ -380,7 +375,7 @@
 				<Filter>FI413BH5R</Filter>
 				<XPath>Amendment</XPath>
 				<MinOccurence>1</MinOccurence>
-				<Rule>NR0255</Rule>
+				<Rule>NR0350</Rule>
 				<Format>dateTime</Format>
 			</DataElement>
 			<DataElement>
@@ -397,8 +392,8 @@
 				<Filter>FI413BH5R</Filter>
 				<XPath>ChangeReason</XPath>
 				<MinOccurence>0</MinOccurence>
-				<Codelist>CL062</Codelist>
-				<Condition>NC####</Condition>
+				<Codelist>NCL062</Codelist>
+				<Condition>NC0361</Condition>
 				<Format>an..6</Format>
 			</DataElement>
 			<DataElement>
@@ -415,7 +410,7 @@
 				<Filter>FI413BH5R</Filter>
 				<XPath>Text</XPath>
 				<MinOccurence>0</MinOccurence>
-				<Condition>NC####</Condition>
+				<Condition>NC0361</Condition>
 				<Format>an..4096</Format>
 			</DataElement>
 			<DataElement>
@@ -432,7 +427,6 @@
 				<Filter>FI413BH5R</Filter>
 				<XPath>RequestCorrelation</XPath>
 				<MinOccurence>0</MinOccurence>
-				<Condition>NC####</Condition>
 				<Format>an38</Format>
 				<DescriptionLine lang="fi">Pyynnön korrelaatiolla yksilöidään mihin Tullin lähettämään sanomaan vastataan.</DescriptionLine>
 				<DescriptionLine lang="sv">Med begärans korrelation specificeras vilket av Tullens meddelanden besvaras.</DescriptionLine>
@@ -454,7 +448,6 @@
 				<Group>ProvidedInfo</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>999</MaxOccurence>
-				<Condition>NC####</Condition>
 				<DataElement>
 					<Name lang="fi">Kuvaus</Name>
 					<Name lang="sv">Beskrivning</Name>
@@ -510,7 +503,7 @@
 				<Group>PaymentDetails</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
-				<Condition>NC####</Condition>
+				<Condition>NC0360</Condition>
 				<DescriptionLine lang="fi">Jos pyynnöllä haetaan tullin palautusta tai peruutusta, ilmoitetaan maksutiedot.</DescriptionLine>
 				<DescriptionLine lang="sv">Om man med begäran ansöker om återbetalning eller eftergift av tull, anges betalningsuppgifterna.</DescriptionLine>
 				<DescriptionLine lang="en">If the request concerns repayment or remission of customs duty, provide the payment details.</DescriptionLine>
@@ -547,6 +540,7 @@
 					<Filter>FI413BH5R</Filter>
 					<XPath>Amount</XPath>
 					<MinOccurence>0</MinOccurence>
+					<Rule>NR0357</Rule>
 					<Format>n..16,2</Format>
 				</DataElement>
 				<DataElement>
@@ -595,7 +589,7 @@
 					<Filter>FI413BH5R</Filter>
 					<XPath>AccountIdentification</XPath>
 					<MinOccurence>0</MinOccurence>
-					<Condition>NC####</Condition>
+					<Condition>NC0350</Condition>
 					<Format>an..70</Format>
 				</DataElement>
 				<DataElement>
@@ -612,7 +606,7 @@
 					<Filter>FI413BH5R</Filter>
 					<XPath>BIC</XPath>
 					<MinOccurence>0</MinOccurence>
-					<Condition>NC####</Condition>
+					<Condition>NC0353</Condition>
 					<Format>an..22</Format>
 					<DescriptionLine lang="fi">Ilmoitetaan pankin BIC-koodi, jos pankkitili on IBAN ja se on SEPA maassa.</DescriptionLine>
 					<DescriptionLine lang="sv">Ange bankens BIC-kod, om bankkontot är  ett IBAN-konto i ett SEPA-land.	</DescriptionLine>
@@ -631,8 +625,7 @@
 					<Filter>FI413BH5N</Filter>
 					<Filter>FI413BH5R</Filter>
 					<XPath>AccountHolderName</XPath>
-					<MinOccurence>0</MinOccurence>
-					<Condition>NC####</Condition>
+					<MinOccurence>1</MinOccurence>
 					<Format>an..70</Format>
 					<DescriptionLine lang="fi">Jos pankkitili on muussa kuin SEPA maassa, ilmoita tilinhaltijaksi pankin nimi ja osoitteeksi pankin osoite.</DescriptionLine>
 					<DescriptionLine lang="sv">Om bankkontot finns i ett land som inte är ett SEPA-land, ange bankens namn som kontoinnehavare och bankens adress som adress.</DescriptionLine>
@@ -654,7 +647,7 @@
 					<Group>Address</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
-					<Condition>NC####</Condition>
+					<Condition>NC0357</Condition>
 					<DataElement>
 						<Name lang="fi">Katuosoite</Name>
 						<Name lang="sv">Gatuadress</Name>
@@ -735,7 +728,10 @@
 			<Group>Notification</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<Rule>NR0044</Rule>
+			<Rule use="FI414B">NR0044</Rule>
+			<Rule use="FI439B">NR0044</Rule>
+			<Rule use="FI453B">NR0044</Rule>
+			<Rule use="FI446B">NR0052</Rule>
 			<DataElement>
 				<Name lang="fi">Ilmoituksen päiväys ja aika</Name>
 				<Name lang="sv">Datum och tid för underrättelsen</Name>
@@ -746,7 +742,6 @@
 				<Use>FI453B</Use>
 				<XPath>Notification</XPath>
 				<MinOccurence>1</MinOccurence>
-				<Rule>NR0255</Rule>
 				<Format>dateTime</Format>
 			</DataElement>
 			<DataElement>
@@ -771,6 +766,7 @@
 				<Use>FI453B</Use>
 				<XPath>Text</XPath>
 				<MinOccurence>0</MinOccurence>
+				<Condition use="FI414B">NC0241</Condition>
 				<Format>an..4096</Format>
 			</DataElement>
 			<DataElement>
@@ -781,6 +777,8 @@
 				<XPath>ContactReason</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Codelist>NCL050</Codelist>
+				<Rule>NR1376</Rule>
+				<Rule>NR2007</Rule>
 				<Format>an..50</Format>
 			</DataElement>
 			<DataElement>
@@ -793,6 +791,8 @@
 				<MinOccurence use="FI414B">1</MinOccurence>
 				<MinOccurence>0</MinOccurence>
 				<Codelist>NCL061</Codelist>
+				<Rule use="FI414B">NR1379</Rule>
+				<Rule use="FI414B">NR1380</Rule>
 				<Format>an..6</Format>
 			</DataElement>
 			<!--DataElement>
@@ -835,6 +835,7 @@
 				<XPath>RequestCorrelation</XPath>
 				<MinOccurence>1</MinOccurence>
 				<MinOccurence use="FI439B">0</MinOccurence>
+				<Rule use="FI439B">NR0359</Rule>
 				<Format>an38</Format>
 			</DataElement>
 			<DataElement>
@@ -854,6 +855,10 @@
 				<XPath>Limit@LimitType</XPath>
 				<MinOccurence>0</MinOccurence>
 				<Codelist>NCL906</Codelist>
+				<Rule>NR2010</Rule>
+				<Rule>NR2011</Rule>
+				<Rule>NR2012</Rule>
+				<Rule>NR2020</Rule>
 				<Format>an3</Format>
 			</DataElement>
 			<DataElement>
@@ -920,7 +925,6 @@
 				<Group>PaymentDetails</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
-				<Condition>NC####</Condition>
 				<DescriptionLine lang="fi">Jos pyynnöllä haetaan tullin palautusta tai peruutusta, ilmoitetaan maksutiedot.</DescriptionLine>
 				<DescriptionLine lang="sv">Om man med begäran ansöker om återbetalning eller eftergift av tull, anges betalningsuppgifterna.</DescriptionLine>
 				<DescriptionLine lang="en">If the request concerns repayment or remission of customs duty, provide the payment details.</DescriptionLine>
@@ -943,6 +947,7 @@
 					<Use>FI414B</Use>
 					<XPath>Amount</XPath>
 					<MinOccurence>0</MinOccurence>
+					<Rule>NR0357</Rule>
 					<Format>n..16,2</Format>
 				</DataElement>
 				<DataElement>
@@ -970,7 +975,7 @@
 					<Use>FI414B</Use>
 					<XPath>AccountIdentification</XPath>
 					<MinOccurence>0</MinOccurence>
-					<Condition>NC####</Condition>
+					<Condition>NC0350</Condition>
 					<Format>an..70</Format>
 				</DataElement>
 				<DataElement>
@@ -980,7 +985,7 @@
 					<Use>FI414B</Use>
 					<XPath>BIC</XPath>
 					<MinOccurence>0</MinOccurence>
-					<Condition>NC####</Condition>
+					<Condition>NC0353</Condition>
 					<Format>an..22</Format>
 					<DescriptionLine lang="fi">Ilmoitetaan pankin BIC-koodi, jos pankkitili on IBAN ja se on SEPA maassa.</DescriptionLine>
 					<DescriptionLine lang="sv">Ange bankens BIC-kod, om bankkontot är  ett IBAN-konto i ett SEPA-land.	</DescriptionLine>
@@ -992,8 +997,7 @@
 					<Name lang="en">Account holder name</Name>
 					<Use>FI414B</Use>
 					<XPath>AccountHolderName</XPath>
-					<MinOccurence>0</MinOccurence>
-					<Condition>NC####</Condition>
+					<MinOccurence>1</MinOccurence>
 					<Format>an..70</Format>
 					<DescriptionLine lang="fi">Jos pankkitili on muussa kuin SEPA maassa, ilmoita tilinhaltijaksi pankin nimi ja osoitteeksi pankin osoite.</DescriptionLine>
 					<DescriptionLine lang="sv">Om bankkontot finns i ett land som inte är ett SEPA-land, ange bankens namn som kontoinnehavare och bankens adress som adress.</DescriptionLine>
@@ -1008,7 +1012,7 @@
 					<Group>Address</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
-					<Condition>NC####</Condition>
+					<Condition>NC0357</Condition>
 					<DataElement>
 						<Name lang="fi">Katuosoite</Name>
 						<Name lang="sv">Gatuadress</Name>
@@ -1076,12 +1080,12 @@
 			<Group>Agent</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<Rule use="FI413B">NR0235</Rule>
-			<Rule use="FI415B">NR0235</Rule>
+			<Rule use="FI473B">NR0047</Rule>
+			<Rule use="FI475B">NR0047</Rule>
+			<Rule use="FI483B">NR0047</Rule>
+			<Rule use="FI485B">NR0047</Rule>
 			<Rule use="FI483B">NR0235</Rule>
 			<Rule use="FI485B">NR0235</Rule>
-			<Rule use="FI413B">NR0238</Rule>
-			<Rule use="FI415B">NR0238</Rule>
 			<Rule use="FI483B">NR0238</Rule>
 			<Rule use="FI485B">NR0238</Rule>
 			<Rule use="FI413B">NR0241</Rule>
@@ -1092,6 +1096,8 @@
 			<Condition use="FI415B">NC0039</Condition>
 			<Condition use="FI483B">NC0039</Condition>
 			<Condition use="FI485B">NC0039</Condition>
+			<Condition use="FI413B">NC0103</Condition>
+			<Condition use="FI415B">NC0103</Condition>
 			<Condition use="FI413B">NC0238</Condition>
 			<Condition use="FI415B">NC0238</Condition>
 			<Condition use="FI483B">NC0238</Condition>
@@ -1125,7 +1131,8 @@
 				<XPath>Function</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Codelist>CL530</Codelist>
-				<Rule>NR0002</Rule>
+				<Rule use="FI413B">NR0002</Rule>
+				<Rule use="FI415B">NR0002</Rule>
 				<Rule use="FI413B">NR0101</Rule>
 				<Rule use="FI415B">NR0101</Rule>
 				<Rule use="FI413B">NR1358</Rule>
@@ -1138,30 +1145,28 @@
 				<Rule use="FI415B">NR3107</Rule>
 				<Rule use="FI473B">NR3107</Rule>
 				<Rule use="FI475B">NR3107</Rule>
-				<Rule use="FI483B">NR3107</Rule>
-				<Rule use="FI485B">NR3107</Rule>
 				<Format>n1</Format>
-				<DescriptionLine lang="fi" use="FI413A">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
-				<DescriptionLine lang="fi" use="FI415A">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
-				<DescriptionLine lang="fi" use="FI473A">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
-				<DescriptionLine lang="fi" use="FI475A">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
-				<DescriptionLine lang="fi" use="FI483A">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
-				<DescriptionLine lang="fi" use="FI485A">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
-				<DescriptionLine lang="fi" use="FI488A">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
-				<DescriptionLine lang="sv" use="FI413A">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
-				<DescriptionLine lang="sv" use="FI415A">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
-				<DescriptionLine lang="sv" use="FI473A">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
-				<DescriptionLine lang="sv" use="FI475A">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
-				<DescriptionLine lang="sv" use="FI483A">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
-				<DescriptionLine lang="sv" use="FI485A">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
-				<DescriptionLine lang="sv" use="FI488A">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
-				<DescriptionLine lang="en" use="FI413A">If direct representation with the liability of a guarantor is used, the transaction level code FITAK is entered as well.</DescriptionLine>
-				<DescriptionLine lang="en" use="FI415A">If direct representation with the liability of a guarantor is used, the transaction level code FITAK is entered as well.</DescriptionLine>
-				<DescriptionLine lang="en" use="FI473A">If direct representation with the liability of a guarantor is used, the transaction level code FITAK is entered as well.</DescriptionLine>
-				<DescriptionLine lang="en" use="FI475A">If direct representation with the liability of a guarantor is used, the transaction level code FITAK is entered as well.</DescriptionLine>
-				<DescriptionLine lang="en" use="FI483A">If direct representation with the liability of a guarantor is used, the transaction level code FITAK is entered as well.</DescriptionLine>
-				<DescriptionLine lang="en" use="FI485A">If direct representation with the liability of a guarantor is used, the transaction level code FITAK is entered as well.</DescriptionLine>
-				<DescriptionLine lang="en" use="FI488A">If direct representation with the liability of a guarantor is used, the transaction level code FITAK is entered as well.</DescriptionLine>
+				<DescriptionLine lang="fi" use="FI413B">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
+				<DescriptionLine lang="fi" use="FI415B">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
+				<DescriptionLine lang="fi" use="FI473B">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
+				<DescriptionLine lang="fi" use="FI475B">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
+				<DescriptionLine lang="fi" use="FI483B">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
+				<DescriptionLine lang="fi" use="FI485B">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
+				<DescriptionLine lang="fi" use="FI488B">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
+				<DescriptionLine lang="sv" use="FI413B">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
+				<DescriptionLine lang="sv" use="FI415B">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
+				<DescriptionLine lang="sv" use="FI473B">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
+				<DescriptionLine lang="sv" use="FI475B">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
+				<DescriptionLine lang="sv" use="FI483B">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
+				<DescriptionLine lang="sv" use="FI485B">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
+				<DescriptionLine lang="sv" use="FI488B">Om direkt ombud med garantens ansvar anlitas anges också FITAK som kod för ytterligare uppgifter på deklarationsnivå.</DescriptionLine>
+				<DescriptionLine lang="en" use="FI413B">If direct representation with the liability of a guarantor is used, the transaction level code FITAK is entered as well.</DescriptionLine>
+				<DescriptionLine lang="en" use="FI415B">If direct representation with the liability of a guarantor is used, the transaction level code FITAK is entered as well.</DescriptionLine>
+				<DescriptionLine lang="en" use="FI473B">If direct representation with the liability of a guarantor is used, the transaction level code FITAK is entered as well.</DescriptionLine>
+				<DescriptionLine lang="en" use="FI475B">If direct representation with the liability of a guarantor is used, the transaction level code FITAK is entered as well.</DescriptionLine>
+				<DescriptionLine lang="en" use="FI483B">If direct representation with the liability of a guarantor is used, the transaction level code FITAK is entered as well.</DescriptionLine>
+				<DescriptionLine lang="en" use="FI485B">If direct representation with the liability of a guarantor is used, the transaction level code FITAK is entered as well.</DescriptionLine>
+				<DescriptionLine lang="en" use="FI488B">If direct representation with the liability of a guarantor is used, the transaction level code FITAK is entered as well.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
@@ -1188,24 +1193,36 @@
 				<Filter>FI415BH5R</Filter>
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
-				<Rule use="FI413A">NR0034</Rule>
-				<Rule use="FI415A">NR0034</Rule>
-				<Rule use="FI473A">NR0034</Rule>
-				<Rule use="FI475A">NR0034</Rule>
-				<Rule use="FI483A">NR0034</Rule>
-				<Rule use="FI485A">NR0034</Rule>
+				<Rule use="FI413B">NR0034</Rule>
+				<Rule use="FI414B">NR0034</Rule>
+				<Rule use="FI415B">NR0034</Rule>
+				<Rule use="FI446B">NR0034</Rule>
+				<Rule use="FI473B">NR0034</Rule>
+				<Rule use="FI475B">NR0034</Rule>
+				<Rule use="FI483B">NR0034</Rule>
+				<Rule use="FI485B">NR0034</Rule>
 				<Rule use="FI413B">NR0035</Rule>
+				<Rule use="FI414B">NR0035</Rule>
 				<Rule use="FI415B">NR0035</Rule>
+				<Rule use="FI446B">NR0035</Rule>
 				<Rule use="FI473B">NR0035</Rule>
 				<Rule use="FI475B">NR0035</Rule>
 				<Rule use="FI483B">NR0035</Rule>
 				<Rule use="FI485B">NR0035</Rule>
 				<Rule use="FI413B">NR0036</Rule>
+				<Rule use="FI414B">NR0036</Rule>
 				<Rule use="FI415B">NR0036</Rule>
+				<Rule use="FI446B">NR0036</Rule>
 				<Rule use="FI473B">NR0036</Rule>
 				<Rule use="FI475B">NR0036</Rule>
 				<Rule use="FI483B">NR0036</Rule>
 				<Rule use="FI485B">NR0036</Rule>
+				<Rule use="FI414B">NR0056</Rule>
+				<Rule use="FI446B">NR0056</Rule>
+				<Rule use="FI473B">NR0056</Rule>
+				<Rule use="FI475B">NR0056</Rule>
+				<Rule use="FI483B">NR0056</Rule>
+				<Rule use="FI485B">NR0056</Rule>
 				<Rule use="FI413B">NR0101</Rule>
 				<Rule use="FI415B">NR0101</Rule>
 				<Rule use="FI413B">NR0286</Rule>
@@ -1213,6 +1230,8 @@
 				<Rule use="FI483B">NR0286</Rule>
 				<Rule use="FI485B">NR0286</Rule>
 				<Rule use="FI488B">NR1111</Rule>
+				<Condition use="FI473B">C0638</Condition>
+				<Condition use="FI475B">C0638</Condition>
 				<Format>an..17</Format>
 				<DescriptionLine lang="fi">EORI-tunniste</DescriptionLine>
 				<DescriptionLine lang="sv">EORI-nummer</DescriptionLine>
@@ -1304,10 +1323,8 @@
 				<Codelist>NCL121</Codelist>
 				<Rule use="FI413B">NR0057</Rule>
 				<Rule use="FI415B">NR0057</Rule>
-				<Rule use="FI473B">NR0057</Rule>
-				<Rule use="FI475B">NR0057</Rule>
-				<Rule use="FI473B">NR0220</Rule>
-				<Rule use="FI475B">NR0220</Rule>
+				<Rule use="FI483B">NR0057</Rule>
+				<Rule use="FI485B">NR0057</Rule>
 				<Format>a1</Format>
 				<DescriptionLine lang="fi">Jos on ilmoitettu asiamiehen tunniste, ilmoitetaan toimijan luonne.</DescriptionLine>
 				<DescriptionLine lang="sv">Om ombudets identifikation har angetts, ska även aktörens natur anges.</DescriptionLine>
@@ -1462,7 +1479,6 @@
 			<Group>Applicant</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<Condition>NC####</Condition>
 			<DescriptionLine lang="fi">Ilmoitetaan muutoksenhakija, jos ilmoitukselle haetaan oikaisua.</DescriptionLine>
 			<DescriptionLine lang="sv">Ange ändringssökande, om ändring av deklaration söks.</DescriptionLine>
 			<DescriptionLine lang="en">Provide the applicant if amendment of the declaration is requested.</DescriptionLine>
@@ -1641,11 +1657,13 @@
 			<MinOccurence use="FI446B">1</MinOccurence>
 			<MinOccurence use="FI473B">1</MinOccurence>
 			<MinOccurence use="FI475B">1</MinOccurence>
+			<MinOccurence use="FI483B">1</MinOccurence>
+			<MinOccurence use="FI485B">1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<Rule use="FI413B">NR0237</Rule>
-			<Rule use="FI415B">NR0237</Rule>
-			<Rule use="FI483B">NR0237</Rule>
-			<Rule use="FI485B">NR0237</Rule>
+			<Rule use="FI413B">R0862</Rule>
+			<Rule use="FI415B">R0862</Rule>
+			<Rule use="FI473B">R0862</Rule>
+			<Rule use="FI475B">R0862</Rule>
 			<Condition use="FI413B">NC0209</Condition>
 			<Condition use="FI415B">NC0209</Condition>
 			<DescriptionLine lang="fi">Ilmoitetaan menettelyyn asettamisesta ja ilmoituksen oikeellisuudesta vastaava. Tässä ilmoitetaan sama toimija kuin tuoja -kohdassa. Jos käytetään välillistä edustajaa, tässä ilmoitetaan edustaja. Jos tehdään tullivarastoinnin ilmoitus yksityiseen tullivarastoon, ilmoitetaan varaston luvanhaltija. Jos tehdään tullivarastoinnin ilmoitus yleiseen tullivarastoon, tässä voidaan ilmoittaa muukin toimija kuin tuoja tai tullivaraston luvanhaltija.
@@ -1676,7 +1694,12 @@
 				<Rule>NR0036</Rule>
 				<Rule use="FI413B">NR0101</Rule>
 				<Rule use="FI415B">NR0101</Rule>
-				<Rule use="FI413B">NR0236</Rule>
+				<Rule use="FI413B">NR0034</Rule>
+				<Rule use="FI415B">NR0034</Rule>
+				<Rule use="FI413B">NR0035</Rule>
+				<Rule use="FI415B">NR0035</Rule>
+				<Rule use="FI413B">NR0036</Rule>
+				<Rule use="FI415B">NR0036</Rule>
 				<Rule use="FI415B">NR0236</Rule>
 				<Rule use="FI483B">NR0236</Rule>
 				<Rule use="FI485B">NR0236</Rule>
@@ -1704,6 +1727,8 @@
 				<Filter>FI415BH5E</Filter>
 				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
+				<Condition use="FI483B">NC0103</Condition>
+				<Condition use="FI485B">NC0103</Condition>
 				<Format>n3</Format>
 				<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
 				<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
@@ -2546,12 +2571,12 @@
 			<MinOccurence use="FI488B">1</MinOccurence>
 			<MaxOccurence>9</MaxOccurence>
 			<MaxOccurence use="FI488B">1</MaxOccurence>
-			<Rule use="FI413A">NR0101</Rule>
-			<Rule use="FI415A">NR0101</Rule>
-			<Rule use="FI413A">NR3100</Rule>
-			<Rule use="FI415A">NR3100</Rule>
-			<Rule use="FI413A">NR3101</Rule>
-			<Rule use="FI415A">NR3101</Rule>
+			<Rule use="FI413B">NR0101</Rule>
+			<Rule use="FI415B">NR0101</Rule>
+			<Rule use="FI413B">NR3100</Rule>
+			<Rule use="FI415B">NR3100</Rule>
+			<Rule use="FI413B">NR3101</Rule>
+			<Rule use="FI415B">NR3101</Rule>
 			<Condition use="FI413B">NC0021</Condition>
 			<Condition use="FI415B">NC0021</Condition>
 			<DescriptionLine use="FI413B" lang="fi">Tullin myöntämä tavanomaisen menettelyn lupa ja yksinkertaistetun ilmoituksen lupa tulee ilmoittaa tässä. Myös tullivarastoinnin lupa ilmoitetaan tässä.</DescriptionLine>
@@ -2639,10 +2664,10 @@
 				<Filter>FI415BH5E</Filter>
 				<XPath>HolderIdentification</XPath>
 				<MinOccurence>1</MinOccurence>
-				<Rule use="FI413A">NR0025</Rule>
-				<Rule use="FI415A">NR0025</Rule>
-				<Rule use="FI473A">NR0025</Rule>
-				<Rule use="FI475A">NR0025</Rule>
+				<Rule use="FI413B">NR0025</Rule>
+				<Rule use="FI415B">NR0025</Rule>
+				<Rule use="FI473B">NR0025</Rule>
+				<Rule use="FI475B">NR0025</Rule>
 				<Rule use="FI413B">NR1011</Rule>
 				<Rule use="FI415B">NR1011</Rule>
 				<Rule use="FI488B">NR1111</Rule>
@@ -2718,6 +2743,10 @@
 				<Rule use="FI415B">NR0252</Rule>
 				<Rule use="FI473B">NR0252</Rule>
 				<Rule use="FI475B">NR0252</Rule>
+				<Rule>NR1381</Rule>
+				<Rule>NR1382</Rule>
+				<Rule>NR1390</Rule>
+				<Rule>NR1392</Rule>
 				<Rule use="FI413B">NR3008</Rule>
 				<Rule use="FI415B">NR3008</Rule>
 				<Rule use="FI413B">NR3010</Rule>
@@ -2738,8 +2767,6 @@
 				<Rule use="FI415B">NR3093</Rule>
 				<Rule use="FI413B">NR3094</Rule>
 				<Rule use="FI415B">NR3094</Rule>
-				<Rule use="FI415B">NR3096</Rule>
-				<Rule use="FI415B">NR3096</Rule>
 				<Rule use="FI413B">NR3097</Rule>
 				<Rule use="FI415B">NR3097</Rule>
 				<Rule use="FI413B">NR3098</Rule>
@@ -2785,6 +2812,10 @@
 				<Rule>NR0522</Rule>
 				<Rule>NR0523</Rule>
 				<Rule>NR0524</Rule>
+				<Rule use="FI413B">NR0273</Rule>
+				<Rule use="FI415B">NR0273</Rule>
+				<Rule>NR1383</Rule>
+				<Rule>NR1391</Rule>
 				<Rule use="FI413B">NR3068</Rule>
 				<Rule use="FI415B">NR3068</Rule>
 				<Rule use="FI413B">NR3069</Rule>
@@ -2825,12 +2856,16 @@
 			<Condition use="FI415B">NC0110</Condition>
 			<Condition use="FI483B">NC0110</Condition>
 			<Condition use="FI485B">NC0110</Condition>
-			<Condition use="FI413A">NC0231</Condition>
-			<Condition use="FI415A">NC0231</Condition>
-			<Condition use="FI473A">NC0231</Condition>
-			<Condition use="FI475A">NC0231</Condition>
-			<Condition use="FI413A">NC0248</Condition>
-			<Condition use="FI415A">NC0248</Condition>
+			<Condition use="FI413B">NC0231</Condition>
+			<Condition use="FI415B">NC0231</Condition>
+			<Condition use="FI473B">NC0231</Condition>
+			<Condition use="FI475B">NC0231</Condition>
+			<Condition use="FI413B">NC0239</Condition>
+			<Condition use="FI415B">NC0239</Condition>
+			<Condition use="FI483B">NC0239</Condition>
+			<Condition use="FI485B">NC0239</Condition>
+			<Condition use="FI413B">NC0248</Condition>
+			<Condition use="FI415B">NC0248</Condition>
 			<Condition use="FI413B">NC0305</Condition>
 			<Condition use="FI415B">NC0305</Condition>
 			<DataElement>
@@ -2851,10 +2886,7 @@
 				<Filter>FI415BH5R</Filter>
 				<XPath>ElectedEntry</XPath>
 				<MinOccurence>1</MinOccurence>
-				<Rule use="FI413A">NR0225</Rule>
-				<Rule use="FI415A">NR0225</Rule>
-				<Rule use="FI483A">NR0225</Rule>
-				<Rule use="FI485A">NR0225</Rule>
+				<Rule>NR0225</Rule>
 				<Rule use="FI413B">NR0226</Rule>
 				<Rule use="FI415B">NR0226</Rule>
 				<Rule use="FI413B">NR0227</Rule>
@@ -2863,6 +2895,7 @@
 				<Rule use="FI415B">NR0228</Rule>
 				<Rule use="FI473B">NR0228</Rule>
 				<Rule use="FI475B">NR0228</Rule>
+				<Rule>NR0229</Rule>
 				<Format>date</Format>
 				<DescriptionLine lang="fi">Esimerkiksi; Yksinkertaistetuilla ja koonti-ilmoituksilla, joissa annetaan FIPER koodi, tulee antaa myös veronmääräytymispäivä. Anna poikkeava veronmääräytymispäivä myös jälkikäteen annettavista ilmoituksista ja kansallisista verorajailmoituksista (H5N).</DescriptionLine>
 				<DescriptionLine lang="sv">Exempel: I förenklade och sammanfattande deklarationer med FIPER-koden ska också skattebestämningsdagen anges. Ange avvikande skattebestämningsdag också i deklarationer som inges i efterhand och i nationella skattegränsdeklarationer (H5N).	</DescriptionLine>
@@ -2944,6 +2977,7 @@
 				<XPath>Type</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Codelist>CL014</Codelist>
+				<Rule>NR0250</Rule>
 				<Format>an..4</Format>
 				<DescriptionLine lang="fi">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos edeltävä tulli-ilmoitus on annettu UTU-järjestelmään, ilmoitetaan asiakirjatyyppi MRN.</DescriptionLine>
 				<DescriptionLine lang="sv">Ange tidigare dokument, oftast en summarisk införseldeklaration, summarisk deklaration eller en T1-transiteringsdeklaration. Om den tidigare deklarationen har ingetts till UTU-systemet, anges MRN som typ av tidigare dokument.</DescriptionLine>
@@ -2957,6 +2991,10 @@
 				<Use>FI415B</Use>
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
+				<Rule>NR0103</Rule>
+				<Rule>NR0104</Rule>
+				<Rule>NR0105</Rule>
+				<Rule>NR0511</Rule>
 				<Format>an..35</Format>
 			</DataElement>
 		</DataGroup>
@@ -3041,7 +3079,14 @@
 			<Group>GoodsShipment</Group>
 			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<Rule>NR0285</Rule>
+			<Rule use="FI413B">NR0030</Rule>
+			<Rule use="FI415B">NR0030</Rule>
+			<Rule use="FI473B">NR0030</Rule>
+			<Rule use="FI475B">NR0030</Rule>
+			<Rule use="FI413B">NR1355</Rule>
+			<Rule use="FI415B">NR1355</Rule>
+			<Rule use="FI413B">NR1384</Rule>
+			<Rule use="FI415B">NR1384</Rule>
 			<Rule use="FI413B">NR3018</Rule>
 			<Rule use="FI415B">NR3018</Rule>
 			<Rule use="FI473B">NR3018</Rule>
@@ -3062,6 +3107,7 @@
 			<Rule use="FI415B">NR3035</Rule>
 			<Rule use="FI473B">NR3035</Rule>
 			<Rule use="FI475B">NR3035</Rule>
+			<Rule>R0285</Rule>
 			<DataElement>
 				<Name lang="fi">Liiketoiminnan luonne</Name>
 				<Name lang="sv">Typ av transaktion</Name>
@@ -3080,7 +3126,6 @@
 				<Rule>NR3027</Rule>
 				<Rule>NR3036</Rule>
 				<Condition>NC0208</Condition>
-				<Condition>NC0254</Condition>
 				<Format>n2</Format>
 			</DataElement>
 			<DataElement>
@@ -3098,6 +3143,7 @@
 				<XPath>Destination/Country</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Codelist>CL010</Codelist>
+				<Rule>NR0101</Rule>
 				<Rule>NR0285</Rule>
 				<Condition>NC0211</Condition>
 				<Format>a2</Format>
@@ -3118,6 +3164,8 @@
 				<Filter>FI415BH5E</Filter>
 				<XPath>ExportCountry/Country</XPath>
 				<MinOccurence>0</MinOccurence>
+				<MinOccurence use="FI483B">1</MinOccurence>
+				<MinOccurence use="FI485B">1</MinOccurence>
 				<Codelist>CL008</Codelist>
 				<Rule use="FI413B">NR0055</Rule>
 				<Rule use="FI415B">NR0055</Rule>
@@ -3365,6 +3413,7 @@
 					<Rule use="FI413B">NR0224</Rule>
 					<Rule use="FI415B">NR0224</Rule>
 					<Rule>NR0291</Rule>
+					<Rule>NR0292</Rule>
 					<Format>an..17</Format>
 					<DescriptionLine lang="fi" use="FI413B">Ilmoitetaan veroedustajan tai IOSS-rekisteröidyn myyjän toimijan alv-tunniste.</DescriptionLine>
 					<DescriptionLine lang="fi" use="FI415B">Ilmoitetaan veroedustajan tai IOSS-rekisteröidyn myyjän toimijan alv-tunniste.</DescriptionLine>
@@ -3468,6 +3517,9 @@
 					<Filter>FI415BH5R</Filter>
 					<XPath>Identification</XPath>
 					<MinOccurence>1</MinOccurence>
+					<Rule>NR0034</Rule>
+					<Rule>NR0035</Rule>
+					<Rule>NR0036</Rule>
 					<Rule use="FI413B">NR0069</Rule>
 					<Rule use="FI415B">NR0069</Rule>
 					<Rule use="FI413B">NR0101</Rule>
@@ -3848,6 +3900,8 @@
 					<Condition use="FI413B">NC0208</Condition>
 					<Condition use="FI415B">NC0208</Condition>
 					<Condition>NC0254</Condition>
+					<Condition use="FI413B">NC0257</Condition>
+					<Condition use="FI415B">NC0257</Condition>
 					<DataElement>
 						<Name lang="fi">Sisämaan kuljetusmuoto</Name>
 						<Name lang="sv">Transportsätt inrikes</Name>
@@ -3918,9 +3972,10 @@
 					<Group>TransportEquipment</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>9999</MaxOccurence>
-					<Rule use="FI413A">NR0102</Rule>
-					<Rule use="FI415A">NR0102</Rule>
-					<Condition>NC0210</Condition>
+					<Rule use="FI413B">NR0102</Rule>
+					<Rule use="FI415B">NR0102</Rule>
+					<Condition use="FI413B">NC0210</Condition>
+					<Condition use="FI415B">NC0210</Condition>
 					<DataElement>
 						<Name lang="fi">Kontin tunnistenumero</Name>
 						<Name lang="sv">Containernummer</Name>
@@ -4000,6 +4055,8 @@
 						<Name lang="en">Customs office</Name>
 						<Use>FI413B</Use>
 						<Use>FI415B</Use>
+						<Use>FI473B</Use>
+						<Use>FI435B</Use>
 						<Filter>FI413BI1</Filter>
 						<Filter>FI415BI1</Filter>
 						<Filter>FI413BH2</Filter>
@@ -4204,15 +4261,15 @@
 					<Group>UnloadingLocation</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
-					<Rule use="FI413A">NR0102</Rule>
-					<Rule use="FI415A">NR0102</Rule>
+					<Rule use="FI413B">NR0102</Rule>
+					<Rule use="FI415B">NR0102</Rule>
 					<Condition>NC0030</Condition>
-					<Condition use="FI413A">NC0254</Condition>
-					<Condition use="FI415A">NC0254</Condition>
-					<Condition use="FI483A">NC0254</Condition>
-					<Condition use="FI485A">NC0254</Condition>
-					<Condition use="FI413A">NC0257</Condition>
-					<Condition use="FI415A">NC0257</Condition>
+					<Condition use="FI413B">NC0254</Condition>
+					<Condition use="FI415B">NC0254</Condition>
+					<Condition use="FI483B">NC0254</Condition>
+					<Condition use="FI485B">NC0254</Condition>
+					<Condition use="FI413B">NC0257</Condition>
+					<Condition use="FI415B">NC0257</Condition>
 					<DescriptionLine lang="fi">Ilmoitetaan vain, jos tavarat eivät sijaitse tullin hyväksymässä varastossa. Tullivarastoinnissa tätä tietoryhmää ei käytetä.  </DescriptionLine>
 					<DescriptionLine lang="sv">Anges bara om varorna inte förvaras på en plats godtagen av Tullen. Vid tullagring används denna datagrupp inte.</DescriptionLine>
 					<DescriptionLine lang="en">Is provided only if the goods are not located in a warehouse approved by Customs. This data group is not used in customs warehousing.</DescriptionLine>
@@ -4468,8 +4525,8 @@
 				<Group>Warehouse</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
-				<Rule use="FI413A">NR0102</Rule>
-				<Rule use="FI415A">NR0102</Rule>
+				<Rule use="FI413B">NR0102</Rule>
+				<Rule use="FI415B">NR0102</Rule>
 				<Condition use="FI413B">NC0203</Condition>
 				<Condition use="FI415B">NC0203</Condition>
 				<Condition use="FI413B">NC0254</Condition>
@@ -4535,9 +4592,18 @@
 					<XPath>Type</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Codelist>CL099</Codelist>
-					<Rule>NR0023</Rule>
-					<Rule>NC0023_b</Rule>
-					<Rule>NR0024</Rule>
+					<Rule use="FI413B">NR0023</Rule>
+					<Rule use="FI415B">NR0023</Rule>
+					<Rule use="FI473B">NR0023</Rule>
+					<Rule use="FI475B">NR0023</Rule>
+					<Rule use="FI413B">NC0023_b</Rule>
+					<Rule use="FI415B">NC0023_b</Rule>
+					<Rule use="FI473B">NC0023_b</Rule>
+					<Rule use="FI475B">NC0023_b</Rule>
+					<Rule use="FI413B">NR0024</Rule>
+					<Rule use="FI415B">NR0024</Rule>
+					<Rule use="FI473B">NR0024</Rule>
+					<Rule use="FI475B">NR0024</Rule>
 					<Format>a1</Format>
 				</DataElement>
 			</DataGroup>
@@ -4567,6 +4633,8 @@
 				<MaxOccurence>99999</MaxOccurence>
 				<Rule use="FI413B">NR0297</Rule>
 				<Rule use="FI415B">NR0297</Rule>
+				<Rule use="FI413B">NR1350</Rule>
+				<Rule use="FI415B">NR1350</Rule>
 				<DataElement>
 					<Name lang="fi">Tavaraerän numero</Name>
 					<Name lang="sv">Varupostnummer</Name>
@@ -4591,8 +4659,8 @@
 					<MinOccurence>1</MinOccurence>
 					<Rule>R0005</Rule>
 					<Rule>R0007</Rule>
-					<Rule use="FI413A">NR0102</Rule>
-					<Rule use="FI415A">NR0102</Rule>
+					<Rule use="FI413B">NR0102</Rule>
+					<Rule use="FI415B">NR0102</Rule>
 					<Format>n..5</Format>
 				</DataElement>
 				<DataElement>
@@ -4790,10 +4858,10 @@
 						<Group>GoodsItem</Group>
 						<MinOccurence>1</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
-						<Rule use="FI413A">NR0011</Rule>
-						<Rule use="FI415A">NR0011</Rule>
-						<Rule use="FI413A">NR0102</Rule>
-						<Rule use="FI415A">NR0102</Rule>
+						<Rule use="FI413B">NR0011</Rule>
+						<Rule use="FI415B">NR0011</Rule>
+						<Rule use="FI413B">NR0102</Rule>
+						<Rule use="FI415B">NR0102</Rule>
 						<Rule>NR0501</Rule>
 						<Condition>NC0223</Condition>
 						<DataElement>
@@ -4913,7 +4981,6 @@
 						<Rule>NR0102</Rule>
 						<Rule>NR0501</Rule>
 						<Rule>NR0502</Rule>
-						<Rule>NR1005</Rule>
 						<Condition>NC0230</Condition>
 						<DataElement>
 							<Name lang="fi">Tavaran koodi – Taric-koodi</Name>
@@ -4970,8 +5037,10 @@
 						<Group>TaricAdditional</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>99</MaxOccurence>
-						<Rule use="FI413A">NR0102</Rule>
-						<Rule use="FI415A">NR0102</Rule>
+						<Rule use="FI413B">NR0102</Rule>
+						<Rule use="FI415B">NR0102</Rule>
+						<Condition use="FI413B">NC0210</Condition>
+						<Condition use="FI415B">NC0210</Condition>
 						<DataElement>
 							<Name lang="fi">Tavaran koodi – Taric-lisäkoodi</Name>
 							<Name lang="sv">Varukod – Taric-tilläggsnummer</Name>
@@ -5034,14 +5103,18 @@
 						<Group>NationalAdditional</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>99</MaxOccurence>
-						<Rule use="FI413A">NR0102</Rule>
-						<Rule use="FI415A">NR0102</Rule>
-						<Rule>NR0509</Rule>
-						<Rule>NR0510</Rule>
+						<Rule use="FI483B">NR0210</Rule>
+						<Rule use="FI485B">NR0210</Rule>
+						<Rule use="FI483B">NR0237</Rule>
+						<Rule use="FI485B">NR0237</Rule>
 						<Rule use="FI483B">NR0239</Rule>
 						<Rule use="FI485B">NR0239</Rule>
-						<Condition use="FI483B">NC0239</Condition>
-						<Condition use="FI485B">NC0239</Condition>
+						<Rule use="FI413B">NR0509</Rule>
+						<Rule use="FI415B">NR0509</Rule>
+						<Rule>NR0510</Rule>
+						<Condition use="FI413B">NC0229</Condition>
+						<Condition use="FI415B">NC0229</Condition>
+						<Condition>NC0237</Condition>
 						<DataElement>
 							<Name lang="fi">Tavaran koodi – kansallinen lisäkoodi</Name>
 							<Name lang="sv">Varukod – nationellt tilläggsnummer</Name>
@@ -5102,6 +5175,8 @@
 						<Group>GoodsItem</Group>
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
+						<Condition use="FI413B">NC0210</Condition>
+						<Condition use="FI415B">NC0210</Condition>
 						<DataElement>
 							<Name lang="fi">CUS-koodi</Name>
 							<Name lang="sv">CUS-kod</Name>
@@ -5156,6 +5231,7 @@
 						<Group>DutyTaxFee</Group>
 						<MinOccurence>1</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
+						<Rule>NR0295</Rule>
 						<Condition>NC0212</Condition>
 						<DataElement>
 							<Name lang="fi">Etuuskohtelu</Name>
@@ -5184,8 +5260,7 @@
 							<Filter>FI415BI1</Filter>
 							<XPath>QuotaOrder</XPath>
 							<MinOccurence>0</MinOccurence>
-							<Rule use="FI413A">NR0102</Rule>
-							<Rule use="FI415A">NR0102</Rule>
+							<Rule>NR0102</Rule>
 							<Rule>NR1255</Rule>
 							<Condition>NC0235</Condition>
 							<Condition>NC0256</Condition>
@@ -5337,6 +5412,9 @@
 							<Filter>FI415BH5E</Filter>
 							<XPath>OtherChargeDeduction</XPath>
 							<MinOccurence>1</MinOccurence>
+							<Rule>FI1351</Rule>
+							<Rule>FI1352</Rule>
+							<Rule>FI1356</Rule>
 							<Format>n..16,2</Format>
 						</DataElement>
 						<DataElement>
@@ -5400,8 +5478,9 @@
 						<MinOccurence>0</MinOccurence>
 						<MinOccurence use="FI483B">1</MinOccurence>
 						<MinOccurence use="FI485B">1</MinOccurence>
-						<Rule use="FI413A">NR0102</Rule>
-						<Rule use="FI415A">NR0102</Rule>
+						<Rule>NR0032</Rule>
+						<Rule use="FI413B">NR0102</Rule>
+						<Rule use="FI415B">NR0102</Rule>
 						<Condition use="FI413B">NC0207</Condition>
 						<Condition use="FI415B">NC0207</Condition>
 						<Format>n..16,6</Format>
@@ -5477,8 +5556,8 @@
 					<MaxOccurence>1</MaxOccurence>
 					<Rule use="FI413B">NR0100</Rule>
 					<Rule use="FI415B">NR0100</Rule>
-					<Rule use="FI483B">NR0100</Rule>
-					<Rule use="FI485B">NR0100</Rule>
+						<Rule use="FI483B">NR0100</Rule>
+						<Rule use="FI485B">NR0100</Rule>
 					<Rule use="FI413B">NR0101</Rule>
 					<Rule use="FI415B">NR0101</Rule>
 					<Rule use="FI413B">NR0301</Rule>
@@ -5495,8 +5574,6 @@
 					<Rule use="FI415B">NR3017</Rule>
 					<Rule use="FI413B">NR3037</Rule>
 					<Rule use="FI415B">NR3037</Rule>
-					<Condition use="FI413B">NC0301</Condition>
-					<Condition use="FI415B">NC0301</Condition>
 					<DataElement>
 						<Name lang="fi">Pyydetty menettelykoodi</Name>
 						<Name lang="sv">Kod för begärt förfarande</Name>
@@ -5518,15 +5595,18 @@
 						<XPath>Current</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL092</Codelist>
+						<Rule>NR0020</Rule>
 						<Rule>NR0027</Rule>
-						<Rule use="FI413A">NR0231</Rule>
-						<Rule use="FI415A">NR0231</Rule>
-						<Rule use="FI413A">NR0264</Rule>
-						<Rule use="FI415A">NR0264</Rule>
-						<Rule use="FI413A">NR0265</Rule>
-						<Rule use="FI415A">NR0265</Rule>
+						<Rule use="FI413B">NR0231</Rule>
+						<Rule use="FI415B">NR0231</Rule>
+						<Rule use="FI413B">NR0264</Rule>
+						<Rule use="FI415B">NR0264</Rule>
+						<Rule use="FI413B">NR0265</Rule>
+						<Rule use="FI415B">NR0265</Rule>
 						<Rule use="FI473B">NR0296</Rule>
 						<Rule use="FI475B">NR0296</Rule>
+						<Rule use="FI413B">NR1354</Rule>
+						<Rule use="FI415B">NR1354</Rule>
 						<Format>an2</Format>
 					</DataElement>
 					<DataElement>
@@ -5554,10 +5634,8 @@
 						<Rule>NR3003</Rule>
 						<Rule>NR3026</Rule>
 						<Rule>NR3028</Rule>
-						<Rule use="FI413A">NR3061</Rule>
-						<Rule use="FI415A">NR3061</Rule>
-						<Rule use="FI413A">NR3062</Rule>
-						<Rule use="FI415A">NR3062</Rule>
+						<Rule>NR3061</Rule>
+						<Rule>NR3062</Rule>
 						<Rule>NR3105</Rule>
 						<Format>an2</Format>
 					</DataElement>
@@ -5585,7 +5663,14 @@
 						<MinOccurence use="FI483B">1</MinOccurence>
 						<MinOccurence use="FI485B">1</MinOccurence>
 						<MaxOccurence>99</MaxOccurence>
-						<Condition>NC0228</Condition>
+						<Rule use="FI413B">NR0005</Rule>
+						<Rule use="FI415B">NR0005</Rule>
+						<Rule use="FI413B">NR0006</Rule>
+						<Rule use="FI415B">NR0006</Rule>
+						<Rule use="FI413B">NR0007</Rule>
+						<Rule use="FI415B">NR0007</Rule>
+						<Condition use="FI413B">NC0228</Condition>
+						<Condition use="FI415B">NC0228</Condition>
 						<DescriptionLine use="FI483B" lang="fi">Jos lisämenettelyä ei sovelleta ilmoitetaan 999, muutoin voidaan ilmoittaa esimerkiksi C08 tai F48.</DescriptionLine>
 						<DescriptionLine use="FI485B" lang="fi">Jos lisämenettelyä ei sovelleta ilmoitetaan 999, muutoin voidaan ilmoittaa esimerkiksi C08 tai F48.</DescriptionLine>
 						<DescriptionLine use="FI483B" lang="sv">Om inget ytterligare förfarande tillämpas, ange 999, i annat fall kan t.ex. C08 eller F48 anges.</DescriptionLine>
@@ -5613,10 +5698,6 @@
 							<XPath>Procedure</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Codelist>CL102</Codelist>
-							<Rule>NR0005</Rule>
-							<Rule>NR0006</Rule>
-							<Rule>NR0007</Rule>
-							<Rule>NR0261</Rule>
 							<Rule use="FI483B">NR0262</Rule>
 							<Rule use="FI485B">NR0262</Rule>
 							<Rule use="FI413B">NR0263</Rule>
@@ -5633,6 +5714,8 @@
 							<Rule use="FI415B">NR3013</Rule>
 							<Rule use="FI413B">NR3038</Rule>
 							<Rule use="FI415B">NR3038</Rule>
+							<Rule use="FI413B">NR3103</Rule>
+							<Rule use="FI415B">NR3103</Rule>
 							<Format>an3</Format>
 							<DescriptionLine lang="fi">Ilmoitetaan tarvittava(t) lisämenettelykoodi(t).</DescriptionLine>
 							<DescriptionLine lang="sv">De kod(er) för ytterligare förfarande som behövs anges.</DescriptionLine>
@@ -5753,7 +5836,6 @@
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>1</MaxOccurence>
 					<Rule>NR0102</Rule>
-					<Rule>NR0260</Rule>
 					<Condition>NC0222</Condition>
 					<DescriptionLine lang="fi">Ilmoitetaan tavaran alkuperämaa.</DescriptionLine>
 					<DescriptionLine lang="sv">Varornas ursprungsland anges.</DescriptionLine>
@@ -5820,7 +5902,7 @@
 						<XPath>Country</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL008</Codelist>
-						<Codelist>CL###</Codelist>
+						<Codelist>CL127</Codelist>
 						<Format>an..4</Format>
 						<Hyperlink lang="fi">
 							<URL>https://asiointi.tulli.fi/asiointipalvelu/fintaric/BrowsingCodes/Countries</URL>
@@ -5894,7 +5976,6 @@
 						<XPath>Type</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL013G</Codelist>
-						<Rule>NR0506</Rule>
 						<Format>an..4</Format>
 					</DataElement>
 					<DataElement>
@@ -5913,7 +5994,6 @@
 						<Filter>FI415BH5E</Filter>
 						<XPath>Identification</XPath>
 						<MinOccurence>1</MinOccurence>
-						<Rule>R0905</Rule>
 						<Format>an..35</Format>
 					</DataElement>
 					<DataElement>
@@ -5942,9 +6022,8 @@
 						<Filter>FI415BI1</Filter>
 						<XPath>WriteOff/Quantity</XPath>
 						<MinOccurence>0</MinOccurence>
-						<Rule>NR0102</Rule>
 						<Rule>NR0290</Rule>
-						<Condition>NC0213</Condition>
+						<Condition>NC0256</Condition>
 						<Format>n..16,6</Format>
 						<DescriptionLine lang="fi">Ilmoitetaan lupaan/todistukseen merkittävä määrä, jos merkintä tehdään paljouden perusteella.</DescriptionLine>
 						<DescriptionLine lang="sv">Mängden som ska antecknas i tillståndet/intyget anges, om anteckningen är mängdbaserad.</DescriptionLine>
@@ -5961,9 +6040,8 @@
 						<XPath>WriteOff/Quantity@QuantityUnit</XPath>
 						<MinOccurence>0</MinOccurence>
 						<Codelist>CL059</Codelist>
-						<Rule>NR0102</Rule>
 						<Rule>NR0290</Rule>
-						<Condition>NC0213</Condition>
+						<Condition>NC0256</Condition>
 						<Format>an..4</Format>
 						<DescriptionLine lang="fi">Ilmoitetaan luvan/todistuksen mukainen paljousyksikkö ja mahdollinen paljousyksikön tarkennin.</DescriptionLine>
 						<DescriptionLine lang="sv">Mängdenhet enligt tillståndet/intyget och eventuell kvalificerare för mängdenheten anges.</DescriptionLine>
@@ -5979,9 +6057,8 @@
 						<Filter>FI415BI1</Filter>
 						<XPath>WriteOff/Amount</XPath>
 						<MinOccurence>0</MinOccurence>
-						<Rule>NR0102</Rule>
 						<Rule>NR0290</Rule>
-						<Condition>NC0213</Condition>
+						<Condition>NC0256</Condition>
 						<Format>n..16,2</Format>
 						<DescriptionLine lang="fi">Ilmoitetaan lupaan/todistukseen merkittävä määrä, jos merkintä tehdään arvon perusteella.</DescriptionLine>
 						<DescriptionLine lang="sv">Mängden som ska antecknas i tillståndet/intyget anges, om anteckningen är värdebaserad.</DescriptionLine>
@@ -5998,9 +6075,8 @@
 						<XPath>WriteOff/Amount@CurrencyUnit</XPath>
 						<MinOccurence>0</MinOccurence>
 						<Codelist>CL352</Codelist>
-						<Rule>NR0102</Rule>
 						<Rule>NR0290</Rule>
-						<Condition>NC0213</Condition>
+						<Condition>NC0256</Condition>
 						<Format>a3</Format>
 					</DataElement>
 					<DataElement>
@@ -6063,6 +6139,7 @@
 					<Group>AdditionalReference</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>99</MaxOccurence>
+					<Condition>NC0210</Condition>
 					<DescriptionLine lang="fi">Ilmoitetaan rajoituksiin ja kieltoihin liittyviä Taric negaatiokoodeja (esim. Y923 ja Y900).</DescriptionLine>
 					<DescriptionLine lang="sv">Ange Taric-negationskoder som hänför sig till förbud och restriktioner (t.ex. Y923 och Y900).</DescriptionLine>
 					<DescriptionLine lang="en">Enter Taric negation codes related to restrictions and prohibitions (e.g. Y923 and Y900).</DescriptionLine>
@@ -6132,9 +6209,11 @@
 						<XPath>Statement</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL039G</Codelist>
+						<Rule>NR1353</Rule>
 						<Rule use="FI413B">NR3007</Rule>
 						<Rule use="FI415B">NR3007</Rule>
-						<Rule>NR3008</Rule>
+						<Rule use="FI413B">NR3008</Rule>
+						<Rule use="FI415B">NR3008</Rule>
 						<Rule use="FI413B">NR3009</Rule>
 						<Rule use="FI415B">NR3009</Rule>
 						<Format>an5</Format>
@@ -6162,10 +6241,9 @@
 						<Filter>FI415BH5R</Filter>
 						<XPath>StatementDescription</XPath>
 						<MinOccurence>0</MinOccurence>
-						<Rule use="FI413B">NR0230</Rule>
-						<Rule use="FI415B">NR0230</Rule>
 						<Rule>NR0230</Rule>
 						<Rule>NR0525</Rule>
+						<Rule>NR1375</Rule>
 						<Condition>NC0025_OPT</Condition>
 						<Format>an..512</Format>
 					</DataElement>
@@ -6202,7 +6280,10 @@
 					<Rule use="FI415B">NR0010</Rule>
 					<Rule use="FI413B">NR0021</Rule>
 					<Rule use="FI415B">NR0021</Rule>
-					<Rule>NR0022</Rule>
+					<Rule use="FI413B">NR0022</Rule>
+					<Rule use="FI415B">NR0022</Rule>
+					<Rule use="FI483B">NR0022</Rule>
+					<Rule use="FI485B">NR0022</Rule>
 					<Rule use="FI413B">NR0060</Rule>
 					<Rule use="FI415B">NR0060</Rule>
 					<Rule use="FI413B">NR0061</Rule>
@@ -6211,11 +6292,25 @@
 					<Rule use="FI415B">NR0062</Rule>
 					<Rule use="FI413B">NR0063</Rule>
 					<Rule use="FI415B">NR0063</Rule>
+					<Rule use="FI413B">NR0064</Rule>
+					<Rule use="FI415B">NR0064</Rule>
 					<Rule use="FI413B">NR0065</Rule>
 					<Rule use="FI415B">NR0065</Rule>
-					<Rule>NR1318</Rule>
+					<Rule use="FI413B">NR0270</Rule>
+					<Rule use="FI415B">NR0270</Rule>
+					<Rule use="FI413B">NR1318</Rule>
+					<Rule use="FI415B">NR1318</Rule>
+					<Rule use="FI483B">NR1318</Rule>
+					<Rule use="FI485B">NR1318</Rule>
 					<Rule>NR1320</Rule>
-					<Rule>NR1323</Rule>
+					<Rule use="FI413B">NR1323</Rule>
+					<Rule use="FI415B">NR1323</Rule>
+					<Rule use="FI483B">NR1323</Rule>
+					<Rule use="FI485B">NR1323</Rule>
+					<Rule use="FI413B">NR1324</Rule>
+					<Rule use="FI415B">NR1324</Rule>
+					<Rule use="FI483B">NR1324</Rule>
+					<Rule use="FI485B">NR1324</Rule>
 					<Rule use="FI473B">NR1325</Rule>
 					<Rule use="FI475B">NR1325</Rule>
 					<Rule use="FI413B">NR3030</Rule>
@@ -6226,10 +6321,8 @@
 					<Rule use="FI475B">NR3041</Rule>
 					<Condition use="FI413B">NC0022</Condition>
 					<Condition use="FI415B">NC0022</Condition>
-					<Condition use="FI413B">NC0234</Condition>
-					<Condition use="FI415B">NC0234</Condition>
-					<Condition use="FI483B">NC0234</Condition>
-					<Condition use="FI485B">NC0234</Condition>
+					<Condition use="FI413B">NC0258</Condition>
+					<Condition use="FI415B">NC0258</Condition>
 					<DescriptionLine lang="fi">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, ilmoitetaan asiakirjatyypiksi MRN.</DescriptionLine>
 					<DescriptionLine lang="sv">Ange tidigare dokument, oftast en summarisk införseldeklaration, summarisk deklaration eller en T1-transiteringsdeklaration. Om den tidigare deklarationen har ingetts till UTU-systemet, anges MRN som typ av tidigare dokument.</DescriptionLine>
 					<DescriptionLine lang="en">Provide the previous document, usually an entry summary declaration, a summary declaration, or a T1 transit declaration. If the previous declaration was lodged in the UTU system, provide MRN as the document type.</DescriptionLine>
@@ -6257,10 +6350,12 @@
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL014</Codelist>
 						<Rule>NR0068</Rule>
+						<Rule use="FI413B">NR0240</Rule>
+						<Rule use="FI415B">NR0240</Rule>
+						<Rule use="FI483B">NR0240</Rule>
+						<Rule use="FI485B">NR0240</Rule>
 						<Rule use="FI413B">NR1319</Rule>
 						<Rule use="FI415B">NR1319</Rule>
-						<Rule use="FI473B">NR1319</Rule>
-						<Rule use="FI475B">NR1319</Rule>
 						<Format>an..4</Format>
 						<DescriptionLine lang="fi">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, ilmoitetaan MRN.</DescriptionLine>
 						<DescriptionLine lang="sv">Tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration anges. Om den tidigare deklarationen har ingetts till UTU-systemet, anges MRN.</DescriptionLine>
@@ -6288,18 +6383,16 @@
 						<Filter>FI415BH5R</Filter>
 						<XPath>Identification</XPath>
 						<MinOccurence>1</MinOccurence>
-						<Rule use="FI413B">NR0268</Rule>
-						<Rule use="FI415B">NR0268</Rule>
-						<Rule use="FI483B">NR0268_H7</Rule>
-						<Rule use="FI485B">NR0268_H7</Rule>
+						<Rule use="FI413B">NR0266</Rule>
+						<Rule use="FI415B">NR0266</Rule>
 						<Rule use="FI413B">NR1315</Rule>
 						<Rule use="FI415B">NR1315</Rule>
 						<Rule use="FI473B">NR1315</Rule>
 						<Rule use="FI475B">NR1315</Rule>
 						<Rule>NR1316</Rule>
 						<Rule>NR1317</Rule>
-						<Rule use="FI483B">R0905</Rule>
-						<Rule use="FI485B">R0905</Rule>
+						<Rule>NR1321</Rule>
+						<Rule>NR1322</Rule>
 						<Format>an..35</Format>
 						<DescriptionLine lang="fi">Ilmoitetaan edeltävän asiakirjan (esimerkiksi saapumisen tai passituksen ilmoitus) viitenumero MRN tai muu viite.</DescriptionLine>
 						<DescriptionLine lang="sv">Det tidigare dokumentets (t.ex. ankomstanmälans eller transiteringsdeklarationens) MRN-nummer eller annan referens anges.</DescriptionLine>
@@ -6377,8 +6470,8 @@
 					<Group>TransportEquipment</Group>
 					<MinOccurence>0</MinOccurence>
 					<MaxOccurence>9999</MaxOccurence>
-					<Rule use="FI413A">NR0102</Rule>
-					<Rule use="FI415A">NR0102</Rule>
+					<Rule use="FI413B">NR0102</Rule>
+					<Rule use="FI415B">NR0102</Rule>
 					<Condition use="FI413B">NC0210</Condition>
 					<Condition use="FI415B">NC0210</Condition>
 					<DataElement>
