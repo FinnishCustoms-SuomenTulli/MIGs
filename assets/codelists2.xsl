@@ -21,7 +21,7 @@
 			<div class="row">
 				<div class="accordion">
 					<xsl:for-each select="CodeLists/CodeList">
-						<div class="accordion-row">
+						<div class="accordion-row" style="display: block">
 								<xsl:attribute name="id">
 									<xsl:value-of select="concat('CODELIST_',Identification)"/>
 								</xsl:attribute>
