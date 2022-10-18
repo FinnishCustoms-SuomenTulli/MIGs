@@ -204,9 +204,9 @@
 			<XPath>Jurisdiction</XPath>
 			<MinOccurence>0</MinOccurence>
 			<Format>dateTime</Format>
-			<DescriptionLine lang="fi">Todellinen esittämispäivä ja aika ilmoitetaan vain, jos esittämisilmoitus annetaan käyttökatkon jälkeen ja tavaroiden fyysinen esittäminen on ollut esim edellisenä päivänä.  Korjaavassa ilmoituksessa ilmoitetaan alkuperäisen ilmoituksen aika.</DescriptionLine>
-			<DescriptionLine lang="sv">Faktiskt datum och faktisk tid för anmälan av varors ankomst anges endast om anmälan inges efter ett driftavbrott och det fysiska uppvisandet av varorna har skett t.ex. den föregående dagen. I den korrigerande anmälan anges tiden för den ursprungliga anmälan.</DescriptionLine>
-			<DescriptionLine lang="en">Actual time and date of declaration is only entered if the presentation notification is provided after a service interruption and the physical presentation of the goods was e.g. the previous day.   In an amending declaration, the time of the original declaration is entered.</DescriptionLine>
+			<DescriptionLine lang="fi">Todellinen esittämispäivä ja aika voidaan ilmoittaa aina. Se on ilmoitettava, jos esittämisilmoitus annetaan sähköisesti vasta saapumispäivän jälkeen. Korjaavassa ilmoituksessa ilmoitetaan alkuperäisen ilmoituksen aika.</DescriptionLine>
+			<DescriptionLine lang="sv">Faktiskt datum och faktisk tid för anmälan av varornas ankomst kan alltid anges. Uppgiften ska anges om anmälan av varors ankomst inges elektroniskt först efter ankomstdagen. I en korrigerande anmälan anges tiden för den ursprungliga anmälan.</DescriptionLine>
+			<DescriptionLine lang="en">The actual date and time of presentation can always be provided. It must be provided, if the presentation notification is submitted electronically only after the date of arrival. In an amending notification, the time of the original notification is provided.</DescriptionLine>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">Tavaroiden alkuperäinen esittämispäivä ja -aika</Name>
@@ -376,9 +376,9 @@
 				<Condition use="FI346A">NCS003</Condition>
 				<Condition use="FI353A">NCS003</Condition>
 				<Format>an..4096</Format>
-				<DescriptionLine lang="fi" use="FI379A">Vapaamuotoinen kuvaus siitä, mitä jatkotoimenpiteitä edellyttäviä poikkeavuuksia siirrossa on todettu.</DescriptionLine>
-				<DescriptionLine lang="sv" use="FI379A">En fritt formulerad beskrivning av de avvikelser som konstaterades vid befordran och som kräver fortsatta åtgärder.</DescriptionLine>
-				<DescriptionLine lang="en" use="FI379A">Free-form description of any discrepancies detected related to the movement and requiring further measures.</DescriptionLine>
+				<DescriptionLine lang="fi" use="FI379A">Vapaamuotoinen kuvaus siitä, miksi siirto peruuntui (koodi 0) tai miksi ainoastaan osa tavaroista saapui perille (koodi 1).</DescriptionLine>
+				<DescriptionLine lang="sv" use="FI379A">Fritt formulerad beskrivning av varför befordran inte blev av (kod 0) eller varför endast en del av varorna kom fram (kod 1).</DescriptionLine>
+				<DescriptionLine lang="en" use="FI379A">A free-form description of why the movement was cancelled (code 0) or why only some of the goods arrived (code 1).</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Ilmoituksen osa</Name>
@@ -4238,9 +4238,9 @@
 					<XPath>Action</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>n1</Format>
-					<DescriptionLine lang="fi">Ilmoita arvo "1", jos siirrossa ei ole raportoitavia puutteita, ja arvo "0", jos siirron jälkeen vastaanotetusta tavarassa on raportoitu poikkeavuuksia, joka edellyttää jatkotoimenpiteitä.</DescriptionLine>
-					<DescriptionLine lang="sv">Ange ”1”, om inga brister finns att rapportera om befordran, och ”0”, om avvikelser som kräver fortsatta åtgärder rapporterats gällande de varor som tagits emot efter befordran.</DescriptionLine>
-					<DescriptionLine lang="en">Enter the value “1” if there are no flaws to report regarding the movement, and the value “0”, if discrepancies that require further measures have been reported regarding the goods received after the movement.</DescriptionLine>
+					<DescriptionLine lang="fi">Ilmoita arvo "0", jos siirto on peruuntunut. Ilmoita arvo "1", jos siirto on suoritettu ja kaikki tai ainakin osa tavaroista tuli perille. Ilmoita arvo "2", jos tavarat eivät saapuneet lainkaan.</DescriptionLine>
+					<DescriptionLine lang="sv">Ange värdet "0", om befordran inte blev av. Ange värdet "1", om befordran har genomförts och alla eller åtminstone en del av varorna kom fram. Ange värdet "2", om varorna överhuvudtaget inte anlände.</DescriptionLine>
+					<DescriptionLine lang="en">Enter the value "0" if the transfer is cancelled. Enter the value "1" if the transfer is complete, and all or at least some of the goods arrived. Enter the value "2" if the goods did not arrive at all.</DescriptionLine>
 				</DataElement>
 			</DataGroup>
 			<DataGroup>
