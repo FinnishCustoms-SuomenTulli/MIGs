@@ -359,6 +359,7 @@
 				<MinOccurence>0</MinOccurence>
 				<Codelist>NCL063</Codelist>
 				<Rule>NR0351</Rule>
+				<Condition>NC0362</Condition>
 				<Format>a3</Format>
 				<DescriptionLine lang="fi">Tietoelementti muuttuu siirtymäajan jälkeen pakolliseksi.</DescriptionLine>
 				<DescriptionLine lang="sv">Dataelementet kommer att bli obligatoriskt efter övergångsperioden.</DescriptionLine>
@@ -699,7 +700,7 @@
 						<Filter>FI413BH5R</Filter>
 						<XPath>Postcode</XPath>
 						<MinOccurence>1</MinOccurence>
-						<Format>an..9</Format>
+						<Format>an..17</Format>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Maa</Name>
@@ -1045,7 +1046,7 @@
 						<Use>FI414B</Use>
 						<XPath>Postcode</XPath>
 						<MinOccurence>1</MinOccurence>
-						<Format>an..9</Format>
+						<Format>an..17</Format>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Maa</Name>
@@ -1440,7 +1441,7 @@
 					<Filter>FI415BH5R</Filter>
 					<XPath>Postcode</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Format>an..9</Format>
+					<Format>an..17</Format>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Maa</Name>
@@ -1620,7 +1621,7 @@
 					<Filter>FI413BH5E</Filter>
 					<XPath>Postcode</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Format>an..9</Format>
+					<Format>an..17</Format>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Maa</Name>
@@ -1872,7 +1873,7 @@
 					<Filter>FI415BH5E</Filter>
 					<XPath>Postcode</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Format>an..9</Format>
+					<Format>an..17</Format>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Maa</Name>
@@ -2075,7 +2076,7 @@
 					<Filter>FI415BH5R</Filter>
 					<XPath>Postcode</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Format>an..9</Format>
+					<Format>an..17</Format>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Maa</Name>
@@ -2172,7 +2173,6 @@
 			<Use>FI413B</Use>
 			<Use>FI414B</Use>
 			<Use>FI415B</Use>
-			<Use>FI439B</Use>
 			<Use>FI446B</Use>
 			<Use>FI473B</Use>
 			<Use>FI475B</Use>
@@ -2199,7 +2199,6 @@
 				<Use>FI413B</Use>
 				<Use>FI414B</Use>
 				<Use>FI415B</Use>
-				<Use>FI439B</Use>
 				<Use>FI446B</Use>
 				<Use>FI473B</Use>
 				<Use>FI475B</Use>
@@ -2229,7 +2228,6 @@
 				<Use>FI413B</Use>
 				<Use>FI414B</Use>
 				<Use>FI415B</Use>
-				<Use>FI439B</Use>
 				<Use>FI446B</Use>
 				<Use>FI473B</Use>
 				<Use>FI475B</Use>
@@ -2256,7 +2254,6 @@
 					<Use>FI413B</Use>
 					<Use>FI414B</Use>
 					<Use>FI415B</Use>
-					<Use>FI439B</Use>
 					<Use>FI446B</Use>
 					<Use>FI473B</Use>
 					<Use>FI475B</Use>
@@ -2286,7 +2283,6 @@
 					<Use>FI413B</Use>
 					<Use>FI414B</Use>
 					<Use>FI415B</Use>
-					<Use>FI439B</Use>
 					<Use>FI446B</Use>
 					<Use>FI473B</Use>
 					<Use>FI475B</Use>
@@ -2315,7 +2311,6 @@
 				<Use>FI413B</Use>
 				<Use>FI414B</Use>
 				<Use>FI415B</Use>
-				<Use>FI439B</Use>
 				<Use>FI446B</Use>
 				<Use>FI473B</Use>
 				<Use>FI475B</Use>
@@ -2342,7 +2337,6 @@
 					<Use>FI413B</Use>
 					<Use>FI414B</Use>
 					<Use>FI415B</Use>
-					<Use>FI439B</Use>
 					<Use>FI446B</Use>
 					<Use>FI473B</Use>
 					<Use>FI475B</Use>
@@ -2372,7 +2366,6 @@
 					<Use>FI413B</Use>
 					<Use>FI414B</Use>
 					<Use>FI415B</Use>
-					<Use>FI439B</Use>
 					<Use>FI446B</Use>
 					<Use>FI473B</Use>
 					<Use>FI475B</Use>
@@ -2399,6 +2392,7 @@
 			<Name lang="fi">Sanoman lähettäjä</Name>
 			<Name lang="sv">Meddelandets avsändare</Name>
 			<Name lang="en">Message sender</Name>
+			<Use>FI439B</Use>
 			<Use>FI488B</Use>
 			<XPath>Submitter</XPath>
 			<Group>Submitter</Group>
@@ -2408,11 +2402,12 @@
 				<Name lang="fi">Tunnistenumero</Name>
 				<Name lang="sv">Identifieringsnummer</Name>
 				<Name lang="en">Identification no.</Name>
+				<Use>FI439B</Use>
 				<Use>FI488B</Use>
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
-				<Rule>NR1111</Rule>
-				<Rule>NR1112</Rule>
+				<Rule use="FI488B">NR1111</Rule>
+				<Rule use="FI488B">NR1112</Rule>
 				<Format>an..17</Format>
 			</DataElement>
 		</DataGroup>
@@ -3368,7 +3363,7 @@
 						<Filter>FI415BI1</Filter>
 						<XPath>Postcode</XPath>
 						<MinOccurence>1</MinOccurence>
-						<Format>an..9</Format>
+						<Format>an..17</Format>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Maa</Name>
@@ -3696,7 +3691,7 @@
 						<Filter>FI415BH5R</Filter>
 						<XPath>Postcode</XPath>
 						<MinOccurence>1</MinOccurence>
-						<Format>an..9</Format>
+						<Format>an..17</Format>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Maa</Name>
@@ -3830,7 +3825,7 @@
 						<Filter>FI415BI1</Filter>
 						<XPath>Postcode</XPath>
 						<MinOccurence>1</MinOccurence>
-						<Format>an..9</Format>
+						<Format>an..17</Format>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Maa</Name>
@@ -4226,7 +4221,7 @@
 							<Filter>FI415BH5E</Filter>
 							<XPath>Postcode</XPath>
 							<MinOccurence>1</MinOccurence>
-							<Format>an..9</Format>
+							<Format>an..17</Format>
 						</DataElement>
 						<DataElement>
 							<Name lang="fi">Maa</Name>
@@ -4350,7 +4345,7 @@
 							<Filter>FI415BH5E</Filter>
 							<XPath>Postcode</XPath>
 							<MinOccurence>1</MinOccurence>
-							<Format>an..9</Format>
+							<Format>an..17</Format>
 						</DataElement>
 						<DataElement>
 							<Name lang="fi">Maa</Name>
@@ -5587,8 +5582,8 @@
 					<MaxOccurence>1</MaxOccurence>
 					<Rule use="FI413B">NR0100</Rule>
 					<Rule use="FI415B">NR0100</Rule>
-						<Rule use="FI483B">NR0100</Rule>
-						<Rule use="FI485B">NR0100</Rule>
+					<Rule use="FI483B">NR0100</Rule>
+					<Rule use="FI485B">NR0100</Rule>
 					<Rule use="FI413B">NR0101</Rule>
 					<Rule use="FI415B">NR0101</Rule>
 					<Rule use="FI413B">NR0301</Rule>
@@ -5933,7 +5928,7 @@
 						<XPath>Country</XPath>
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL008</Codelist>
-						<Codelist>CL127</Codelist>
+						<Codelist>NCL127</Codelist>
 						<Format>an..4</Format>
 						<Hyperlink lang="fi">
 							<URL>https://asiointi.tulli.fi/asiointipalvelu/fintaric/BrowsingCodes/Countries</URL>
