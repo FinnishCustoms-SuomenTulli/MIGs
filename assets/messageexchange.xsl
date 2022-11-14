@@ -184,7 +184,7 @@
 											<h4>
 												<xsl:value-of select="Label[@lang=$language]"/>
 											</h4>
-											<xsl:for-each select="TextLine[@lang=($language)] | List">
+											<xsl:for-each select="TextLine[@lang=($language)] | List | Table">
 												<xsl:choose>
 													<xsl:when test="local-name()='List'">
 														<ul>
@@ -194,6 +194,35 @@
 																</li>
 															</xsl:for-each>
 														</ul>
+													</xsl:when>
+													<xsl:when test="local-name()='Table'">
+														<table class="table table-striped table-responsive">
+															<caption>
+																<xsl:value-of select="Caption[@lang=($language)]"/>
+															</caption>
+															<thead>
+																<tr>
+																	<xsl:for-each select="Header/Cell">
+																		<th>
+																			<xsl:value-of select="TextLine[@lang=($language)]"/>
+																		</th>
+																	</xsl:for-each>
+																</tr>
+															</thead>
+															<tbody>
+																<xsl:for-each select="Line">
+																<tr>
+																	<xsl:for-each select="Cell">
+																		<td>
+																			<xsl:for-each select="TextLine[@lang=($language)] | TextLine[not(@*)]">
+																				<p><xsl:value-of select="."/></p>
+																			</xsl:for-each>
+																		</td>
+																	</xsl:for-each>
+																</tr>
+																</xsl:for-each>
+															</tbody>
+														</table>
 													</xsl:when>
 													<xsl:otherwise>
 														<p>
