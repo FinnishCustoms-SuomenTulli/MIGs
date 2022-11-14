@@ -126,6 +126,81 @@
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
+							<xs:element name="Table" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Caption" minOccurs="0">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute name="lang" use="required">
+															<xs:simpleType>
+																<xs:restriction base="xs:string">
+																	<xs:pattern value="fi|sv|en"/>
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:attribute>
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Header" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Cell" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="TextLine" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute name="lang" use="required">
+																					<xs:simpleType>
+																						<xs:restriction base="xs:string">
+																							<xs:pattern value="fi|sv|en"/>
+																						</xs:restriction>
+																					</xs:simpleType>
+																				</xs:attribute>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Line" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Cell" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="TextLine" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:string">
+																				<xs:attribute name="lang" use="optional">
+																					<xs:simpleType>
+																						<xs:restriction base="xs:string">
+																							<xs:pattern value="fi|sv|en"/>
+																						</xs:restriction>
+																					</xs:simpleType>
+																				</xs:attribute>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
