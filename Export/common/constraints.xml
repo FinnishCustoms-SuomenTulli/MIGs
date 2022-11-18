@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <RulesCondition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<RC>
+		<Code>B1003</Code>
+		<DescriptionEn>In case of 'Road Transport' if the road vehicle (and/or its road trailers) are different to those declared in the initial declaration message, then they will be reported as discrepancies and not as new transport means.</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>B1201</Code>
 		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; 
 THEN /CD518C/GoodsShipment/DepartureTransportMeans/identificationNumber
@@ -46,14 +50,8 @@ shall be LESS OR EQUAL to '99x' </DescriptionEn>
 	<RC>
 		<Code>B1801</Code>
 		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN C0592 attached to &lt;CURRENCY EXCHANGE&gt; will be disabled
+THEN C0592 attached to /*/CurrencyExchange will be disabled
 and the data group will become optional.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>B1802</Code>
-		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than OR EQUAL to &lt;TPendDate&gt;
-THEN C0557 attached to /*/GoodsShipment/Consignment/inlandModeOfTransport will be disabled 
-AND /*/GoodsShipment/Consignment/inlandModeOfTransport = "O"</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>B1803</Code>
@@ -160,13 +158,10 @@ ELSE IF /*/GoodsShipment/GoodsItem/Procedure/previousProcedure is in SET {71,78}
 	</RC>
 	<RC>
 		<Code>B1838</Code>
-		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; 
-THEN C0503 attached to 
-/*/GoodsShipment/countryOfDestination AND
-/*/GoodsShipment/GoodsItem/countryOfDestination
-shall be disabled 
-AND /*/GoodsShipment/countryOfDestination = "O"
-</DescriptionEn>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN C0503 attached to
+/*/GoodsShipment/countryOfDestination shall be disabled
+AND /*/GoodsShipment/countryOfDestination = "O"</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>B1839</Code>
@@ -240,7 +235,7 @@ THEN C0375 attached to
 		<Code>B1857</Code>
 		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
 THEN
-          IF /*/ExportOperation/additionalDeclarationType is in SET (B, C, E, F)
+          IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F}
           THEN /*/GoodsShipment/natureOfTransaction = "N"
           ELSE /*/GoodsShipment/natureOfTransaction = "O"</DescriptionEn>
 	</RC>
@@ -248,7 +243,7 @@ THEN
 		<Code>B1859</Code>
 		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
 THEN C0842 attached to /*/GoodsShipment/Consignment/containerIndicator
-shall be disabled AND /*/GoodsShipment/Consignment/containerIndicator = "R".</DescriptionEn>
+shall be disabled</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>B1863</Code>
@@ -362,23 +357,22 @@ THEN
 	<RC>
 		<Code>B1883</Code>
 		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN R0473 attached to 
-&lt;GOODS SHIPMENT-CONSIGNMENT-DEPARTURE TRANSPORT MEANS.Identification number&gt;
-will be disabled.</DescriptionEn>
+THEN R0473 attached to /*/GoodsShipment/Consignment/DepartureTransportMeans/identificationNumber
+number will be disabled.
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>B1884</Code>
 		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN 
-          IF &lt;GOODS SHIPMENT – CONSIGNMENT.Inland mode of transport&gt; is EQUAL to ‘3’
-          THEN the multiplicity of &lt;GOODS SHIPMENT-CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt; can be up to '3x'
-          ELSE the multiplicity of &lt;GOODS SHIPMENT-CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt; is '1x'</DescriptionEn>
+THEN
+          IF /*/GoodsShipment/Consignment/inlandModeOfTransport is EQUAL to ‘3’
+          THEN the multiplicity of /*/GoodsShipment/Consignment/DepartureTransportMeans can be up to '3x'
+          ELSE the multiplicity of  /*/GoodsShipment/Consignment/DepartureTransportMeans is '1x'</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>B1885</Code>
 		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN R0076 attached to 
-&lt;GOODS SHIPMENT-CONSIGNMENT-ACTIVE BORDER TRANSPORT MEANS.Identification number&gt;
+THEN R0076 attached to /*/GoodsShipment/Consignment/ActiveBorderTransportMeans/identificationNumber
 will be disabled.</DescriptionEn>
 	</RC>
 	<RC>
@@ -399,7 +393,63 @@ THEN
 	<RC>
 		<Code>B1888</Code>
 		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN the multiplicity of &lt;GOODS SHIPMENT-CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt; can be up to '3x'</DescriptionEn>
+THEN the sum of iterations of /CD518C/GoodsShipment/DepartureTransportMeans AND (/CD501C/GoodsShipment/DepartureTransportMeans OR /CD503C/GoodsShipment/DepartureTransportMeans) can be up to '3x';
+IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN the sum of iterations of /CD541C/GoodsShipment/DepartureTransportMeans AND /CD540C/GoodsShipment/DepartureTransportMeans can be up to '3x'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>B1905</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN
+         IF /CC515C/ExportOperation/additionalDeclarationType is in SET {X, Y}
+         THEN /CC515C/GoodsShipment/PreviousDocument = “R”
+         ELSE /CC515C/GoodsShipment/PreviousDocument = “N”</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>B1906</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN R0223 attached to 
+/*/GoodsShipment/GoodsItem/Commodity/GoodsMeasure/netMass
+shall be disabled</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>B1907</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN R0224 attached to 
+/*/GoodsShipment/GoodsItem/Commodity/GoodsMeasure/grossMass 
+shall be disabled</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>B1908</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN R0994 attached to 
+/*/GoodsShipment/Consignment/grossMass AND
+/*/GoodsShipment/GoodsItem/Commodity/GoodsMeasure/grossMass
+shall be disabled</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>B1909</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN R0222 attached to /*/GoodsShipment/GoodsItem/Commodity/GoodsMeasure/grossMass 
+shall be disabled;</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>B1920</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; THEN /CD518C/Consignment/DepartureTransportMeans/sequenceNumber shall be in SET {1, 2, 3}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>B1921</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN
+IF /*/ExportOperation/additionalDeclarationType is PRESENT AND /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F}
+THEN /*/GoodsShipment/Consignment/containerIndicator = "N"
+ELSE /*/GoodsShipment/Consignment/containerIndicator = "R"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>B1930</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN R0996 AND R0997 attached to /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure shall be disabled.
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>B2101</Code>
@@ -599,7 +649,7 @@ ELSE
 	</RC>
 	<RC>
 		<Code>C0158</Code>
-		<DescriptionEn>IF /CC547C/ManifestItem/TransportDocumentData/typeOfPackages is IN SET CL181
+		<DescriptionEn>IF /CC547C/ManifestItem/TransportDocumentData/typeOfPackages is in SET CL181
 THEN /CC547C/ManifestItem/TransportDocumentData/CustomsData/numberOfPackages = "N"
 ELSE /CC547C/ManifestItem/TransportDocumentData/CustomsData/numberOfPackages = "R"</DescriptionEn>
 	</RC>
@@ -616,10 +666,18 @@ THEN /CC509C/ExportOperation/invalidationRequestDateAndTime = "N"
 ELSE /CC509C/ExportOperation/invalidationRequestDateAndTime = "R"</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>C0190</Code>
+		<DescriptionEn>IF /CC015C/TransitOperation/declarationType is EQUAL to 'TIR'
+THEN /CC190C/TransitOperation/TIRCarnetNumber = "R"
+ELSE /CC190C/TransitOperation/TIRCarnetNumber = "N"
+</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>C0211</Code>
-		<DescriptionEn>IF /*/ExportOperation/security is EQUAL to '2'
+		<DescriptionEn>IF /*/ExportOperation/security is PRESENT AND /*/ExportOperation/security is EQUAL to ‘2’
 THEN /*/GoodsShipment/Consignment/CountryOfRoutingOfConsignment = "R"
-ELSE /*/GoodsShipment/Consignment/CountryOfRoutingOfConsignment = "O"</DescriptionEn>
+ELSE /*/GoodsShipment/Consignment/CountryOfRoutingOfConsignment = "O"
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0222</Code>
@@ -651,6 +709,19 @@ ELSE /*/GoodsShipment/GoodsItem/countryOfExport = "R";
 IF /*/GoodsShipment/natureOfTransaction is PRESENT
 THEN /*/GoodsShipment/GoodsItem/natureOfTransaction = "N"
 ELSE /*/GoodsShipment/GoodsItem/natureOfTransaction = "R"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>C0265</Code>
+		<DescriptionEn>IF /*/ExportOperation/declarationType is EQUAL to 'CO'
+THEN /*/ExportOperation/security = "N"
+ELSE /*/ExportOperation/security = "R"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>C0267</Code>
+		<DescriptionEn>IF /*/ExportOperation/requestRejectionReasonCode is PRESENT OR /*/ExportOperation/declarationType is EQUAL to 'CO' 
+THEN /*/ExportOperation/security = "N"
+ELSE /*/ExportOperation/security = "R"
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0273</Code>
@@ -744,19 +815,17 @@ THEN
         AND /*/ExportOperation/declarationSubmissionDateAndTime = "N"
         AND /*/ExportOperation/declarationAcceptanceDate = "N"
         AND /*/ExportOperation/releaseDate = "N"
-        AND /*/ExportOperation/security = "N"
         AND /*/CustomsOfficeOfExitDeclared = "N"
         AND /*/ControlResult = "N"
         AND /*/Exporter = "N"
         AND /*/GoodsShipment = "N"
         AND /*/ExportOperation/additionalDeclarationType = "N"
         AND /*/RiskAnalysisIdentification = "N"
-ELSE
-		/*/ExportOperation/declarationType = "R"
+ELSE 
+        /*/ExportOperation/declarationType = "R"
         AND /*/ExportOperation/declarationSubmissionDateAndTime = "R"
         AND /*/ExportOperation/declarationAcceptanceDate = "R"
         AND /*/ExportOperation/releaseDate = "R"
-        AND /*/ExportOperation/security = "R"
         AND /*/CustomsOfficeOfExitDeclared = "R"
         AND /*/ControlResult = "R"
         AND /*/Exporter = "R"
@@ -764,10 +833,10 @@ ELSE
         AND /*/ExportOperation/additionalDeclarationType = "R"
         AND /*/RiskAnalysisIdentification = "R";
 
-
 IF /CD538C/ExportOperation/requestRejectionReasonCode is PRESENT
 THEN /CD538C/ExportOperation/status = "N"
-ELSE/ CD538C/ExportOperation/status = "R"</DescriptionEn>
+ELSE/ CD538C/ExportOperation/status = "R"
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0371</Code>
@@ -795,9 +864,12 @@ ELSE /CC537C/ExciseMovementEAD/CombinedNomenclatureCodeCrossCheckResult/rejectio
 	</RC>
 	<RC>
 		<Code>C0374</Code>
-		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E,  F}
-THEN /*/GoodsShipment/Consignment/modeOfTransportAtTheBorder = "N" 
-ELSE /*/GoodsShipment/Consignment/modeOfTransportAtTheBorder = "R" </DescriptionEn>
+		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F}
+THEN /*/GoodsShipment/Consignment/modeOfTransportAtTheBorder = "N"
+ELSE IF  /*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {10,76,77}
+THEN /*/GoodsShipment/Consignment/modeOfTransportAtTheBorder = "O"
+ELSE /*/GoodsShipment/Consignment/modeOfTransportAtTheBorder = "R"
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0375</Code>
@@ -996,12 +1068,6 @@ THEN /*/ExportOperation/invoiceCurrency = "R"
 ELSE /*/ExportOperation/invoiceCurrency = "N"</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>C0411</Code>
-		<DescriptionEn>IF /CC190C/TransitOperation/declarationType is EQUAL to 'TIR' 
-THEN /CC190C/TransitOperation/TIRCarnetNumber = "R"
-ELSE /CC190C/TransitOperation/TIRCarnetNumber = "N"</DescriptionEn>
-	</RC>
-	<RC>
 		<Code>C0451</Code>
 		<DescriptionEn>IF /*/ControlDetails/type is EQUAL to '50'
 THEN /*/ControlDetails/text = "R"
@@ -1075,16 +1141,16 @@ AND /*/GoodsShipment/GoodsItem/Commodity/CalculationOfTaxes = "O"</DescriptionEn
 	</RC>
 	<RC>
 		<Code>C0463</Code>
-		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} AND /*/ExportOperation/security
-is EQUAL to '2'
-THEN 
+		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} AND (/*/ExportOperation/security is PRESENT AND /*/ExportOperation/security is EQUAL to ‘2’)
+THEN
      IF /*/GoodsShipment/countryOfDestination is PRESENT
-    THEN /*/GoodsShipment/GoodsItem/countryOfDestination = "N" 
-    ELSE /*/GoodsShipment/GoodsItem/countryOfDestination = "O" 
-ELSE 
+    THEN /*/GoodsShipment/GoodsItem/countryOfDestination = "N"
+    ELSE /*/GoodsShipment/GoodsItem/countryOfDestination = "O"
+ELSE
     IF /*/GoodsShipment/countryOfDestination is PRESENT
     THEN /*/GoodsShipment/GoodsItem/countryOfDestination = "N"
-    ELSE /*/GoodsShipment/GoodsItem/countryOfDestination = "R"</DescriptionEn>
+    ELSE /*/GoodsShipment/GoodsItem/countryOfDestination = "R"
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0466</Code>
@@ -1137,16 +1203,16 @@ ELSE /CC557C/Declarant = "R" AND /CC557C/ExitCarrier = "N"
 	</RC>
 	<RC>
 		<Code>C0503</Code>
-		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} AND /*/ExportOperation/security
-is EQUAL to '2'
-THEN 
-    IF /*/GoodsShipment/GoodsItem/countryOfDestination is PRESENT
-    THEN /*/GoodsShipment/countryOfDestination = "N" 
-    ELSE /*/GoodsShipment/countryOfDestination = "O" 
-ELSE 
+		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} AND (/*/ExportOperation/security is PRESENT AND /*/ExportOperation/security is EQUAL to ‘2’)
+THEN
     IF /*/GoodsShipment/GoodsItem/countryOfDestination is PRESENT
     THEN /*/GoodsShipment/countryOfDestination = "N"
-    ELSE /*/GoodsShipment/countryOfDestination = "R"</DescriptionEn>
+    ELSE /*/GoodsShipment/countryOfDestination = "O"
+ELSE
+    IF /*/GoodsShipment/GoodsItem/countryOfDestination is PRESENT
+    THEN /*/GoodsShipment/countryOfDestination = "N"
+    ELSE /*/GoodsShipment/countryOfDestination = "R"
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0505</Code>
@@ -1206,6 +1272,8 @@ ELSE	/*/Consignment/ConsignmentItem/Consignee/Address/postcode="R"</DescriptionE
 		<Code>C0511</Code>
 		<DescriptionEn>IF /*/messageType is in SET CL610
 THEN /*/correlationIdentifier = "R"
+ELSE IF /*/messageType is in SET CL385
+THEN /*/correlationIdentifier = "N"
 ELSE /*/correlationIdentifier = "O"</DescriptionEn>
 	</RC>
 	<RC>
@@ -1244,20 +1312,32 @@ ELSE /*/CurrencyExchange/exchangeRate = "N"</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0557</Code>
-		<DescriptionEn>IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is NOT EQUAL to /*/CustomsOfficeOfExitDeclared/referenceNumber
+		<DescriptionEn>IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is NOT EQUAL to
+/*/CustomsOfficeOfExitDeclared/referenceNumber
 THEN
-         IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F}
-         THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
-         ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "R"
-ELSE IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is EQUAL to /*/CustomsOfficeOfExitDeclared/referenceNumber
-	THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
-ELSE IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is NOT PRESENT AND /*/CustomsOfficeOfExport/referenceNumber is NOT EQUAL to /*/CustomsOfficeOfExitDeclared/referenceNumber
-	THEN
-	         IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F}
-	         THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
-	         ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "R"
-ELSE IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is NOT PRESENT AND /*/CustomsOfficeOfExport/referenceNumber is EQUAL to /*/CustomsOfficeOfExitDeclared/referenceNumber
-	 THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"</DescriptionEn>
+IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F}
+OR {/*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is EQUAL to '10'}
+   	THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+   	ELSE
+IF /*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {76, 77}
+THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "O"
+ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "R"
+ELSE IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is EQUAL to
+/*/CustomsOfficeOfExitDeclared/referenceNumber 
+THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+ELSE IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is NOT PRESENT AND
+/*/CustomsOfficeOfExport/referenceNumber is NOT EQUAL to
+/*/CustomsOfficeOfExitDeclared/referenceNumber
+THEN
+    	IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F}
+OR {/*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is EQUAL to '10'}
+   	THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+   	ELSE
+IF /*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {76, 77}
+THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "O"
+ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "R"
+ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0558</Code>
@@ -1267,57 +1347,83 @@ ELSE /*/DeferredPayment = "N"</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0559</Code>
-		<DescriptionEn>IF /*/CustomsOfficeOfPresentation/referenceNumber is NOT EQUAL to /*/CustomsOfficeOfExitDeclared/referenceNumber
-THEN 
-        IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F}
-        THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
-        ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "R"
-ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"</DescriptionEn>
+		<DescriptionEn>IF /*/CustomsOfficeOfPresentation/referenceNumber is NOT EQUAL to
+/*/CustomsOfficeOfExitDeclared/referenceNumber
+THEN
+IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} OR {/*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is EQUAL to '10'}
+THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+ELSE
+IF /*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {76, 77}
+THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "O"
+ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "R"
+ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0561</Code>
-		<DescriptionEn>IF /*/GoodsShipment/GoodsItem/Procedure/previousProcedure is in SET {71, 76, 77}
+		<DescriptionEn>IF /*/ExportOperation/declarationType = 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {76, 77} 
 THEN /*/GoodsShipment/Warehouse = "R"
-ELSE /*/GoodsShipment/Warehouse = "N"</DescriptionEn>
+ELSE IF /*/GoodsShipment/GoodsItem/Procedure/previousProcedure is in SET {71, 76, 77} 
+THEN /*/GoodsShipment/Warehouse = "R"
+ELSE /*/GoodsShipment/Warehouse = "O"</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0562</Code>
-		<DescriptionEn>(IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is NOT EQUAL to /CC515C/CustomsOfficeOfExitDeclared/referenceNumber) OR (IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is NOT EQUAL to /CC513C/CustomsOfficeOfExitDeclared/referenceNumber)
+		<DescriptionEn>(IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is NOT EQUAL to
+/CC515C/CustomsOfficeOfExitDeclared/referenceNumber) OR (IF
+/CC513C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is NOT EQUAL to
+/CC513C/CustomsOfficeOfExitDeclared/referenceNumber)
 THEN
-         IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F}
-         THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
-         ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "R"
-ELSE IF (/CC515C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is EQUAL to /CC515C/CustomsOfficeOfExitDeclared/referenceNumber) OR 
-(IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is EQUAL to /CC513C/CustomsOfficeOfExitDeclared/referenceNumber)
-	THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
-ELSE IF (/CC515C/CustomsOfficeOfPresentation/referenceNumber is NOT PRESENT AND /CC515C/CustomsOfficeOfExport/referenceNumber is NOT EQUAL to /CC515C/CustomsOfficeOfExitDeclared/referenceNumber) OR 
-(IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is NOT PRESENT AND /CC515C/CustomsOfficeOfExport/referenceNumber is NOT EQUAL to /CC513C/CustomsOfficeOfExitDeclared/referenceNumber)
+IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} OR {/*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is EQUAL to '10'}
+THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+ELSE 
+IF /*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {76, 77}
+THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "O"
+ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "R"
+ELSE IF (/CC515C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is EQUAL to
+/CC515C/CustomsOfficeOfExitDeclared/referenceNumber) OR
+(IF /CC513C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is EQUAL to
+/CC513C/CustomsOfficeOfExitDeclared/referenceNumber)
+	THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N" 
+ELSE IF (/CC515C/CustomsOfficeOfPresentation/referenceNumber is NOT PRESENT AND
+/CC515C/CustomsOfficeOfExport/referenceNumber is NOT EQUAL to
+/CC515C/CustomsOfficeOfExitDeclared/referenceNumber) OR
+(IF /CC513C/CustomsOfficeOfPresentation/referenceNumber is NOT PRESENT AND
+/CC513C/CustomsOfficeOfExport/referenceNumber is NOT EQUAL to
+/CC513C/CustomsOfficeOfExitDeclared/referenceNumber)
 	THEN
-	         IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F}
-	         THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
-	         ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "R"
-ELSE IF (/CC515C/CustomsOfficeOfPresentation/referenceNumber is NOT PRESENT AND /CC515C/CustomsOfficeOfExport/referenceNumber is EQUAL to /CC515C/CustomsOfficeOfExitDeclared/referenceNumber) OR 
-(IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is NOT PRESENT AND /CC515C/CustomsOfficeOfExport/referenceNumber is EQUAL to /CC513C/CustomsOfficeOfExitDeclared/referenceNumber)
-	 THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"</DescriptionEn>
+IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} OR {/*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is EQUAL to '10'}
+THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+ELSE 
+IF /*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {76, 77}
+THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "O" 
+ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "R"
+ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "N" 
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0563</Code>
-		<DescriptionEn>IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is NOT EQUAL to /CC599C/CustomsOfficeOfExitActual/referenceNumber
+		<DescriptionEn>IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is NOT EQUAL to
+/CC599C/CustomsOfficeOfExitActual/referenceNumber
 THEN
-    IF /CC599C/ExportOperation/additionalDeclarationType is in SET {B, C, E, F}
-    THEN /CC599C/GoodsShipment/Consignment/inlandModeOfTransport = "N"
-    ELSE /CC599C/GoodsShipment/Consignment/inlandModeOfTransport = "R"
-ELSE IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is EQUAL to /CC599C/CustomsOfficeOfExitActual/referenceNumber
-	THEN / CC599C /GoodsShipment/Consignment/inlandModeOfTransport = "N"
-ELSE IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is NOT PRESENT AND 
-/CC599C/CustomsOfficeOfExport/referenceNumber is NOT EQUAL to /CC599C/CustomsOfficeOfExitActual/referenceNumber
-	THEN
-	    IF /CC599C/ExportOperation/additionalDeclarationType is in SET {B, C, E, F}
-	    THEN /CC599C/GoodsShipment/Consignment/inlandModeOfTransport = "N"
-	    ELSE /CC599C/GoodsShipment/Consignment/inlandModeOfTransport = "R"
-ELSE IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is NOT PRESENT AND 
-/CC599C/CustomsOfficeOfExport/referenceNumber is EQUAL to /CC599C/CustomsOfficeOfExitActual/referenceNumber
-	THEN /CC599C/GoodsShipment/Consignment/inlandModeOfTransport = "N"</DescriptionEn>
+IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} OR {/*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is EQUAL to '10'}
+    	THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+ELSE 
+IF /*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {76, 77}
+THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "O"
+	ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "R"
+ELSE IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is EQUAL to /CC599C/CustomsOfficeOfExitActual/referenceNumber 
+THEN /CC599C/GoodsShipment/Consignment/inlandModeOfTransport = "N" 
+ELSE IF /CC515C/CustomsOfficeOfPresentation/referenceNumber is NOT PRESENT AND /CC599C/CustomsOfficeOfExport/referenceNumber is NOT EQUAL to /CC599C/CustomsOfficeOfExitActual/referenceNumber 
+THEN
+IF /CC599C/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} OR {/CC599C/ExportOperation/declarationType is EQUAL to 'CO' AND /CC599C/GoodsShipment/GoodsItem/Procedure/requestedProcedure is EQUAL to '10'}
+    	THEN /CC599C/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+ELSE 
+IF /CC599C/ExportOperation/declarationType is EQUAL to 'CO' AND /CC599C/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {76, 77}
+THEN /CC599C/GoodsShipment/Consignment/inlandModeOfTransport = "O"
+	ELSE /CC599C/GoodsShipment/Consignment/inlandModeOfTransport = "R"
+ELSE /CC599C/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0564</Code>
@@ -1358,8 +1464,14 @@ ELSE /CD533C/GoodsShipment/GoodsItem/countryOfDestination = "R"</DescriptionEn>
 	<RC>
 		<Code>C0575</Code>
 		<DescriptionEn>IF /CD533C/CustomsOfficeOfPresentation/referenceNumber is NOT EQUAL to /CD533C/CustomsOfficeOfExitDeclared/referenceNumber
-THEN /CD533C/GoodsShipment/Consignment/inlandModeOfTransport = "R"
-ELSE /CD533C/GoodsShipment/Consignment/inlandModeOfTransport = "N"</DescriptionEn>
+THEN
+	IF /CD533C/ExportOperation/declarationType = 'CO' AND /CD533C/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {76, 77}
+	THEN /CD533C/GoodsShipment/Consignment/inlandModeOfTransport = "O"
+	ELSE IF /CD533C/ExportOperation/declarationType is EQUAL to 'CO' AND /CD533C/GoodsShipment/GoodsItem/Procedure/requestedProcedure is EQUAL to '10'
+    	THEN /CD533C/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+	ELSE /CD533C/GoodsShipment/Consignment/inlandModeOfTransport = "R"
+ELSE /CD533C/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0577</Code>
@@ -1576,9 +1688,9 @@ ELSE /CD411D/SendingCountry/SystemApplicability/StatisticalCharacteristics/Serie
 	</RC>
 	<RC>
 		<Code>C0810</Code>
-		<DescriptionEn>IF /CD518C/GoodsShipment/Consignment/TransportEquipment/Seals is PRESENT OR
-    /CD501C/GoodsShipment/Consignment/TransportEquipment/Seals is PRESENT OR
-    /CD503C/GoodsShipment/Consignment/TransportEquipment/Seals is PRESENT
+		<DescriptionEn>IF /CD518C/GoodsShipment/Consignment/TransportEquipment/Seal is PRESENT OR
+    /CD501C/GoodsShipment/Consignment/TransportEquipment/Seal is PRESENT OR
+    /CD503C/GoodsShipment/Consignment/TransportEquipment/Seal is PRESENT
 THEN /*/ExitControlResult/stateOfSeals = “R”
 ELSE /*/ExitControlResult/stateOfSeals = “N”</DescriptionEn>
 	</RC>
@@ -1599,9 +1711,15 @@ ELSE /*/GoodsShipment/Consignment/TransportEquipment = "N"</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0824</Code>
-		<DescriptionEn>IF /CC515C/GoodsShipment/Consignment/containerIndicator is NOT PRESENT 
-THEN /CC511C/GoodsShipment/Consignment/containerIndicator = "R"
-ELSE /CC511C/GoodsShipment/Consignment/containerIndicator = "O"</DescriptionEn>
+		<DescriptionEn>IF /CC513C/ExportOperation/declarationType is PRESENT
+THEN
+               IF /CC513C/Consignment/containerIndicator is PRESENT
+               THEN /CC511C/Consignment/containerIndicator is “O”
+               ELSE   /CC511C/Consignment/containerIndicator is “R”
+ELSE
+               IF /CC515C/Consignment/containerIndicator IS PRESENT
+               THEN /CC511C/Consignment/containerIndicator is “O”
+               ELSE   /CC511C/Consignment/containerIndicator is “R”</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0828</Code>
@@ -1613,18 +1731,24 @@ ELSE /*/Country/Action/Unavailability/Fallback = "N"</DescriptionEn>
 		<Code>C0834</Code>
 		<DescriptionEn>IF /*/GoodsShipment/Consignment/inlandModeOfTransport is NOT PRESENT
 THEN /*/GoodsShipment/Consignment/DepartureTransportMeans = "N"
-ELSE
-    IF /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {21, 22}
-    THEN
-        IF /*/GoodsShipment/Consignment/inlandModeOfTransport is in SET {5,7}
-        THEN /*/GoodsShipment/Consignment/DepartureTransportMeans = "N"
-        ELSE /*/GoodsShipment/Consignment/DepartureTransportMeans = "O"
-    ELSE IF /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {10, 11, 23, 31}
-    THEN
-        IF /*/GoodsShipment/Consignment/inlandModeOfTransport is in SET {5,7}
-        THEN /*/GoodsShipment/Consignment/DepartureTransportMeans = "O"
-        ELSE /*/GoodsShipment/Consignment/DepartureTransportMeans = "R"
-    ELSE /*/GoodsShipment/Consignment/DepartureTransportMeans = "O"</DescriptionEn>
+ELSE IF /*/ExportOperation/declarationType is EQUAL to 'EX' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {21, 22}
+THEN
+	IF /*/GoodsShipment/Consignment/inlandModeOfTransport is in SET {5,7}
+	THEN /*/GoodsShipment/Consignment/DepartureTransportMeans = "N"
+	ELSE /*/GoodsShipment/Consignment/DepartureTransportMeans = "O"
+ELSE IF /*/ExportOperation/declarationType is EQUAL to 'EX' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {10, 11, 23, 31}
+THEN
+	IF /*/GoodsShipment/Consignment/inlandModeOfTransport is in SET {5,7}
+	THEN /*/GoodsShipment/Consignment/DepartureTransportMeans = "O"
+	ELSE /*/GoodsShipment/Consignment/DepartureTransportMeans = "R"
+ELSE IF /*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {76, 77}
+THEN
+	IF /*/GoodsShipment/Consignment/inlandModeOfTransport is in SET {5,7}
+	THEN /*/GoodsShipment/Consignment/DepartureTransportMeans = "N"
+	ELSE /*/GoodsShipment/Consignment/DepartureTransportMeans = "R"
+ELSE /*/GoodsShipment/Consignment/DepartureTransportMeans = "N"
+
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0836</Code>
@@ -1637,13 +1761,13 @@ ELSE /*/GoodsShipment/Consignment/containerIndicator = "R"</DescriptionEn>
 	<RC>
 		<Code>C0841</Code>
 		<DescriptionEn>IF /*/CustomsOfficeOfExport/referenceNumber is NOT EQUAL to
-/*/CustomsOfficeOfExit/referenceNumber
+/CC515C/CustomsOfficeOfExit/referenceNumber
 THEN
           IF /CC515C/GoodsShipment/Consignment/inlandModeOfTransport is NOT PRESENT
  AND /CC513C/GoodsShipment/Consignment/inlandModeOfTransport is NOT PRESENT
           THEN /CC511C/GoodsShipment/Consignment/inlandModeOfTransport = "R"
           ELSE /CC511C/GoodsShipment/Consignment/inlandModeOfTransport = "O"
-ELSE /CC511C/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+               ELSE /CC511C/GoodsShipment/Consignment/inlandModeOfTransport = "N"
 </DescriptionEn>
 	</RC>
 	<RC>
@@ -1654,24 +1778,28 @@ ELSE /*/GoodsShipment/Consignment/containerIndicator = "R"</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0843</Code>
-		<DescriptionEn>IF /*/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is NOT EQUAL to /*/CustomsOfficeOfExitDeclared/referenceNumber
+		<DescriptionEn>IF /*/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is NOT EQUAL to
+/*/CustomsOfficeOfExitDeclared/referenceNumber
 THEN
-	IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F}
+IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} OR {/*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is EQUAL to '10'}
     	THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
-	ELSE IF /*/ExportOperation/additionalDeclarationType is EQUAL to 'D'
-	THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "O"
-	ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "R"
-ELSE IF /*/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is EQUAL to /*/CustomsOfficeOfExitDeclared/referenceNumber
+ELSE IF /*/ExportOperation/additionalDeclarationType is EQUAL to 'D' OR /*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {76, 77}
+THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "O"
+ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "R"
+ELSE IF /*/CustomsOfficeOfPresentation/referenceNumber is PRESENT AND is EQUAL to
+/*/CustomsOfficeOfExitDeclared/referenceNumber
 	THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
-ELSE IF /*/CustomsOfficeOfPresentation/referenceNumber is NOT PRESENT AND /*/CustomsOfficeOfExport/referenceNumber is NOT EQUAL to /*/CustomsOfficeOfExitDeclared/referenceNumber
+ELSE IF /*/CustomsOfficeOfPresentation/referenceNumber is NOT PRESENT AND
+/*/CustomsOfficeOfExport/referenceNumber is NOT EQUAL to
+/*/CustomsOfficeOfExitDeclared/referenceNumber
 	THEN
-		IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F}
-		THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
-		ELSE IF /*/ExportOperation/additionalDeclarationType is EQUAL to 'D'
-		THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "O"
-		ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "R"
-ELSE IF /*/CustomsOfficeOfPresentation/referenceNumber is NOT PRESENT AND /*/CustomsOfficeOfExport/referenceNumber is EQUAL to /*/CustomsOfficeOfExitDeclared/referenceNumber
-	THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"</DescriptionEn>
+IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} OR {/*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is EQUAL to '10'}
+    	THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+ELSE IF /*/ExportOperation/additionalDeclarationType is EQUAL to 'D' OR /*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {76, 77}
+THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "O"
+ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "R"
+ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0845</Code>
@@ -1754,17 +1882,10 @@ THEN /CC190C/Consignment/HouseConsignment/ConsignmentItem/Commodity/GoodsMeasure
 ELSE /CC190C/Consignment/HouseConsignment/ConsignmentItem/Commodity/GoodsMeasure/supplementaryUnits = "N"</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>C0863</Code>
-		<DescriptionEn>IF /CC015C/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/type is in SET {C651, C658} 
-OR /CC013C/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/type is in SET {C651, C658}
-THEN /CC190C/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument = "R"
-ELSE /CC190C/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument = "N"</DescriptionEn>
-	</RC>
-	<RC>
 		<Code>C0864</Code>
-		<DescriptionEn>IF /CD518C/ExportOperation/transit is EQUAL to '1'
-THEN at least one occurrence of /CD518C/GoodsShipment/SupportingDocument = "R"
-ELSE /CD518C/GoodsShipment/SupportingDocument = "O"</DescriptionEn>
+		<DescriptionEn>IF /*/ExportOperation/transit is EQUAL to '1'
+THEN at least one occurrence of /*/GoodsShipment/SupportingDocument = "R"
+ELSE /*/GoodsShipment/SupportingDocument = "O"</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0865</Code>
@@ -1779,6 +1900,12 @@ AND /*/ExitControlResult/exitStoppedDate = "N"</DescriptionEn>
 		<DescriptionEn>IF /*/ExportOperation/specificCircumstanceIndicator is EQUAL to 'A20'
 THEN /*/Consignment/ConsignmentItem/Packaging = "N" 
 ELSE /*/Consignment/ConsignmentItem/Packaging = "R"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>C0867</Code>
+		<DescriptionEn>IF /CD501C/GoodsShipment/GoodsItem/PreviousDocument/type is in SET CL234
+   THEN /CC191C/AESResults/ExportOperation/GoodsShipment = "R"
+ELSE /CC191C/AESResults/ExportOperation/GoodsShipment = "N"</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0868</Code>
@@ -1811,11 +1938,7 @@ ELSE /*/GoodsShipment/GoodsItem/Commodity/CommodityCode/harmonizedSystemSubHeadi
 		<Code>C0874</Code>
 		<DescriptionEn>IF /*/Consignment/containerIndicator is EQUAL to '1'
 THEN /*/Consignment/TransportEquipment = "R"
-ELSE /*/Consignment/TransportEquipment = "N";
-
-IF /CC590C/GoodsShipment/Consignment/containerIndicator is EQUAL to '1'
-THEN /CC590C/GoodsShipment/Consignment/TransportEquipment = "R"
-ELSE /CC590C/GoodsShipment/Consignment/TransportEquipment = "N"</DescriptionEn>
+ELSE /*/Consignment/TransportEquipment = "N"</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0880</Code>
@@ -1825,11 +1948,20 @@ ELSE /CC557C/ExportOperation/MRN = "R" AND /CC557C/ExportOperation/LRN = "N"</De
 	</RC>
 	<RC>
 		<Code>C0890</Code>
-		<DescriptionEn>IF /*/GoodsShipment/Consignment/modeOfTransportAtTheBorder is in SET {2, 5, 7}
+		<DescriptionEn>IF /*/GoodsShipment/Consignment/modeOfTransportAtTheBorder is NOT PRESENT 
+THEN /*/GoodsShipment/Consignment/ActiveBorderTransportMeans = "N
+ELSE IF /*/ExportOperation/declarationType is EQUAL to 'EX' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {10, 11, 23, 31}
+THEN
+IF /*/GoodsShipment/Consignment/modeOfTransportAtTheBorder is in SET {2, 5, 7} 
 THEN /*/GoodsShipment/Consignment/ActiveBorderTransportMeans = "O"
-ELSE IF /*/GoodsShipment/Consignment/modeOfTransportAtTheBorder is NOT PRESENT
-THEN /*/GoodsShipment/Consignment/ActiveBorderTransportMeans = "N"
-ELSE /*/GoodsShipment/Consignment/ActiveBorderTransportMeans = "R"</DescriptionEn>
+ELSE /*/GoodsShipment/Consignment/ActiveBorderTransportMeans = "R"
+ELSE IF /*/ExportOperation/declarationType is EQUAL to 'CO' AND /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {76,77}
+THEN
+IF /*/GoodsShipment/Consignment/modeOfTransportAtTheBorder is in SET {5, 7}
+THEN /*/GoodsShipment/Consignment/ActiveBorderTransportMeans = "N" 
+ELSE /*/GoodsShipment/Consignment/ActiveBorderTransportMeans = "R" 
+ELSE /*/GoodsShipment/Consignment/ActiveBorderTransportMeans = "N" 
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0895</Code>
@@ -1845,7 +1977,8 @@ ELSE /*/ControlResult/text = "O"</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0902</Code>
-		<DescriptionEn>IF /CD540C/ExportOperation/SCODecisionOrRecommendation is EQUAL to '1' AND /CD563C/ExportOperation/decisionCode is EQUAL to '1'
+		<DescriptionEn>IF /CD540C/ExportOperation/SCODecisionOrRecommendation is EQUAL to '0'  
+    AND /CD563C/ExportOperation/decisionCode is EQUAL to '0' 
 THEN /CD563C/ExportOperation/decisionText = "R"
 ELSE /CD563C/ExportOperation/decisionText = "O"</DescriptionEn>
 	</RC>
@@ -1866,16 +1999,12 @@ THEN /CD603C/ExportOperation/LRN = "N"
    AND /CD603C/CustomsOfficeOfExitDeclared = "N"
    AND /CD603C/Declarant = "N"
    AND /CD603C/Consignment = "N"
-   AND /CD603C/ControlResult = "N"
-   AND /CD603C/RiskAnalysisIdentification = "N"
 ELSE /CD603C/ExportOperation/LRN = "R"
    AND /CD603C/ExportOperation/declarationRegistrationDate = "R"
    AND /CD603C/ExportOperation/declarationSubmissionDateAndTime = "R"
    AND /CD603C/CustomsOfficeOfExitDeclared = "R"
    AND /CD603C/Declarant = "R"
-   AND /CD603C/Consignment = "R"
-   AND /CD603C/ControlResult = "R
-   AND /CD603C/RiskAnalysisIdentification = "R"</DescriptionEn>
+   AND /CD603C/Consignment = "R"</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0916</Code>
@@ -1884,6 +2013,19 @@ THEN
 /*/GoodsShipment/GoodsItem/Commodity/CommodityCode/combinedNomenclatureCode = "R"
 ELSE 
 /*/GoodsShipment/GoodsItem/Commodity/CommodityCode/combinedNomenclatureCode = "N"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>C0917</Code>
+		<DescriptionEn>IF /*/CustomsOfficeofLodgement is PRESENT
+THEN /*/ExportOperation/storingFlag = "N"
+ELSE /*/ExportOperation/storingFlag = "R"
+</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>C0920</Code>
+		<DescriptionEn>IF /CC515C/ExportOperation/additionalDeclarationType is in SET {X, Y} AND /CC515C/GoodsShipment/Warehouse is PRESENT
+THEN /CD533C/GoodsShipment/Warehouse = “R”
+ELSE /CD533C/GoodsShipment/Warehouse = “N”</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>E1101</Code>
@@ -1909,8 +2051,8 @@ format shall be set to an..9</DescriptionEn>
 	<RC>
 		<Code>E1103</Code>
 		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN 
-/*/GoodsShipment/Consingment/DepartureTransportMeans/identificationNumber 
+THEN
+/*/GoodsShipment/Consignment/DepartureTransportMeans/identificationNumber
 format shall be set to an..27</DescriptionEn>
 	</RC>
 	<RC>
@@ -2031,30 +2173,10 @@ multiplicity shall be set to '9x'</DescriptionEn>
 	<RC>
 		<Code>E1402</Code>
 		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN 
-/*/GoodsShipment/GoodsItem AND
-/*/GoodsShipment/Consignment/TransportEquipment/GoodsReference
-multiplicity shall be set to '999x';
-
-IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN 
-/*/Consignment/TransportEquipment/GoodsReference
-multiplicity shall be set to '999x';
-
-IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN 
-/*/RiskAnalysisIdentification/RiskAnalysis
-multiplicity shall be set to '999x';
-
-IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN 
-/*/ControlDetails/GoodsReference
-multiplicity shall be set to '999x';
-
-IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN 
+THEN
 /CD906C/FunctionalError
-multiplicity shall be set to '999x'</DescriptionEn>
+multiplicity shall be set to '999x'
+</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>E1404</Code>
@@ -2068,11 +2190,11 @@ multiplicity shall be set to '2x'</DescriptionEn>
 		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
 THEN /*/GoodsShipment/GoodsItem/Procedure/AdditionalProcedure AND
 /*/GoodsShipment/GoodsItem/Commodity/DangerousGoods
-multiplicity shall be set to 1x;
+multiplicity shall be set to '1x';
 
 IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;THEN
 /*/RiskAnalysisIdentification/RiskAnalysis/RiskAnalysisResult
-multiplicity shall be set to 1x</DescriptionEn>
+multiplicity shall be set to '1x'</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>E1407</Code>
@@ -2085,12 +2207,1071 @@ for each Goods Item, the cumulated number of all instances of
 shall be LESS OR EQUAL to '99x' </DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NB1878</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN C0283 and NC5283 attached to /*/GoodsShipment/Consignment/Consignee
+shall be disabled.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NB1879</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN C0351 and NC5351 attached to /*/GoodsShipment/GoodsItem/Consignee
+shall be disabled.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NB1886</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN C0028 and NC5028 attached to /*/GoodsShipment/GoodsItem/statisticalValue
+shall be disabled</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NB1887</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN
+IF /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {31, 71, 76, 77, 78} OR /*/ExportOperation/additionalDeclarationType is in SET {C, F} 
+         THEN /*/GoodsShipment/GoodsItem/statisticalValue = "O"
+ELSE /*/GoodsShipment/GoodsItem/statisticalValue = "R"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NB5001</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN at least one /*/​GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument" with /*/GoodsShipment/GoodsItem/AdditionalDocument@function="SupportingDocument"/Type value 'N380' should be PRESENT on the first GoodsItem entity.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NB5003</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN /*/GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalInformation/Statement must be in sub codeset AdditionalInformation;GoodsItemEXPTR
+ELSE /*/GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalInformation/Statement must be in sub codeset AdditionalInformation;GoodsItemEXP</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NB5004</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN /*/AdditionalInformation/Statement must be in sub codeset AdditionalInformation;HeaderEXPTR
+ELSE /*/AdditionalInformation/Statement must be in sub codeset AdditionalInformation;HeaderEXP</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NB5005</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
+THEN /*/​GoodsShipment/​Consignment/​TransportContractDocument data group is nationally used to store all Transport document data, including Goods Item level Transport documents of the Common Domain messages.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NB5006</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; 
+AND the first /*/GoodsShipment/GovernmentAgencyGoodsItem is removed during amendment
+AND a /*/GoodsShipment/GovernmentAgencyGoodsItem/AdditionalInformation data group with /*/GoodsShipment/GovernmentAgencyGoodsItem/AdditionalInformation/Statement value in sub-codelist AdditionalInformation;AmendmentEXPTR is PRESENT on the first GoodsItem
+THEN that AdditionalInformation data group should be moved to the first remaining /*/GoodsShipment/GovernmentAgencyGoodsItem</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NB5505</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'2100', '2101', '2140', '2142', '2143', '2145', '2163'} 
+THEN /*/​Authorisation/​Category must be 'C019' 
+OR /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalInformation/​Statement with value '00100' must be PRESENT on the first GoodsItem entity</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NB5506</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; 
+AND /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalInformation/​Statement with value '00100' is PRESENT on the first GoodsItem entity
+AND /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is NOT EQUAL to '2148'
+THEN /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBH' AND /*/​AdditionalInformation/​StatementDescription must be lodged
+AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBJ' AND /*/​AdditionalInformation/​StatementDescription must be lodged
+AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBN' AND /*/​AdditionalInformation/​StatementDescription must be lodged
+AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBP' AND /*/​AdditionalInformation/​StatementDescription must be lodged
+AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBQ' AND /*/​AdditionalInformation/​StatementDescription must be lodged</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NB5515</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; 
+AND /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is EQUAL to '3151' 
+THEN /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalInformation/​Statement that is EQUAL to '00700' must be lodged
+AND /*/GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalInformation/​Statement that is EQUAL to '00800' may be lodged</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NB5518</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; 
+AND /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is EQUAL to '3153' 
+THEN /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalInformation/​Statement that is EQUAL to '00900' must be lodged</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC0221</Code>
+		<DescriptionEn>IF ID number exists
+THEN optional
+ELSE cannot be used</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5001</Code>
+		<DescriptionEn>IF additional declaration type is in SET {C, F}, THEN ​this element = "O"
+ELSE = "R"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5002</Code>
+		<DescriptionEn>IF additional declaration type is in SET {C, D, F}, THEN ​this element = "O"
+ELSE = "R"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5003</Code>
+		<DescriptionEn>Either /*/​GoodsShipment/​Consignment/​GoodsLocation/​Identification@function="EO" OR /*/​GoodsShipment/​Consignment/​GoodsLocation/​Address must be PRESENT</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5004</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument"/​WriteOff/Quantity is PRESENT 
+THEN /*/GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument"/​WriteOff/Quantity@QuantityUnit = 'R'
+ELSE /*/GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument"/​WriteOff/Quantity@QuantityUnit = 'N'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5005</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is EQUAL to '31' 
+THEN /​GoodsShipment/​GoodsItem/​PreviousDocument/​Line = 'R'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5006</Code>
+		<DescriptionEn>If specified by the relevant 'Additional information code'
+THEN this data element is REQUIRED
+ELSE it is OPTIONAL</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5007</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is GREATER than &lt;TPendDate&gt; 
+THEN at least one /*/​AdditionalDocument@function="SupportingDocument" data group with /*/AdditionalDocument@function="SupportingDocument"/Type with code value from sub codelist Koodisto:AdditionalDocument;CommercialDocuments should be PRESENT </DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5009</Code>
+		<DescriptionEn>IF /*/​Type@function="DeclarationType" is EQUAL to 'Y' 
+THEN /*/​FunctionalReference@function="MRN" = 'R'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5010</Code>
+		<DescriptionEn>IF the first 4 digits of /*/​GoodsShipment/​GoodsItem/​Commodity/​Classification/​Identification are not in SET {8901, 8906, 8903, 8704, 8908, 8905, 8902, 8703, 8802, 8904, 8702}
+THEN /*/​GoodsShipment/​Consignment/​InlandTransportMode must not be 9 
+
+IF the first 4 digits of /*/​GoodsShipment/​GoodsItem/​Commodity/​Classification/​Identification are not in SET {8901, 8906, 8903, 8704, 8908, 8905, 8902, 8703, 8802, 8904, 8702}
+THEN /*/​GoodsShipment/​Consignment/​BorderTransportMode must not be 9</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5011</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​Consignment/​InlandTransportMode OR /*/​GoodsShipment/​Consignment/​BorderTransportMode is in SET {5, 9}
+THEN /*/​GoodsShipment/​Consignment/​Container should be EQUAL to '0'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5012</Code>
+		<DescriptionEn>IF /*/ExportOperation/declarationType is EQUAL to 'CO' 
+THEN /*/​GoodsShipment/​Destination/Country must not be 'FI'
+
+IF /*/ExportOperation/declarationType is EQUAL to 'CO'
+THEN /*/​GoodsShipment/​GoodsItem/​Destination/Country must not be 'FI'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5014</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is EQUAL to '31'
+THEN /*/​GoodsShipment/​TransactionNature = 'O'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5015</Code>
+		<DescriptionEn>IF /*/​Type@function="AdditionalDeclarationType" EQUALS to 'R'
+OR /*/AdditionalInformation/Statement with value ‘FIFAL’ is PRESENT
+THEN /*/​Export should be EQUAL to the current date OR it should be in the past</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5016</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure (Current + Previous) is EQUAL to '3171'
+THEN /​GoodsShipment/​GoodsItem/​PreviousDocument/Type must be EQUAL to 'NMRN'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5017</Code>
+		<DescriptionEn>IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT
+THEN Name AND Address = 'O'
+ELSE Name AND Address = 'R'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5018</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​Destination/Country is in SET {'NO', 'CH', 'LI'}
+THEN /*/Security may be EQUAL to '0'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5021</Code>
+		<DescriptionEn>IF /*/Declarant/Identification is EQUAL to /*/Exporter/Identification
+THEN /*/Agent = 'O'
+ELSE /*/Agent = 'N'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5022</Code>
+		<DescriptionEn>IF /*/​Discrepancies is EQUAL to '1'
+THEN this element = 'R'
+ELSE this element = 'N'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5024</Code>
+		<DescriptionEn>IF /​Amendment/​AmendmentType is EQUAL to 'OIK' THEN this element = 'R'
+ELSE IF /​Amendment/​AmendmentType is EQUAL to 'KOR' THEN this element = 'N'
+ELSE this element = 'O'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5025</Code>
+		<DescriptionEn>IF /​Notification/​Invalidation is EQUAL to 'D' THEN this element = 'R'
+ELSE this element = 'O'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5026</Code>
+		<DescriptionEn>IF /*/​Notification/​Text is not present THEN this element = 'R' 
+ELSE this element = 'O'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5027</Code>
+		<DescriptionEn>IF /*/​Notification/​ProvidedInfo is not present THEN this element = 'R' 
+ELSE this element = 'O'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5028</Code>
+		<DescriptionEn>IF /*/ExportOperation/declarationType is EQUAL to 'CO'
+THEN /*/GoodsShipment/GoodsItem/statisticalValue = "O"
+ELSE 
+         IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} OR IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is in SET {76, 77}
+         THEN /*/GoodsShipment/GoodsItem/statisticalValue = "O"
+                   ELSE /*/GoodsShipment/GoodsItem/statisticalValue = "R"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5029</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure (Current + Previous) is EQUAL to '3171'
+THEN /*/​GoodsShipment/​Consignment/​GoodsLocation/​Type must be EQUAL to 'B'
+AND /​*/GoodsShipment/​Consignment/​GoodsLocation/​Identification@function="EO" = "R"
+AND /*/GoodsShipment/​Consignment/​GoodsLocation/​Identification@function="AdditionalIdentifier" = "R" </DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5030</Code>
+		<DescriptionEn>IF FI595A/​GoodsShipment/​GovernmentAgencyGoodsItem/​Commodity/​Classification/​Identification is EQUAL to '27112100' THEN this element = "N"
+ELSE this element = "R"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5031</Code>
+		<DescriptionEn>IF /​GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument"/​WriteOff/Amount is lodged THEN this element = "R"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5032</Code>
+		<DescriptionEn>IF procedure (Current + Previous) is EQUAL to '3171' 
+THEN FI585A/​TotalGrossMass = "R" OR FI585A/​GoodsShipment/​GovernmentAgencyGoodsItem/​GoodsMeasure/​GrossMass = "R"
+ELSE FI585A/​TotalGrossMass = "O" AND FI585A/​GoodsShipment/​GovernmentAgencyGoodsItem/​GoodsMeasure/​GrossMass = "O"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5034</Code>
+		<DescriptionEn>IF the Transaction type is in SET {'CX', 'MX', 'NX', 'WX'} 
+THEN /*/​Agent/​Identification = "O"
+ELSE /*/​Agent/​Identification = "R"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5035</Code>
+		<DescriptionEn>IF /*/GoodsShipment/Consignment/GoodsLocation/Type is EQUAL to 'A'
+THEN exactly one of the following = “R”
+( /*/GoodsShipment/Consignment/GoodsLocation/Identification@function="CustomsOffice” = "R"
+OR /*/GoodsShipment/Consignment/GoodsLocation/UNLOCODE = "R" 
+)
+AND /*/GoodsShipment/Consignment/GoodsLocation/Identification@function="EO" = "N"
+AND /*/GoodsShipment/Consignment/GoodsLocation/Identification@function="Authorisation" = "N"
+AND /*/GoodsShipment/Consignment/GoodsLocation/GNSS = "N"
+AND /*/GoodsShipment/Consignment/GoodsLocation/Address = "N"
+AND /*/GoodsShipment/Consignment/GoodsLocation/PostcodeAddress = "N"
+ELSE IF 
+/*/GoodsShipment/Consignment/GoodsLocation/Type is EQUAL to 'B'
+THEN /*/GoodsShipment/Consignment/GoodsLocation/Identification@function="Authorisation" = "R"
+AND /*/GoodsShipment/Consignment/GoodsLocation/Identification@function="CustomsOffice" = "N"
+AND /*/GoodsShipment/Consignment/GoodsLocation/Identification@function="EO" = "N"
+AND /*/GoodsShipment/Consignment/GoodsLocation/UNLOCODE = "N"
+AND /*/GoodsShipment/Consignment/GoodsLocation/GNSS = "N"
+AND /*/GoodsShipment/Consignment/GoodsLocation/Address = "N"
+AND /*/GoodsShipment/Consignment/GoodsLocation/PostcodeAddress = "N"
+ELSE IF 
+/*/GoodsShipment/Consignment/GoodsLocation/Type is EQUAL to 'C'
+THEN exactly one of the following = “R” (
+/*/GoodsShipment/Consignment/GoodsLocation/Identification@function="EO" = "R"
+OR /*/GoodsShipment/Consignment/GoodsLocation/UNLOCODE = "R"
+OR /*/GoodsShipment/Consignment/GoodsLocation/GNSS = "R"
+OR /*/GoodsShipment/Consignment/GoodsLocation/Address = "R"
+OR /*/GoodsShipment/Consignment/GoodsLocation/PostcodeAddress = "R"
+)
+AND /*/GoodsShipment/Consignment/GoodsLocation/Identification@function="CustomsOffice" = "N"
+AND /*/GoodsShipment/Consignment/GoodsLocation/Identification@function="Authorisation" = "N"
+ELSE IF 
+/*/GoodsShipment/Consignment/GoodsLocation/Type is EQUAL to 'D'
+THEN exactly one of the following = “R” (
+/*/GoodsShipment/Consignment/GoodsLocation/UNLOCODE = "R"
+OR /*/GoodsShipment/Consignment/GoodsLocation/GNSS = "R"
+OR /*/GoodsShipment/Consignment/GoodsLocation/Address = "R"
+OR /*/GoodsShipment/Consignment/GoodsLocation/PostcodeAddress = "R"
+)
+AND /*/GoodsShipment/Consignment/GoodsLocation/Identification@function="EO" = "N"
+AND /*/GoodsShipment/Consignment/GoodsLocation/Identification@function="CustomsOffice" = "N"
+AND /*/GoodsShipment/Consignment/GoodsLocation/Identification@function="Authorisation" = "N"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5036</Code>
+		<DescriptionEn>IF there is /*/Authorisation/type that is EQUAL to ’C513’ PRESENT
+THEN 
+( /*/​GoodsShipment/​Consignment/​GoodsLocation/​Identification@function="EO" = "R"
+OR /*/​GoodsShipment/​Consignment/​GoodsLocation/​Address = "R"
+OR /*/​GoodsShipment/​Consignment/​GoodsLocation/​GNSS = "R"
+OR /*/​GoodsShipment/​Consignment/​GoodsLocation/​PostcodeAddress = "R"
+OR /*/GoodsShipment/Consignment/GoodsLocation/UNLOCODE = "R"
+)
+ELSE 
+/*/​GoodsShipment/​Consignment/​GoodsLocation/​GNSS = "N"
+AND /*/​GoodsShipment/​Consignment/​GoodsLocation/​PostcodeAddress = "N"
+AND /*/GoodsShipment/Consignment/GoodsLocation/UNLOCODE = "N"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5037</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure (Current + Previous) is EQUAL to '3171' 
+OR ( /*/​GoodsShipment/​GoodsItem/​Procedure (Current + Previous) is EQUAL to '3153' AND /*/​GoodsShipment/​TransactionNature is not EQUAL to '91')
+THEN /*/​Invoice = 'O'
+ELSE /*/​Invoice = 'R'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5038</Code>
+		<DescriptionEn>IF ( 
+there is /*/Authorisation/type that is EQUAL to ’C513’ PRESENT
+AND /*/​GoodsShipment/​Consignment/​GoodsLocation/​Identification@function="EO" is PRESENT 
+)
+OR IF /*/​GoodsShipment/​Consignment/​GoodsLocation/​Identification@function="Authorisation" is PRESENT
+THEN 
+/*/​GoodsShipment/​Consignment/​GoodsLocation/​Identification@function="AdditionalIdentifier" = "O"
+ELSE 
+/*/​GoodsShipment/​Consignment/​GoodsLocation/​Identification@function="AdditionalIdentifier" = "N"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5039</Code>
+		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {D, F}
+THEN /*/Presentation = 'R'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5040</Code>
+		<DescriptionEn>In THIS /*/​GoodsShipment/GoodsItem/​Commodity/​Classification data group, Sequence number = 'R'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5041</Code>
+		<DescriptionEn>In THIS /*/​GoodsShipment/GoodsItem/​Commodity/​Classification data group, Sequence number = 'N'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5042</Code>
+		<DescriptionEn>IF /*/​Amendment/​AmendmentType is EQUAL to 'OIK' 
+THEN either /*/​Amendment/​Text = 'R' OR /*/Amendment/​ProvidedInfo = 'R'
+ELSE IF /*/​Amendment/​AmendmentType is EQUAL to 'KOR' 
+THEN either /*/​Amendment/​Text = 'R' OR /*/Amendment/​ProvidedInfo = 'R'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5043</Code>
+		<DescriptionEn>IF /*/AdditionalDocument@function is EQUAL to "SupportingDocument"
+THEN Identification = 'R'
+ELSE Identification = 'O'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5044</Code>
+		<DescriptionEn>IF there is /*/Authorisation/Category that is EQUAL to ’C513’ PRESENT THEN /*/AdditionalInformation/Statement with value ‘FIFAL’ cannot be declared</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5045</Code>
+		<DescriptionEn>IF /*/AdditionalInformation/Statement with value ‘FIFAL’ is PRESENT THEN /*/Authorisation/Category that is EQUAL to ’C513’ cannot be declared</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5046</Code>
+		<DescriptionEn>IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT 
+AND /*/Role is in SET {'Y', 'K', 'V', 'T', 'E'}
+THEN Name AND Address = 'O'
+ELSE Name AND Address = 'R'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5283</Code>
+		<DescriptionEn>IF /*/GoodsShipment/AdditionalInformation/code is EQUAL TO ‘30600’ OR any /*/GoodsShipment/GoodsItem/AdditionalInformation/code is EQUAL to ‘30600’
+THEN /*/GoodsShipment/Consignment/Consignee = "N"
+ELSE
+    IF /*/GoodsShipment/GoodsItem/Consignee is PRESENT
+    THEN /*/GoodsShipment/Consignment/Consignee = "N"
+    ELSE /*/GoodsShipment/Consignment/Consignee = "R"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5351</Code>
+		<DescriptionEn>IF /*/GoodsShipment/AdditionalInformation/code is EQUAL TO ‘30600’ OR this /*/GoodsShipment/GoodsItem/AdditionalInformation/code is EQUAL to ‘30600’
+THEN this /*/GoodsShipment/GoodsItem/Consignee = "N"
+ELSE
+    IF /*/GoodsShipment/Consignment/Consignee is PRESENT
+    THEN this /*/GoodsShipment/GoodsItem/Consignee = "N"
+    ELSE this /*/GoodsShipment/GoodsItem/Consignee = "R"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5500</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'1100', '1140', '2100', '2101', '2140', '2142', '2145', '2146'} 
+AND /*/AdditionalDocument@function="SupportingDocument" is PRESENT
+AND /*/AdditionalDocument@function="SupportingDocument"/Type is EQUAL to 'C710'
+THEN /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalDocument@function="SupportingDocument" with Type EQUAL to 'C710' must not be lodged</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5501</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'1100', '1140', '2100', '2101', '2140', '2142', '2145', '2146'} 
+AND /*/AdditionalInformation is PRESENT
+AND /*/AdditionalInformation/Statement is EQUAL to 'FIOEI'
+THEN /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalInformation with Statement EQUAL to 'FIOEI' must not be lodged</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5561</Code>
+		<DescriptionEn>IF /*/GoodsShipment/GoodsItem/Procedure/previousProcedure is in SET {71, 76, 77, 78}
+THEN /*/GoodsShipment/Warehouse = "R"
+ELSE /*/GoodsShipment/Warehouse = "N"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5655</Code>
+		<DescriptionEn>
+IF TARIC provides supplementary units
+THEN /*/GoodsShipment/GoodsItem/Commodity/GoodsMeasure/supplementaryUnits = "R"
+ELSE /*/GoodsShipment/GoodsItem/Commodity/GoodsMeasure/supplementaryUnits = "O"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NC5843</Code>
+		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {'C', 'F'}
+        THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "O"
+ELSE IF /*/CustomsOfficeOfExport/referenceNumber is NOT EQUAL to /*/CustomsOfficeOfExit/referenceNumber
+         THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "R" 
+ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "N" </DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0019</Code>
+		<DescriptionEn>If location address has been declared, country code must be FI</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0034</Code>
+		<DescriptionEn>Must start with a two digit country code (EU or non-EU - CL008)</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0035</Code>
+		<DescriptionEn>If the format of the trader id is FI + 9 characters, then modulus validation of Finnish EORI id must be performed. Format must be 'FI' + 7 digits + hyphen + check sum digit</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0036</Code>
+		<DescriptionEn>If the format of the trader id is FI + 11 characters, then modulus validation of Finnish personal identification number must be performed. Format must be
+ 'FI' + 6 digits + (hyphen OR  'A') + 3 digits + check sum character</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0044</Code>
+		<DescriptionEn>Atleast one of notification text, or provided information must be present.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0045</Code>
+		<DescriptionEn>Atleast one of Description, document link must be present.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0049</Code>
+		<DescriptionEn>Service provider has to be different from declarant, exporter and representative</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0055</Code>
+		<DescriptionEn>If declaration type is CO, then country of dispatch/export must be an EU country.
+If declaration type is IM, then country of dispatch/export must not be an EU country.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0100</Code>
+		<DescriptionEn>Combination of requested, previous and additional procedure must be correct according to the codelist AllowedProcedure. </DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0220</Code>
+		<DescriptionEn>A private person can only act as a representative for another private person. Check the representative's and the declarant's identification numbers.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0677</Code>
+		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {'C', 'F', 'Y'}
+THEN /*/Authorisation/Category is EQUAL to ’C512’ </DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR0678</Code>
+		<DescriptionEn>IF /*/Authorisation/Category is EQUAL to ’C512’
+THEN /*/ExportOperation/additionalDeclarationType is in SET {'C', 'F', 'Y'}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR1001</Code>
+		<DescriptionEn>Authorisation must be valid on date used to fetch data</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR1002</Code>
+		<DescriptionEn>Authorisation type must be the same in the declaration and in authorisation details</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR1003</Code>
+		<DescriptionEn>Authorisation/HolderIdentification must match the holder id specified in permission</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR1004</Code>
+		<DescriptionEn>If geographical coverage is specified in the authorisation details, there has to be FI Finland. Authorisation can be issued by other EU country</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR1005</Code>
+		<DescriptionEn>If commodity codes are specified in the authorisation details, they have to match to declared commodity codes</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR1109</Code>
+		<DescriptionEn>Service provider has to be registered as service provider in trader register</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5001</Code>
+		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is EQUAL to 'R’
+OR /*/AdditionalInformation/Statement with value ‘FIFAL’ is PRESENT
+THEN /*/Export = "R"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5002</Code>
+		<DescriptionEn>IF /*/Export is PRESENT
+THEN /*/ExportOperation/additionalDeclarationType must be EQUAL to 'R’
+OR /*/AdditionalInformation/Statement with value ‘FIFAL’ must be PRESENT</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5003</Code>
+		<DescriptionEn>IF /*/Presentation is PRESENT
+THEN /*/ExportOperation/additionalDeclarationType must be in SET {D, F}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5004</Code>
+		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {D, F}
+THEN /*/Presentation = "R"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5006</Code>
+		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {D, F}
+THEN Presentation (datetime converted to date) value should be at minimum current date AND at maximum current date + 30 days: current date &lt;= toDATE(Presentation) &lt;= (current date + 30 days)</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5008</Code>
+		<DescriptionEn>IF /*/​Exporter/​Role is in SET {'Y', 'K', 'V', 'T', 'E'}, EORI shall be used.
+ELSE IF /*/​Exporter/​Role is EQUAL to 'H', two-digit country code and id (henkilötunnus) shall be used.
+ELSE IF /*/​Exporter/​Role is EQUAL to 'C', two-digit country code and personal id or date of birth in 'ddmmyyyy' format shall be used.
+ELSE IF /*/​Exporter/​Role is EQUAL to 'D', either EORI or two-digit country code and id shall be used.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5009</Code>
+		<DescriptionEn>IF /*/​Declarant/​Role is in SET {'Y', 'K', 'V', 'T', 'E', 'F'}, EORI shall be used.
+ELSE IF /*/​Declarant/​Role is EQUAL to 'H', two-digit country code and id (henkilötunnus) shall be used.
+ELSE IF /*/​Declarant/​Role is in SET {'C', 'P'}, two-digit country code and personal id or date of birth in 'ddmmyyyy' format shall be used.
+ELSE IF /*/​Declarant/​Role is EQUAL to 'D', either EORI or two-digit country code and id shall be used.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5012</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​Consignment/​InlandTransportMode is EQUAL to 3 
+THEN /*/​GoodsShipment/​Consignment/​DepartureTransportMeans/​Nationality must be in SET {Koodisto: Maa;Nationality}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5013</Code>
+		<DescriptionEn>/*/​GoodsShipment/​Consignment/​BorderTransportMode AND /*/​GoodsShipment/​Consignment/​InlandTransportMode should not be EQUAL to '7'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5015</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is '23'
+THEN /*/​GoodsShipment/​TransactionNature must be in SET {91, 99, 60} </DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5016</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​GovernmentProcedure/​Current is '31' AND /*/​GoodsShipment/​GoodsItem/​GovernmentProcedure/​Previous is EQUAL to '71'
+THEN /*/​GoodsShipment/​Warehouse/​Type should be in SET {Koodisto: WarehouseType, using Filter_EXPORT} </DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5018</Code>
+		<DescriptionEn>IF /*/​AdditionalInformation/​Statement is in SET {FIXFD, FIXFE, FIXFF, FIXFG} 
+THEN /*/​Exporter/​Identification AND /*/​Declarant/​Identification should not begin with 'FI'
+
+IF /*/​AdditionalInformation/​Statement is in SET {FIXFD, FIXFE, FIXFF, FIXFG} 
+THEN /*/​Exporter/​Identification AND /*/​Declarant/​Identification first two characters should be in code list {Koodisto:  Maa;CountryCodesCommunityEiFi}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5023</Code>
+		<DescriptionEn>IF /*/​AdditionalInformation/​Statement is in SET {FIXFD, FIXFE, FIXFF, FIXFG} 
+THEN only one of these codes should be used</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5024</Code>
+		<DescriptionEn>IF /*/GoodsShipment/GoodsItem/PreviousDocument/type is in SET {'C658', 'C651'}
+THEN /*/​GoodsShipment/​GoodsItem/​Procedure (Current + Previous) should be in SET {'1007', '1045'}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5025</Code>
+		<DescriptionEn>IF /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651'
+THEN there may be only 1 occurrence of /*/GoodsShipment/GoodsItem/PreviousDocument with type 'C651' per this Goods Item</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5026</Code>
+		<DescriptionEn>/*/Agent/identification must NOT be EQUAL to /*/Exporter/identification</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5027</Code>
+		<DescriptionEn>IF /*/​Declarant/​Identification starts with 'FI' and the next two characters make a 3rd country code (like 'RU' or 'NO'), 
+THEN /*/​Declarant/​Identification must be found from the ASKARE trader register and trader must be EORI registered.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5028</Code>
+		<DescriptionEn>IF /*/​Declarant/​Identification starts with an EU country code that is not 'FI' (Koodisto: Maa; Maa;CountryCodesCommunityEiFi) AND /*/​Declarant/​Role is NOT in SET {'C', 'D'}
+THEN /*/​Declarant/​Identification must be found from the EOS trader register and trader must be EORI registered.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5029</Code>
+		<DescriptionEn>IF /*/​Declarant/​Identification starts with two-digit 3rd country code (like 'RU' or 'NO')
+THEN /*/​Declarant/​Role must be in SET {'P', 'D'}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5030</Code>
+		<DescriptionEn>IF /*/​Exporter/​Identification starts with 'FI' and the next two characters make a 3rd country code (like 'RU' or 'NO'), 
+THEN /*/​Exporter/​Identification must be found from the ASKARE trader register, trader must be EORI registered and must be resolvable to an EU address (customer/eori/establishmentInEu = true).</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5031</Code>
+		<DescriptionEn>IF /*/​Exporter/​Identification starts with an EU country code that is not 'FI' (code list NCLXXX, Koodisto:  Maa;CountryCodesCommunityEiFi) AND /*/​Declarant/​Role is NOT in SET {'C', 'D'}
+THEN /*/​Exporter/​Identification must be found from the EOS trader register, trader must be EORI registered and must be resolvable to an EU address (customer/eori/establishmentInEu = true).</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5032</Code>
+		<DescriptionEn>/*/​Exporter/​Identification must not start with two-digit 3rd country code (non-EU countries like 'RU' or 'NO').</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5034</Code>
+		<DescriptionEn>IF /*/​Agent/​Role is in SET {'Y', 'K', 'V', 'T', 'E', 'F'}, EORI shall be used.
+ELSE IF /*/​Agent/​Role is EQUAL to 'H', two-digit country code and id (henkilötunnus) shall be used.
+ELSE IF /*/​Agent/​Role is in SET {'C', 'P'}, two-digit country code and personal id or date of birth in 'ddmmyyyy' format shall be used.
+ELSE IF /*/​Agent/​Role is EQUAL to 'D', either EORI or two-digit country code and id shall be used.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5035 
+NC5008</Code>
+		<DescriptionEn>IF /*/​FunctionalReference@function="MRN" is PRESENT
+THEN /*/​Type@function="AdditionalDeclarationType" should be 'Y'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5036</Code>
+		<DescriptionEn>/*/​Applicant must be in SET {Koodisto:TraderRole;RolesAsApplicants with filter_EXP}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5037</Code>
+		<DescriptionEn>IF /*/​Amendment/​AmendmentType is 'KOR' THEN this element cannot be amended.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5038</Code>
+		<DescriptionEn>IF /*/​Amendment/​AmendmentType is 'OIK' THEN this element cannot be amended.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5042</Code>
+		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is EQUAL to 'Y' 
+THEN the value of elements in Koodisto: ChangesNotAllowed;SupplementaryEXP can not be updated, compared to the value in previous version. The other elements can be updated.
+Note: In Koodisto: ChangesNotAllowed;SupplementaryEXP is the path for element that may contain GoodsItem sequence number. Comparison between message element and path in Koodisto code should be done without GoodsItem sequence number.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5043</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure (Current + Previous) is EQUAL to '3153' THEN /*/​Exporter/​Identification must be EORI, but it does not need to be resolvable to an EU address. (customer/eori/establishmentInEu = true and false both allowed)</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5044</Code>
+		<DescriptionEn>IF /*/​PresentationOffice/​Identification is declared THEN R0940 attached /*/​Agent/​Identification to is disabled and only EORI is allowed.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5045</Code>
+		<DescriptionEn>IF /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651'
+AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXGA' EXISTS 
+THEN the Administrative Reference Code (ARC) in the field /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Identification does not need to be unique on UTU Export level
+ELSE IF /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651'
+the Administrative Reference Code (ARC) in the field /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Identification should be unique on UTU Export level</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5047</Code>
+		<DescriptionEn>FI595A/​Export must be EQUAL to the last date of the month</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5048</Code>
+		<DescriptionEn>/*/​GoodsShipment/​TransactionNature must be EQUAL to '11'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5049</Code>
+		<DescriptionEn>FI595A/​GoodsShipment/​Consignment/​BorderTransportMode must be EQUAL to '7'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5050</Code>
+		<DescriptionEn>FI595A/​GoodsShipment/​GovernmentAgencyGoodsItem/​Commodity/​Classification/​Identification must be in SET {271121, 271600, 382520}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5051</Code>
+		<DescriptionEn>FI595A/​GoodsShipment/​GovernmentAgencyGoodsItem/​Commodity/​Classification/​Identification must be EQUAL to '00'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5052</Code>
+		<DescriptionEn>FI595A/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure/​Current must be EQUAL to '10'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5053</Code>
+		<DescriptionEn>FI595A/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure/​Previous must be EQUAL to '00'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5054</Code>
+		<DescriptionEn>FI595A/​Type@function="AdditionalDeclarationType" must be EQUAL to 'R'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5055</Code>
+		<DescriptionEn>IF FI585A/​GoodsShipment/​GoodsItem/​Destination/Country is EQUAL to 'QR'
+THEN FI585A/​GoodsShipment/​Consignment/​BorderTransportMeans/​Nationality must be in Koodisto: Maa;CountryCodesCommunity
+ELSE IF FI585A/​GoodsShipment/​GoodsItem/​Destination/Country is EQUAL to 'QS'
+THEN FI585A/​GoodsShipment/​Consignment/​BorderTransportMeans/​Nationality must be in Koodisto: Maa;CountryCodesCommunityEiFi</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5056</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​AdditionalInformation/​Statement is EQUAL to '30500'
+OR /*/AdditionalInformation/Statement is EQUAL to '30500'
+THEN  /*/GoodsShipment/GoodsItem/PreviousDocument/type must not be EQUAL to 'C651'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5057</Code>
+		<DescriptionEn>FI585A/​Type@function="AdditionalDeclarationType" must be in set {'A', 'D', 'R'}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5058</Code>
+		<DescriptionEn>FI585A/​GoodsShipment/​Destination/Country must be in SET {'QR', 'QS'}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5059</Code>
+		<DescriptionEn>FI585A/​GoodsShipment/​GovernmentAgencyGoodsItem/​Commodity/​Classification/​Identification must be in SET {'993024', '993027', '993099'}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5060</Code>
+		<DescriptionEn>FI585A/​GoodsShipment/​GovernmentAgencyGoodsItem/​Commodity/​Classification/​Identification must be EQUAL to '00'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5061</Code>
+		<DescriptionEn>FI585A/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) must be in SET {'1000', '1040', '3171'}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5062</Code>
+		<DescriptionEn>/*/​ExitOffice/​Identification must be 'FI'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5063</Code>
+		<DescriptionEn>IF /*/​Amendment/​AmendmentType is in SET {'OIK' , 'KOR'}
+AND /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651'
+AND the Transaction type is NOT in SET {'M', 'MX'} 
+THEN this element cannot be amended
+ELSE this element can be amended</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5064</Code>
+		<DescriptionEn>IF /*/​Amendment/​AmendmentType is in SET {'OIK' , 'KOR'}
+AND /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651'
+THEN this element cannot be amended
+ELSE this element can be amended</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5066</Code>
+		<DescriptionEn>/*/​GoodsShipment/​Consignment/​TransportEquipment/​GoodsReference/​GoodsItemNumber must be smaller than or equal to the total number of goods items</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5067</Code>
+		<DescriptionEn>IF there is no /*/Authorisation/type that is EQUAL to ’C513’
+THEN /*/CustomsOfficeOfPresentation = "N"</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5068</Code>
+		<DescriptionEn>IF the first /*/GoodsShipment/GovernmentAgencyGoodsItem is removed during amendment
+AND a /*/GoodsShipment/GoodsItem/AdditionalDocument@function="SupportingDocument" data group with /*/AdditionalDocument@function="SupportingDocument"/Type value in sub-codelist AdditionalDocument;SuppAmendmentEXPTR is PRESENT on the first GoodsItem
+THEN that SupportingDocument data group should be moved to the first remaining /*/GoodsShipment/GovernmentAgencyGoodsItem</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5069</Code>
+		<DescriptionEn>IF the Transaction type is in SET {'CX', 'MX', 'NX', 'WX'} 
+THEN NB5002 attached to /*/​GoodsShipment/​GoodsItem/​AdditionalInformation shall be disabled
+AND S0017, R0676, R0677, NR0677, NC5019, NR5503, NR5505, NR5508, NR5511, NR5514, NR5517 and NR5519 attached to /*/Authorisation/​Category shall be disabled
+AND NR5002 attached to /*/​Type@function="AdditionalDeclarationType" shall be disabled
+AND NR5009, NR5027, NR5028 and NR5029 attached to /*/​Declarant/​Identification shall be disabled
+AND NR5008, NR5030, NR5031, NR5032, NPR5006 and NR5043 attached to /*/​Exporter/​Identification shall be disabled
+AND NR0049, NR1109 attached to /*/​ServiceProvider/​Identification shall be disabled
+AND NR5034 attached to /*/Agent/​Identification shall be disabled</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5070</Code>
+		<DescriptionEn>IF the Transaction type is in SET {'N', 'N1', 'NX', 'W', 'W1', 'WX'}
+THEN /*/​ExportOffice/​Identification must be 'FI002002'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5071</Code>
+		<DescriptionEn>/*/​GoodsShipment/​Consignment/​GoodsLocation/​Identification@function="EO" must be found from the ASKARE trader register</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5073</Code>
+		<DescriptionEn>IF EMCSExportCrosscheckResult message DecisionFore-AD/ReasonForRejection = 2
+THEN UTU creates an error with error pointer = /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Identification
+where /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5074</Code>
+		<DescriptionEn>IF EMCSExportCrosscheckResult message DecisionFore-AD/ReasonForRejection = 3
+THEN UTU creates an error with error pointer = /*/GoodsShipment/GoodsItem/PreviousDocument/type
+where /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5075</Code>
+		<DescriptionEn>IF EMCSExportCrosscheckResult message DecisionFore-AD/ReasonForRejection = 4
+THEN UTU creates an error with error pointer = /*/GoodsShipment/GoodsItem/PreviousDocument/type
+where /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651'
+AND EMCSExportCrosscheckResult message DecisionFore-AD/ARC + UBR = /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Identification + /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Line</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5076</Code>
+		<DescriptionEn>IF EMCSExportCrosscheckResult message DecisionFore-AD/ReasonForRejection = 5
+THEN UTU creates an error with error pointer = /*/GoodsShipment/GoodsItem/PreviousDocument/type
+where /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651'
+AND EMCSExportCrosscheckResult message DecisionFore-AD/ARC + UBR = /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Identification + /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Line</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5077</Code>
+		<DescriptionEn>IF EMCSExportCrosscheckResult message DecisionFore-AD/ReasonForRejection = 6
+THEN UTU creates an error with error pointer = /*/​GoodsShipment/​GoodsItem/​Commodity/​Classification/​Identification
+where /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651' 
+AND EMCSExportCrosscheckResult message DecisionFore-AD/ARC + UBR = /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Identification + /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Line</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5078</Code>
+		<DescriptionEn>IF EMCSExportCrosscheckResult message DecisionFore-AD/ReasonForRejection = 7
+THEN UTU creates an error with error pointer = /*/​GoodsShipment/​GoodsItem/​GoodsMeasure/​NetNetMass
+where /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651' 
+AND EMCSExportCrosscheckResult message DecisionFore-AD/ARC + UBR = /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Identification + /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Line</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5079</Code>
+		<DescriptionEn>IF EMCSExportCrosscheckResult message DecisionFore-AD/ReasonForRejection = 8
+THEN UTU creates an error with error pointer = /*/​GoodsShipment/​GoodsItem/​GoodsMeasure/​NetNetMass
+where /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651' 
+AND EMCSExportCrosscheckResult message DecisionFore-AD/ARC + UBR = /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Identification + /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Line </DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5080</Code>
+		<DescriptionEn>IF EMCSExportCrosscheckResult message DecisionFore-AD/ReasonForRejection = 10
+THEN UTU creates an error with error pointer = /*/GoodsShipment/GoodsItem/PreviousDocument/type
+where /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651' 
+AND EMCSExportCrosscheckResult message DecisionFore-AD/ARC + UBR = /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Identification + /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Line</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5081</Code>
+		<DescriptionEn>IF EMCSExportCrosscheckResult message DecisionFore-AD/ReasonForRejection = 12
+THEN UTU creates an error with error pointer = /*/GoodsShipment/GoodsItem/PreviousDocument
+where /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651' 
+AND EMCSExportCrosscheckResult message DecisionFore-AD/ARC + UBR = /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Identification + /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Line</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5082</Code>
+		<DescriptionEn>IF EMCSExportCrosscheckResult message DecisionFore-AD/ReasonForRejection = 13
+THEN UTU creates an error with error pointer = /*/GoodsShipment/GoodsItem/PreviousDocument
+where /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651' 
+AND EMCSExportCrosscheckResult message DecisionFore-AD/ARC + UBR = /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Identification + /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Line</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5083</Code>
+		<DescriptionEn>IF EMCSExportCrosscheckResult message DecisionFore-AD/ReasonForRejection = 15
+THEN UTU creates an error with error pointer = /*/GoodsShipment/GoodsItem/PreviousDocument
+where /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651' 
+AND EMCSExportCrosscheckResult message DecisionFore-AD/ARC + UBR = /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Identification + /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Line</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5084</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​AdditionalInformation/​Statement is EQUAL to '30500'
+OR /*/AdditionalInformation/Statement is EQUAL to '30500'
+THEN /*/​ExitOffice/​Identification should be 'FI'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5085</Code>
+		<DescriptionEn>/*/​GoodsShipment/​GoodsItem/​Procedure/​Current must be the same for all occurrences </DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5086</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure (Current + Previous) is EQUAL to '3171' 
+THEN /*/​Type@function="DeclarationType" must be EQUAL to 'EX'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5087</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​Destination/Country is PRESENT
+THEN /*/​GoodsShipment/​Destination/Country must be EQUAL to at least one of the data elements in /*/​GoodsShipment/​Consignment/​Itinerary/​RoutingCountry
+ELSE IF /*/​GoodsShipment/​GoodsItem/​Destination/Country is PRESENT
+THEN /*/​GoodsShipment/​GoodsItem/​Destination/Country must be EQUAL to at least one of the data elements in /*/​GoodsShipment/​Consignment/​Itinerary/​RoutingCountry
+
+IF /*/​​GoodsShipment/​ExportCountry/Country is PRESENT
+THEN /*/​GoodsShipment/​ExportCountry/Country must be EQUAL to at least one of the data elements in /*/​GoodsShipment/​Consignment/​Itinerary/​RoutingCountry
+ELSE IF /*/​​GoodsShipment/GoodsItem/​ExportCountry/Country is PRESENT
+THEN /*/​GoodsShipment/GoodsItem/​ExportCountry/Country must be EQUAL to at least one of the data elements in /*/​GoodsShipment/​Consignment/​Itinerary/​RoutingCountry</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5088</Code>
+		<DescriptionEn>Only code values 'C' and 'D' are valid.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5089</Code>
+		<DescriptionEn>/*/​GoodsShipment/​Warehouse/​Identification (EORI number + a 3-digit trader office code + a 2-digit warehouse extension) must be found from the ASKARE trader register</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5090</Code>
+		<DescriptionEn>IF /*/AdditionalInformation/Statement EQUALS to ‘FIFAL’
+THEN /*/AdditionalInformation/Statement cannot be amended.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5091</Code>
+		<DescriptionEn>IF /*/GoodsShipment/Consignment/GoodsLocation/Address has been declared
+THEN
+IF /*/Authorisation/type is EQUAL to ’C513’
+THEN /*/​GoodsShipment/​Consignment/​GoodsLocation/​Address/​Country must NOT be EQUAL to 'FI'
+ELSE /*/​GoodsShipment/​Consignment/​GoodsLocation/​Address/​Country must be 'FI' </DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5501</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'1100', '1140', '2100', '2101', '2140', '2142', '2145', '2146'}
+AND /*/​Exporter/​Role is not in SET {'H', 'C'} 
+AND /*/​Exporter/​Identification is not EQUAL to 'FI0952029-9' 
+AND /*/ExportOperation/declarationType is not EQUAL to 'CO'
+THEN /*/​AdditionalDocument@function="SupportingDocument"/​Type must be EQUAL to 'C710'
+OR /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalDocument@function="SupportingDocument"/Type must be EQUAL to 'C710'
+OR /*/​AdditionalInformation/​Statement must be 'FIOEI' 
+OR /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalInformation/Statement must be 'FIOEI' 
+
+IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalDocument@function="SupportingDocument" is PRESENT for all /*/GoodsShipment/​GovernmentAgencyGoodsItem 
+THEN at least one occurrence of /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalDocument@function="SupportingDocument"/​Identification must be different from the others; 
+IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalInformation is PRESENT for all /*/GoodsShipment/​GovernmentAgencyGoodsItem 
+THEN at least one occurrence of /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalInformation/​Statement must be different from the others; </DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5502</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'1100', '1140', '3151'}
+THEN /*/​GoodsShipment/​TransactionNature must be in SET {'11', '51', '52', '60'}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5503</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'1100', '1140', '2151'}
+THEN /*/​Authorisation/​Category must be lodged and the value must be 'C601'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5504</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'2100', '2101', '2107', '2140', '2142', '2143', '2145', '2151'}
+THEN /*/​GoodsShipment/​TransactionNature must be in SET {'41', '42', '60'}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5505</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'2100', '2101', '2140', '2142', '2143', '2145', '2163'} 
+THEN /*/​Authorisation/​Category must be 'C019' 
+OR /*/​AdditionalInformation/​Statement must be '00100'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5506</Code>
+		<DescriptionEn>IF /*/​AdditionalInformation/​Statement with value '00100' is PRESENT
+AND /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is NOT EQUAL to '2148'
+THEN /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBH' AND /*/​AdditionalInformation/​StatementDescription must be lodged
+AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBJ' AND /*/​AdditionalInformation/​StatementDescription must be lodged
+AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBN' AND /*/​AdditionalInformation/​StatementDescription must be lodged
+AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBP' AND /*/​AdditionalInformation/​StatementDescription must be lodged
+AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBQ' AND /*/​AdditionalInformation/​StatementDescription must be lodged</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5507</Code>
+		<DescriptionEn>IF /*/​AdditionalInformation/​Statement with value 'FIXBN' is PRESENT
+THEN /*/ExportOperation/additionalDeclarationType must be in SET {'A', 'D'}
+ELSE /*/ExportOperation/additionalDeclarationType must be in SET {'A', 'C', 'D', 'F', 'Y', 'R'}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5508</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure (Current + Previous) is EQUAL to '2107'
+THEN /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​PreviousDocument/Type must be EQUAL to 'NMRN'
+AND /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​PreviousDocument/​Identification must contain MRN
+AND /*/​Authorisation/​Category must be 'C019' </DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5509</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'1100', '1140', '2100', '2101', '2140', '2142', '2145', '2146', '2151', '3151'}
+THEN /*/​GoodsShipment/​GoodsItem/​Procedure/​AdditionalProcedure/​Procedure must be EQUAL to '999'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5510</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure/​AdditionalProcedure/​Procedure is EQUAL to '999'
+THEN other occurrences of /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure/​AdditionalProcedure/​Procedure should not be lodged for the same goods item</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5511</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'2146'}
+THEN /*/​GoodsShipment/​TransactionNature must be in SET {'41', '42'}
+AND /*/​Authorisation/​Category must be lodged and the value must be 'C019'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5512</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure (Current + Previous) is in SET {'2145', '2146', '2148', '2151', '3151', '3153'}
+THEN /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​PreviousDocument/Type must be EQUAL to 'NMRN'
+AND /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​PreviousDocument/​Identification must contain a MRN
+for each goods item</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5513</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'2148'}
+THEN /*/​GoodsShipment/​GoodsItem/​Procedure/​AdditionalProcedure/​Procedure must be in SET {'240', '241'}</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5514</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is EQUAL to '2148'
+THEN /*/​Authorisation/​Category must be 'C019' 
+OR 
+( 
+/*/​AdditionalInformation/​Statement must be '00100' must be lodged 
+AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBN' AND /​AdditionalInformation/​StatementDescription must be lodged
+AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBP' AND /​AdditionalInformation/​StatementDescription must be lodged
+AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBQ' AND /​AdditionalInformation/​StatementDescription must be lodged )</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5515</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is EQUAL to '3151' 
+THEN /*/​AdditionalInformation/​Statement that is EQUAL to '00700' must be lodged
+AND /*/​AdditionalInformation/​Statement that is EQUAL to '00800' may be lodged</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5516</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'2148', '3153'}
+THEN /*/​GoodsShipment/​TransactionNature must be EQUAL to '60'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5517</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is EQUAL to '3151' 
+THEN a /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalDocument@function="SupportingDocument" with /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalDocument@function="SupportingDocument"/​Type that is EQUAL to 'C601' must be lodged
+OR  /*/​AdditionalInformation/​Statement that is EQUAL to 'FISAP' must be lodged</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5518</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is EQUAL to '3153' 
+THEN  /*/​AdditionalInformation/​Statement that is EQUAL to '00900' must be lodged</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5519</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is EQUAL to '3153' 
+THEN a /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalDocument@function="SupportingDocument" with /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalDocument@function="SupportingDocument"/​Type that is EQUAL to 'C516' must be lodged
+OR  /*/​AdditionalInformation/​Statement that is EQUAL to 'FISAP' must be lodged</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5520</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is EQUAL to '1044' AND /*GoodsShipment/​GovernmentAgencyGoodsItem/Procedure/​AdditionalProcedure/​Procedure is EQUAL to '695'
+THEN  /*/​AdditionalInformation/​Statement that is EQUAL to 'FIX44' must be lodged</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5521</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure/​Current is EQUAL to '21' AND /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure/​Previous is EQUAL to '51'
+THEN all other Goods Items on the declaration must have /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure/​Current that is EQUAL to '21' AND /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure/​Previous that is EQUAL to '51'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5522</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is EQUAL to '31' AND /*/​GoodsShipment/​GoodsItem/​Procedure/​Previous is EQUAL to '51'
+THEN all other Goods Items on the declaration must have /*/​GoodsShipment/​GoodsItem/​Procedure/​Current that is EQUAL to '31' AND /*/​GoodsShipment/​GoodsItem/​Procedure/​Previous that is EQUAL to '51'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5523</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure/​Current is EQUAL to '31' AND /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure/​Previous is EQUAL to '53'
+THEN all other Goods Items on the declaration must have /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure/​Current that is EQUAL to '31' AND /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure/​Previous that is EQUAL to '53'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5524</Code>
+		<DescriptionEn>IF /*/GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure/​Current is EQUAL to '31' AND /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure/​Previous is EQUAL to '71'
+THEN all other Goods Items on the declaration must have /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure/​Current that is EQUAL to '31' AND /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Procedure/​Previous that is EQUAL to '71'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NS0002</Code>
+		<DescriptionEn>The validation of particular Data Group/Item shall be performed in the following sequence: NC5035 &gt; NC5036</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>R0007</Code>
 		<DescriptionEn>Each /*/GoodsShipment/GoodsItem/declarationGoodsItemNumber is unique throughout the declaration. The items shall be numbered in a sequential fashion, starting from '1' for the first item and incrementing the numbering by '1' for each following item.</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>R0021</Code>
-		<DescriptionEn>A zero '0' is to be considered as a valid number in this field.</DescriptionEn>
+		<Code>R0008</Code>
+		<DescriptionEn>/*/correlationIdentifier shall be EQUAL to the /*/messageIdentification of the request/rejected message.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>R0026</Code>
@@ -2104,19 +3285,26 @@ shall be LESS OR EQUAL to '99x' </DescriptionEn>
 	</RC>
 	<RC>
 		<Code>R0054</Code>
-		<DescriptionEn>IF a discrepancy is identified in the Data Group THEN:
-- ‘Declaration goods item number’ / 'Sequence number' is always used. 
-- Excess goods items shall not be reported;
+		<DescriptionEn>IF one of more discrepancy(ies) is(are) identified in this Data Group THEN:
+- ‘Declaration goods item number’ / 'Sequence number' is always used
+- Excess goods items shall not be reported.
+ 
 Numbering of items:
-  - In case of any difference being found in a Data Group, the 'Declaration goods item number'/'Sequence number' should be equal to the corresponding Goods item/Data Group numbering defined in the declaration;
-  - In case of a new Data Group in an existing 'Declaration goods item number', the 'Sequence number' should be equal to the number of the last sequence number of the Data Group in the declaration + 1;
-  - In case of a missing Goods item/Data Group being found, the 'Declaration goods item
-number'/'Sequence number' should be equal to the numbering of the Goods item/Data Group defined in the declaration and the rest of the Data Elements contained in the Data Group and all sub Data Groups should not be filled in.
-</DescriptionEn>
+IF one of more discrepancy(ies) is(are) identified in this Data Group THEN:
+- the 'Declaration goods item number'/'Sequence number' shall be unique AND EQUAL to the 'Declaration goods item number'/'Sequence number'  
+of the Data Group defined in the declaration for which  the discrepancy is reported; 
+ 
+IF a new Data Group is identified THEN:
+   - 'Sequence number' shall be unique AND EQUAL to the number of the last 'Sequence number' of the Data Group + 1 AND the rest of the Data Items contained in the Data Group and all sub–Data Groups shall be filled in, allowing the optionality constraints defined in the declaration.
+ 
+IF a Goods Item is missing OR the information related to a Data Group is missing THEN:
+   - 'Declaration goods item number'/'Sequence number' shall be unique AND EQUAL to the 'Declaration goods item number'/'Sequence number' (as defined in the declaration, but missing during control) and the rest of the Data Items contained in the Data Group and all sub–Data Groups shall not be filled in.
+   
+Note: The ‘Declaration goods item number'/'Sequence number' is unique if the XPath (without the last DG’s predicate, i.e. the last DG’s occurrence number included in “[]”) and the value of the 'Declaration goods item number'/'Sequence number' are unique in this message.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>R0076</Code>
-		<DescriptionEn>IF /*/GoodsShipment/Consigment/ActiveBorderTransportMeans/typeofIdentification is in SET {10,21,30,40,41,80}
+		<DescriptionEn>IF /*/GoodsShipment/Consignment/ActiveBorderTransportMeans/typeofIdentification is in SET {10,21,30,40,41,80}
 THEN /*/GoodsShipment/Consignment/ActiveBorderTransportMeans/IdentificationNumber shall not contain lowercase letters.</DescriptionEn>
 	</RC>
 	<RC>
@@ -2205,26 +3393,29 @@ THEN at least one /CC547C/ManifestItem/TransportDocumentData/CustomsData must ex
 	</RC>
 	<RC>
 		<Code>R0364</Code>
-		<DescriptionEn>IF &lt;GOODS SHIPMENT-GOODS ITEM-PACKAGING.Number of Packages&gt; is EQUAL to ‘0’
-THEN at least one &lt;GOODS SHIPMENT-GOODS ITEM&gt; must exist with
-(the same &lt;GOODS SHIPMENT-GOODS ITEM-PACKAGING.Shipping marks&gt; AND
-with &lt;GOODS SHIPMENT-GOODS ITEM-PACKAGING.Number of packages&gt; having a value GREATER than ‘0’);
+		<DescriptionEn>IF /*/GoodsShipment/GoodsItem/Packaging/numberOfPackages is EQUAL to ‘0’
+THEN at least one other /*/GoodsShipment/GoodsItem must exist with (the same /*/GoodsShipment/GoodsItem/Packaging/Packaging/shippingMarks AND
+with /*/GoodsShipment/GoodsItem/Packaging/numberOfPackages having a value GREATER than ‘0’);
 
-IF &lt;CONSIGNMENT-CONSIGNMENT ITEM-PACKAGING.Number of Packages&gt; is EQUAL to ‘0’
-THEN at least one &lt;CONSIGNMENT-CONSIGNMENT ITEM&gt; must exist with
-(the same &lt;CONSIGNMENT-CONSIGNMENT ITEM-PACKAGING.Shipping marks&gt; AND
-with &lt;CONSIGNMENT-CONSIGNMENT ITEM-PACKAGING.Number of packages&gt; having a value GREATER than ‘0’);
+IF /*/Consignment/ConsignmentItem/Packaging/numberOfPackages is EQUAL to ‘0’
+THEN at least one other /*/Consignment/ConsignmentItem must exist with (the same /*/Consignment/ConsignmentItem/Packaging/Packaging/shippingMarks AND
+with /*/Consignment/ConsignmentItem/Packaging/numberOfPackages having a value GREATER than ‘0’);
 
-IF &lt;CC547C-MANIFEST ITEM-TRANSPORT DOCUMENT DATA.Number of Packages&gt; is EQUAL to ‘0’
-THEN at least one &lt;CC547C-MANIFEST ITEM- TRANSPORT DOCUMENT DATA&gt; must exist with
-(the same &lt;CC547C-MANIFEST ITEM-TRANSPORT DOCUMENT DATA.Shipping marks&gt; AND
-with &lt;CC547C-MANIFEST ITEM-TRANSPORT DOCUMENT DATA.Number of packages&gt; having a value GREATER than ‘0’)</DescriptionEn>
+IF /CC547C/ManifestItem/TransportDocumentData/numberOfPackages is EQUAL to ‘0’
+THEN at least one other /CC547C/ManifestItem/TransportDocumentData must exist with (the same /CC547C/ManifestItem/TransportDocumentData/shippingMarks AND
+with /CC547C/ManifestItem/TransportDocumentData/numberOfPackages having a value GREATER than ‘0’)</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>R0407</Code>
 		<DescriptionEn>IF /CC515C/ExportOperation/declarationType is EQUAL to ‘CO’
+THEN
+IF /CC515C/GoodsShipment/GoodsItem/requestedProcedure is EQUAL to '10'
 THEN the 17th character of MRN is EQUAL to 'E'
-ELSE the 17th character of MRN is in SET {A, B}</DescriptionEn>
+ELSE the 17th character of MRN is EQUAL to 'A'
+ELSE
+IF /*/ExportOperation/security is EQUAL to '0'
+THEN the 17th character of MRN is EQUAL to 'A'
+ELSE the 17th character of MRN is EQUAL to 'B'</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>R0408</Code>
@@ -2236,7 +3427,7 @@ ELSE the 17th character of MRN is in SET {A, B}</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>R0412</Code>
-		<DescriptionEn>The /CD533C/ExportOperation/MRN assigned to the accepted Simplified Declaration shall be recorded.</DescriptionEn>
+		<DescriptionEn>The assigned /CD540C/ExportOperation/MRN of the preceding CD540C shall be recorded under /CD533C/ExportOperation/MRN.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>R0414</Code>
@@ -2250,11 +3441,10 @@ THEN the value recorded for the same 'Declaration goods item number' in /*/Goods
 	<RC>
 		<Code>R0448</Code>
 		<DescriptionEn>IF /*/Consignment/TransportEquipment/containerIdentificationNumber is NOT PRESENT
-THEN the R0021 is not applicable (i.e. the value '0' is not valid) for
-/*/Consignment/TransportEquipment/numberOfSeals;
+THEN the value '0' is not valid for /*/Consignment/TransportEquipment/numberOfSeals;
 
 IF /*/GoodsShipment/Consignment/TransportEquipment/containerIdentificationNumber is NOT PRESENT
-THEN the R0021 is not applicable (i.e the value '0' is not valid) for /*/GoodsShipment/Consignment/TransportEquipment/numberOfSeals</DescriptionEn>
+THEN the value '0' is not valid for /*/GoodsShipment/Consignment/TransportEquipment/numberOfSeals</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>R0449</Code>
@@ -2272,7 +3462,7 @@ shall be EQUAL to /*/GoodsShipment/Consignment/inlandModeOfTransport</Descriptio
 	</RC>
 	<RC>
 		<Code>R0473</Code>
-		<DescriptionEn>IF /*/GoodsShipment/Consigment/DepartureTransportMeans/typeofIdentification is in SET {10,20,21,30,31,40,41,80}
+		<DescriptionEn>IF /*/GoodsShipment/Consignment/DepartureTransportMeans/typeofIdentification is in SET {10,20,21,30,31,40,41,80}
 THEN /*/GoodsShipment/Consignment/DepartureTransportMeans/IdentificationNumber shall not contain lowercase letters</DescriptionEn>
 	</RC>
 	<RC>
@@ -2347,8 +3537,25 @@ THEN /CC560C/ExportOperation/notificationType is EQUAL to '2'</DescriptionEn>
 		<Code>R0560</Code>
 		<DescriptionEn>‘Declaration goods item number’/'Sequence number' is always used.
 Numbering of items:
-  - In case of any difference being found in a Data Group, the 'Declaration goods item number'/'Sequence number' should be equal to the corresponding Goods item/Data Group numbering defined in the declaration.
-</DescriptionEn>
+  - In case of any difference being found in a Data Group, the 'Declaration goods item
+number'/'Sequence number' should be equal to the corresponding Goods item/Data Group numbering
+defined in the declaration.
+IF one of more discrepancy(ies) is(are) identified in this Data Group THEN:
+- ‘Declaration goods item number’ / 'Sequence number' is always used
+- Excess goods items can be reported.
+
+Numbering of items:
+IF one of more discrepancy(ies) is(are) identified in this Data Group THEN:
+- the 'Declaration goods item number'/'Sequence number' shall be unique AND EQUAL to the 'Declaration goods item number'/'Sequence number'  
+of the Data Group defined in the declaration for which the discrepancy is reported; 
+ 
+IF a new Data Group/Goods Item is identified THEN:
+   - the 'Declaration goods item number'/'Sequence number' shall be unique AND EQUAL to the number of the last 'Sequence number' of the Data Group + 1 AND the rest of the Data Items contained in the Data Group and all sub–Data Groups shall be filled in, allowing the optionality constraints defined in the declaration.
+
+IF a Goods Item is missing OR the information related to a Data Group is missing THEN:
+   - 'Declaration goods item number'/'Sequence number' shall be unique AND EQUAL to the 'Declaration goods item number'/'Sequence number' (as defined in the declaration, but missing during control) and the rest of the Data Items contained in the Data Group and all sub–Data Groups shall not be filled in.
+   
+Note: The ‘Declaration goods item number'/'Sequence number' is unique if the XPath (without the last DG’s predicate, i.e. the last DG’s occurrence number included in “[]”) and the value of the 'Declaration goods item number'/'Sequence number' are unique in this message.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>R0675</Code>
@@ -2399,7 +3606,7 @@ ELSE the value of /CC507C/GoodsShipment/GoodsItem/Commodity/GoodsMeasure/netMass
 	</RC>
 	<RC>
 		<Code>R0722</Code>
-		<DescriptionEn>The value of /CC590C/GoodsShipment/GoodsItem/Commodity/GoodsMeasure/grossMass must be LESS than the value declared in the Manifest Presentation /CC547C/ManifestItem/TtansportDocumentData/CustomsData/grosMass.
+		<DescriptionEn>The value of /CC590C/GoodsShipment/GoodsItem/Commodity/GoodsMeasure/grossMass must be LESS than the value declared in the Manifest Presentation /CC547C/ManifestItem/TransportDocumentData/CustomsData/grossMass.
 </DescriptionEn>
 	</RC>
 	<RC>
@@ -2409,19 +3616,20 @@ ELSE the value of /CC507C/GoodsShipment/GoodsItem/Commodity/GoodsMeasure/netMass
 	</RC>
 	<RC>
 		<Code>R0823</Code>
-		<DescriptionEn>For the one occurence of the data group /CD518C/SupportingDocument that is related to condition C0864:
+		<DescriptionEn>For the one occurrence of the data group /*/SupportingDocument that is related to condition
+C0864:
 IF /CC042C/TransitOperation/declarationType is EQUAL to 'T'
-THEN /CD518C/GoodsShipment/SupportingDocument/type is EQUAL to 'N820'
+THEN /*/GoodsShipment/SupportingDocument/type is EQUAL to 'N820'
 ELSE IF /CC042C/TransitOperation/declarationType is EQUAL to 'T1'
-THEN /CD518C/GoodsShipment/SupportingDocument/type is EQUAL to 'N821'
+THEN /*/GoodsShipment/SupportingDocument/type is EQUAL to 'N821'
 ELSE IF /CC042C/TransitOperation/declarationType is EQUAL to 'T2'
-THEN /CD518C/GoodsShipment/SupportingDocument/type is EQUAL to 'N822'
+THEN /*/GoodsShipment/SupportingDocument/type is EQUAL to 'N822'
 ELSE IF /CC042C/TransitOperation/declarationType is EQUAL to 'TIR'
-THEN /CD518C/GoodsShipment/SupportingDocument/type is EQUAL to 'N952'
+THEN /*/GoodsShipment/SupportingDocument/type is EQUAL to 'N952'
 ELSE IF /CC042C/TransitOperation/declarationType is EQUAL to 'T2F'
-THEN /CD518C/GoodsShipment/SupportingDocument/type is EQUAL to 'C612'
-
-Note: In case of Export followed by Transit that is not covered by NCTS (i.e. CIM, paper based procedure, other transit procedure) it should be covered in the very same way.</DescriptionEn>
+THEN /*/GoodsShipment/SupportingDocument/type is EQUAL to 'C612'
+Note: In case of Export followed by Transit that is not covered by NCTS (i.e. CIM, paper based
+procedure, other transit procedure) it should be covered in the very same way.</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>R0840</Code>
@@ -2429,11 +3637,11 @@ Note: In case of Export followed by Transit that is not covered by NCTS (i.e. CI
 	</RC>
 	<RC>
 		<Code>R0855</Code>
-		<DescriptionEn>IF /*/Consignment/inlandModeOfTransport is EQUAL to ‘3’
-THEN the multiplicity of /*/Consignment/DepartureTransportMeans can be up to '3x'
-ELSE IF /*/Consignment/inlandModeOfTransport is EQUAL to ‘2’
-THEN the multiplicity of /*/Consignment/DepartureTransportMeans can be more than '1x'
-ELSE the multiplicity of /*/Consignment/DepartureTransportMeans is '1x'</DescriptionEn>
+		<DescriptionEn>IF /*/GoodsShipment/Consignment/inlandModeOfTransport is EQUAL to ‘3’
+THEN the multiplicity of /*/GoodsShipment/Consignment/DepartureTransportMeans can be up to '3x'
+ELSE IF /*/GoodsShipment/Consignment/inlandModeOfTransport is EQUAL to ‘2’
+THEN the multiplicity of /*/GoodsShipment/Consignment/DepartureTransportMeans can be more than '1x'
+ELSE the multiplicity of /*/GoodsShipment/Consignment/DepartureTransportMeans is '1x'</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>R0858</Code>
@@ -2514,6 +3722,28 @@ The value of /*/Consignment/grossMass must be GREATER OR EQUAL to the sum of /*/
 		<DescriptionEn>For this data item only an EORI number is valid.</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>R0996</Code>
+		<DescriptionEn>IF /*/ExportOperation/declarationType is EQUAL to 'EX'
+THEN /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure must be in SET {10, 11, 21, 22, 23, 31}
+ELSE /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure must be in SET {10, 76, 77}
+</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>R0997</Code>
+		<DescriptionEn>IF /CC515C/CustomsOfficeOfPresentation is PRESENT //Centralise Clearance
+THEN /*/GoodsShipment/GoodsItem/requestedProcedure shall be the same for all goods items 
+ELSE 
+IF /*/ExportOperation/declarationType is EQUAL to 'EX' AND at least one iteration of /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {10, 11, 23, 31}
+THEN all iterations of /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure must be in SET {10, 11, 23, 31}
+ELSE IF /*/ExportOperation/declarationType is EQUAL to 'EX' AND at least one iteration of /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {21, 22}
+THEN all iterations of /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure must be in SET {21, 22}
+ELSE IF /*/ExportOperation/declarationType is EQUAL to 'CO' AND at least one iteration of /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {76, 77}
+THEN all iterations of /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure must be in SET {76, 77}
+ELSE IF /*/ExportOperation/declarationType is EQUAL to 'CO' AND at least one iteration of /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is EQUAL to '10' 
+THEN all iterations of /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure must be EQUAL to '10'
+</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>S0002</Code>
 		<DescriptionEn>The validation of particular Data Group/Item shall be performed in the following sequence: C0375 &gt; C0273</DescriptionEn>
 	</RC>
@@ -2562,848 +3792,15 @@ The value of /*/Consignment/grossMass must be GREATER OR EQUAL to the sum of /*/
 		<DescriptionEn>The validation of particular Data Group/Item shall be performed in the following sequence: C0466 &gt; C0593</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NB1878</Code>
-		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN C0283 and NC5283 attached to /*/GoodsShipment/Consignment/Consignee
-shall be disabled.</DescriptionEn>
+		<Code>S0023</Code>
+		<DescriptionEn>The validation of particular Data Group/Item shall be performed in the following sequence: B1859 &gt; B1921</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NB1879</Code>
-		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN C0351 and NC5351 attached to /*/GoodsShipment/GoodsItem/Consignee
-shall be disabled.</DescriptionEn>
+		<Code>T0001</Code>
+		<DescriptionEn>At least one of the optional data items must be filled in.</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NB1886</Code>
-		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN C0028 and NC5028 attached to /*/GoodsShipment/GoodsItem/statisticalValue
-shall be disabled</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NB1887</Code>
-		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN
-IF /*/GoodsShipment/GoodsItem/Procedure/requestedProcedure is in SET {31, 71, 76, 77, 78} OR /*/ExportOperation/additionalDeclarationType is in SET {C, F} 
-         THEN /*/GoodsShipment/GoodsItem/statisticalValue = "O"
-ELSE /*/GoodsShipment/GoodsItem/statisticalValue = "R"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NB1888</Code>
-		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN /*/​GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument"/​Type must be in sub codeset AdditionalDocument;SupportingDocumentItemEXP
-ELSE /*/​GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument"/​Type must be in sub codeset AdditionalDocument;SupportingDocEXP</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NB5001</Code>
-		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN at least one /*/​GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument" should be PRESENT on the first GoodsItem entity.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NB5002</Code>
-		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;
-THEN 
-one /*/GoodsShipment/​GoodsItem/​AdditionalInformation data group with /*/GoodsShipment/​GoodsItem/​AdditionalInformation/​Statement value 'FIXKV' is required on the first GoodsItem entity.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC0016</Code>
-		<DescriptionEn>IF 'Holder of the Transit Procedure Identification No.' or 'Exporter Identification No.' or 'Consignee Identification No.' or 'Representative Identification No.' or 'Carrier Identification No.' or 'Consignor identification No.' or 'Consignor Identification No.- House level transport contract' or 'Consignee Identification No.–– House level transport contract' or 'Declarant identification No.' or 'Exit Carrier Identification No.' 
-is used
-      THEN 'Name' and 'ADDRESS' = "O" if already known by NCTS/AES
-      ELSE 'Name' and 'ADDRESS'= "R"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC0018</Code>
-	</RC>
-	<RC>
-		<Code>NC0025_OPT</Code>
-		<DescriptionEn>If specified by the relevant 'Additional information code'
-THEN this data element is REQUIRED
-ELSE it can NOT be USED</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC0221</Code>
-		<DescriptionEn>IF ID number exists
-THEN optional
-ELSE cannot be used</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC0226</Code>
-		<DescriptionEn>IF Requested Procedure code = 71
-THEN data item can NOT be USED
-ELSE
-    IF 'Additional declaration type' = {'A', 'D', 'Y'} 
-    THEN this data group / data element is REQUIRED 
-    ELSE this data group / data element is OPTIONAL</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5001</Code>
-		<DescriptionEn>IF additional declaration type is in SET {C, F}, THEN ​this element = "O"
-ELSE = "R"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5002</Code>
-		<DescriptionEn>IF additional declaration type is in SET {C, D, F}, THEN ​this element = "O"
-ELSE = "R"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5003</Code>
-		<DescriptionEn>Either /*/​GoodsShipment/​Consignment/​GoodsLocation/​Identification@function="EO" OR /*/​GoodsShipment/​Consignment/​GoodsLocation/​Address must be PRESENT</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5004</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument"/​WriteOff/Quantity is PRESENT 
-THEN /*/GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument"/​WriteOff/Quantity@QuantityUnit = 'R'
-ELSE /*/GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument"/​WriteOff/Quantity@QuantityUnit = 'N'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5005</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is EQUAL to '31' 
-THEN /​GoodsShipment/​GoodsItem/​PreviousDocument/​Line = 'R'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5006</Code>
-		<DescriptionEn>If specified by the relevant 'Additional information code'
-THEN this data element is REQUIRED
-ELSE it is OPTIONAL</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5007</Code>
-		<DescriptionEn>IF &lt;Decisive Date&gt; is GREATER than &lt;TPendDate&gt; 
-THEN at least one /*/​AdditionalDocument@function="SupportingDocument" should be PRESENT</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5008</Code>
-		<DescriptionEn>N/A</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5009</Code>
-		<DescriptionEn>IF /*/​Type@function="DeclarationType" is EQUAL to 'Y' 
-THEN /*/​FunctionalReference@function="MRN" = 'R'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5010</Code>
-		<DescriptionEn>IF the first 4 digits of /*/​GoodsShipment/​GoodsItem/​Commodity/​Classification/​Identification are not in SET {8901, 8906, 8903, 8704, 8908, 8905, 8902, 8703, 8802, 8904, 8702}
-THEN /*/​GoodsShipment/​Consignment/​InlandTransportMode must not be 9 
-
-IF the first 4 digits of /*/​GoodsShipment/​GoodsItem/​Commodity/​Classification/​Identification are not in SET {8901, 8906, 8903, 8704, 8908, 8905, 8902, 8703, 8802, 8904, 8702}
-THEN /*/​GoodsShipment/​Consignment/​BorderTransportMode must not be 9</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5011</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​Consignment/​InlandTransportMode OR /*/​GoodsShipment/​Consignment/​BorderTransportMode is in SET {5, 9}
-THEN /*/​GoodsShipment/​Consignment/​Container should be EQUAL to '0'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5012</Code>
-		<DescriptionEn>IF /*/ExportOperation/declarationType is EQUAL to 'CO' 
-THEN /*/​GoodsShipment/​Destination/Country must not be 'FI'
-
-IF /*/ExportOperation/declarationType is EQUAL to 'CO'
-THEN /*/​GoodsShipment/​GoodsItem/​Destination/Country must not be 'FI'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5013</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​AdditionalInformation/​Statement is EQUAL to '30500'
-THEN /*/​ExitOffice/​Identification should be 'FI'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5014</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is EQUAL to '31'
-THEN /*/​GoodsShipment/​TransactionNature = 'O'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5015</Code>
-		<DescriptionEn>IF /*/​Type@function="AdditionalDeclarationType" EQUALS to 'R'
-THEN /*/​Export should be EQUAL to the current date OR it should be in the past</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5016</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure (Current + Previous) is EQUAL to '3171'
-THEN /​GoodsShipment/​GoodsItem/​PreviousDocument/Type must be EQUAL to 'NMRN'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5017</Code>
-		<DescriptionEn>IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT
-THEN Name AND Address = 'O'
-ELSE Name AND Address = 'R'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5018</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​Destination/Country is in SET {'NO', 'CH', 'LI'}
-THEN /*/Security may be EQUAL to '0'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5019</Code>
-		<DescriptionEn>IF this data element value is EQUAL to 'C626'
-THEN it can be declared only as /*/​GoodsShipment/​GoodsItem/​Authorisation/​Category NOT as /*/​Authorisation/​Category</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5020</Code>
-		<DescriptionEn>/*/​GoodsShipment/​GoodsItem/​Procedure/​Current must be the same for all occurrences 
-</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5021</Code>
-		<DescriptionEn>IF /*/Declarant/Identification is EQUAL to /*/Exporter/Identification
-THEN /*/Agent = 'O'
-ELSE /*/Agent = 'N'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5022</Code>
-		<DescriptionEn>IF /*/​Discrepancies is EQUAL to '1'
-THEN this element = 'R'
-ELSE this element = 'N'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5023</Code>
-		<DescriptionEn>IF /​Amendment/​AmendmentType is EQUAL to 'OIK' THEN this element = 'R'
-ELSE IF /​Amendment/​AmendmentType is EQUAL to 'KOR' THEN this element = 'N'
-ELSE this element = 'O'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5024</Code>
-		<DescriptionEn>IF /​Amendment/​AmendmentType is EQUAL to 'OIK' THEN this element = 'R'
-ELSE IF /​Amendment/​AmendmentType is EQUAL to 'KOR' THEN this element = 'N'
-ELSE this element = 'O'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5025</Code>
-		<DescriptionEn>IF /​Notification/​Invalidation is EQUAL to 'D' THEN this element = 'R'
-ELSE this element = 'O'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5026</Code>
-		<DescriptionEn>IF /*/​Notification/​Text is not present THEN this element = 'R' 
-ELSE this element = 'O'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5027</Code>
-		<DescriptionEn>IF /*/​Notification/​ProvidedInfo is not present THEN this element = 'R' 
-ELSE this element = 'O'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5028</Code>
-		<DescriptionEn>IF /*/ExportOperation/declarationType is EQUAL to 'CO'
-THEN /*/GoodsShipment/GoodsItem/statisticalValue = "O"
-ELSE 
-         IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} OR IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is in SET {76, 77}
-         THEN /*/GoodsShipment/GoodsItem/statisticalValue = "O"
-                   ELSE /*/GoodsShipment/GoodsItem/statisticalValue = "R"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5029</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure (Current + Previous) is EQUAL to '3171'
-THEN /*/​GoodsShipment/​Consignment/​GoodsLocation/​Type must be EQUAL to 'B'
-AND /​*/GoodsShipment/​Consignment/​GoodsLocation/​Identification@function="EO" = "R"
-AND /*/GoodsShipment/​Consignment/​GoodsLocation/​Identification@function="AdditionalIdentifier" = "R" </DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5030</Code>
-		<DescriptionEn>IF FI595A/​GoodsShipment/​GovernmentAgencyGoodsItem/​Commodity/​Classification/​Identification is EQUAL to '27112100' THEN this element = "N"
-ELSE this element = "R"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5031</Code>
-		<DescriptionEn>IF /​GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument"/​WriteOff/Amount is lodged THEN this element = "R"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5032</Code>
-		<DescriptionEn>IF procedure (Current + Previous) is EQUAL to '3171' 
-THEN FI585A/​TotalGrossMass = "R" OR FI585A/​GoodsShipment/​GovernmentAgencyGoodsItem/​GoodsMeasure/​GrossMass = "R"
-ELSE FI585A/​TotalGrossMass = "O" AND FI585A/​GoodsShipment/​GovernmentAgencyGoodsItem/​GoodsMeasure/​GrossMass = "O"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5033</Code>
-		<DescriptionEn>One /*/​AdditionalInformation data group with /*/​AdditionalInformation/​Statement value 'FIXKV' is required.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5283</Code>
-		<DescriptionEn>IF /*/GoodsShipment/AdditionalInformation/code is EQUAL TO ‘30600’ OR any /*/GoodsShipment/GoodsItem/AdditionalInformation/code is EQUAL to ‘30600’
-THEN /*/GoodsShipment/Consignment/Consignee = "N"
-ELSE
-    IF /*/GoodsShipment/GoodsItem/Consignee is PRESENT
-    THEN /*/GoodsShipment/Consignment/Consignee = "N"
-    ELSE /*/GoodsShipment/Consignment/Consignee = "R"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5351</Code>
-		<DescriptionEn>IF /*/GoodsShipment/AdditionalInformation/code is EQUAL TO ‘30600’ OR this /*/GoodsShipment/GoodsItem/AdditionalInformation/code is EQUAL to ‘30600’
-THEN this /*/GoodsShipment/GoodsItem/Consignee = "N"
-ELSE
-    IF /*/GoodsShipment/Consignment/Consignee is PRESENT
-    THEN this /*/GoodsShipment/GoodsItem/Consignee = "N"
-    ELSE this /*/GoodsShipment/GoodsItem/Consignee = "R"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5500</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'1100', '1140', '2100', '2101', '2140', '2142', '2145', '2146'} 
-AND /*/AdditionalDocument@function="SupportingDocument" is PRESENT
-AND /*/AdditionalDocument@function="SupportingDocument"/Type is EQUAL to 'C710'
-THEN /*/​GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument" with Type EQUAL to 'C710' must not be lodged</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5501</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'1100', '1140', '2100', '2101', '2140', '2142', '2145', '2146'} 
-AND /*/AdditionalInformation is PRESENT
-AND /*/AdditionalInformation/Statement is EQUAL to 'FIOEI'
-THEN /*/​GoodsShipment/​GoodsItem/​AdditionalInformation with Statement EQUAL to 'FIOEI' must not be lodged</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5561</Code>
-		<DescriptionEn>IF /*/GoodsShipment/GoodsItem/Procedure/previousProcedure is in SET {71, 76, 77, 78}
-THEN /*/GoodsShipment/Warehouse = "R"
-ELSE /*/GoodsShipment/Warehouse = "N"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5655</Code>
-		<DescriptionEn>
-IF /*/ExportOperation/additionalDeclarationType is NOT in SET {C, F} AND TARIC provides supplementary units
-THEN /*/GoodsShipment/GoodsItem/Commodity/GoodsMeasure/supplementaryUnits = "R"
-ELSE /*/GoodsShipment/GoodsItem/Commodity/GoodsMeasure/supplementaryUnits = "O"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC5843</Code>
-		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {'C', 'F'}
-        THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "O"
-ELSE IF /*/CustomsOfficeOfExport/referenceNumber is NOT EQUAL to /*/CustomsOfficeOfExit/referenceNumber
-         THEN /*/GoodsShipment/Consignment/inlandModeOfTransport = "R" 
-ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "N" </DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NPR5001</Code>
-		<DescriptionEn>If a trader office code has not been declared and the format of the trader identification number is FI + non-union country code (e.g. NO or RU) + other characters, then UTU must add the default trader office code 000. (UTU must not add any default value for other types of trader identification number)</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NPR5002</Code>
-		<DescriptionEn>UTU must fetch trader details (of declarant, representative etc.), if a trader office code has been declared. Trader must be found.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NPR5003</Code>
-		<DescriptionEn>UTU must fetch trader details (of declarant, representative etc.), if a trader office code has not been declared and a country code in the trader identification number is not FI. Trader needs not necessarily be found.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NPR5004</Code>
-		<DescriptionEn>UTU must fetch trader details (of declarant, representative etc.), if a trader office code has not been declared and  the format of the trader identification number is FI + 9 characters. Trader needs not necessarily be found.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NPR5005</Code>
-		<DescriptionEn>If trader is found from Trader Register (or EOS) and is EORI registered, then name and address will be overwritten if provided</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NPR5006</Code>
-		<DescriptionEn>IF message source is "Internal UI" and trader characteristics is EQUAL to 'P', NR5032 is not used.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NPR5007</Code>
-		<DescriptionEn>New processing rule for transition testing: IF /*/​AdditionalInformation/​Statement is EQUAL to 'FIXTR'
-THEN …</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0019</Code>
-		<DescriptionEn>If location address has been declared, country code must be FI</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0034</Code>
-		<DescriptionEn>Must start with a two digit country code (EU or non-EU - CL008)</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0035</Code>
-		<DescriptionEn>If the format of the trader id is FI + 9 characters, then modulus validation of Finnish EORI id must be performed. Format must be 'FI' + 7 digits + hyphen + check sum digit</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0036</Code>
-		<DescriptionEn>If the format of the trader id is FI + 11 characters, then modulus validation of Finnish personal identification number must be performed. Format must be
- 'FI' + 6 digits + (hyphen OR  'A') + 3 digits + check sum character</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0044</Code>
-		<DescriptionEn>Atleast one of notification text, or provided information must be present.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0045</Code>
-		<DescriptionEn>Atleast one of Description, document link must be present.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0049</Code>
-		<DescriptionEn>Service provider has to be different from declarant, exporter and representative</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0055</Code>
-		<DescriptionEn>If declaration type is CO, then country of dispatch/export must be an EU country.
-If declaration type is IM, then country of dispatch/export must not be an EU country.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0220</Code>
-		<DescriptionEn>A private person can only act as a representative for another private person. Check the representative's and the declarant's identification numbers.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0677</Code>
-		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {'C', 'F', 'Y'}
-THEN /*/Authorisation/Category is EQUAL to ’C512’ </DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0678</Code>
-		<DescriptionEn>IF /*/Authorisation/Category is EQUAL to ’C512’
-THEN /*/ExportOperation/additionalDeclarationType is in SET {'C', 'F', 'Y'}</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR1001</Code>
-		<DescriptionEn>Authorisation must be valid on date used to fetch data</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR1109</Code>
-		<DescriptionEn>Service provider has to be registered as service provider in trader register</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5001</Code>
-		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is EQUAL to 'R’
-THEN /*/Export = "R"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5002</Code>
-		<DescriptionEn>IF /*/Export is PRESENT
-THEN /*/ExportOperation/additionalDeclarationType must be EQUAL to 'R’</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5003</Code>
-		<DescriptionEn>IF /*/Presentation is PRESENT
-THEN /*/ExportOperation/additionalDeclarationType must be in SET {D, F}</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5004</Code>
-		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {D, F}
-THEN /*/Presentation = "R"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5006</Code>
-		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {D, F}
-THEN Presentation (datetime converted to date) value should be at minimum current date AND at maximum current date + 30 days: current date &lt;= toDATE(Presentation) &lt;= (current date + 30 days)</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5008</Code>
-		<DescriptionEn>IF /*/​Exporter/​Role is in SET {'Y', 'K', 'V', 'T', 'E'}, EORI shall be used.
-ELSE IF /*/​Exporter/​Role is EQUAL to 'H', two-digit country code and id (henkilötunnus) shall be used.
-ELSE IF /*/​Exporter/​Role is EQUAL to 'C', two-digit country code and personal id or date of birth in 'ddmmyyyy' format shall be used.
-ELSE IF /*/​Exporter/​Role is EQUAL to 'D', either EORI or two-digit country code and id shall be used.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5009</Code>
-		<DescriptionEn>IF /*/​Declarant/​Role is in SET {'Y', 'K', 'V', 'T', 'E', 'F'}, EORI shall be used.
-ELSE IF /*/​Declarant/​Role is EQUAL to 'H', two-digit country code and id (henkilötunnus) shall be used.
-ELSE IF /*/​Declarant/​Role is in SET {'C', 'P'}, two-digit country code and personal id or date of birth in 'ddmmyyyy' format shall be used.
-ELSE IF /*/​Declarant/​Role is EQUAL to 'D', either EORI or two-digit country code and id shall be used.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5011</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​Consignment/​BorderTransportMeans/​Nationality is in SET {Koodisto: Maa;NationalityTransportMeans}
-THEN /*/​GoodsShipment/​Consignment/​BorderTransportMode should be 3</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5012</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​Consignment/​DepartureTransportMeans/​Nationality is in SET {Koodisto: Maa;NationalityTransportMeans}
-THEN /*/​GoodsShipment/​Consignment/​InlandTransportMode should be 3</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5013</Code>
-		<DescriptionEn>/*/​GoodsShipment/​Consignment/​BorderTransportMode AND /*/​GoodsShipment/​Consignment/​InlandTransportMode should not be EQUAL to '7'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5014</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is '31' AND /*/​GoodsShipment/​GoodsItem/​Procedure/​Previous is '53'
-THEN  /*/​GoodsShipment/​TransactionNature should not be in SET {91, 60} </DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5015</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is '23'
-THEN /*/​GoodsShipment/​TransactionNature must be in SET {91, 99, 60} </DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5016</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​GovernmentProcedure/​Current is '31' AND /*/​GoodsShipment/​GoodsItem/​GovernmentProcedure/​Previous is EQUAL to '71'
-THEN /*/​GoodsShipment/​Warehouse/​Type should be in SET {Koodisto: WarehouseType, using Filter_EXPORT} </DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5018</Code>
-		<DescriptionEn>IF /*/​AdditionalInformation/​Statement is in SET {FIXFD, FIXFE, FIXFF, FIXFG} 
-THEN /*/​Exporter/​Identification AND /*/​Declarant/​Identification should not begin with 'FI'
-
-IF /*/​AdditionalInformation/​Statement is in SET {FIXFD, FIXFE, FIXFF, FIXFG} 
-THEN /*/​Exporter/​Identification AND /*/​Declarant/​Identification first two characters should be in code list {Koodisto:  Maa;CountryCodesCommunityEiFi}
-
-IF /*/​GoodsShipment/​GoodsItem/​AdditionalInformation/​Statement is in SET {FIXFD, FIXFE, FIXFF, FIXFG}
-THEN /*/​Exporter/​Identification AND /*/​Declarant/​Identification should not begin with 'FI'
-
-IF /*/​GoodsShipment/​GoodsItem/​AdditionalInformation/​Statement is in SET {FIXFD, FIXFE, FIXFF, FIXFG}
-THEN  /*/​Exporter/​Identification AND /*/​Declarant/​Identification  first two characters should be in code list {Koodisto:  Maa;CountryCodesCommunityEiFi}</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5023</Code>
-		<DescriptionEn>IF /*/​AdditionalInformation/​Statement is in SET {FIXFD, FIXFE, FIXFF, FIXFG} 
-THEN only one of these codes should be used</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5024</Code>
-		<DescriptionEn>IF /*/GoodsShipment/GoodsItem/PreviousDocument/type is in SET {'C658', 'C651'}
-THEN /*/​GoodsShipment/​GoodsItem/​Procedure (Current + Previous) should be in SET {'1007', '1045'}</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5025</Code>
-		<DescriptionEn>IF /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651'
-THEN there may be only 1 occurrence of /*/GoodsShipment/GoodsItem/PreviousDocument with type 'C651' per this Goods Item</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5026</Code>
-		<DescriptionEn>/*/Agent/identification must NOT be EQUAL to /*/Exporter/identification</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5027</Code>
-		<DescriptionEn>IF /*/​Declarant/​Identification starts with 'FI' and the next two characters make a 3rd country code (like 'RU' or 'NO'), 
-THEN /*/​Declarant/​Identification must be found from the ASKARE trader register and trader must be EORI registered.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5028</Code>
-		<DescriptionEn>IF /*/​Declarant/​Identification starts with an EU country code that is not 'FI' (Koodisto: Maa; Maa;CountryCodesCommunityEiFi) AND /*/​Declarant/​Role is NOT in SET {'C', 'D'}
-THEN /*/​Declarant/​Identification must be found from the EOS trader register and trader must be EORI registered.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5029</Code>
-		<DescriptionEn>IF /*/​Declarant/​Identification starts with two-digit 3rd country code (like 'RU' or 'NO')
-THEN /*/​Declarant/​Role must be in SET {'P', 'D'}</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5030</Code>
-		<DescriptionEn>IF /*/​Exporter/​Identification starts with 'FI' and the next two characters make a 3rd country code (like 'RU' or 'NO'), 
-THEN /*/​Exporter/​Identification must be found from the ASKARE trader register, trader must be EORI registered and must be resolvable to an EU address (customer/eori/establishmentInEu = true).</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5031</Code>
-		<DescriptionEn>IF /*/​Exporter/​Identification starts with an EU country code that is not 'FI' (code list NCLXXX, Koodisto:  Maa;CountryCodesCommunityEiFi) AND /*/​Declarant/​Role is NOT in SET {'C', 'D'}
-THEN /*/​Exporter/​Identification must be found from the EOS trader register, trader must be EORI registered and must be resolvable to an EU address (customer/eori/establishmentInEu = true).</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5032</Code>
-		<DescriptionEn>/*/​Exporter/​Identification must not start with two-digit 3rd country code (non-EU countries like 'RU' or 'NO').</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5033</Code>
-		<DescriptionEn>IF Additional declaration type is in SET {'D', 'F'}, it may be updated to “A” during amendments before or after release.
-ELSE IF Additional declaration type is EQUAL to 'A', it must not be updated during amendments before or after release.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5034</Code>
-		<DescriptionEn>IF /*/​Agent/​Role is in SET {'Y', 'K', 'V', 'T', 'E', 'F'}, EORI shall be used.
-ELSE IF /*/​Agent/​Role is EQUAL to 'H', two-digit country code and id (henkilötunnus) shall be used.
-ELSE IF /*/​Agent/​Role is in SET {'C', 'P'}, two-digit country code and personal id or date of birth in 'ddmmyyyy' format shall be used.
-ELSE IF /*/​Agent/​Role is EQUAL to 'D', either EORI or two-digit country code and id shall be used.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5035 </Code>
-		<DescriptionEn>IF /*/​FunctionalReference@function="MRN" is PRESENT
-THEN /*/​Type@function="AdditionalDeclarationType" should be 'Y'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5036</Code>
-		<DescriptionEn>/*/​Applicant must be in SET {Koodisto:TraderRole;RolesAsApplicants with filter_EXP}</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5037</Code>
-		<DescriptionEn>IF /*/​Amendment/​AmendmentType is 'KOR' THEN this element cannot be amended.
-the value of elements in Koodisto: ChangesNotAllowed;AmendmentKorEXP can not be updated, compared to the value in previous version. The other elements can be updated.
-Note: In Koodisto: ChangesNotAllowed;AmendmentKorEXP is the path for element that may contain GoodsItem sequence number. Comparison between message element and path in Koodisto code should be done without GoodsItem sequence number.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5038</Code>
-		<DescriptionEn>IF /*/​Amendment/​AmendmentType is 'OIK' THEN this element cannot be amended.
-the value of elements in Koodisto: ChangesNotAllowed;AmendmentOikEXP can not be updated, compared to the value in previous version. The other elements can be updated.
-Note: In Koodisto: ChangesNotAllowed;AmendmentOikEXP is the path for element that may contain GoodsItem sequence number. Comparison between message element and path in Koodisto code should be done without GoodsItem sequence number.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5042</Code>
-		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is EQUAL to 'Y' 
-THEN the value of elements in Koodisto: ChangesNotAllowed;SupplementaryEXP can not be updated, compared to the value in previous version. The other elements can be updated.
-Note: In Koodisto: ChangesNotAllowed;SupplementaryEXP is the path for element that may contain GoodsItem sequence number. Comparison between message element and path in Koodisto code should be done without GoodsItem sequence number.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5043</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure (Current + Previous) is EQUAL to '3153' THEN /*/​Exporter/​Identification must be EORI, but it does not need to be resolvable to an EU address.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5044</Code>
-		<DescriptionEn>IF /*/​PresentationOffice/​Identification is declared THEN R0940 attached /*/​Agent/​Identification to is disabled and only EORI is allowed.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5045</Code>
-		<DescriptionEn>IF /*/​AdditionalInformation/​Statement is EQUAL to 'FIXGA' 
-THEN the Administrative Reference Code (ARC) in the field /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Identification does not need to be unique on UTU Export level.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5046</Code>
-		<DescriptionEn>IF /*/ExportOperation/declarationType is EQUAL to 'CO'
-THEN this element value = '0'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5047</Code>
-		<DescriptionEn>FI595A/​Export must be EQUAL to the last date of the month</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5048</Code>
-		<DescriptionEn>/*/​GoodsShipment/​TransactionNature must be EQUAL to '11'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5049</Code>
-		<DescriptionEn>FI595A/​GoodsShipment/​Consignment/​BorderTransportMode must be EQUAL to '7'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5050</Code>
-		<DescriptionEn>FI595A/​GoodsShipment/​GovernmentAgencyGoodsItem/​Commodity/​Classification/​Identification must be in SET {271121, 271600, 382520}</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5051</Code>
-		<DescriptionEn>FI595A/​GoodsShipment/​GovernmentAgencyGoodsItem/​Commodity/​Classification/​Identification must be EQUAL to '00'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5052</Code>
-		<DescriptionEn>FI595A/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure/​Current must be EQUAL to '10'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5053</Code>
-		<DescriptionEn>FI595A/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure/​Previous must be EQUAL to '00'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5054</Code>
-		<DescriptionEn>FI595A/​Type@function="AdditionalDeclarationType" must be EQUAL to 'R'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5055</Code>
-		<DescriptionEn>IF FI585A/​GoodsShipment/​GoodsItem/​Destination/Country is EQUAL to 'QR'
-THEN FI585A/​GoodsShipment/​Consignment/​BorderTransportMeans/​Nationality must be in Koodisto: Maa;CountryCodesCommunity
-ELSE IF FI585A/​GoodsShipment/​GoodsItem/​Destination/Country is EQUAL to 'QS'
-THEN FI585A/​GoodsShipment/​Consignment/​BorderTransportMeans/​Nationality must be in Koodisto: Maa;CountryCodesCommunityEiFi</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5056</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​AdditionalInformation/​Statement is EQUAL to '30500'
-THEN  /*/GoodsShipment/GoodsItem/PreviousDocument/type must not be EQUAL to 'C651'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5057</Code>
-		<DescriptionEn>FI585A/​Type@function="AdditionalDeclarationType" must be in set {'A', 'D'}</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5058</Code>
-		<DescriptionEn>FI585A/​GoodsShipment/​Destination/Country must be in SET {'QR', 'QS'}</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5059</Code>
-		<DescriptionEn>FI585A/​GoodsShipment/​GovernmentAgencyGoodsItem/​Commodity/​Classification/​Identification must be in SET {'993024', '993027', '993099'}</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5060</Code>
-		<DescriptionEn>FI585A/​GoodsShipment/​GovernmentAgencyGoodsItem/​Commodity/​Classification/​Identification must be EQUAL to '00'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5061</Code>
-		<DescriptionEn>FI585A/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) must be in SET {'1000', '1040', '3171'}</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5062</Code>
-		<DescriptionEn>/*/​ExitOffice/​Identification must be 'FI'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5063</Code>
-		<DescriptionEn>IF /*/​Amendment/​AmendmentType is 'OIK' 
-AND /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651'
-AND the Transaction type is NOT in SET {'M', 'MX'} 
-THEN this element cannot be amended
-ELSE this element can be amended</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5064</Code>
-		<DescriptionEn>IF /*/​Amendment/​AmendmentType is 'OIK' 
-AND /*/GoodsShipment/GoodsItem/PreviousDocument/type is EQUAL to 'C651'
-THEN this element cannot be amended
-ELSE this element can be amended</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5065</Code>
-		<DescriptionEn>IF /*/​AdditionalInformation/​Statement is EQUAL to 'FIXKV'
-THEN /*/​AdditionalInformation/​StatementDescription must be in codelist Koodisto: KauppalaskunValuutta</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5066</Code>
-		<DescriptionEn>/*/​GoodsShipment/​Consignment/​TransportEquipment/​GoodsReference/​GoodsItemNumber must be smaller than or equal to the total number of goods items</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5067</Code>
-		<DescriptionEn>IF there is no /*/Authorisation/type that is EQUAL to ’C513’
-THEN /*/CustomsOfficeOfPresentation = "N"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5068</Code>
-		<DescriptionEn>IF the first /*/​GoodsShipment/​GovernmentAgencyGoodsItem is removed during amendment
-AND a /*/GoodsShipment/​GoodsItem/​AdditionalInformation data group with /*/GoodsShipment/​GoodsItem/​AdditionalInformation/​Statement value 'FIXKV' is PRESENT on the first GoodsItem
-THEN that AdditionalInformation data group should be moved to the first remaining /*/​GoodsShipment/​GovernmentAgencyGoodsItem
-
-IF the first /*/​GoodsShipment/​GovernmentAgencyGoodsItem is removed during amendment
-AND a /*/​GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument" data group with /*/​AdditionalDocument@function="SupportingDocument"/​Type value 'N380' is PRESENT on the first GoodsItem
-THEN that SupportingDocument data group should be moved to the first remaining /*/​GoodsShipment/​GovernmentAgencyGoodsItem</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5070</Code>
-		<DescriptionEn>IF the Transaction type is in SET {'N', 'N1', 'NX', 'W', 'W1', 'WX'}
-THEN /*/​ExportOffice/​Identification must be 'FI002002'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5501</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'1100', '1140', '2100', '2101', '2140', '2142', '2145', '2146'}
-AND /*/​Exporter/​Role is not in SET {'H', 'C'} 
-AND /*/​Exporter/​Identification is not EQUAL to 'FI0952029-9' 
-AND /*/ExportOperation/declarationType is not EQUAL to 'CO'
-THEN /*/​AdditionalDocument@function="SupportingDocument"/​Type must be EQUAL to 'C710'
-OR /*/​GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument"/Type must be EQUAL to 'C710'
-OR /*/​AdditionalInformation/​Statement must be 'FIOEI' 
-OR /*/​GoodsShipment/​GoodsItem/​AdditionalInformation/Statement must be 'FIOEI' 
-
-IF /*/​GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument" is PRESENT for all /*/GoodsShipment/GoodsItem 
-THEN at least one occurrence of /*/​GoodsShipment/​GoodsItem/​AdditionalDocument@function="SupportingDocument"/​Identification must be different from the others; 
-IF /*/​GoodsShipment/​GoodsItem/​AdditionalInformation is PRESENT for all /*/GoodsShipment/GoodsItem 
-THEN at least one occurrence of /*/​GoodsShipment/​GoodsItem/​AdditionalInformation/​Statement must be different from the others; </DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5502</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'1100', '1140', '3151'}
-THEN /*/​GoodsShipment/​TransactionNature must be in SET {'11', '51', '52', '60'}</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5503</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'1100', '1140', '2151'}
-THEN /*/​Authorisation/​Category must be lodged and the value must be 'C601'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5504</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'2100', '2101', '2107', '2140', '2142', '2143', '2145', '2151'}
-THEN /*/​GoodsShipment/​TransactionNature must be in SET {'41', '42', '60'}</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5505</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'2100', '2101', '2140', '2142', '2143', '2145', '2163'} 
-THEN /*/​Authorisation/​Category must be 'C019' 
-OR /*/​AdditionalInformation/​Statement must be '00100'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5506</Code>
-		<DescriptionEn>IF /*/​AdditionalInformation/​Statement with value '00100' is PRESENT
-THEN /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBH' AND /​AdditionalInformation/​StatementDescription must be lodged
-AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBJ' AND /​AdditionalInformation/​StatementDescription must be lodged
-AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBN' AND /​AdditionalInformation/​StatementDescription must be lodged
-AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBP' AND /​AdditionalInformation/​StatementDescription must be lodged
-AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBQ' AND /​AdditionalInformation/​StatementDescription must be lodged</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5507</Code>
-		<DescriptionEn>IF /*/​AdditionalInformation/​Statement with value 'FIXBN' is PRESENT
-THEN /*/ExportOperation/additionalDeclarationType must be in SET {'A', 'D'}
-ELSE /*/ExportOperation/additionalDeclarationType must be in SET {'A', 'C', 'D', 'F', 'Y', 'R'}</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5508</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure (Current + Previous) is EQUAL to '2107'
-THEN /*/​GoodsShipment/​GoodsItem/​PreviousDocument/Type must be EQUAL to 'NMRN'
-AND /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Identification must contain MRN
-AND /*/​Authorisation/​Category must be 'C019' </DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5509</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'1100', '1140', '2100', '2101', '2140', '2142', '2145', '2146', '2151', '3151'}
-THEN /*/​GoodsShipment/​GoodsItem/​Procedure/​AdditionalProcedure/​Procedure must be EQUAL to '999'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5510</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure/​AdditionalProcedure/​Procedure is EQUAL to '999'
-THEN other occurrences of /*/​GoodsShipment/​GoodsItem/​Procedure/​AdditionalProcedure/​Procedure should not be lodged for the same goods item</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5511</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'2146'}
-THEN /*/​GoodsShipment/​TransactionNature must be in SET {'41', '42'}
-AND /*/​Authorisation/​Category must be lodged and the value must be 'C019'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5512</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure (Current + Previous) is in SET {'2145', '2146', '2148', '2151', '3151', '3153'}
-THEN /*/​GoodsShipment/​GoodsItem/​PreviousDocument/Type must be EQUAL to 'NMRN'
-AND /*/​GoodsShipment/​GoodsItem/​PreviousDocument/​Identification must contain a MRN
-for each goods item</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5513</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'2148'}
-THEN /*/​GoodsShipment/​GoodsItem/​Procedure/​AdditionalProcedure/​Procedure must be in SET {'240', '241'}</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5514</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'2148'} 
-THEN /*/​Authorisation/​Category must be 'C019' 
-OR 
-( /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBN' AND /​AdditionalInformation/​StatementDescription must be lodged
-AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBP' AND /​AdditionalInformation/​StatementDescription must be lodged
-AND /*/​AdditionalInformation/​Statement that is EQUAL to 'FIXBQ' AND /​AdditionalInformation/​StatementDescription must be lodged )</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5515</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is EQUAL to '3151' 
-THEN /*/​AdditionalInformation/​Statement that is EQUAL to '00700' must be lodged
-AND /*/​AdditionalInformation/​Statement that is EQUAL to '00800' may be lodged</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5516</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is in SET {'2148', '3153'}
-THEN /*/​GoodsShipment/​TransactionNature must be EQUAL to '60'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5517</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is EQUAL to '3151' 
-THEN /*/​Authorisation/​Category must be lodged and the value must be 'C601'
-OR  /*/​AdditionalInformation/​Statement that is EQUAL to 'FISAP' must be lodged</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5518</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is EQUAL to '3153' 
-THEN  /*/​AdditionalInformation/​Statement that is EQUAL to '00900' must be lodged</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5519</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is EQUAL to '3153' 
-THEN /*/​Authorisation/​Category must be lodged and the value must be 'C516'
-OR  /*/​AdditionalInformation/​Statement that is EQUAL to 'FISAP' must be lodged</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5520</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is EQUAL to '1044' AND /*/​GoodsShipment/​GoodsItem/Procedure/​AdditionalProcedure/​Procedure is EQUAL to '695'
-THEN  /*/​AdditionalInformation/​Statement that is EQUAL to 'FIX44' must be lodged</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5521</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is EQUAL to '21' AND /*/​GoodsShipment/​GoodsItem/​Procedure/​Previous is EQUAL to '51'
-THEN all other Goods Items on the declaration must have /*/​GoodsShipment/​GoodsItem/​Procedure/​Current that is EQUAL to '21' AND /*/​GoodsShipment/​GoodsItem/​Procedure/​Previous that is EQUAL to '51'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5522</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is EQUAL to '31' AND /*/​GoodsShipment/​GoodsItem/​Procedure/​Previous is EQUAL to '51'
-THEN all other Goods Items on the declaration must have /*/​GoodsShipment/​GoodsItem/​Procedure/​Current that is EQUAL to '31' AND /*/​GoodsShipment/​GoodsItem/​Procedure/​Previous that is EQUAL to '51'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5523</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is EQUAL to '31' AND /*/​GoodsShipment/​GoodsItem/​Procedure/​Previous is EQUAL to '53'
-THEN all other Goods Items on the declaration must have /*/​GoodsShipment/​GoodsItem/​Procedure/​Current that is EQUAL to '31' AND /*/​GoodsShipment/​GoodsItem/​Procedure/​Previous that is EQUAL to '53'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR5524</Code>
-		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is EQUAL to '31' AND /*/​GoodsShipment/​GoodsItem/​Procedure/​Previous is EQUAL to '71'
-THEN all other Goods Items on the declaration must have /*/​GoodsShipment/​GoodsItem/​Procedure/​Current that is EQUAL to '31' AND /*/​GoodsShipment/​GoodsItem/​Procedure/​Previous that is EQUAL to '71'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NS5001</Code>
-		<DescriptionEn>The validation of particular Data Group/Item shall be performed in the following sequence: NC5001 &gt; NC5561</DescriptionEn>
+		<Code>T1120</Code>
+		<DescriptionEn>IF &lt;Decisive Date&gt; is LESS than or EQUAL to the &lt;L3endDate&gt; the format of data items /*/messageIdentification AND /*/correlationIdentifier shall be restricted to an..14</DescriptionEn>
 	</RC>
 </RulesCondition>

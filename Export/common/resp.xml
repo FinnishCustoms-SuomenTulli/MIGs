@@ -213,7 +213,7 @@
 			<Use>FI529A</Use>
 			<Use>FI599A</Use>
 			<XPath>Security</XPath>
-			<MinOccurence>1</MinOccurence>
+			<MinOccurence>0</MinOccurence>
 			<Codelist>CL217</Codelist>
 			<Format>n1</Format>
 		</DataElement>
@@ -408,9 +408,9 @@
 				<Use>FI530A</Use>
 				<Use>FI544A</Use>
 				<Use>FI552A</Use>
+				<Use>FI572A</Use>
 				<XPath>Limit</XPath>
 				<MinOccurence>0</MinOccurence>
-				<GeneralType>DateTime</GeneralType>
 				<Format>dateTime</Format>
 			</DataElement>
 			<DataElement>
@@ -420,6 +420,7 @@
 				<Use>FI530A</Use>
 				<Use>FI544A</Use>
 				<Use>FI552A</Use>
+				<Use>FI572A</Use>
 				<XPath>Limit@LimitType</XPath>
 				<MinOccurence>0</MinOccurence>
 				<Codelist>NCL906</Codelist>
@@ -461,7 +462,6 @@
 					<Use>FI599A</Use>
 					<XPath>Decision</XPath>
 					<MinOccurence>1</MinOccurence>
-					<GeneralType>DateTime</GeneralType>
 					<Format>dateTime</Format>
 				</DataElement>
 				<DataGroup>
@@ -504,7 +504,7 @@
 						<Use>FI599A</Use>
 						<XPath>Note</XPath>
 						<MinOccurence>1</MinOccurence>
-						<GeneralType>String</GeneralType>
+						<Codelist>NCL051</Codelist>
 						<Format>an..6</Format>
 					</DataElement>
 					<DataElement>
@@ -526,7 +526,6 @@
 						<Use>FI599A</Use>
 						<XPath>NoteDescription</XPath>
 						<MinOccurence>1</MinOccurence>
-						<GeneralType>String</GeneralType>
 						<Format>an..4096</Format>
 					</DataElement>
 				</DataGroup>
@@ -673,7 +672,6 @@
 					<Use>FI599A</Use>
 					<XPath>Name</XPath>
 					<MinOccurence>1</MinOccurence>
-					<GeneralType>TraderName</GeneralType>
 					<Format>an..70</Format>
 				</DataElement>
 				<DataElement>
@@ -695,7 +693,6 @@
 					<Use>FI599A</Use>
 					<XPath>Email</XPath>
 					<MinOccurence>0</MinOccurence>
-					<GeneralType>String</GeneralType>
 					<Format>an..320</Format>
 				</DataElement>
 				<DataElement>
@@ -717,7 +714,6 @@
 					<Use>FI599A</Use>
 					<XPath>Telephone</XPath>
 					<MinOccurence>0</MinOccurence>
-					<GeneralType>TelephoneNumber</GeneralType>
 					<Format>an..20</Format>
 				</DataElement>
 			</DataGroup>
@@ -740,7 +736,6 @@
 					<Use>FI544A</Use>
 					<XPath>Code</XPath>
 					<MinOccurence>1</MinOccurence>
-					<GeneralType>String</GeneralType>
 					<Codelist>CL401</Codelist>
 					<Format>an..200</Format>
 				</DataElement>
@@ -752,7 +747,6 @@
 					<Use>FI544A</Use>
 					<XPath>Reason</XPath>
 					<MinOccurence>0</MinOccurence>
-					<GeneralType>String</GeneralType>
 					<Format>an..4096</Format>
 				</DataElement>
 				<DataElement>
@@ -773,7 +767,6 @@
 					<Use>FI544A</Use>
 					<XPath>Pointer/Location</XPath>
 					<MinOccurence>1</MinOccurence>
-					<GeneralType>String</GeneralType>
 					<Format>an..200</Format>
 				</DataElement>
 				<DataElement>
@@ -784,7 +777,6 @@
 					<Use>FI544A</Use>
 					<XPath>OriginalValue</XPath>
 					<MinOccurence>0</MinOccurence>
-					<GeneralType>String</GeneralType>
 					<Format>an..512</Format>
 				</DataElement>
 			</DataGroup>
@@ -832,7 +824,7 @@
 				<Use>FI599A</Use>
 				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
-				<Format>n..3</Format>
+				<Format>n3</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Nimi</Name>
@@ -899,7 +891,7 @@
 					<Use>FI599A</Use>
 					<XPath>Postcode</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Format>an..9</Format>
+					<Format>an..17</Format>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Maa</Name>
@@ -946,7 +938,7 @@
 				<Use>FI599A</Use>
 				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
-				<Format>n..3</Format>
+				<Format>n3</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Nimi</Name>
@@ -1013,7 +1005,7 @@
 					<Use>FI599A</Use>
 					<XPath>Postcode</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Format>an..9</Format>
+					<Format>an..17</Format>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Maa</Name>
@@ -1060,7 +1052,7 @@
 				<Use>FI599A</Use>
 				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>0</MinOccurence>
-				<Format>n..3</Format>
+				<Format>n3</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Nimi</Name>
@@ -1127,7 +1119,7 @@
 					<Use>FI599A</Use>
 					<XPath>Postcode</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Format>an..9</Format>
+					<Format>an..17</Format>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Maa</Name>
@@ -1583,7 +1575,7 @@
 				<Use>FI529A</Use>
 				<Use>FI599A</Use>
 				<XPath>Destination/Country</XPath>
-				<MinOccurence>1</MinOccurence>
+				<MinOccurence>0</MinOccurence>
 				<Codelist>CL008</Codelist>
 				<Format>a2</Format>
 			</DataElement>
@@ -1641,7 +1633,7 @@
 					<Use>FI599A</Use>
 					<XPath>AdditionalIdentifier/Identification</XPath>
 					<MinOccurence>0</MinOccurence>
-					<Format>n..3</Format>
+					<Format>n3</Format>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Roolikoodi</Name>
@@ -1734,7 +1726,7 @@
 						<Use>FI599A</Use>
 						<XPath>AdditionalIdentifier/Identification</XPath>
 						<MinOccurence>1</MinOccurence>
-						<Format>n..3</Format>
+						<Format>n3</Format>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Nimi</Name>
@@ -1938,8 +1930,8 @@
 						<Use>FI529A</Use>
 						<Use>FI599A</Use>
 						<XPath>AdditionalIdentifier/Identification</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Format>n..3</Format>
+						<MinOccurence>0</MinOccurence>
+						<Format>n3</Format>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Nimi</Name>
@@ -1949,7 +1941,7 @@
 						<Use>FI529A</Use>
 						<Use>FI599A</Use>
 						<XPath>Name</XPath>
-						<MinOccurence>1</MinOccurence>
+						<MinOccurence>0</MinOccurence>
 						<Format>an..70</Format>
 					</DataElement>
 					<DataGroup>
@@ -1961,7 +1953,7 @@
 						<Use>FI599A</Use>
 						<XPath>Address</XPath>
 						<Group>Address</Group>
-						<MinOccurence>1</MinOccurence>
+						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<DataElement>
 							<Name lang="fi">Katuosoite</Name>
@@ -2307,7 +2299,7 @@
 							<Use>FI599A</Use>
 							<XPath>Postcode</XPath>
 							<MinOccurence>1</MinOccurence>
-							<Format>an..9</Format>
+							<Format>an..17</Format>
 						</DataElement>
 						<DataElement>
 							<Name lang="fi">Maa</Name>
@@ -2573,7 +2565,7 @@
 					<XPath>TransportEquipment</XPath>
 					<Group>TransportEquipment</Group>
 					<MinOccurence>0</MinOccurence>
-					<MaxOccurence>9999</MaxOccurence>
+					<MaxOccurence>999</MaxOccurence>
 					<DataElement>
 						<Name lang="fi">Järjestysnumero</Name>
 						<Name lang="sv">Ordningsnummer</Name>
@@ -2652,7 +2644,7 @@
 						<XPath>GoodsReference</XPath>
 						<Group>GoodsReference</Group>
 						<MinOccurence>0</MinOccurence>
-						<MaxOccurence>9999</MaxOccurence>
+						<MaxOccurence>999</MaxOccurence>
 						<DataElement>
 							<Name lang="fi">Järjestysnumero</Name>
 							<Name lang="sv">Ordningsnummer</Name>
@@ -2815,7 +2807,7 @@
 				<XPath>GovernmentAgencyGoodsItem</XPath>
 				<Group>GoodsItem</Group>
 				<MinOccurence>1</MinOccurence>
-				<MaxOccurence>99999</MaxOccurence>
+				<MaxOccurence>999</MaxOccurence>
 				<DataElement>
 					<Name lang="fi">Tavaraerän numero</Name>
 					<Name lang="sv">Varupostnummer</Name>
@@ -3161,7 +3153,7 @@
 						<Use>FI599A</Use>
 						<XPath>AdditionalIdentifier/Identification</XPath>
 						<MinOccurence>0</MinOccurence>
-						<Format>n..3</Format>
+						<Format>n3</Format>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Roolikoodi</Name>
@@ -3297,8 +3289,8 @@
 						<Use>FI529A</Use>
 						<Use>FI599A</Use>
 						<XPath>AdditionalIdentifier/Identification</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Format>n..3</Format>
+						<MinOccurence>0</MinOccurence>
+						<Format>n3</Format>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Nimi</Name>
@@ -3308,7 +3300,7 @@
 						<Use>FI529A</Use>
 						<Use>FI599A</Use>
 						<XPath>Name</XPath>
-						<MinOccurence>1</MinOccurence>
+						<MinOccurence>0</MinOccurence>
 						<Format>an..70</Format>
 					</DataElement>
 					<DataGroup>
@@ -3320,7 +3312,7 @@
 						<Use>FI599A</Use>
 						<XPath>Address</XPath>
 						<Group>Address</Group>
-						<MinOccurence>1</MinOccurence>
+						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<DataElement>
 							<Name lang="fi">Katuosoite</Name>
@@ -3623,6 +3615,7 @@
 						<Use>FI599A</Use>
 						<XPath>Identification</XPath>
 						<MinOccurence>1</MinOccurence>
+						<MinOccurence use="FI529A">0</MinOccurence>
 						<Format>an..70</Format>
 					</DataElement>
 					<DataElement>
@@ -4125,7 +4118,7 @@
 				<Use>FI525A</Use>
 				<XPath>AdditionalIdentifier/Identification</XPath>
 				<MinOccurence>1</MinOccurence>
-				<Format>n..3</Format>
+				<Format>n3</Format>
 			</DataElement>
 		</DataGroup>
 	</DataGroup>
