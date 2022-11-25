@@ -86,6 +86,8 @@
                     <option value="all">Show everything</option>
                     <option value="I1">Simplified declaration</option>
                     <option value="H2">Customs warehousing</option>
+                    <option value="H3">Temporary admission</option>
+                    <option value="H4">Inward processing</option>
                     <option value="H5E">Tax border declaration</option>
                     <option value="H5N">National tax border declaration - non-VAT registered traders</option>
                     <option value="H5R">National tax border declaration - VAT registered traders</option>
@@ -240,6 +242,18 @@
                 case 'H2':
                     $(".datatable > tbody > tr").show();
                     $(".datatable > tbody > tr:not(.H2):not(.all)").hide();
+                    $(".datatable > tbody > tr").removeClass("odd");
+                    $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    break;
+                case 'H3':
+                    $(".datatable > tbody > tr").show();
+                    $(".datatable > tbody > tr:not(.H3):not(.all)").hide();
+                    $(".datatable > tbody > tr").removeClass("odd");
+                    $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    break;
+                case 'H4':
+                    $(".datatable > tbody > tr").show();
+                    $(".datatable > tbody > tr:not(.H4):not(.all)").hide();
                     $(".datatable > tbody > tr").removeClass("odd");
                     $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
                     break;

@@ -86,7 +86,9 @@
                     <option value="all">Visa allt</option>
                     <option value="I1">F&ouml;renklad deklaration</option>
                     <option value="H2">Tullagring</option>
-                    <option value="H5E">Skattegr&auml;nsanm&auml;älan</option>
+                    <option value="H3">Tillf&auml;llig inf&ouml;rsel</option>
+                    <option value="H4">Aktiv f&ouml;r&auml;dling</option>
+                   <option value="H5E">Skattegr&auml;nsanm&auml;älan</option>
                     <option value="H5N">Nationell skattegr&auml;nsanm&auml;lan - Icke-momsregistrerade akt&ouml;rer </option>
                     <option value="H5R">Nationell skattegr&auml;nsanm&auml;lan - Momsregistrerade akt&ouml;rer</option>
                 </select>
@@ -242,6 +244,18 @@
                 case 'H2':
                     $(".datatable > tbody > tr").show();
                     $(".datatable > tbody > tr:not(.H2):not(.all)").hide();
+                    $(".datatable > tbody > tr").removeClass("odd");
+                    $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    break;
+                case 'H3':
+                    $(".datatable > tbody > tr").show();
+                    $(".datatable > tbody > tr:not(.H3):not(.all)").hide();
+                    $(".datatable > tbody > tr").removeClass("odd");
+                    $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    break;
+                case 'H4':
+                    $(".datatable > tbody > tr").show();
+                    $(".datatable > tbody > tr:not(.H4):not(.all)").hide();
                     $(".datatable > tbody > tr").removeClass("odd");
                     $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
                     break;

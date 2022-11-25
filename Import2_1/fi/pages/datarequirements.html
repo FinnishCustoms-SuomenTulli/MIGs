@@ -86,6 +86,8 @@
                     <option value="all">Näytä kaikki</option>
                     <option value="I1">Yksinkertaistettu ilmoitus</option>
                     <option value="H2">Tullivarastointi</option>
+                    <option value="H3">Väliaikainen maahantuonti</option>
+                    <option value="H4">Sisäinen jalostus</option>
                     <option value="H5E">Verorajailmoitus</option>
                     <option value="H5N">Kansallinen verorajailmoitus - ALV-rekister&ouml;imä&auml;t&ouml;m&auml;t toimijat</option>
                     <option value="H5R">Kansallinen verorajailmoitus - ALV-rekister&ouml;idyt toimijat</option>
@@ -240,6 +242,18 @@
                 case 'H2':
                     $(".datatable > tbody > tr").show();
                     $(".datatable > tbody > tr:not(.H2):not(.all)").hide();
+                    $(".datatable > tbody > tr").removeClass("odd");
+                    $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    break;
+                case 'H3':
+                    $(".datatable > tbody > tr").show();
+                    $(".datatable > tbody > tr:not(.H3):not(.all)").hide();
+                    $(".datatable > tbody > tr").removeClass("odd");
+                    $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    break;
+                case 'H4':
+                    $(".datatable > tbody > tr").show();
+                    $(".datatable > tbody > tr:not(.H4):not(.all)").hide();
                     $(".datatable > tbody > tr").removeClass("odd");
                     $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
                     break;
