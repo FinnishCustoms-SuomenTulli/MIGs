@@ -46,7 +46,7 @@
 									<span class="icon icon-tulli-help"/>Tietoryhmä</a>
 							</th>
 							<th>
-								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Tiedon pakollisuus&lt;br /&gt;R = pakollinen&lt;br /&gt;D = ehdollinen&lt;br /&gt;O = vapaaehtoinen">
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Tiedon pakollisuus&lt;br /&gt;R = pakollinen&lt;br /&gt;D = ehdollinen&lt;br /&gt;O = vapaaehtoinen&lt;br /&gt;N = ei käytössä">
 									<span class="icon icon-tulli-help"/>RDO</a>
 							</th>
 							<th>
@@ -68,7 +68,7 @@
 									<span class="icon icon-tulli-help"/>Datagrupp</a>
 							</th>
 							<th>
-								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Datas valfrihet&lt;br /&gt;R = obligatorisk&lt;br /&gt;D = villkorlig&lt;br /&gt;O = frivillig">
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Datas valfrihet&lt;br /&gt;R = obligatorisk&lt;br /&gt;D = villkorlig&lt;br /&gt;O = frivillig&lt;br /&gt;N = inte i bruk">
 									<span class="icon icon-tulli-help"/>RDO</a>
 							</th>
 							<th>
@@ -90,7 +90,7 @@
 									<span class="icon icon-tulli-help"/>Data group</a>
 							</th>
 							<th>
-								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Optionality of the data&lt;br /&gt;R = required&lt;br /&gt;D = dependant (on a condition)&lt;br /&gt;O = optional">
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-html="true" data-placement="top" title="Optionality of the data&lt;br /&gt;R = required&lt;br /&gt;D = dependant (on a condition)&lt;br /&gt;O = optional&lt;br /&gt;N = not used">
 									<span class="icon icon-tulli-help"/>RDO</a>
 							</th>
 							<th>
