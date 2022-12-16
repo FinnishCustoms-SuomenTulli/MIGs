@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2019 rel. 3 sp1 (x64) (http://www.altova.com) by Tulli (Tulli) -->
+<MessageExchange xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../MessageExchange.xsd">
+	<Intro>
+		<TextLine lang="fi">Vakuustietojen kyselyjä ja tunnuskoodipyyntöjä voi lähettää Tullille suorana sanoma-asiointina. Sanomat käsitellään uudessa vakuusjärjestelmässä. Uusi vakuusjärjestelmä otetaan käyttöön syksyllä 2023. Vakuustietojen kyselyt käsitellään automaattisesti. Tunnuskoodipyynnöt vaativat manuaalikäsittelyä ja ne käsitellään vakuustoimipaikassa.</TextLine>
+		<TextLine lang="sv">Förfrågningar om garantiuppgifter och begäranden om tillträdeskoder kan skickas till Tullen genom direkt meddelandedeklarering. Meddelandena handläggs i Tullens nya garantisystem. Det nya garantisystemet tas i bruk på hösten 2023. Förfrågningarna om garantiuppgifter handläggs automatiskt. Begärandena om tillträdeskoder kräver manuell handläggning som sker vid garantitullkontoret.</TextLine>
+		<TextLine lang="en">Guarantee queries and access code requests can be sent to Customs via direct message exchange. The messages will be processed in the new guarantee system. The new system will be introduced in autumn 2023. The guarantee queries will be processed automatically. The access code requests will require manual processing and they will be processed at the customs office of guarantee.</TextLine>
+		<TextLine lang="fi">Tässä sanomaliikenneoppaassa kuvataan vakuuden sanomaliikenteen perusperiaatteet sanoman lähettäjän ja Tullin välillä. Oppaassa on kuvattu sanomat, jotka asiakas voi lähettää Tullille tai saada Tullilta. Oppaassa esitellään käytännön esimerkkejä tyypillisistä tapauksista, joissa sanomia käytetään.</TextLine>
+		<TextLine lang="sv">I denna guide för meddelandetrafik beskrivs grundprinciperna för meddelandetrafiken mellan avsändaren av meddelanden och Tullen. I guiden beskrivs de meddelanden som kunden kan skicka till Tullen eller få från Tullen. I guiden ges praktiska exempel på de vanligaste situationerna där meddelandena används.</TextLine>
+		<TextLine lang="en">This guide for message exchange describes the basic principles of the message exchange between the sender messages and Customs regarding guarantees. The guide describes the messages that the customer can send to Customs as well as the notifications that the customer can receive from Customs. The guide contains practical examples of typical use cases in message exchange.</TextLine>
+		<TextLine lang="fi">Tullin järjestelmä tarkistaa eri vaiheissa, että vastaanotettu sanoma täyttää vaatimukset, jotka Tulli on määrittänyt sen rakenteelle ja sisällölle.</TextLine>
+		<TextLine lang="sv">Tullens system granskar i olika skeden att de meddelanden som tagits emot uppfyller de krav som Tullen ställer på meddelandenas struktur och innehåll.</TextLine>
+		<TextLine lang="en">Customs’ system verifies, at various stages, that the received message meets the requirements specified by Customs for the message structure and content.</TextLine>
+		<TextLine lang="fi">Tullin järjestelmä lähettää vastaussanomat samalle lähettäjälle, joka on lähettänyt sanoman Tullille.</TextLine>
+		<TextLine lang="sv">Tullens system skickar svarsmeddelandena till den avsändare som skickat meddelandet till Tullen.</TextLine>
+		<TextLine lang="en">Customs' system sends the response notifications to the sender that sent the message to Customs.</TextLine>
+	</Intro>
+	<Messages>
+		<Message>
+			<Sender>EO</Sender>
+			<ID>FI226A</ID>
+			<Name lang="fi">Vakuuden tunnuskoodit</Name>
+			<Name lang="sv">Tillträdeskoder för garanti</Name>
+			<Name lang="en">Guarantee access codes</Name>
+			<DescriptionLine lang="fi">Vakuudenhaltija lähettää Tullille pyynnön (FI226A) lisätä, poistaa tai muuttaa yleisvakuuteen liittyvää tunnuskoodia. Sanomalla voi myös pyytää tiedot voimassaolevista tunnuskoodeista.</DescriptionLine>
+			<DescriptionLine lang="fi">Huom. Sanoma vastaa EU-määrityksissä (DDNTA) IE026A-sanomaa.</DescriptionLine>
+			<DescriptionLine lang="sv">Innehavaren av en garanti skickar Tullen en begäran (FI226A) om att lägga till, ta bort eller ändra en tillträdeskod som är knuten till en samlad garanti. Med meddelandet kan också uppgifter om giltiga tillträdeskoder begäras.</DescriptionLine>
+			<DescriptionLine lang="sv">Obs. Meddelandet motsvarar IE026A-meddelandet i EU-specifikationerna (DDNTA).</DescriptionLine>
+			<DescriptionLine lang="en">The owner sends Customs a request (FI226A) to add, remove or change an access code associated with a comprehensive guarantee. This message can also be used for requesting details of the valid access codes.</DescriptionLine>
+			<DescriptionLine lang="en">Please note: In the EU specifications (DDNTA), this message corresponds to the message IE026A.</DescriptionLine>
+		</Message>
+		<Message>
+			<Sender>EO</Sender>
+			<ID>FI034A</ID>
+			<Name lang="fi">Vakuuskysely</Name>
+			<Name lang="sv">Garantiförfrågan</Name>
+			<Name lang="en">Guarantee query</Name>
+			<DescriptionLine lang="fi">Asiakas lähettää Tullille vakuuskyselyn (FI034A) vakuuksista, joissa on itse vakuudenhaltijana tai takaajana.</DescriptionLine>
+			<DescriptionLine lang="sv">Kunden skickar Tullen en garantiförfrågan (FI034A) om garantier där kunden själv är garant eller innehavare av garantin.</DescriptionLine>
+			<DescriptionLine lang="en">The customer sends Customs a guarantee query (FI034A) regarding the guarantees where the customer is the owner or guarantor.</DescriptionLine>
+		</Message>
+		<Message>
+			<Sender>Customs</Sender>
+			<ID>FI037A</ID>
+			<Name lang="fi">Vakuuskyselyn vastaus</Name>
+			<Name lang="sv">Svar på garantiförfrågan</Name>
+			<Name lang="en">Guarantee query response</Name>
+			<DescriptionLine lang="fi">Tulli lähettää asiakkaalle tiedot kysytyistä vakuuksista sanomalla (FI037A). Tulli palauttaa tiedot vakuuksista, joiden tyyppi on 0, 1 tai 2.</DescriptionLine>
+			<DescriptionLine lang="sv">Tullen skickar med detta meddelande (FI037A) uppgifter till kunden om de garantier som kunden frågat om. Tullen skickar uppgifterna om garantier vars typ är 0, 1 eller 2.</DescriptionLine>
+			<DescriptionLine lang="en">With this notification (FI037A), Customs sends the customer the details of the guarantees concerned. Customs returns the details of the guarantees of the types 0, 1 or 2.</DescriptionLine>
+		</Message>
+		<Message>
+			<Sender>Customs</Sender>
+			<ID>FI086A</ID>
+			<Name lang="fi">Hylkäyssanoma</Name>
+			<Name lang="sv">Meddelande om avslag</Name>
+			<Name lang="en">Rejection notification</Name>
+			<DescriptionLine lang="fi">Tulli lähettää sanoman (FI086A) vastaukseksi asiakkaalle, kun asiakkaan lähettämä sanoma ei läpäissyt rekisteröintiin vaadittavia tarkistuksia. Hylkäyssanoman lähettämisen jälkeen prosessi päättyy eikä sanomaa käsitellä enempää.</DescriptionLine>
+			<DescriptionLine lang="sv">Tullen skickar detta meddelande (FI086A) som svar till kunden, när meddelandet som kunden skickat inte har klarat de valideringar som krävs för registreringen. Efter att meddelandet om avslag skickats avslutas processen och kundens meddelande handläggs inte längre.</DescriptionLine>
+			<DescriptionLine lang="en">Customs sends this notification (FI086A) as a response to the customer, when the message sent by the customer has failed the validation required for registration. When the rejection notification has been sent, the process ends, and the message will not be processed any further.</DescriptionLine>
+		</Message>
+		<Message>
+			<Sender>Customs</Sender>
+			<ID>FI096A</ID>
+			<Name lang="fi">Rekisteröintisanoma</Name>
+			<Name lang="sv">Meddelande om registrering</Name>
+			<Name lang="en">Registration notification</Name>
+			<DescriptionLine lang="fi">Tulli lähettää sanoman tiedoksi asiakkaalle (FI096A), kun asiakkaan lähettämä Vakuuden tunnuskoodit -sanoma on läpäissyt validoinnin ja se on rekisteröity.</DescriptionLine>
+			<DescriptionLine lang="sv">Tullen skickar detta meddelande (FI096A) för kännedom till kunden när meddelandet ”Tillträdeskoder för garanti” som kunden skickat har klarat valideringen och registrerats.</DescriptionLine>
+			<DescriptionLine lang="en">Customs sends this notification (FI096A) to the customer, when the “Guarantee access codes” message sent by the customer has been validated and registered.</DescriptionLine>
+		</Message>
+		<Message>
+			<Sender>Customs</Sender>
+			<ID>FI099A</ID>
+			<Name lang="fi">Vakuuden tunnuskoodien vastaus</Name>
+			<Name lang="sv">Svar om tillträdeskoder för garanti</Name>
+			<Name lang="en">Response to guarantee access codes</Name>
+			<DescriptionLine lang="fi">Tulli lähettää asiakkaalle sanomalla (FI099A) tiedon tunnuskoodipyynnön käsittelystä. Sanomalla ilmoitetaan, että pyydetty tunnuskoodipyyntö on hyväksytty tai hylätty tai sanomalla ilmoitetaan vakuuden voimassaolevat tunnuskoodit.</DescriptionLine>
+			<DescriptionLine lang="sv">Tullen skickar med detta meddelande (FI099A) information om handläggningen av begäran om tillträdeskoder till kunden. Med meddelandet informeras kunden om att begäran om tillträdeskoder har godkänts eller avslagits eller så meddelas kunden giltiga tillträdeskoder för garantin.</DescriptionLine>
+			<DescriptionLine lang="en">With this notification (FI099A), Customs notifies the customer of the processing of the access code request. The notification contains the information that the access code request has been accepted or rejected or it contains the valid access codes associated with the guarantee.</DescriptionLine>
+		</Message>
+	</Messages>
+	<UseCases>
+		<Label lang="fi">Vakuuskysely (FI034)</Label>
+		<Label lang="sv">Garantiförfrågan (FI034)</Label>
+		<Label lang="en">Guarantee query (FI034)</Label>
+		<UseCase>
+			<Name lang="fi">Vakuuskysely ‒ kysely virheetön</Name>
+			<Name lang="sv">Garantiförfrågan - felfri förfrågan</Name>
+			<Name lang="en">Guarantee query - correct query</Name>
+			<Sequence>
+				<EO>FI034A</EO>
+				<Customs>FI037A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille vakuuskyselysanoman (FI034A) ja odottaa siihen vastausta.</ItemLine>
+					<ItemLine lang="fi">Asiakas välittää sanomassa kyselyn laajuuden (1=vain vakuuden käyttö (varaukset), 2=vain varaukset yhteensä, 3=vakuuden käyttö (varaukset) ja varaukset yhteensä, 4=vain yleistä tietoa, 9=aktiiviset varaukset ja varaukset yhteensä)</ItemLine>
+					<ItemLine lang="fi">Tullin järjestelmä tarkistaa kyselysanomasta asiakkaan tunnistetiedot ja sanoman tietosisällön määrämuotoisuuden sekä sisällöllisen oikeellisuuden.</ItemLine>
+					<ItemLine lang="fi">Sanoma oli muodollisesti virheetön ja kyselijä on kysyttyjen vakuuksien vakuudenhaltija.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar ett meddelande om garantiförfrågan (FI034A) till Tullen och väntar på svar.</ItemLine>
+					<ItemLine lang="sv">Kunden anger i meddelandet omfattningen av förfrågan (1=bara användning av garantin (reserveringar), 2=bara reserveringarna sammanlagt, 3=användning av garantin (reserveringar) och reserveringarna sammanlagt, 4=bara allmän information, 9=aktiva reserveringar och reserveringarna sammanlagt.</ItemLine>
+					<ItemLine lang="sv">Tullens system kontrollerar kundens identifieringsuppgifter i meddelandet om förfrågan samt datainnehållets formbundenhet och riktighet.</ItemLine>
+					<ItemLine lang="sv">Meddelandet var formellt felfritt och förfrågaren är innehavaren av de garantier som förfrågan gäller.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs a guarantee query (FI034A) and waits for a response.</ItemLine>
+					<ItemLine lang="en">In the message, the customer provides the query identifier (1=usage only (reservations), 2=exposure (reservations in total) only, 3=usage (reservations) and exposure (reservations in total), 4=general information only (no usage &amp; exposure), 9=active usage (active reservations) and exposure (reservations in total)).</ItemLine>
+					<ItemLine lang="en">Customs' system checks the customer’s identification data provided in the query as well as the specified form and correctness of the data content of the message.</ItemLine>
+					<ItemLine lang="en">The message was formally correct and the query was made by the owner of the queried guarantees.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle vastaussanoman (FI037A), jossa palautetaan kysyttyjen vakuuksien tiedot sillä laajuudella, jolla niitä on pyydetty. Vastaussanomassa palautetaan tiedot vakuuksista, joiden tyyppi on 0, 1 tai 2.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett svarsmeddelande (FI037A) med uppgifter om de frågade garantierna i den omfattning som uppgifterna begärdes i. I svarsmeddelandet skickas uppgifter om garantier vars typ är 0, 1 eller 2. </ItemLine>
+					<ItemLine lang="en">Customs sends the customer a response (FI037A), providing the details of the queried guarantees to the queried extent. Customs provides the details of guarantees of the types 0, 1 or 2.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Vakuuskysely ‒ kysely virheellinen</Name>
+			<Name lang="sv">Garantiförfrågan - felaktig förfrågan</Name>
+			<Name lang="en">Guarantee query - incorrect query</Name>
+			<Sequence>
+				<EO>FI034A</EO>
+				<Customs>FI086A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille vakuuskyselysanoman (FI034A) ja odottaa siihen vastausta. Tullin järjestelmä tarkistaa kyselysanomasta asiakkaan tunnistetiedot ja sanoman tietosisällön määrämuotoisuuden sekä sisällöllisen oikeellisuuden.</ItemLine>
+					<ItemLine lang="fi">Sanoma ei täytä määrämuotoisuuden vaatimuksia.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar ett meddelande om garantiförfrågan (FI034A) till Tullen och väntar på svar. Tullens system kontrollerar kundens identifieringsuppgifter i meddelandet om garantiförfrågan samt datainnehållets formbundenhet och riktighet.</ItemLine>
+					<ItemLine lang="sv">Meddelandet uppfyller inte kraven på formbundenhet.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs a guarantee query (FI034A) and waits for a response. Customs' system checks the customer’s identification data provided in the query message as well as the specified form and correctness of the data content of the message.</ItemLine>
+					<ItemLine lang="en">The message does not meet the requirements for specified form.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle hylkäyssanoman (FI086A). Vakuuskyselyn käsittely päättyy tähän.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om avslag (FI086A). Handläggningen av garantiförfrågan slutar här.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a rejection notification (FI086A). The processing of the guarantee query ends here.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+	</UseCases>
+	<UseCases>
+		<Label lang="fi">Tunnuskoodipyynnöt (FI226)</Label>
+		<Label lang="sv">Begäranden om tillträdeskod (FI226)</Label>
+		<Label lang="en">Access code requests (FI226)</Label>
+		<Description>
+			<Table>
+				<Caption lang="fi">Sanomalla annetaan nykyinen ja uusi tunnuskoodi seuraavasti</Caption>
+				<Caption lang="sv">I meddelandet anges den nuvarande och den nya tillträdeskoden på följande sätt:</Caption>
+				<Caption lang="en">The current and the new access code are provided in the message as follows</Caption>
+				<Header>
+					<Cell>
+						<TextLine lang="fi">Nykyinen tunnuskoodi</TextLine>
+						<TextLine lang="sv">Nuvarande tillträdeskod</TextLine>
+						<TextLine lang="en">Current access code</TextLine>
+					</Cell>
+					<Cell>
+						<TextLine lang="fi">Uusi tunnuskoodi</TextLine>
+						<TextLine lang="sv">Ny tillträdeskod</TextLine>
+						<TextLine lang="en">New access code</TextLine>
+					</Cell>
+					<Cell>
+						<TextLine lang="fi">Toimenpide vakuusjärjestelmässä</TextLine>
+						<TextLine lang="sv">Åtgärd i garantisystemet</TextLine>
+						<TextLine lang="en">Measure in the guarantee system</TextLine>
+					</Cell>
+				</Header>
+				<Line>
+					<Cell>
+						<TextLine>-</TextLine>
+					</Cell>
+					<Cell>
+						<TextLine>xxxx</TextLine>
+					</Cell>
+					<Cell>
+						<TextLine lang="fi">Uuden tunnuskoodin lisäyspyyntö</TextLine>
+						<TextLine lang="sv">Begäran om att lägga till ny tillträdeskod</TextLine>
+						<TextLine lang="en">Request to add a new access code</TextLine>
+					</Cell>
+				</Line>
+				<Line>
+					<Cell>
+						<TextLine>aaaa</TextLine>
+					</Cell>
+					<Cell>
+						<TextLine>bbbb</TextLine>
+					</Cell>
+					<Cell>
+						<TextLine lang="fi">Tunnuskoodin muutospyyntö</TextLine>
+						<TextLine lang="sv">Begäran om att ändra tillträdeskod</TextLine>
+						<TextLine lang="en">Request to change an access code</TextLine>
+					</Cell>
+				</Line>
+				<Line>
+					<Cell>
+						<TextLine>cccc</TextLine>
+					</Cell>
+					<Cell>
+						<TextLine>-</TextLine>
+					</Cell>
+					<Cell>
+						<TextLine lang="fi">Tunnuskoodin poistopyyntö</TextLine>
+						<TextLine lang="fi">Master-koodia ei voi poistaa</TextLine>
+						<TextLine lang="sv">Begäran om att ta bort tillträdeskod</TextLine>
+						<TextLine lang="sv">Master-koden kan inte raderas</TextLine>
+						<TextLine lang="en">Request to remove an access code</TextLine>
+						<TextLine lang="en">The master code can’t be removed</TextLine>
+					</Cell>
+				</Line>
+				<Line>
+					<Cell>
+						<TextLine>-</TextLine>
+					</Cell>
+					<Cell>
+						<TextLine>-</TextLine>
+					</Cell>
+					<Cell>
+						<TextLine lang="fi">Vakuuden voimassaolevien tunnuskoodien kysely</TextLine>
+						<TextLine lang="sv">Förfrågan om giltiga tillträdeskoder för garanti</TextLine>
+						<TextLine lang="en">Query concerning the valid access codes for the guarantee</TextLine>
+					</Cell>
+				</Line>
+			</Table>
+		</Description>
+		<Description>
+			<Label lang="fi">Uuden tunnuskoodin lisäyspyyntö</Label>
+			<Label lang="sv">Begäran om att lägga till ny tillträdeskod</Label>
+			<Label lang="en">Request to add a new access code</Label>
+		</Description>
+		<UseCase>
+			<Name lang="fi">Tunnuskoodin lisäyspyyntö - pyyntö virheetön, pyyntö hyväksytään</Name>
+			<Name lang="sv">Begäran om att lägga till tillträdeskod - felfri begäran, begäran godkänns</Name>
+			<Name lang="en">Request to add an access code - correct request, request accepted</Name>
+			<Sequence>
+				<EO>FI226A</EO>
+				<Customs>FI096A</Customs>
+				<Customs>FI099A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille Tunnuskoodipyyntösanoman (FI226A), jossa antaa vakuuden uuden tunnuskoodin. Tullin järjestelmä tarkistaa sanomasta asiakkaan tunnistetiedot ja sanoman sisällön määrämuotoisuuden sekä sisällön oikeellisuuden.</ItemLine>
+					<ItemLine lang="fi">Sanoma oli muodollisesti virheetön ja kyselijän tunnistetiedot ovat oikeat.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar Tullen ett meddelande om begäran om tillträdeskod (FI226A), där kunden anger en ny tillträdeskod för garantin. Tullens system kontrollerar kundens identifieringsuppgifter i meddelandet samt innehållets formbundenhet och riktighet.</ItemLine>
+					<ItemLine lang="sv">Meddelandet var formellt felfritt och förfrågarens identifieringsuppgifter är korrekta.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs an access code request (FI226A) containing a new access code for the guarantee. Customs' system checks the customer’s identification details provided in the message as well as the specified form and correctness of the content. </ItemLine>
+					<ItemLine lang="en">The message was formally correct and the identification details of the maker of the query were correct.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI096A) ja tunnuskoodipyyntö jää odottamaan vakuuskäsittelijän hyväksymistä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar ett meddelande om registrering (FI096A) till kunden och begäran om tillträdeskod blir kvar och väntar på garantihandläggarens godkännande.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI096A) and the access code request will stand by for acceptance by the processing official.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Vakuuskäsittelijä hyväksyy tunnuskoodin lisäyspyynnön ja Tulli lähettää asiakkaalle Vakuuden tunnuskoodien vastaussanoman (FI099A), jossa ilmoitetaan uuden tunnuskoodin lisäämisestä.</ItemLine>
+					<ItemLine lang="sv">Garantihandläggaren godkänner begäran om att lägga till en tillträdeskod och Tullen skickar kunden ett svarsmeddelande om tillträdeskoder för garanti (FI099A) med uppgift om att en ny tillträdeskod har lagts till.</ItemLine>
+					<ItemLine lang="en">The processing official accepts the request to add an access code, and Customs sends the customer a response to guarantee access codes (FI099A), notifying the customer that the new access code has been added.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Tunnuskoodin lisäyspyyntö - pyyntö virheellinen</Name>
+			<Name lang="sv">Begäran om att lägga till tillträdeskod - felaktig begäran</Name>
+			<Name lang="en">Request to add an access code - incorrect request</Name>
+			<Sequence>
+				<EO>FI226A</EO>
+				<Customs>FI086A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille Tunnuskoodipyyntösanoman (FI226A). Tullin järjestelmä tarkistaa sanomasta asiakkaan tunnistetiedot ja sanoman sisällön määrämuotoisuuden sekä sisällön oikeellisuuden.</ItemLine>
+					<ItemLine lang="fi">Sanoma ei täytä määrämuotoisuuden vaatimuksia tai kyselijän tunnistetiedot ovat virheelliset.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar ett meddelande om begäran om tillträdeskod (FI226A) till Tullen. Tullens system kontrollerar kundens identifieringsuppgifter i meddelandet samt innehållets formbundenhet och riktighet.</ItemLine>
+					<ItemLine lang="sv">Meddelandet uppfyller inte kraven på formbundenhet eller förfrågarens identifieringsuppgifter är felaktiga.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs an access code request (FI226A). Customs' system checks the customer’s identification details provided in the message as well as the specified form and correctness of the content.</ItemLine>
+					<ItemLine lang="en">The message does not meet the requirements for specified form or the identification details of the maker of the query are incorrect.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle hylkäyssanoman (FI086A). Tunnuskoodipyynnön käsittely päättyy tähän.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om avslag (FI086A). Handläggningen av begäran om tillträdeskod slutar här.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a rejection notification (FI086A). The processing of the access code request ends here.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Tunnuskoodin lisäyspyyntö - pyyntö virheetön, pyyntöä ei hyväksytä</Name>
+			<Name lang="sv">Begäran om att lägga till tillträdeskod - felfri begäran, begäran godkänns inte</Name>
+			<Name lang="en">Request to add an access code - correct request, request not accepted</Name>
+			<Sequence>
+				<EO>FI226A</EO>
+				<Customs>FI096A</Customs>
+				<Customs>FI099A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille Tunnuskoodipyyntösanoman (FI226A). Tullin järjestelmä tarkistaa sanomasta asiakkaan tunnistetiedot ja sanoman sisällön määrämuotoisuuden sekä sisällön oikeellisuuden.</ItemLine>
+					<ItemLine lang="fi">Sanoma oli muodollisesti virheetön ja kyselijän tunnistetiedot ovat oikeat.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar ett meddelande om begäran om tillträdeskod (FI226A) till Tullen. Tullens system kontrollerar kundens identifieringsuppgifter i meddelandet samt innehållets formbundenhet och riktighet.</ItemLine>
+					<ItemLine lang="sv">Meddelandet var formellt felfritt och förfrågarens identifieringsuppgifter är korrekta.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs an access code request (FI226A). Customs' system checks the customer’s identification details provided in the message as well as the specified form and correctness of the content.</ItemLine>
+					<ItemLine lang="en">The message was formally correct and the identification details of the maker of the query were correct.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI096A) ja tunnuskoodipyyntö jää odottamaan vakuuskäsittelijän hyväksymistä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar ett meddelande om registrering (FI096A) till kunden och begäran om tillträdeskod blir kvar och väntar på garantihandläggarens godkännande.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI096A) and the access code request will stand by for acceptance by the processing official.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Vakuuskäsittelijä hylkää tunnuskoodin lisäyspyynnön ja Tulli lähettää asiakkaalle Vakuuden tunnuskoodien vastaussanoman (FI099A), jossa ilmoitetaan tunnuskoodipyynnön hylkäämisestä.</ItemLine>
+					<ItemLine lang="sv">Garantihandläggaren avslår begäran om att lägga till en tillträdeskod och Tullen skickar kunden ett svarsmeddelande om tillträdeskoder för garanti (FI099A) med uppgift om att begäran om tillträdeskod har avslagits.</ItemLine>
+					<ItemLine lang="en">The processing official rejects the request to add an access code, and Customs sends the customer a response to guarantee access codes (FI099A), notifying the customer that the access code request has been rejected.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<Description>
+			<Label lang="fi">Tunnuskoodin muutospyyntö</Label>
+			<Label lang="sv">Begäran om att ändra tillträdeskod</Label>
+			<Label lang="en">Request to change an access code</Label>
+		</Description>
+		<UseCase>
+			<Name lang="fi">Tunnuskoodin muutospyyntö - pyyntö virheetön, pyyntö hyväksytään</Name>
+			<Name lang="sv">Begäran om att ändra tillträdeskod - felfri begäran, begäran godkänns</Name>
+			<Name lang="en">Request to change an access code - correct request, request accepted</Name>
+			<Sequence>
+			<EO>FI226A</EO>
+			<Customs>FI096A</Customs>
+			<Customs>FI099A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille Tunnuskoodipyyntösanoman (FI226A), jossa antaa vakuuden nykyisen ja uuden tunnuskoodin. Tullin järjestelmä tarkistaa sanomasta asiakkaan tunnistetiedot ja sanoman sisällön määrämuotoisuuden sekä sisällön oikeellisuuden.</ItemLine>
+					<ItemLine lang="fi">Sanoma oli muodollisesti virheetön ja kyselijän tunnistetiedot ovat oikeat.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar Tullen ett meddelande om begäran om tillträdeskod (FI226A), där kunden anger den nuvarande tillträdeskoden och en ny tillträdeskod för garantin. Tullens system kontrollerar kundens identifieringsuppgifter i meddelandet samt innehållets formbundenhet och riktighet.</ItemLine>
+					<ItemLine lang="sv">Meddelandet var formellt felfritt och förfrågarens identifieringsuppgifter är korrekta.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs an access code request (FI226A) containing the current access code and the new access code for the guarantee. Customs' system checks the customer’s identification details provided in the message as well as the specified form and correctness of the content.</ItemLine>
+					<ItemLine lang="en">The message was formally correct and the identification details of the maker of the query were correct.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI096A) ja tunnuskoodipyyntö jää odottamaan vakuuskäsittelijän hyväksymistä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar ett meddelande om registrering (FI096A) till kunden och begäran om tillträdeskod blir kvar och väntar på garantihandläggarens godkännande.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI096A) and the access code request will stand by for acceptance by the processing official.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Vakuuskäsittelijä hyväksyy tunnuskoodin muutospyynnön ja Tulli lähettää asiakkaalle Vakuuden tunnuskoodien vastaussanoman (FI099A), jossa ilmoitetaan tunnuskoodin muutoksesta.</ItemLine>
+					<ItemLine lang="sv">Garantihandläggaren godkänner begäran om att ändra tillträdeskod och Tullen skickar kunden ett svarsmeddelande om tillträdeskoder för garanti (FI099A) med uppgift om att tillträdeskoden har ändrats.</ItemLine>
+					<ItemLine lang="en">The processing official accepts the request to change the access code, and Customs sends the customer a response to guarantee access codes (FI099A), notifying the customer that the access code has been changed.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<Description>
+			<Label lang="fi">Tunnuskoodin poistopyyntö</Label>
+			<Label lang="sv">Begäran om att ta bort tillträdeskod</Label>
+			<Label lang="en">Request to remove an access code</Label>
+		</Description>
+		<UseCase>
+			<Name lang="fi">Tunnuskoodin poistopyyntö - pyyntö virheetön, pyyntö hyväksytään</Name>
+			<Name lang="sv">Begäran om att ta bort tillträdeskod - felfri begäran, begäran godkänns</Name>
+			<Name lang="en">Request to remove an access code - correct request, request accepted</Name>
+			<Sequence>
+				<EO>FI226A</EO>
+				<Customs>FI096A</Customs>
+				<Customs>FI099A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille Tunnuskoodipyyntösanoman (FI226A), jossa antaa vakuuden nykyisen poistettavan tunnuskoodin. Tullin järjestelmä tarkistaa sanomasta asiakkaan tunnistetiedot ja sanoman sisällön määrämuotoisuuden sekä sisällön oikeellisuuden.</ItemLine>
+					<ItemLine lang="fi">Sanoma oli muodollisesti virheetön ja kyselijän tunnistetiedot ovat oikeat.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar Tullen ett meddelande om begäran om tillträdeskod (FI226A), där kunden anger den nuvarande tillträdeskod för garantin som ska tas bort. Tullens system kontrollerar kundens identifieringsuppgifter i meddelandet samt innehållets formbundenhet och riktighet.</ItemLine>
+					<ItemLine lang="sv">Meddelandet var formellt felfritt och förfrågarens identifieringsuppgifter är korrekta.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs an access code request (FI226A) containing the current guarantee access code that should be removed. Customs' system checks the customer’s identification details provided in the message as well as the specified form and correctness of the content.</ItemLine>
+					<ItemLine lang="en">The message was formally correct and the identification details of the maker of the query were correct.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI096A) ja tunnuskoodipyyntö jää odottamaan vakuuskäsittelijän hyväksymistä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar ett meddelande om registrering (FI096A) till kunden och begäran om tillträdeskod blir kvar och väntar på garantihandläggarens godkännande.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI096A) and the access code request will stand by for acceptance by the processing official.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">3.	Vakuuskäsittelijä hyväksyy tunnuskoodin poistopyynnön ja Tulli lähettää asiakkaalle Vakuuden tunnuskoodien vastaussanoman (FI099A), jossa ilmoitetaan tunnuskoodin käytöstä poistamisesta.</ItemLine>
+					<ItemLine lang="sv">Garantihandläggaren godkänner begäran om att ta bort tillträdeskod och Tullen skickar kunden ett svarsmeddelande om tillträdeskoder för garanti  (FI099A) med uppgift om att tillträdeskoden har tagits ur bruk.</ItemLine>
+					<ItemLine lang="en">The processing official accepts the request to remove the access code, and Customs sends the customer a response to guarantee access codes (FI099A), notifying the customer that the access code has been removed.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<Description>
+			<Label lang="fi">Tunnuskoodien kysely</Label>
+			<Label lang="sv">Förfrågan om tillträdeskoder</Label>
+			<Label lang="en">Access code query</Label>
+		</Description>
+		<UseCase>
+			<Name lang="fi">Tunnuskoodien kysely - pyyntö virheetön, pyyntö hyväksytään</Name>
+			<Name lang="sv">Förfrågan om tillträdeskoder - felfri begäran, begäran godkänns</Name>
+			<Name lang="en">Access code query - correct request, request accepted</Name>
+			<Sequence>
+				<EO>FI226A</EO>
+				<Customs>FI096A</Customs>
+				<Customs>FI099A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille Tunnuskoodipyyntösanoman (FI226A), jossa antaa vakuuden GRN:n. Tullin järjestelmä tarkistaa sanomasta asiakkaan tunnistetiedot ja sanoman sisällön määrämuotoisuuden sekä sisällön oikeellisuuden.</ItemLine>
+					<ItemLine lang="fi">Sanoma oli muodollisesti virheetön ja kyselijän tunnistetiedot ovat oikeat.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar Tullen ett meddelande om begäran om tillträdeskoder (FI226A) där kunden anger GRN för garantin. Tullens system kontrollerar kundens identifieringsuppgifter i meddelandet samt innehållets formbundenhet och riktighet.</ItemLine>
+					<ItemLine lang="sv">Meddelandet var formellt felfritt och förfrågarens identifieringsuppgifter är korrekta.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs an access code request (FI226A) containing the GRN of the guarantee. Customs' system checks the customer’s identification details provided in the message as well as the specified form and correctness of the content.</ItemLine>
+					<ItemLine lang="en">The message was formally correct and the identification details of the maker of the query were correct.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI096A) ja tunnuskoodipyyntö jää odottamaan vakuuskäsittelijän hyväksymistä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar ett meddelande om registrering (FI096A) till kunden och begäran om tillträdeskod blir kvar och väntar på garantihandläggarens godkännande.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI096A) and the access code request will stand by for acceptance by the processing official.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Vakuuskäsittelijä hyväksyy tunnuskoodin kyselypyynnön ja Tulli lähettää asiakkaalle Vakuuden tunnuskoodien vastaussanoman (FI099A), jossa ilmoitetaan kysytyn vakuuden voimassaolevat tunnuskoodit.</ItemLine>
+					<ItemLine lang="sv">Garantihandläggaren godkänner förfrågan om tillträdeskoder och Tullen skickar kunden ett svarsmeddelande om tillträdeskoder för garanti (FI099A) med uppgift om giltiga tillträdeskoder för den garanti som förfrågan gällde.</ItemLine>
+					<ItemLine lang="en">The processing official accepts the access code query and Customs sends the customer a response to guarantee access codes (FI099A) containing the valid access codes for the queried guarantee.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+	</UseCases>
+</MessageExchange>

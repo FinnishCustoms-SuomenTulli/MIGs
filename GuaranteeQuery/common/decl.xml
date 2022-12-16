@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
+<Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Message.xsd">
+	<DataGroup>
+		<Name lang="fi">Vakuustapahtuma</Name>
+		<Name lang="sv">Garantihändelse</Name>
+		<Name lang="en">Guarantee operation</Name>
+		<Use>FI226A</Use>
+		<Use>FI034A</Use>
+		<XPath/>
+		<Group>GuaranteeOperation</Group>
+		<MinOccurence>1</MinOccurence>
+		<MaxOccurence>1</MaxOccurence>
+		<DataElement>
+			<Name lang="fi">Sanoman tunniste</Name>
+			<Name lang="sv">Meddelandets identifierare</Name>
+			<Name lang="en">Message identification</Name>
+			<Use>FI226A</Use>
+			<Use>FI034A</Use>
+			<XPath>Identification</XPath>
+			<MinOccurence>1</MinOccurence>
+			<Format>an..14</Format>
+		</DataElement>
+		<DataGroup>
+			<Name lang="fi">Pyynnön tekijä</Name>
+			<Name lang="sv">Förfrågare</Name>
+			<Name lang="en">Requester</Name>
+			<Use>FI034A</Use>
+			<XPath>Requester</XPath>
+			<Group>Requester</Group>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="fi">Tunnistenumero</Name>
+				<Name lang="sv">Identifieringsnummer</Name>
+				<Name lang="en">Identification no.</Name>
+				<Use>FI034A</Use>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<Rule>R0850</Rule>
+				<Format>an..17</Format>
+				<DescriptionLine lang="fi">EORI tai muu asiakkaan tunniste (TCUIN tai TIN)</DescriptionLine>
+				<DescriptionLine lang="sv">EORI eller annan identifikation för kunden (TCUIN eller TIN)</DescriptionLine>
+				<DescriptionLine lang="en">EORI or other identification of client (TCUIN or TIN)</DescriptionLine>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Rooli</Name>
+				<Name lang="sv">Roll</Name>
+				<Name lang="en">Role</Name>
+				<Use>FI034A</Use>
+				<XPath>Role</XPath>
+				<MinOccurence>1</MinOccurence>
+				<Codelist>CL156</Codelist>
+				<Format>n1</Format>
+			</DataElement>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="fi">Passitusmenettelyn haltija</Name>
+			<Name lang="sv">Person som är ansvarig för transiteringsförfarandet</Name>
+			<Name lang="en">Holder of the transit procedure</Name>
+			<Use>FI226A</Use>
+			<XPath>Principal</XPath>
+			<Group>Principal</Group>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DescriptionLine lang="fi">Ilmoitetaan passituksesta vastaava passitusvakuuden haltija, joka vastaa ilmoituksen oikeellisuudesta.</DescriptionLine>
+			<DescriptionLine lang="sv">Ange den huvudansvarige för transiteringen, dvs. innehavaren av transiteringsgarantin som ansvarar för deklarationens riktighet.</DescriptionLine>
+			<DescriptionLine lang="en">Provide the principal holding the transit guarantee, who is in charge of the accuracy of the declaration.</DescriptionLine>
+			<DataElement>
+				<Name lang="fi">Tunnistenumero</Name>
+				<Name lang="sv">Identifieringsnummer</Name>
+				<Name lang="en">Identification no.</Name>
+				<Use>FI226A</Use>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<Format>an..17</Format>
+			</DataElement>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="fi">Vakuustullitoimipaikka</Name>
+			<Name lang="sv">Garantitullkontor</Name>
+			<Name lang="en">Customs office of guarantee</Name>
+			<Use>FI226A</Use>
+			<XPath>GuaranteeOffice</XPath>
+			<Group>GuaranteeOffice</Group>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="fi">Tullitoimipaikan tunniste (viitenumero)</Name>
+				<Name lang="sv">Identifierare för tullkontor (referensnummer)</Name>
+				<Name lang="en">Customs office identifier (reference number)</Name>
+				<Use>FI226A</Use>
+				<XPath>Identification</XPath>
+				<MinOccurence>1</MinOccurence>
+				<Codelist>CL174</Codelist>
+				<Format>an8</Format>
+			</DataElement>
+		</DataGroup>
+		<DataGroup>
+			<Name lang="fi">Vakuus</Name>
+			<Name lang="sv">Garanti</Name>
+			<Name lang="en">Guarantee reference</Name>
+			<Use>FI226A</Use>
+			<Use>FI034A</Use>
+			<XPath>GuaranteeReference</XPath>
+			<Group>GuaranteeReference</Group>
+			<MinOccurence>1</MinOccurence>
+			<MaxOccurence>99</MaxOccurence>
+			<MaxOccurence use="FI226A">1</MaxOccurence>
+			<DataElement>
+				<Name lang="fi">Järjestysnumero</Name>
+				<Name lang="sv">Ordningsnummer</Name>
+				<Name lang="en">Sequence number</Name>
+				<Use>FI034A</Use>
+				<XPath>Sequence</XPath>
+				<MinOccurence>1</MinOccurence>
+				<Rule>R0987</Rule>
+				<Format>n..5</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Vakuuden viitenumero (GRN)</Name>
+				<Name lang="sv">Referensnummer för garanti (GRN)</Name>
+				<Name lang="en">Guarantee reference number (GRN)</Name>
+				<Use>FI226A</Use>
+				<Use>FI034A</Use>
+				<XPath>Reference</XPath>
+				<MinOccurence>1</MinOccurence>
+				<Rule use="FI226A">R0028</Rule>
+				<Format>an..24</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Päätunnuskoodi</Name>
+				<Name lang="sv">Huvudtillträdeskod</Name>
+				<Name lang="en">Master access code</Name>
+				<Use>FI226A</Use>
+				<XPath>MasterAccessCode</XPath>
+				<MinOccurence>1</MinOccurence>
+				<Format>an4</Format>
+			</DataElement>
+			<DataGroup>
+				<Name lang="fi">Vakuuskysely</Name>
+				<Name lang="sv">Garantiförfrågan</Name>
+				<Name lang="en">Guarantee query</Name>
+				<Use>FI034A</Use>
+				<XPath>GuaranteeQuery</XPath>
+				<Group>GuaranteeQuery</Group>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Kyselyn laajuus</Name>
+					<Name lang="sv">Förfrågans omfattning</Name>
+					<Name lang="en">Query identifier</Name>
+					<Use>FI034A</Use>
+					<XPath>QueryIdentifier</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Codelist>CL054</Codelist>
+					<Rule>R0261</Rule>
+					<Format>n1</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="fi">Jakson alkupäivä</Name>
+					<Name lang="sv">Periodens startdatum</Name>
+					<Name lang="en">Period from date</Name>
+					<Use>FI034A</Use>
+					<XPath>Start</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Rule>R0263</Rule>
+					<Format>date</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="fi">Jakson loppupäivä</Name>
+					<Name lang="sv">Periodens slutdatum</Name>
+					<Name lang="en">Period to date</Name>
+					<Use>FI034A</Use>
+					<XPath>End</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Rule>R0263</Rule>
+					<Rule>R0705</Rule>
+					<Format>date</Format>
+				</DataElement>
+			</DataGroup>
+			<DataGroup>
+				<Name lang="fi">Vakuudenhaltija</Name>
+				<Name lang="sv">Innehavare av garantin</Name>
+				<Name lang="en">Owner</Name>
+				<Use>FI034A</Use>
+				<XPath>GuaranteeOwner</XPath>
+				<Group>GuaranteeOwner</Group>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<Condition>C0818</Condition>
+				<DataElement>
+					<Name lang="fi">Tunnistenumero</Name>
+					<Name lang="sv">Identifieringsnummer</Name>
+					<Name lang="en">Identification no.</Name>
+					<Use>FI034A</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Rule>R0850</Rule>
+					<Format>an..17</Format>
+				</DataElement>
+			</DataGroup>
+			<DataGroup>
+				<Name lang="fi">Tunnuskoodi</Name>
+				<Name lang="sv">Tillträdeskod</Name>
+				<Name lang="en">Access code</Name>
+				<Use>FI226A</Use>
+				<Use>FI034A</Use>
+				<XPath>AccessCode</XPath>
+				<Group>AccessCode</Group>
+				<MinOccurence>1</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Tunnuskoodi</Name>
+					<Name lang="sv">Tillträdeskod</Name>
+					<Name lang="en">Access code</Name>
+					<Use>FI034A</Use>
+					<XPath>AccessCode</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Format>an4</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="fi">Nykyinen tunnuskoodi</Name>
+					<Name lang="sv">Nuvarande tillträdeskod</Name>
+					<Name lang="en">Current access code</Name>
+					<Use>FI226A</Use>
+					<XPath>CurrentAccessCode</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Condition>NC4001</Condition>
+					<Format>an4</Format>
+				</DataElement>
+				<DataElement>
+					<Name lang="fi">Uusi tunnuskoodi</Name>
+					<Name lang="sv">Ny tillträdeskod</Name>
+					<Name lang="en">New access code</Name>
+					<Use>FI226A</Use>
+					<XPath>NewAccessCode</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Condition>NC4002</Condition>
+					<Format>an4</Format>
+				</DataElement>
+			</DataGroup>
+		</DataGroup>
+	</DataGroup>
+</Message>
