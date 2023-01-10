@@ -418,7 +418,7 @@
 			<ID>FI170A</ID>
 			<Name lang="fi">Passituksen esittämisilmoitus</Name>
 			<Name lang="sv">Anmälan av varors ankomst vid transitering</Name>
-			<Name lang="en">Presentation notification for pre-lodged declaration</Name>
+			<Name lang="en">Transit presentation notification</Name>
 			<DescriptionLine lang="fi">Asiakas lähettää passituksen esittämisilmoituksen (FI170) esittääkseen ennakolta annetun passitusilmoituksen (FI015) tavarat Tullille.</DescriptionLine>
 			<DescriptionLine lang="sv">Kunden skickar en anmälan av varors ankomst vid transitering (FI170) för att anmäla till Tullen de varor som angetts i en på förhand ingiven transiteringsdeklaration (FI015).</DescriptionLine>
 			<DescriptionLine lang="en">The customer sends a presentation notification for pre-lodged declaration (FI170) to present the goods covered by a pre-lodged transit declaration (FI015) to Customs.</DescriptionLine>
@@ -631,7 +631,7 @@
 			<Name lang="en">Declaration by an authorised consignor – the declaration is correct, no control measures</Name>
 			<Sequence>
 				<EO>FI015A</EO>
-				<Customs>FI026A</Customs>
+				<Customs>FI028A</Customs>
 				<Customs>FI029A</Customs>
 			</Sequence>
 			<SequenceDescription>
@@ -644,9 +644,9 @@
 					<ItemLine lang="en">The declaration is formally correct, no errors are detected in its content, and the goods are not subject to control measures.</ItemLine>
 				</Item>
 				<Item>
-					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI026). Tällä sanomalla asiakkaalle ilmoitetaan passitusilmoituksen rekisteröintipäivä ja MRN-numero, jolla Tulli yksilöi ilmoituksen.</ItemLine>
-					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om registrering (FI026). Med detta meddelande delges kunden datumet för registrering av transiteringsdeklarationen samt ett MRN-referensnummer med vilket Tullen identifierar deklarationen.</ItemLine>
-					<ItemLine lang="en">Customs sends the customer a registration notification (FI026). It notifies the customer of the registration date of the transit declaration and its MRN, with which Customs identifies the declaration.</ItemLine>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle hyväksymissanoman (FI028). Tällä sanomalla asiakkaalle ilmoitetaan passitusilmoituksen rekisteröintipäivä ja MRN-numero, jolla Tulli yksilöi ilmoituksen.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om godtagande (FI028). Med detta meddelande delges kunden datumet för registrering av transiteringsdeklarationen samt ett MRN-referensnummer med vilket Tullen identifierar deklarationen.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer an acceptance notification (FI028). It notifies the customer of the registration date of the transit declaration and its MRN, with which Customs identifies the declaration.</ItemLine>
 				</Item>
 				<Item>
 					<ItemLine lang="fi">Tulli lähettää menettelyyn luovutussanoman (FI029).</ItemLine>
@@ -962,33 +962,6 @@
 					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI026), jolla asiakkaalle ilmoitetaan mitätöintipyynnön rekisteröintipäivä. Tulli mitätöi ilmoituksen.</ItemLine>
 					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om registrering (FI026) med vilket kunden delges datumet för registrering av begäran om ogiltigförklaring. Tullen ogiltigförklarar deklarationen.</ItemLine>
 					<ItemLine lang="en">Customs sends the customer a registration notification (FI026) to notify the customer of the registration date of the invalidation request. Customs invalidates the declaration.</ItemLine>
-				</Item>
-				<Item>
-					<ItemLine lang="fi">Tulli lähettää asiakkaalle mitätöintisanoman (FI010), jolla ilmoitetaan, että mitätöintipyyntö on hyväksytty. Tullin järjestelmä muodostaa erillisen mitätöintiä koskevan päätöstulosteen, jonka asiakas voi noutaa järjestelmästä.</ItemLine>
-					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om ogiltigförklaring (FI010), med vilket Tullen meddelar kunden att begäran om ogiltigförklaring har godtagits. Tullens system genererar en separat beslutsutskrift om ogiltigförklaringen som kunden kan hämta från systemet.</ItemLine>
-					<ItemLine lang="en">Customs sends the customer an invalidation notification (FI010) to notify that the invalidation request has been accepted. Customs’ system generates a separate decision printout concerning invalidation for the customer to retrieve from the system.</ItemLine>
-				</Item>
-			</SequenceDescription>
-		</UseCase>
-		<UseCase>
-			<Name lang="fi">Passituksen ilmoituksen asiakaslähtöinen mitätöintipyyntö luovutuksen jälkeen</Name>
-			<Name lang="sv">Kundinitierad begäran om ogiltigförklaring av transiteringsdeklaration efter frigörandet</Name>
-			<Name lang="en">Customer-initiated request for invalidation of a transit declaration after release</Name>
-			<Sequence>
-				<EO>FI014A</EO>
-				<Customs>FI026A</Customs>
-				<Customs>FI010A</Customs>
-			</Sequence>
-			<SequenceDescription>
-				<Item>
-					<ItemLine lang="fi">Asiakas lähettää Tullille mitätöintipyynnön (FI014), jolla asiakas pyytää Tullia mitätöimään aiemmin antamansa passitusilmoituksen (FI015). Asiakas odottaa Tullin toimenpiteitä. Tullin järjestelmä tarkistaa mitätöintipyynnöltä asiakkaan tunnistetiedot, mitätöintipyynnön tietosisällön määrämuotoisuuden sekä aineellisen oikeellisuuden. Mitätöintipyyntö on muodollisesti virheetön. Järjestelmä tarkistaa myös, onko syy hyväksyttävä menettelyyn luovutuksen jälkeiseen mitätöintiin: onko passitusilmoituksesta olemassa kaksoiskappale, onko tavara unionitavaraa tai onko tavarat asetettu toiseen tullimenettelyyn. Lisäksi järjestelmä tarkistaa, ettei se ole vastaanottanut sanomia IE006, IE118 tai IE168.</ItemLine>
-					<ItemLine lang="sv">Kunden skickar Tullen en begäran om ogiltigförklaring (FI014) med vilken kunden begär att Tullen ogiltigförklarar deklarationen som denne ingett tidigare (FI013, FI015, FI044, FI170, FI014, FI039 eller FI046). Kunden inväntar Tullens åtgärder. Tullens system kontrollerar kundens identifieringsuppgifter i begäran om ogiltigförklaring samt datainnehållets formbundenhet och materiella riktighet. Begäran om ogiltigförklaring är formellt felfri. Systemet kontrollerar också om orsaken till ogiltigförklaringen av deklarationen efter frigörandet är godtagbar: finns det ett duplikat av deklarationen, är varorna unionsvaror eller har varorna hänförts till ett annat tullförfarande. Därtill kontrollerar systemet att det inte har mottagit meddelandena IE006, IE118 eller IE168.</ItemLine>
-					<ItemLine lang="en">The customer sends Customs an invalidation request (FI014) to ask Customs to invalidate a transit declaration submitted earlier (FI015). The customer waits for measures to be taken by Customs. Customs' system checks the customer’s identification data provided in the invalidation request as well as the specified form and material correctness of the data content. The invalidation request is formally correct. The system also checks if the reason for invalidation after release is acceptable: is there a duplicate of the transit declaration, are the goods Union goods or have the goods been placed under some other customs procedure. The system also checks that it has not received any of the following messages: IE006, IE118 or IE168.</ItemLine>
-				</Item>
-				<Item>
-					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI026), jolla asiakkaalle ilmoitetaan mitätöintipyynnön rekisteröintipäivä.</ItemLine>
-					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om registrering (FI026) med vilket kunden delges datumet för registrering av begäran om ogiltigförklaring.</ItemLine>
-					<ItemLine lang="en">Customs sends the customer a registration notification (FI026) to notify the customer of the registration date of the invalidation request.</ItemLine>
 				</Item>
 				<Item>
 					<ItemLine lang="fi">Tulli lähettää asiakkaalle mitätöintisanoman (FI010), jolla ilmoitetaan, että mitätöintipyyntö on hyväksytty. Tullin järjestelmä muodostaa erillisen mitätöintiä koskevan päätöstulosteen, jonka asiakas voi noutaa järjestelmästä.</ItemLine>
