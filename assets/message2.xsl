@@ -193,7 +193,7 @@
 								<xsl:attribute name="class">
 									<xsl:value-of select="concat('description indent-',count(ancestor::*)-1,$filter)"/>
 								</xsl:attribute>
-								<td colspan="5">
+								<td colspan="100%">
 									<span class="icon icon-tulli-info" style="margin-right:3px"/>
 									<xsl:for-each select="DescriptionLine[@lang=$language and not(@use)] | DescriptionLine[@lang=$language and @use=$messageType]">
 										<xsl:choose>
@@ -340,7 +340,7 @@
 								<xsl:attribute name="class">
 									<xsl:value-of select="concat('group indent-',count(ancestor::*)-1,$filter)"/>
 								</xsl:attribute>
-								<td colspan="6">
+								<td colspan="100%">
 									<a>
 										<xsl:attribute name="id">
 											<xsl:value-of select="translate(concat('Element_',$messageType,'_',../XPath,'_',Name[@lang=$language]),' ','')"/>
@@ -440,7 +440,7 @@
 											</xsl:attribute>
 										</xsl:otherwise>
 									</xsl:choose>
-									<td colspan="6">
+									<td colspan="100%">
 										<span class="icon icon-tulli-info" style="margin-right:3px"/>
 										<xsl:for-each select="DescriptionLine[@lang=$language and not(@use)] | DescriptionLine[@lang=$language and @use=$messageType]">
 											<xsl:choose>
