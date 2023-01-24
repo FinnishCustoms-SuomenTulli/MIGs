@@ -361,7 +361,7 @@
 								<xsl:choose>
 									<xsl:when test="count(ancestor::*)>2">
 										<xsl:attribute name="class">
-											<xsl:value-of select="concat('indent-',count(ancestor::*)-1,$filter,' oddeven')"/>
+											<xsl:value-of select="concat('indent-',count(ancestor::*[not(@hidden='true')])-1,$filter,' oddeven')"/>
 										</xsl:attribute>
 									</xsl:when>
 									<xsl:otherwise>
@@ -431,7 +431,7 @@
 									<xsl:choose>
 										<xsl:when test="count(ancestor::*)>2">
 											<xsl:attribute name="class">
-												<xsl:value-of select="concat('description indent-',count(ancestor::*)-1, $filter)"/>
+											<xsl:value-of select="concat('description indent-',count(ancestor::*[not(@hidden='true')])-1,$filter)"/>
 											</xsl:attribute>
 										</xsl:when>
 										<xsl:otherwise>
