@@ -121,9 +121,19 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element ref="DataElement" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="DataGroup" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="DataElement" minOccurs="0"/>
+				<xs:element ref="DataGroup" minOccurs="0"/>
+			</xs:choice>
 		</xs:sequence>
+		<xs:attribute name="hidden">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:maxLength value="4"/>
+					<xs:pattern value="true"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="DataElementType">
 		<xs:sequence>
@@ -174,11 +184,19 @@
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="Codelist" minOccurs="0" maxOccurs="unbounded">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="15"/>
-					</xs:restriction>
-				</xs:simpleType>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="CodeListType">
+							<xs:attribute name="use">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="6"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
 			</xs:element>
 			<xs:element name="Rule" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
@@ -246,7 +264,7 @@
 						<xs:element name="URL">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
-									<xs:maxLength value="100"/>
+									<xs:maxLength value="200"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -278,22 +296,6 @@
 	<xs:complexType name="MessageType">
 		<xs:sequence>
 			<xs:element name="Type" minOccurs="0"/>
-			<xs:element name="Name" minOccurs="0" maxOccurs="3">
-				<xs:complexType>
-					<xs:simpleContent>
-						<xs:extension base="NameType">
-							<xs:attribute name="lang" use="required">
-								<xs:simpleType>
-									<xs:restriction base="xs:string">
-										<xs:maxLength value="2"/>
-										<xs:pattern value="fi|sv|en"/>
-									</xs:restriction>
-								</xs:simpleType>
-							</xs:attribute>
-						</xs:extension>
-					</xs:simpleContent>
-				</xs:complexType>
-			</xs:element>
 			<xs:element name="Rule" minOccurs="0" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:simpleContent>
@@ -325,6 +327,11 @@
 	<xs:simpleType name="DescriptionLineType">
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="2000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodeListType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
