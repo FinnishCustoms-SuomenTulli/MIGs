@@ -110,7 +110,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<xsl:for-each select="descendant::DataGroup">
+				<xsl:for-each select="descendant::DataGroup[not(@hidden='true')]">
 					<xsl:variable name="filter">
 						<xsl:choose>
 							<xsl:when test="$filteringapplied=''">
@@ -335,7 +335,7 @@
 				</xsl:variable>
 				<xsl:choose>
 					<xsl:when test="local-name()='DataGroup'">
-						<xsl:if test="Use = $messageType">
+						<xsl:if test="Use = $messageType and not(@hidden='true')">
 							<tr>
 								<xsl:attribute name="class">
 									<xsl:value-of select="concat('group indent-',count(ancestor::*)-1,$filter)"/>
