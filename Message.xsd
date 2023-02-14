@@ -22,6 +22,22 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="Alias" minOccurs="0" maxOccurs="3">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="NameType">
+							<xs:attribute name="lang" use="required">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="2"/>
+										<xs:pattern value="fi|sv|en"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="Use" minOccurs="0" maxOccurs="99">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -36,8 +52,15 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="XPath" type="XPathType"/>
-			<xs:element name="Group" type="XPathType" minOccurs="0"/>
+			<xs:element name="XPath">
+				<xs:simpleType>
+					<xs:restriction base="XPathType">
+						<xs:pattern value='[A-Za-z@="]*'/>
+						<xs:pattern value=""/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Group" type="XPathType"/>
 			<xs:element name="MinOccurence" maxOccurs="99">
 				<xs:complexType>
 					<xs:simpleContent>
@@ -122,7 +145,7 @@
 				</xs:complexType>
 			</xs:element>
 			<xs:choice maxOccurs="unbounded">
-				<xs:element ref="DataElement" minOccurs="0"/>
+				<xs:element ref="DataElement"/>
 				<xs:element ref="DataGroup" minOccurs="0"/>
 			</xs:choice>
 		</xs:sequence>
@@ -153,6 +176,22 @@
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="Alias" minOccurs="0" maxOccurs="3">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="NameType">
+							<xs:attribute name="lang" use="required">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="2"/>
+										<xs:pattern value="fi|sv|en"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="Use" minOccurs="0" maxOccurs="99">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -167,7 +206,13 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="XPath" type="XPathType"/>
+			<xs:element name="XPath">
+				<xs:simpleType>
+					<xs:restriction base="XPathType">
+						<xs:pattern value='[A-Za-z@="]*'/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
 			<xs:element name="MinOccurence" maxOccurs="99">
 				<xs:complexType>
 					<xs:simpleContent>
