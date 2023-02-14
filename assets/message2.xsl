@@ -105,6 +105,14 @@
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Applied rules and conditions">
 									<span class="icon icon-tulli-help"/>Rules and conditions</a>
 							</th>
+							<!--th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The identification of the data in the WCO Data Model">
+									<span class="icon icon-tulli-help"/>WCO ID</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The identification of the data in the EU Customs Data Model">
+									<span class="icon icon-tulli-help"/>EUCDM ID</a>
+							</th-->
 						</xsl:when>
 					</xsl:choose>
 				</tr>
@@ -139,7 +147,14 @@
 										<xsl:value-of select="translate(concat('#Element_',$messageType,'_',../XPath,'_',Name[@lang=$language]),' ','')"/>
 									</xsl:attribute>
 									<span class="icon icon-tulli-treeview" style="margin-right:0.2em"/>
-									<xsl:value-of select="Name[@lang=$language]"/>
+									<xsl:choose>
+										<xsl:when test="Alias[@lang=$language]">
+											<xsl:value-of select="Alias[@lang=$language]"/>
+										</xsl:when>
+										<xsl:otherwise>
+											<xsl:value-of select="Name[@lang=$language]"/>
+										</xsl:otherwise>
+									</xsl:choose>
 								</a>
 							</td>
 							<td>
@@ -187,6 +202,39 @@
 									<xsl:if test="position() != last()">, </xsl:if>
 								</xsl:for-each>
 							</td>
+							<!--td>
+								<a target="_blank">
+									<xsl:attribute name="href">
+										<xsl:value-of select="concat('https://preview-datamodel.wcoomd.org/#/dataset/c/4.0.0-b.3/', WCOID)"/>
+									</xsl:attribute>
+									<xsl:value-of select="WCOID"/>
+								</a>
+							</td>
+							<td>
+								<a target="_blank">
+									<xsl:variable name="EUCDM">
+										<xsl:choose>
+											<xsl:when test="../EUCDMID>1">
+											  <xsl:value-of select ="../EUCDMID+EUCDMID"/>
+											</xsl:when>
+											<xsl:otherwise>
+											  <xsl:value-of select ="EUCDMID"/>
+											</xsl:otherwise>
+										</xsl:choose>
+									</xsl:variable>
+									<xsl:attribute name="href">
+										<xsl:choose>
+											<xsl:when test="../EUCDMID>1">
+												<xsl:value-of select="concat('https://eucdm.softdev.eu.com/EUCDM/Annex-B/e21.htm#1FMain/FAnnex%20B/TGroup', substring($EUCDM,1,2), '/E', ../EUCDMID, '/E', $EUCDM)"/>
+											</xsl:when>
+											<xsl:otherwise>
+												<xsl:value-of select="concat('https://eucdm.softdev.eu.com/EUCDM/Annex-B/e21.htm#1FMain/FAnnex%20B/TGroup', substring($EUCDM,1,2), '/E', translate(EUCDMID,' ',''))"/>
+											</xsl:otherwise>
+										</xsl:choose>
+									</xsl:attribute>
+									<xsl:value-of select="concat(substring($EUCDM,1,2),' ',substring($EUCDM,3,2),' ',substring($EUCDM,5,3),' ',substring($EUCDM,8,3))"/>
+								</a>
+							</td-->
 						</tr>
 						<xsl:if test="DescriptionLine[@lang=$language and @use=$messageType] | DescriptionLine[@lang=$language and not(@use)]!=''">
 							<tr>
@@ -314,6 +362,14 @@
 								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="Applied rules and conditions">
 									<span class="icon icon-tulli-help"/>Rules and conditions</a>
 							</th>
+							<!--th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The identification of the data in the WCO Data Model">
+									<span class="icon icon-tulli-help"/>WCO ID</a>
+							</th>
+							<th>
+								<a class="thead-link" href="#" type="button" data-toggle="tooltip" data-placement="top" title="The identification of the data in the EU Customs Data Model">
+									<span class="icon icon-tulli-help"/>EUCDM ID</a>
+							</th-->						
 						</xsl:when>
 					</xsl:choose>
 				</tr>
@@ -349,7 +405,14 @@
 											<xsl:value-of select="translate(concat('#Group_',$messageType,'_',../XPath,'_',Name[@lang=$language]),' ','')"/>
 										</xsl:attribute>
 										<span class="icon icon-tulli-treeview" style="margin-right:0.2em"/>
-										<xsl:value-of select="Name[@lang=$language]"/>
+										<xsl:choose>
+											<xsl:when test="Alias[@lang=$language]">
+												<xsl:value-of select="Alias[@lang=$language]"/>
+											</xsl:when>
+											<xsl:otherwise>
+												<xsl:value-of select="Name[@lang=$language]"/>
+											</xsl:otherwise>
+										</xsl:choose>
 									</a>
 								</td>
 							</tr>
@@ -372,7 +435,14 @@
 								</xsl:choose>
 								<td>
 									<span class="icon icon-tulli-hamburger-menu" style="margin-left:0.7em; margin-right:0.6em; font-size: 50%; vertical-align: middle"/>
-									<xsl:value-of select="Name[@lang=$language]"/>
+									<xsl:choose>
+										<xsl:when test="Alias[@lang=$language]">
+											<xsl:value-of select="Alias[@lang=$language]"/>
+										</xsl:when>
+										<xsl:otherwise>
+											<xsl:value-of select="Name[@lang=$language]"/>
+										</xsl:otherwise>
+									</xsl:choose>
 								</td>
 								<td>
 									<xsl:choose>
@@ -425,6 +495,55 @@
 										<xsl:if test="position() != last()">, </xsl:if>
 									</xsl:for-each>
 								</td>
+								<!--td>
+									<a target="_blank">
+										<xsl:attribute name="href">
+											<xsl:value-of select="concat('https://preview-datamodel.wcoomd.org/#/dataset/e/4.0.0-b.3/', WCOID)"/>
+										</xsl:attribute>
+										<xsl:value-of select="WCOID"/>
+									</a>
+								</td>
+								<td>
+									<a target="_blank">
+										<xsl:variable name="EUCDMg">
+											<xsl:choose>
+												<xsl:when test="../../EUCDMID > 1">
+												  <xsl:value-of select ="../../EUCDMID+../EUCDMID"/>
+												</xsl:when>
+												<xsl:when test="../EUCDMID > 1">
+												  <xsl:value-of select ="../EUCDMID"/>
+												</xsl:when>
+												<xsl:otherwise>
+												  <xsl:value-of select = "0"/>
+												</xsl:otherwise>
+											</xsl:choose>
+										</xsl:variable>
+										<xsl:variable name="EUCDMe">
+											<xsl:choose>
+												<xsl:when test="$EUCDMg mod 1000000 = 0 and $EUCDMg > 0">
+													<xsl:value-of select="$EUCDMg+(EUCDMID*1000)"/>
+												</xsl:when>
+												<xsl:otherwise>
+													<xsl:value-of select="$EUCDMg+EUCDMID"/>
+												</xsl:otherwise>
+											</xsl:choose>
+										</xsl:variable>
+										<xsl:attribute name="href">
+											<xsl:choose>
+												<xsl:when test="../../EUCDMID > 1">
+													<xsl:value-of select="concat('https://eucdm.softdev.eu.com/EUCDM/Annex-B/e21.htm#1FMain/FAnnex%20B/TGroup', substring($EUCDMe,1,2), '/E', ../../EUCDMID, '/E', $EUCDMg, '/A', $EUCDMe)"/>
+												</xsl:when>
+												<xsl:when test="$EUCDMg = 0">
+													<xsl:value-of select="concat('https://eucdm.softdev.eu.com/EUCDM/Annex-B/e21.htm#1FMain/FAnnex%20B/TGroup', substring($EUCDMe,1,2), '/E', substring($EUCDMe,1,4), '000000/A', $EUCDMe)"/>
+												</xsl:when>
+												<xsl:otherwise>
+													<xsl:value-of select="concat('https://eucdm.softdev.eu.com/EUCDM/Annex-B/e21.htm#1FMain/FAnnex%20B/TGroup', substring($EUCDMe,1,2), '/E', ../EUCDMID, '/A', $EUCDMe)"/>
+												</xsl:otherwise>
+											</xsl:choose>
+										</xsl:attribute>
+										<xsl:if test="$EUCDMe != 'NaN'"><xsl:value-of select="concat(substring($EUCDMe,1,2),' ',substring($EUCDMe,3,2),' ',substring($EUCDMe,5,3),' ',substring($EUCDMe,8,3))"/></xsl:if>
+									</a>
+								</td-->
 							</tr>
 							<xsl:if test="DescriptionLine[@lang=$language and @use=$messageType] | DescriptionLine[@lang=$language and not(@use)]!='' or Hyperlink[@lang=$language]!=''">
 								<tr>
