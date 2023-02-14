@@ -98,25 +98,35 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Virheen selite</Name>
-					<Name lang="sv">Felets förklaring</Name>
+					<Name lang="sv">Felbeskrivning</Name>
 					<Name lang="en">Error description</Name>
 					<Use>FI086A</Use>
 					<XPath>Description</XPath>
 					<MinOccurence>0</MinOccurence>
 					<Format>an..4096</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Virheosoitin</Name>
 					<Name lang="sv">Felpekare</Name>
 					<Name lang="en">Error pointer</Name>
 					<Use>FI086A</Use>
-					<XPath>Pointer/Location</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>an..200</Format>
-				</DataElement>
+					<XPath>Pointer</XPath>
+					<Group>Error</Group>
+					<MinOccurence>0</MinOccurence>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Virheosoitin</Name>
+						<Name lang="sv">Felpekare</Name>
+						<Name lang="en">Error pointer</Name>
+						<Use>FI086A</Use>
+						<XPath>Location</XPath>
+						<MinOccurence>1</MinOccurence>
+						<Format>an..200</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Tiedon alkuperäinen arvo</Name>
-					<Name lang="sv">Ursprungligt värde för uppgiften</Name>
+					<Name lang="sv">Ursprungligt attributvärde</Name>
 					<Name lang="en">Original attribute value</Name>
 					<Use>FI086A</Use>
 					<XPath>OriginalValue</XPath>
@@ -127,7 +137,7 @@
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Pyynnön tekijä</Name>
-			<Name lang="sv">Den som gjort begäran</Name>
+			<Name lang="sv">Förfrågare</Name>
 			<Name lang="en">Requester</Name>
 			<Use>FI037A</Use>
 			<XPath>Requester</XPath>
@@ -176,9 +186,12 @@
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
-			<Name lang="fi">Vakuus</Name>
-			<Name lang="sv">Garanti</Name>
+			<Name lang="fi">Vakuuden viite</Name>
+			<Name lang="sv">Referens för garanti</Name>
 			<Name lang="en">Guarantee reference</Name>
+			<Alias lang="fi">Vakuus</Alias>
+			<Alias lang="sv">Garanti</Alias>
+			<Alias lang="en">Guarantee reference</Alias>
 			<Use>FI037A</Use>
 			<XPath>GuaranteeReference</XPath>
 			<Group>GuaranteeReference</Group>
