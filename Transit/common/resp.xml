@@ -46,7 +46,7 @@
 			<Use>FI905A</Use>
 			<XPath>Identification</XPath>
 			<MinOccurence>0</MinOccurence>
-			<Format>an..22</Format>
+			<Format>an..14</Format>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">MRN</Name>
@@ -200,7 +200,7 @@
 			<Format>n1</Format>
 		</DataElement>
 		<DataElement>
-			<Name lang="fi">Erityisolosuhdeindikaattori</Name>
+			<Name lang="fi">Erityisolosuhdekoodi</Name>
 			<Name lang="sv">Indikator för särskild omständighet</Name>
 			<Name lang="en">Specific circumstance indicator</Name>
 			<Use>FI029A</Use>
@@ -336,7 +336,7 @@
 				<Use>FI944A</Use>
 				<XPath>Element</XPath>
 				<MinOccurence>0</MinOccurence>
-				<Format>n..5</Format>
+				<Format>n..70</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Yhteenkuuluva tavaraerä</Name>
@@ -604,7 +604,7 @@
 					<Format>an..100</Format>
 				</DataElement>
 				<DataElement>
-					<Name lang="fi">Tarkastuksen arvioitu aika</Name>
+					<Name lang="fi">Arvioitu tarkastusaika</Name>
 					<Name lang="sv">Uppskattad tid för kontroll</Name>
 					<Name lang="en">Estimated control time</Name>
 					<Use>FI050A</Use>
@@ -710,7 +710,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Virheen selite</Name>
-					<Name lang="sv">Felets förklaring</Name>
+					<Name lang="sv">Felbeskrivning</Name>
 					<Name lang="en">Error description</Name>
 					<Use>FI016A</Use>
 					<Use>FI944A</Use>
@@ -718,16 +718,27 @@
 					<MinOccurence>1</MinOccurence>
 					<Format>an..4096</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Virheosoitin</Name>
 					<Name lang="sv">Felpekare</Name>
 					<Name lang="en">Error pointer</Name>
 					<Use>FI016A</Use>
 					<Use>FI944A</Use>
-					<XPath>Pointer/Location</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>an..200</Format>
-				</DataElement>
+					<XPath>Pointer</XPath>
+					<Group>Error</Group>
+					<MinOccurence>0</MinOccurence>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Virheosoitin</Name>
+						<Name lang="sv">Felpekare</Name>
+						<Name lang="en">Error pointer</Name>
+						<Use>FI016A</Use>
+						<Use>FI944A</Use>
+						<XPath>Location</XPath>
+						<MinOccurence>1</MinOccurence>
+						<Format>an..200</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Tiedon alkuperäinen arvo</Name>
 					<Name lang="sv">Ursprungligt attributvärde</Name>
@@ -768,19 +779,29 @@
 				<MinOccurence>1</MinOccurence>
 				<Format>an..17</Format>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Toimipaikkakoodi</Name>
 				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
 				<Use>FI029A</Use>
-				<XPath>AdditionalIdentifier/Identification</XPath>
+				<XPath>AdditionalIdentifier</XPath>
+				<Group>Agent</Group>
 				<MinOccurence>0</MinOccurence>
-				<Format>n3</Format>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Toimipaikkakoodi</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
+					<Name lang="en">Office code</Name>
+					<Use>FI029A</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Format>n3</Format>
+				</DataElement>
+			</DataGroup>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Määräpaikan toimija</Name>
-			<Name lang="sv">Aktör vid destinationen?</Name>
+			<Name lang="sv">Aktör vid destinationen</Name>
 			<Name lang="en">Trader at destination</Name>
 			<Use>FI043A</Use>
 			<XPath>DestinationTrader</XPath>
@@ -796,15 +817,25 @@
 				<MinOccurence>1</MinOccurence>
 				<Format>an..17</Format>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Toimipaikkakoodi</Name>
 				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
 				<Use>FI043A</Use>
-				<XPath>AdditionalIdentifier/Identification</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Format>n3</Format>
-			</DataElement>
+				<XPath>AdditionalIdentifier</XPath>
+				<Group>DestinationTrader</Group>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Toimipaikkakoodi</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
+					<Name lang="en">Office code</Name>
+					<Use>FI043A</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Format>n3</Format>
+				</DataElement>
+			</DataGroup>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Passitusmenettelyn haltija</Name>
@@ -828,16 +859,27 @@
 				<MinOccurence use="FI029A">0</MinOccurence>
 				<Format>an..17</Format>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Toimipaikkakoodi</Name>
 				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
 				<Use>FI029A</Use>
 				<Use>FI043A</Use>
-				<XPath>AdditionalIdentifier/Identification</XPath>
+				<XPath>AdditionalIdentifier</XPath>
+				<Group>Principal</Group>
 				<MinOccurence>0</MinOccurence>
-				<Format>n3</Format>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Toimipaikkakoodi</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
+					<Name lang="en">Office code</Name>
+					<Use>FI029A</Use>
+					<Use>FI043A</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Format>n3</Format>
+				</DataElement>
+			</DataGroup>
 			<DataElement>
 				<Name lang="fi">TIR-haltijan tunnistenumero</Name>
 				<Name lang="sv">TIR-carnetinnehavarens identifieringsnummer</Name>
@@ -1048,7 +1090,7 @@
 				<Format>an..4</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="fi">Asiakirjan tunniste</Name>
+				<Name lang="fi">Asiakirjatunniste</Name>
 				<Name lang="sv">Dokumentets identifierare</Name>
 				<Name lang="en">Document identifier</Name>
 				<Use>FI029A</Use>
@@ -1090,27 +1132,48 @@
 				<Codelist>CL027</Codelist>
 				<Format>n1</Format>
 			</DataElement>
-			<DataElement>
-				<Name lang="fi">Määrämaan koodi</Name>
-				<Name lang="sv">Kod för destinationsland</Name>
-				<Name lang="en">Country of destination code</Name>
+			<DataGroup hidden="true">
+				<Name lang="fi">Määrämaa</Name>
+				<Name lang="sv">Destinationsland</Name>
+				<Name lang="en">Country of destination</Name>
 				<Use>FI029A</Use>
 				<Use>FI043A</Use>
-				<XPath>Destination/Country</XPath>
+				<XPath>Destination</XPath>
+				<Group>Consignment</Group>
 				<MinOccurence>0</MinOccurence>
-				<Codelist>CL008</Codelist>
-				<Format>a2</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Lähetysmaan koodi</Name>
-				<Name lang="sv">Kod för avsändningsland</Name>
-				<Name lang="en">Country of dispatch code</Name>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Määrämaan koodi</Name>
+					<Name lang="sv">Kod för destinationsland</Name>
+					<Name lang="en">Country of destination code</Name>
+					<Use>FI029A</Use>
+					<Use>FI043A</Use>
+					<XPath>Country</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Codelist>CL008</Codelist>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+			<DataGroup hidden="true">
+				<Name lang="fi">Lähetysmaa</Name>
+				<Name lang="sv">Avsändningsland</Name>
+				<Name lang="en">Country of dispatch</Name>
 				<Use>FI029A</Use>
-				<XPath>ExportCountry/Country</XPath>
+				<XPath>ExportCountry</XPath>
+				<Group>Consignment</Group>
 				<MinOccurence>0</MinOccurence>
-				<Codelist>CL008</Codelist>
-				<Format>a2</Format>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Lähetysmaan koodi</Name>
+					<Name lang="sv">Kod för avsändningsland</Name>
+					<Name lang="en">Country of dispatch code</Name>
+					<Use>FI029A</Use>
+					<XPath>Country</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Codelist>CL008</Codelist>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
 			<DataElement>
 				<Name lang="fi">Kuljetusmuoto rajalla</Name>
 				<Name lang="sv">Transportsätt vid gränsen</Name>
@@ -1175,7 +1238,7 @@
 					<Format>an4</Format>
 				</DataElement>
 				<DataElement>
-					<Name lang="fi">Asiakirjan tunniste</Name>
+					<Name lang="fi">Asiakirjatunniste</Name>
 					<Name lang="sv">Dokumentets identifierare</Name>
 					<Name lang="en">Document identifier</Name>
 					<Use>FI029A</Use>
@@ -1203,15 +1266,25 @@
 					<MinOccurence>0</MinOccurence>
 					<Format>an..35</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Liitteen viite</Name>
 					<Name lang="sv">Bilagans referens</Name>
 					<Name lang="en">Attachment reference</Name>
 					<Use>FI029A</Use>
-					<XPath>NationalReference/Identification</XPath>
+					<XPath>NationalReference</XPath>
+					<Group>SupportingDocument</Group>
 					<MinOccurence>0</MinOccurence>
-					<Format>an..22</Format>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Liitteen viite</Name>
+						<Name lang="sv">Bilagans referens</Name>
+						<Name lang="en">Attachment reference</Name>
+						<Use>FI029A</Use>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>an..22</Format>
+					</DataElement>
+				</DataGroup>
 			</DataGroup>
 			<DataGroup>
 				<Name lang="fi">Muu viite</Name>
@@ -1329,7 +1402,7 @@
 					<Format>an4</Format>
 				</DataElement>
 				<DataElement>
-					<Name lang="fi">Asiakirjan tunniste</Name>
+					<Name lang="fi">Asiakirjatunniste</Name>
 					<Name lang="sv">Dokumentets identifierare</Name>
 					<Name lang="en">Document identifier</Name>
 					<Use>FI029A</Use>
@@ -1338,18 +1411,28 @@
 					<MinOccurence>1</MinOccurence>
 					<Format>an..70</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Liitteen viite</Name>
 					<Name lang="sv">Bilagans referens</Name>
 					<Name lang="en">Attachment reference</Name>
 					<Use>FI029A</Use>
-					<XPath>NationalReference/Identification</XPath>
+					<XPath>NationalReference</XPath>
+					<Group>SupportingDocument</Group>
 					<MinOccurence>0</MinOccurence>
-					<Format>an..22</Format>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Liitteen viite</Name>
+						<Name lang="sv">Bilagans referens</Name>
+						<Name lang="en">Attachment reference</Name>
+						<Use>FI029A</Use>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>an..22</Format>
+					</DataElement>
+				</DataGroup>
 			</DataGroup>
 			<DataGroup>
-				<Name lang="fi">Toimitusketjun lisätoimija</Name>
+				<Name lang="fi">Toimitusketjun muu toimija</Name>
 				<Name lang="sv">Ytterligare aktör i leveranskedjan</Name>
 				<Name lang="en">Additional supply chain actor</Name>
 				<Use>FI029A</Use>
@@ -1375,15 +1458,25 @@
 					<MinOccurence>1</MinOccurence>
 					<Format>an..17</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI029A</Use>
-					<XPath>AdditionalIdentifier/Identification</XPath>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>AEOMutualRecognitionParty</Group>
 					<MinOccurence>0</MinOccurence>
-					<Format>n3</Format>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI029A</Use>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>n3</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Roolikoodi</Name>
 					<Name lang="sv">Rollkod</Name>
@@ -1434,15 +1527,25 @@
 					<MinOccurence>0</MinOccurence>
 					<Format>an..17</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI029A</Use>
-					<XPath>AdditionalIdentifier/Identification</XPath>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>Consignee</Group>
 					<MinOccurence>0</MinOccurence>
-					<Format>n3</Format>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI029A</Use>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>n3</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Nimi</Name>
 					<Name lang="sv">Namn</Name>
@@ -1526,16 +1629,26 @@
 					<MinOccurence>0</MinOccurence>
 					<Format>an..17</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI029A</Use>
-					<Use>FI043A</Use>
-					<XPath>AdditionalIdentifier/Identification</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>n3</Format>
-				</DataElement>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>Consignor</Group>
+					<MinOccurence>0</MinOccurence>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI029A</Use>
+						<Use>FI043A</Use>
+						<XPath>Identification</XPath>
+						<MinOccurence>1</MinOccurence>
+						<Format>n3</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Nimi</Name>
 					<Name lang="sv">Namn</Name>
@@ -1981,7 +2094,7 @@
 						</DataElement>
 						<DataElement>
 							<Name lang="fi">Tunniste</Name>
-							<Name lang="sv">Identifieringskod</Name>
+							<Name lang="sv">Identifiering</Name>
 							<Name lang="en">Identifier</Name>
 							<Use>FI043A</Use>
 							<Use>FI182A</Use>
@@ -2230,16 +2343,26 @@
 				<Group>LoadingLocation</Group>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
-				<DataElement>
-					<Name lang="fi">Maa</Name>
-					<Name lang="sv">Land</Name>
-					<Name lang="en">Country</Name>
+				<DataGroup hidden="true">
+					<Name lang="fi">Osoite</Name>
+					<Name lang="sv">Adress</Name>
+					<Name lang="en">Address</Name>
 					<Use>FI029A</Use>
-					<XPath>Address/Country</XPath>
+					<XPath>Address</XPath>
+					<Group>LoadingLocation</Group>
 					<MinOccurence>0</MinOccurence>
-					<Codelist>CL008</Codelist>
-					<Format>a2</Format>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Maa</Name>
+						<Name lang="sv">Land</Name>
+						<Name lang="en">Country</Name>
+						<Use>FI029A</Use>
+						<XPath>Country</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Codelist>CL008</Codelist>
+						<Format>a2</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Paikka</Name>
 					<Name lang="sv">Plats</Name>
@@ -2259,16 +2382,26 @@
 				<Group>UnloadingLocation</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
-				<DataElement>
-					<Name lang="fi">Maa</Name>
-					<Name lang="sv">Land</Name>
-					<Name lang="en">Country</Name>
+				<DataGroup hidden="true">
+					<Name lang="fi">Osoite</Name>
+					<Name lang="sv">Adress</Name>
+					<Name lang="en">Address</Name>
 					<Use>FI029A</Use>
-					<XPath>Address/Country</XPath>
+					<XPath>Address</XPath>
+					<Group>Address</Group>
 					<MinOccurence>0</MinOccurence>
-					<Codelist>CL008</Codelist>
-					<Format>a2</Format>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Maa</Name>
+						<Name lang="sv">Land</Name>
+						<Name lang="en">Country</Name>
+						<Use>FI029A</Use>
+						<XPath>Country</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Codelist>CL008</Codelist>
+						<Format>a2</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Paikka</Name>
 					<Name lang="sv">Plats</Name>
@@ -2341,7 +2474,7 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Tunniste</Name>
-						<Name lang="sv">Identifieringskod</Name>
+						<Name lang="sv">Identifiering</Name>
 						<Name lang="en">Identifier</Name>
 						<Use>FI029A</Use>
 						<Use>FI043A</Use>
@@ -2422,16 +2555,26 @@
 					<MinOccurence>1</MinOccurence>
 					<Format>n..5</Format>
 				</DataElement>
-				<DataElement>
-					<Name lang="fi">Lähetysmaan koodi</Name>
-					<Name lang="sv">Kod för avsändningsland</Name>
-					<Name lang="en">Country of dispatch code</Name>
+				<DataGroup hidden="true">
+					<Name lang="fi">Lähetysmaa</Name>
+					<Name lang="sv">Avsändningsland</Name>
+					<Name lang="en">Country of dispatch</Name>
 					<Use>FI029A</Use>
-					<XPath>ExportCountry/Country</XPath>
+					<XPath>ExportCountry</XPath>
+					<Group>HouseConsignment</Group>
 					<MinOccurence>0</MinOccurence>
-					<Codelist>CL008</Codelist>
-					<Format>a2</Format>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Lähetysmaan koodi</Name>
+						<Name lang="sv">Kod för avsändningsland</Name>
+						<Name lang="en">Country of dispatch code</Name>
+						<Use>FI029A</Use>
+						<XPath>Country</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Codelist>CL008</Codelist>
+						<Format>a2</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Bruttopaino</Name>
 					<Name lang="sv">Bruttovikt</Name>
@@ -2526,7 +2669,7 @@
 						<Format>an4</Format>
 					</DataElement>
 					<DataElement>
-						<Name lang="fi">Asiakirjan tunniste</Name>
+						<Name lang="fi">Asiakirjatunniste</Name>
 						<Name lang="sv">Dokumentets identifierare</Name>
 						<Name lang="en">Document identifier</Name>
 						<Use>FI029A</Use>
@@ -2535,18 +2678,28 @@
 						<MinOccurence>1</MinOccurence>
 						<Format>an..70</Format>
 					</DataElement>
-					<DataElement>
+					<DataGroup hidden="true">
 						<Name lang="fi">Liitteen viite</Name>
 						<Name lang="sv">Bilagans referens</Name>
 						<Name lang="en">Attachment reference</Name>
 						<Use>FI029A</Use>
-						<XPath>NationalReference/Identification</XPath>
+						<XPath>NationalReference</XPath>
+						<Group>SupportingDocument</Group>
 						<MinOccurence>0</MinOccurence>
-						<Format>an..22</Format>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Liitteen viite</Name>
+							<Name lang="sv">Bilagans referens</Name>
+							<Name lang="en">Attachment reference</Name>
+							<Use>FI029A</Use>
+							<XPath>Identification</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Format>an..22</Format>
+						</DataElement>
+					</DataGroup>
 				</DataGroup>
 				<DataGroup>
-					<Name lang="fi">Toimitusketjun lisätoimija</Name>
+					<Name lang="fi">Toimitusketjun muu toimija</Name>
 					<Name lang="sv">Ytterligare aktör i leveranskedjan</Name>
 					<Name lang="en">Additional supply chain actor</Name>
 					<Use>FI029A</Use>
@@ -2572,15 +2725,25 @@
 						<MinOccurence>1</MinOccurence>
 						<Format>an..17</Format>
 					</DataElement>
-					<DataElement>
+					<DataGroup hidden="true">
 						<Name lang="fi">Toimipaikkakoodi</Name>
 						<Name lang="sv">Kod för verksamhetsställe</Name>
 						<Name lang="en">Office code</Name>
 						<Use>FI029A</Use>
-						<XPath>AdditionalIdentifier/Identification</XPath>
+						<XPath>AdditionalIdentifier</XPath>
+						<Group>AEOMutualRecognitionParty</Group>
 						<MinOccurence>0</MinOccurence>
-						<Format>n3</Format>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Toimipaikkakoodi</Name>
+							<Name lang="sv">Kod för verksamhetsställe</Name>
+							<Name lang="en">Office code</Name>
+							<Use>FI029A</Use>
+							<XPath>Identification</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Format>n3</Format>
+						</DataElement>
+					</DataGroup>
 					<DataElement>
 						<Name lang="fi">Roolikoodi</Name>
 						<Name lang="sv">Rollkod</Name>
@@ -2612,15 +2775,25 @@
 						<MinOccurence>0</MinOccurence>
 						<Format>an..17</Format>
 					</DataElement>
-					<DataElement>
+					<DataGroup hidden="true">
 						<Name lang="fi">Toimipaikkakoodi</Name>
 						<Name lang="sv">Kod för verksamhetsställe</Name>
 						<Name lang="en">Office code</Name>
 						<Use>FI029A</Use>
-						<XPath>AdditionalIdentifier/Identification</XPath>
+						<XPath>AdditionalIdentifier</XPath>
+						<Group>Consignee</Group>
 						<MinOccurence>0</MinOccurence>
-						<Format>n3</Format>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Toimipaikkakoodi</Name>
+							<Name lang="sv">Kod för verksamhetsställe</Name>
+							<Name lang="en">Office code</Name>
+							<Use>FI029A</Use>
+							<XPath>Identification</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Format>n3</Format>
+						</DataElement>
+					</DataGroup>
 					<DataElement>
 						<Name lang="fi">Nimi</Name>
 						<Name lang="sv">Namn</Name>
@@ -2704,16 +2877,26 @@
 						<MinOccurence>0</MinOccurence>
 						<Format>an..17</Format>
 					</DataElement>
-					<DataElement>
+					<DataGroup hidden="true">
 						<Name lang="fi">Toimipaikkakoodi</Name>
 						<Name lang="sv">Kod för verksamhetsställe</Name>
 						<Name lang="en">Office code</Name>
 						<Use>FI029A</Use>
-						<Use>FI043A</Use>
-						<XPath>AdditionalIdentifier/Identification</XPath>
+						<XPath>AdditionalIdentifier</XPath>
+						<Group>Consignor</Group>
 						<MinOccurence>0</MinOccurence>
-						<Format>n3</Format>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Toimipaikkakoodi</Name>
+							<Name lang="sv">Kod för verksamhetsställe</Name>
+							<Name lang="en">Office code</Name>
+							<Use>FI029A</Use>
+							<Use>FI043A</Use>
+							<XPath>Identification</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Format>n3</Format>
+						</DataElement>
+					</DataGroup>
 					<DataElement>
 						<Name lang="fi">Nimi</Name>
 						<Name lang="sv">Namn</Name>
@@ -2891,29 +3074,50 @@
 						<Codelist>CL232</Codelist>
 						<Format>an..5</Format>
 					</DataElement>
-					<DataElement>
-						<Name lang="fi">Määrämaan koodi</Name>
-						<Name lang="sv">Kod för destinationsland</Name>
-						<Name lang="en">Country of destination code</Name>
+					<DataGroup hidden="true">
+						<Name lang="fi">Määrämaa</Name>
+						<Name lang="sv">Destinationsland</Name>
+						<Name lang="en">Country of destination</Name>
 						<Use>FI029A</Use>
 						<Use>FI043A</Use>
-						<XPath>Destination/Country</XPath>
+						<XPath>ExportCountry</XPath>
+						<Group>GoodsItem</Group>
 						<MinOccurence>0</MinOccurence>
-						<Codelist>CL008</Codelist>
-						<Format>a2</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Lähetysmaan koodi</Name>
-						<Name lang="sv">Kod för avsändningsland</Name>
-						<Name lang="en">Country of dispatch code</Name>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Määrämaan koodi</Name>
+							<Name lang="sv">Kod för destinationsland</Name>
+							<Name lang="en">Country of destination code</Name>
+							<Use>FI029A</Use>
+							<Use>FI043A</Use>
+							<XPath>Country</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Codelist>CL008</Codelist>
+							<Format>a2</Format>
+						</DataElement>
+					</DataGroup>
+					<DataGroup hidden="true">
+						<Name lang="fi">Lähetysmaa</Name>
+						<Name lang="sv">Avsändningsland</Name>
+						<Name lang="en">Country of dispatch</Name>
 						<Use>FI029A</Use>
-						<XPath>ExportCountry/Country</XPath>
+						<XPath>ExportCountry</XPath>
+						<Group>GoodsItem</Group>
 						<MinOccurence>0</MinOccurence>
-						<Codelist>CL008</Codelist>
-						<Format>a2</Format>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Lähetysmaan koodi</Name>
+							<Name lang="sv">Kod för avsändningsland</Name>
+							<Name lang="en">Country of dispatch code</Name>
+							<Use>FI029A</Use>
+							<XPath>Country</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Codelist>CL008</Codelist>
+							<Format>a2</Format>
+						</DataElement>
+					</DataGroup>
 					<DataGroup>
-						<Name lang="fi">Toimitusketjun lisätoimija</Name>
+						<Name lang="fi">Toimitusketjun muu toimija</Name>
 						<Name lang="sv">Ytterligare aktör i leveranskedjan</Name>
 						<Name lang="en">Additional supply chain actor</Name>
 						<Use>FI029A</Use>
@@ -2939,15 +3143,25 @@
 							<MinOccurence>1</MinOccurence>
 							<Format>an..17</Format>
 						</DataElement>
-						<DataElement>
+						<DataGroup hidden="true">
 							<Name lang="fi">Toimipaikkakoodi</Name>
 							<Name lang="sv">Kod för verksamhetsställe</Name>
 							<Name lang="en">Office code</Name>
 							<Use>FI029A</Use>
-							<XPath>AdditionalIdentifier/Identification</XPath>
+							<XPath>AdditionalIdentifier</XPath>
+							<Group>AEOMutualRecognitionParty</Group>
 							<MinOccurence>0</MinOccurence>
-							<Format>n3</Format>
-						</DataElement>
+							<MaxOccurence>1</MaxOccurence>
+							<DataElement>
+								<Name lang="fi">Toimipaikkakoodi</Name>
+								<Name lang="sv">Kod för verksamhetsställe</Name>
+								<Name lang="en">Office code</Name>
+								<Use>FI029A</Use>
+								<XPath>Identification</XPath>
+								<MinOccurence>0</MinOccurence>
+								<Format>n3</Format>
+							</DataElement>
+						</DataGroup>
 						<DataElement>
 							<Name lang="fi">Roolikoodi</Name>
 							<Name lang="sv">Rollkod</Name>
@@ -2979,15 +3193,25 @@
 							<MinOccurence>0</MinOccurence>
 							<Format>an..17</Format>
 						</DataElement>
-						<DataElement>
+						<DataGroup hidden="true">
 							<Name lang="fi">Toimipaikkakoodi</Name>
 							<Name lang="sv">Kod för verksamhetsställe</Name>
 							<Name lang="en">Office code</Name>
 							<Use>FI029A</Use>
-							<XPath>AdditionalIdentifier/Identification</XPath>
+							<XPath>AdditionalIdentifier</XPath>
+							<Group>Consignee</Group>
 							<MinOccurence>0</MinOccurence>
-							<Format>n3</Format>
-						</DataElement>
+							<MaxOccurence>1</MaxOccurence>
+							<DataElement>
+								<Name lang="fi">Toimipaikkakoodi</Name>
+								<Name lang="sv">Kod för verksamhetsställe</Name>
+								<Name lang="en">Office code</Name>
+								<Use>FI029A</Use>
+								<XPath>Identification</XPath>
+								<MinOccurence>0</MinOccurence>
+								<Format>n3</Format>
+							</DataElement>
+						</DataGroup>
 						<DataElement>
 							<Name lang="fi">Nimi</Name>
 							<Name lang="sv">Namn</Name>
@@ -3326,7 +3550,7 @@
 							<Format>an4</Format>
 						</DataElement>
 						<DataElement>
-							<Name lang="fi">Asiakirjan tunniste</Name>
+							<Name lang="fi">Asiakirjatunniste</Name>
 							<Name lang="sv">Dokumentets identifierare</Name>
 							<Name lang="en">Document identifier</Name>
 							<Use>FI029A</Use>
@@ -3354,15 +3578,25 @@
 							<MinOccurence>0</MinOccurence>
 							<Format>an..35</Format>
 						</DataElement>
-						<DataElement>
+						<DataGroup hidden="true">
 							<Name lang="fi">Liitteen viite</Name>
 							<Name lang="sv">Bilagans referens</Name>
 							<Name lang="en">Attachment reference</Name>
 							<Use>FI029A</Use>
-							<XPath>NationalReference/Identification</XPath>
+							<XPath>NationalReference</XPath>
+							<Group>SupportingDocument</Group>
 							<MinOccurence>0</MinOccurence>
-							<Format>an..22</Format>
-						</DataElement>
+							<MaxOccurence>1</MaxOccurence>
+							<DataElement>
+								<Name lang="fi">Liitteen viite</Name>
+								<Name lang="sv">Bilagans referens</Name>
+								<Name lang="en">Attachment reference</Name>
+								<Use>FI029A</Use>
+								<XPath>Identification</XPath>
+								<MinOccurence>0</MinOccurence>
+								<Format>an..22</Format>
+							</DataElement>
+						</DataGroup>
 					</DataGroup>
 					<DataGroup>
 						<Name lang="fi">Muu viite</Name>
@@ -3689,8 +3923,8 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Vakuuden tyyppi</Name>
-				<Name lang="sv">Typ av garanti</Name>
-				<Name lang="en">Guarantee Type</Name>
+				<Name lang="sv">Garantityp</Name>
+				<Name lang="en">Guarantee type</Name>
 				<Use>FI029A</Use>
 				<XPath>Type</XPath>
 				<MinOccurence>1</MinOccurence>
@@ -3734,13 +3968,13 @@
 					<Format>an..24</Format>
 				</DataElement>
 				<DataElement>
-					<Name lang="fi">Hakukoodi</Name>
+					<Name lang="fi">Tunnuskoodi</Name>
 					<Name lang="sv">Tillträdeskod</Name>
 					<Name lang="en">Access code</Name>
 					<Use>FI029A</Use>
 					<XPath>AccessCode</XPath>
 					<MinOccurence>0</MinOccurence>
-					<Format>an..4</Format>
+					<Format>an4</Format>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Katettava määrä</Name>
@@ -3758,7 +3992,7 @@
 					<Use>FI029A</Use>
 					<XPath>Amount@CurrencyUnit</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Codelist>CL048</Codelist>
+					<Codelist>CL352</Codelist>
 					<Format>a3</Format>
 				</DataElement>
 			</DataGroup>

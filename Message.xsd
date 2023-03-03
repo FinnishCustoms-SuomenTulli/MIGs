@@ -54,10 +54,7 @@
 			</xs:element>
 			<xs:element name="XPath">
 				<xs:simpleType>
-					<xs:restriction base="XPathType">
-						<xs:pattern value='[A-Za-z@="]*'/>
-						<xs:pattern value=""/>
-					</xs:restriction>
+					<xs:restriction base="XPathType"/>
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Group" type="XPathType"/>
@@ -208,9 +205,7 @@
 			</xs:element>
 			<xs:element name="XPath">
 				<xs:simpleType>
-					<xs:restriction base="XPathType">
-						<xs:pattern value='[A-Za-z@="]*'/>
-					</xs:restriction>
+					<xs:restriction base="XPathType"/>
 				</xs:simpleType>
 			</xs:element>
 			<xs:element name="MinOccurence" maxOccurs="99">
@@ -336,6 +331,8 @@
 	<xs:simpleType name="XPathType">
 		<xs:restriction base="xs:string">
 			<xs:maxLength value="50"/>
+			<xs:pattern value='[A-Za-z@="]*'/>
+			<xs:pattern value=""/>
 		</xs:restriction>
 	</xs:simpleType>
 	<xs:complexType name="MessageType">

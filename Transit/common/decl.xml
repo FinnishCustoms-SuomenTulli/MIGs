@@ -38,8 +38,8 @@
 			<DescriptionLine lang="fi">Toistaiseksi Tulli hyväksyy vain enintään 14 merkin pituisen tunnisteen.</DescriptionLine>
 			<DescriptionLine lang="sv">Händelsens identifierare är meddelandets unika identifierare. De fem första tecknen består av en teckensträng som tilldelats av Tullen.</DescriptionLine>
 			<DescriptionLine lang="sv">Tills vidare accepterar Tullen endast en identifierare på upp till 14 tecken.</DescriptionLine>
-			<DescriptionLine lang="en">The transaction identifier is the unique identifier of the message. The first five characters are the business-specific character string issued by Customs.</DescriptionLine>
-			<DescriptionLine lang="en">For the time being, Customs will only accept an identifier of up to 14 characters..</DescriptionLine>
+			<DescriptionLine lang="en">The case identification is the message's unique identification. The first five characters are assigned by Customs.</DescriptionLine>
+			<DescriptionLine lang="en">For the time being, Customs will only accept an identifier of up to 14 characters.</DescriptionLine>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">MRN</Name>
@@ -81,7 +81,7 @@
 			<Condition use="FI013A">C0467</Condition>
 			<Condition use="FI014A">C0467</Condition>
 			<Format>an..22</Format>
-			<DescriptionLine lang="fi">Ilmoittajan oma viitenumero, joka yksilöi tulli-ilmoituksen. Tätä viitettä käytetään myös Tullin vastaussanomissa asiakkaan viitteenä.</DescriptionLine>
+			<DescriptionLine lang="fi">Ilmoitetaan viitenumero, joka yksilöi tulli-ilmoituksen, esim. keikkaviite. Tätä viitettä käytetään myös Tullin vastaussanomissa asiakkaan viitteenä.</DescriptionLine>
 			<DescriptionLine lang="sv">Referensnummer som specificerar tulldeklarationen anmäls. Denna referens används också som referens för kunden i Tullens svarsmeddelanden.</DescriptionLine>
 			<DescriptionLine lang="en">Declarant's reference number which specifies the customs declaration is entered. This reference is also used as a customer reference in the response messages sent by Customs.</DescriptionLine>
 		</DataElement>
@@ -194,7 +194,7 @@
 			<Format>n1</Format>
 		</DataElement>
 		<DataElement>
-			<Name lang="fi">Erityisolosuhdeindikaattori</Name>
+			<Name lang="fi">Erityisolosuhdekoodi</Name>
 			<Name lang="sv">Indikator för särskild omständighet</Name>
 			<Name lang="en">Specific circumstance indicator</Name>
 			<Use>FI013A</Use>
@@ -205,7 +205,7 @@
 			<Format>an3</Format>
 		</DataElement>
 		<DataElement>
-			<Name lang="fi">Saapumisilmoituksen päivämäärä ja aika</Name>
+			<Name lang="fi">Saapumisilmoituksen päivä ja aika</Name>
 			<Name lang="sv">Datum och tid för ankomstanmälan</Name>
 			<Name lang="en">Arrival notification date and time</Name>
 			<Use>FI007A</Use>
@@ -387,7 +387,7 @@
 				<XPath>Invalidation</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Codelist>NCL061</Codelist>
-				<Format>an1</Format>
+				<Format>an..6</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Korjauksen syy</Name>
@@ -397,7 +397,7 @@
 				<XPath>Amendment</XPath>
 				<MinOccurence>0</MinOccurence>
 				<Codelist>NCL062</Codelist>
-				<Format>an..50</Format>
+				<Format>an..6</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Yhteenkuuluva tavaraerä</Name>
@@ -518,7 +518,7 @@
 				<Rule>R0850</Rule>
 				<Format>an..17</Format>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Toimipaikkakoodi</Name>
 				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
@@ -526,18 +526,31 @@
 				<Use>FI014A</Use>
 				<Use>FI015A</Use>
 				<Use>FI170A</Use>
-				<XPath>AdditionalIdentifier/Identification</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Rule>NR1103</Rule>
-				<Rule>NR1104</Rule>
-				<Condition use="FI013A">NC0221</Condition>
-				<Condition use="FI014A">NC0221</Condition>
-				<Condition use="FI015A">NC0221</Condition>
-				<Format>n3</Format>
-				<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-				<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-				<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-			</DataElement>
+				<XPath>AdditionalIdentifier</XPath>
+				<Group>Agent</Group>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Toimipaikkakoodi</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
+					<Name lang="en">Office code</Name>
+					<Use>FI013A</Use>
+					<Use>FI014A</Use>
+					<Use>FI015A</Use>
+					<Use>FI170A</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Rule>NR1103</Rule>
+					<Rule>NR1104</Rule>
+					<Condition use="FI013A">NC0221</Condition>
+					<Condition use="FI014A">NC0221</Condition>
+					<Condition use="FI015A">NC0221</Condition>
+					<Format>n3</Format>
+					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+					<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+					<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+				</DataElement>
+			</DataGroup>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Muutoksenhakija</Name>
@@ -561,20 +574,30 @@
 				<Rule>NR0036</Rule>
 				<Format>an..17</Format>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Toimipaikkakoodi</Name>
 				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
 				<Use>FI014A</Use>
-				<XPath>AdditionalIdentifier/Identification</XPath>
+				<XPath>AdditionalIdentifier</XPath>
+				<Group>Applicant</Group>
 				<MinOccurence>0</MinOccurence>
-				<Rule>NR1103</Rule>
-				<Rule>NR1104</Rule>
-				<Format>n3</Format>
-				<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-				<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-				<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Toimipaikkakoodi</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
+					<Name lang="en">Office code</Name>
+					<Use>FI014A</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Rule>NR1103</Rule>
+					<Rule>NR1104</Rule>
+					<Format>n3</Format>
+					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+					<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+					<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+				</DataElement>
+			</DataGroup>
 			<DataElement>
 				<Name lang="fi">Nimi</Name>
 				<Name lang="sv">Namn</Name>
@@ -670,21 +693,32 @@
 				<Rule use="FI007A">NR1003</Rule>
 				<Format>an..17</Format>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Toimipaikkakoodi</Name>
 				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
 				<Use>FI007A</Use>
 				<Use>FI044A</Use>
-				<XPath>AdditionalIdentifier/Identification</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Rule>NR1103</Rule>
-				<Rule>NR1104</Rule>
-				<Format>n3</Format>
-				<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-				<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-				<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-			</DataElement>
+				<XPath>AdditionalIdentifier</XPath>
+				<Group>DestinationTrader</Group>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Toimipaikkakoodi</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
+					<Name lang="en">Office code</Name>
+					<Use>FI007A</Use>
+					<Use>FI044A</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Rule>NR1103</Rule>
+					<Rule>NR1104</Rule>
+					<Format>n3</Format>
+					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+					<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+					<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+				</DataElement>
+			</DataGroup>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Passitusmenettelyn haltija</Name>
@@ -714,22 +748,34 @@
 				<Rule>NR9021</Rule>
 				<Format>an..17</Format>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Toimipaikkakoodi</Name>
 				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
 				<Use>FI013A</Use>
 				<Use>FI015A</Use>
 				<Use>FI170A</Use>
-				<XPath>AdditionalIdentifier/Identification</XPath>
+				<XPath>AdditionalIdentifier</XPath>
+				<Group>Principal</Group>
 				<MinOccurence>0</MinOccurence>
-				<Rule>NR1103</Rule>
-				<Rule>NR1104</Rule>
-				<Format>n3</Format>
-				<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-				<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-				<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Toimipaikkakoodi</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
+					<Name lang="en">Office code</Name>
+					<Use>FI013A</Use>
+					<Use>FI015A</Use>
+					<Use>FI170A</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Rule>NR1103</Rule>
+					<Rule>NR1104</Rule>
+					<Format>n3</Format>
+					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+					<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+					<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+				</DataElement>
+			</DataGroup>
 			<DataElement>
 				<Name lang="fi">TIR-haltijan tunnistenumero</Name>
 				<Name lang="sv">TIR-carnetinnehavarens identifieringsnummer</Name>
@@ -835,7 +881,7 @@
 			<MaxOccurence>1</MaxOccurence>
 			<DescriptionLine lang="fi">Suoran sanoma-asioinnin palveluntarjoaja (sanoman tekninen lähettäjä) ilmoitetaan, jos sanomailmoittaja itse ei välitä sanomaa Tullille.</DescriptionLine>
 			<DescriptionLine lang="sv">Tjänsteleverantören för direkt meddelandedeklarering (teknisk avsändare av meddelanden) anges, om meddelandedeklaranten inte själv förmedlar meddelanden till Tullen.</DescriptionLine>
-			<DescriptionLine lang="en">The service provider for direct message exchange (technical sender of the message) is entered if the message declarant does not transmit messages to Customs.</DescriptionLine>
+			<DescriptionLine lang="en">The service provider for direct message exchange (technical sender of the message) is entered if the message exchange customer does not transmit messages to Customs.</DescriptionLine>
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
 				<Name lang="sv">Identifieringsnummer</Name>
@@ -1024,7 +1070,7 @@
 				<Format>an..4</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="fi">Asiakirjan tunniste</Name>
+				<Name lang="fi">Asiakirjatunniste</Name>
 				<Name lang="sv">Dokumentets identifierare</Name>
 				<Name lang="en">Document identifier</Name>
 				<Use>FI007A</Use>
@@ -1096,30 +1142,52 @@
 				<Condition use="FI170A">C0824</Condition>
 				<Format>n1</Format>
 			</DataElement>
-			<DataElement>
-				<Name lang="fi">Määrämaan koodi</Name>
-				<Name lang="sv">Kod för destinationsland</Name>
-				<Name lang="en">Country of destination code</Name>
+			<DataGroup hidden="true">
+				<Name lang="fi">Määrämaa</Name>
+				<Name lang="sv">Destinationsland</Name>
+				<Name lang="en">Country of destination</Name>
 				<Use>FI013A</Use>
 				<Use>FI015A</Use>
-				<XPath>Destination/Country</XPath>
+				<XPath>Destination</XPath>
+				<Group>Consignment</Group>
 				<MinOccurence>0</MinOccurence>
-				<Codelist>CL008</Codelist>
-				<Condition>C0343</Condition>
-				<Format>a2</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Lähetysmaan koodi</Name>
-				<Name lang="sv">Kod för avsändningsland</Name>
-				<Name lang="en">Country of dispatch code</Name>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Määrämaan koodi</Name>
+					<Name lang="sv">Kod för destinationsland</Name>
+					<Name lang="en">Country of destination code</Name>
+					<Use>FI013A</Use>
+					<Use>FI015A</Use>
+					<XPath>Country</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Codelist>CL008</Codelist>
+					<Condition>C0343</Condition>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+			<DataGroup hidden="true">
+				<Name lang="fi">Lähetysmaa</Name>
+				<Name lang="sv">Avsändningsland</Name>
+				<Name lang="en">Country of dispatch</Name>
 				<Use>FI013A</Use>
 				<Use>FI015A</Use>
-				<XPath>ExportCountry/Country</XPath>
+				<XPath>ExportCountry</XPath>
+				<Group>Consignment</Group>
 				<MinOccurence>0</MinOccurence>
-				<Codelist>CL008</Codelist>
-				<Condition>C0909</Condition>
-				<Format>a2</Format>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Lähetysmaan koodi</Name>
+					<Name lang="sv">Kod för avsändningsland</Name>
+					<Name lang="en">Country of dispatch code</Name>
+					<Use>FI013A</Use>
+					<Use>FI015A</Use>
+					<XPath>Country</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Codelist>CL008</Codelist>
+					<Condition>C0909</Condition>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
 			<DataElement>
 				<Name lang="fi">Kuljetusmuoto rajalla</Name>
 				<Name lang="sv">Transportsätt vid gränsen</Name>
@@ -1226,7 +1294,7 @@
 					<DescriptionLine lang="en">Code for a supporting document/licence that relates to the whole declaration at header level is entered.</DescriptionLine>
 				</DataElement>
 				<DataElement>
-					<Name lang="fi">Asiakirjan tunniste</Name>
+					<Name lang="fi">Asiakirjatunniste</Name>
 					<Name lang="sv">Dokumentets identifierare</Name>
 					<Name lang="en">Document identifier</Name>
 					<Use>FI013A</Use>
@@ -1261,20 +1329,31 @@
 					<MinOccurence>0</MinOccurence>
 					<Format>an..35</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Liitteen viite</Name>
 					<Name lang="sv">Bilagans referens</Name>
 					<Name lang="en">Attachment reference</Name>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
-					<Use>FI044A</Use>
-					<XPath>NationalReference/Identification</XPath>
+					<XPath>NationalReference</XPath>
+					<Group>SupportingDocument</Group>
 					<MinOccurence>0</MinOccurence>
-					<Format>an..22</Format>
-					<DescriptionLine lang="fi">Tullin järjestelmän antama liitetiedosoton viite.</DescriptionLine>
-					<DescriptionLine lang="sv">Den referens som givits till bilagda dokumentet av Tullens system.</DescriptionLine>
-					<DescriptionLine lang="en">The reference of the attachment that the Customs' system has provided.</DescriptionLine>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Liitteen viite</Name>
+						<Name lang="sv">Bilagans referens</Name>
+						<Name lang="en">Attachment reference</Name>
+						<Use>FI013A</Use>
+						<Use>FI015A</Use>
+						<Use>FI044A</Use>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>an..22</Format>
+						<DescriptionLine lang="fi">Tullin järjestelmän antama liitetiedosoton viite.</DescriptionLine>
+						<DescriptionLine lang="sv">Den referens som givits till bilagda dokumentet av Tullens system.</DescriptionLine>
+						<DescriptionLine lang="en">The reference of the attachment that the Customs' system has provided.</DescriptionLine>
+					</DataElement>
+				</DataGroup>
 			</DataGroup>
 			<DataGroup>
 				<Name lang="fi">Muu viite</Name>
@@ -1413,7 +1492,7 @@
 					<Format>an4</Format>
 				</DataElement>
 				<DataElement>
-					<Name lang="fi">Asiakirjan tunniste</Name>
+					<Name lang="fi">Asiakirjatunniste</Name>
 					<Name lang="sv">Dokumentets identifierare</Name>
 					<Name lang="en">Document identifier</Name>
 					<Use>FI013A</Use>
@@ -1422,22 +1501,33 @@
 					<MinOccurence>1</MinOccurence>
 					<Format>an..70</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Liitteen viite</Name>
 					<Name lang="sv">Bilagans referens</Name>
 					<Name lang="en">Attachment reference</Name>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
-					<XPath>NationalReference/Identification</XPath>
+					<XPath>NationalReference</XPath>
+					<Group>TransportContractDocument</Group>
 					<MinOccurence>0</MinOccurence>
-					<Format>an..22</Format>
-					<DescriptionLine lang="fi">Tullin järjestelmän antama liitetiedosoton viite.</DescriptionLine>
-					<DescriptionLine lang="sv">Den referens som givits till bilagda dokumentet av Tullens system.</DescriptionLine>
-					<DescriptionLine lang="en">The reference of the attachment that the Customs' system has provided.</DescriptionLine>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Liitteen viite</Name>
+						<Name lang="sv">Bilagans referens</Name>
+						<Name lang="en">Attachment reference</Name>
+						<Use>FI013A</Use>
+						<Use>FI015A</Use>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>an..22</Format>
+						<DescriptionLine lang="fi">Tullin järjestelmän antama liitetiedosoton viite.</DescriptionLine>
+						<DescriptionLine lang="sv">Den referens som givits till bilagda dokumentet av Tullens system.</DescriptionLine>
+						<DescriptionLine lang="en">The reference of the attachment that the Customs' system has provided.</DescriptionLine>
+					</DataElement>
+				</DataGroup>
 			</DataGroup>
 			<DataGroup>
-				<Name lang="fi">Toimitusketjun lisätoimija</Name>
+				<Name lang="fi">Toimitusketjun muu toimija</Name>
 				<Name lang="sv">Ytterligare aktör i leveranskedjan</Name>
 				<Name lang="en">Additional supply chain actor</Name>
 				<Use>FI013A</Use>
@@ -1475,21 +1565,32 @@
 					<DescriptionLine lang="sv">Aktörens EORI-nummer eller identifikationen för en aktör enligt ett internationellt MRA-avtal som motsvarar AEO-aktör anges.</DescriptionLine>
 					<DescriptionLine lang="en">EORI number of the actor or the identification number of an operator corresponding to an AEO operator under an international Mutual Recognition Agreement is entered.</DescriptionLine>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
-					<XPath>AdditionalIdentifier/Identification</XPath>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>AEOMutualRecognitionParty</Group>
 					<MinOccurence>0</MinOccurence>
-					<Rule>NR1103</Rule>
-					<Rule>NR1104</Rule>
-					<Format>n3</Format>
-					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-					<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-					<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI013A</Use>
+						<Use>FI015A</Use>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Rule>NR1103</Rule>
+						<Rule>NR1104</Rule>
+						<Format>n3</Format>
+						<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+						<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+						<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Roolikoodi</Name>
 					<Name lang="sv">Rollkod</Name>
@@ -1551,21 +1652,32 @@
 					<Rule>R0851</Rule>
 					<Format>an..17</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
-					<XPath>AdditionalIdentifier/Identification</XPath>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>Consignee</Group>
 					<MinOccurence>0</MinOccurence>
-					<Rule>NR1103</Rule>
-					<Rule>NR1104</Rule>
-					<Format>n3</Format>
-					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-					<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-					<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI013A</Use>
+						<Use>FI015A</Use>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Rule>NR1103</Rule>
+						<Rule>NR1104</Rule>
+						<Format>n3</Format>
+						<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+						<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+						<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Nimi</Name>
 					<Name lang="sv">Namn</Name>
@@ -1660,21 +1772,32 @@
 					<Rule>R0850</Rule>
 					<Format>an..17</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
-					<XPath>AdditionalIdentifier/Identification</XPath>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>Consignor</Group>
 					<MinOccurence>0</MinOccurence>
-					<Rule>NR1103</Rule>
-					<Rule>NR1104</Rule>
-					<Format>n3</Format>
-					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-					<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-					<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI013A</Use>
+						<Use>FI015A</Use>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Rule>NR1103</Rule>
+						<Rule>NR1104</Rule>
+						<Format>n3</Format>
+						<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+						<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+						<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Nimi</Name>
 					<Name lang="sv">Namn</Name>
@@ -2166,17 +2289,28 @@
 				<MaxOccurence>1</MaxOccurence>
 				<Rule>B1893</Rule>
 				<Condition>C0403</Condition>
-				<DataElement>
-					<Name lang="fi">Maa</Name>
-					<Name lang="sv">Land</Name>
-					<Name lang="en">Country</Name>
+				<DataGroup hidden="true">
+					<Name lang="fi">Osoite</Name>
+					<Name lang="sv">Adress</Name>
+					<Name lang="en">Address</Name>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
-					<XPath>Address/Country</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Codelist>CL008</Codelist>
-					<Format>a2</Format>
-				</DataElement>
+					<XPath>Address</XPath>
+					<Group>Address</Group>
+					<MinOccurence>0</MinOccurence>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Maa</Name>
+						<Name lang="sv">Land</Name>
+						<Name lang="en">Country</Name>
+						<Use>FI013A</Use>
+						<Use>FI015A</Use>
+						<XPath>Country</XPath>
+						<MinOccurence>1</MinOccurence>
+						<Codelist>CL008</Codelist>
+						<Format>a2</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Paikka</Name>
 					<Name lang="sv">Plats</Name>
@@ -2201,17 +2335,28 @@
 				<MaxOccurence>1</MaxOccurence>
 				<Rule>B1858</Rule>
 				<Condition>C0191</Condition>
-				<DataElement>
-					<Name lang="fi">Maa</Name>
-					<Name lang="sv">Land</Name>
-					<Name lang="en">Country</Name>
+				<DataGroup hidden="true">
+					<Name lang="fi">Osoite</Name>
+					<Name lang="sv">Adress</Name>
+					<Name lang="en">Address</Name>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
-					<XPath>Address/Country</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Codelist>CL008</Codelist>
-					<Format>a2</Format>
-				</DataElement>
+					<XPath>Address</XPath>
+					<Group>Address</Group>
+					<MinOccurence>0</MinOccurence>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Maa</Name>
+						<Name lang="sv">Land</Name>
+						<Name lang="en">Country</Name>
+						<Use>FI013A</Use>
+						<Use>FI015A</Use>
+						<XPath>Country</XPath>
+						<MinOccurence>1</MinOccurence>
+						<Codelist>CL008</Codelist>
+						<Format>a2</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Paikka</Name>
 					<Name lang="sv">Plats</Name>
@@ -2331,7 +2476,7 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Tunniste</Name>
-						<Name lang="sv">Identifieringskod</Name>
+						<Name lang="sv">Identifiering</Name>
 						<Name lang="en">Identifier</Name>
 						<Use>FI013A</Use>
 						<Use>FI015A</Use>
@@ -2444,20 +2589,31 @@
 					<Rule use="FI044A">R0054</Rule>
 					<Format>n..5</Format>
 				</DataElement>
-				<DataElement>
-					<Name lang="fi">Lähetysmaan koodi</Name>
-					<Name lang="sv">Kod för avsändningsland</Name>
-					<Name lang="en">Country of dispatch code</Name>
+				<DataGroup hidden="true">
+					<Name lang="fi">Lähetysmaa</Name>
+					<Name lang="sv">Avsändningsland</Name>
+					<Name lang="en">Country of dispatch</Name>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
-					<XPath>ExportCountry/Country</XPath>
+					<XPath>ExportCountry</XPath>
+					<Group>HouseConsignment</Group>
 					<MinOccurence>0</MinOccurence>
-					<Codelist>CL008</Codelist>
-					<Rule>E1301</Rule>
-					<Rule>R0506</Rule>
-					<Condition>C0909</Condition>
-					<Format>a2</Format>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Lähetysmaan koodi</Name>
+						<Name lang="sv">Kod för avsändningsland</Name>
+						<Name lang="en">Country of dispatch code</Name>
+						<Use>FI013A</Use>
+						<Use>FI015A</Use>
+						<XPath>Country</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Codelist>CL008</Codelist>
+						<Rule>E1301</Rule>
+						<Rule>R0506</Rule>
+						<Condition>C0909</Condition>
+						<Format>a2</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Bruttopaino</Name>
 					<Name lang="sv">Bruttovikt</Name>
@@ -2558,7 +2714,7 @@
 						<Format>an4</Format>
 					</DataElement>
 					<DataElement>
-						<Name lang="fi">Asiakirjan tunniste</Name>
+						<Name lang="fi">Asiakirjatunniste</Name>
 						<Name lang="sv">Dokumentets identifierare</Name>
 						<Name lang="en">Document identifier</Name>
 						<Use>FI013A</Use>
@@ -2567,22 +2723,33 @@
 						<MinOccurence>1</MinOccurence>
 						<Format>an..70</Format>
 					</DataElement>
-					<DataElement>
+					<DataGroup hidden="true">
 						<Name lang="fi">Liitteen viite</Name>
 						<Name lang="sv">Bilagans referens</Name>
 						<Name lang="en">Attachment reference</Name>
 						<Use>FI013A</Use>
 						<Use>FI015A</Use>
-						<XPath>NationalReference/Identification</XPath>
+						<XPath>NationalReference</XPath>
+						<Group>TransportContractDocument</Group>
 						<MinOccurence>0</MinOccurence>
-						<Format>an..22</Format>
-						<DescriptionLine lang="fi">Tullin järjestelmän antama liitetiedosoton viite.</DescriptionLine>
-						<DescriptionLine lang="sv">Den referens som givits till bilagda dokumentet av Tullens system.</DescriptionLine>
-						<DescriptionLine lang="en">The reference of the attachment that the Customs' system has provided.</DescriptionLine>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Liitteen viite</Name>
+							<Name lang="sv">Bilagans referens</Name>
+							<Name lang="en">Attachment reference</Name>
+							<Use>FI013A</Use>
+							<Use>FI015A</Use>
+							<XPath>Identification</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Format>an..22</Format>
+							<DescriptionLine lang="fi">Tullin järjestelmän antama liitetiedosoton viite.</DescriptionLine>
+							<DescriptionLine lang="sv">Den referens som givits till bilagda dokumentet av Tullens system.</DescriptionLine>
+							<DescriptionLine lang="en">The reference of the attachment that the Customs' system has provided.</DescriptionLine>
+						</DataElement>
+					</DataGroup>
 				</DataGroup>
 				<DataGroup>
-					<Name lang="fi">Toimitusketjun lisätoimija</Name>
+					<Name lang="fi">Toimitusketjun muu toimija</Name>
 					<Name lang="sv">Ytterligare aktör i leveranskedjan</Name>
 					<Name lang="en">Additional supply chain actor</Name>
 					<Use>FI013A</Use>
@@ -2620,22 +2787,33 @@
 						<DescriptionLine lang="sv">Aktörens EORI-nummer eller identifikationen för en aktör enligt ett internationellt MRA-avtal som motsvarar AEO-aktör anges.</DescriptionLine>
 						<DescriptionLine lang="en">EORI number of the actor or the identification number of an operator corresponding to an AEO operator under an international Mutual Recognition Agreement is entered.</DescriptionLine>
 					</DataElement>
-					<DataElement>
+					<DataGroup hidden="true">
 						<Name lang="fi">Toimipaikkakoodi</Name>
 						<Name lang="sv">Kod för verksamhetsställe</Name>
 						<Name lang="en">Office code</Name>
 						<Use>FI013A</Use>
 						<Use>FI015A</Use>
-						<XPath>AdditionalIdentifier/Identification</XPath>
+						<XPath>AdditionalIdentifier</XPath>
+						<Group>AEOMutualRecognitionParty</Group>
 						<MinOccurence>0</MinOccurence>
-						<Rule>NR1101</Rule>
-						<Rule>NR1103</Rule>
-						<Rule>NR1104</Rule>
-						<Format>n3</Format>
-						<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-						<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-						<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Toimipaikkakoodi</Name>
+							<Name lang="sv">Kod för verksamhetsställe</Name>
+							<Name lang="en">Office code</Name>
+							<Use>FI013A</Use>
+							<Use>FI015A</Use>
+							<XPath>Identification</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Rule>NR1101</Rule>
+							<Rule>NR1103</Rule>
+							<Rule>NR1104</Rule>
+							<Format>n3</Format>
+							<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+							<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+							<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+						</DataElement>
+					</DataGroup>
 					<DataElement>
 						<Name lang="fi">Roolikoodi</Name>
 						<Name lang="sv">Rollkod</Name>
@@ -2672,21 +2850,32 @@
 						<Rule>R0851</Rule>
 						<Format>an..17</Format>
 					</DataElement>
-					<DataElement>
+					<DataGroup hidden="true">
 						<Name lang="fi">Toimipaikkakoodi</Name>
 						<Name lang="sv">Kod för verksamhetsställe</Name>
 						<Name lang="en">Office code</Name>
 						<Use>FI013A</Use>
 						<Use>FI015A</Use>
-						<XPath>AdditionalIdentifier/Identification</XPath>
+						<XPath>AdditionalIdentifier</XPath>
+						<Group>Consignee</Group>
 						<MinOccurence>0</MinOccurence>
-						<Rule>NR1103</Rule>
-						<Rule>NR1104</Rule>
-						<Format>n3</Format>
-						<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-						<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-						<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Toimipaikkakoodi</Name>
+							<Name lang="sv">Kod för verksamhetsställe</Name>
+							<Name lang="en">Office code</Name>
+							<Use>FI013A</Use>
+							<Use>FI015A</Use>
+							<XPath>Identification</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Rule>NR1103</Rule>
+							<Rule>NR1104</Rule>
+							<Format>n3</Format>
+							<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+							<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+							<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+						</DataElement>
+					</DataGroup>
 					<DataElement>
 						<Name lang="fi">Nimi</Name>
 						<Name lang="sv">Namn</Name>
@@ -2777,21 +2966,32 @@
 						<Rule>R0850</Rule>
 						<Format>an..17</Format>
 					</DataElement>
-					<DataElement>
+					<DataGroup hidden="true">
 						<Name lang="fi">Toimipaikkakoodi</Name>
 						<Name lang="sv">Kod för verksamhetsställe</Name>
 						<Name lang="en">Office code</Name>
 						<Use>FI013A</Use>
 						<Use>FI015A</Use>
-						<XPath>AdditionalIdentifier/Identification</XPath>
+						<XPath>AdditionalIdentifier</XPath>
+						<Group>Consignor</Group>
 						<MinOccurence>0</MinOccurence>
-						<Rule>NR1103</Rule>
-						<Rule>NR1104</Rule>
-						<Format>n3</Format>
-						<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-						<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-						<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Toimipaikkakoodi</Name>
+							<Name lang="sv">Kod för verksamhetsställe</Name>
+							<Name lang="en">Office code</Name>
+							<Use>FI013A</Use>
+							<Use>FI015A</Use>
+							<XPath>Identification</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Rule>NR1103</Rule>
+							<Rule>NR1104</Rule>
+							<Format>n3</Format>
+							<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+							<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+							<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+						</DataElement>
+					</DataGroup>
 					<DataElement>
 						<Name lang="fi">Nimi</Name>
 						<Name lang="sv">Namn</Name>
@@ -3051,34 +3251,56 @@
 						<Condition>C0045</Condition>
 						<Format>an..5</Format>
 					</DataElement>
-					<DataElement>
-						<Name lang="fi">Määrämaan koodi</Name>
-						<Name lang="sv">Kod för destinationsland</Name>
-						<Name lang="en">Country of destination code</Name>
+					<DataGroup hidden="true">
+						<Name lang="fi">Määrämaa</Name>
+						<Name lang="sv">Destinationsland</Name>
+						<Name lang="en">Country of destination</Name>
 						<Use>FI013A</Use>
 						<Use>FI015A</Use>
-						<XPath>Destination/Country</XPath>
+						<XPath>Destination</XPath>
+						<Group>GoodsItem</Group>
 						<MinOccurence>0</MinOccurence>
-						<Codelist>CL008</Codelist>
-						<Rule>R0507</Rule>
-						<Condition>C0343</Condition>
-						<Format>a2</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Lähetysmaan koodi</Name>
-						<Name lang="sv">Kod för avsändningsland</Name>
-						<Name lang="en">Country of dispatch code</Name>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Määrämaan koodi</Name>
+							<Name lang="sv">Kod för destinationsland</Name>
+							<Name lang="en">Country of destination code</Name>
+							<Use>FI013A</Use>
+							<Use>FI015A</Use>
+							<XPath>Country</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Codelist>CL008</Codelist>
+							<Rule>R0507</Rule>
+							<Condition>C0343</Condition>
+							<Format>a2</Format>
+						</DataElement>
+					</DataGroup>
+					<DataGroup hidden="true">
+						<Name lang="fi">Lähetysmaa</Name>
+						<Name lang="sv">Avsändningsland</Name>
+						<Name lang="en">Country of dispatch</Name>
 						<Use>FI013A</Use>
 						<Use>FI015A</Use>
-						<XPath>ExportCountry/Country</XPath>
+						<XPath>ExportCountry</XPath>
+						<Group>GoodsItem</Group>
 						<MinOccurence>0</MinOccurence>
-						<Codelist>CL008</Codelist>
-						<Rule>R0507</Rule>
-						<Condition>C0909</Condition>
-						<Format>a2</Format>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Lähetysmaan koodi</Name>
+							<Name lang="sv">Kod för avsändningsland</Name>
+							<Name lang="en">Country of dispatch code</Name>
+							<Use>FI013A</Use>
+							<Use>FI015A</Use>
+							<XPath>Country</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Codelist>CL008</Codelist>
+							<Rule>R0507</Rule>
+							<Condition>C0909</Condition>
+							<Format>a2</Format>
+						</DataElement>
+					</DataGroup>
 					<DataGroup>
-						<Name lang="fi">Toimitusketjun lisätoimija</Name>
+						<Name lang="fi">Toimitusketjun muu toimija</Name>
 						<Name lang="sv">Ytterligare aktör i leveranskedjan</Name>
 						<Name lang="en">Additional supply chain actor</Name>
 						<Use>FI013A</Use>
@@ -3116,22 +3338,33 @@
 							<DescriptionLine lang="sv">Aktörens EORI-nummer eller identifikationen för en aktör enligt ett internationellt MRA-avtal som motsvarar AEO-aktör anges.</DescriptionLine>
 							<DescriptionLine lang="en">EORI number of the actor or the identification number of an operator corresponding to an AEO operator under an international Mutual Recognition Agreement is entered.</DescriptionLine>
 						</DataElement>
-						<DataElement>
+						<DataGroup hidden="true">
 							<Name lang="fi">Toimipaikkakoodi</Name>
 							<Name lang="sv">Kod för verksamhetsställe</Name>
 							<Name lang="en">Office code</Name>
 							<Use>FI013A</Use>
 							<Use>FI015A</Use>
-							<XPath>AdditionalIdentifier/Identification</XPath>
+							<XPath>AdditionalIdentifier</XPath>
+							<Group>AEOMutualRecognitionParty</Group>
 							<MinOccurence>0</MinOccurence>
-							<Rule>NR1101</Rule>
-							<Rule>NR1103</Rule>
-							<Rule>NR1104</Rule>
-							<Format>n3</Format>
-							<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-							<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-							<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-						</DataElement>
+							<MaxOccurence>1</MaxOccurence>
+							<DataElement>
+								<Name lang="fi">Toimipaikkakoodi</Name>
+								<Name lang="sv">Kod för verksamhetsställe</Name>
+								<Name lang="en">Office code</Name>
+								<Use>FI013A</Use>
+								<Use>FI015A</Use>
+								<XPath>Identification</XPath>
+								<MinOccurence>0</MinOccurence>
+								<Rule>NR1101</Rule>
+								<Rule>NR1103</Rule>
+								<Rule>NR1104</Rule>
+								<Format>n3</Format>
+								<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+								<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+								<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+							</DataElement>
+						</DataGroup>
 						<DataElement>
 							<Name lang="fi">Roolikoodi</Name>
 							<Name lang="sv">Rollkod</Name>
@@ -3168,21 +3401,32 @@
 							<Rule>R0851</Rule>
 							<Format>an..17</Format>
 						</DataElement>
-						<DataElement>
+						<DataGroup hidden="true">
 							<Name lang="fi">Toimipaikkakoodi</Name>
 							<Name lang="sv">Kod för verksamhetsställe</Name>
 							<Name lang="en">Office code</Name>
 							<Use>FI013A</Use>
 							<Use>FI015A</Use>
-							<XPath>AdditionalIdentifier/Identification</XPath>
+							<XPath>AdditionalIdentifier</XPath>
+							<Group>Consignee</Group>
 							<MinOccurence>0</MinOccurence>
-							<Rule>NR1103</Rule>
-							<Rule>NR1104</Rule>
-							<Format>n3</Format>
-							<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-							<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-							<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-						</DataElement>
+							<MaxOccurence>1</MaxOccurence>
+							<DataElement>
+								<Name lang="fi">Toimipaikkakoodi</Name>
+								<Name lang="sv">Kod för verksamhetsställe</Name>
+								<Name lang="en">Office code</Name>
+								<Use>FI013A</Use>
+								<Use>FI015A</Use>
+								<XPath>Identification</XPath>
+								<MinOccurence>0</MinOccurence>
+								<Rule>NR1103</Rule>
+								<Rule>NR1104</Rule>
+								<Format>n3</Format>
+								<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+								<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+								<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+							</DataElement>
+						</DataGroup>
 						<DataElement>
 							<Name lang="fi">Nimi</Name>
 							<Name lang="sv">Namn</Name>
@@ -3677,7 +3921,7 @@
 							<DescriptionLine lang="en">Code for a supporting document/licence that relates to the goods item is entered.</DescriptionLine>
 						</DataElement>
 						<DataElement>
-							<Name lang="fi">Asiakirjan tunniste</Name>
+							<Name lang="fi">Asiakirjatunniste</Name>
 							<Name lang="sv">Dokumentets identifierare</Name>
 							<Name lang="en">Document identifier</Name>
 							<Use>FI013A</Use>
@@ -3718,20 +3962,32 @@
 							<Rule use="FI015A">E1117</Rule>
 							<Format>an..35</Format>
 						</DataElement>
-						<DataElement>
+						<DataGroup hidden="true">
 							<Name lang="fi">Liitteen viite</Name>
 							<Name lang="sv">Bilagans referens</Name>
 							<Name lang="en">Attachment reference</Name>
 							<Use>FI013A</Use>
 							<Use>FI015A</Use>
 							<Use>FI044A</Use>
-							<XPath>NationalReference/Identification</XPath>
+							<XPath>NationalReference</XPath>
+							<Group>SupportingDocument</Group>
 							<MinOccurence>0</MinOccurence>
-							<Format>an..22</Format>
-							<DescriptionLine lang="fi">Tullin järjestelmän antama liitetiedosoton viite.</DescriptionLine>
-							<DescriptionLine lang="sv">Den referens som givits till bilagda dokumentet av Tullens system.</DescriptionLine>
-							<DescriptionLine lang="en">The reference of the attachment that the Customs' system has provided.</DescriptionLine>
-						</DataElement>
+							<MaxOccurence>1</MaxOccurence>
+							<DataElement>
+								<Name lang="fi">Liitteen viite</Name>
+								<Name lang="sv">Bilagans referens</Name>
+								<Name lang="en">Attachment reference</Name>
+								<Use>FI013A</Use>
+								<Use>FI015A</Use>
+								<Use>FI044A</Use>
+								<XPath>Identification</XPath>
+								<MinOccurence>0</MinOccurence>
+								<Format>an..22</Format>
+								<DescriptionLine lang="fi">Tullin järjestelmän antama liitetiedosoton viite.</DescriptionLine>
+								<DescriptionLine lang="sv">Den referens som givits till bilagda dokumentet av Tullens system.</DescriptionLine>
+								<DescriptionLine lang="en">The reference of the attachment that the Customs' system has provided.</DescriptionLine>
+							</DataElement>
+						</DataGroup>
 					</DataGroup>
 					<DataGroup>
 						<Name lang="fi">Muu viite</Name>
@@ -3826,7 +4082,7 @@
 							<Format>an4</Format>
 						</DataElement>
 						<DataElement>
-							<Name lang="fi">Asiakirjan tunniste</Name>
+							<Name lang="fi">Asiakirjatunniste</Name>
 							<Name lang="sv">Dokumentets identifierare</Name>
 							<Name lang="en">Document identifier</Name>
 							<Use>FI013A</Use>
@@ -4020,8 +4276,8 @@
 							<MinOccurence>1</MinOccurence>
 							<Format>an..35</Format>
 							<DescriptionLine lang="fi">Ilmoitetaan, jos lähetykselle on annettu yhtenäisviite UCR, eli lähettäjän antama yksilöllinen ja pysyvä viite läpi koko toimitusketjun. Se voi olla WCO (ISO 15459) -koodi tai vastaava.</DescriptionLine>
-							<DescriptionLine lang="sv">Försändelsens eventuella unika referensnummer (UCR), dvs. av avsändaren tilldelad unik och permanent referens genom hela leveranskedjan, anges. Det kan vara t.ex. en WCO (ISO 15459)-kod eller motsvarande.</DescriptionLine>
-							<DescriptionLine lang="en">The unique consignment reference UCR, if one has been assigned by the consignor, is entered. UCR remains the same throughout the supply chain. It can be WCO (ISO 15459) -code or an equivalent.</DescriptionLine>
+							<DescriptionLine lang="sv">Anges om försändelsen har tilldelats ett unikt referensnummer (UCR) av avsändaren som en unik och permanent referens genom hela leveranskedjan. Det kan vara en WCO-kod (ISO 15459) eller motsvarande.</DescriptionLine>
+							<DescriptionLine lang="en">This detail is entered if a unique consignment reference (UCR) has been issued for the consignment, i.e. a reference issued by the consignor that is unique and remains the same throughout the supply chain. It can be a WCO (ISO 15459) code or an equivalent.</DescriptionLine>
 						</DataElement>
 					</DataGroup>
 				</DataGroup>
@@ -4048,8 +4304,8 @@
 						<MinOccurence>1</MinOccurence>
 						<Format>an..35</Format>
 						<DescriptionLine lang="fi">Ilmoitetaan, jos lähetykselle on annettu yhtenäisviite UCR, eli lähettäjän antama yksilöllinen ja pysyvä viite läpi koko toimitusketjun. Se voi olla WCO (ISO 15459) -koodi tai vastaava.</DescriptionLine>
-						<DescriptionLine lang="sv">Försändelsens eventuella unika referensnummer (UCR), dvs. av avsändaren tilldelad unik och permanent referens genom hela leveranskedjan, anges. Det kan vara t.ex. en WCO (ISO 15459)-kod eller motsvarande.</DescriptionLine>
-						<DescriptionLine lang="en">The unique consignment reference UCR, if one has been assigned by the consignor, is entered. UCR remains the same throughout the supply chain. It can be WCO (ISO 15459) -code or an equivalent.</DescriptionLine>
+						<DescriptionLine lang="sv">Anges om försändelsen har tilldelats ett unikt referensnummer (UCR) av avsändaren som en unik och permanent referens genom hela leveranskedjan. Det kan vara en WCO-kod (ISO 15459) eller motsvarande.</DescriptionLine>
+						<DescriptionLine lang="en">This detail is entered if a unique consignment reference (UCR) has been issued for the consignment, i.e. a reference issued by the consignor that is unique and remains the same throughout the supply chain. It can be a WCO (ISO 15459) code or an equivalent.</DescriptionLine>
 					</DataElement>
 				</DataGroup>
 			</DataGroup>
@@ -4321,7 +4577,7 @@
 						</DataElement>
 						<DataElement>
 							<Name lang="fi">Tunniste</Name>
-							<Name lang="sv">Identifieringskod</Name>
+							<Name lang="sv">Identifiering</Name>
 							<Name lang="en">Identifier</Name>
 							<Use>FI007A</Use>
 							<XPath>Identification</XPath>
@@ -4496,8 +4752,8 @@
 					<MinOccurence>1</MinOccurence>
 					<Format>an..35</Format>
 					<DescriptionLine lang="fi">Ilmoitetaan, jos lähetykselle on annettu yhtenäisviite UCR, eli lähettäjän antama yksilöllinen ja pysyvä viite läpi koko toimitusketjun. Se voi olla WCO (ISO 15459) -koodi tai vastaava.</DescriptionLine>
-					<DescriptionLine lang="sv">Försändelsens eventuella unika referensnummer (UCR), dvs. av avsändaren tilldelad unik och permanent referens genom hela leveranskedjan, anges. Det kan vara t.ex. en WCO (ISO 15459)-kod eller motsvarande.</DescriptionLine>
-					<DescriptionLine lang="en">The unique consignment reference UCR, if one has been assigned by the consignor, is entered. UCR remains the same throughout the supply chain. It can be WCO (ISO 15459) -code or an equivalent.</DescriptionLine>
+					<DescriptionLine lang="sv">Anges om försändelsen har tilldelats ett unikt referensnummer (UCR) av avsändaren som en unik och permanent referens genom hela leveranskedjan. Det kan vara en WCO-kod (ISO 15459) eller motsvarande.</DescriptionLine>
+					<DescriptionLine lang="en">This detail is entered if a unique consignment reference (UCR) has been issued for the consignment, i.e. a reference issued by the consignor that is unique and remains the same throughout the supply chain. It can be a WCO (ISO 15459) code or an equivalent.</DescriptionLine>
 				</DataElement>
 			</DataGroup>
 		</DataGroup>
@@ -4524,7 +4780,7 @@
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Vakuuden tyyppi</Name>
-				<Name lang="sv">Typ av garanti</Name>
+				<Name lang="sv">Garantityp</Name>
 				<Name lang="en">Guarantee type</Name>
 				<Use>FI013A</Use>
 				<Use>FI015A</Use>
@@ -4596,7 +4852,7 @@
 					<Rule>NR9029</Rule>
 					<Condition>NC9009</Condition>
 					<Condition>NC9011</Condition>
-					<Format>an..4</Format>
+					<Format>an4</Format>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Katettava määrä</Name>
@@ -4625,7 +4881,7 @@
 					<Use>FI015A</Use>
 					<XPath>Amount@CurrencyUnit</XPath>
 					<MinOccurence>0</MinOccurence>
-					<Codelist>CL048</Codelist>
+					<Codelist>CL352</Codelist>
 					<Rule>B1891</Rule>
 					<Rule>B2101</Rule>
 					<Rule>NR9029</Rule>
