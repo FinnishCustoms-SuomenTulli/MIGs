@@ -71,8 +71,8 @@
 			<DescriptionLine lang="fi">Toistaiseksi Tulli hyväksyy vain enintään 14 merkin pituisen tunnisteen.</DescriptionLine>
 			<DescriptionLine lang="sv">Händelsens identifierare är meddelandets unika identifierare. De fem första tecknen består av en teckensträng som tilldelats av Tullen.</DescriptionLine>
 			<DescriptionLine lang="sv">Tills vidare accepterar Tullen endast en identifierare på upp till 14 tecken.</DescriptionLine>
-			<DescriptionLine lang="en">The transaction identifier is the unique identifier of the message. The first five characters are the business-specific character string issued by Customs.</DescriptionLine>
-			<DescriptionLine lang="en">For the time being, Customs will only accept an identifier of up to 14 characters..</DescriptionLine>
+			<DescriptionLine lang="en">The case identification is the message's unique identification. The first five characters are assigned by Customs.</DescriptionLine>
+			<DescriptionLine lang="en">For the time being, Customs will only accept an identifier of up to 14 characters.</DescriptionLine>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">MRN</Name>
@@ -251,7 +251,7 @@
 			<Rule use="FI485B">NR0269</Rule>
 			<Rule use="FI413B">NR1313</Rule>
 			<Rule use="FI415B">NR1313</Rule>
-			<Rule use="FI415B">NR1314</Rule>
+			<Rule use="FI413B">NR1314</Rule>
 			<Rule use="FI415B">NR1314</Rule>
 			<Rule use="FI413B">NR3008</Rule>
 			<Rule use="FI415B">NR3008</Rule>
@@ -1194,8 +1194,8 @@
 			<Condition use="FI415B">NC0039</Condition>
 			<Condition use="FI483B">NC0039</Condition>
 			<Condition use="FI485B">NC0039</Condition>
-			<Condition use="FI413B">NC0103</Condition>
-			<Condition use="FI415B">NC0103</Condition>
+			<!--Condition use="FI413B">NC0103</Condition>
+			<Condition use="FI415B">NC0103</Condition-->
 			<Condition use="FI413B">NC0238</Condition>
 			<Condition use="FI415B">NC0238</Condition>
 			<Condition use="FI483B">NC0238</Condition>
@@ -1343,7 +1343,7 @@
 				<DescriptionLine lang="sv">EORI-nummer</DescriptionLine>
 				<DescriptionLine lang="en">EORI ID</DescriptionLine>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Toimipaikkakoodi</Name>
 				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
@@ -1356,29 +1356,47 @@
 				<Use>FI483B</Use>
 				<Use>FI485B</Use>
 				<Use>FI488B</Use>
-				<Filter>FI413BI1</Filter>
-				<Filter>FI415BI1</Filter>
-				<Filter>FI413BH2</Filter>
-				<Filter>FI415BH2</Filter>
-				<Filter>FI413BH3</Filter>
-				<Filter>FI415BH3</Filter>
-				<Filter>FI413BH4</Filter>
-				<Filter>FI415BH4</Filter>
-				<Filter>FI413BH5E</Filter>
-				<Filter>FI415BH5E</Filter>
-				<Filter>FI413BH5N</Filter>
-				<Filter>FI415BH5N</Filter>
-				<Filter>FI413BH5R</Filter>
-				<Filter>FI415BH5R</Filter>
-				<XPath>AdditionalIdentifier/Identification</XPath>
+				<XPath>AdditionalIdentifier</XPath>
+				<Group>Agent</Group>
 				<MinOccurence>0</MinOccurence>
-				<MinOccurence use="FI473B">1</MinOccurence>
-				<MinOccurence use="FI475B">1</MinOccurence>
-				<Format>n3</Format>
-				<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-				<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-				<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Toimipaikkakoodi</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
+					<Name lang="en">Office code</Name>
+					<Use>FI413B</Use>
+					<Use>FI414B</Use>
+					<Use>FI415B</Use>
+					<Use>FI446B</Use>
+					<Use>FI473B</Use>
+					<Use>FI475B</Use>
+					<Use>FI483B</Use>
+					<Use>FI485B</Use>
+					<Use>FI488B</Use>
+					<Filter>FI413BI1</Filter>
+					<Filter>FI415BI1</Filter>
+					<Filter>FI413BH2</Filter>
+					<Filter>FI415BH2</Filter>
+					<Filter>FI413BH3</Filter>
+					<Filter>FI415BH3</Filter>
+					<Filter>FI413BH4</Filter>
+					<Filter>FI415BH4</Filter>
+					<Filter>FI413BH5E</Filter>
+					<Filter>FI415BH5E</Filter>
+					<Filter>FI413BH5N</Filter>
+					<Filter>FI415BH5N</Filter>
+					<Filter>FI413BH5R</Filter>
+					<Filter>FI415BH5R</Filter>
+					<XPath>Identification</XPath>
+					<MinOccurence>0</MinOccurence>
+					<MinOccurence use="FI473B">1</MinOccurence>
+					<MinOccurence use="FI475B">1</MinOccurence>
+					<Format>n3</Format>
+					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+					<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+					<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+				</DataElement>
+			</DataGroup>
 			<DataElement>
 				<Name lang="fi">Nimi</Name>
 				<Name lang="sv">Namn</Name>
@@ -1645,7 +1663,7 @@
 				<DescriptionLine lang="sv">Om företaget har ett EORI-nummer som beviljats av ett annat land än Finland och ett finskt FO-nummer, anges EORI här.</DescriptionLine>
 				<DescriptionLine lang="en">If the business has an EORI number issued by a country other than Finland and a Finnish Business ID, the EORI shall be provided here.</DescriptionLine>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Toimipaikkakoodi</Name>
 				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
@@ -1653,18 +1671,31 @@
 				<Use>FI414B</Use>
 				<Use>FI473B</Use>
 				<Use>FI483B</Use>
-				<Filter>FI413BI1</Filter>
-				<Filter>FI413BH2</Filter>
-				<Filter>FI413BH3</Filter>
-				<Filter>FI413BH4</Filter>
-				<Filter>FI413BH5E</Filter>
-				<XPath>AdditionalIdentifier/Identification</XPath>
+				<XPath>AdditionalIdentifier</XPath>
+				<Group>Applicant</Group>
 				<MinOccurence>0</MinOccurence>
-				<Format>n3</Format>
-				<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-				<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-				<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Toimipaikkakoodi</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
+					<Name lang="en">Office code</Name>
+					<Use>FI413B</Use>
+					<Use>FI414B</Use>
+					<Use>FI473B</Use>
+					<Use>FI483B</Use>
+					<Filter>FI413BI1</Filter>
+					<Filter>FI413BH2</Filter>
+					<Filter>FI413BH3</Filter>
+					<Filter>FI413BH4</Filter>
+					<Filter>FI413BH5E</Filter>
+					<XPath>Identification</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Format>n3</Format>
+					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+					<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+					<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+				</DataElement>
+			</DataGroup>
 			<DataElement>
 				<Name lang="fi">Nimi</Name>
 				<Name lang="sv">Namn</Name>
@@ -1815,7 +1846,6 @@
 			<XPath>Declarant</XPath>
 			<Group>Declarant</Group>
 			<MinOccurence>0</MinOccurence>
-			<MinOccurence use="FI414B">1</MinOccurence>
 			<MinOccurence use="FI446B">1</MinOccurence>
 			<MinOccurence use="FI473B">1</MinOccurence>
 			<MinOccurence use="FI475B">1</MinOccurence>
@@ -1855,9 +1885,6 @@
 				<Filter>FI415BH5E</Filter>
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
-				<Rule>NR0034</Rule>
-				<Rule>NR0035</Rule>
-				<Rule>NR0036</Rule>
 				<Rule use="FI413B">NR0101</Rule>
 				<Rule use="FI415B">NR0101</Rule>
 				<Rule use="FI413B">NR0034</Rule>
@@ -1874,7 +1901,7 @@
 				<DescriptionLine lang="sv">Om företaget har ett EORI-nummer som beviljats av ett annat land än Finland och ett finskt FO-nummer, anges EORI här.</DescriptionLine>
 				<DescriptionLine lang="en">If the business has an EORI number issued by a country other than Finland and a Finnish Business ID, the EORI shall be provided here.</DescriptionLine>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Toimipaikkakoodi</Name>
 				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
@@ -1885,25 +1912,41 @@
 				<Use>FI475B</Use>
 				<Use>FI483B</Use>
 				<Use>FI485B</Use>
-				<Filter>FI413BI1</Filter>
-				<Filter>FI415BI1</Filter>
-				<Filter>FI413BH2</Filter>
-				<Filter>FI415BH2</Filter>
-				<Filter>FI413BH3</Filter>
-				<Filter>FI415BH3</Filter>
-				<Filter>FI413BH4</Filter>
-				<Filter>FI415BH4</Filter>
-				<Filter>FI413BH5E</Filter>
-				<Filter>FI415BH5E</Filter>
-				<XPath>AdditionalIdentifier/Identification</XPath>
+				<XPath>AdditionalIdentifier</XPath>
+				<Group>Declarant</Group>
 				<MinOccurence>0</MinOccurence>
-				<Condition use="FI483B">NC0103</Condition>
-				<Condition use="FI485B">NC0103</Condition>
-				<Format>n3</Format>
-				<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-				<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-				<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Toimipaikkakoodi</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
+					<Name lang="en">Office code</Name>
+					<Use>FI413B</Use>
+					<Use>FI415B</Use>
+					<Use>FI446B</Use>
+					<Use>FI473B</Use>
+					<Use>FI475B</Use>
+					<Use>FI483B</Use>
+					<Use>FI485B</Use>
+					<Filter>FI413BI1</Filter>
+					<Filter>FI415BI1</Filter>
+					<Filter>FI413BH2</Filter>
+					<Filter>FI415BH2</Filter>
+					<Filter>FI413BH3</Filter>
+					<Filter>FI415BH3</Filter>
+					<Filter>FI413BH4</Filter>
+					<Filter>FI415BH4</Filter>
+					<Filter>FI413BH5E</Filter>
+					<Filter>FI415BH5E</Filter>
+					<XPath>Identification</XPath>
+					<MinOccurence>0</MinOccurence>
+					<!--Condition use="FI483B">NC0103</Condition>
+					<Condition use="FI485B">NC0103</Condition-->
+					<Format>n3</Format>
+					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+					<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+					<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+				</DataElement>
+			</DataGroup>
 			<DataElement>
 				<Name lang="fi">Nimi</Name>
 				<Name lang="sv">Namn</Name>
@@ -2147,7 +2190,7 @@
 				<DescriptionLine lang="sv">EORI eller annan identifikation för AEO-aktör som grundar sig på ömsesidigt avtal anges, om exportören har en sådan, anmäls.</DescriptionLine>
 				<DescriptionLine lang="en">EORI or other identification based on a Mutual Recognition Agreement for AEO operators, if the exporter has such an ID, is entered.</DescriptionLine>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Toimipaikkakoodi</Name>
 				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
@@ -2165,15 +2208,38 @@
 				<Filter>FI415BH5N</Filter>
 				<Filter>FI413BH5R</Filter>
 				<Filter>FI415BH5R</Filter>
-				<XPath>AdditionalIdentifier/Identification</XPath>
+				<XPath>AdditionalIdentifier</XPath>
+				<Group>Exporter</Group>
 				<MinOccurence>0</MinOccurence>
-				<!--Condition>NC0204</Condition-->
-				<Condition>NC0221</Condition>
-				<Format>n3</Format>
-				<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-				<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-				<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Toimipaikkakoodi</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
+					<Name lang="en">Office code</Name>
+					<Use>FI413B</Use>
+					<Use>FI415B</Use>
+					<Filter>FI413BI1</Filter>
+					<Filter>FI415BI1</Filter>
+					<Filter>FI413BH3</Filter>
+					<Filter>FI415BH3</Filter>
+					<Filter>FI413BH4</Filter>
+					<Filter>FI415BH4</Filter>
+					<Filter>FI413BH5E</Filter>
+					<Filter>FI415BH5E</Filter>
+					<Filter>FI413BH5N</Filter>
+					<Filter>FI415BH5N</Filter>
+					<Filter>FI413BH5R</Filter>
+					<Filter>FI415BH5R</Filter>
+					<XPath>Identification</XPath>
+					<MinOccurence>0</MinOccurence>
+					<!--Condition>NC0204</Condition-->
+					<Condition>NC0221</Condition>
+					<Format>n3</Format>
+					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+					<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+					<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+				</DataElement>
+			</DataGroup>
 			<DataElement>
 				<Name lang="fi">Nimi</Name>
 				<Name lang="sv">Namn</Name>
@@ -2397,7 +2463,7 @@
 				<Format>an..17</Format>
 				<DescriptionLine lang="fi">Ilmoitetaan EORI.</DescriptionLine>
 				<DescriptionLine lang="sv">EORI-nummer anges.</DescriptionLine>
-				<DescriptionLine lang="en">EORI is entered.</DescriptionLine>
+				<DescriptionLine lang="en">EORI number is entered.</DescriptionLine>
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
@@ -2736,7 +2802,7 @@
 				<DescriptionLine lang="en">Code for a supporting document that relates to the whole declaration at header level is entered.</DescriptionLine>
 			</DataElement>
 			<DataElement>
-				<Name lang="fi">Asiakirjan tunniste</Name>
+				<Name lang="fi">Asiakirjatunniste</Name>
 				<Name lang="sv">Dokumentets identifierare</Name>
 				<Name lang="en">Document identifier</Name>
 				<Use>FI413B</Use>
@@ -2804,7 +2870,7 @@
 				<MinOccurence>0</MinOccurence>
 				<Format>date</Format>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Liitteen viite</Name>
 				<Name lang="sv">Bilagans referens</Name>
 				<Name lang="en">Attachment reference</Name>
@@ -2812,27 +2878,40 @@
 				<Use>FI415B</Use>
 				<Use>FI483B</Use>
 				<Use>FI485B</Use>
-				<Filter>FI413BI1</Filter>
-				<Filter>FI415BI1</Filter>
-				<Filter>FI413BH2</Filter>
-				<Filter>FI415BH2</Filter>
-				<Filter>FI413BH3</Filter>
-				<Filter>FI415BH3</Filter>
-				<Filter>FI413BH4</Filter>
-				<Filter>FI415BH4</Filter>
-				<Filter>FI413BH5E</Filter>
-				<Filter>FI415BH5E</Filter>
-				<Filter>FI413BH5N</Filter>
-				<Filter>FI415BH5N</Filter>
-				<Filter>FI413BH5R</Filter>
-				<Filter>FI415BH5R</Filter>
-				<XPath>NationalReference/Identification</XPath>
+				<XPath>NationalReference</XPath>
+				<Group>SupportingDocument</Group>
 				<MinOccurence>0</MinOccurence>
-				<Format>an..22</Format>
-				<DescriptionLine lang="fi">Ilmoitetaan liiteasiakirjan liitteiden lähetyspalvelun viite, jos liite on toimitettu Tullille.</DescriptionLine>
-				<DescriptionLine lang="sv">Referensen för bilagan från tjänsten för leverans av bifogade filer, om en bilaga har levererats till Tullen, anmäls.</DescriptionLine>
-				<DescriptionLine lang="en">The attachment reference for the supporting document from the Attachment Upload service, if the attachment has been submitted to Customs, is entered.</DescriptionLine>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Liitteen viite</Name>
+					<Name lang="sv">Bilagans referens</Name>
+					<Name lang="en">Attachment reference</Name>
+					<Use>FI413B</Use>
+					<Use>FI415B</Use>
+					<Use>FI483B</Use>
+					<Use>FI485B</Use>
+					<Filter>FI413BI1</Filter>
+					<Filter>FI415BI1</Filter>
+					<Filter>FI413BH2</Filter>
+					<Filter>FI415BH2</Filter>
+					<Filter>FI413BH3</Filter>
+					<Filter>FI415BH3</Filter>
+					<Filter>FI413BH4</Filter>
+					<Filter>FI415BH4</Filter>
+					<Filter>FI413BH5E</Filter>
+					<Filter>FI415BH5E</Filter>
+					<Filter>FI413BH5N</Filter>
+					<Filter>FI415BH5N</Filter>
+					<Filter>FI413BH5R</Filter>
+					<Filter>FI415BH5R</Filter>
+					<XPath>Identification</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Format>an..22</Format>
+					<DescriptionLine lang="fi">Ilmoitetaan liiteasiakirjan liitteiden lähetyspalvelun viite, jos liite on toimitettu Tullille.</DescriptionLine>
+					<DescriptionLine lang="sv">Referensen för bilagan från tjänsten för leverans av bifogade filer, om en bilaga har levererats till Tullen, anmäls.</DescriptionLine>
+					<DescriptionLine lang="en">The attachment reference for the supporting document from the Attachment Upload service, if the attachment has been submitted to Customs, is entered.</DescriptionLine>
+				</DataElement>
+			</DataGroup>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Lupa</Name>
@@ -2906,7 +2985,7 @@
 				<Format>an..4</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="fi">Asiakirjan tunniste</Name>
+				<Name lang="fi">Asiakirjatunniste</Name>
 				<Name lang="sv">Dokumentets identifierare</Name>
 				<Name lang="en">Document identifier</Name>
 				<Use>FI413B</Use>
@@ -3319,9 +3398,9 @@
 				<Codelist>CL014</Codelist>
 				<Rule>NR0250</Rule>
 				<Format>an..4</Format>
-				<DescriptionLine lang="fi">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos edeltävä tulli-ilmoitus on annettu UTU-järjestelmään, ilmoitetaan asiakirjatyyppi MRN.</DescriptionLine>
-				<DescriptionLine lang="sv">Ange tidigare dokument, oftast en summarisk införseldeklaration, summarisk deklaration eller en T1-transiteringsdeklaration. Om den tidigare deklarationen har ingetts till UTU-systemet, anges MRN som typ av tidigare dokument.</DescriptionLine>
-				<DescriptionLine lang="en">Provide the previous document, usually an entry summary declaration, a summary declaration, or a T1 transit declaration. If the previous declaration was lodged in the UTU system, provide the document type MRN.</DescriptionLine>
+				<DescriptionLine lang="fi">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, ilmoitetaan MRN.</DescriptionLine>
+				<DescriptionLine lang="sv">Tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration anges. Om den tidigare deklarationen har ingetts till UTU-systemet, anges MRN.</DescriptionLine>
+				<DescriptionLine lang="en">Previous document which is most often entry summary declaration, summary declaration or T1-transit declaration is entered. If previous declaration is submitted to Finnish Customs UTU system, MRN is entered.</DescriptionLine>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Edeltävän asiakirjan viite</Name>
@@ -3480,10 +3559,10 @@
 				<Condition>NC0208</Condition>
 				<Format>n2</Format>
 			</DataElement>
-			<DataElement>
-				<Name lang="fi">Määrämaan koodi</Name>
-				<Name lang="sv">Kod för destinationsland</Name>
-				<Name lang="en">Country of destination code</Name>
+			<DataGroup hidden="true">
+				<Name lang="fi">Määrämaa</Name>
+				<Name lang="sv">Destinationsland</Name>
+				<Name lang="en">Country of destination</Name>
 				<Use>FI413B</Use>
 				<Use>FI415B</Use>
 				<Filter>FI413BI1</Filter>
@@ -3496,50 +3575,80 @@
 				<Filter>FI415BH4</Filter>
 				<Filter>FI413BH5E</Filter>
 				<Filter>FI415BH5E</Filter>
-				<XPath>Destination/Country</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Codelist>CL010</Codelist>
-				<Rule>NR0101</Rule>
-				<Rule>NR0285</Rule>
-				<Condition>NC0211</Condition>
-				<Format>a2</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Lähetys-/vientimaan koodi</Name>
-				<Name lang="sv">Kod för avsändnings-/exportland</Name>
-				<Name lang="en">Country of dispatch/export code</Name>
-				<Use>FI413B</Use>
-				<Use>FI415B</Use>
-				<Use>FI483B</Use>
-				<Use>FI485B</Use>
-				<Filter>FI413BI1</Filter>
-				<Filter>FI415BI1</Filter>
-				<Filter>FI413BH2</Filter>
-				<Filter>FI415BH2</Filter>
-				<Filter>FI413BH3</Filter>
-				<Filter>FI415BH3</Filter>
-				<Filter>FI413BH4</Filter>
-				<Filter>FI415BH4</Filter>
-				<Filter>FI413BH5E</Filter>
-				<Filter>FI415BH5E</Filter>
-				<XPath>ExportCountry/Country</XPath>
+				<XPath>Destination</XPath>
+				<Group>GoodsShipment</Group>
 				<MinOccurence>0</MinOccurence>
-				<MinOccurence use="FI483B">1</MinOccurence>
-				<MinOccurence use="FI485B">1</MinOccurence>
-				<Codelist>CL008</Codelist>
-				<Rule use="FI413B">NR0055</Rule>
-				<Rule use="FI415B">NR0055</Rule>
-				<Rule use="FI413B">NR0101</Rule>
-				<Rule use="FI415B">NR0101</Rule>
-				<Condition use="FI413B">NC0209</Condition>
-				<Condition use="FI415B">NC0209</Condition>
-				<Format>a2</Format>
-				<DescriptionLine lang="fi">Ilmoitetaan alkuperäinen lähetysmaan koodi. Jos matkan aikana on kuljetukseen liittymätön pysäytys tai kauppatapahtuma (esim. myynti tai jalostus), käytetään tämän maan koodia. Tavaralähetysten yhdistämistä matkalla ei pidetä tässä pysäytyksenä.</DescriptionLine>
-				<DescriptionLine lang="sv">Koden för det ursprungliga avsändningslandet anges. Om det under resan inträffar ett stopp som inte hänför sig till varutransporten eller sker en handelstransaktion (t.ex. försäljning eller förädling), ska koden för detta land användas. Konsolidering av varor under resan ses inte som ett stopp i detta sammanhang.</DescriptionLine>
-				<DescriptionLine lang="en">The original country code of dispatch is entered. If there has been a stoppage unrelated to the transport of goods or a commercial transaction (e.g. sale or processing), indicate the last intermediate country. Consolidation of the goods en-route is not considered as a stoppage in this data element.</DescriptionLine>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Määrämaan koodi</Name>
+					<Name lang="sv">Kod för destinationsland</Name>
+					<Name lang="en">Country of destination code</Name>
+					<Use>FI413B</Use>
+					<Use>FI415B</Use>
+					<Filter>FI413BI1</Filter>
+					<Filter>FI415BI1</Filter>
+					<Filter>FI413BH2</Filter>
+					<Filter>FI415BH2</Filter>
+					<Filter>FI413BH3</Filter>
+					<Filter>FI415BH3</Filter>
+					<Filter>FI413BH4</Filter>
+					<Filter>FI415BH4</Filter>
+					<Filter>FI413BH5E</Filter>
+					<Filter>FI415BH5E</Filter>
+					<XPath>Country</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Codelist>CL010</Codelist>
+					<Rule>NR0101</Rule>
+					<Rule>NR0285</Rule>
+					<Condition>NC0211</Condition>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+			<DataGroup hidden="true">
+				<Name lang="fi">Lähetysmaa</Name>
+				<Name lang="sv">Avsändningsland</Name>
+				<Name lang="en">Country of dispatch</Name>
+				<XPath>ExportCountry</XPath>
+				<Group>GoodsShipment</Group>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Lähetysmaan koodi</Name>
+					<Name lang="sv">Kod för avsändningsland</Name>
+					<Name lang="en">Country of dispatch code</Name>
+					<Use>FI413B</Use>
+					<Use>FI415B</Use>
+					<Use>FI483B</Use>
+					<Use>FI485B</Use>
+					<Filter>FI413BI1</Filter>
+					<Filter>FI415BI1</Filter>
+					<Filter>FI413BH2</Filter>
+					<Filter>FI415BH2</Filter>
+					<Filter>FI413BH3</Filter>
+					<Filter>FI415BH3</Filter>
+					<Filter>FI413BH4</Filter>
+					<Filter>FI415BH4</Filter>
+					<Filter>FI413BH5E</Filter>
+					<Filter>FI415BH5E</Filter>
+					<XPath>Country</XPath>
+					<MinOccurence>0</MinOccurence>
+					<MinOccurence use="FI483B">1</MinOccurence>
+					<MinOccurence use="FI485B">1</MinOccurence>
+					<Codelist>CL008</Codelist>
+					<Rule use="FI413B">NR0055</Rule>
+					<Rule use="FI415B">NR0055</Rule>
+					<Rule use="FI413B">NR0101</Rule>
+					<Rule use="FI415B">NR0101</Rule>
+					<Condition use="FI413B">NC0209</Condition>
+					<Condition use="FI415B">NC0209</Condition>
+					<Format>a2</Format>
+					<DescriptionLine lang="fi">Ilmoitetaan alkuperäinen lähetysmaan koodi. Jos matkan aikana on kuljetukseen liittymätön pysäytys tai kauppatapahtuma (esim. myynti tai jalostus), käytetään tämän maan koodia. Tavaralähetysten yhdistämistä matkalla ei pidetä tässä pysäytyksenä.</DescriptionLine>
+					<DescriptionLine lang="sv">Koden för det ursprungliga avsändningslandet anges. Om det under resan inträffar ett stopp som inte hänför sig till varutransporten eller sker en handelstransaktion (t.ex. försäljning eller förädling), ska koden för detta land användas. Konsolidering av varor under resan ses inte som ett stopp i detta sammanhang.</DescriptionLine>
+					<DescriptionLine lang="en">The original country code of dispatch is entered. If there has been a stoppage unrelated to the transport of goods or a commercial transaction (e.g. sale or processing), indicate the last intermediate country. Consolidation of the goods en-route is not considered as a stoppage in this data element.</DescriptionLine>
+				</DataElement>
+			</DataGroup>
 			<DataGroup>
-				<Name lang="fi">Toimitusketjun lisätoimija</Name>
+				<Name lang="fi">Toimitusketjun muu toimija</Name>
 				<Name lang="sv">Ytterligare aktör i leveranskedjan</Name>
 				<Name lang="en">Additional supply chain actor</Name>
 				<Use>FI413B</Use>
@@ -3585,30 +3694,41 @@
 					<DescriptionLine lang="sv">Aktörens EORI-nummer eller identifikationen för en aktör enligt ett internationellt MRA-avtal som motsvarar AEO-aktör anges.</DescriptionLine>
 					<DescriptionLine lang="en">EORI number of the actor or the identification number of an operator corresponding to an AEO operator under an international Mutual Recognition Agreement is entered.</DescriptionLine>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI413B</Use>
 					<Use>FI415B</Use>
-					<Filter>FI413BI1</Filter>
-					<Filter>FI415BI1</Filter>
-					<Filter>FI413BH2</Filter>
-					<Filter>FI415BH2</Filter>
-					<Filter>FI413BH3</Filter>
-					<Filter>FI415BH3</Filter>
-					<Filter>FI413BH4</Filter>
-					<Filter>FI415BH4</Filter>
-					<Filter>FI413BH5E</Filter>
-					<Filter>FI415BH5E</Filter>
-					<XPath>AdditionalIdentifier/Identification</XPath>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>AEOMutualRecognitionParty</Group>
 					<MinOccurence>0</MinOccurence>
-					<Condition>NC0221</Condition>
-					<Format>n3</Format>
-					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-					<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-					<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI413B</Use>
+						<Use>FI415B</Use>
+						<Filter>FI413BI1</Filter>
+						<Filter>FI415BI1</Filter>
+						<Filter>FI413BH2</Filter>
+						<Filter>FI415BH2</Filter>
+						<Filter>FI413BH3</Filter>
+						<Filter>FI415BH3</Filter>
+						<Filter>FI413BH4</Filter>
+						<Filter>FI415BH4</Filter>
+						<Filter>FI413BH5E</Filter>
+						<Filter>FI415BH5E</Filter>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Condition>NC0221</Condition>
+						<Format>n3</Format>
+						<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+						<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+						<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Roolikoodi</Name>
 					<Name lang="sv">Rollkod</Name>
@@ -3661,22 +3781,33 @@
 					<MinOccurence>0</MinOccurence>
 					<Format>an..17</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI413B</Use>
 					<Use>FI415B</Use>
-					<Filter>FI413BI1</Filter>
-					<Filter>FI415BI1</Filter>
-					<XPath>AdditionalIdentifier/Identification</XPath>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>Buyer</Group>
 					<MinOccurence>0</MinOccurence>
-					<Condition>NC0221</Condition>
-					<Format>n3</Format>
-					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-					<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-					<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI413B</Use>
+						<Use>FI415B</Use>
+						<Filter>FI413BI1</Filter>
+						<Filter>FI415BI1</Filter>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Condition>NC0221</Condition>
+						<Format>n3</Format>
+						<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+						<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+						<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Nimi</Name>
 					<Name lang="sv">Namn</Name>
@@ -3804,7 +3935,7 @@
 					<DescriptionLine lang="en" use="FI483B">VAT number of the actor registered for IOSS is entered.</DescriptionLine>
 					<DescriptionLine lang="en" use="FI485B">VAT number of the actor registered for IOSS is entered.</DescriptionLine>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
@@ -3812,14 +3943,27 @@
 					<Use>FI415B</Use>
 					<Filter>FI413BI1</Filter>
 					<Filter>FI415BI1</Filter>
-					<XPath>AdditionalIdentifier/Identification</XPath>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>DomesticDutyTaxParty</Group>
 					<MinOccurence>0</MinOccurence>
-					<Condition>C0619</Condition>
-					<Format>n3</Format>
-					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-					<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-					<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI413B</Use>
+						<Use>FI415B</Use>
+						<Filter>FI413BI1</Filter>
+						<Filter>FI415BI1</Filter>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Condition>C0619</Condition>
+						<Format>n3</Format>
+						<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+						<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+						<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Roolikoodi</Name>
 					<Name lang="sv">Rollkod</Name>
@@ -3913,7 +4057,7 @@
 					<DescriptionLine lang="sv">EORI-nummer eller annat identifieringsnummer för importören anmäls.</DescriptionLine>
 					<DescriptionLine lang="en">EORI number or other identification number of the importer is entered.</DescriptionLine>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
@@ -3921,27 +4065,40 @@
 					<Use>FI415B</Use>
 					<Use>FI483B</Use>
 					<Use>FI485B</Use>
-					<Filter>FI413BI1</Filter>
-					<Filter>FI415BI1</Filter>
-					<Filter>FI413BH2</Filter>
-					<Filter>FI415BH2</Filter>
-					<Filter>FI413BH3</Filter>
-					<Filter>FI415BH3</Filter>
-					<Filter>FI413BH4</Filter>
-					<Filter>FI415BH4</Filter>
-					<Filter>FI413BH5E</Filter>
-					<Filter>FI415BH5E</Filter>
-					<Filter>FI413BH5N</Filter>
-					<Filter>FI415BH5N</Filter>
-					<Filter>FI413BH5R</Filter>
-					<Filter>FI415BH5R</Filter>
-					<XPath>AdditionalIdentifier/Identification</XPath>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>Importer</Group>
 					<MinOccurence>0</MinOccurence>
-					<Format>n3</Format>
-					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-					<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-					<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI413B</Use>
+						<Use>FI415B</Use>
+						<Use>FI483B</Use>
+						<Use>FI485B</Use>
+						<Filter>FI413BI1</Filter>
+						<Filter>FI415BI1</Filter>
+						<Filter>FI413BH2</Filter>
+						<Filter>FI415BH2</Filter>
+						<Filter>FI413BH3</Filter>
+						<Filter>FI415BH3</Filter>
+						<Filter>FI413BH4</Filter>
+						<Filter>FI415BH4</Filter>
+						<Filter>FI413BH5E</Filter>
+						<Filter>FI415BH5E</Filter>
+						<Filter>FI413BH5N</Filter>
+						<Filter>FI415BH5N</Filter>
+						<Filter>FI413BH5R</Filter>
+						<Filter>FI415BH5R</Filter>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>n3</Format>
+						<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+						<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+						<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Nimi</Name>
 					<Name lang="sv">Namn</Name>
@@ -4163,22 +4320,33 @@
 					<MinOccurence>0</MinOccurence>
 					<Format>an..17</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI413B</Use>
 					<Use>FI415B</Use>
-					<Filter>FI413BI1</Filter>
-					<Filter>FI415BI1</Filter>
-					<XPath>AdditionalIdentifier/Identification</XPath>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>Seller</Group>
 					<MinOccurence>0</MinOccurence>
-					<Condition>NC0221</Condition>
-					<Format>n3</Format>
-					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
-					<DescriptionLine lang="sv">Ange den nationella koden för verksamhetsställe med tre siffror (t.ex. 000), om en sådan har tilldelats.</DescriptionLine>
-					<DescriptionLine lang="en">Enter the three-digit national identifier of the office (e.g. 000), if such an identifier has been issued.</DescriptionLine>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI413B</Use>
+						<Use>FI415B</Use>
+						<Filter>FI413BI1</Filter>
+						<Filter>FI415BI1</Filter>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Condition>NC0221</Condition>
+						<Format>n3</Format>
+						<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
+						<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
+						<DescriptionLine lang="en">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</DescriptionLine>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Nimi</Name>
 					<Name lang="sv">Namn</Name>
@@ -5040,8 +5208,8 @@
 					<MinOccurence>1</MinOccurence>
 					<Format>an..35</Format>
 					<DescriptionLine lang="fi">Ilmoitetaan, jos lähetykselle on annettu yhtenäisviite UCR, eli lähettäjän antama yksilöllinen ja pysyvä viite läpi koko toimitusketjun. Se voi olla WCO (ISO 15459) -koodi tai vastaava.</DescriptionLine>
-					<DescriptionLine lang="sv">Försändelsens eventuella unika referensnummer (UCR), dvs. av avsändaren tilldelad unik och permanent referens genom hela leveranskedjan, anges. Det kan vara t.ex. en WCO (ISO 15459)-kod eller motsvarande.</DescriptionLine>
-					<DescriptionLine lang="en">The unique consignment reference UCR, if one has been assigned by the consignor, is entered. UCR remains the same throughout the supply chain. It can be WCO (ISO 15459) -code or an equivalent.</DescriptionLine>
+					<DescriptionLine lang="sv">Anges om försändelsen har tilldelats ett unikt referensnummer (UCR) av avsändaren som en unik och permanent referens genom hela leveranskedjan. Det kan vara en WCO-kod (ISO 15459) eller motsvarande.</DescriptionLine>
+					<DescriptionLine lang="en">This detail is entered if a unique consignment reference (UCR) has been issued for the consignment, i.e. a reference issued by the consignor that is unique and remains the same throughout the supply chain. It can be a WCO (ISO 15459) code or an equivalent.</DescriptionLine>
 				</DataElement>
 			</DataGroup>
 			<DataGroup>
@@ -5272,24 +5440,35 @@
 					<Codelist>CL352</Codelist>
 					<Format>a3</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Arvonmäärityksen indikaattorit</Name>
 					<Name lang="sv">Värderingsindikatorer</Name>
 					<Name lang="en">Valuation indicators</Name>
 					<Use>FI413B</Use>
 					<Use>FI415B</Use>
-					<Filter>FI413BH4</Filter>
-					<Filter>FI415BH4</Filter>
-					<Filter>FI413BH5E</Filter>
-					<Filter>FI415BH5E</Filter>
-					<XPath>ValuationAdjustment/Addition</XPath>
+					<XPath>ValuationAdjustment</XPath>
+					<Group>GoodsItem</Group>
 					<MinOccurence>0</MinOccurence>
-					<Condition>NC0253</Condition>
-					<Format>an4</Format>
-					<DescriptionLine lang="fi">Ilmoitetaan vain kaupallisesta tuonnista, jos tuotujen tavaroiden tullausarvo on yli 20 000 euroa lähetykseltä tai tietoa edellytetään muutoin säännösten mukaan. Koodi muodostuu neljästä numerosta, joista kukin on joko ”0”= epätosi tai ”1”= tosi. Jokainen ”0” tai ”1” kertoo, onko arvonmäärityksen indikaattorilla merkitystä kyseisen tavaran arvonmäärityksen kannalta. Ensimmäinen numero: Onko osapuolilla etuyhteys, riippumatta siitä, onko se vaikuttanut hintaan. Toinen numero: Onko rajoituksia ostajan oikeuteen luovuttaa tavaroita tai käyttää niitä koodeksin 70 art. 3a alakohdan mukaisesti. Kolmas numero: Riippuuko myynti tai hinta eräistä ehdoista tai suorituksista koodeksin 70 art. 3b alakohdan mukaisesti. Neljäs numero: koskeeko myyntiä järjestely, jonka mukaan osa myöhemmän jälleenmyynnin, luovutuksen tai käytön tuotosta tulee suoraan tai välillisesti myyjän hyväksi. Esimerkki: Tavaroista, joihin liittyy osapuolten etuyhteys, mutta ei mikään toisen, kolmannen tai neljännen numeron määrittelemä tilanne, käytetään koodiyhdistelmää ”1000”.</DescriptionLine>
-					<DescriptionLine lang="sv">Anges endast för kommersiell import om de importerade varornas tullvärde överstiger 20 000 euro per försändelse eller om uppgiften annars förutsätts enligt bestämmelserna. Koden består av fyra siffror, och varje siffra är antingen ”0”= falskt eller ”1”= sant. Varje ”0” eller ”1” anger om värderingsindikatorn är av betydelse för värderingen av varan i fråga. Första siffran: Har parterna en närståenderelation, oavsett om det har påverkat priset. Andra siffran: Finns det inskränkningar enligt artikel 70.3 a i kodexen på köparens rätt att förfoga över eller använda varorna. Tredje siffran: Är försäljningen eller priset enligt artikel 70.3 b i kodexen beroende av något villkor eller någon ersättning. Fjärde siffran: gäller för försäljningen ett arrangemang där förtjänsten från efterföljande återförsäljning, förfogande eller användning av varorna till någon del direkt eller indirekt tillfaller säljaren. Exempel: När en närståenderelation mellan parterna föreligger, men ingen situation enligt den andra, tredje och fjärde siffran, anges den sammansatta koden ”1000” för varorna.</DescriptionLine>
-					<DescriptionLine lang="en">Shall only be provided for commercial imports, if the customs value of the import goods exceeds 20 000 euros or if otherwise required under the regulations. The code consists of four digits, each being either “0”= false or “1”= true. Each “0” or “1” indicates if the valuation indicator is of significance for the valuation of the goods in question. First digit: Does a relationship exist between the parties, regardless of whether it has influenced the price. Second digit: Are there any restrictions as to the disposal or use of the goods by the buyer in accordance with point (a) of Article 70(3) of the Union Customs Code. Third digit: Is the sale or price subject to some condition or consideration in accordance with point (b) of Article 70(3) of the Union Customs Code. Fourth digit: is the sale subject to an arrangement where a part of the proceeds of any subsequent resale, disposal or use of the goods will accrue directly or indirectly to the seller. Example: For goods that involve a relationship between the parties but no situation according to the second, third or fourth digit, the code combination “1000” should be used.</DescriptionLine>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Arvonmäärityksen indikaattorit</Name>
+						<Name lang="sv">Värderingsindikatorer</Name>
+						<Name lang="en">Valuation indicators</Name>
+						<Use>FI413B</Use>
+						<Use>FI415B</Use>
+						<Filter>FI413BH4</Filter>
+						<Filter>FI415BH4</Filter>
+						<Filter>FI413BH5E</Filter>
+						<Filter>FI415BH5E</Filter>
+						<XPath>Addition</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Condition>NC0253</Condition>
+						<Format>an4</Format>
+						<DescriptionLine lang="fi">Ilmoitetaan vain kaupallisesta tuonnista, jos tuotujen tavaroiden tullausarvo on yli 20 000 euroa lähetykseltä tai tietoa edellytetään muutoin säännösten mukaan. Koodi muodostuu neljästä numerosta, joista kukin on joko ”0”= epätosi tai ”1”= tosi. Jokainen ”0” tai ”1” kertoo, onko arvonmäärityksen indikaattorilla merkitystä kyseisen tavaran arvonmäärityksen kannalta. Ensimmäinen numero: Onko osapuolilla etuyhteys, riippumatta siitä, onko se vaikuttanut hintaan. Toinen numero: Onko rajoituksia ostajan oikeuteen luovuttaa tavaroita tai käyttää niitä koodeksin 70 art. 3a alakohdan mukaisesti. Kolmas numero: Riippuuko myynti tai hinta eräistä ehdoista tai suorituksista koodeksin 70 art. 3b alakohdan mukaisesti. Neljäs numero: koskeeko myyntiä järjestely, jonka mukaan osa myöhemmän jälleenmyynnin, luovutuksen tai käytön tuotosta tulee suoraan tai välillisesti myyjän hyväksi. Esimerkki: Tavaroista, joihin liittyy osapuolten etuyhteys, mutta ei mikään toisen, kolmannen tai neljännen numeron määrittelemä tilanne, käytetään koodiyhdistelmää ”1000”.</DescriptionLine>
+						<DescriptionLine lang="sv">Anges endast för kommersiell import om de importerade varornas tullvärde överstiger 20 000 euro per försändelse eller om uppgiften annars förutsätts enligt bestämmelserna. Koden består av fyra siffror, och varje siffra är antingen ”0”= falskt eller ”1”= sant. Varje ”0” eller ”1” anger om värderingsindikatorn är av betydelse för värderingen av varan i fråga. Första siffran: Har parterna en närståenderelation, oavsett om det har påverkat priset. Andra siffran: Finns det inskränkningar enligt artikel 70.3 a i kodexen på köparens rätt att förfoga över eller använda varorna. Tredje siffran: Är försäljningen eller priset enligt artikel 70.3 b i kodexen beroende av något villkor eller någon ersättning. Fjärde siffran: gäller för försäljningen ett arrangemang där förtjänsten från efterföljande återförsäljning, förfogande eller användning av varorna till någon del direkt eller indirekt tillfaller säljaren. Exempel: När en närståenderelation mellan parterna föreligger, men ingen situation enligt den andra, tredje och fjärde siffran, anges den sammansatta koden ”1000” för varorna.</DescriptionLine>
+						<DescriptionLine lang="en">Shall only be provided for commercial imports, if the customs value of the import goods exceeds 20 000 euros or if otherwise required under the regulations. The code consists of four digits, each being either “0”= false or “1”= true. Each “0” or “1” indicates if the valuation indicator is of significance for the valuation of the goods in question. First digit: Does a relationship exist between the parties, regardless of whether it has influenced the price. Second digit: Are there any restrictions as to the disposal or use of the goods by the buyer in accordance with point (a) of Article 70(3) of the Union Customs Code. Third digit: Is the sale or price subject to some condition or consideration in accordance with point (b) of Article 70(3) of the Union Customs Code. Fourth digit: is the sale subject to an arrangement where a part of the proceeds of any subsequent resale, disposal or use of the goods will accrue directly or indirectly to the seller. Example: For goods that involve a relationship between the parties but no situation according to the second, third or fourth digit, the code combination “1000” should be used.</DescriptionLine>
+					</DataElement>
+				</DataGroup>
 				<DataGroup>
 					<Name lang="fi">Tavara</Name>
 					<Name lang="sv">Vara</Name>
@@ -6326,6 +6505,9 @@
 						<Rule use="FI415B">NR0265</Rule>
 						<Rule use="FI473B">NR0296</Rule>
 						<Rule use="FI475B">NR0296</Rule>
+						<Rule use="FI413B">NR0353</Rule>
+						<Rule use="FI413B">NR0354</Rule>
+						<Rule use="FI413B">NR0355</Rule>
 						<Rule use="FI413B">NR1354</Rule>
 						<Rule use="FI415B">NR1354</Rule>
 						<Format>an2</Format>
@@ -6760,7 +6942,7 @@
 						<Format>an..4</Format>
 					</DataElement>
 					<DataElement>
-						<Name lang="fi">Asiakirjan tunniste</Name>
+						<Name lang="fi">Asiakirjatunniste</Name>
 						<Name lang="sv">Dokumentets identifierare</Name>
 						<Name lang="en">Document identifier</Name>
 						<Use>FI413B</Use>
@@ -6781,89 +6963,111 @@
 						<MinOccurence>1</MinOccurence>
 						<Format>an..35</Format>
 					</DataElement>
-					<DataElement>
+					<DataGroup hidden="true">
 						<Name lang="fi">Myöntävän viranomaisen nimi</Name>
 						<Name lang="sv">Utfärdande myndighets namn</Name>
 						<Name lang="en">Issuing authority name</Name>
 						<Use>FI413B</Use>
 						<Use>FI415B</Use>
-						<Filter>FI413BI1</Filter>
-						<Filter>FI415BI1</Filter>
-						<XPath>Submitter/Name</XPath>
+						<XPath>Submitter</XPath>
+						<Group>SupportingDocument</Group>
 						<MinOccurence>0</MinOccurence>
-						<Condition>NC0213</Condition>
-						<Format>an..70</Format>
-						<DescriptionLine lang="fi">Ilmoitetaan todistuksen myöntänyt viranomainen, jos kyseessä on merkintää vaativa lupa/todistus.</DescriptionLine>
-						<DescriptionLine lang="sv">Beviljande myndighetens namn anges, om det är fråga om ett tillstånd/intyg som kräver att en anteckning görs.</DescriptionLine>
-						<DescriptionLine lang="en">The name of the issuing authority, if the licence/certificate requires that an entry be made in it, is entered.</DescriptionLine>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Määrä</Name>
-						<Name lang="sv">Kvantitet</Name>
-						<Name lang="en">Quantity</Name>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Myöntävän viranomaisen nimi</Name>
+							<Name lang="sv">Utfärdande myndighets namn</Name>
+							<Name lang="en">Issuing authority name</Name>
+							<Use>FI413B</Use>
+							<Use>FI415B</Use>
+							<Filter>FI413BI1</Filter>
+							<Filter>FI415BI1</Filter>
+							<XPath>Name</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Condition>NC0213</Condition>
+							<Format>an..70</Format>
+							<DescriptionLine lang="fi">Ilmoitetaan todistuksen myöntänyt viranomainen, jos kyseessä on merkintää vaativa lupa/todistus.</DescriptionLine>
+							<DescriptionLine lang="sv">Beviljande myndighetens namn anges, om det är fråga om ett tillstånd/intyg som kräver att en anteckning görs.</DescriptionLine>
+							<DescriptionLine lang="en">The name of the issuing authority, if the licence/certificate requires that an entry be made in it, is entered.</DescriptionLine>
+						</DataElement>
+					</DataGroup>
+					<DataGroup hidden="true">
+						<Name lang="fi">Alaskirjaus</Name>
+						<Name lang="sv">Avskrivning</Name>
+						<Name lang="en">Write off</Name>
 						<Use>FI413B</Use>
 						<Use>FI415B</Use>
-						<Filter>FI413BI1</Filter>
-						<Filter>FI415BI1</Filter>
-						<XPath>WriteOff/Quantity</XPath>
+						<XPath>WriteOff</XPath>
+						<Group>SupportingDocument</Group>
 						<MinOccurence>0</MinOccurence>
-						<Rule>NR0290</Rule>
-						<Condition>NC0256</Condition>
-						<Format>n..16,6</Format>
-						<DescriptionLine lang="fi">Ilmoitetaan lupaan/todistukseen merkittävä määrä, jos merkintä tehdään paljouden perusteella.</DescriptionLine>
-						<DescriptionLine lang="sv">Mängden som ska antecknas i tillståndet/intyget anges, om anteckningen är mängdbaserad.</DescriptionLine>
-						<DescriptionLine lang="en">The quantity to be entered in the licence/certificate is provided, if the entry is based on a quantity.</DescriptionLine>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Paljousyksikkö ja tarkennin</Name>
-						<Name lang="sv">Mängdenhet och kvalificerare</Name>
-						<Name lang="en">Measurement unit and qualifier</Name>
-						<Use>FI413B</Use>
-						<Use>FI415B</Use>
-						<Filter>FI413BI1</Filter>
-						<Filter>FI415BI1</Filter>
-						<XPath>WriteOff/Quantity@QuantityUnit</XPath>
-						<MinOccurence>0</MinOccurence>
-						<Codelist>CL059</Codelist>
-						<Rule>NR0290</Rule>
-						<Condition>NC0256</Condition>
-						<Format>an..4</Format>
-						<DescriptionLine lang="fi">Ilmoitetaan luvan/todistuksen mukainen paljousyksikkö ja mahdollinen paljousyksikön tarkennin.</DescriptionLine>
-						<DescriptionLine lang="sv">Mängdenhet enligt tillståndet/intyget och eventuell kvalificerare för mängdenheten anges.</DescriptionLine>
-						<DescriptionLine lang="en">Measurement unit according to the licence/certificate and a possible qualifier to the measurement unit is entered.</DescriptionLine>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Arvo</Name>
-						<Name lang="sv">Värde</Name>
-						<Name lang="en">Amount</Name>
-						<Use>FI413B</Use>
-						<Use>FI415B</Use>
-						<Filter>FI413BI1</Filter>
-						<Filter>FI415BI1</Filter>
-						<XPath>WriteOff/Amount</XPath>
-						<MinOccurence>0</MinOccurence>
-						<Rule>NR0290</Rule>
-						<Condition>NC0256</Condition>
-						<Format>n..16,2</Format>
-						<DescriptionLine lang="fi">Ilmoitetaan lupaan/todistukseen merkittävä määrä, jos merkintä tehdään arvon perusteella.</DescriptionLine>
-						<DescriptionLine lang="sv">Mängden som ska antecknas i tillståndet/intyget anges, om anteckningen är värdebaserad.</DescriptionLine>
-						<DescriptionLine lang="en">The quantity to be entered in the licence/certificate is provided, if the entry is based on a value.</DescriptionLine>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Arvo, valuuttalaji</Name>
-						<Name lang="sv">Värde, valutaslag</Name>
-						<Name lang="en">Amount, currency code</Name>
-						<Use>FI413B</Use>
-						<Use>FI415B</Use>
-						<Filter>FI413BI1</Filter>
-						<Filter>FI415BI1</Filter>
-						<XPath>WriteOff/Amount@CurrencyUnit</XPath>
-						<MinOccurence>0</MinOccurence>
-						<Codelist>CL352</Codelist>
-						<Rule>NR0290</Rule>
-						<Condition>NC0256</Condition>
-						<Format>a3</Format>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Määrä</Name>
+							<Name lang="sv">Kvantitet</Name>
+							<Name lang="en">Quantity</Name>
+							<Use>FI413B</Use>
+							<Use>FI415B</Use>
+							<Filter>FI413BI1</Filter>
+							<Filter>FI415BI1</Filter>
+							<XPath>Quantity</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Rule>NR0290</Rule>
+							<Condition>NC0256</Condition>
+							<Format>n..16,6</Format>
+							<DescriptionLine lang="fi">Ilmoitetaan lupaan/todistukseen merkittävä määrä, jos merkintä tehdään paljouden perusteella.</DescriptionLine>
+							<DescriptionLine lang="sv">Mängden som ska antecknas i tillståndet/intyget anges, om anteckningen är mängdbaserad.</DescriptionLine>
+							<DescriptionLine lang="en">The quantity to be entered in the licence/certificate is provided, if the entry is based on a quantity.</DescriptionLine>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Paljousyksikkö ja tarkennin</Name>
+							<Name lang="sv">Mängdenhet och kvalificerare</Name>
+							<Name lang="en">Measurement unit and qualifier</Name>
+							<Use>FI413B</Use>
+							<Use>FI415B</Use>
+							<Filter>FI413BI1</Filter>
+							<Filter>FI415BI1</Filter>
+							<XPath>Quantity@QuantityUnit</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Codelist>CL059</Codelist>
+							<Rule>NR0290</Rule>
+							<Condition>NC0256</Condition>
+							<Format>an..4</Format>
+							<DescriptionLine lang="fi">Ilmoitetaan luvan/todistuksen mukainen paljousyksikkö ja mahdollinen paljousyksikön tarkennin.</DescriptionLine>
+							<DescriptionLine lang="sv">Mängdenhet enligt tillståndet/intyget och eventuell kvalificerare för mängdenheten anges.</DescriptionLine>
+							<DescriptionLine lang="en">Measurement unit according to the licence/certificate and a possible qualifier to the measurement unit is entered.</DescriptionLine>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Arvo</Name>
+							<Name lang="sv">Värde</Name>
+							<Name lang="en">Amount</Name>
+							<Use>FI413B</Use>
+							<Use>FI415B</Use>
+							<Filter>FI413BI1</Filter>
+							<Filter>FI415BI1</Filter>
+							<XPath>Amount</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Rule>NR0290</Rule>
+							<Condition>NC0256</Condition>
+							<Format>n..16,2</Format>
+							<DescriptionLine lang="fi">Ilmoitetaan lupaan/todistukseen merkittävä määrä, jos merkintä tehdään arvon perusteella.</DescriptionLine>
+							<DescriptionLine lang="sv">Mängden som ska antecknas i tillståndet/intyget anges, om anteckningen är värdebaserad.</DescriptionLine>
+							<DescriptionLine lang="en">The quantity to be entered in the licence/certificate is provided, if the entry is based on a value.</DescriptionLine>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Arvo, valuuttalaji</Name>
+							<Name lang="sv">Värde, valutaslag</Name>
+							<Name lang="en">Amount, currency code</Name>
+							<Use>FI413B</Use>
+							<Use>FI415B</Use>
+							<Filter>FI413BI1</Filter>
+							<Filter>FI415BI1</Filter>
+							<XPath>Amount@CurrencyUnit</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Codelist>CL352</Codelist>
+							<Rule>NR0290</Rule>
+							<Condition>NC0256</Condition>
+							<Format>a3</Format>
+						</DataElement>
+					</DataGroup>
 					<DataElement>
 						<Name lang="fi">Asiakirjan rivin numero</Name>
 						<Name lang="sv">Varupostnummer i dokumentraden</Name>
@@ -6874,6 +7078,7 @@
 						<Filter>FI415BI1</Filter>
 						<XPath>Line</XPath>
 						<MinOccurence>0</MinOccurence>
+						<Condition>NC1601</Condition>
 						<Format>n..5</Format>
 					</DataElement>
 					<DataElement>
@@ -6888,7 +7093,7 @@
 						<MinOccurence>0</MinOccurence>
 						<Format>date</Format>
 					</DataElement>
-					<DataElement>
+					<DataGroup hidden="true">
 						<Name lang="fi">Liitteen viite</Name>
 						<Name lang="sv">Bilagans referens</Name>
 						<Name lang="en">Attachment reference</Name>
@@ -6906,13 +7111,36 @@
 						<Filter>FI415BH4</Filter>
 						<Filter>FI413BH5E</Filter>
 						<Filter>FI415BH5E</Filter>
-						<XPath>NationalReference/Identification</XPath>
+						<XPath>NationalReference</XPath>
+						<Group>SupportingDocument</Group>
 						<MinOccurence>0</MinOccurence>
-						<Format>an..22</Format>
-						<DescriptionLine lang="fi">Ilmoitetaan liiteasiakirjan liitteiden lähetyspalvelun viite, jos liite on toimitettu Tullille.</DescriptionLine>
-						<DescriptionLine lang="sv">Referensen för bilagan från tjänsten för leverans av bifogade filer, om en bilaga har levererats till Tullen, anmäls.</DescriptionLine>
-						<DescriptionLine lang="en">The attachment reference for the supporting document from the Attachment Upload service, if the attachment has been submitted to Customs, is entered.</DescriptionLine>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Liitteen viite</Name>
+							<Name lang="sv">Bilagans referens</Name>
+							<Name lang="en">Attachment reference</Name>
+							<Use>FI413B</Use>
+							<Use>FI415B</Use>
+							<Use>FI483B</Use>
+							<Use>FI485B</Use>
+							<Filter>FI413BI1</Filter>
+							<Filter>FI415BI1</Filter>
+							<Filter>FI413BH2</Filter>
+							<Filter>FI415BH2</Filter>
+							<Filter>FI413BH3</Filter>
+							<Filter>FI415BH3</Filter>
+							<Filter>FI413BH4</Filter>
+							<Filter>FI415BH4</Filter>
+							<Filter>FI413BH5E</Filter>
+							<Filter>FI415BH5E</Filter>
+							<XPath>Identification</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Format>an..22</Format>
+							<DescriptionLine lang="fi">Ilmoitetaan liiteasiakirjan liitteiden lähetyspalvelun viite, jos liite on toimitettu Tullille.</DescriptionLine>
+							<DescriptionLine lang="sv">Referensen för bilagan från tjänsten för leverans av bifogade filer, om en bilaga har levererats till Tullen, anmäls.</DescriptionLine>
+							<DescriptionLine lang="en">The attachment reference for the supporting document from the Attachment Upload service, if the attachment has been submitted to Customs, is entered.</DescriptionLine>
+						</DataElement>
+					</DataGroup>
 				</DataGroup>
 				<DataGroup>
 					<Name lang="fi">Muu viite</Name>
@@ -6950,7 +7178,7 @@
 				</DataGroup>
 				<!-->TransportDocument<-->
 				<DataGroup>
-					<Name lang="fi">Lisätiedot</Name>
+					<Name lang="fi">Lisätieto</Name>
 					<Name lang="sv">Ytterligare uppgifter</Name>
 					<Name lang="en">Additional information</Name>
 					<Use>FI413B</Use>
@@ -7128,9 +7356,9 @@
 					<Condition use="FI415B">NC0022</Condition>
 					<Condition use="FI413B">NC0258</Condition>
 					<Condition use="FI415B">NC0258</Condition>
-					<DescriptionLine lang="fi">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, ilmoitetaan asiakirjatyypiksi MRN.</DescriptionLine>
-					<DescriptionLine lang="sv">Ange tidigare dokument, oftast en summarisk införseldeklaration, summarisk deklaration eller en T1-transiteringsdeklaration. Om den tidigare deklarationen har ingetts till UTU-systemet, anges MRN som typ av tidigare dokument.</DescriptionLine>
-					<DescriptionLine lang="en">Provide the previous document, usually an entry summary declaration, a summary declaration, or a T1 transit declaration. If the previous declaration was lodged in the UTU system, provide MRN as the document type.</DescriptionLine>
+					<DescriptionLine lang="fi">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, ilmoitetaan MRN.</DescriptionLine>
+					<DescriptionLine lang="sv">Tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration anges. Om den tidigare deklarationen har ingetts till UTU-systemet, anges MRN.</DescriptionLine>
+					<DescriptionLine lang="en">Previous document which is most often entry summary declaration, summary declaration or T1-transit declaration is entered. If previous declaration is submitted to Finnish Customs UTU system, MRN is entered.</DescriptionLine>
 					<DataElement>
 						<Name lang="fi">Edeltävä asiakirjatyyppi</Name>
 						<Name lang="sv">Typ av tidigare dokument</Name>
@@ -7239,9 +7467,9 @@
 						<MinOccurence>0</MinOccurence>
 						<Condition>NC0028</Condition>
 						<Format>n..5</Format>
-						<DescriptionLine lang="fi">Ilmoita edeltävän asiakirjan MRN:än liittyvä tavaraerän järjestysnumero.</DescriptionLine>
+						<DescriptionLine lang="fi">Ilmoitetaan edeltävän asiakirjan MRN:än liittyvä tavaraerän järjestysnumero.</DescriptionLine>
 						<DescriptionLine lang="sv">Ange det ordningsnummer för varuposten som hänför sig till det tidigare dokumentets MRN.</DescriptionLine>
-						<DescriptionLine lang="en">Enter the goods item number related to the MRN of the previous document.</DescriptionLine>
+						<DescriptionLine lang="en">Provide the goods item number related to the MRN of the previous document.</DescriptionLine>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Kuljetusasiakirjan viite</Name>
@@ -7322,8 +7550,7 @@
 						<Format>an..17</Format>
 						<DescriptionLine lang="fi">Ilmoitetaan merikontin, jalkalavakontin tai puoliperävaunun tunnistenumero(t). Merikontin tunnus ilmoitetaan: neljä kirjainta (jos on) + kuusi numeroa + väliviiva + tarkistenumero.</DescriptionLine>
 						<DescriptionLine lang="sv">Identifieringsnummer för sjöcontainer, container med stödben eller påhängsvagn anges. Sjöcontainrars nummer anges: fyra bokstäver (om dessa finns) + sex siffror + bindestreck + kontrollnummer.</DescriptionLine>
-						<DescriptionLine lang="en">Identification number(s) for a sea container, swap body or semi-trailer is/are entered. The identification of a sea container is provided using four letters (if available) + six digits + hyphen + check digit.
-</DescriptionLine>
+						<DescriptionLine lang="en">Identification number(s) for a sea container, swap body or semi-trailer is/are entered. The identification of a sea container is provided using four letters (if available) + six digits + hyphen + check digit.</DescriptionLine>
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
@@ -7372,8 +7599,8 @@
 						<MinOccurence>1</MinOccurence>
 						<Format>an..35</Format>
 						<DescriptionLine lang="fi">Ilmoitetaan, jos lähetykselle on annettu yhtenäisviite UCR, eli lähettäjän antama yksilöllinen ja pysyvä viite läpi koko toimitusketjun. Se voi olla WCO (ISO 15459) -koodi tai vastaava.</DescriptionLine>
-						<DescriptionLine lang="sv">Försändelsens eventuella unika referensnummer (UCR), dvs. av avsändaren tilldelad unik och permanent referens genom hela leveranskedjan, anges. Det kan vara t.ex. en WCO (ISO 15459)-kod eller motsvarande.</DescriptionLine>
-						<DescriptionLine lang="en">The unique consignment reference UCR, if one has been assigned by the consignor, is entered. UCR remains the same throughout the supply chain. It can be WCO (ISO 15459) -code or an equivalent.</DescriptionLine>
+						<DescriptionLine lang="sv">Anges om försändelsen har tilldelats ett unikt referensnummer (UCR) av avsändaren som en unik och permanent referens genom hela leveranskedjan. Det kan vara en WCO-kod (ISO 15459) eller motsvarande.</DescriptionLine>
+						<DescriptionLine lang="en">This detail is entered if a unique consignment reference (UCR) has been issued for the consignment, i.e. a reference issued by the consignor that is unique and remains the same throughout the supply chain. It can be a WCO (ISO 15459) code or an equivalent.</DescriptionLine>
 					</DataElement>
 				</DataGroup>
 			</DataGroup>

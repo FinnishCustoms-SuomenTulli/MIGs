@@ -176,16 +176,27 @@
 			<Codelist>CL352</Codelist>
 			<Format>a3</Format>
 		</DataElement>
-		<DataElement>
-			<Name lang="fi">Veronmääräytymispäivä</Name>
-			<Name lang="sv">Datum för skattebestämning</Name>
-			<Name lang="en">Tax determination date</Name>
+		<DataGroup hidden="true">
+			<Name lang="fi">Vero yhteensä</Name>
+			<Name lang="sv">Skatt totalt</Name>
+			<Name lang="en">Total tax</Name>
 			<Use>FI403B</Use>
 			<Use>FI429B</Use>
-			<XPath>DutyTaxFee/ElectedEntry</XPath>
+			<XPath>DutyTaxFee</XPath>
+			<Group>ImportOperation</Group>
 			<MinOccurence>0</MinOccurence>
-			<Format>date</Format>
-		</DataElement>
+			<MaxOccurence>1</MaxOccurence>
+			<DataElement>
+				<Name lang="fi">Veronmääräytymispäivä</Name>
+				<Name lang="sv">Datum för skattebestämning</Name>
+				<Name lang="en">Tax determination date</Name>
+				<Use>FI403B</Use>
+				<Use>FI429B</Use>
+				<XPath>ElectedEntry</XPath>
+				<MinOccurence>0</MinOccurence>
+				<Format>date</Format>
+			</DataElement>
+		</DataGroup>
 		<DataElement>
 			<Name lang="fi">Veroja kannettu</Name>
 			<Name lang="sv">Skatter uppburna</Name>
@@ -803,7 +814,7 @@
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Virheen selite</Name>
-					<Name lang="sv">Felets förklaring</Name>
+					<Name lang="sv">Felbeskrivning</Name>
 					<Name lang="en">Error description</Name>
 					<Use>FI416B</Use>
 					<Use>FI444B</Use>
@@ -811,16 +822,27 @@
 					<MinOccurence>0</MinOccurence>
 					<Format>an..4096</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Virheosoitin</Name>
 					<Name lang="sv">Felpekare</Name>
 					<Name lang="en">Error pointer</Name>
 					<Use>FI416B</Use>
 					<Use>FI444B</Use>
-					<XPath>Pointer/Location</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>an..200</Format>
-				</DataElement>
+					<XPath>Pointer</XPath>
+					<Group>Error</Group>
+					<MinOccurence>0</MinOccurence>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Virheosoitin</Name>
+						<Name lang="sv">Felpekare</Name>
+						<Name lang="en">Error pointer</Name>
+						<Use>FI416B</Use>
+						<Use>FI444B</Use>
+						<XPath>Location</XPath>
+						<MinOccurence>1</MinOccurence>
+						<Format>an..200</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Tiedon alkuperäinen arvo</Name>
 					<Name lang="sv">Ursprungligt attributvärde</Name>
@@ -876,7 +898,7 @@
 				<MinOccurence>1</MinOccurence>
 				<Format>an..17</Format>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Toimipaikkakoodi</Name>
 				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
@@ -886,10 +908,25 @@
 				<Use>FI429B</Use>
 				<Use>FI445B</Use>
 				<Use>FI468B</Use>
-				<XPath>AdditionalIdentifier/Identification</XPath>
+				<XPath>AdditionalIdentifier</XPath>
+				<Group>Agent</Group>
 				<MinOccurence>0</MinOccurence>
-				<Format>n3</Format>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Toimipaikkakoodi</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
+					<Name lang="en">Office code</Name>
+					<Use>FI403B</Use>
+					<Use>FI419B</Use>
+					<Use>FI420B</Use>
+					<Use>FI429B</Use>
+					<Use>FI445B</Use>
+					<Use>FI468B</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Format>n3</Format>
+				</DataElement>
+			</DataGroup>
 			<DataElement>
 				<Name lang="fi">Nimi</Name>
 				<Name lang="sv">Namn</Name>
@@ -1037,7 +1074,7 @@
 				<MinOccurence>1</MinOccurence>
 				<Format>an..17</Format>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Toimipaikkakoodi</Name>
 				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
@@ -1046,10 +1083,24 @@
 				<Use>FI420B</Use>
 				<Use>FI429B</Use>
 				<Use>FI468B</Use>
-				<XPath>AdditionalIdentifier/Identification</XPath>
+				<XPath>AdditionalIdentifier</XPath>
+				<Group>Declarant</Group>
 				<MinOccurence>0</MinOccurence>
-				<Format>n3</Format>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Toimipaikkakoodi</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
+					<Name lang="en">Office code</Name>
+					<Use>FI403B</Use>
+					<Use>FI419B</Use>
+					<Use>FI420B</Use>
+					<Use>FI429B</Use>
+					<Use>FI468B</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Format>n3</Format>
+				</DataElement>
+			</DataGroup>
 			<DataElement>
 				<Name lang="fi">Nimi</Name>
 				<Name lang="sv">Namn</Name>
@@ -1169,16 +1220,27 @@
 				<MinOccurence>0</MinOccurence>
 				<Format>an..17</Format>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Toimipaikkakoodi</Name>
 				<Name lang="sv">Kod för verksamhetsställe</Name>
 				<Name lang="en">Office code</Name>
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
-				<XPath>AdditionalIdentifier/Identification</XPath>
+				<XPath>AdditionalIdentifier</XPath>
+				<Group>Exporter</Group>
 				<MinOccurence>0</MinOccurence>
-				<Format>n3</Format>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Toimipaikkakoodi</Name>
+					<Name lang="sv">Kod för verksamhetsställe</Name>
+					<Name lang="en">Office code</Name>
+					<Use>FI403B</Use>
+					<Use>FI429B</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Format>n3</Format>
+				</DataElement>
+			</DataGroup>
 			<DataElement>
 				<Name lang="fi">Nimi</Name>
 				<Name lang="sv">Namn</Name>
@@ -1406,7 +1468,7 @@
 				<Format>an..4</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="fi">Asiakirjan tunniste</Name>
+				<Name lang="fi">Asiakirjatunniste</Name>
 				<Name lang="sv">Dokumentets identifierare</Name>
 				<Name lang="en">Document identifier</Name>
 				<Use>FI403B</Use>
@@ -1415,16 +1477,27 @@
 				<MinOccurence>1</MinOccurence>
 				<Format>an..35</Format>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Liitteen viite</Name>
 				<Name lang="sv">Bilagans referens</Name>
 				<Name lang="en">Attachment reference</Name>
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
-				<XPath>NationalReference/Identification</XPath>
+				<XPath>NationalReference</XPath>
+				<Group>SupportingDocument</Group>
 				<MinOccurence>0</MinOccurence>
-				<Format>an..35</Format>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Liitteen viite</Name>
+					<Name lang="sv">Bilagans referens</Name>
+					<Name lang="en">Attachment reference</Name>
+					<Use>FI403B</Use>
+					<Use>FI429B</Use>
+					<XPath>Identification</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Format>an..22</Format>
+				</DataElement>
+			</DataGroup>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Lupa</Name>
@@ -1448,7 +1521,7 @@
 				<Format>an..4</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="fi">Asiakirjan tunniste</Name>
+				<Name lang="fi">Asiakirjatunniste</Name>
 				<Name lang="sv">Dokumentets identifierare</Name>
 				<Name lang="en">Document identifier</Name>
 				<Use>FI403B</Use>
@@ -1463,7 +1536,7 @@
 				<Name lang="en">Holder of the authorisation identification no.</Name>
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
-				<XPath>Identification</XPath>
+				<XPath>HolderIdentification</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Format>an..17</Format>
 			</DataElement>
@@ -1590,16 +1663,27 @@
 				<Codelist>NCL151</Codelist>
 				<Format>an3</Format>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Veron määrä</Name>
 				<Name lang="sv">Skattebelopp</Name>
 				<Name lang="en">Tax amount</Name>
 				<Use>FI403B</Use>
 				<Use>FI468B</Use>
-				<XPath>Payment/TaxAssessed</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Format>n..16,2</Format>
-			</DataElement>
+				<XPath>Payment</XPath>
+				<Group>TotalTax</Group>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Veron määrä</Name>
+					<Name lang="sv">Skattebelopp</Name>
+					<Name lang="en">Tax amount</Name>
+					<Use>FI403B</Use>
+					<Use>FI468B</Use>
+					<XPath>TaxAssessed</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Format>n..16,2</Format>
+				</DataElement>
+			</DataGroup>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Verolaskenta</Name>
@@ -1622,16 +1706,27 @@
 				<Codelist>NCL151</Codelist>
 				<Format>an3</Format>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Veron määrä</Name>
 				<Name lang="sv">Skattebelopp</Name>
 				<Name lang="en">Tax amount</Name>
 				<Use>FI403B</Use>
 				<Use>FI468B</Use>
-				<XPath>Payment/TaxAssessed</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Format>n..16,2</Format>
-			</DataElement>
+				<XPath>Payment</XPath>
+				<Group>TaxCalculation</Group>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Veron määrä</Name>
+					<Name lang="sv">Skattebelopp</Name>
+					<Name lang="en">Tax amount</Name>
+					<Use>FI403B</Use>
+					<Use>FI468B</Use>
+					<XPath>TaxAssessed</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Format>n..16,2</Format>
+				</DataElement>
+			</DataGroup>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Maksettava vero yhteensä</Name>
@@ -1654,16 +1749,27 @@
 				<Codelist>NCL151</Codelist>
 				<Format>an3</Format>
 			</DataElement>
-			<DataElement>
+			<DataGroup hidden="true">
 				<Name lang="fi">Veron määrä</Name>
 				<Name lang="sv">Skattebelopp</Name>
 				<Name lang="en">Tax amount</Name>
 				<Use>FI403B</Use>
 				<Use>FI468B</Use>
-				<XPath>Payment/TaxAssessed</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Format>n..16,2</Format>
-			</DataElement>
+				<XPath>Payment</XPath>
+				<Group>TotalPayableTax</Group>
+				<MinOccurence>0</MinOccurence>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Veron määrä</Name>
+					<Name lang="sv">Skattebelopp</Name>
+					<Name lang="en">Tax amount</Name>
+					<Use>FI403B</Use>
+					<Use>FI468B</Use>
+					<XPath>Payment</XPath>
+					<MinOccurence>1</MinOccurence>
+					<Format>n..16,2</Format>
+				</DataElement>
+			</DataGroup>
 		</DataGroup>
 		<DataGroup>
 			<Name lang="fi">Maksu</Name>
@@ -1762,30 +1868,52 @@
 				<Codelist>CL091</Codelist>
 				<Format>n2</Format>
 			</DataElement>
-			<DataElement>
-				<Name lang="fi">Määrämaan koodi</Name>
-				<Name lang="sv">Kod för destinationsland</Name>
-				<Name lang="en">Country of destination code</Name>
+			<DataGroup hidden="true">
+				<Name lang="fi">Määrämaa</Name>
+				<Name lang="sv">Destinationsland</Name>
+				<Name lang="en">Country of destination</Name>
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
-				<XPath>Destination/Country</XPath>
+				<XPath>Destination</XPath>
+				<Group>GoodsShipment</Group>
 				<MinOccurence>0</MinOccurence>
-				<Codelist>CL010</Codelist>
-				<Format>a2</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Lähetys-/vientimaan koodi</Name>
-				<Name lang="sv">Kod för avsändnings-/exportland</Name>
-				<Name lang="en">Country of dispatch/export code</Name>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Määrämaan koodi</Name>
+					<Name lang="sv">Kod för destinationsland</Name>
+					<Name lang="en">Country of destination code</Name>
+					<Use>FI403B</Use>
+					<Use>FI429B</Use>
+					<XPath>Country</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Codelist>CL010</Codelist>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
+			<DataGroup hidden="true">
+				<Name lang="fi">Lähetysmaa</Name>
+				<Name lang="sv">Avsändningsland</Name>
+				<Name lang="en">Country of dispatch</Name>
 				<Use>FI403B</Use>
 				<Use>FI429B</Use>
-				<XPath>ExportCountry/Country</XPath>
+				<XPath>ExportCountry</XPath>
+				<Group>GoodsShipment</Group>
 				<MinOccurence>0</MinOccurence>
-				<Codelist>CL008</Codelist>
-				<Format>a2</Format>
-			</DataElement>
+				<MaxOccurence>1</MaxOccurence>
+				<DataElement>
+					<Name lang="fi">Lähetysmaan koodi</Name>
+					<Name lang="sv">Kod för avsändningsland</Name>
+					<Name lang="en">Country of dispatch code</Name>
+					<Use>FI403B</Use>
+					<Use>FI429B</Use>
+					<XPath>Country</XPath>
+					<MinOccurence>0</MinOccurence>
+					<Codelist>CL008</Codelist>
+					<Format>a2</Format>
+				</DataElement>
+			</DataGroup>
 			<DataGroup>
-				<Name lang="fi">Toimitusketjun lisätoimija</Name>
+				<Name lang="fi">Toimitusketjun muu toimija</Name>
 				<Name lang="sv">Ytterligare aktör i leveranskedjan</Name>
 				<Name lang="en">Additional supply chain actor</Name>
 				<Use>FI403B</Use>
@@ -1804,16 +1932,27 @@
 					<MinOccurence>1</MinOccurence>
 					<Format>an..17</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
-					<XPath>AdditionalIdentifier/Identification</XPath>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>AEOMutualRecognitionParty</Group>
 					<MinOccurence>0</MinOccurence>
-					<Format>n3</Format>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI403B</Use>
+						<Use>FI429B</Use>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>n3</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Roolikoodi</Name>
 					<Name lang="sv">Rollkod</Name>
@@ -1846,16 +1985,27 @@
 					<MinOccurence>0</MinOccurence>
 					<Format>an..17</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
-					<XPath>AdditionalIdentifier/Identification</XPath>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>Buyer</Group>
 					<MinOccurence>0</MinOccurence>
-					<Format>n3</Format>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI403B</Use>
+						<Use>FI429B</Use>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>n3</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Nimi</Name>
 					<Name lang="sv">Namn</Name>
@@ -1939,16 +2089,27 @@
 					<MinOccurence>1</MinOccurence>
 					<Format>an..17</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
-					<XPath>AdditionalIdentifier/Identification</XPath>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>DomesticDutyTaxParty</Group>
 					<MinOccurence>0</MinOccurence>
-					<Format>n3</Format>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI403B</Use>
+						<Use>FI429B</Use>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>n3</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Roolikoodi</Name>
 					<Name lang="sv">Rollkod</Name>
@@ -1989,7 +2150,7 @@
 					<MinOccurence>1</MinOccurence>
 					<Format>an..17</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
@@ -1999,10 +2160,25 @@
 					<Use>FI429B</Use>
 					<Use>FI445B</Use>
 					<Use>FI468B</Use>
-					<XPath>AdditionalIdentifier/Identification</XPath>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>Importer</Group>
 					<MinOccurence>0</MinOccurence>
-					<Format>n3</Format>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI403B</Use>
+						<Use>FI419B</Use>
+						<Use>FI420B</Use>
+						<Use>FI429B</Use>
+						<Use>FI445B</Use>
+						<Use>FI468B</Use>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>n3</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Nimi</Name>
 					<Name lang="sv">Namn</Name>
@@ -2129,16 +2305,27 @@
 					<MinOccurence>0</MinOccurence>
 					<Format>an..17</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Toimipaikkakoodi</Name>
 					<Name lang="sv">Kod för verksamhetsställe</Name>
 					<Name lang="en">Office code</Name>
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
-					<XPath>AdditionalIdentifier/Identification</XPath>
+					<XPath>AdditionalIdentifier</XPath>
+					<Group>Seller</Group>
 					<MinOccurence>0</MinOccurence>
-					<Format>n3</Format>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Toimipaikkakoodi</Name>
+						<Name lang="sv">Kod för verksamhetsställe</Name>
+						<Name lang="en">Office code</Name>
+						<Use>FI403B</Use>
+						<Use>FI429B</Use>
+						<XPath>Identification</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>n3</Format>
+					</DataElement>
+				</DataGroup>
 				<DataElement>
 					<Name lang="fi">Nimi</Name>
 					<Name lang="sv">Namn</Name>
@@ -2729,16 +2916,27 @@
 					<Codelist>CL352</Codelist>
 					<Format>a3</Format>
 				</DataElement>
-				<DataElement>
+				<DataGroup hidden="true">
 					<Name lang="fi">Arvonmäärityksen indikaattorit</Name>
 					<Name lang="sv">Värderingsindikatorer</Name>
 					<Name lang="en">Valuation indicators</Name>
 					<Use>FI403B</Use>
 					<Use>FI429B</Use>
-					<XPath>ValuationAdjustment/Addition</XPath>
+					<XPath>ValuationAdjustment</XPath>
+					<Group>GoodsItem</Group>
 					<MinOccurence>0</MinOccurence>
-					<Format>an4</Format>
-				</DataElement>
+					<MaxOccurence>1</MaxOccurence>
+					<DataElement>
+						<Name lang="fi">Arvonmäärityksen indikaattorit</Name>
+						<Name lang="sv">Värderingsindikatorer</Name>
+						<Name lang="en">Valuation indicators</Name>
+						<Use>FI403B</Use>
+						<Use>FI429B</Use>
+						<XPath>Addition</XPath>
+						<MinOccurence>0</MinOccurence>
+						<Format>an4</Format>
+					</DataElement>
+				</DataGroup>
 				<DataGroup>
 					<Name lang="fi">Tavara</Name>
 					<Name lang="sv">Vara</Name>
@@ -2767,30 +2965,41 @@
 						<MinOccurence>0</MinOccurence>
 						<Format>an..512</Format>
 					</DataElement>
-					<DataElement>
+					<DataGroup hidden="true">
 						<Name lang="fi">Erän laskutusarvo</Name>
 						<Name lang="sv">Fakturerat belopp</Name>
 						<Name lang="en">Item amount invoiced</Name>
 						<Use>FI403B</Use>
 						<Use>FI429B</Use>
-						<XPath>InvoiceLine/ItemCharge</XPath>
+						<XPath>InvoiceLine</XPath>
+						<Group>GoodsItem</Group>
 						<MinOccurence>0</MinOccurence>
-						<Format>n..16,2</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Erän laskutusarvo, valuuttalaji</Name>
-						<Name lang="sv">Fakturerat belopp, valutaslag</Name>
-						<Name lang="en">Item amount invoiced, currency code</Name>
-						<Use>FI403B</Use>
-						<Use>FI429B</Use>
-						<XPath>InvoiceLine/ItemCharge@CurrencyUnit</XPath>
-						<MinOccurence>0</MinOccurence>
-						<Codelist>CL352</Codelist>
-						<Format>a3</Format>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Erän laskutusarvo</Name>
+							<Name lang="sv">Fakturerat belopp</Name>
+							<Name lang="en">Item amount invoiced</Name>
+							<Use>FI403B</Use>
+							<Use>FI429B</Use>
+							<XPath>ItemCharge</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Format>n..16,2</Format>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Erän laskutusarvo, valuuttalaji</Name>
+							<Name lang="sv">Fakturerat belopp, valutaslag</Name>
+							<Name lang="en">Item amount invoiced, currency code</Name>
+							<Use>FI403B</Use>
+							<Use>FI429B</Use>
+							<XPath>ItemCharge@CurrencyUnit</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Codelist>CL352</Codelist>
+							<Format>a3</Format>
+						</DataElement>
+					</DataGroup>
 					<DataGroup>
-						<Name lang="fi">Tavaran koodi – harmonoidun järjestelmän koodi</Name>
-						<Name lang="sv">Varukod – HS-nummer</Name>
+						<Name lang="fi">Tavaran koodi - harmonoidun järjestelmän koodi</Name>
+						<Name lang="sv">Varukod - HS-nummer</Name>
 						<Name lang="en">Commodity code - Harmonised System code</Name>
 						<Use>FI403B</Use>
 						<Use>FI419B</Use>
@@ -2803,8 +3012,8 @@
 						<MinOccurence>0</MinOccurence>
 						<MaxOccurence>1</MaxOccurence>
 						<DataElement>
-							<Name lang="fi">Tavaran koodi – harmonoidun järjestelmän koodi</Name>
-							<Name lang="sv">Varukod – HS-nummer</Name>
+							<Name lang="fi">Tavaran koodi - harmonoidun järjestelmän koodi</Name>
+							<Name lang="sv">Varukod - HS-nummer</Name>
 							<Name lang="en">Commodity code - Harmonised System code</Name>
 							<Use>FI403B</Use>
 							<Use>FI419B</Use>
@@ -3116,16 +3325,27 @@
 							<MinOccurence>1</MinOccurence>
 							<Format>an..7</Format>
 						</DataElement>
-						<DataElement>
+						<DataGroup hidden="true">
 							<Name lang="fi">Veron määrä</Name>
 							<Name lang="sv">Skattebelopp</Name>
 							<Name lang="en">Tax amount</Name>
 							<Use>FI403B</Use>
 							<Use>FI468B</Use>
-							<XPath>Payment/TaxAssessed</XPath>
-							<MinOccurence>1</MinOccurence>
-							<Format>n..16,2</Format>
-						</DataElement>
+							<XPath>Payment</XPath>
+							<Group>DutyTaxFee</Group>
+							<MinOccurence>0</MinOccurence>
+							<MaxOccurence>1</MaxOccurence>
+							<DataElement>
+								<Name lang="fi">Veron määrä</Name>
+								<Name lang="sv">Skattebelopp</Name>
+								<Name lang="en">Tax amount</Name>
+								<Use>FI403B</Use>
+								<Use>FI468B</Use>
+								<XPath>TaxAssessed</XPath>
+								<MinOccurence>1</MinOccurence>
+								<Format>n..16,2</Format>
+							</DataElement>
+						</DataGroup>
 						<DataElement>
 							<Name lang="fi">Laskettu veron peruste</Name>
 							<Name lang="sv">Beräknad skattebas</Name>
@@ -3203,7 +3423,7 @@
 						<XPath>Method</XPath>
 						<MinOccurence>0</MinOccurence>
 						<Codelist>CL604</Codelist>
-						<Format>n3</Format>
+						<Format>n1</Format>
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Kuljetuskustannukset lopulliseen määränpäähän</Name>
@@ -3529,7 +3749,7 @@
 						<Format>an..4</Format>
 					</DataElement>
 					<DataElement>
-						<Name lang="fi">Asiakirjan tunniste</Name>
+						<Name lang="fi">Asiakirjatunniste</Name>
 						<Name lang="sv">Dokumentets identifierare</Name>
 						<Name lang="en">Document identifier</Name>
 						<Use>FI403B</Use>
@@ -3538,58 +3758,80 @@
 						<MinOccurence>1</MinOccurence>
 						<Format>an..35</Format>
 					</DataElement>
-					<DataElement>
+					<DataGroup hidden="true">
 						<Name lang="fi">Myöntävän viranomaisen nimi</Name>
 						<Name lang="sv">Utfärdande myndighets namn</Name>
 						<Name lang="en">Issuing authority name</Name>
 						<Use>FI403B</Use>
 						<Use>FI429B</Use>
-						<XPath>Submitter/Name</XPath>
+						<XPath>Submitter</XPath>
+						<Group>SupportingDocument</Group>
 						<MinOccurence>0</MinOccurence>
-						<Format>an..70</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Määrä</Name>
-						<Name lang="sv">Kvantitet</Name>
-						<Name lang="en">Quantity</Name>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Myöntävän viranomaisen nimi</Name>
+							<Name lang="sv">Utfärdande myndighets namn</Name>
+							<Name lang="en">Issuing authority name</Name>
+							<Use>FI403B</Use>
+							<Use>FI429B</Use>
+							<XPath>Name</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Format>an..70</Format>
+						</DataElement>
+					</DataGroup>
+					<DataGroup hidden="true">
+						<Name lang="fi">Alaskirjaus</Name>
+						<Name lang="sv">Avskrivning</Name>
+						<Name lang="en">Write off</Name>
 						<Use>FI403B</Use>
 						<Use>FI429B</Use>
-						<XPath>WriteOff/Quantity</XPath>
+						<XPath>WriteOff</XPath>
+						<Group>SupportingDocument</Group>
 						<MinOccurence>0</MinOccurence>
-						<Format>n..16,6</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Paljousyksikkö ja tarkennin</Name>
-						<Name lang="sv">Mängdenhet och kvalificerare</Name>
-						<Name lang="en">Measurement unit and qualifier</Name>
-						<Use>FI403B</Use>
-						<Use>FI429B</Use>
-						<XPath>WriteOff/Quantity@QuantityUnit</XPath>
-						<MinOccurence>0</MinOccurence>
-						<Codelist>CL059</Codelist>
-						<Format>an..4</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Arvo</Name>
-						<Name lang="sv">Värde</Name>
-						<Name lang="en">Amount</Name>
-						<Use>FI403B</Use>
-						<Use>FI429B</Use>
-						<XPath>WriteOff/Amount</XPath>
-						<MinOccurence>0</MinOccurence>
-						<Format>n..16,2</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Arvo, valuuttalaji</Name>
-						<Name lang="sv">Värde, valutaslag</Name>
-						<Name lang="en">Amount, currency code</Name>
-						<Use>FI403B</Use>
-						<Use>FI429B</Use>
-						<XPath>WriteOff/Amount@CurrencyUnit</XPath>
-						<MinOccurence>0</MinOccurence>
-						<Codelist>CL352</Codelist>
-						<Format>a3</Format>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Määrä</Name>
+							<Name lang="sv">Kvantitet</Name>
+							<Name lang="en">Quantity</Name>
+							<Use>FI403B</Use>
+							<Use>FI429B</Use>
+							<XPath>Quantity</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Format>n..16,6</Format>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Paljousyksikkö ja tarkennin</Name>
+							<Name lang="sv">Mängdenhet och kvalificerare</Name>
+							<Name lang="en">Measurement unit and qualifier</Name>
+							<Use>FI403B</Use>
+							<Use>FI429B</Use>
+							<XPath>Quantity@QuantityUnit</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Codelist>CL059</Codelist>
+							<Format>an..4</Format>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Arvo</Name>
+							<Name lang="sv">Värde</Name>
+							<Name lang="en">Amount</Name>
+							<Use>FI403B</Use>
+							<Use>FI429B</Use>
+							<XPath>Amount</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Format>n..16,2</Format>
+						</DataElement>
+						<DataElement>
+							<Name lang="fi">Arvo, valuuttalaji</Name>
+							<Name lang="sv">Värde, valutaslag</Name>
+							<Name lang="en">Amount, currency code</Name>
+							<Use>FI403B</Use>
+							<Use>FI429B</Use>
+							<XPath>Amount@CurrencyUnit</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Codelist>CL352</Codelist>
+							<Format>a3</Format>
+						</DataElement>
+					</DataGroup>
 					<DataElement>
 						<Name lang="fi">Asiakirjan rivin numero</Name>
 						<Name lang="sv">Varupostnummer i dokumentraden</Name>
@@ -3600,16 +3842,27 @@
 						<MinOccurence>0</MinOccurence>
 						<Format>n..5</Format>
 					</DataElement>
-					<DataElement>
+					<DataGroup hidden="true">
 						<Name lang="fi">Liitteen viite</Name>
 						<Name lang="sv">Bilagans referens</Name>
 						<Name lang="en">Attachment reference</Name>
 						<Use>FI403B</Use>
 						<Use>FI429B</Use>
-						<XPath>NationalReference/Identification</XPath>
+						<XPath>NationalReference</XPath>
+						<Group>SupportingDocument</Group>
 						<MinOccurence>0</MinOccurence>
-						<Format>an..35</Format>
-					</DataElement>
+						<MaxOccurence>1</MaxOccurence>
+						<DataElement>
+							<Name lang="fi">Liitteen viite</Name>
+							<Name lang="sv">Bilagans referens</Name>
+							<Name lang="en">Attachment reference</Name>
+							<Use>FI403B</Use>
+							<Use>FI429B</Use>
+							<XPath>Identification</XPath>
+							<MinOccurence>0</MinOccurence>
+							<Format>an..22</Format>
+						</DataElement>
+					</DataGroup>
 				</DataGroup>
 				<DataGroup>
 					<Name lang="fi">Muu viite</Name>
@@ -3635,7 +3888,7 @@
 				</DataGroup>
 				<!-->TransportDocument<-->
 				<DataGroup>
-					<Name lang="fi">Lisätiedot</Name>
+					<Name lang="fi">Lisätieto</Name>
 					<Name lang="sv">Ytterligare uppgifter</Name>
 					<Name lang="en">Additional information</Name>
 					<Use>FI403B</Use>
@@ -3721,7 +3974,7 @@
 					</DataElement>
 					<DataElement>
 						<Name lang="fi">Kuljetusasiakirjan viite</Name>
-						<Name lang="sv">Referens till transportdokument</Name>
+						<Name lang="sv">Referens för transportdokument</Name>
 						<Name lang="en">Transport document reference</Name>
 						<Use>FI403B</Use>
 						<Use>FI419B</Use>
