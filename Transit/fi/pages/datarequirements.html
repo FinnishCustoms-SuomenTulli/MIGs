@@ -30,9 +30,11 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <a class="" href="../index.html">
-                            <img class="img-responsive pull-left" src="../../../assets/images/logo-tulli.svg" alt="Suomen tullin logo" /></a>
+                            <img class="img-responsive pull-left" src="../../../assets/images/logo-tulli.svg"
+                                alt="Suomen tullin logo" /></a>
 
-                        <button type="button" class="navbar-toggle collapsed pull-right margin-0" data-toggle="collapse" data-target="#navbar-mainmenu" aria-expanded="false" aria-controls="navbar-mainmenu">
+                        <button type="button" class="navbar-toggle collapsed pull-right margin-0" data-toggle="collapse"
+                            data-target="#navbar-mainmenu" aria-expanded="false" aria-controls="navbar-mainmenu">
                             <span class="sr-only">Valikko</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -60,7 +62,7 @@
                                 <li>
                                     <a href="examples.html">Esimerkit</a>
                                 </li>
-                           </ul>
+                            </ul>
                         </nav>
                     </div>
                 </div>
@@ -117,51 +119,52 @@
 
     <script src='../../../assets/javascripts/custom-ui.js'></script>
 
-    <script src="../../../assets/javascripts/bootstrap-tabdrop.js"></script>    <script>
+    <script src="../../../assets/javascripts/bootstrap-tabdrop.js"></script>
+    <script>
         var i = 1;
-        $(document).ready(function() {
+        $(document).ready(function () {
             $.ajax({
                 url: '../../common/intro.xml',
                 type: 'GET',
                 dataType: 'xml',
-                success: function(returnedXMLResponse) {
-                        $('Message', returnedXMLResponse).each(function() {
-                            var path = '../../common/';
-                            var message = $(this).text();
-                            var base = $(this).attr('base');
-                            // nav-tabs
-                            if (base == 'decl') {
-                                $(".messagetabs").append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '"><span class="icon icon-tulli-file-export"/>' + message + '</a></li>');
-                            } else {
-                                $(".messagetabs").append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '"><span class="icon icon-tulli-file-import"/>' + message + '</a></li>');
-                            }
-                            // panels
-                            $(".tab-content").append('<div role="tabpanel" class="tab-pane" id="' + message + '"><div class="panel panel-primary"><div class="panel-heading" role="tab" id=header' + message + '></div></div><div id="contents' + message + '"></div></div>');
-                            $(".messagetabs").find("a").first().addClass("active");
-                            $(".tab-content").find(".tab-pane").first().addClass("active");
-                            transform('../../common/messageexchange.xml', '../../../assets/messageheader.xsl', document.getElementById('header' + message), 'fi', message);
-                            transform(path.concat(base, '.xml'), '../../../assets/message2.xsl', document.getElementById('contents' + message), 'fi', message);
-                            i++;
-                        })
-                        $('VersionHistory Version:last Number', returnedXMLResponse).each(function() {
-                            var version = $(this).text();
-                            $(".main-navbar").append(version + " ");
+                success: function (returnedXMLResponse) {
+                    $('Message', returnedXMLResponse).each(function () {
+                        var path = '../../common/';
+                        var message = $(this).text();
+                        var base = $(this).attr('base');
+                        // nav-tabs
+                        if (base == 'decl') {
+                            $(".messagetabs").append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '"><span class="icon icon-tulli-file-export"/>' + message + '</a></li>');
+                        } else {
+                            $(".messagetabs").append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '"><span class="icon icon-tulli-file-import"/>' + message + '</a></li>');
+                        }
+                        // panels
+                        $(".tab-content").append('<div role="tabpanel" class="tab-pane" id="' + message + '"><div class="panel panel-primary"><div class="panel-heading" role="tab" id=header' + message + '></div></div><div id="contents' + message + '"></div></div>');
+                        $(".messagetabs").find("a").first().addClass("active");
+                        $(".tab-content").find(".tab-pane").first().addClass("active");
+                        transform('../../common/messageexchange.xml', '../../../assets/messageheader.xsl', document.getElementById('header' + message), 'fi', message);
+                        transform(path.concat(base, '.xml'), '../../../assets/message2.xsl', document.getElementById('contents' + message), 'fi', message);
+                        i++;
+                    })
+                    $('VersionHistory Version:last Number', returnedXMLResponse).each(function () {
+                        var version = $(this).text();
+                        $(".main-navbar").append(version + " ");
 
-                        })
-                        $('VersionHistory Version:last Date', returnedXMLResponse).each(function() {
-                            var generated = new Date($(this).text());
-                            var generated = generated.toLocaleDateString("fi-FI");
-                            $(".main-navbar").append(generated);
-                        })
-                        $('System[lang="fi"]', returnedXMLResponse).each(function() {
-                            var system = $(this).text();
-                            document.title += " " + system;
-                        })
-                        $('.nav-tabs').tabdrop({
-                            text: 'Lis&auml;&auml;'
-                        });
+                    })
+                    $('VersionHistory Version:last Date', returnedXMLResponse).each(function () {
+                        var generated = new Date($(this).text());
+                        var generated = generated.toLocaleDateString("fi-FI");
+                        $(".main-navbar").append(generated);
+                    })
+                    $('System[lang="fi"]', returnedXMLResponse).each(function () {
+                        var system = $(this).text();
+                        document.title += " " + system;
+                    })
+                    $('.nav-tabs').tabdrop({
+                        text: 'Lis&auml;&auml;'
+                    });
 
-                    } // End Success
+                } // End Success
             }); // End AJAX
         });
     </script>
@@ -173,7 +176,7 @@
         var yyyy = today.getFullYear();
         today = yyyy + mm + dd;
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             transform('../../../../codelists/codelists.xml', '../../../assets/codedata.xsl', document.getElementById('codemodal'), 'fi', today);
             transform('../../common/constraints.xml', '../../../assets/constraints.xsl', document.getElementById('rulesmodal'), 'en', 'na');
         })
@@ -187,12 +190,12 @@
         }
 
         // This will capture hash changes while on the page
-        $(window).on("hashchange", function() {
+        $(window).on("hashchange", function () {
             offsetAnchor();
         });
 
         // Let the page finish loading.
-        $(document).ready(function() {
+        $(document).ready(function () {
             offsetAnchor();
         });
     </script>
@@ -202,22 +205,22 @@
             selector: "[title]"
         });
 
-        $(function() {
+        $(function () {
 
         });
     </script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('body').append('<span id="toTop" class="badge"><i class="media-object icon-md icon icon-tulli-arrow-up"></i></span>');
-            $(window).scroll(function() {
+            $(window).scroll(function () {
                 if ($(this).scrollTop() != 0) {
                     $('#toTop').fadeIn();
                 } else {
                     $('#toTop').fadeOut();
                 }
             });
-            $('#toTop').click(function() {
+            $('#toTop').click(function () {
                 $("html, body").animate({
                     scrollTop: 0
                 }, 600);
@@ -227,7 +230,7 @@
     </script>
 
     <script>
-        $(document).on('DOMNodeInserted', 'table', function() {
+        $(document).on('DOMNodeInserted', 'table', function () {
             $("tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
         });
     </script>
