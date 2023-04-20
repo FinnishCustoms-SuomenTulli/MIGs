@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RulesCondition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<RulesCondition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Constraints.xsd">
 	<RC>
 		<Code>B1003</Code>
 		<DescriptionEn>In case of 'Road Transport' if the road vehicle (and/or its road trailers) are different to those declared in the initial declaration message, then they will be reported as discrepancies and not as new transport means.</DescriptionEn>
@@ -908,152 +908,6 @@ ELSE /*/Consignment/LocationOfGoods/PostcodeAddress/houseNumber = ''R''</Descrip
 		<DescriptionEn>IF /*/ExportOperation/additionalDeclarationType is in SET {D, E, F}
 THEN /*/GoodsShipment/Consignment/LocationOfGoods = "O"
 ELSE /*/GoodsShipment/Consignment/LocationOfGoods = "R"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0394</Code>
-		<DescriptionEn>IF /*/GoodsShipment/Consignment/LocationOfGoods/qualifierOfIdentification is EQUAL to 'Z'
-THEN
-/*/GoodsShipment/Consignment/LocationOfGoods/Address = "R"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/authorisationNumber = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/UNLocode = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/CustomsOffice = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/GNSS = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/EconomicOperator = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/ContactPerson = "O"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/PostcodeAddress = "N"
-ELSE IF /*/GoodsShipment/Consignment/LocationOfGoods/qualifierOfIdentification is EQUAL to 'X'
-THEN
-/*/GoodsShipment/Consignment/LocationOfGoods/EconomicOperator = "R"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/UNLocode = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/CustomsOffice = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/GNSS = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/authorisationNumber = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/Address = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/ContactPerson = "O"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/PostcodeAddress = "N"
-ELSE IF /*/GoodsShipment/Consignment/LocationOfGoods/qualifierOfIdentification is EQUAL to 'Y'
-THEN
-/*/GoodsShipment/Consignment/LocationOfGoods/authorisationNumber = "R"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/UNLocode = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/CustomsOffice = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/GNSS = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/EconomicOperator = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/Address = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/ContactPerson = "O"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/PostcodeAddress = "N"
-ELSE IF /*/GoodsShipment/Consignment/LocationOfGoods/qualifierOfIdentification is EQUAL to 'W'
-THEN
-/*/GoodsShipment/Consignment/LocationOfGoods/GNSS = "R"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/UNLocode = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/CustomsOffice = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/EconomicOperator = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/authorisationNumber = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/Address = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/ContactPerson = "O"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/PostcodeAddress = "N"
-ELSE IF /*/GoodsShipment/Consignment/LocationOfGoods/qualifierOfIdentification is EQUAL to 'V'
-THEN
-/*/GoodsShipment/Consignment/LocationOfGoods/CustomsOffice = "R"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/UNLocode = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/GNSS = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/EconomicOperator = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/authorisationNumber = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/Address = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/ContactPerson = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/PostcodeAddress = "N"
-ELSE IF /*/GoodsShipment/Consignment/LocationOfGoods/qualifierOfIdentification is EQUAL to 'U'
-THEN
-/*/GoodsShipment/Consignment/LocationOfGoods/UNLocode = "R"
-AND/*/GoodsShipment/Consignment/LocationOfGoods/CustomsOffice = "N"
-AND/*/GoodsShipment/Consignment/LocationOfGoods/GNSS = "N"
-AND/*/GoodsShipment/Consignment/LocationOfGoods/authorisationNumber = "N"
-AND/*/GoodsShipment/Consignment/LocationOfGoods/EconomicOperator = "N"
-AND/*/GoodsShipment/Consignment/LocationOfGoods/Address = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/ContactPerson = "O"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/PostcodeAddress = "N"
-ELSE IF /*/GoodsShipment/Consignment/LocationOfGoods/qualifierOfIdentification is EQUAL to 'T'
-THEN
-/*/GoodsShipment/Consignment/LocationOfGoods/Address = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/authorisationNumber = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/UNLocode = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/CustomsOffice = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/GNSS = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/EconomicOperator = "N"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/ContactPerson = "O"
-AND /*/GoodsShipment/Consignment/LocationOfGoods/PostcodeAddress = "R";
-
-
-IF /*/Consignment/LocationOfGoods/qualifierOfIdentification is EQUAL to 'Z' 
-THEN 
-/*/Consignment/LocationOfGoods/Address = "R"
-AND /*/Consignment/LocationOfGoods/authorisationNumber = "N"
-AND /*/Consignment/LocationOfGoods/UNLocode = "N"
-AND /*/Consignment/LocationOfGoods/CustomsOffice = "N"
-AND /*/Consignment/LocationOfGoods/GNSS = "N"
-AND /*/Consignment/LocationOfGoods/EconomicOperator = "N"
-AND /*/Consignment/LocationOfGoods/ContactPerson = "O"
-AND /*/Consignment/LocationOfGoods/PostcodeAddress = "N"
-ELSE IF /*/Consignment/LocationOfGoods/qualifierOfIdentification is EQUAL to 'X' 
-THEN
-/*/Consignment/LocationOfGoods/EconomicOperator = "R"
-AND /*/Consignment/LocationOfGoods/UNLocode = "N"
-AND /*/Consignment/LocationOfGoods/CustomsOffice = "N"
-AND /*/Consignment/LocationOfGoods/GNSS = "N"
-AND /*/Consignment/LocationOfGoods/authorisationNumber = "N"
-AND /*/Consignment/LocationOfGoods/Address = "N"
-AND /*/Consignment/LocationOfGoods/ContactPerson = "O"
-AND /*/Consignment/LocationOfGoods/PostcodeAddress = "N"
-ELSE IF /*/Consignment/LocationOfGoods/qualifierOfIdentification is EQUAL to 'Y' 
-THEN 
-/*/Consignment/LocationOfGoods/authorisationNumber = "R"
-AND /*/Consignment/LocationOfGoods/UNLocode = "N"
-AND /*/Consignment/LocationOfGoods/CustomsOffice = "N"
-AND /*/Consignment/LocationOfGoods/GNSS = "N"
-AND /*/Consignment/LocationOfGoods/EconomicOperator = "N"
-AND /*/Consignment/LocationOfGoods/Address = "N"
-AND /*/Consignment/LocationOfGoods/ContactPerson = "O"
-AND /*/Consignment/LocationOfGoods/PostcodeAddress = "N"
-ELSE IF /*/Consignment/LocationOfGoods/qualifierOfIdentification is EQUAL to 'W' 
-THEN 
-/*/Consignment/LocationOfGoods/GNSS = "R"
-AND /*/Consignment/LocationOfGoods/UNLocode = "N"
-AND /*/Consignment/LocationOfGoods/CustomsOffice = "N"
-AND /*/Consignment/LocationOfGoods/EconomicOperator = "N"
-AND /*/Consignment/LocationOfGoods/authorisationNumber = "N"
-AND /*/Consignment/LocationOfGoods/Address = "N"
-AND /*/Consignment/LocationOfGoods/ContactPerson = "O"
-AND /*/Consignment/LocationOfGoods/PostcodeAddress = "N" 
-ELSE IF /*/Consignment/LocationOfGoods/qualifierOfIdentification is EQUAL to 'V' 
-THEN 
-/*/Consignment/LocationOfGoods/CustomsOffice = "R"
-AND /*/Consignment/LocationOfGoods/UNLocode = "N"
-AND /*/Consignment/LocationOfGoods/GNSS = "N"
-AND /*/Consignment/LocationOfGoods/EconomicOperator = "N"
-AND /*/Consignment/LocationOfGoods/authorisationNumber = "N"
-AND /*/Consignment/LocationOfGoods/Address = "N"
-AND /*/Consignment/LocationOfGoods/ContactPerson = "N"
-AND /*/Consignment/LocationOfGoods/PostcodeAddress = "N"
-ELSE IF /*/Consignment/LocationOfGoods/qualifierOfIdentification is EQUAL to 'U' 
-THEN 
-/*/Consignment/LocationOfGoods/UNLocode = "R"
-AND/*/Consignment/LocationOfGoods/CustomsOffice = "N"
-AND/*/Consignment/LocationOfGoods/GNSS = "N"
-AND/*/Consignment/LocationOfGoods/authorisationNumber = "N"
-AND/*/Consignment/LocationOfGoods/EconomicOperator = "N"
-AND/*/Consignment/LocationOfGoods/Address = "N"
-AND /*/Consignment/LocationOfGoods/ContactPerson = "O"
-AND /*/Consignment/LocationOfGoods/PostcodeAddress = "N"
-ELSE IF /*/Consignment/LocationOfGoods/qualifierOfIdentification is EQUAL to 'T' 
-THEN 
-/*/Consignment/LocationOfGoods/Address = "N"
-AND /*/Consignment/LocationOfGoods/authorisationNumber = "N"
-AND /*/Consignment/LocationOfGoods/UNLocode = "N"
-AND /*/Consignment/LocationOfGoods/CustomsOffice = "N"
-AND /*/Consignment/LocationOfGoods/GNSS = "N"
-AND /*/Consignment/LocationOfGoods/EconomicOperator = "N"
-AND /*/Consignment/LocationOfGoods/ContactPerson = "O"
-AND /*/Consignment/LocationOfGoods/PostcodeAddress = "R"
-</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>C0400</Code>
@@ -2576,6 +2430,16 @@ THEN Name AND Address = 'O'
 ELSE Name AND Address = 'R'</DescriptionEn>
 	</RC>
 	<RC>
+		<Code>NC5047</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Destination/Country is PRESENT
+    THEN /*/GoodsShipment/countryOfDestination = "N"
+    ELSE /*/GoodsShipment/countryOfDestination = "R"
+
+IF /*/GoodsShipment/countryOfDestination is PRESENT
+   THEN /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Destination/Country = "N"
+   ELSE /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​Destination/Country = "R"</DescriptionEn>
+	</RC>
+	<RC>
 		<Code>NC5283</Code>
 		<DescriptionEn>IF /*/GoodsShipment/AdditionalInformation/code is EQUAL TO ‘30600’ OR any /*/GoodsShipment/GoodsItem/AdditionalInformation/code is EQUAL to ‘30600’
 THEN /*/GoodsShipment/Consignment/Consignee = "N"
@@ -2828,8 +2692,7 @@ ELSE IF /*/​Agent/​Role is in SET {'C', 'P'}, two-digit country code and per
 ELSE IF /*/​Agent/​Role is EQUAL to 'D', either EORI or two-digit country code and id shall be used.</DescriptionEn>
 	</RC>
 	<RC>
-		<Code>NR5035 
-NC5008</Code>
+		<Code>NR5035</Code>
 		<DescriptionEn>IF /*/​FunctionalReference@function="MRN" is PRESENT
 THEN /*/​Type@function="AdditionalDeclarationType" should be 'Y'</DescriptionEn>
 	</RC>
@@ -3108,6 +2971,43 @@ THEN
 IF /*/Authorisation/type is EQUAL to ’C513’
 THEN /*/​GoodsShipment/​Consignment/​GoodsLocation/​Address/​Country must NOT be EQUAL to 'FI'
 ELSE /*/​GoodsShipment/​Consignment/​GoodsLocation/​Address/​Country must be 'FI' </DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5096</Code>
+		<DescriptionEn>IF /*/Authorisation/type is EQUAL to ’C513’
+THEN /*/Authorisation/​Identification must start with 'FI'
+AND Declared Customs Office of Presentation must be the presentationCustomsOffice (XIII/3) in authorisation details.</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5097</Code>
+		<DescriptionEn>IF /*/Authorisation/type is EQUAL to ’C513’ 
+AND geographical coverage is specified in the authorisation details, one of the geographicalValidityCountryCodeUnion values must match the first two characters of /*/​ExportOffice/​Identification 
+AND one of the geographicalValidityCountryCodeUnion values must match the first two characters of /*/​PresentationOffice/​Identification</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5098</Code>
+		<DescriptionEn>IF /*/Authorisation/type is EQUAL to ’C513’ 
+THEN Exporter must be the Holder of the authorisation OR Exporter must be one of the Companies involved in the authorisation in other Member States (XIII/1).
+Technically: Exporter identification = authorizationOrDecisionHolderIdentification in the authorisation details
+OR
+Exporter identification = companyInvolvedInOtherCountriesIdentificationEori in the authorisation details</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5099</Code>
+		<DescriptionEn>IF there is /*/Authorisation/Category that is EQUAL to ’C513’ PRESENT THEN /*/AdditionalInformation/Statement with value ‘FIFAL’ cannot be declared</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5100</Code>
+		<DescriptionEn>IF /*/ExportOperation/declarationType is EQUAL to 'CO' 
+THEN /*/​GoodsShipment/​Destination/Country must not be 'FI'
+
+IF /*/ExportOperation/declarationType is EQUAL to 'CO'
+THEN /*/​GoodsShipment/​GoodsItem/​Destination/Country must not be 'FI'</DescriptionEn>
+	</RC>
+	<RC>
+		<Code>NR5101</Code>
+		<DescriptionEn>IF /*/​GoodsShipment/​GoodsItem/​Procedure (Current + Previous) is EQUAL to '3171'
+THEN /​GoodsShipment/​GoodsItem/​PreviousDocument/Type must be EQUAL to 'NMRN'</DescriptionEn>
 	</RC>
 	<RC>
 		<Code>NR5501</Code>
