@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fi" xml:lang="fi">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Sanomaliikenneopas -</title>
+    <link rel="icon" href="../../../assets/favicon.ico">
+    <link rel="stylesheet" href="../../../assets/tulli-bootstrap-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../assets/tulli-mig-me.css" type="text/css" />
+    <link rel="stylesheet" href="../../../assets/scroll-style.css" type="text/css" />
+</head>
+
+<body class="guidelines">
+
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <span class="navbar-text main-navbar">Sanomaliikenneopas versio </span>
+                <a href="../../sv/pages/messageexchange.html">Svenska</a>
+                <a href="../../en/pages/messageexchange.html">English</a>
+            </div>
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- /.navbar -->
+
+    <header>
+        <div class="upper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <a class="" href="../index.html">
+                            <img class="img-responsive pull-left" src="../../../assets/images/logo-tulli.svg" alt="Suomen tullin logo" /></a>
+
+                        <button type="button" class="navbar-toggle collapsed pull-right margin-0" data-toggle="collapse" data-target="#navbar-mainmenu" aria-expanded="false" aria-controls="navbar-mainmenu">
+                            <span class="sr-only">Valikko</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="col-md-9 col-sm-12 col-xs-12">
+                        <nav id="navbar-mainmenu" role="menu" class="mainmenu collapse navbar-collapse">
+                            <ul class="nav nav-pills">
+                                <li>
+                                    <a href="../index.html">P&auml;&auml;sivu</a>
+                                </li>
+                                <li class='current'>
+                                    <a class='current' href="messageexchange.html">Sanomaliikenneopas</a>
+                                </li>
+                                <li>
+                                    <a href="datamodel.html">Luokkakaavio</a>
+                                </li>
+                                <li>
+                                    <a href="datarequirements.html">Tietosis&auml;ll&ouml;t</a>
+                                </li>
+                                <li>
+                                    <a href="codes.html">Koodit</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lower">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-10">
+                        <h1>Sanomaliikenneopas</h1>
+                    </div>
+                    <div class="col-xs-2">
+                        <button type="button" class="navbar-toggle collapsed pull-right padding-0 margin-0" data-toggle="collapse" data-target="#nav-sidebar" aria-expanded="false" aria-controls="nav-sidebar">
+                            <span class="sr-only">Valikko</span>
+                            <span class="icon icon-tulli-chevron-down icon-blue"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content-area">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 sidebar" role="complementary">
+                    <nav id="nav-sidebar" class="hidden-print collapse navbar-collapse" data-spy="affix" data-offset-top="210">
+                        <ul class="nav nav-stacked">
+                            <li class="active">
+                                <a href="#intro">Yleist&auml;</a>
+                            </li>
+                            <li>
+                                <a href="#messages">Sanomat</a>
+                            </li>
+                            <li>
+                                <a href="#usecases">K&auml;ytt&ouml;tapaukset</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="col-md-9 col-sm-9 col-xs-12" role="main">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                &copy; Tulli 2018
+
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src='../../../assets/javascripts/vendor/jquery.js'></script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: '../../common/intro.xml',
+                type: 'GET',
+                dataType: 'xml',
+                success: function(returnedXMLResponse) {
+                        $('System[lang="fi"]', returnedXMLResponse).each(function() {
+                            var system = $(this).text();
+                            $(".pageheader").append(system);
+                            document.title += " " + system;
+                        })
+                        $('VersionHistory Version:last Number', returnedXMLResponse).each(function() {
+                            var version = $(this).text();
+                            $(".main-navbar").append(version + " ");
+                        })
+                        $('VersionHistory Version:last Date', returnedXMLResponse).each(function() {
+                            var date = new Date($(this).text());
+                            date = date.toLocaleDateString("fi-FI");
+                            $(".main-navbar").append(date);
+                        })
+                    } // End Success
+            }); // End AJAX
+        });
+    </script>
+
+    <script src='../../../assets/xsltProcessor.js'></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            transform('../../common/messageexchange.xml', '../../../assets/messageexchange.xsl', document.getElementById('accordion'), 'fi');
+        })
+    </script>
+    <script src='../../../assets/javascripts/bootstrap.js'></script>
+
+    <script src='../../../assets/javascripts/custom-ui.js'></script>
+
+    <script>
+        $(function() {
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+              $('body').append('<span id="toTop" class="badge"><i class="media-object icon-md icon icon-tulli-arrow-up"></i></span>');
+    	        $(window).scroll(function () {
+			        if ($(this).scrollTop() != 0) {
+				        $('#toTop').fadeIn();
+			        } else {
+				        $('#toTop').fadeOut();
+			        }
+		        }); 
+            $('#toTop').click(function(){
+                $("html, body").animate({ scrollTop: 0 }, 600);
+                return false;
+            });
+        });
+    </script>
+
+</body>
+
+</html>

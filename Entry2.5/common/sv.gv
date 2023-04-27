@@ -1,0 +1,157 @@
+﻿graph Entry {
+   node [shape=plaintext, fontname = "helvetica"];
+	edge [fontname = "helvetica"];
+	{rank=same "Amendment" "Notification" "HouseConsignment"}
+	"ImportOperation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Importhändelse</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Händelsens identifiering<br align="left"/>MRN<br align="left"/>LRN<br align="left"/>Ytterligare LRN<br align="left"/>Faktiskt datum och faktisk tid för anmälan av varornas ankomst<br align="left"/>Beräknad dag och tid för anmälan av varors ankomst<br align="left"/>Urprungligt datum och ursprunglig tid för anmälan av varornas ankomst<br align="left"/>Språkkod<br align="left"/></td></tr></table>>];
+	"Consignment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Leveransparti  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">MRN för tillfällig lagring efter befordran</td></tr></table>>];
+	"HouseConsignment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Leveransparti på undernivå </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>MRN<br align="left"/>LRN<br align="left"/>Total bruttovikt<br align="left"/></td></tr></table>>];
+	
+	"GoodsItem" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varupost</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Varupostnummer<br align="left"/>Unionsstatus<br align="left"/>Varubeskrivning<br align="left"/>Varukod - HS-nummer<br align="left"/>Varukod - KN-nummer<br align="left"/>CUS-kod<br align="left"/></td></tr></table>>];
+	"GoodsLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varornas förvaringsplats  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Typ av förvaringsplats<br align="left"/>UN/LOCODE<br align="left"/>Tullkontor<br align="left"/>GNSS<br align="left"/>Ekonomisk aktör<br align="left"/>Tillståndets nummer<br align="left"/>Tilläggsidentifiering<br align="left"/></td></tr></table>>];
+	"LoadingLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Lastningsplats</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Platsens namn<br align="left"/>Land<br align="left"/>Identifiering av avsändningslagret<br align="left"/>Beräknat datum och beräknad tid för förflyttining<br align="left"/></td></tr></table>>];
+	"UnloadingLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Lossningsplats</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identifiering av mottagande lagret</td></tr></table>>];
+	"UCR" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Referensnummer/UCR  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Referensnummer/UCR  </td></tr></table>>];
+	"DangerousGoods" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Farligt gods  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">UNDG</td></tr></table>>];
+	"Packaging" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Förpackningar </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Märken<br align="left"/>Antal kollin<br align="left"/>Kollislag<br align="left"/></td></tr></table>>];
+	"SupportingDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Bifogat dokument</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Typ av dokument<br align="left"/>Dokumentets identifierare<br align="left"/></td></tr></table>>];
+	"Authorisation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tillstånd</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Typ<br align="left"/>Referensnummer<br align="left"/>Tillståndshavarens identifieringsnummer<br align="left"/></td></tr></table>>];
+	"TransportDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportdukument  </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Dukumentets typ<br align="left"/>Dkumentets identifiering<br align="left"/>Varupostidentifierare<br align="left"/></td></tr></table>>];
+	"PreviousDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tidigare dokument</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tidigare dokumentets typ<br align="left"/>Referens för tidigare dokument<br align="left"/>Varupostidentifierare<br align="left"/>Referens för transportdokument<br align="left"/></td></tr></table>>];
+	"AdditionalInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare uppgifter</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Kod för ytterligare uppgifter<br align="left"/>Beskrivning för ytterligare uppgifter<br align="left"/></td></tr></table>>];
+	"Warehouse" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Identifiering av lager   </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Lagerkod<br align="left"/>Lagertyp<br align="left"/></td></tr></table>>];
+
+	"AdditionalSupplyChainActor" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare aktör i leveranskedjan</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Rollkod för ytterligare aktör i leveranskedjan<br align="left"/></td></tr></table>>];
+	"Applicant" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Sökande</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/>Typ<br align="left"/></td></tr></table>>];
+	"Consignee" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Mottagare</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/>Typ<br align="left"/></td></tr></table>>];
+	"Consignor" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Avsändare</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/>Typ<br align="left"/></td></tr></table>>];
+	"Declarant" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Deklarant</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/></td></tr></table>>];
+	"Holder" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Lagerinnehavare</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/></td></tr></table>>];
+	"NotifyParty" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Part som ska underrättas   </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/>Typ<br align="left"/></td></tr></table>>];
+	"PersonPresenting" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Person som anmäler varornas ankomst till tullen      </b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/></td></tr></table>>];
+	"Representative" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ombud</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Kod för ombudets status<br align="left"/>Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/></td></tr></table>>];
+	"ServiceProvider" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tjänsteleverantör</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer</td></tr></table>>];
+	"Submitter" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Person som inger deklarationen    </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Namn<br align="left"/>E-postadress<br align="left"/>Telefonnummer<br align="left"/></td></tr></table>>];
+	"PresentationOffice" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Anmälningstullkontor    </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identifierare för tullkontor<br align="left"/></td></tr></table>>];
+	"Address" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Adress</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Gatuadress<br align="left"/>Postanstalt<br align="left"/>Postnummer<br align="left"/>Land<br align="left"/></td></tr></table>>];
+
+	"ArrivalTransportMeans" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportmedlet vid ankomsten    </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Typ av identifiering<br align="left"/></td></tr></table>>];
+	"PassiveBorderTransportMeans" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Passiva transportmedlet vid gränspassagen      </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br/>Identification number<br align="left"/></td></tr></table>>];
+	"TransportEquipment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportutrustning   </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Containernummer</td></tr></table>>];
+	"Seal" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Försegling</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Förseglingsidentifiering<br align="left"/></td></tr></table>>];
+
+	"Amendment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Korrigering</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Korrigeringens datum och tid<br align="left"/>Orsak till korrigeringsbegäran<br align="left"/>Begärans korrelation<br align="left"/></td></tr></table>>];
+	"Notification" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Underrättelse</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Underrättelsens typ<br align="left"/>Underrättelsens datum och tid<br align="left"/>Svarskod<br align="left"/>Underrättelsens beskrivning<br align="left"/>Orsak till ogiltigförklaring<br align="left"/>Anledning till kontakt<br align="left"/>Deklarationens del<br align="left"/>Sammanhörande varupost<br align="left"/>Ersättande MRN<br align="left"/>Begärans korrelation<br align="left"/>Tidsgräns<br align="left"/></td></tr></table>>];
+	"Error" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Fel</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Felkod<br align="left"/>Felorsak<br align="left"/>Felbeskrivning<br align="left"/>Felpointer<br align="left"/>Ursprungligt attributvärde<br align="left"/></td></tr></table>>];
+	"ProvidedInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Inlämnad information   </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Beskrivning<br align="left"/>Bilagans referens<br align="left"/></td></tr></table>>];
+	"Control" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontroll</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Kontrolltyp<br align="left"/>Kontrollplats<br align="left"/>Uppskattad tid för kontroll<br align="left"/>Kontrollsubjekt<br align="left"/>Sammanhörande varupost<br align="left"/></td></tr></table>>];
+	"ContactInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontaktuppgifter </b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Tullkontorets namn<br align="left"/>Namn<br align="left"/>E-postadress<br align="left"/>Telefonnummer<br align="left"/></td></tr></table>>];
+	"Decision" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Beslut</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Beslutets datum och tid</td></tr></table>>];
+	"Note" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Anteckning</b></font></td></tr>
+	<tr><td bgcolor="#fafafa" align="left">Anteckningens typ<br align="left"/>Anteckningens text<br align="left"/></td></tr></table>>];
+
+	"ImportOperation" -- "Consignment" [headlabel="0..9999", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Amendment" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "AdditionalSupplyChainActor" [headlabel="0..99", taillabel="1" fontsize=10]
+	"ImportOperation" -- "PersonPresenting" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Representative" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Holder" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "ServiceProvider" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Submitter" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Applicant" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "AdditionalInformation" [headlabel="0..99", taillabel="1" fontsize=10]
+	"ImportOperation" -- "ArrivalTransportMeans" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "GoodsLocation" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Warehouse" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "PresentationOffice" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Declarant" [headlabel="0..1", taillabel="1" fontsize=10]
+	"ImportOperation" -- "SupportingDocument" [headlabel="0..99", taillabel="1" fontsize=10]
+	"ImportOperation" -- "AdditionalInformation" [headlabel="0..99", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Authorisation" [headlabel="0..9", taillabel="1" fontsize=10]
+	"ImportOperation" -- "Notification" [headlabel="1", taillabel="1" fontsize=10]
+	"Applicant" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignee" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignor" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
+	"NotifyParty" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
+	"GoodsLocation" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Notification" -- "ContactInformation" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Notification" -- "Control" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Notification" -- "Decision" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Notification" -- "ProvidedInformation" [headlabel="0..999", taillabel="1" fontsize=10]
+	"Notification" -- "Error" [headlabel="0..999", taillabel="1" fontsize=10]
+	"ContactInformation"-- "Control" [headlabel="1", taillabel="0..1" fontsize=10]
+	"Decision" -- "Note" [headlabel="0..999", taillabel="1" fontsize=10]
+	"Consignment" -- "GoodsLocation" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "LoadingLocation" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "UnloadingLocation" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "ArrivalTransportMeans" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "Warehouse" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "Consignee" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "Consignor" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "NotifyParty" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "TransportEquipment" [headlabel="0..9999", taillabel="1" fontsize=10]
+	"Consignment" -- "HouseConsignment" [headlabel="0..99999", taillabel="1" fontsize=10]
+	"Consignment" -- "PreviousDocument" [headlabel="0..9999", taillabel="1" fontsize=10]
+	"Consignment" -- "TransportDocument" [headlabel="0..1", taillabel="1" fontsize=10]
+	"Consignment" -- "GoodsItem" [headlabel="0..9999", taillabel="1" fontsize=10]
+	"Consignment" -- "UCR" [headlabel="0..1", taillabel="1" fontsize=10]
+
+	"AdditionalInformation" -- "HouseConsignment" [headlabel="1", taillabel="0..99" fontsize=10]
+	"Consignee" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
+	"Consignor" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
+	"NotifyParty" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
+	"LoadingLocation" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
+	"HouseConsignment" -- "TransportEquipment" [headlabel="0..9999", taillabel="1" fontsize=10]
+	"TransportDocument" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
+	"HouseConsignment" -- "PreviousDocument" [headlabel="0..1", taillabel="1" fontsize=10]
+	"HouseConsignment" -- "PassiveBorderTransportMeans" [headlabel="0..1", taillabel="1" fontsize=10]
+	"HouseConsignment" -- "GoodsItem" [headlabel="0..9999", taillabel="1" fontsize=10]
+	"UCR" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
+
+	"TransportEquipment" -- "GoodsItem" [headlabel="1", taillabel="0..9999" fontsize=10]
+	"TransportEquipment" -- "Seal" [headlabel="0..9999", taillabel="1" fontsize=10]
+	"GoodsItem" --"DangerousGoods" [headlabel="0..99", taillabel="1" fontsize=10]
+	"GoodsItem" --"Packaging" [headlabel="0..99", taillabel="1" fontsize=10]
+	"PassiveBorderTransportMeans" -- "GoodsItem" [headlabel="1", taillabel="0..1" fontsize=10]
+	"PreviousDocument" -- "GoodsItem" [headlabel="1", taillabel="0..1" fontsize=10]
+	// Adjust the layout, not real connections
+	//"Notification" -- "Consignment" [style=invis]
+}
