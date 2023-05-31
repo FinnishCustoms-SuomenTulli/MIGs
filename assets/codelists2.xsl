@@ -52,6 +52,9 @@
 									<xsl:value-of select="concat('CODELIST_',Identification)"/>
 								</xsl:attribute>
 								<div class="accordion-content-container">
+									<p>
+										<xsl:value-of select="Description[@lang=($language)]"/>
+									</p>
 									<table class="table table-striped table-hover table-responsive">
 										<thead>
 											<tr>
