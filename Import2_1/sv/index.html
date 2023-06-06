@@ -168,41 +168,6 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h2 class="panel-title">
-                                        <a name="mainmenu">Ändringar jämfört med importens andra fas</a>
-                                    </h2>
-                                </div>
-                                <div class="panel-body">
-                                    <ul class="list">
-                                        <li>Namnrymden och versioneringen av meddelanden har ändrats</li>
-                                        <li>Följande uppgifter har lagts till på korrigeringsmeddelanden (FI413, FI473 och FI483):</li>
-                                            <ul class="list">
-                                                <li>Ändringens typ</li>
-                                                <li>Orsak till korrigeringsbegäran</li>
-                                                <li>Uppgifter som krävs för att kunna ladda up ett bilagsdokument</li>
-                                            </ul>
-                                        <li>Meddelanden gällande hörande (begäran om hörande och sammanhörande svarsmeddelandet)</li>
-                                        <li>Attributet tidsgränsens typ har lagts till i samband med elementet tidsgräns</li>
-                                        <li>Följande uppgifter har lagts till på korrigeringsmeddelanden och begäran om ogiltigförklaring (FI414):</li>
-                                        <ul class="list">
-                                            <li>Part ansvarig för betalning</li>
-                                            <li>Ansökt belopp</li>
-                                            <li>Liten återbetalning</li>
-                                            <li>Betalningssätt</li>
-                                            <li>Kontonummer och bankens identifiering</li>
-                                            <li>Kontoinnehavarens namn och addressuppgifter</li>
-                                            <li>Sökandens namn och addressuppgifter</li>
-                                        </ul>
-                                        <li>Tillägg av tidigare dokument på deklarationsnivå på meddelanden FI415 och FI413</li>
-                                        <li>Tillägg av felets beskrivning på meddelanden FI416 och FI444.</li>
-                                    </ul>
-                               </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h2 class="panel-title">
                                         <a name="mainmenu">Allmänna anmärkningar</a>
                                     </h2>
                                 </div>
@@ -228,7 +193,7 @@
                                         <a href="https://svn.taxud.gefeg.com/svn/Documentation/EUCDM/EN/index.htm"><span class="icon icon-tulli-external"></span>EU:s tulldatamodell (EUCDM)</a>, anpassade för att ta i beaktan de
                                         nationella behoven. Meddelanden är mappade mot EUCDM och underliggande
                                         <a href="http://www.wcoomd.org/en/topics/facilitation/instrument-and-tools/tools/data-model.aspx">
-                                            <span class="icon icon-tulli-external"></span> Världens Tullorganisations datamodell version 3.8.1
+                                            <span class="icon icon-tulli-external"></span> Världens Tullorganisations datamodell version 3.10.0
                                         </a>
                                         då det är möjligt. Det är möjligt att meddelande måste anpassas i framtiden då nya mappningsprojekt mot WCO:s datamodell utförs, för att nå en
                                         maximal kompabilitet mellan medlemsstaterna.
@@ -304,6 +269,10 @@
                                             <td>O</td>
                                             <td>valfri</td>
                                         </tr>
+                                        <tr>
+                                            <td>N</td>
+                                            <td>används inte</td>
+                                        </tr>
                                     </table>
                                     <p>Numerisk data är alltid positivt, inget plus-märke (+) skickas. Punkt ska användas som decimalseparator. Inledande nollor kan användas, de används inte av Finska tullen.</p>
                                 </div>
@@ -313,7 +282,7 @@
                 </div>
             </div>
             <!-- Modal -->
-            <div class="modal" id="browserWarning" tabindex="-1" role="dialog" aria-labelledby="modal-header-demo" data-keyboard="false" data-backdrop="static">
+            <div class="modal fade" id="browserWarning" tabindex="-1" role="dialog" aria-labelledby="modal-header-demo" data-keyboard="false" data-backdrop="static">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">

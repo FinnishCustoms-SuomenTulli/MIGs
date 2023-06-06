@@ -168,41 +168,6 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h2 class="panel-title">
-                                        <a name="mainmenu">Muutokset verrattuna tuonnin toiseen vaiheeseen</a>
-                                    </h2>
-                                </div>
-                                <div class="panel-body">
-                                    <ul class="list">
-                                        <li>Nimiavaruusmäärittely ja sanomien versio on muuttunut</li>
-                                        <li>Korjaussanomille (FI413, FI473 ja FI483) lisätty tiedot:</li>
-                                            <ul class="list">
-                                                <li>Muutostyyppi</li>
-                                                <li>Oikaisun syyn kuvaus</li>
-                                                <li>Liitetiedoston lähettämisen vaatimat tiedot</li>
-                                            </ul>
-                                        <li>Kuulemiseen liittyvät sanomat (kuulemispyyntö ja siihen liittyvä vastaus)</li>
-                                        <li>Tietoelementin määräaika yhteyteen lisätty attribuutti määräajan laji</li>
-                                        <li>Korjaussanomille ja mitätöintipyynnölle (FI414) lisätty seuraavat tiedot:</li>
-                                        <ul class="list">
-                                            <li>Maksuliikenteestä vastaava</li>
-                                            <li>Haettu summa</li>
-                                            <li>Pienen summan palautus</li>
-                                            <li>Maksutapa</li>
-                                            <li>Tilinumero ja pankin tunniste</li>
-                                            <li>Tilinhaltijan nimi ja osoitetiedot</li>
-                                            <li>Muutoksenhakijan nimi ja osoitetiedot</li>
-                                        </ul>
-                                        <li>FI415 ja FI413 -sanomille lisätty edeltävä asiakirja ilmoitustasolle</li>
-                                        <li>FI416 ja FI444 -sanomille lisätty virheen kuvaus.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h2 class="panel-title">
                                         <a name="mainmenu">Yleisiä huomautuksia</a>
                                     </h2>
                                 </div>
@@ -228,7 +193,7 @@
                                         <a href="https://svn.taxud.gefeg.com/svn/Documentation/EUCDM/EN/index.htm"><span class="icon icon-tulli-external"></span>EU:n tullitietomalliin (EUCDM)</a>, muokattuina vastaamaan kansallisia
                                         tarpeita. Sanomat ovat mahdollisuuksien mukaan kuvattuna EUCDM:ää ja sen pohjalla olevaa
                                         <a href="http://www.wcoomd.org/en/topics/facilitation/instrument-and-tools/tools/data-model.aspx">
-                                            <span class="icon icon-tulli-external"></span> Maailman tullijärjestön tietomallin versiota 3.8.1
+                                            <span class="icon icon-tulli-external"></span> Maailman tullijärjestön tietomallin versiota 3.10.0
                                         </a>
                                         vastaan. On mahdollista, että sanomia joudutaan jatkossa korjaamaan, kun uusia kuvausprojekteja WCO:n tietomallia vastaan toteutetaan, jotta mahdollisestaan maksimaalinen yhteentoimivuus eri
                                         jäsenmaiden välillä.
@@ -304,6 +269,10 @@
                                             <td>O</td>
                                             <td>vapaaehtoinen</td>
                                         </tr>
+                                        <tr>
+                                            <td>N</td>
+                                            <td>ei käytössä</td>
+                                        </tr>
                                     </table>
                                     <p>
                                         Numeerinen tieto on aina positiivista, plusmerkkiä (+) ei lähetetä. Pistettä tulee käyttää desimaalierottimena. Etunollia voi käyttää, Suomen tulli ei
@@ -316,7 +285,7 @@
                 </div>
             </div>
             <!-- Modal -->
-            <div class="modal" id="browserWarning" tabindex="-1" role="dialog" aria-labelledby="modal-header-demo" data-keyboard="false" data-backdrop="static">
+            <div class="modal fade" id="browserWarning" tabindex="-1" role="dialog" aria-labelledby="modal-header-demo" data-keyboard="false" data-backdrop="static">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -392,7 +361,7 @@
             $(document).on("DOMNodeInserted", "table", function () {
                 var $el, $ps, $up, totalHeight;
 
-                    $(".sidebar-box .button").click(function () {
+                $(".sidebar-box .button").click(function () {
                     totalHeight = 0;
 
                     $el = $(this);
@@ -424,7 +393,7 @@
 
                     // fade out read-more
                     $p.fadeOut();
- 
+
                     // prevent jump-down
                     return false;
                 });
