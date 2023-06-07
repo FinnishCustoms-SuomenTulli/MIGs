@@ -108,7 +108,7 @@
 			<Use>FI015A</Use>
 			<XPath>Type@function="AdditionalDeclarationType"</XPath>
 			<MinOccurence>1</MinOccurence>
-			<Codelist>CL042</Codelist>
+			<Codelist>CL024</Codelist>
 			<Rule use="FI013A">NR9001</Rule>
 			<Format>a1</Format>
 		</DataElement>
@@ -189,7 +189,7 @@
 			<Use>FI015A</Use>
 			<XPath>Security</XPath>
 			<MinOccurence>1</MinOccurence>
-			<Codelist>CL217_NCTS</Codelist>
+			<Codelist>CL217</Codelist>
 			<Rule use="FI013A">NR9001</Rule>
 			<Format>n1</Format>
 		</DataElement>
@@ -243,7 +243,7 @@
 			<Condition>NC9008</Condition>
 			<Format>an..4</Format>
 		</DataElement>
-		<DataElement>
+		<!--DataElement>
 			<Name lang="fi">Tapahtumalippu</Name>
 			<Name lang="sv">Incidentflagga</Name>
 			<Name lang="en">Incident flag</Name>
@@ -252,7 +252,7 @@
 			<MinOccurence>1</MinOccurence>
 			<Codelist>CL027</Codelist>
 			<Format>n1</Format>
-		</DataElement>
+		</DataElement-->
 		<DataElement>
 			<Name lang="fi">Sinettien kunto</Name>
 			<Name lang="sv">Förseglingarnas skick</Name>
@@ -386,7 +386,7 @@
 				<Use>FI014A</Use>
 				<XPath>Invalidation</XPath>
 				<MinOccurence>1</MinOccurence>
-				<Codelist>NCL061</Codelist>
+				<Codelist>NCL061_NCTS</Codelist>
 				<Format>an..6</Format>
 			</DataElement>
 			<DataElement>
@@ -561,7 +561,6 @@
 			<Group>Applicant</Group>
 			<MinOccurence>0</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<Condition use="FI014A">NC9016</Condition>
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
 				<Name lang="sv">Identifieringsnummer</Name>
@@ -905,6 +904,7 @@
 			<Use>FI007A</Use>
 			<Use>FI013A</Use>
 			<Use>FI015A</Use>
+			<Use>FI044A</Use>
 			<Use>FI046A</Use>
 			<Use>FI170A</Use>
 			<XPath>Submitter</XPath>
@@ -918,6 +918,7 @@
 				<Use>FI007A</Use>
 				<Use>FI013A</Use>
 				<Use>FI015A</Use>
+				<Use>FI044A</Use>
 				<Use>FI046A</Use>
 				<Use>FI170A</Use>
 				<XPath>Name</XPath>
@@ -934,6 +935,7 @@
 				<Use>FI007A</Use>
 				<Use>FI013A</Use>
 				<Use>FI015A</Use>
+				<Use>FI044A</Use>
 				<Use>FI046A</Use>
 				<Use>FI170A</Use>
 				<XPath>Communication</XPath>
@@ -947,6 +949,7 @@
 					<Use>FI007A</Use>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
+					<Use>FI044A</Use>
 					<Use>FI046A</Use>
 					<Use>FI170A</Use>
 					<XPath>Identification</XPath>
@@ -963,6 +966,7 @@
 					<Use>FI007A</Use>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
+					<Use>FI044A</Use>
 					<Use>FI046A</Use>
 					<Use>FI170A</Use>
 					<XPath>Type</XPath>
@@ -978,6 +982,7 @@
 				<Use>FI007A</Use>
 				<Use>FI013A</Use>
 				<Use>FI015A</Use>
+				<Use>FI044A</Use>
 				<Use>FI046A</Use>
 				<Use>FI170A</Use>
 				<XPath>Communication</XPath>
@@ -991,6 +996,7 @@
 					<Use>FI007A</Use>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
+					<Use>FI044A</Use>
 					<Use>FI046A</Use>
 					<Use>FI170A</Use>
 					<XPath>Identification</XPath>
@@ -1007,6 +1013,7 @@
 					<Use>FI007A</Use>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
+					<Use>FI044A</Use>
 					<Use>FI046A</Use>
 					<Use>FI170A</Use>
 					<XPath>Type</XPath>
@@ -1070,9 +1077,9 @@
 				<Format>an..4</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="fi">Asiakirjatunniste</Name>
-				<Name lang="sv">Dokumentets identifierare</Name>
-				<Name lang="en">Document identifier</Name>
+				<Name lang="fi">Luvan tunniste</Name>
+				<Name lang="sv">Tillståndets identifierare</Name>
+				<Name lang="en">Authorisation identifier</Name>
 				<Use>FI007A</Use>
 				<Use>FI013A</Use>
 				<Use>FI015A</Use>
@@ -1440,7 +1447,7 @@
 					<Use>FI015A</Use>
 					<XPath>Statement</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Codelist>CL239_NCTS</Codelist>
+					<Codelist>CL239</Codelist>
 					<Rule>R3060</Rule>
 					<Format>an5</Format>
 					<DescriptionLine lang="fi">Ilmoiteaan koko ilmoitukselle yhteinen lisätiedon koodi.</DescriptionLine>
@@ -1488,7 +1495,7 @@
 					<Use>FI015A</Use>
 					<XPath>Type</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Codelist>CL754_NCTS</Codelist>
+					<Codelist>CL754</Codelist>
 					<Format>an4</Format>
 				</DataElement>
 				<DataElement>
@@ -1915,7 +1922,7 @@
 					<Use>FI015A</Use>
 					<XPath>IdentificationType</XPath>
 					<MinOccurence>0</MinOccurence>
-					<Codelist>CL219_NCTS</Codelist>
+					<Codelist>CL219</Codelist>
 					<Rule>B1838</Rule>
 					<Rule>B2101</Rule>
 					<Format>n2</Format>
@@ -1943,7 +1950,7 @@
 					<MinOccurence>0</MinOccurence>
 					<Rule>R0315</Rule>
 					<Condition>C0531</Condition>
-					<Format>an..17</Format>
+					<Format>an..35</Format>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Rajatullitoimipaikan viitenumero</Name>
@@ -2710,7 +2717,7 @@
 						<Use>FI015A</Use>
 						<XPath>Type</XPath>
 						<MinOccurence>1</MinOccurence>
-						<Codelist>CL754_NCTS</Codelist>
+						<Codelist>CL754</Codelist>
 						<Format>an4</Format>
 					</DataElement>
 					<DataElement>
@@ -3914,7 +3921,7 @@
 							<XPath>Type</XPath>
 							<MinOccurence>1</MinOccurence>
 							<MinOccurence use="FI044A">0</MinOccurence>
-							<Codelist>CL213_NCTS</Codelist>
+							<Codelist>CL213</Codelist>
 							<Format>an4</Format>
 							<DescriptionLine lang="fi">Ilmoitetaan tavaraerää koskevan liiteasiakirjan / luvan koodi.</DescriptionLine>
 							<DescriptionLine lang="sv">Kod för det bifogade dokument / tillstånd som gäller varuposten anges.</DescriptionLine>
@@ -4078,7 +4085,7 @@
 							<Use>FI015A</Use>
 							<XPath>Type</XPath>
 							<MinOccurence>1</MinOccurence>
-							<Codelist>CL754_NCTS</Codelist>
+							<Codelist>CL754</Codelist>
 							<Format>an4</Format>
 						</DataElement>
 						<DataElement>
@@ -4134,7 +4141,7 @@
 							<Use>FI015A</Use>
 							<XPath>Statement</XPath>
 							<MinOccurence>1</MinOccurence>
-							<Codelist>CL239_NCTS</Codelist>
+							<Codelist>CL239</Codelist>
 							<Rule>B1814</Rule>
 							<Rule>R3061</Rule>
 							<Format>an5</Format>
@@ -4185,7 +4192,7 @@
 							<Use>FI015A</Use>
 							<XPath>Type</XPath>
 							<MinOccurence>1</MinOccurence>
-							<Codelist>CL214_NCTS</Codelist>
+							<Codelist>CL214</Codelist>
 							<Rule>R0020</Rule>
 							<Format>an4</Format>
 						</DataElement>
@@ -4740,7 +4747,6 @@
 				<Group>UCR</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
-				<Rule>B1985</Rule>
 				<Condition>C0502</Condition>
 				<DataElement>
 					<Name lang="fi">Viitenumero/UCR</Name>
