@@ -2,9 +2,12 @@
 <!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
 <Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Message.xsd">
 	<DataGroup>
-		<Name lang="fi">Tuontitapahtuma</Name>
-		<Name lang="sv">Importhändelse</Name>
-		<Name lang="en">Import operation</Name>
+		<Name lang="fi">Ilmoitus</Name>
+		<Name lang="sv">Deklaration</Name>
+		<Name lang="en">Declaraion</Name>
+		<Alias lang="fi">Tuontitapahtuma</Alias>
+		<Alias lang="sv">Importhändelse</Alias>
+		<Alias lang="en">Import operation</Alias>
 		<Use>FI413B</Use>
 		<Use>FI414B</Use>
 		<Use>FI415B</Use>
@@ -103,6 +106,7 @@
 			<XPath>FunctionalReference@function="MRN"</XPath>
 			<MinOccurence>1</MinOccurence>
 			<Rule use="FI413B">NR0102</Rule>
+			<Rule use="FI415B">NR0102</Rule>
 			<Condition use="FI415B">NC0109</Condition>
 			<Format>an18</Format>
 		</DataElement>
@@ -142,6 +146,8 @@
 			<MinOccurence>1</MinOccurence>
 			<MinOccurence use="FI446B">0</MinOccurence>
 			<Rule use="FI432B">R0432</Rule>
+			<Rule use="FI413B">NR0102</Rule>
+			<Rule use="FI415B">NR0102</Rule>
 			<Condition use="FI413B">NC0027</Condition>
 			<Condition use="FI415B">NC0027</Condition>
 			<Condition use="FI439B">NC0027</Condition>
@@ -152,8 +158,6 @@
 			<Condition use="FI485B">NC0242</Condition>
 			<Condition use="FI413B">NC0301</Condition>
 			<Condition use="FI415B">NC0301</Condition>
-			<Condition use="FI413B">NC0302</Condition>
-			<Condition use="FI415B">NC0302</Condition>
 			<Format>an..22</Format>
 			<DescriptionLine lang="fi">Ilmoitetaan viitenumero, joka yksilöi tulli-ilmoituksen, esim. keikkaviite. Tätä viitettä käytetään myös Tullin vastaussanomissa asiakkaan viitteenä.</DescriptionLine>
 			<DescriptionLine lang="sv">Referensnummer som specificerar tulldeklarationen anmäls. Denna referens används också som referens för kunden i Tullens svarsmeddelanden.</DescriptionLine>
@@ -217,9 +221,10 @@
 			<XPath>Type@function="DeclarationType"</XPath>
 			<MinOccurence>1</MinOccurence>
 			<Codelist>CL023</Codelist>
-			<Rule>NR0207</Rule>
 			<Rule use="FI413B">NR0101</Rule>
 			<Rule use="FI415B">NR0101</Rule>
+			<Rule use="FI413B">NR0208</Rule>
+			<Rule use="FI415B">NR0208</Rule>
 			<Format>an..5</Format>
 			<DescriptionLine lang="fi">Kolmasmaatavarasta käytetään koodia 'IM' ja unionitavarasta 'CO'.</DescriptionLine>
 			<DescriptionLine lang="sv">För tredjelandsvaror används koden 'IM' och för unionsvaror koden 'CO'.</DescriptionLine>
@@ -253,16 +258,14 @@
 			<MinOccurence>1</MinOccurence>
 			<Codelist>CL024</Codelist>
 			<Rule>NR0046</Rule>
+			<Rule use="FI413B">NR0106</Rule>
+			<Rule use="FI415B">NR0106</Rule>
 			<Rule use="FI413B">NR0201</Rule>
 			<Rule use="FI415B">NR0201</Rule>
 			<Rule use="FI413B">NR0220</Rule>
 			<Rule use="FI415B">NR0220</Rule>
 			<Rule use="FI483B">NR0243</Rule>
 			<Rule use="FI485B">NR0243</Rule>
-			<Rule use="FI413B">NR0245</Rule>
-			<Rule use="FI415B">NR0245</Rule>
-			<Rule use="FI413B">NR0246</Rule>
-			<Rule use="FI415B">NR0246</Rule>
 			<Rule use="FI483B">NR0269</Rule>
 			<Rule use="FI485B">NR0269</Rule>
 			<Rule use="FI413B">NR1313</Rule>
@@ -271,6 +274,8 @@
 			<Rule use="FI415B">NR1314</Rule>
 			<Rule use="FI413B">NR3008</Rule>
 			<Rule use="FI415B">NR3008</Rule>
+			<Rule use="FI413B">NR4010</Rule>
+			<Rule use="FI415B">NR4010</Rule>
 			<Format>a1</Format>
 		</DataElement>
 		<DataElement>
@@ -991,7 +996,7 @@
 				<Rule>NR2011</Rule>
 				<Rule>NR2012</Rule>
 				<Rule>NR2020</Rule>
-				<Format>an3</Format>
+				<Format>an..3</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Korvaava MRN</Name>
@@ -1227,8 +1232,8 @@
 			<Rule use="FI485B">NR0047</Rule>
 			<Rule use="FI483B">NR0235</Rule>
 			<Rule use="FI485B">NR0235</Rule>
-			<Rule use="FI483B">NR0238</Rule>
-			<Rule use="FI485B">NR0238</Rule>
+			<Rule use="FI413B">NR0238</Rule>
+			<Rule use="FI415B">NR0238</Rule>
 			<Rule use="FI413B">NR0241</Rule>
 			<Rule use="FI415B">NR0241</Rule>
 			<Rule use="FI483B">NR0241</Rule>
@@ -1292,6 +1297,8 @@
 				<Rule use="FI415B">NR3107</Rule>
 				<Rule use="FI473B">NR3107</Rule>
 				<Rule use="FI475B">NR3107</Rule>
+				<Rule use="FI413B">NR4009</Rule>
+				<Rule use="FI415B">NR4009</Rule>
 				<Format>n1</Format>
 				<DescriptionLine lang="fi" use="FI413B">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
 				<DescriptionLine lang="fi" use="FI415B">Jos käytetään suoraa edustusta takaajan vastuulla, ilmoitetaan lisäksi tapahtumatason lisätietokoodina FITAK.</DescriptionLine>
@@ -1443,6 +1450,8 @@
 					<MinOccurence>0</MinOccurence>
 					<MinOccurence use="FI473B">1</MinOccurence>
 					<MinOccurence use="FI475B">1</MinOccurence>
+					<Condition use="FI413B">NC4003</Condition>
+					<Condition use="FI415B">NC4003</Condition>
 					<Format>n3</Format>
 					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
 					<DescriptionLine lang="sv">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</DescriptionLine>
@@ -2256,8 +2265,8 @@
 			<MinOccurence use="FI483B">1</MinOccurence>
 			<MinOccurence use="FI485B">1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
-			<Condition use="FI413B">C0618</Condition>
-			<Condition use="FI415B">C0618</Condition>
+			<Condition use="FI413B">NC4004</Condition>
+			<Condition use="FI415B">NC4004</Condition>
 			<Condition use="FI473B">C0618</Condition>
 			<Condition use="FI475B">C0618</Condition>
 			<DescriptionLine lang="fi">Ilmoitetaan viimeisin myyjä ennen tavaran tuontia EU:n tulli- tai veroalueelle.</DescriptionLine>
@@ -2330,7 +2339,7 @@
 					<Filter>FI415BH5R</Filter>
 					<XPath>Identification</XPath>
 					<MinOccurence>0</MinOccurence>
-					<!--Condition>NC0204</Condition-->
+					<Condition>NC0204</Condition>
 					<Condition>NC0221</Condition>
 					<Format>n3</Format>
 					<DescriptionLine lang="fi">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</DescriptionLine>
@@ -2949,7 +2958,7 @@
 				<Filter>FI415BH5P</Filter>
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
-				<Format>an..35</Format>
+				<Format>an..70</Format>
 				<DescriptionLine lang="fi">Ilmoitetaan liiteasiakirjaa / lupaa koskeva numero, tunniste tai muu yksilöintitieto.</DescriptionLine>
 				<DescriptionLine lang="sv">Nummer, identifikation eller annan specificerande uppgift anges för det bifogade dokumentet / tillståndet anmäls.</DescriptionLine>
 				<DescriptionLine lang="en">Number, reference or other identifier for the supporting document/licence is entered.</DescriptionLine>
@@ -3108,12 +3117,16 @@
 				<Rule>NR0001</Rule>
 				<Rule>NR0028</Rule>
 				<Rule>NR0029</Rule>
+				<Rule use="FI413B">NR0245</Rule>
+				<Rule use="FI415B">NR0245</Rule>
+				<Rule use="FI413B">NR0246</Rule>
+				<Rule use="FI415B">NR0246</Rule>
 				<Format>an..4</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="fi">Asiakirjatunniste</Name>
-				<Name lang="sv">Dokumentets identifierare</Name>
-				<Name lang="en">Document identifier</Name>
+				<Name lang="fi">Luvan tunniste</Name>
+				<Name lang="sv">Tillståndets identifierare</Name>
+				<Name lang="en">Authorisation identifier</Name>
 				<Use>FI413B</Use>
 				<Use>FI415B</Use>
 				<Use>FI473B</Use>
@@ -3430,7 +3443,12 @@
 				<Rule use="FI415B">NR0228</Rule>
 				<Rule use="FI473B">NR0228</Rule>
 				<Rule use="FI475B">NR0228</Rule>
-				<Rule>NR0229</Rule>
+				<Rule use="FI413B">NR1128</Rule>
+				<Rule use="FI415B">NR1128</Rule>
+				<Rule use="FI413B">NR4006</Rule>
+				<Rule use="FI415B">NR4006</Rule>
+				<Rule use="FI413B">NR4007</Rule>
+				<Rule use="FI415B">NR4007</Rule>
 				<Format>date</Format>
 				<DescriptionLine lang="fi">Veronmääräytymispäivä pitää ilmoittaa esimerkiksi yksinkertaistetuissa ilmoituksissa ja koonti-ilmoituksissa, joissa annetaan lisätietokoodi FIPER, sekä täydentävissä ilmoituksissa, joissa on ilmoitettu lupatyypiksi EIR. Veronmääräytymispäivä pitää ilmoittaa myös jälkikäteen annettavissa ilmoituksissa ja kansallisissa verorajailmoituksissa.</DescriptionLine>
 				<DescriptionLine lang="sv">Skattebestämningsdagen ska anges till exempel i förenklade deklarationer och sammanfattande deklarationer där koden för ytterligare uppgifter FIPER anges samt i kompletterande deklarationer där EIR har angetts som tillståndstyp. Skattebestämningsdagen ska också anges i deklarationer som inges i efterhand och i nationella skattegränsdeklarationer.</DescriptionLine>
@@ -3778,6 +3796,8 @@
 					<Rule use="FI415B">NR0055</Rule>
 					<Rule use="FI413B">NR0101</Rule>
 					<Rule use="FI415B">NR0101</Rule>
+					<Condition use="FI413B">C2025</Condition>
+					<Condition use="FI415B">C2025</Condition>
 					<Condition use="FI413B">NC0209</Condition>
 					<Condition use="FI415B">NC0209</Condition>
 					<Format>a2</Format>
@@ -4038,6 +4058,8 @@
 				<Group>DomesticDutyTaxParty</Group>
 				<MinOccurence>0</MinOccurence>
 				<MaxOccurence>99</MaxOccurence>
+				<Rule use="FI413B">NR1127</Rule>
+				<Rule use="FI415B">NR1127</Rule>
 				<Condition>NC0227</Condition>
 				<DescriptionLine lang="fi">Tieto ilmoitetaan kun pyydetty menettely on 42 tai 63 tai kun kyseessä on tuonti, josta alv on maksettu ostohetkellä (IOSS).</DescriptionLine>
 				<DescriptionLine lang="sv">Uppgiften ska anges när det begärda förfarandet är 42 eller 63 eller då de är fråga om import där momsen betalats vid tidpunkten för köpet (IOSS).</DescriptionLine>
@@ -4148,6 +4170,10 @@
 				<Group>Importer</Group>
 				<MinOccurence>1</MinOccurence>
 				<MaxOccurence>1</MaxOccurence>
+				<Condition use="FI413B">C2072</Condition>
+				<Condition use="FI415B">C2072</Condition>
+				<Condition use="FI413B">NC4001</Condition>
+				<Condition use="FI415B">NC4001</Condition>
 				<DescriptionLine lang="fi" use="FI413B">Ilmoitetaan tuoja. Tullivarastoinnissa ilmoitetaan toimeksiantaja, jos ilmoittaja on saanut toimeksiannon tavaran tuomisesta Suomeen joltakin muulta taholta.</DescriptionLine>
 				<DescriptionLine lang="fi" use="FI415B">Ilmoitetaan tuoja. Tullivarastoinnissa ilmoitetaan toimeksiantaja, jos ilmoittaja on saanut toimeksiannon tavaran tuomisesta Suomeen joltakin muulta taholta.</DescriptionLine>
 				<DescriptionLine lang="sv" use="FI413B">Importören anmäls. Vid tullagring anges huvudmannen om deklaranten har fått en order att importera varorna till Finland från en annan part.</DescriptionLine>
@@ -4185,10 +4211,6 @@
 					<XPath>Identification</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Rule>NR0034</Rule>
-					<Rule>NR0035</Rule>
-					<Rule>NR0036</Rule>
-					<Rule use="FI413B">NR0069</Rule>
-					<Rule use="FI415B">NR0069</Rule>
 					<Rule use="FI413B">NR0101</Rule>
 					<Rule use="FI415B">NR0101</Rule>
 					<Format>an..17</Format>
@@ -5472,10 +5494,10 @@
 					<Rule use="FI415B">NR0023</Rule>
 					<Rule use="FI473B">NR0023</Rule>
 					<Rule use="FI475B">NR0023</Rule>
-					<Rule use="FI413B">NC0023_b</Rule>
-					<Rule use="FI415B">NC0023_b</Rule>
-					<Rule use="FI473B">NC0023_b</Rule>
-					<Rule use="FI475B">NC0023_b</Rule>
+					<Rule use="FI413B">NR0023_b</Rule>
+					<Rule use="FI415B">NR0023_b</Rule>
+					<Rule use="FI473B">NR0023_b</Rule>
+					<Rule use="FI475B">NR0023_b</Rule>
 					<Rule use="FI413B">NR0024</Rule>
 					<Rule use="FI415B">NR0024</Rule>
 					<Rule use="FI473B">NR0024</Rule>
@@ -5517,8 +5539,8 @@
 				<MaxOccurence>99999</MaxOccurence>
 				<Rule use="FI413B">NR0297</Rule>
 				<Rule use="FI415B">NR0297</Rule>
-				<Rule use="FI413B">NR1350</Rule>
-				<Rule use="FI415B">NR1350</Rule>
+				<Rule use="FI413B">NR4012</Rule>
+				<Rule use="FI415B">NR4012</Rule>
 				<DataElement>
 					<Name lang="fi">Tavaraerän numero</Name>
 					<Name lang="sv">Varupostnummer</Name>
@@ -5548,7 +5570,6 @@
 					<Filter>FI415BH5P</Filter>
 					<XPath>Sequence</XPath>
 					<MinOccurence>1</MinOccurence>
-					<Rule>R0005</Rule>
 					<Rule>R0007</Rule>
 					<Rule use="FI413B">NR0102</Rule>
 					<Rule use="FI415B">NR0102</Rule>
@@ -6640,6 +6661,8 @@
 					<Rule use="FI415B">NR3017</Rule>
 					<Rule use="FI413B">NR3037</Rule>
 					<Rule use="FI415B">NR3037</Rule>
+					<Rule use="FI413B">NR4011</Rule>
+					<Rule use="FI415B">NR4011</Rule>
 					<DataElement>
 						<Name lang="fi">Pyydetty menettelykoodi</Name>
 						<Name lang="sv">Kod för begärt förfarande</Name>
@@ -6791,6 +6814,8 @@
 							<XPath>Procedure</XPath>
 							<MinOccurence>1</MinOccurence>
 							<Codelist>CL102</Codelist>
+							<Rule use="FI413B">NR0200</Rule>
+							<Rule use="FI415B">NR0200</Rule>
 							<Rule use="FI483B">NR0262</Rule>
 							<Rule use="FI485B">NR0262</Rule>
 							<Rule use="FI413B">NR0263</Rule>
@@ -7139,7 +7164,7 @@
 						<Filter>FI415BH5E</Filter>
 						<XPath>Identification</XPath>
 						<MinOccurence>1</MinOccurence>
-						<Format>an..35</Format>
+						<Format>an..70</Format>
 					</DataElement>
 					<DataGroup hidden="true">
 						<Name lang="fi">Myöntävän viranomaisen nimi</Name>
@@ -7256,7 +7281,6 @@
 						<Filter>FI415BI1</Filter>
 						<XPath>Line</XPath>
 						<MinOccurence>0</MinOccurence>
-						<Condition>NC1601</Condition>
 						<Format>n..5</Format>
 					</DataElement>
 					<DataElement>
@@ -7417,6 +7441,8 @@
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL039G</Codelist>
 						<Rule>NR1353</Rule>
+						<Rule use="FI413B">NR0247</Rule>
+						<Rule use="FI415B">NR0247</Rule>
 						<Rule use="FI413B">NR3007</Rule>
 						<Rule use="FI415B">NR3007</Rule>
 						<Rule use="FI413B">NR3008</Rule>
@@ -7536,6 +7562,8 @@
 					<Condition use="FI415B">NC0022</Condition>
 					<Condition use="FI413B">NC0258</Condition>
 					<Condition use="FI415B">NC0258</Condition>
+					<Condition use="FI413B">NC4002</Condition>
+					<Condition use="FI415B">NC4002</Condition>
 					<DescriptionLine lang="fi">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, ilmoitetaan MRN.</DescriptionLine>
 					<DescriptionLine lang="sv">Tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration anges. Om den tidigare deklarationen har ingetts till UTU-systemet, anges MRN.</DescriptionLine>
 					<DescriptionLine lang="en">Previous document which is most often entry summary declaration, summary declaration or T1-transit declaration is entered. If previous declaration is submitted to Finnish Customs UTU system, MRN is entered.</DescriptionLine>
@@ -7567,12 +7595,12 @@
 						<MinOccurence>1</MinOccurence>
 						<Codelist>CL014</Codelist>
 						<Rule>NR0068</Rule>
-						<Rule use="FI413B">NR0240</Rule>
-						<Rule use="FI415B">NR0240</Rule>
-						<Rule use="FI483B">NR0240</Rule>
-						<Rule use="FI485B">NR0240</Rule>
 						<Rule use="FI413B">NR1319</Rule>
 						<Rule use="FI415B">NR1319</Rule>
+						<Rule use="FI413B">NR4027</Rule>
+						<Rule use="FI415B">NR4027</Rule>
+						<Rule use="FI413B">NR4029</Rule>
+						<Rule use="FI415B">NR4029</Rule>
 						<Format>an..4</Format>
 						<DescriptionLine lang="fi">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, ilmoitetaan MRN.</DescriptionLine>
 						<DescriptionLine lang="sv">Tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration anges. Om den tidigare deklarationen har ingetts till UTU-systemet, anges MRN.</DescriptionLine>
