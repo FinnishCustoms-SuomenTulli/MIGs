@@ -2,9 +2,12 @@
 <!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
 <Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Message.xsd">
 	<DataGroup>
-		<Name lang="fi">Tuontitapahtuma</Name>
-		<Name lang="sv">Importhändelse</Name>
-		<Name lang="en">Import operation</Name>
+		<Name lang="fi">Ilmoitus</Name>
+		<Name lang="sv">Deklaration</Name>
+		<Name lang="en">Declaraion</Name>
+		<Alias lang="fi">Tuontitapahtuma</Alias>
+		<Alias lang="sv">Importhändelse</Alias>
+		<Alias lang="en">Import operation</Alias>
 		<Use>FI413B</Use>
 		<Use>FI414B</Use>
 		<Use>FI415B</Use>
@@ -281,7 +284,7 @@
 			<DescriptionLine lang="fi">Ilmoitetaan tulliselvitettävän erän valuuttamääräinen hinta, korkeintaan 2 desimaalin tarkkuudella. Hinnalla tarkoitetaan tavarasta tosiasiallisesti maksettua tai maksettavaa hintaa, jossa tullausarvoa määritettäessä hyväksyttävät kassa-, paljous- ja muut alennukset on otettu huomioon.</DescriptionLine>
 			<DescriptionLine lang="sv">Valuta-denominerade priset på deklarationspartiet med högst två decimalers noggrannhet anmäls. Med pris avses det pris som faktiskt betalats eller ska betalas för varan och i vilket de kassa-, mängd- och övriga rabatter som kan godkännas vid fastställande av varans tullvärde har beaktats. 
 </DescriptionLine>
-			<DescriptionLine lang="en">The currency-denominted price of the goods at declaration header level with an accuracy of no more than two decimal places is entered. The price is the amount actually paid or to be paid for the goods, while taking into account all cash, quantity or other discounts that are acceptable when determining the customs value.</DescriptionLine>
+			<DescriptionLine lang="en">The currency-denomimated price of the goods at declaration header level with an accuracy of no more than two decimal places is entered. The price is the amount actually paid or to be paid for the goods, while taking into account all cash, quantity or other discounts that are acceptable when determining the customs value.</DescriptionLine>
 		</DataElement>
 		<DataElement>
 			<Name lang="fi">Laskutettu kokonaissumma, valuuttalaji</Name>
@@ -951,7 +954,7 @@
 				<Rule>NR2011</Rule>
 				<Rule>NR2012</Rule>
 				<Rule>NR2020</Rule>
-				<Format>an3</Format>
+				<Format>an..3</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Korvaava MRN</Name>
@@ -2825,7 +2828,7 @@
 				<Filter>FI415BH5R</Filter>
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
-				<Format>an..35</Format>
+				<Format>an..70</Format>
 				<DescriptionLine lang="fi">Ilmoitetaan liiteasiakirjaa / lupaa koskeva numero, tunniste tai muu yksilöintitieto.</DescriptionLine>
 				<DescriptionLine lang="sv">Nummer, identifikation eller annan specificerande uppgift anges för det bifogade dokumentet / tillståndet anmäls.</DescriptionLine>
 				<DescriptionLine lang="en">Number, reference or other identifier for the supporting document/licence is entered.</DescriptionLine>
@@ -2985,9 +2988,9 @@
 				<Format>an..4</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="fi">Asiakirjatunniste</Name>
-				<Name lang="sv">Dokumentets identifierare</Name>
-				<Name lang="en">Document identifier</Name>
+				<Name lang="fi">Luvan tunniste</Name>
+				<Name lang="sv">Tillståndets identifierare</Name>
+				<Name lang="en">Authorisation identifier</Name>
 				<Use>FI413B</Use>
 				<Use>FI415B</Use>
 				<Use>FI473B</Use>
@@ -5319,10 +5322,10 @@
 					<Rule use="FI415B">NR0023</Rule>
 					<Rule use="FI473B">NR0023</Rule>
 					<Rule use="FI475B">NR0023</Rule>
-					<Rule use="FI413B">NC0023_b</Rule>
-					<Rule use="FI415B">NC0023_b</Rule>
-					<Rule use="FI473B">NC0023_b</Rule>
-					<Rule use="FI475B">NC0023_b</Rule>
+					<Rule use="FI413B">NR0023_b</Rule>
+					<Rule use="FI415B">NR0023_b</Rule>
+					<Rule use="FI473B">NR0023_b</Rule>
+					<Rule use="FI475B">NR0023_b</Rule>
 					<Rule use="FI413B">NR0024</Rule>
 					<Rule use="FI415B">NR0024</Rule>
 					<Rule use="FI473B">NR0024</Rule>
@@ -6292,9 +6295,9 @@
 							<Filter>FI415BH5E</Filter>
 							<XPath>OtherChargeDeduction</XPath>
 							<MinOccurence>1</MinOccurence>
-							<Rule>FI1351</Rule>
-							<Rule>FI1352</Rule>
-							<Rule>FI1356</Rule>
+							<Rule>NR1351</Rule>
+							<Rule>NR1352</Rule>
+							<Rule>NR1356</Rule>
 							<Format>n..16,2</Format>
 						</DataElement>
 						<DataElement>
@@ -6961,7 +6964,7 @@
 						<Filter>FI415BH5E</Filter>
 						<XPath>Identification</XPath>
 						<MinOccurence>1</MinOccurence>
-						<Format>an..35</Format>
+						<Format>an..70</Format>
 					</DataElement>
 					<DataGroup hidden="true">
 						<Name lang="fi">Myöntävän viranomaisen nimi</Name>
@@ -7078,7 +7081,6 @@
 						<Filter>FI415BI1</Filter>
 						<XPath>Line</XPath>
 						<MinOccurence>0</MinOccurence>
-						<Condition>NC1601</Condition>
 						<Format>n..5</Format>
 					</DataElement>
 					<DataElement>
