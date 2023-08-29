@@ -242,7 +242,7 @@
 									<xsl:value-of select="concat('description indent-',count(ancestor::*)-1,$filter)"/>
 								</xsl:attribute>
 								<td colspan="100%">
-									<span class="icon icon-tulli-info" style="margin-right:3px"/>
+									<span class="icon icon-tulli-info" style="margin-right:0.2em"/>
 									<xsl:for-each select="DescriptionLine[@lang=$language and not(@use)] | DescriptionLine[@lang=$language and @use=$messageType]">
 										<xsl:choose>
 											<xsl:when test="contains(., '&lt;a')">
@@ -434,7 +434,7 @@
 									</xsl:otherwise>
 								</xsl:choose>
 								<td>
-									<span class="icon icon-tulli-hamburger-menu" style="margin-left:0.7em; margin-right:0.6em; font-size: 50%; vertical-align: middle"/>
+									<span class="icon icon-tulli-hamburger-menu" style="margin-left:0.2em; margin-right:0.6em; font-size: 50%; vertical-align: middle"/>
 									<xsl:choose>
 										<xsl:when test="Alias[@lang=$language]">
 											<xsl:value-of select="Alias[@lang=$language]"/>
