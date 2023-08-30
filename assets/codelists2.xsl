@@ -65,7 +65,7 @@
 														<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
 															<th>Selite</th>
 														</xsl:if>
-														<xsl:for-each select="CodeItem[not(Filter=preceding-sibling::CodeItem/Filter)]/Filter">
+														<xsl:for-each select="CodeItem[not(Filter/Name=preceding-sibling::CodeItem/Filter/Name)]/Filter">
 															<th>
 																<xsl:value-of select="substring-after(Name,'_')"/>
 															</th>
@@ -78,7 +78,7 @@
 														<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
 															<th>Beskrivning</th>
 														</xsl:if>
-														<xsl:for-each select="CodeItem[not(Filter=preceding-sibling::CodeItem/Filter)]/Filter">
+														<xsl:for-each select="CodeItem[not(Filter/Name=preceding-sibling::CodeItem/Filter/Name)]/Filter">
 															<th>
 																<xsl:value-of select="substring-after(Name,'_')"/>
 															</th>
@@ -91,7 +91,7 @@
 														<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
 															<th>Description</th>
 														</xsl:if>
-														<xsl:for-each select="CodeItem[not(Filter=preceding-sibling::CodeItem/Filter)]/Filter">
+														<xsl:for-each select="CodeItem[not(Filter/Name=preceding-sibling::CodeItem/Filter/Name)]/Filter">
 															<th>
 																<xsl:value-of select="substring-after(Name,'_')"/>
 															</th>
