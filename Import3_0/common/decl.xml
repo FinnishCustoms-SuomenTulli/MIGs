@@ -3680,7 +3680,7 @@
 			<Rule use="FI415B">NR3022</Rule>
 			<Rule use="FI473B">NR3022</Rule>
 			<Rule use="FI475B">NR3022</Rule>
-			<Rule use="FI415B">NR3024</Rule>
+			<Rule use="FI413B">NR3024</Rule>
 			<Rule use="FI415B">NR3024</Rule>
 			<Rule use="FI473B">NR3024</Rule>
 			<Rule use="FI475B">NR3024</Rule>
@@ -4805,9 +4805,9 @@
 					<Condition use="FI415B">NC0234</Condition>
 					<Condition use="FI413B">NC0257</Condition>
 					<Condition use="FI415B">NC0257</Condition>
-					<DescriptionLine lang="fi">Ilmoitetaan paikka, jossa tavarat halutaan tarkastettavan. Koonti-ilmoituksella tietoa ei anneta.</DescriptionLine>
-					<DescriptionLine lang="sv">Den plats där man vill att varorna granskas anges. I en sammanfattande deklaration anges uppgiften inte.</DescriptionLine>
-					<DescriptionLine lang="en">The desired location for the inspection of the goods is entered. This information shall not be provided in a summarising declaration.</DescriptionLine>
+					<DescriptionLine lang="fi">Ilmoitetaan paikka, jossa tavarat halutaan tarkastettavan ja jossa ne voidaan tarkastaa. Tässä ei voi ilmoittaa esimerkiksi sataman konttikenttää. Koonti-ilmoituksella tietoa ei anneta.</DescriptionLine>
+					<DescriptionLine lang="sv">Här anges den plats där man vill att varorna granskas och där de kan granskas. Här kan man t.ex. inte ange ett containerfält i en hamn. I en sammanfattande deklaration anges uppgiften inte.  </DescriptionLine>
+					<DescriptionLine lang="en">Enter the desired location for the inspection of the goods, where the goods can be inspected. For example, a container field at a port cannot be entered here. This information should not be provided in a summarising declaration.</DescriptionLine>
 					<DataElement>
 						<Name lang="fi">Sijaintipaikan tyyppi</Name>
 						<Name lang="sv">Typ av förvaringsplats</Name>
@@ -5422,6 +5422,12 @@
 				<Condition use="FI415B">NC0254</Condition>
 				<Condition use="FI413B">NC0257</Condition>
 				<Condition use="FI415B">NC0257</Condition>
+				<DescriptionLine use="FI413B" lang="fi">Ilmoitetaan varasto, jonka kirjanpidossa tavarat ovat, kun niitä asetetaan tullimenettelyyn. Jos tavaroita asetetaan tullivarastointimenettelyyn, ilmoitetaan se tullivarasto, johon tavarat varastoidaan.</DescriptionLine>
+				<DescriptionLine use="FI415B" lang="fi">Ilmoitetaan varasto, jonka kirjanpidossa tavarat ovat, kun niitä asetetaan tullimenettelyyn. Jos tavaroita asetetaan tullivarastointimenettelyyn, ilmoitetaan se tullivarasto, johon tavarat varastoidaan.</DescriptionLine>
+				<DescriptionLine use="FI413B" lang="sv">Här anges det lager i vars bokföring varorna finns när de hänförs till tullförfarandet. Om varor hänförs till tullagerförfarandet, anges det tullager där varorna ska förvaras.</DescriptionLine>
+				<DescriptionLine use="FI415B" lang="sv">Här anges det lager i vars bokföring varorna finns när de hänförs till tullförfarandet. Om varor hänförs till tullagerförfarandet, anges det tullager där varorna ska förvaras.</DescriptionLine>
+				<DescriptionLine use="FI413B" lang="en">Enter the warehouse in whose records the goods have been entered when they are placed under the customs procedure. If goods are placed under the customs warehousing procedure, you should provide the customs warehouse where the goods will be stored.</DescriptionLine>
+				<DescriptionLine use="FI415B" lang="en">Enter the warehouse in whose records the goods have been entered when they are placed under the customs procedure. If goods are placed under the customs warehousing procedure, you should provide the customs warehouse where the goods will be stored.</DescriptionLine>
 				<DataElement>
 					<Name lang="fi">Varaston tunniste</Name>
 					<Name lang="sv">Lagerkod</Name>
@@ -5449,18 +5455,12 @@
 					<XPath>Identification</XPath>
 					<MinOccurence>1</MinOccurence>
 					<Format>an..35</Format>
-					<DescriptionLine use="FI413B" lang="fi">Asetettaessa tavaroita tullivarastointimenettelyyn, ilmoitetaan sen tullivaraston tunniste, johon tavarat varastoidaan. Varaston tunniste on muotoa EORI+3+2 (esim. FI1234567-800101). Asetettaessa tavaroita muuhun menettelyyn, ilmoitetaan varasto, jonka kirjanpidossa tavara on.</DescriptionLine>
-					<DescriptionLine use="FI413B" lang="fi">Ilmoitetaan sen väliaikisen varaston tunniste, jonka kirjanpidossa tavara on. Varaston tunniste on muotoa EORI+3+2 (esim. FI1234567-800101).</DescriptionLine>
-					<DescriptionLine use="FI415B" lang="fi">Asetettaessa tavaroita tullivarastointimenettelyyn, ilmoitetaan sen tullivaraston tunniste, johon tavarat varastoidaan. Varaston tunniste on muotoa EORI+3+2 (esim. FI1234567-800101). Asetettaessa tavaroita muuhun menettelyyn, ilmoitetaan varasto, jonka kirjanpidossa tavara on.</DescriptionLine>
-					<DescriptionLine use="FI415B" lang="fi">Ilmoitetaan sen väliaikisen varaston tunniste, jonka kirjanpidossa tavara on. Varaston tunniste on muotoa EORI+3+2 (esim. FI1234567-800101).</DescriptionLine>
-					<DescriptionLine use="FI413B" lang="sv">Då varor hänförs till tullagerförfarandet, anges koden för det tullager där varorna ska förvaras. Lagerkoden har formen EORI+3+2 (t.ex. FI1234567-800101). Då varor hänförs till något annat förfarande, anges det lager i vars bokföring varorna finns upptagna.</DescriptionLine>
-					<DescriptionLine use="FI413B" lang="sv">Koden för det tillfälliga lager i vars bokföring varorna finns upptagna anges. Lagerkoden har formen EORI+3+2 (t.ex. FI1234567-800101).</DescriptionLine>
-					<DescriptionLine use="FI415B" lang="sv">Då varor hänförs till tullagerförfarandet, anges koden för det tullager där varorna ska förvaras. Lagerkoden har formen EORI+3+2 (t.ex. FI1234567-800101). Då varor hänförs till något annat förfarande, anges det lager i vars bokföring varorna finns upptagna.</DescriptionLine>
-					<DescriptionLine use="FI415B" lang="sv">Koden för det tillfälliga lager i vars bokföring varorna finns upptagna anges. Lagerkoden har formen EORI+3+2 (t.ex. FI1234567-800101).</DescriptionLine>
-					<DescriptionLine use="FI413B" lang="en">When placing goods under the customs warehousing procedure, the identifier of the customs warehouse where the goods will be stored is entered. The warehouse identifier has the form EORI+3+2 (e.g. FI1234567-800101). When placing goods under another procedure, the warehouse in whose records the goods have been entered is provided.</DescriptionLine>
-					<DescriptionLine use="FI413B" lang="en">The identifier of the temporary storage facility in whose records the goods have been entered is provided. The warehouse identifier has the form EORI+3+2 (e.g. FI1234567-800101).</DescriptionLine>
-					<DescriptionLine use="FI415B" lang="en">When placing goods under the customs warehousing procedure, the identifier of the customs warehouse where the goods will be stored is entered. The warehouse identifier has the form EORI+3+2 (e.g. FI1234567-800101). When placing goods under another procedure, the warehouse in whose records the goods have been entered is provided.</DescriptionLine>
-					<DescriptionLine use="FI415B" lang="en">The identifier of the temporary storage facility in whose records the goods have been entered is provided. The warehouse identifier has the form EORI+3+2 (e.g. FI1234567-800101).</DescriptionLine>
+					<DescriptionLine use="FI413B" lang="fi">Ilmoitetaan varastotunniste siitä varastosta, jonka kirjanpidossa tavarat ovat. Varaston tunniste on muotoa EORI+3+2 (esim. FI1234567-800101).</DescriptionLine>
+					<DescriptionLine use="FI415B" lang="fi">Ilmoitetaan varastotunniste siitä varastosta, jonka kirjanpidossa tavarat ovat. Varaston tunniste on muotoa EORI+3+2 (esim. FI1234567-800101).</DescriptionLine>
+					<DescriptionLine use="FI413B" lang="sv">Här anges lagerkoden för det lager i vars bokföring varorna finns. Lagerkoden har formen EORI+3+2 (t.ex. FI1234567-800101). </DescriptionLine>
+					<DescriptionLine use="FI415B" lang="sv">Här anges lagerkoden för det lager i vars bokföring varorna finns. Lagerkoden har formen EORI+3+2 (t.ex. FI1234567-800101). </DescriptionLine>
+					<DescriptionLine use="FI413B" lang="en">Enter the identification for the warehouse in whose records the goods have been entered. The identification of warehouse has the form EORI+3+2 (e.g. FI1234567-800101).</DescriptionLine>
+					<DescriptionLine use="FI415B" lang="en">Enter the identification for the warehouse in whose records the goods have been entered. The identification of warehouse has the form EORI+3+2 (e.g. FI1234567-800101).</DescriptionLine>
 				</DataElement>
 				<DataElement>
 					<Name lang="fi">Varaston tyyppi</Name>
