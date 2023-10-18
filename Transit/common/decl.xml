@@ -155,7 +155,7 @@
 		<DataElement>
 			<Name lang="fi">Määräaika</Name>
 			<Name lang="sv">Tidsfrist</Name>
-			<Name lang="en">Limit date</Name>
+			<Name lang="en">time limit</Name>
 			<Use>FI013A</Use>
 			<Use>FI015A</Use>
 			<Use>FI170A</Use>
@@ -298,9 +298,12 @@
 				<Format>dateTime</Format>
 			</DataElement>
 			<DataElement>
-				<Name lang="fi">Korjauspyynnön syy</Name>
-				<Name lang="sv">Beskrivning av orsaken till korrigeringsbegäran</Name>
+				<Name lang="fi">Oikaisupyynnön syy</Name>
+				<Name lang="sv">Orsak till korrigeringsbegäran</Name>
 				<Name lang="en">Reason for amendment request</Name>
+				<Alias lang="fi">Korjauspyynnön syy</Alias>
+				<Alias lang="sv">Orsak till korrigeringsbegäran</Alias>
+				<Alias lang="en">Reason for amendment request</Alias>
 				<Use>FI013A</Use>
 				<XPath>ChangeReason</XPath>
 				<MinOccurence>0</MinOccurence>
@@ -323,7 +326,7 @@
 			</DataElement>
 		</DataGroup>
 		<DataGroup>
-			<Name lang="fi">Ilmoitus</Name>
+			<Name lang="fi">Tiedonanto</Name>
 			<Name lang="sv">Underrättelse</Name>
 			<Name lang="en">Notification</Name>
 			<Use>FI014A</Use>
@@ -403,6 +406,15 @@
 				<Format>an..6</Format>
 			</DataElement>
 			<DataElement>
+				<Name lang="fi">Ilmoituksen osa</Name>
+				<Name lang="sv">Del av deklarationen</Name>
+				<Name lang="en">Declaration part</Name>
+				<Use>FI053A</Use>
+				<XPath>Element</XPath>
+				<MinOccurence>0</MinOccurence>
+				<Format>an..70</Format>
+			</DataElement>
+			<DataElement>
 				<Name lang="fi">Yhteenkuuluva tavaraerä</Name>
 				<Name lang="sv">Sammanhörande varupost</Name>
 				<Name lang="en">Related goods item</Name>
@@ -420,13 +432,20 @@
 				<Use>FI053A</Use>
 				<XPath>RequestCorrelation</XPath>
 				<MinOccurence>1</MinOccurence>
-				<MinOccurence use="FI039A">0</MinOccurence>
 				<Format>an38</Format>
+			</DataElement>
+			<DataElement>
+				<Name lang="fi">Sanoman korrelaatio</Name>
+				<Name lang="sv">Meddelandets korrelation</Name>
+				<Name lang="en">Message correlation</Name>
+				<XPath>RequestCorrelation</XPath>
+				<MinOccurence>0</MinOccurence>
+				<Format>an..50</Format>
 			</DataElement>
 			<DataElement>
 				<Name lang="fi">Korvaava MRN</Name>
 				<Name lang="sv">Ersättande MRN</Name>
-				<Name lang="en">Replacing MRN</Name>
+				<Name lang="en">Superseding MRN</Name>
 				<Use>FI014A</Use>
 				<XPath>ReplacingMRN</XPath>
 				<MinOccurence>0</MinOccurence>
@@ -498,7 +517,7 @@
 			<DataElement>
 				<Name lang="fi">Edustajan asemaa koskeva koodi</Name>
 				<Name lang="sv">Kod för ombuds status</Name>
-				<Name lang="en">Status code</Name>
+				<Name lang="en">Representative status code</Name>
 				<Use>FI013A</Use>
 				<Use>FI014A</Use>
 				<Use>FI015A</Use>
@@ -514,7 +533,7 @@
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
 				<Name lang="sv">Identifieringsnummer</Name>
-				<Name lang="en">Identification no.</Name>
+				<Name lang="en">Identification number</Name>
 				<Use>FI013A</Use>
 				<Use>FI014A</Use>
 				<Use>FI015A</Use>
@@ -565,12 +584,12 @@
 			<Use>FI014A</Use>
 			<XPath>Applicant</XPath>
 			<Group>Applicant</Group>
-			<MinOccurence>0</MinOccurence>
+			<MinOccurence>1</MinOccurence>
 			<MaxOccurence>1</MaxOccurence>
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
 				<Name lang="sv">Identifieringsnummer</Name>
-				<Name lang="en">Identification no.</Name>
+				<Name lang="en">Identification number</Name>
 				<Use>FI014A</Use>
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
@@ -689,7 +708,7 @@
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
 				<Name lang="sv">Identifieringsnummer</Name>
-				<Name lang="en">Identification no.</Name>
+				<Name lang="en">Identification number</Name>
 				<Use>FI007A</Use>
 				<Use>FI044A</Use>
 				<XPath>Identification</XPath>
@@ -743,7 +762,7 @@
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
 				<Name lang="sv">Identifieringsnummer</Name>
-				<Name lang="en">Identification no.</Name>
+				<Name lang="en">Identification number</Name>
 				<Use>FI013A</Use>
 				<Use>FI015A</Use>
 				<Use>FI170A</Use>
@@ -879,7 +898,9 @@
 			<Name lang="en">Service provider</Name>
 			<Use>FI007A</Use>
 			<Use>FI013A</Use>
+			<Use>FI014A</Use>
 			<Use>FI015A</Use>
+			<Use>FI170A</Use>
 			<XPath>ServiceProvider</XPath>
 			<Group>ServiceProvider</Group>
 			<MinOccurence>0</MinOccurence>
@@ -890,10 +911,12 @@
 			<DataElement>
 				<Name lang="fi">Tunnistenumero</Name>
 				<Name lang="sv">Identifieringsnummer</Name>
-				<Name lang="en">Identification no.</Name>
+				<Name lang="en">Identification number</Name>
 				<Use>FI007A</Use>
 				<Use>FI013A</Use>
+				<Use>FI014A</Use>
 				<Use>FI015A</Use>
+				<Use>FI170A</Use>
 				<XPath>Identification</XPath>
 				<MinOccurence>1</MinOccurence>
 				<Rule use="FI007A">NR0049</Rule>
@@ -909,6 +932,7 @@
 			<Name lang="en">Submitter</Name>
 			<Use>FI007A</Use>
 			<Use>FI013A</Use>
+			<Use>FI014A</Use>
 			<Use>FI015A</Use>
 			<Use>FI039A</Use>
 			<Use>FI044A</Use>
@@ -924,6 +948,7 @@
 				<Name lang="en">Name</Name>
 				<Use>FI007A</Use>
 				<Use>FI013A</Use>
+				<Use>FI014A</Use>
 				<Use>FI015A</Use>
 				<Use>FI039A</Use>
 				<Use>FI044A</Use>
@@ -942,6 +967,7 @@
 				<Name lang="en">E-mail</Name>
 				<Use>FI007A</Use>
 				<Use>FI013A</Use>
+				<Use>FI014A</Use>
 				<Use>FI015A</Use>
 				<Use>FI039A</Use>
 				<Use>FI044A</Use>
@@ -957,6 +983,7 @@
 					<Name lang="en">E-mail address</Name>
 					<Use>FI007A</Use>
 					<Use>FI013A</Use>
+					<Use>FI014A</Use>
 					<Use>FI015A</Use>
 					<Use>FI039A</Use>
 					<Use>FI044A</Use>
@@ -975,6 +1002,7 @@
 					<Name lang="en">Communication means</Name>
 					<Use>FI007A</Use>
 					<Use>FI013A</Use>
+					<Use>FI014A</Use>
 					<Use>FI015A</Use>
 					<Use>FI039A</Use>
 					<Use>FI044A</Use>
@@ -992,6 +1020,7 @@
 				<Name lang="en">Telephone</Name>
 				<Use>FI007A</Use>
 				<Use>FI013A</Use>
+				<Use>FI014A</Use>
 				<Use>FI015A</Use>
 				<Use>FI039A</Use>
 				<Use>FI044A</Use>
@@ -1007,6 +1036,7 @@
 					<Name lang="en">Telephone number</Name>
 					<Use>FI007A</Use>
 					<Use>FI013A</Use>
+					<Use>FI014A</Use>
 					<Use>FI015A</Use>
 					<Use>FI039A</Use>
 					<Use>FI044A</Use>
@@ -1025,6 +1055,7 @@
 					<Name lang="en">Communication means</Name>
 					<Use>FI007A</Use>
 					<Use>FI013A</Use>
+					<Use>FI014A</Use>
 					<Use>FI015A</Use>
 					<Use>FI039A</Use>
 					<Use>FI044A</Use>
@@ -1577,7 +1608,7 @@
 				<DataElement>
 					<Name lang="fi">Tunnistenumero</Name>
 					<Name lang="sv">Identifieringsnummer</Name>
-					<Name lang="en">Identification no.</Name>
+					<Name lang="en">Identification number</Name>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
 					<XPath>Identification</XPath>
@@ -1641,7 +1672,7 @@
 				<DataElement>
 					<Name lang="fi">Tunnistenumero</Name>
 					<Name lang="sv">Identifieringsnummer</Name>
-					<Name lang="en">Identification no.</Name>
+					<Name lang="en">Identification number</Name>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
 					<XPath>Identification</XPath>
@@ -1668,7 +1699,7 @@
 				<DataElement>
 					<Name lang="fi">Tunnistenumero</Name>
 					<Name lang="sv">Identifieringsnummer</Name>
-					<Name lang="en">Identification no.</Name>
+					<Name lang="en">Identification number</Name>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
 					<XPath>Identification</XPath>
@@ -1788,7 +1819,7 @@
 				<DataElement>
 					<Name lang="fi">Tunnistenumero</Name>
 					<Name lang="sv">Identifieringsnummer</Name>
-					<Name lang="en">Identification no.</Name>
+					<Name lang="en">Identification number</Name>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
 					<XPath>Identification</XPath>
@@ -1917,9 +1948,9 @@
 					<Format>n..5</Format>
 				</DataElement>
 				<DataElement>
-					<Name lang="fi">Tunnistenumero</Name>
-					<Name lang="sv">Identifieringsnummer</Name>
-					<Name lang="en">Identification number</Name>
+					<Name lang="fi">Kuljetusvälineen tunnistenumero</Name>
+					<Name lang="sv">Identifieringsnummer av transportmedlet</Name>
+					<Name lang="en">Identification number of transport means</Name>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
 					<XPath>Identification</XPath>
@@ -2031,9 +2062,9 @@
 					<Format>n..5</Format>
 				</DataElement>
 				<DataElement>
-					<Name lang="fi">Tunnistenumero</Name>
-					<Name lang="sv">Identifieringsnummer</Name>
-					<Name lang="en">Identification number</Name>
+					<Name lang="fi">Kuljetusvälineen tunnistenumero</Name>
+					<Name lang="sv">Identifieringsnummer av transportmedlet</Name>
+					<Name lang="en">Identification number of transport means</Name>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
 					<Use>FI044A</Use>
@@ -2235,6 +2266,7 @@
 					<Name lang="fi">Osoite</Name>
 					<Name lang="sv">Adress</Name>
 					<Name lang="en">Address</Name>
+					<Use>FI007A</Use>
 					<Use>FI013A</Use>
 					<Use>FI015A</Use>
 					<Use>FI170A</Use>
@@ -2253,6 +2285,7 @@
 						<Name lang="fi">Katuosoite</Name>
 						<Name lang="sv">Gatuadress</Name>
 						<Name lang="en">Street and number</Name>
+						<Use>FI007A</Use>
 						<Use>FI013A</Use>
 						<Use>FI015A</Use>
 						<Use>FI170A</Use>
@@ -2266,6 +2299,7 @@
 						<Name lang="fi">Postitoimipaikka</Name>
 						<Name lang="sv">Postanstalt</Name>
 						<Name lang="en">City</Name>
+						<Use>FI007A</Use>
 						<Use>FI013A</Use>
 						<Use>FI015A</Use>
 						<Use>FI170A</Use>
@@ -2277,6 +2311,7 @@
 						<Name lang="fi">Postinumero</Name>
 						<Name lang="sv">Postnummer</Name>
 						<Name lang="en">Postcode</Name>
+						<Use>FI007A</Use>
 						<Use>FI013A</Use>
 						<Use>FI015A</Use>
 						<Use>FI170A</Use>
@@ -2291,6 +2326,7 @@
 						<Name lang="fi">Maa</Name>
 						<Name lang="sv">Land</Name>
 						<Name lang="en">Country</Name>
+						<Use>FI007A</Use>
 						<Use>FI013A</Use>
 						<Use>FI015A</Use>
 						<Use>FI170A</Use>
@@ -2799,7 +2835,7 @@
 					<DataElement>
 						<Name lang="fi">Tunnistenumero</Name>
 						<Name lang="sv">Identifieringsnummer</Name>
-						<Name lang="en">Identification no.</Name>
+						<Name lang="en">Identification number</Name>
 						<Use>FI013A</Use>
 						<Use>FI015A</Use>
 						<XPath>Identification</XPath>
@@ -2866,7 +2902,7 @@
 					<DataElement>
 						<Name lang="fi">Tunnistenumero</Name>
 						<Name lang="sv">Identifieringsnummer</Name>
-						<Name lang="en">Identification no.</Name>
+						<Name lang="en">Identification number</Name>
 						<Use>FI013A</Use>
 						<Use>FI015A</Use>
 						<XPath>Identification</XPath>
@@ -2982,7 +3018,7 @@
 					<DataElement>
 						<Name lang="fi">Tunnistenumero</Name>
 						<Name lang="sv">Identifieringsnummer</Name>
-						<Name lang="en">Identification no.</Name>
+						<Name lang="en">Identification number</Name>
 						<Use>FI013A</Use>
 						<Use>FI015A</Use>
 						<XPath>Identification</XPath>
@@ -3122,9 +3158,9 @@
 						<Format>n..5</Format>
 					</DataElement>
 					<DataElement>
-						<Name lang="fi">Tunnistenumero</Name>
-						<Name lang="sv">Identifieringsnummer</Name>
-						<Name lang="en">Identification number</Name>
+						<Name lang="fi">Kuljetusvälineen tunnistenumero</Name>
+						<Name lang="sv">Identifieringsnummer av transportmedlet</Name>
+						<Name lang="en">Identification number of transport means</Name>
 						<Use>FI013A</Use>
 						<Use>FI015A</Use>
 						<Use>FI044A</Use>
@@ -3350,7 +3386,7 @@
 						<DataElement>
 							<Name lang="fi">Tunnistenumero</Name>
 							<Name lang="sv">Identifieringsnummer</Name>
-							<Name lang="en">Identification no.</Name>
+							<Name lang="en">Identification number</Name>
 							<Use>FI013A</Use>
 							<Use>FI015A</Use>
 							<XPath>Identification</XPath>
@@ -3417,7 +3453,7 @@
 						<DataElement>
 							<Name lang="fi">Tunnistenumero</Name>
 							<Name lang="sv">Identifieringsnummer</Name>
-							<Name lang="en">Identification no.</Name>
+							<Name lang="en">Identification number</Name>
 							<Use>FI013A</Use>
 							<Use>FI015A</Use>
 							<XPath>Identification</XPath>
@@ -4423,7 +4459,7 @@
 					</DataElement>
 				</DataGroup>
 				<DataGroup>
-					<Name lang="fi">Sijainti</Name>
+					<Name lang="fi">Paikka</Name>
 					<Name lang="sv">Plats</Name>
 					<Name lang="en">Location</Name>
 					<Use>FI007A</Use>
@@ -4671,9 +4707,9 @@
 						<MaxOccurence>1</MaxOccurence>
 						<Condition>C0397</Condition>
 						<DataElement>
-							<Name lang="fi">Tunnistenumero</Name>
-							<Name lang="sv">Identifieringsnummer</Name>
-							<Name lang="en">Identification number</Name>
+				<Name lang="fi">Kuljetusvälineen tunnistenumero</Name>
+				<Name lang="sv">Identifieringsnummer av transportmedlet</Name>
+				<Name lang="en">Identification number of transport means</Name>
 							<Use>FI007A</Use>
 							<XPath>Identification</XPath>
 							<MinOccurence>1</MinOccurence>
@@ -4905,11 +4941,10 @@
 					<XPath>Amount@CurrencyUnit</XPath>
 					<MinOccurence>0</MinOccurence>
 					<Codelist>CL352</Codelist>
-					<Rule>B1891</Rule>
+					<Rule>B1898</Rule>
 					<Rule>B2101</Rule>
 					<Rule>NR9029</Rule>
 					<Condition>NC9010</Condition>
-					<Condition>NC9011</Condition>
 					<Format>a3</Format>
 				</DataElement>
 			</DataGroup>
