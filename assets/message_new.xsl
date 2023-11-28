@@ -161,18 +161,18 @@
 								<xsl:choose>
 									<xsl:when test="Condition[@use=$messageType] != ''">D</xsl:when>
 									<xsl:when test="Condition[not(@*)] != ''">D</xsl:when>
-									<xsl:when test="MinOccurence[@use=$messageType]=0">O</xsl:when>
-									<xsl:when test="MinOccurence[@use=$messageType]>0">R</xsl:when>
-									<xsl:when test="MinOccurence[not(@*)]>0">R</xsl:when>
+									<xsl:when test="MinOccurrence[@use=$messageType]=0">O</xsl:when>
+									<xsl:when test="MinOccurrence[@use=$messageType]>0">R</xsl:when>
+									<xsl:when test="MinOccurrence[not(@*)]>0">R</xsl:when>
 									<xsl:otherwise>O</xsl:otherwise>
 								</xsl:choose>
 							</td>
 							<td>
 								<xsl:choose>
-									<xsl:when test="MaxOccurence[@use=$messageType] != ''">
-										<xsl:value-of select="MaxOccurence[@use=$messageType]"/>x</xsl:when>
+									<xsl:when test="MaxOccurrence[@use=$messageType] != ''">
+										<xsl:value-of select="MaxOccurrence[@use=$messageType]"/>x</xsl:when>
 									<xsl:otherwise>
-										<xsl:value-of select="MaxOccurence"/>x</xsl:otherwise>
+										<xsl:value-of select="MaxOccurrence"/>x</xsl:otherwise>
 								</xsl:choose>
 							</td>
 							<td>
@@ -445,9 +445,9 @@
 									<xsl:choose>
 										<xsl:when test="Condition[@use=$messageType] != ''">D</xsl:when>
 										<xsl:when test="Condition[not(@*)] != ''">D</xsl:when>
-										<xsl:when test="MinOccurence[@use=$messageType]=0">O</xsl:when>
-										<xsl:when test="MinOccurence[@use=$messageType]>0">R</xsl:when>
-										<xsl:when test="MinOccurence[not(@*)]>0">R</xsl:when>
+										<xsl:when test="MinOccurrence[@use=$messageType]=0">O</xsl:when>
+										<xsl:when test="MinOccurrence[@use=$messageType]>0">R</xsl:when>
+										<xsl:when test="MinOccurrence[not(@*)]>0">R</xsl:when>
 										<xsl:otherwise>O</xsl:otherwise>
 									</xsl:choose>
 								</td>
