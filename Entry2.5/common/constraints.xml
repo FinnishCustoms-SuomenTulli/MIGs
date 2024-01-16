@@ -1,272 +1,442 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RulesCondition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<RC>
-		<Code>C0050</Code>
-		<DescriptionEn>IF &lt;Identification number&gt; is PRESENT AND is resolvable by the national application
-THEN &lt;Name&gt; = "N" AND&lt;ADDRESS&gt; = "N"
-ELSE &lt;Name&gt; = "R" AND&lt;ADDRESS&gt; = "R";</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC0025_OPT</Code>
-		<DescriptionEn>This detail is the mandatory description of the additional information code you have used. This detail cannot be provided if you have not used an additional information code.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3527 </Code>
-		<DescriptionEn>The presented item is in the wrong state.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3001</Code>
-		<DescriptionEn>If Type of location is D ,  function="UNLOCODE" can be used
-ELSE
-function="UNLOCODE"  cannot be used</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3002</Code>
-		<DescriptionEn>If Type of location is A ,  function="CustomsOffice" can be used
-ELSE
-function="CustomsOffice"  cannot be used</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3003</Code>
-		<DescriptionEn>If Type of location is A or D ,  function="GPS" can be used
-ELSE
-function="GPS"  cannot be used</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3004</Code>
-		<DescriptionEn>If Type of location is B or C ,  function="EO" can be used
-ELSE
-function="EO"  cannot be used</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3005</Code>
-		<DescriptionEn>If Type of location = C ,  function="Authorisation" can be used
-ELSE
-function="Authorisation"  cannot be used
-</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3006</Code>
-		<DescriptionEn>If Type of location is  A, C or D,  location "Address" can be used
-ELSE
-If  Type of location = B , Location "Address"  cannot be used
-</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3007</Code>
-		<DescriptionEn>If additional information code FISSL or FITSH, THEN cannot be used. ELSE IF additional information code FIEVR, FIHPL or FIOSP THEN = 'O'; ELSE 'R'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3008</Code>
-		<DescriptionEn>Either Consignment or HouseConsignment, but not both </DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3009</Code>
-		<DescriptionEn> If additional information = 10600, THEN cannot be used </DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3010</Code>
-		<DescriptionEn>If goods are containerised, entered on either Consignment,HouseConsignment or ConsignmentItem level, but not on multiple</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3011</Code>
-		<DescriptionEn>If additional information = 10600, THEN must be used</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3012</Code>
-		<DescriptionEn>Identification number can not be same for all HouseConsignments.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3013</Code>
-		<DescriptionEn>If House level previous document is given, THEN item = 'N'. ELSE = 'R'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3014</Code>
-		<DescriptionEn>Either goods description or commodity code must be given</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3015</Code>
-		<DescriptionEn>Used if trader wants to reuse ENS data to form a TSD. IF additional information code FIRUE is entered, then this group = 'R'.
-ELSE = 'N'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3016</Code>
-		<DescriptionEn>"If additional information code (FISSL), THEN cannot be used. ELSE IF additional information code FIHPL or FIOSP THEN = 'O', ELSE ´R`</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3017</Code>
-		<DescriptionEn>Type of location must be 'B'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC3018</Code>
-		<DescriptionEn>If Additional Information FITTJ is given no validation for previous document is done.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0019</Code>
-		<DescriptionEn>Street address of goods locations must be in Finland (country code FI).</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0026</Code>
-		<DescriptionEn>The number of packages at goods item can be zero (0) only when more than one goods item have been packed within one and the same package.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0028</Code>
-		<DescriptionEn>It is not allowed to declare the same authorisation type more than once</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0034</Code>
-		<DescriptionEn>The trader identification number must begin with a 2-character country code, for example FI.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0035</Code>
-		<DescriptionEn>The trader identification number has an incorrect format. The format can be for example a Finnish EORI number consisting of the country code and a Business ID.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0047</Code>
-		<DescriptionEn>The representative's identification number cannot be amended.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0049</Code>
-		<DescriptionEn>The service provider cannot declare themselves in any trader role (declarant, representative or importer) in the declaration.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0501</Code>
-		<DescriptionEn>The declared commodity code is not valid on the acceptance date of the declaration.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR1101</Code>
-		<DescriptionEn>If starts with FI + some 3. country code like RU or NO (3. country EORI registration made in Finland), must be found from trader register even without trader office code.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR1109</Code>
-		<DescriptionEn>According to the customer register of Customs, the submitter of the declaration does not have the right to act as a service provider for the e-services of Customs.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3525</Code>
-		<DescriptionEn>Only direct representative is possible</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3502</Code>
-		<DescriptionEn>Submitter can be declarant, representative or trader whose warehouse identification is given on TSD/ENS</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3503</Code>
-		<DescriptionEn>Warehouse type must be 'V' or 'H'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3504</Code>
-		<DescriptionEn>Warehouse type must be 'V' </DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3505</Code>
-		<DescriptionEn>Authorisation type must be 'TST'</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3506</Code>
-		<DescriptionEn>Warehouse must be according given authorisation</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3507</Code>
-		<DescriptionEn> Declarant id EORI must be = Warehouse id EORI</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>R0007</Code>
-		<DescriptionEn>Each ‘Goods Item Number’ is unique throughout the declaration. The items shall be numbered in a sequential fashion, starting from '1' for the first item and incrementing the numbering by '1' for each following item".</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>R0862</Code>
-		<DescriptionEn>The trader detail cannot be amended.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>R3005</Code>
-		<DescriptionEn>EORI number shall be declared.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>R0005</Code>
-		<DescriptionEn>‘Goods Item Number’ is always used even if ‘Items’ = ‘1’, ‘Goods Item Number’ is also ‘1’.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NC0010</Code>
-		<DescriptionEn>The number of packages must be declared, except for bulk goods, such as VQ, VG, VL, VY, VR, VS and VO.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>R0987</Code>
-		<DescriptionEn>Each &lt;Sequence number&gt; is unique for the Data Group it belongs to. The sequence numbers shall be sequential, starting from '1' for the first iteration of the Data Group and increasing by '1' for each iteration.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0987</Code>
-		<DescriptionEn>Each &lt;Sequence number&gt; is unique for the Data Group it belongs to. The sequence numbers shall be sequential.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3508</Code>
-		<DescriptionEn>If additional information code FIEVR is given then previous document type must be "ZZZ".</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3509</Code>
-		<DescriptionEn>Warehouse id must be entered</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NCS001</Code>
-		<DescriptionEn>If additional code FITSH or FIEVR is given THEN cannot be used; ELSE R.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NRS012</Code>
-		<DescriptionEn>The MRN must be unique for each consignment.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NCS002</Code>
-		<DescriptionEn>If additional information code (FIVAA or FITAA or FIETD), THEN = 'R'. ELSE can not be used.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NCS003</Code>
-		<DescriptionEn>At least one of these must be entered: Text or Provided Information</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NCS004</Code>
-		<DescriptionEn>If invalidation reason code is H or D, THEN = 'R'. If reason code is V THEN = 'O'. ELSE can not be used.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NCS005</Code>
-		<DescriptionEn>IF movement complete = 0, THEN 'R', otherwise 'O'.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NCS006</Code>
-		<DescriptionEn>If previous document type is IM, THEN cannot be used; ELSE 'O'.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>R0987</Code>
-		<DescriptionEn>Each &lt;Sequence number&gt; is unique for the Data Group it belongs to. The sequence numbers shall be sequential, starting from '1' for the first iteration of the Data Group and increasing by '1' for each iteration.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR0987</Code>
-		<DescriptionEn>Each &lt;Sequence number&gt; is unique for the Data Group it belongs to. </DescriptionEn>
-	</RC>
-	<RC>
-		<Code>C0671</Code>
-		<DescriptionEn>IF /*/Consignment/LocationOfGoods/EconomicOperator/identificationNumber is PRESENT OR /*/Consignment/LocationOfGoods/authorisationNumber is PRESENT THEN /*/Consignment/LocationOfGoods/additionalIdentifier = "O" ELSE /*/Consignment/LocationOfGoods/additionalIdentifier = "N"</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NCS007</Code>
-		<DescriptionEn> If previous document type is IM, 1ZZZ or N825, THEN cannot be used; ELSE R.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3551 </Code>
-		<DescriptionEn>goods item number must be unique</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3539</Code>
-		<DescriptionEn>CUS code must be 9 digits</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3540 </Code>
-		<DescriptionEn>Presentation notification with PoUS reference or pre-lodged import declaration can not be amended.</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3545 </Code>
-		<DescriptionEn>Alatason kuljetusasiakirjan edeltävän asiakirjan MRN on oltava sama kaikilla erillä</DescriptionEn>
-	</RC>
-	<RC>
-		<Code>NR3546</Code>
-		<DescriptionEn>Amendment of TSD with re-used ENS data is not possible </DescriptionEn>
-	</RC>
-</RulesCondition>
+<?xml version="1.0" encoding="UTF-8"?>
+<Constraints>
+  <Constraint>
+    <Code>C0050</Code>
+    <Description lang="fi">JOS &lt;i&gt;Tunnistenumero&lt;/i&gt; on ilmoitettu ja se löytyy asiakasrekisteristä&#13;
+  NIIN tämä tieto = 'N'&#13;
+MUUTEN tämä tieto = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Identifieringsnummer&lt;/i&gt; är anmält och hittas i kundregistret&#13;
+  DÅ är denna uppgift = 'N'&#13;
+ANNARS är denna uppgift = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Identification number&lt;/i&gt; is entered and found in the trader register&#13;
+  THEN this data = 'N'&#13;
+ELSE this data = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC0010</Code>
+    <Description lang="fi">The number of packages must be declared, except for bulk goods, such as VQ, VG, VL, VY, VR, VS and VO.</Description>
+    <Description lang="sv">The number of packages must be declared, except for bulk goods, such as VQ, VG, VL, VY, VR, VS and VO.</Description>
+    <Description lang="en">The number of packages must be declared, except for bulk goods, such as VQ, VG, VL, VY, VR, VS and VO.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC0025_OPT</Code>
+    <Description lang="fi">JOS asianmukainen &lt;i&gt;Lisätietokoodi&lt;/i&gt; niin määrittää&#13;
+   NIIN tämä tietoelementti = 'R'&#13;
+MUUTEN tämä tietoelementti = 'N'</Description>
+    <Description lang="sv">OM anges av relevant &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;&#13;
+  DÅ är detta dataelement = 'R'&#13;
+ANNARS är detta dataelement = 'N'</Description>
+    <Description lang="en">IF specified by the relevant &lt;i&gt;Additional information code&lt;/i&gt;&#13;
+  THEN this data element = 'R'&#13;
+ELSE this data element = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3001</Code>
+    <Description lang="fi">Tätä elementtiä voi käyttää ainoastaan kun &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt;  = 'D'</Description>
+    <Description lang="sv">Detta element kan endast användas om &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; = 'D'</Description>
+    <Description lang="en">This element can only be used if &lt;i&gt;Type of location&lt;/i&gt; = 'D'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3002</Code>
+    <Description lang="fi">Tätä elementtiä voi käyttää ainoastaan kun &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt;  = 'A'</Description>
+    <Description lang="sv">Detta element kan endast användas om &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; = 'A'</Description>
+    <Description lang="en">This element can only be used if &lt;i&gt;Type of location&lt;/i&gt; = 'A'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3003</Code>
+    <Description lang="fi">Tätä elementtiä voi käyttää ainoastaan kun &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt;  = 'A' tai 'D'</Description>
+    <Description lang="sv">Detta element kan endast användas om &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; = 'A' eller 'D'</Description>
+    <Description lang="en">This element can only be used if &lt;i&gt;Type of location&lt;/i&gt; = 'A' or 'D'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3004</Code>
+    <Description lang="fi">Tätä elementtiä voi käyttää ainoastaan kun &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt;  = 'B' tai 'C'</Description>
+    <Description lang="sv">Detta element kan endast användas om &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; = 'B' eller 'C'</Description>
+    <Description lang="en">This element can only be used if &lt;i&gt;Type of location&lt;/i&gt; = 'B' or 'C'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3005</Code>
+    <Description lang="fi">Tätä elementtiä voi käyttää ainoastaan kun &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt;  = 'C'</Description>
+    <Description lang="sv">Detta element kan endast användas om &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; = 'C'</Description>
+    <Description lang="en">This element can only be used if &lt;i&gt;Type of location&lt;/i&gt; = 'C'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3006</Code>
+    <Description lang="fi">Tätä elementtiä voi käyttää ainoastaan kun &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt;  = 'A', 'C' tai 'D'</Description>
+    <Description lang="sv">Detta element kan endast användas om &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; = 'A', 'C' eller 'D'</Description>
+    <Description lang="en">This element can only be used if &lt;i&gt;Type of location&lt;/i&gt; = 'A', 'C' or 'D'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3007</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; = FISSL (Suora siirtolastaus) tai JOS tulliselvitys suoritetaan heti&#13;
+  NIIN &lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Varaston tunnistetiedot&lt;/i&gt; = 'N' ja &lt;i&gt;Lisätietokoodi&lt;/i&gt; FITSH ja FIEVT ei voida käyttää&#13;
+MUUTEN JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; = FIHPL () tai FISOP () TAI JOS &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; = 'N825'&#13;
+  NIIN &lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Varaston tunnistetiedot&lt;/i&gt; = 'O'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = FISSL (Direkt omlastning) eller OM tullklareringen görs genast&#13;
+  DÅ är &lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Identifiering av lager&lt;/i&gt; = 'N' och &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; FITSH och FIEVR kan inte användas&#13;
+ANNARS OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = FIHPL () eller FISOP () ELLER OM &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; = 'N825'&#13;
+  DÅ är &lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Identifiering av lager&lt;/i&gt; = 'O'</Description>
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; = FISSL (Direct transhipment) or IF customs clearance is done immediately&#13;
+  THEN &lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Identification of warehouse&lt;/i&gt; = 'N' and &lt;i&gt;Additional information code&lt;/i&gt; FITSH and FIEVR cannot be used&#13;
+ELSE IF &lt;i&gt;Additional information code&lt;/i&gt; = FIHPL () or FISOP () OR IF &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; = 'N825'&#13;
+  THEN &lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Identification of warehouse&lt;/i&gt; = 'O'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3008</Code>
+    <Description lang="fi">Tiedot syötetään joko tasolle &lt;i&gt;Lähetyserä&lt;/i&gt; tai &lt;i&gt;Alatason lähetyserä&lt;/i&gt;, mutta ei molempiin.</Description>
+    <Description lang="sv">Data anges antingen på nivå av &lt;i&gt;Leveransparti&lt;/i&gt; eller &lt;i&gt;Leveransparti på undernivå&lt;/i&gt;, men inte på båda.</Description>
+    <Description lang="en">Data is entered either on &lt;i&gt;Consignment&lt;/i&gt; or &lt;i&gt;House consignment&lt;/i&gt;, but not on both.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3009</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; = '10600'&#13;
+  NIIN tämä tieto = 'N'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = '10600'&#13;
+  DÅ är denna uppgift = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; = '10600'&#13;
+  THEN this data = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3010</Code>
+    <Description lang="fi">JOS tavarat kuljetetaan kontissa&#13;
+  NIIN ilmoita kontin tiedot ainoastaan yhdellä seuraavista tasoista &lt;i&gt;Lähetyserä&lt;/i&gt;, &lt;i&gt;Alatason lähetyserä&lt;/i&gt; tai &lt;i&gt;Tavaraerä&lt;/i&gt;</Description>
+    <Description lang="sv">OM varorna transporteras i containers&#13;
+  SÅ angiv detaljer om containern på endast ett av nivåerna &lt;i&gt;Leveransparti&lt;/i&gt;, &lt;i&gt;Leveransparti på undernivå&lt;/i&gt; eller &lt;i&gt;Varupost&lt;/i&gt;</Description>
+    <Description lang="en">IF the goods are transported in a container&#13;
+  THEN enter the data of the container on only one of the levels &lt;i&gt;Consignment&lt;/i&gt;, &lt;i&gt;House consignment&lt;/i&gt; or &lt;i&gt;Goods item&lt;/i&gt;</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3011</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; = '10600'&#13;
+  NIIN tämä tieto = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = '10600'&#13;
+  DÅ är denna uppgift = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; = '10600'&#13;
+  THEN this data = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3012</Code>
+    <Description lang="fi">&lt;i&gt;Tunnistenumero&lt;/i&gt; ei voi olla identtinen jokaisessa tietoryhmässä &lt;i&gt;Alatason lähetyserä&lt;/i&gt;.</Description>
+    <Description lang="sv">&lt;i&gt;Identifieringsnummer&lt;/i&gt; kan inte vara identiskt för i varje &lt;i&gt;Leveransparti på undernivå&lt;/i&gt;.</Description>
+    <Description lang="en">&lt;i&gt;Identification number&lt;/i&gt; cannot be identical for every &lt;i&gt;House consignment&lt;/i&gt;.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3014</Code>
+    <Description lang="fi">Joko &lt;i&gt;Tavaran kuvaus&lt;/i&gt; tai &lt;i&gt;Tavaran koodi - harmonoidun järjestelmän koodi&lt;/i&gt; on ilmoitettava.</Description>
+    <Description lang="sv">Antingen &lt;i&gt;Varubeskrivning&lt;/i&gt; eller &lt;i&gt;Varukod - HS-nummer&lt;/i&gt; måste anmälas.</Description>
+    <Description lang="en">Either &lt;i&gt;Description of goods&lt;/i&gt; or &lt;i&gt;Commodity code - Harmonised System code&lt;/i&gt; must be entered.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3015</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; 'FIRUE' on ilmoitettu&#13;
+  NIIN tämä tieto = 'R'&#13;
+MUUTEN tämä tieto = 'N'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; 'FIRUE' är anmält&#13;
+  DÅ ar denna uppgift = 'R'&#13;
+ANNARS är denna uppgift = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; 'FIRUE' is entered&#13;
+  THEN this data = 'R'&#13;
+ELSE this data = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3016</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FISSL'&#13;
+  NIIN tämä tieto = 'N'&#13;
+MUUTEN JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FIHPL' tai 'FIOSP'&#13;
+  NIIN tämä tieto = 'O'&#13;
+MUUTEN tämä tieto = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = 'FISSL'&#13;
+  DÅ är denna uppgift = 'N'&#13;
+ANNARS OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = 'FIHPL' eller 'FIOSP'&#13;
+  DÅ är denna uppgift = 'O'&#13;
+ANNARS är denna uppgift = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; = 'FISSL'&#13;
+  THEN this data = 'N'&#13;
+ELSE IF &lt;i&gt;Additional information code&lt;/i&gt; = 'FIHPL' or 'FIOSP'&#13;
+  THEN this data = 'O'&#13;
+ELSE this data = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC3017</Code>
+    <Description lang="fi">&lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt; on oltava 'B'.</Description>
+    <Description lang="sv">&lt;i&gt;Typ av förvaringsplats&lt;/i&gt; måste vara 'B'.</Description>
+    <Description lang="en">&lt;i&gt;Type of location&lt;/i&gt; must be 'B'.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NCS001</Code>
+    <Description lang="fi">Alatason lähetyserän tiedot ovat pakollisia. Et voi antaa tätä tietoa, jos annoit lisätietokoodin FITSH, FIEVR tai FIPML tai edellinen asiakirjatyyppi on N825.</Description>
+    <Description lang="sv">Uppgifter för leveransparti på undernivå är obligatoriska. Du kan inte ange denna information om du har angett ytterligare informationskod FITSH, FIEVR eller FIPML eller tidigare dokumenttyp är N825.</Description>
+    <Description lang="en">The house consignment details are mandatory. You cannot provide this detail if you provided the additional information code FITSH, FIEVR or FIPML or previous document type is N825.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NCS002</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; 'FIVAA', 'FITAA' tai 'FIETD' on ilmoitettu&#13;
+  NIIN tämä tieto = 'R'&#13;
+MUUTEN tämä tieto = 'N'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; 'FIVAA', 'FITAA' eller 'FIETD' är anmäld&#13;
+  DÅ är denna uppgift = 'R'&#13;
+ANNARS är denna uppgift = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; 'FIVAA', 'FITAA' or 'FIETD' is entered&#13;
+  THEN this data = 'R'&#13;
+ELSE this data = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NCS003</Code>
+    <Description lang="fi">Vähintään toinen näistä tiedoista on syötettävä.</Description>
+    <Description lang="sv">Åtminstone en av dessa uppgifter måste anges.</Description>
+    <Description lang="en">At least one of these data must be entered.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NCS004</Code>
+    <Description lang="fi">JOS &lt;i&gt;Mitätöinnin syy&lt;/i&gt; = 'D' tai 'H'&#13;
+  NIIN tämä tieto = 'R'&#13;
+MUUTEN JOS &lt;i&gt;Mitätöinnin syy&lt;/i&gt;  = 'V'&#13;
+  NIIN tämä tieto = 'O'&#13;
+MUUTEN tämä tieto = 'N'</Description>
+    <Description lang="sv">OM &lt;i&gt;Orsak till ogiltigförklaring&lt;/i&gt; = 'D' eller 'H'&#13;
+  DÅ är denna uppgift = 'R'&#13;
+ANNARS OM &lt;i&gt;Orsak till ogiltigförklaring&lt;/i&gt;  = 'V'&#13;
+  DÅ är denna uppgift = 'O'&#13;
+ANNARS är denna uppgift = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Invalidation reason&lt;/i&gt; = 'D' or 'H'&#13;
+  THEN this data = 'R'&#13;
+ELSE IF &lt;i&gt;Invalidation reason&lt;/i&gt;  = 'V'&#13;
+  THEN this data = 'O'&#13;
+ELSE this data = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NCS005</Code>
+    <Description lang="fi">JOS &lt;i&gt;Siirto valmis&lt;/i&gt;  = '0'&#13;
+  NIIN tämä tieto = 'R'&#13;
+MUUTEN tämä tieto = 'O'</Description>
+    <Description lang="sv">OM &lt;i&gt;Befordran färdig&lt;/i&gt;  = '0'&#13;
+  DÅ är denna uppgift = 'R'&#13;
+ANNARS är denna uppgift = 'O'</Description>
+    <Description lang="en">IF &lt;i&gt;Movement complete&lt;/i&gt;  = '0'&#13;
+  THEN this data = 'R'&#13;
+ELSE this data = 'O'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NCS006</Code>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävän asiakirjan viite&lt;/i&gt; on 'IM' tai 'N825' tai JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; 'FIPML' on ilmoitettu&#13;
+&#13;
+  NIIN &lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Tavaraerän tunniste&lt;/i&gt; = 'N'&#13;
+MUUTEN &lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Tavaraerän tunniste&lt;/i&gt; = 'O'</Description>
+    <Description lang="sv">OM &lt;i&gt;Referens för tidigare dokument&lt;/i&gt; är 'IM' eller 'N825' eller OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; 'FIPML' är anmält&#13;
+  DÅ är &lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Varupostidentifierare&lt;/i&gt; = 'N'&#13;
+ANNARS är &lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Varupostidentifierare&lt;/i&gt; = 'O'</Description>
+    <Description lang="en">IF &lt;i&gt;Previous document reference&lt;/i&gt; is 'IM' or 'N825' or IF &lt;i&gt;Additional information code&lt;/i&gt; 'FIPML' is declared&#13;
+  THEN &lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Goods item identifier&lt;/i&gt; = 'N'&#13;
+ELSE &lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Goods item identifier&lt;/i&gt; = 'O'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NCS007</Code>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävän asiakirjan viite&lt;/i&gt; on 'IM', '1ZZZ' tai 'N825'&#13;
+  NIIN &lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusasiakirja&lt;/i&gt; = 'N'&#13;
+MUUTEN &lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusasiakirja&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Referens för tidigare dokument&lt;/i&gt; är 'IM', '1ZZZ' eller 'N825'&#13;
+  DÅ är &lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportdokument&lt;/i&gt; = 'N'&#13;
+ANNARS är &lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportdokument&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Previous document reference&lt;/i&gt; is 'IM', '1ZZZ' or 'N825'&#13;
+  THEN &lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Transport document&lt;/i&gt; = 'N'&#13;
+ELSE &lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Transport document&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NCS008</Code>
+    <Description lang="fi">JOS &lt;i&gt;Kuljetusasiakirja&lt;/i&gt; tai &lt;i&gt;Tavaraerän tunniste&lt;/i&gt; on ilmoitettu&#13;
+  NIIN &lt;i&gt;Postin kuljetusyksikön tunnistenumero&lt;/i&gt; = 'N'</Description>
+    <Description lang="sv">OM &lt;i&gt;Transportdokument&lt;/i&gt; eller &lt;i&gt;Varupostidentifierare&lt;/i&gt; är anmälda&#13;
+  DÅ är &lt;i&gt;Behållarnummer&lt;/i&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Transport document&lt;/i&gt; or &lt;i&gt;Goods item identifier&lt;/i&gt; is entered&#13;
+  THEN &lt;i&gt;Receptacle identification number&lt;/i&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR0019</Code>
+    <Description lang="fi">Ainoastaan arvo 'FI' on sallittu.</Description>
+    <Description lang="sv">Endast värder 'FI' är giltigt.</Description>
+    <Description lang="en">Only value 'FI' is allowed.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR0026</Code>
+    <Description lang="fi">Jos tiedon &lt;i&gt;Kolliluku&lt;/i&gt; arvo on '0', tulee olla ainakin yksi tavaraerä, jolla on samat &lt;i&gt;Lähetysmerkinnät&lt;/i&gt;, &lt;i&gt;Kollien laji&lt;/i&gt; ja &lt;i&gt;Kolliluku&lt;/i&gt;, jonka arvo on suurempi kuin '0'.</Description>
+    <Description lang="sv">Om värdet är &lt;i&gt;Antal kollin&lt;/i&gt; är '0' bör det finnas minst en varupost med samma &lt;i&gt;Märken&lt;/i&gt;, &lt;i&gt;Kollislag&lt;/i&gt; och &lt;i&gt;Antal kollin&lt;/i&gt; med ett värde större än '0'.</Description>
+    <Description lang="en">In case the value of &lt;i&gt;Number of packages&lt;/i&gt; is '0' then there should exist at least one goods item with the same &lt;i&gt;Shipping marks&lt;/i&gt; and &lt;i&gt;Type of packages&lt;/i&gt;, and &lt;i&gt;Number of packages&lt;/i&gt; with value greater than '0'.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR0028</Code>
+    <Description lang="fi">&lt;i&gt;Luvan tyyppi&lt;/i&gt; on oltava uniikki.</Description>
+    <Description lang="sv">&lt;i&gt;Typ av tillstånd&lt;/i&gt; måste vara unikt.</Description>
+    <Description lang="en">&lt;i&gt;Authorisation type&lt;/i&gt; must be unique.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR0034</Code>
+    <Description lang="fi">Toimijan tunnisteen täytyy alkaa kaksimerkkisellä maakoodilla, esimerkiksi FI.</Description>
+    <Description lang="sv">Aktörens identifiering måste börja med en landskod på två tecken, till exempel FI.</Description>
+    <Description lang="en">The trader identification number must begin with a 2-character country code, for example FI.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR0035</Code>
+    <Description lang="fi">Jos toimijan tunnuksen muoto on FI + 9 merkkiä, tulee suorittaa suomalaisen EORI-tunnuksen muotovalidointi. Muoto on FI + 7 numeroa + yhdysmerkki + tarkistusnumero.</Description>
+    <Description lang="sv">Om formatet för aktörens identifiering är FI + 9 tecken, måste modulvalidering av finsk EORI-id utföras. Formatet måste vara 'FI' + 7 siffror + bindestreck + kontrolltecken.</Description>
+    <Description lang="en">If the format of the trader identification number is FI + 9 characters, then modulus validation of Finnish EORI id must be performed. Format must be 'FI' + 7 digits + hyphen + check sum digit.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR0047</Code>
+    <Description lang="fi">Tätä tietoa ei voi muuttaa.</Description>
+    <Description lang="sv">Denna uppgift kan inte ändras.</Description>
+    <Description lang="en">This data cannot be amended.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR0049</Code>
+    <Description lang="fi">Palveluntarjoajan on oltava eri kuin maahantuoja (saapuminen ja tuonti), viejä (vienti), tavaranhaltija ja edustaja.</Description>
+    <Description lang="sv">Tjänsteleverantören måste skilja sig från importör (införsel och import), exportör (export), deklarant och representant.</Description>
+    <Description lang="en">Service provider has to be different from importer (entry and import), exporter (export), declarant and representative.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR0501</Code>
+    <Description lang="fi">Koodin on oltava voimassa hyväksymispäivänä.</Description>
+    <Description lang="sv">Koden måste vara giltig på godkännandedatum.</Description>
+    <Description lang="en">Code must be valid on the date of acceptance.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR0987</Code>
+    <Description lang="fi">Jokainen &lt;i&gt;Järjestysnumero&lt;/i&gt; on yksilöllinen sille tietoryhmälle, johon se kuuluu. Niiden on oltava peräkkäisiä.</Description>
+    <Description lang="sv">Varje &lt;i&gt;Ordningsnummer&lt;/i&gt; är unik för den datagrupp som den tillhör. De ska vara sekventiella.</Description>
+    <Description lang="en">Each &lt;i&gt;Sequence number&lt;/i&gt; is unique for the data group is belongs to. They shall be sequential.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR1101</Code>
+    <Description lang="fi">JOS &lt;i&gt;Tunnistenumero&lt;/i&gt; alkaa EU:n ulkopuolisella maakoodilla, kuten 'NO' tai 'RU' (Suomessa tehty 3. maan EORI-rekisteröinti)&#13;
+  NIIN toimijan on löydettävä asiakasrekisteristä myös ilman &lt;i&gt;Toimipaikkakoodi&lt;/i&gt;</Description>
+    <Description lang="sv">OM &lt;i&gt;Identifieringsnummer&lt;/i&gt; börjar med en landskod utanför EU som 'NO' eller 'RU' (3. lands EORI-registrering gjord i Finland)&#13;
+  DÅ måste aktören hittas i kundregistret även utan &lt;i&gt;Kod för verksamhetsställe&lt;/i&gt;</Description>
+    <Description lang="en">IF &lt;i&gt;Identification number&lt;/i&gt; starts with a non-EU country code such as 'NO' or 'RU' (3. country EORI registration made in Finland)&#13;
+  THEN trader must be found in trader regiser even without &lt;i&gt;Office code&lt;/i&gt;</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR1109</Code>
+    <Description lang="fi">Palveluntarjoajan on oltava rekisteröitynyt palveluntarjoajaksi asiakasrekisterissä.</Description>
+    <Description lang="sv">Tjänstelevarantören måste vara registrerad som tjänsteleverantör i kundregistret.</Description>
+    <Description lang="en">Service provider has to be registered as service provider in trader register.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR3502</Code>
+    <Description lang="fi">&lt;i&gt;Ilmoituksen antaja&lt;/i&gt; voi olla &lt;i&gt;Ilmoittaja&lt;/i&gt;, &lt;i&gt;Edustaja&lt;/i&gt; tai toimija, jonka varastotunniste on annettu TSD:llä/ENS:llä.</Description>
+    <Description lang="sv">&lt;i&gt;Person som inger deklarationen&lt;/i&gt; kan vara &lt;i&gt;Deklarant&lt;/i&gt;, &lt;i&gt;Ombud&lt;/i&gt; eller aktör vars lageridentifiering anges på TSD/ENS.</Description>
+    <Description lang="en">&lt;i&gt;Submitter&lt;/i&gt; can be &lt;i&gt;Declarant&lt;/i&gt;, &lt;i&gt;Representative&lt;/i&gt; or trader whose warehouse identification is given on TSD/ENS.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR3503</Code>
+    <Description lang="fi">&lt;i&gt;Varaston tyyppi&lt;/i&gt; on oltava 'H' tai 'V'.</Description>
+    <Description lang="sv">&lt;i&gt;Typ av lager&lt;/i&gt; måste vara 'H' eller 'V'.</Description>
+    <Description lang="en">&lt;i&gt;Warehouse type&lt;/i&gt; must be 'H' or 'V'.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR3504</Code>
+    <Description lang="fi">&lt;i&gt;Varaston tyyppi&lt;/i&gt; on oltava 'V'.</Description>
+    <Description lang="sv">&lt;i&gt;Typ av lager&lt;/i&gt; måste vara 'V'.</Description>
+    <Description lang="en">&lt;i&gt;Warehouse type&lt;/i&gt; must be 'V'.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR3505</Code>
+    <Description lang="fi">&lt;i&gt;Luvan tyyppi&lt;/i&gt; on oltava 'TST'.</Description>
+    <Description lang="sv">&lt;i&gt;Typ av tillstånd&lt;/i&gt; måste vara 'TST'.</Description>
+    <Description lang="en">&lt;i&gt;Authorisation type&lt;/i&gt; must be 'TST'.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR3506</Code>
+    <Description lang="fi">Varastotietojen tulee vastata ilmoitettua lupaa.</Description>
+    <Description lang="sv">Lageruppgifterna måste överensstämma med det givna tillståndet.</Description>
+    <Description lang="en">Warehouse details must correspond to the given authorization.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR3507</Code>
+    <Description lang="fi">Declarant id EORI must be = Warehouse id EORI</Description>
+    <Description lang="sv">Declarant id EORI must be = Warehouse id EORI</Description>
+    <Description lang="en">Declarant id EORI must be = Warehouse id EORI</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR3508</Code>
+    <Description lang="fi">JOS ilmoitetaan &lt;i&gt;Lisätietokoodi&lt;/i&gt; FIEVR&#13;
+  NIIN &lt;i&gt;Edeltävän asiakirjan viite&lt;/i&gt; on oltava "1ZZZ"</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; FIEVR anmäls&#13;
+  DÅ måste &lt;i&gt;Referens för tidigare dokument&lt;/i&gt; vara "1ZZZ"</Description>
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; FIEVR is entered&#13;
+  THEN &lt;i&gt;Previous document reference&lt;/i&gt; must be "1ZZZ"</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR3509</Code>
+    <Description lang="fi">Ilmoitettava &lt;i&gt;Varaston tunniste&lt;/i&gt;.</Description>
+    <Description lang="sv">&lt;i&gt;Lagerkod&lt;/i&gt; måste anmälas.</Description>
+    <Description lang="en">&lt;i&gt;Warehouse identifier&lt;/i&gt; must be entered.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR3525</Code>
+    <Description lang="fi">Ainoastaan suora edustus on mahdollinen.</Description>
+    <Description lang="sv">Endast direkt ombudskap är möjligt.</Description>
+    <Description lang="en">Only direct representation is possible.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR3537</Code>
+    <Description lang="fi">Jos esittäminen tehdään alatason lähetyserän tasolla, sitä ei voi muuttaa tehtäväksi tavaraerätasolla.&#13;
+Poista alatason lähetyserän esittäminen tästä esittämisilmoituksesta ja tee uusi esittämisilmoitus käyttämällä tavaraerätason esittämistä.</Description>
+    <Description lang="sv">Om presentationen görs på nåva av leveransparti på undernivå kan den inte ändras till att göras på varupostnivå.&#13;
+Ta bort presentationen på undernivå från detta presentationsmeddelande och skicka in ett nytt presentationsmeddelande med presentation på varupostnivå.</Description>
+    <Description lang="en">If presentation is done on house-level it can not be amended to be done on goods item level.&#13;
+Please remove the house level presentation from this presentation notification and lodge a new presentation notification using goods item level for presentation.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR3539</Code>
+    <Description lang="fi">CUS code must be 9 digits</Description>
+    <Description lang="sv">CUS code must be 9 digits</Description>
+    <Description lang="en">CUS code must be 9 digits</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR3540</Code>
+    <Description lang="fi">Saapumisen esittämisilmoitusta PoUS-viittauksella tai johon liittyy ennakkoon jätetty tuonti-ilmoitus ei voi muuttaa.</Description>
+    <Description lang="sv">Anmälan av varors ankomst med PoUS-referens eller som hänförs av en förhandsinlämnad importdeklaration kan inte ändras.</Description>
+    <Description lang="en">Presentation notification with PoUS reference or that a pre-lodged import declaration refers to cannot be amended.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR3546</Code>
+    <Description lang="fi">Amendment of TSD with re-used ENS data is not possible</Description>
+    <Description lang="sv">Amendment of TSD with re-used ENS data is not possible</Description>
+    <Description lang="en">Amendment of TSD with re-used ENS data is not possible</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR3567</Code>
+    <Description lang="fi">Lisätietokoodi FIPML voidaan ilmoittaa ainoastaan ilmoitustasolla.</Description>
+    <Description lang="sv">Kod för ytterligare uppgifter FIPML kan endast ges på deklarationsnivå.</Description>
+    <Description lang="en">Additional information code FIPML can only be given on declaration level.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>R0005</Code>
+    <Description lang="fi">‘Goods Item Number’ is always used even if ‘Items’ = ‘1’, ‘Goods Item Number’ is also ‘1’.</Description>
+    <Description lang="sv">‘Goods Item Number’ is always used even if ‘Items’ = ‘1’, ‘Goods Item Number’ is also ‘1’.</Description>
+    <Description lang="en">‘Goods Item Number’ is always used even if ‘Items’ = ‘1’, ‘Goods Item Number’ is also ‘1’.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>R0007</Code>
+    <Description lang="fi">Jokainen &lt;i&gt;Tavaraerän numero&lt;/i&gt;/&lt;i&gt;Ilmoituksen tavaraerän numero&lt;/i&gt; on ilmoituksella yksilöllinen. Erät on numeroitava peräkkäin alkaen luvusta '1' ensimmäisen kohdan osalta ja lisäämällä numerointia 1:llä jokaisen seuraavan kohdan osalta.</Description>
+    <Description lang="sv">Varje &lt;i&gt;Varupostnummer&lt;/i&gt;/&lt;i&gt;Varupostnummer i deklarationen&lt;/i&gt; är unik genom hela deklarationen. Varuposterna ska numreras på ett sekventiellt sätt, med början från '1' för den första varuposten och öka numreringen med '1' för varje efterföljande artikel.</Description>
+    <Description lang="en">Each &lt;i&gt;Goods item number&lt;/i&gt;/&lt;i&gt;Declaration goods item number&lt;/i&gt; is unique throughout the declaration. The items shall be numbered in a sequential fashion, starting from '1' for the first item and incrementing the numbering by '1' for each following item.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>R0862</Code>
+    <Description lang="fi">Ilmoittajan tunnusta ei voi muuttaa.</Description>
+    <Description lang="sv">Deklarantens identifiering kan inte ändras.</Description>
+    <Description lang="en">Declarant identification number cannot be amended.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>R0987</Code>
+    <Description lang="fi">Jokainen &lt;i&gt;Järjestysnumero&lt;/i&gt; on yksilöllinen sille tietoryhmälle, johon se kuuluu. Niiden on oltava peräkkäisiä alkaen luvusta '1' tietoryhmän ensimmäisellä esiintymiskerralla ja kasvaen luvulla '1' jokaista seuraavaa esiintymiskertaa kohti.</Description>
+    <Description lang="sv">Varje &lt;i&gt;Ordningsnummer&lt;/i&gt; är unik för den datagrupp som den tillhör. De ska vara sekventiella, med start från '1' för den första iterationen av datagruppen och ökande med '1' för varje efterföljande iteration.</Description>
+    <Description lang="en">Each &lt;i&gt;Sequence number&lt;/i&gt; is unique for the data group is belongs to. They shall be sequential, starting from '1' for the first iteration of the data group and increasing by '1' for each subsequent iteration.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>R3005</Code>
+    <Description lang="fi">EORI-tunniste ilmoitettava.</Description>
+    <Description lang="sv">EORI-nummer ska anmälas.</Description>
+    <Description lang="en">EORI number shall be declared.</Description>
+  </Constraint>
+</Constraints>
