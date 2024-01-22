@@ -3,13 +3,10 @@
 	<xsl:output method="html"/>
 	<xsl:param name="language"/>
 	<xsl:template match="Introduction">
-		<p>
+		<ol>
 			<xsl:for-each select="VersionHistory/Version[position() = last()]/Notes/Note[@lang=($language)]">
-				<xsl:value-of select="."/>
-				<xsl:if test="position() != last()">
-					<br/>
-				</xsl:if>
+				<li><xsl:value-of select="."/></li>
 			</xsl:for-each>
-		</p>
+		</ol>
 	</xsl:template>
 </xsl:stylesheet>
