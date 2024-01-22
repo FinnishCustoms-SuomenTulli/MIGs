@@ -107,11 +107,9 @@
 						</div>
 						<div class="modal-body">
 							<xsl:for-each select="Notes/Note[@lang=($language)]">
-								<p>
-									<xsl:value-of select="."/>
-									<xsl:if test="position() != last()">
-									</xsl:if>
-								</p>
+								<ol>
+									<li><xsl:value-of select="."/></li>
+								</ol>
 							</xsl:for-each>
 						</div>
 					</div>
