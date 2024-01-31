@@ -5,7 +5,7 @@
 	<xsl:template match="Introduction">
 		<ol>
 			<xsl:for-each select="VersionHistory/Version[position() = last()]/Notes/Note[@lang=($language)]">
-				<li><xsl:value-of select="."/></li>
+				<li><xsl:value-of select="." disable-output-escaping="yes"/></li>
 			</xsl:for-each>
 		</ol>
 	</xsl:template>
