@@ -14,7 +14,7 @@
 							</h1>
 						</div>
 						<div class="modal-body">
-							<pre><xsl:value-of select="Description[@lang=$language]"/></pre>
+							<pre><xsl:value-of select="Description[@lang=$language]" disable-output-escaping="yes"/></pre>
 						</div>
 					</div>
 				</div>
