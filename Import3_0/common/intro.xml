@@ -1,109 +1,2297 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Introduction>
-	<System lang="fi">Tuonti 3.0</System>
-	<System lang="sv">Import 3.0</System>
-	<System lang="en">Import 3.0</System>
-	<VersionHistory>
-		<Version>
-			<Number>0.9.0</Number>
-			<Date>2023-02-14</Date>
-			<Remarks lang="fi">Ensimmäinen julkaisuversio</Remarks>
-			<Remarks lang="sv">Första publikationen</Remarks>
-			<Remarks lang="en">First published version</Remarks>
-			<Notes>
-				<Note lang="fi">Tuonti 3.0:n ensimmäinen julkaisuversio.</Note>
-				<Note lang="sv">Första publicerade versionen av meddelandebeskrivningarna för import 3.0.</Note>
-				<Note lang="en">The first release version of import 3.0 message descriptions.</Note>
-			</Notes>
-			<Data>1</Data>
-			<Schema>1</Schema>
-			<ME>1</ME>
-		</Version>
-		<Version>
-			<Number>0.9.1</Number>
-			<Date>2023-03-29</Date>
-			<Remarks lang="fi">Skeemapäivitys</Remarks>
-			<Remarks lang="sv">Schemauppdatering</Remarks>
-			<Remarks lang="en">Schema update</Remarks>
-			<Notes>
-				<Note lang="fi">XML-skeemat päivitetty.</Note>
-				<Note lang="fi">Oikaisuun liittyviä menettelykoodeja koskevia sääntöjä.</Note>
-				<Note lang="sv">XML-scheman har uppdaterats.</Note>
-				<Note lang="sv">Regler gällande förfarandekoder vid omprövning.</Note>
-				<Note lang="en">The XML-schemas have been updated.</Note>
-				<Note lang="en">Rules regarding procedure codes at time of revision.</Note>
-			</Notes>
-			<Data>1</Data>
-			<Schema>1</Schema>
-		</Version>
-		<Version>
-			<Number>1.0.0</Number>
-			<Date>2023-07-26</Date>
-			<Remarks lang="fi">Kansallinen verorajayhteenvetoilmoitus</Remarks>
-			<Remarks lang="sv">Nationell sammandragsanmälan för skattegränsen</Remarks>
-			<Remarks lang="en">National recapitulative fiscal border declaration</Remarks>
-			<Notes>
-				<Note lang="fi">XML-skeemat päivitetty.</Note>
-				<Note lang="fi">Kansalliseen verorajayhteenvetoilmoitukseen (ns. H5P) liittyvät säännöt ja ehdot.</Note>
-				<Note lang="sv">XML-scheman har uppdaterats.</Note>
-				<Note lang="sv">Regler och villkor gällande den nationalla sammandragsanmälan för skattegränsen.</Note>
-				<Note lang="en">The XML-schemas have been updated.</Note>
-				<Note lang="en">Rules and conditions regarding the national recapitulative fiscal border declaration.</Note>
-			</Notes>
-			<Data>1</Data>
-			<Schema>1</Schema>
-		</Version>
-		<Version>
-			<Number>1.0.1</Number>
-			<Date>2023-09-07</Date>
-			<Remarks lang="fi">Toimijan luonne</Remarks>
-			<Remarks lang="sv">Aktörens natur</Remarks>
-			<Remarks lang="en">Trader nature</Remarks>
-			<Notes>
-				<Note lang="fi">Oma toimijan luonne -koodisto tuonnille.</Note>
-				<Note lang="sv">Importspecifik kodförteckning för aktörens natur.</Note>
-				<Note lang="en">Import specific code list for trader nature.</Note>
-			</Notes>
-			<Data>1</Data>
-			<Schema>1</Schema>
-		</Version>	</VersionHistory>
-	<Errors>
-		<Error lang="fi">Kansallinen verorajailmoitus - yhteenvetoilmoituksen sääntöjä ja ehtoja täydennetään.</Error>
-		<Error lang="sv">Regler och villkor gällande nationella skattegränsdeklarationen - sammandragsdeklaration kommer att kompletteras.</Error>
-		<Error lang="en">Rules and conditions related to the national fiscal border declaration - recapitulative statements will be completed.</Error>
-	</Errors>
-	<MessageList>
-		<Message base="decl">FI415B</Message>
-		<Message base="decl">FI413B</Message>
-		<Message base="decl">FI475B</Message>
-		<Message base="decl">FI473B</Message>
-		<Message base="decl">FI485B</Message>
-		<Message base="decl">FI483B</Message>
-		<!--Message base="decl">FI432B</Message-->
-		<Message base="resp">FI416B</Message>
-		<Message base="resp">FI426B</Message>
-		<Message base="resp">FI428B</Message>
-		<Message base="resp">FI429B</Message>
-		<Message base="resp">FI468B</Message>
-		<Message base="resp">FI444B</Message>
-		<Message base="resp">FI403B</Message>
-		<Message base="resp">FI405B</Message>
-		<Message base="decl">FI414B</Message>
-		<Message base="resp">FI410B</Message>
-		<Message base="resp">FI448B</Message>
-		<Message base="decl">FI439B</Message>
-		<Message base="resp">FI451B</Message>
-		<Message base="resp">FI452B</Message>
-		<Message base="decl">FI453B</Message>
-		<Message base="resp">FI470B</Message>
-		<Message base="resp">FI450B</Message>
-		<Message base="resp">FI445B</Message>
-		<Message base="decl">FI488B</Message>
-		<Message base="resp">FI419B</Message>
-		<Message base="resp">FI420B</Message>
-		<Message base="resp">FI430B</Message>
-		<Message base="decl">FI446B</Message>
-		<Message base="resp">FI905B</Message>
+<Introduction xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Intro.xsd">
+  <System lang="fi">Tuonti 3.0</System>
+  <System lang="sv">Import 3.0</System>
+  <System lang="en">Import 3.0</System>
+  <VersionHistory>
+    <Version>
+      <Number>0.9.0</Number>
+      <Date>2023-02-14</Date>
+      <Remarks lang="fi">Ensimmäinen julkaisuversio</Remarks>
+      <Remarks lang="sv">Första publikationen</Remarks>
+      <Remarks lang="en">First published version</Remarks>
+      <Notes>
+        <Note lang="fi">Tuonti 3.0:n ensimmäinen julkaisuversio.</Note>
+        <Note lang="sv">Första publicerade versionen av meddelandebeskrivningarna för import 3.0.</Note>
+        <Note lang="en">The first release version of import 3.0 message descriptions.</Note>
+      </Notes>
+      <Data>1</Data>
+      <Schema>1</Schema>
+      <ME>1</ME>
+    </Version>
+    <Version>
+      <Number>0.9.1</Number>
+      <Date>2023-03-29</Date>
+      <Remarks lang="fi">Skeemapäivitys</Remarks>
+      <Remarks lang="sv">Schemauppdatering</Remarks>
+      <Remarks lang="en">Schema update</Remarks>
+      <Notes>
+        <Note lang="fi">XML-skeemat päivitetty.</Note>
+        <Note lang="sv">XML-scheman har uppdaterats.</Note>
+        <Note lang="en">The XML-schemas have been updated.</Note>
+        <Note lang="fi">Oikaisuun liittyviä menettelykoodeja koskevia sääntöjä.</Note>
+        <Note lang="sv">Regler gällande förfarandekoder vid omprövning.</Note>
+        <Note lang="en">Rules regarding procedure codes at time of revision.</Note>
+      </Notes>
+      <Data>1</Data>
+      <Schema>1</Schema>
+      <ME/>
+    </Version>
+    <Version>
+      <Number>1.0.0</Number>
+      <Date>2023-07-26</Date>
+      <Remarks lang="fi">Kansallinen verorajayhteenvetoilmoitus</Remarks>
+      <Remarks lang="sv">Nationell sammandragsanmälan för skattegränsen</Remarks>
+      <Remarks lang="en">National recapitulative fiscal border declaration</Remarks>
+      <Notes>
+        <Note lang="fi">XML-skeemat päivitetty.</Note>
+        <Note lang="sv">XML-scheman har uppdaterats.</Note>
+        <Note lang="en">The XML-schemas have been updated.</Note>
+        <Note lang="fi">Kansalliseen verorajayhteenvetoilmoitukseen (ns. H5P) liittyvät säännöt ja ehdot.</Note>
+        <Note lang="sv">Regler och villkor gällande den nationalla sammandragsanmälan för skattegränsen.</Note>
+        <Note lang="en">Rules and conditions regarding the national recapitulative fiscal border declaration.</Note>
+      </Notes>
+      <Data>1</Data>
+      <Schema>1</Schema>
+      <ME/>
+    </Version>
+    <Version>
+      <Number>1.0.1</Number>
+      <Date>2023-09-07</Date>
+      <Remarks lang="fi">Toimijan luonne</Remarks>
+      <Remarks lang="sv">Aktörens natur</Remarks>
+      <Remarks lang="en">Trader nature</Remarks>
+      <Notes>
+        <Note lang="fi">Oma toimijan luonne -koodisto tuonnille.</Note>
+        <Note lang="sv">Importspecifik kodförteckning för aktörens natur.</Note>
+        <Note lang="en">Import specific code list for trader nature.</Note>
+      </Notes>
+      <Data>1</Data>
+      <Schema>1</Schema>
+      <ME/>
+    </Version>
+    <Version>
+      <Number>1.0.2</Number>
+      <Date>2024-03-20</Date>
+      <Remarks lang="fi">Muutoksenhakijan selite</Remarks>
+      <Remarks lang="sv">Ändringssökandes beskrivning</Remarks>
+      <Remarks lang="en">Applicant description</Remarks>
+      <Notes>
+        <Note lang="fi">NR0035: (sv) selite muutettu: Om formatet för aktörens id är FI + 9 tecken, måste modulvalidering av finsk EORI-id utföras. Formatet måste vara 'FI' + 7 siffror + bindestreck + kontrolltecken. &amp;#8594; Om formatet för aktörens identifiering är FI + 9 tecken, måste modulvalidering av finsk EORI-id utföras. Formatet måste vara 'FI' + 7 siffror + bindestreck + kontrolltecken., (en) selite muutettu: If the format of the trader id is FI + 9 characters, then modulus validation of Finnish EORI id must be performed. Format must be 'FI' + 7 digits + hyphen + check sum digit. &amp;#8594; If the format of the trader identification number is FI + 9 characters, then modulus validation of Finnish EORI id must be performed. Format must be 'FI' + 7 digits + hyphen + check sum digit.</Note>
+        <Note lang="sv">NR0035: (sv) beskrivningen ändrad: Om formatet för aktörens id är FI + 9 tecken, måste modulvalidering av finsk EORI-id utföras. Formatet måste vara 'FI' + 7 siffror + bindestreck + kontrolltecken. &amp;#8594; Om formatet för aktörens identifiering är FI + 9 tecken, måste modulvalidering av finsk EORI-id utföras. Formatet måste vara 'FI' + 7 siffror + bindestreck + kontrolltecken., (en) beskrivningen ändrad: If the format of the trader id is FI + 9 characters, then modulus validation of Finnish EORI id must be performed. Format must be 'FI' + 7 digits + hyphen + check sum digit. &amp;#8594; If the format of the trader identification number is FI + 9 characters, then modulus validation of Finnish EORI id must be performed. Format must be 'FI' + 7 digits + hyphen + check sum digit.</Note>
+        <Note lang="en">NR0035: (sv) description changed: Om formatet för aktörens id är FI + 9 tecken, måste modulvalidering av finsk EORI-id utföras. Formatet måste vara 'FI' + 7 siffror + bindestreck + kontrolltecken. &amp;#8594; Om formatet för aktörens identifiering är FI + 9 tecken, måste modulvalidering av finsk EORI-id utföras. Formatet måste vara 'FI' + 7 siffror + bindestreck + kontrolltecken., (en) description changed: If the format of the trader id is FI + 9 characters, then modulus validation of Finnish EORI id must be performed. Format must be 'FI' + 7 digits + hyphen + check sum digit. &amp;#8594; If the format of the trader identification number is FI + 9 characters, then modulus validation of Finnish EORI id must be performed. Format must be 'FI' + 7 digits + hyphen + check sum digit.</Note>
+        <Note lang="fi">FI413B/​Declarant: R0862: loppupäivä muutettu: 31.12.2099 -&gt; 12.1.2024</Note>
+        <Note lang="sv">FI413B/​Declarant: R0862: slutdatum ändrat: 31.12.2099 -&gt; 12.1.2024</Note>
+        <Note lang="en">FI413B/​Declarant: R0862: end date changed: 31.12.2099 -&gt; 12.1.2024</Note>
+        <Note lang="fi">FI415B/​Declarant: R0862: loppupäivä muutettu: 31.12.2099 -&gt; 12.1.2024</Note>
+        <Note lang="sv">FI415B/​Declarant: R0862: slutdatum ändrat: 31.12.2099 -&gt; 12.1.2024</Note>
+        <Note lang="en">FI415B/​Declarant: R0862: end date changed: 31.12.2099 -&gt; 12.1.2024</Note>
+        <Note lang="fi">FI473B/​Declarant: R0862: loppupäivä muutettu: 31.12.2099 -&gt; 12.1.2024</Note>
+        <Note lang="sv">FI473B/​Declarant: R0862: slutdatum ändrat: 31.12.2099 -&gt; 12.1.2024</Note>
+        <Note lang="en">FI473B/​Declarant: R0862: end date changed: 31.12.2099 -&gt; 12.1.2024</Note>
+        <Note lang="fi">FI475B/​Declarant: R0862: loppupäivä muutettu: 31.12.2099 -&gt; 12.1.2024</Note>
+        <Note lang="sv">FI475B/​Declarant: R0862: slutdatum ändrat: 31.12.2099 -&gt; 12.1.2024</Note>
+        <Note lang="en">FI475B/​Declarant: R0862: end date changed: 31.12.2099 -&gt; 12.1.2024</Note>
+        <Note lang="fi">R0862: (fi) selite muutettu: import:
+Declarant ID cannot be amended	
+
+entry:
+The trader detail cannot be amended. &amp;#8594; Ilmoittajan tunnusta ei voi muuttaa., (sv) selite muutettu: import:
+Declarant ID cannot be amended	
+
+entry:
+The trader detail cannot be amended. &amp;#8594; Deklarantens identifiering kan inte ändras., (en) selite muutettu: import:
+Declarant ID cannot be amended	
+
+entry:
+The trader detail cannot be amended. &amp;#8594; Declarant identification number cannot be amended.</Note>
+        <Note lang="sv">R0862: (fi) beskrivningen ändrad: import:
+Declarant ID cannot be amended	
+
+entry:
+The trader detail cannot be amended. &amp;#8594; Ilmoittajan tunnusta ei voi muuttaa., (sv) beskrivningen ändrad: import:
+Declarant ID cannot be amended	
+
+entry:
+The trader detail cannot be amended. &amp;#8594; Deklarantens identifiering kan inte ändras., (en) beskrivningen ändrad: import:
+Declarant ID cannot be amended	
+
+entry:
+The trader detail cannot be amended. &amp;#8594; Declarant identification number cannot be amended.</Note>
+        <Note lang="en">R0862: (fi) description changed: import:
+Declarant ID cannot be amended	
+
+entry:
+The trader detail cannot be amended. &amp;#8594; Ilmoittajan tunnusta ei voi muuttaa., (sv) description changed: import:
+Declarant ID cannot be amended	
+
+entry:
+The trader detail cannot be amended. &amp;#8594; Deklarantens identifiering kan inte ändras., (en) description changed: import:
+Declarant ID cannot be amended	
+
+entry:
+The trader detail cannot be amended. &amp;#8594; Declarant identification number cannot be amended.</Note>
+        <Note lang="fi">NR0019: (fi) selite muutettu: export:
+If location address has been declared, country code must be FI
+
+entry:
+Street address of goods locations must be in Finland (country code FI). &amp;#8594; Ainoastaan arvo 'FI' on sallittu., (sv) selite muutettu: export:
+If location address has been declared, country code must be FI
+
+entry:
+Street address of goods locations must be in Finland (country code FI). &amp;#8594; Endast värder 'FI' är giltigt., (en) selite muutettu: export:
+If location address has been declared, country code must be FI
+
+entry:
+Street address of goods locations must be in Finland (country code FI). &amp;#8594; Only value 'FI' is allowed.</Note>
+        <Note lang="sv">NR0019: (fi) beskrivningen ändrad: export:
+If location address has been declared, country code must be FI
+
+entry:
+Street address of goods locations must be in Finland (country code FI). &amp;#8594; Ainoastaan arvo 'FI' on sallittu., (sv) beskrivningen ändrad: export:
+If location address has been declared, country code must be FI
+
+entry:
+Street address of goods locations must be in Finland (country code FI). &amp;#8594; Endast värder 'FI' är giltigt., (en) beskrivningen ändrad: export:
+If location address has been declared, country code must be FI
+
+entry:
+Street address of goods locations must be in Finland (country code FI). &amp;#8594; Only value 'FI' is allowed.</Note>
+        <Note lang="en">NR0019: (fi) description changed: export:
+If location address has been declared, country code must be FI
+
+entry:
+Street address of goods locations must be in Finland (country code FI). &amp;#8594; Ainoastaan arvo 'FI' on sallittu., (sv) description changed: export:
+If location address has been declared, country code must be FI
+
+entry:
+Street address of goods locations must be in Finland (country code FI). &amp;#8594; Endast värder 'FI' är giltigt., (en) description changed: export:
+If location address has been declared, country code must be FI
+
+entry:
+Street address of goods locations must be in Finland (country code FI). &amp;#8594; Only value 'FI' is allowed.</Note>
+        <Note lang="fi">NR0047: (fi) selite muutettu: import:
+Representative ID cannot be amended
+
+import:
+Representative ID or status cannot be amended
+
+entry:
+The representative's identification number cannot be amended. &amp;#8594; Tätä tietoa ei voi korjata., (sv) selite muutettu: import:
+Representative ID cannot be amended
+
+import:
+Representative ID or status cannot be amended
+
+entry:
+The representative's identification number cannot be amended. &amp;#8594; Denna uppgift kan inte ändras., (en) selite muutettu: import:
+Representative ID cannot be amended
+
+import:
+Representative ID or status cannot be amended
+
+entry:
+The representative's identification number cannot be amended. &amp;#8594; This data cannot be amended.</Note>
+        <Note lang="sv">NR0047: (fi) beskrivningen ändrad: import:
+Representative ID cannot be amended
+
+import:
+Representative ID or status cannot be amended
+
+entry:
+The representative's identification number cannot be amended. &amp;#8594; Tätä tietoa ei voi korjata., (sv) beskrivningen ändrad: import:
+Representative ID cannot be amended
+
+import:
+Representative ID or status cannot be amended
+
+entry:
+The representative's identification number cannot be amended. &amp;#8594; Denna uppgift kan inte ändras., (en) beskrivningen ändrad: import:
+Representative ID cannot be amended
+
+import:
+Representative ID or status cannot be amended
+
+entry:
+The representative's identification number cannot be amended. &amp;#8594; This data cannot be amended.</Note>
+        <Note lang="en">NR0047: (fi) description changed: import:
+Representative ID cannot be amended
+
+import:
+Representative ID or status cannot be amended
+
+entry:
+The representative's identification number cannot be amended. &amp;#8594; Tätä tietoa ei voi korjata., (sv) description changed: import:
+Representative ID cannot be amended
+
+import:
+Representative ID or status cannot be amended
+
+entry:
+The representative's identification number cannot be amended. &amp;#8594; Denna uppgift kan inte ändras., (en) description changed: import:
+Representative ID cannot be amended
+
+import:
+Representative ID or status cannot be amended
+
+entry:
+The representative's identification number cannot be amended. &amp;#8594; This data cannot be amended.</Note>
+        <Note lang="fi">FI413B/​Agent/​Function: NR0047 lisätty (13.1.2024 - 31.12.2099)</Note>
+        <Note lang="sv">FI413B/​Agent/​Function: NR0047 lagt till (13.1.2024 - 31.12.2099)</Note>
+        <Note lang="en">FI413B/​Agent/​Function: NR0047 added (13.1.2024 - 31.12.2099)</Note>
+        <Note lang="fi">FI473B/​Agent/​Function: NR0047 lisätty (13.1.2024 - 31.12.2099)</Note>
+        <Note lang="sv">FI473B/​Agent/​Function: NR0047 lagt till (13.1.2024 - 31.12.2099)</Note>
+        <Note lang="en">FI473B/​Agent/​Function: NR0047 added (13.1.2024 - 31.12.2099)</Note>
+        <Note lang="fi">FI483B/​Agent/​Function: NR0047 lisätty (13.1.2024 - 31.12.2099)</Note>
+        <Note lang="sv">FI483B/​Agent/​Function: NR0047 lagt till (13.1.2024 - 31.12.2099)</Note>
+        <Note lang="en">FI483B/​Agent/​Function: NR0047 added (13.1.2024 - 31.12.2099)</Note>
+        <Note lang="fi">NR0047: (fi) selite muutettu: Tätä tietoa ei voi korjata. &amp;#8594; Tätä tietoa ei voi muuttaa.</Note>
+        <Note lang="sv">NR0047: (fi) beskrivningen ändrad: Tätä tietoa ei voi korjata. &amp;#8594; Tätä tietoa ei voi muuttaa.</Note>
+        <Note lang="en">NR0047: (fi) description changed: Tätä tietoa ei voi korjata. &amp;#8594; Tätä tietoa ei voi muuttaa.</Note>
+        <Note lang="fi">NR0049: (fi) selite muutettu: export:
+Service provider has to be different from declarant, exporter and representative
+
+import:
+Service provider has to be differnet from importer, declarant and representative.
+
+entry:
+The service provider cannot declare themselves in any trader role (declarant, representative or importer) in the declaration. &amp;#8594; Palveluntarjoajan on oltava eri kuin maahantuoja (saapuminen ja tuonti), viejä (vienti), tavaranhaltija ja edustaja., (sv) selite muutettu: export:
+Service provider has to be different from declarant, exporter and representative
+
+import:
+Service provider has to be differnet from importer, declarant and representative.
+
+entry:
+The service provider cannot declare themselves in any trader role (declarant, representative or importer) in the declaration. &amp;#8594; Tjänsteleverantören måste skilja sig från importör (införsel och import), exportör (export), deklarant och representant., (en) selite muutettu: export:
+Service provider has to be different from declarant, exporter and representative
+
+import:
+Service provider has to be differnet from importer, declarant and representative.
+
+entry:
+The service provider cannot declare themselves in any trader role (declarant, representative or importer) in the declaration. &amp;#8594; Service provider has to be different from importer (entry and import), exporter (export), declarant and representative.</Note>
+        <Note lang="sv">NR0049: (fi) beskrivningen ändrad: export:
+Service provider has to be different from declarant, exporter and representative
+
+import:
+Service provider has to be differnet from importer, declarant and representative.
+
+entry:
+The service provider cannot declare themselves in any trader role (declarant, representative or importer) in the declaration. &amp;#8594; Palveluntarjoajan on oltava eri kuin maahantuoja (saapuminen ja tuonti), viejä (vienti), tavaranhaltija ja edustaja., (sv) beskrivningen ändrad: export:
+Service provider has to be different from declarant, exporter and representative
+
+import:
+Service provider has to be differnet from importer, declarant and representative.
+
+entry:
+The service provider cannot declare themselves in any trader role (declarant, representative or importer) in the declaration. &amp;#8594; Tjänsteleverantören måste skilja sig från importör (införsel och import), exportör (export), deklarant och representant., (en) beskrivningen ändrad: export:
+Service provider has to be different from declarant, exporter and representative
+
+import:
+Service provider has to be differnet from importer, declarant and representative.
+
+entry:
+The service provider cannot declare themselves in any trader role (declarant, representative or importer) in the declaration. &amp;#8594; Service provider has to be different from importer (entry and import), exporter (export), declarant and representative.</Note>
+        <Note lang="en">NR0049: (fi) description changed: export:
+Service provider has to be different from declarant, exporter and representative
+
+import:
+Service provider has to be differnet from importer, declarant and representative.
+
+entry:
+The service provider cannot declare themselves in any trader role (declarant, representative or importer) in the declaration. &amp;#8594; Palveluntarjoajan on oltava eri kuin maahantuoja (saapuminen ja tuonti), viejä (vienti), tavaranhaltija ja edustaja., (sv) description changed: export:
+Service provider has to be different from declarant, exporter and representative
+
+import:
+Service provider has to be differnet from importer, declarant and representative.
+
+entry:
+The service provider cannot declare themselves in any trader role (declarant, representative or importer) in the declaration. &amp;#8594; Tjänsteleverantören måste skilja sig från importör (införsel och import), exportör (export), deklarant och representant., (en) description changed: export:
+Service provider has to be different from declarant, exporter and representative
+
+import:
+Service provider has to be differnet from importer, declarant and representative.
+
+entry:
+The service provider cannot declare themselves in any trader role (declarant, representative or importer) in the declaration. &amp;#8594; Service provider has to be different from importer (entry and import), exporter (export), declarant and representative.</Note>
+        <Note lang="fi">NC0025_OPT: (fi) selite muutettu: import:
+If specified by the relevant 'Additional information code&#13;
+THEN this data element is REQUIRED&#13;
+ELSE it can NOT be USED
+
+entry:
+This detail is the mandatory description of the additional information code you have used. This detail cannot be provided if you have not used an additional information code. &amp;#8594; JOS asianmukainen {{FIe-008}} määrittää&#13;
+   NIIN tämä tietoelementti = 'R'&#13;
+MUUTEN tämä tietoelementti = 'N', (sv) selite muutettu: import:
+If specified by the relevant 'Additional information code&#13;
+THEN this data element is REQUIRED&#13;
+ELSE it can NOT be USED
+
+entry:
+This detail is the mandatory description of the additional information code you have used. This detail cannot be provided if you have not used an additional information code. &amp;#8594; OM anges av relevant {{FIe-008}}&#13;
+  DÅ är detta dataelement = 'R'&#13;
+ANNARS är detta dataelement = 'N', (en) selite muutettu: import:
+If specified by the relevant 'Additional information code&#13;
+THEN this data element is REQUIRED&#13;
+ELSE it can NOT be USED
+
+entry:
+This detail is the mandatory description of the additional information code you have used. This detail cannot be provided if you have not used an additional information code. &amp;#8594; IF specified by the relevant {{FIe-008}}&#13;
+  THEN this data element = 'R'&#13;
+ELSE this data element = 'N'</Note>
+        <Note lang="sv">NC0025_OPT: (fi) beskrivningen ändrad: import:
+If specified by the relevant 'Additional information code&#13;
+THEN this data element is REQUIRED&#13;
+ELSE it can NOT be USED
+
+entry:
+This detail is the mandatory description of the additional information code you have used. This detail cannot be provided if you have not used an additional information code. &amp;#8594; JOS asianmukainen {{FIe-008}} määrittää&#13;
+   NIIN tämä tietoelementti = 'R'&#13;
+MUUTEN tämä tietoelementti = 'N', (sv) beskrivningen ändrad: import:
+If specified by the relevant 'Additional information code&#13;
+THEN this data element is REQUIRED&#13;
+ELSE it can NOT be USED
+
+entry:
+This detail is the mandatory description of the additional information code you have used. This detail cannot be provided if you have not used an additional information code. &amp;#8594; OM anges av relevant {{FIe-008}}&#13;
+  DÅ är detta dataelement = 'R'&#13;
+ANNARS är detta dataelement = 'N', (en) beskrivningen ändrad: import:
+If specified by the relevant 'Additional information code&#13;
+THEN this data element is REQUIRED&#13;
+ELSE it can NOT be USED
+
+entry:
+This detail is the mandatory description of the additional information code you have used. This detail cannot be provided if you have not used an additional information code. &amp;#8594; IF specified by the relevant {{FIe-008}}&#13;
+  THEN this data element = 'R'&#13;
+ELSE this data element = 'N'</Note>
+        <Note lang="en">NC0025_OPT: (fi) description changed: import:
+If specified by the relevant 'Additional information code&#13;
+THEN this data element is REQUIRED&#13;
+ELSE it can NOT be USED
+
+entry:
+This detail is the mandatory description of the additional information code you have used. This detail cannot be provided if you have not used an additional information code. &amp;#8594; JOS asianmukainen {{FIe-008}} määrittää&#13;
+   NIIN tämä tietoelementti = 'R'&#13;
+MUUTEN tämä tietoelementti = 'N', (sv) description changed: import:
+If specified by the relevant 'Additional information code&#13;
+THEN this data element is REQUIRED&#13;
+ELSE it can NOT be USED
+
+entry:
+This detail is the mandatory description of the additional information code you have used. This detail cannot be provided if you have not used an additional information code. &amp;#8594; OM anges av relevant {{FIe-008}}&#13;
+  DÅ är detta dataelement = 'R'&#13;
+ANNARS är detta dataelement = 'N', (en) description changed: import:
+If specified by the relevant 'Additional information code&#13;
+THEN this data element is REQUIRED&#13;
+ELSE it can NOT be USED
+
+entry:
+This detail is the mandatory description of the additional information code you have used. This detail cannot be provided if you have not used an additional information code. &amp;#8594; IF specified by the relevant {{FIe-008}}&#13;
+  THEN this data element = 'R'&#13;
+ELSE this data element = 'N'</Note>
+        <Note lang="fi">NC0025_OPT: (fi) selite muutettu: JOS asianmukainen {{FIe-008}} määrittää&#13;
+   NIIN tämä tietoelementti = 'R'&#13;
+MUUTEN tämä tietoelementti = 'N' &amp;#8594; JOS asianmukainen {{FIe-008}} niin määrittää&#13;
+   NIIN tämä tietoelementti = 'R'&#13;
+MUUTEN tämä tietoelementti = 'N'</Note>
+        <Note lang="sv">NC0025_OPT: (fi) beskrivningen ändrad: JOS asianmukainen {{FIe-008}} määrittää&#13;
+   NIIN tämä tietoelementti = 'R'&#13;
+MUUTEN tämä tietoelementti = 'N' &amp;#8594; JOS asianmukainen {{FIe-008}} niin määrittää&#13;
+   NIIN tämä tietoelementti = 'R'&#13;
+MUUTEN tämä tietoelementti = 'N'</Note>
+        <Note lang="en">NC0025_OPT: (fi) description changed: JOS asianmukainen {{FIe-008}} määrittää&#13;
+   NIIN tämä tietoelementti = 'R'&#13;
+MUUTEN tämä tietoelementti = 'N' &amp;#8594; JOS asianmukainen {{FIe-008}} niin määrittää&#13;
+   NIIN tämä tietoelementti = 'R'&#13;
+MUUTEN tämä tietoelementti = 'N'</Note>
+        <Note lang="fi">NR0028: (fi) selite muutettu: general:
+It is not allowed to declare the same authorisation type more than once &amp;#8594; {{FIe-029}} on oltava uniikki., (sv) selite muutettu: general:
+It is not allowed to declare the same authorisation type more than once &amp;#8594; {{FIe-029}} måste vara unik., (en) selite muutettu: general:
+It is not allowed to declare the same authorisation type more than once &amp;#8594; {{FIe-029}} must be unique.</Note>
+        <Note lang="sv">NR0028: (fi) beskrivningen ändrad: general:
+It is not allowed to declare the same authorisation type more than once &amp;#8594; {{FIe-029}} on oltava uniikki., (sv) beskrivningen ändrad: general:
+It is not allowed to declare the same authorisation type more than once &amp;#8594; {{FIe-029}} måste vara unik., (en) beskrivningen ändrad: general:
+It is not allowed to declare the same authorisation type more than once &amp;#8594; {{FIe-029}} must be unique.</Note>
+        <Note lang="en">NR0028: (fi) description changed: general:
+It is not allowed to declare the same authorisation type more than once &amp;#8594; {{FIe-029}} on oltava uniikki., (sv) description changed: general:
+It is not allowed to declare the same authorisation type more than once &amp;#8594; {{FIe-029}} måste vara unik., (en) description changed: general:
+It is not allowed to declare the same authorisation type more than once &amp;#8594; {{FIe-029}} must be unique.</Note>
+        <Note lang="fi">NR0028: (sv) selite muutettu: {{FIe-029}} måste vara unik. &amp;#8594; {{FIe-029}} måste vara unikt.</Note>
+        <Note lang="sv">NR0028: (sv) beskrivningen ändrad: {{FIe-029}} måste vara unik. &amp;#8594; {{FIe-029}} måste vara unikt.</Note>
+        <Note lang="en">NR0028: (sv) description changed: {{FIe-029}} måste vara unik. &amp;#8594; {{FIe-029}} måste vara unikt.</Note>
+        <Note lang="fi">NR0501: (fi) selite muutettu: import:
+IF requested procedure &lt;&gt;71 and Additional procedure &lt;&gt;615&#13;
+THEN&#13;
+Commodity code (a 6-digit HS code or an 8-digit CN code or a 10-digit Taric code) must be valid in Taric on the acceptance date
+
+entry:
+The declared commodity code is not valid on the acceptance date of the declaration. &amp;#8594; Koodin on oltava voimassa hyväksymispäivänä., (sv) selite muutettu: import:
+IF requested procedure &lt;&gt;71 and Additional procedure &lt;&gt;615&#13;
+THEN&#13;
+Commodity code (a 6-digit HS code or an 8-digit CN code or a 10-digit Taric code) must be valid in Taric on the acceptance date
+
+entry:
+The declared commodity code is not valid on the acceptance date of the declaration. &amp;#8594; Koden måste vara giltig på godkännandedatum., (en) selite muutettu: import:
+IF requested procedure &lt;&gt;71 and Additional procedure &lt;&gt;615&#13;
+THEN&#13;
+Commodity code (a 6-digit HS code or an 8-digit CN code or a 10-digit Taric code) must be valid in Taric on the acceptance date
+
+entry:
+The declared commodity code is not valid on the acceptance date of the declaration. &amp;#8594; Code must be valid on the date of acceptance.</Note>
+        <Note lang="sv">NR0501: (fi) beskrivningen ändrad: import:
+IF requested procedure &lt;&gt;71 and Additional procedure &lt;&gt;615&#13;
+THEN&#13;
+Commodity code (a 6-digit HS code or an 8-digit CN code or a 10-digit Taric code) must be valid in Taric on the acceptance date
+
+entry:
+The declared commodity code is not valid on the acceptance date of the declaration. &amp;#8594; Koodin on oltava voimassa hyväksymispäivänä., (sv) beskrivningen ändrad: import:
+IF requested procedure &lt;&gt;71 and Additional procedure &lt;&gt;615&#13;
+THEN&#13;
+Commodity code (a 6-digit HS code or an 8-digit CN code or a 10-digit Taric code) must be valid in Taric on the acceptance date
+
+entry:
+The declared commodity code is not valid on the acceptance date of the declaration. &amp;#8594; Koden måste vara giltig på godkännandedatum., (en) beskrivningen ändrad: import:
+IF requested procedure &lt;&gt;71 and Additional procedure &lt;&gt;615&#13;
+THEN&#13;
+Commodity code (a 6-digit HS code or an 8-digit CN code or a 10-digit Taric code) must be valid in Taric on the acceptance date
+
+entry:
+The declared commodity code is not valid on the acceptance date of the declaration. &amp;#8594; Code must be valid on the date of acceptance.</Note>
+        <Note lang="en">NR0501: (fi) description changed: import:
+IF requested procedure &lt;&gt;71 and Additional procedure &lt;&gt;615&#13;
+THEN&#13;
+Commodity code (a 6-digit HS code or an 8-digit CN code or a 10-digit Taric code) must be valid in Taric on the acceptance date
+
+entry:
+The declared commodity code is not valid on the acceptance date of the declaration. &amp;#8594; Koodin on oltava voimassa hyväksymispäivänä., (sv) description changed: import:
+IF requested procedure &lt;&gt;71 and Additional procedure &lt;&gt;615&#13;
+THEN&#13;
+Commodity code (a 6-digit HS code or an 8-digit CN code or a 10-digit Taric code) must be valid in Taric on the acceptance date
+
+entry:
+The declared commodity code is not valid on the acceptance date of the declaration. &amp;#8594; Koden måste vara giltig på godkännandedatum., (en) description changed: import:
+IF requested procedure &lt;&gt;71 and Additional procedure &lt;&gt;615&#13;
+THEN&#13;
+Commodity code (a 6-digit HS code or an 8-digit CN code or a 10-digit Taric code) must be valid in Taric on the acceptance date
+
+entry:
+The declared commodity code is not valid on the acceptance date of the declaration. &amp;#8594; Code must be valid on the date of acceptance.</Note>
+        <Note lang="fi">NR0026: (fi) selite muutettu: import:
+In case the value of 'Number of Packages' is ‘0’ then there should exist at least one goods item with the same 'Shipping marks' and 'Type of packages', and 'Number of Packages' with value greater than ‘0’
+
+entry:
+The number of packages at goods item can be zero (0) only when more than one goods item have been packed within one and the same package. &amp;#8594; Jos tiedon {{FIe-167}} arvo on '0', tulee olla ainakin yksi tavaraerä, jolla on samat {{FIe-215}}, {{FIe-245}} ja {{FIe-167 }}, jonka arvo on suurempi kuin '0'., (sv) selite muutettu: import:
+In case the value of 'Number of Packages' is ‘0’ then there should exist at least one goods item with the same 'Shipping marks' and 'Type of packages', and 'Number of Packages' with value greater than ‘0’
+
+entry:
+The number of packages at goods item can be zero (0) only when more than one goods item have been packed within one and the same package. &amp;#8594; Om värdet är {{FIe-167}} är '0' bör det finnas minst en varupost med samma {{FIe-215}}, {{FIe-245}} och {{FIe-167 }} med ett värde större än '0'., (en) selite muutettu: import:
+In case the value of 'Number of Packages' is ‘0’ then there should exist at least one goods item with the same 'Shipping marks' and 'Type of packages', and 'Number of Packages' with value greater than ‘0’
+
+entry:
+The number of packages at goods item can be zero (0) only when more than one goods item have been packed within one and the same package. &amp;#8594; In case the value of {{FIe-167}} is '0' then there should exist at least one goods item with the same {{FIe-215}} and {{FIe-245}}, and {{FIe-167}} with value greater than '0'.</Note>
+        <Note lang="sv">NR0026: (fi) beskrivningen ändrad: import:
+In case the value of 'Number of Packages' is ‘0’ then there should exist at least one goods item with the same 'Shipping marks' and 'Type of packages', and 'Number of Packages' with value greater than ‘0’
+
+entry:
+The number of packages at goods item can be zero (0) only when more than one goods item have been packed within one and the same package. &amp;#8594; Jos tiedon {{FIe-167}} arvo on '0', tulee olla ainakin yksi tavaraerä, jolla on samat {{FIe-215}}, {{FIe-245}} ja {{FIe-167 }}, jonka arvo on suurempi kuin '0'., (sv) beskrivningen ändrad: import:
+In case the value of 'Number of Packages' is ‘0’ then there should exist at least one goods item with the same 'Shipping marks' and 'Type of packages', and 'Number of Packages' with value greater than ‘0’
+
+entry:
+The number of packages at goods item can be zero (0) only when more than one goods item have been packed within one and the same package. &amp;#8594; Om värdet är {{FIe-167}} är '0' bör det finnas minst en varupost med samma {{FIe-215}}, {{FIe-245}} och {{FIe-167 }} med ett värde större än '0'., (en) beskrivningen ändrad: import:
+In case the value of 'Number of Packages' is ‘0’ then there should exist at least one goods item with the same 'Shipping marks' and 'Type of packages', and 'Number of Packages' with value greater than ‘0’
+
+entry:
+The number of packages at goods item can be zero (0) only when more than one goods item have been packed within one and the same package. &amp;#8594; In case the value of {{FIe-167}} is '0' then there should exist at least one goods item with the same {{FIe-215}} and {{FIe-245}}, and {{FIe-167}} with value greater than '0'.</Note>
+        <Note lang="en">NR0026: (fi) description changed: import:
+In case the value of 'Number of Packages' is ‘0’ then there should exist at least one goods item with the same 'Shipping marks' and 'Type of packages', and 'Number of Packages' with value greater than ‘0’
+
+entry:
+The number of packages at goods item can be zero (0) only when more than one goods item have been packed within one and the same package. &amp;#8594; Jos tiedon {{FIe-167}} arvo on '0', tulee olla ainakin yksi tavaraerä, jolla on samat {{FIe-215}}, {{FIe-245}} ja {{FIe-167 }}, jonka arvo on suurempi kuin '0'., (sv) description changed: import:
+In case the value of 'Number of Packages' is ‘0’ then there should exist at least one goods item with the same 'Shipping marks' and 'Type of packages', and 'Number of Packages' with value greater than ‘0’
+
+entry:
+The number of packages at goods item can be zero (0) only when more than one goods item have been packed within one and the same package. &amp;#8594; Om värdet är {{FIe-167}} är '0' bör det finnas minst en varupost med samma {{FIe-215}}, {{FIe-245}} och {{FIe-167 }} med ett värde större än '0'., (en) description changed: import:
+In case the value of 'Number of Packages' is ‘0’ then there should exist at least one goods item with the same 'Shipping marks' and 'Type of packages', and 'Number of Packages' with value greater than ‘0’
+
+entry:
+The number of packages at goods item can be zero (0) only when more than one goods item have been packed within one and the same package. &amp;#8594; In case the value of {{FIe-167}} is '0' then there should exist at least one goods item with the same {{FIe-215}} and {{FIe-245}}, and {{FIe-167}} with value greater than '0'.</Note>
+        <Note lang="fi">NR0026: (fi) selite muutettu: Jos tiedon {{FIe-167}} arvo on '0', tulee olla ainakin yksi tavaraerä, jolla on samat {{FIe-215}}, {{FIe-245}} ja {{FIe-167 }}, jonka arvo on suurempi kuin '0'. &amp;#8594; Jos tiedon {{FIe-167}} arvo on '0', tulee olla ainakin yksi tavaraerä, jolla on samat {{FIe-215}}, {{FIe-245}} ja {{FIe-167}}, jonka arvo on suurempi kuin '0'., (sv) selite muutettu: Om värdet är {{FIe-167}} är '0' bör det finnas minst en varupost med samma {{FIe-215}}, {{FIe-245}} och {{FIe-167 }} med ett värde större än '0'. &amp;#8594; Om värdet är {{FIe-167}} är '0' bör det finnas minst en varupost med samma {{FIe-215}}, {{FIe-245}} och {{FIe-167}} med ett värde större än '0'.</Note>
+        <Note lang="sv">NR0026: (fi) beskrivningen ändrad: Jos tiedon {{FIe-167}} arvo on '0', tulee olla ainakin yksi tavaraerä, jolla on samat {{FIe-215}}, {{FIe-245}} ja {{FIe-167 }}, jonka arvo on suurempi kuin '0'. &amp;#8594; Jos tiedon {{FIe-167}} arvo on '0', tulee olla ainakin yksi tavaraerä, jolla on samat {{FIe-215}}, {{FIe-245}} ja {{FIe-167}}, jonka arvo on suurempi kuin '0'., (sv) beskrivningen ändrad: Om värdet är {{FIe-167}} är '0' bör det finnas minst en varupost med samma {{FIe-215}}, {{FIe-245}} och {{FIe-167 }} med ett värde större än '0'. &amp;#8594; Om värdet är {{FIe-167}} är '0' bör det finnas minst en varupost med samma {{FIe-215}}, {{FIe-245}} och {{FIe-167}} med ett värde större än '0'.</Note>
+        <Note lang="en">NR0026: (fi) description changed: Jos tiedon {{FIe-167}} arvo on '0', tulee olla ainakin yksi tavaraerä, jolla on samat {{FIe-215}}, {{FIe-245}} ja {{FIe-167 }}, jonka arvo on suurempi kuin '0'. &amp;#8594; Jos tiedon {{FIe-167}} arvo on '0', tulee olla ainakin yksi tavaraerä, jolla on samat {{FIe-215}}, {{FIe-245}} ja {{FIe-167}}, jonka arvo on suurempi kuin '0'., (sv) description changed: Om värdet är {{FIe-167}} är '0' bör det finnas minst en varupost med samma {{FIe-215}}, {{FIe-245}} och {{FIe-167 }} med ett värde större än '0'. &amp;#8594; Om värdet är {{FIe-167}} är '0' bör det finnas minst en varupost med samma {{FIe-215}}, {{FIe-245}} och {{FIe-167}} med ett värde större än '0'.</Note>
+        <Note lang="fi">FI413B/​Applicant: O &amp;#8594; D 18.1.2024 alkaen.</Note>
+        <Note lang="sv">FI413B/​Applicant: O &amp;#8594; D från 18.1.2024.</Note>
+        <Note lang="en">FI413B/​Applicant: O &amp;#8594; D beginning 18.1.2024.</Note>
+        <Note lang="fi">FI413B/​Applicant: NC4021 lisätty (18.1.2024 - 31.12.2099)</Note>
+        <Note lang="sv">FI413B/​Applicant: NC4021 lagt till (18.1.2024 - 31.12.2099)</Note>
+        <Note lang="en">FI413B/​Applicant: NC4021 added (18.1.2024 - 31.12.2099)</Note>
+        <Note lang="fi">FI473B/​Applicant: O &amp;#8594; D 18.1.2024 alkaen.</Note>
+        <Note lang="sv">FI473B/​Applicant: O &amp;#8594; D från 18.1.2024.</Note>
+        <Note lang="en">FI473B/​Applicant: O &amp;#8594; D beginning 18.1.2024.</Note>
+        <Note lang="fi">FI473B/​Applicant: NC4021 lisätty (18.1.2024 - 31.12.2099)</Note>
+        <Note lang="sv">FI473B/​Applicant: NC4021 lagt till (18.1.2024 - 31.12.2099)</Note>
+        <Note lang="en">FI473B/​Applicant: NC4021 added (18.1.2024 - 31.12.2099)</Note>
+        <Note lang="fi">FI483B/​Applicant: O &amp;#8594; D 18.1.2024 alkaen.</Note>
+        <Note lang="sv">FI483B/​Applicant: O &amp;#8594; D från 18.1.2024.</Note>
+        <Note lang="en">FI483B/​Applicant: O &amp;#8594; D beginning 18.1.2024.</Note>
+        <Note lang="fi">FI483B/​Applicant: NC4021 lisätty (18.1.2024 - 31.12.2099)</Note>
+        <Note lang="sv">FI483B/​Applicant: NC4021 lagt till (18.1.2024 - 31.12.2099)</Note>
+        <Note lang="en">FI483B/​Applicant: NC4021 added (18.1.2024 - 31.12.2099)</Note>
+        <Note lang="fi">NR0511: (fi) selite muutettu: MRN must exist in UTU &amp;#8594; MRN:n oltava olemassa UTU:ssa., (sv) selite muutettu: MRN must exist in UTU &amp;#8594; MRN måste existera I UTU., (en) selite muutettu: MRN must exist in UTU &amp;#8594; MRN must exist in UTU.</Note>
+        <Note lang="sv">NR0511: (fi) beskrivningen ändrad: MRN must exist in UTU &amp;#8594; MRN:n oltava olemassa UTU:ssa., (sv) beskrivningen ändrad: MRN must exist in UTU &amp;#8594; MRN måste existera I UTU., (en) beskrivningen ändrad: MRN must exist in UTU &amp;#8594; MRN must exist in UTU.</Note>
+        <Note lang="en">NR0511: (fi) description changed: MRN must exist in UTU &amp;#8594; MRN:n oltava olemassa UTU:ssa., (sv) description changed: MRN must exist in UTU &amp;#8594; MRN måste existera I UTU., (en) description changed: MRN must exist in UTU &amp;#8594; MRN must exist in UTU.</Note>
+        <Note lang="fi">NC0221: (fi) selite muutettu: export:
+IF ID number exists&#13;
+THEN optional&#13;
+ELSE cannot be used
+
+transit:
+IF IdentificationNumber exists&#13;
+THEN the element is OPTIONAL&#13;
+ELSE it can NOT be USED&#13;
+ &amp;#8594; JOS {{FIe-123}} on ILMOITETTU&#13;
+  NIIN {{FIe-169}} = 'O'&#13;
+MUUTEN {{FIe-169}} = 'N', (sv) selite muutettu: export:
+IF ID number exists&#13;
+THEN optional&#13;
+ELSE cannot be used
+
+transit:
+IF IdentificationNumber exists&#13;
+THEN the element is OPTIONAL&#13;
+ELSE it can NOT be USED&#13;
+ &amp;#8594; OM {{FIe-123}} är ANMÄLD&#13;
+  DÅ är {{FIe-169}} = 'O'&#13;
+ANNARS är {{FIe-169}} = 'N', (en) selite muutettu: export:
+IF ID number exists&#13;
+THEN optional&#13;
+ELSE cannot be used
+
+transit:
+IF IdentificationNumber exists&#13;
+THEN the element is OPTIONAL&#13;
+ELSE it can NOT be USED&#13;
+ &amp;#8594; IF {{FIe-123}} is PRESENT&#13;
+  THEN {{FIe-169}} = 'O'&#13;
+ELSE {{FIe-169}} = 'N'</Note>
+        <Note lang="sv">NC0221: (fi) beskrivningen ändrad: export:
+IF ID number exists&#13;
+THEN optional&#13;
+ELSE cannot be used
+
+transit:
+IF IdentificationNumber exists&#13;
+THEN the element is OPTIONAL&#13;
+ELSE it can NOT be USED&#13;
+ &amp;#8594; JOS {{FIe-123}} on ILMOITETTU&#13;
+  NIIN {{FIe-169}} = 'O'&#13;
+MUUTEN {{FIe-169}} = 'N', (sv) beskrivningen ändrad: export:
+IF ID number exists&#13;
+THEN optional&#13;
+ELSE cannot be used
+
+transit:
+IF IdentificationNumber exists&#13;
+THEN the element is OPTIONAL&#13;
+ELSE it can NOT be USED&#13;
+ &amp;#8594; OM {{FIe-123}} är ANMÄLD&#13;
+  DÅ är {{FIe-169}} = 'O'&#13;
+ANNARS är {{FIe-169}} = 'N', (en) beskrivningen ändrad: export:
+IF ID number exists&#13;
+THEN optional&#13;
+ELSE cannot be used
+
+transit:
+IF IdentificationNumber exists&#13;
+THEN the element is OPTIONAL&#13;
+ELSE it can NOT be USED&#13;
+ &amp;#8594; IF {{FIe-123}} is PRESENT&#13;
+  THEN {{FIe-169}} = 'O'&#13;
+ELSE {{FIe-169}} = 'N'</Note>
+        <Note lang="en">NC0221: (fi) description changed: export:
+IF ID number exists&#13;
+THEN optional&#13;
+ELSE cannot be used
+
+transit:
+IF IdentificationNumber exists&#13;
+THEN the element is OPTIONAL&#13;
+ELSE it can NOT be USED&#13;
+ &amp;#8594; JOS {{FIe-123}} on ILMOITETTU&#13;
+  NIIN {{FIe-169}} = 'O'&#13;
+MUUTEN {{FIe-169}} = 'N', (sv) description changed: export:
+IF ID number exists&#13;
+THEN optional&#13;
+ELSE cannot be used
+
+transit:
+IF IdentificationNumber exists&#13;
+THEN the element is OPTIONAL&#13;
+ELSE it can NOT be USED&#13;
+ &amp;#8594; OM {{FIe-123}} är ANMÄLD&#13;
+  DÅ är {{FIe-169}} = 'O'&#13;
+ANNARS är {{FIe-169}} = 'N', (en) description changed: export:
+IF ID number exists&#13;
+THEN optional&#13;
+ELSE cannot be used
+
+transit:
+IF IdentificationNumber exists&#13;
+THEN the element is OPTIONAL&#13;
+ELSE it can NOT be USED&#13;
+ &amp;#8594; IF {{FIe-123}} is PRESENT&#13;
+  THEN {{FIe-169}} = 'O'&#13;
+ELSE {{FIe-169}} = 'N'</Note>
+        <Note lang="fi">NC0221: (fi) selite muutettu: JOS {{FIe-123}} on ILMOITETTU&#13;
+  NIIN {{FIe-169}} = 'O'&#13;
+MUUTEN {{FIe-169}} = 'N' &amp;#8594; JOS {{FIe-123}} on ILMOITETTU&#13;
+  NIIN {{FIg-029}} = 'O'&#13;
+MUUTEN {{FIg-029}} = 'N', (sv) selite muutettu: OM {{FIe-123}} är ANMÄLD&#13;
+  DÅ är {{FIe-169}} = 'O'&#13;
+ANNARS är {{FIe-169}} = 'N' &amp;#8594; OM {{FIe-123}} är ANMÄLD&#13;
+  DÅ är {{FIg-029}} = 'O'&#13;
+ANNARS är {{FIg-029}} = 'N', (en) selite muutettu: IF {{FIe-123}} is PRESENT&#13;
+  THEN {{FIe-169}} = 'O'&#13;
+ELSE {{FIe-169}} = 'N' &amp;#8594; IF {{FIe-123}} is PRESENT&#13;
+  THEN {{FIg-029}} = 'O'&#13;
+ELSE {{FIg-029}} = 'N'</Note>
+        <Note lang="sv">NC0221: (fi) beskrivningen ändrad: JOS {{FIe-123}} on ILMOITETTU&#13;
+  NIIN {{FIe-169}} = 'O'&#13;
+MUUTEN {{FIe-169}} = 'N' &amp;#8594; JOS {{FIe-123}} on ILMOITETTU&#13;
+  NIIN {{FIg-029}} = 'O'&#13;
+MUUTEN {{FIg-029}} = 'N', (sv) beskrivningen ändrad: OM {{FIe-123}} är ANMÄLD&#13;
+  DÅ är {{FIe-169}} = 'O'&#13;
+ANNARS är {{FIe-169}} = 'N' &amp;#8594; OM {{FIe-123}} är ANMÄLD&#13;
+  DÅ är {{FIg-029}} = 'O'&#13;
+ANNARS är {{FIg-029}} = 'N', (en) beskrivningen ändrad: IF {{FIe-123}} is PRESENT&#13;
+  THEN {{FIe-169}} = 'O'&#13;
+ELSE {{FIe-169}} = 'N' &amp;#8594; IF {{FIe-123}} is PRESENT&#13;
+  THEN {{FIg-029}} = 'O'&#13;
+ELSE {{FIg-029}} = 'N'</Note>
+        <Note lang="en">NC0221: (fi) description changed: JOS {{FIe-123}} on ILMOITETTU&#13;
+  NIIN {{FIe-169}} = 'O'&#13;
+MUUTEN {{FIe-169}} = 'N' &amp;#8594; JOS {{FIe-123}} on ILMOITETTU&#13;
+  NIIN {{FIg-029}} = 'O'&#13;
+MUUTEN {{FIg-029}} = 'N', (sv) description changed: OM {{FIe-123}} är ANMÄLD&#13;
+  DÅ är {{FIe-169}} = 'O'&#13;
+ANNARS är {{FIe-169}} = 'N' &amp;#8594; OM {{FIe-123}} är ANMÄLD&#13;
+  DÅ är {{FIg-029}} = 'O'&#13;
+ANNARS är {{FIg-029}} = 'N', (en) description changed: IF {{FIe-123}} is PRESENT&#13;
+  THEN {{FIe-169}} = 'O'&#13;
+ELSE {{FIe-169}} = 'N' &amp;#8594; IF {{FIe-123}} is PRESENT&#13;
+  THEN {{FIg-029}} = 'O'&#13;
+ELSE {{FIg-029}} = 'N'</Note>
+        <Note lang="fi">(fi) selite muutettu: Ilmoitetaan vastauskoodi 1, jos Tullin päätösesitys hyväksytään, muuten '0'. &amp;#8594; Ilmoitetaan vastauskoodi '1', jos Tullin päätösesitys hyväksytään, muuten '0'., (sv) selite muutettu: Ange 1 som svarskod, om Tullens förslag till beslut godkänns, i annat fall ange 0. &amp;#8594; Ange '1' som svarskod, om Tullens förslag till beslut godkänns, i annat fall ange '0'., (en) selite muutettu: Enter the response code 1, if the proposed decision by Customs is accepted, otherwise ‘0’. &amp;#8594; Enter the response code '1', if the proposed decision by Customs is accepted, otherwise '0'.</Note>
+        <Note lang="sv">(fi) beskrivningen ändrad: Ilmoitetaan vastauskoodi 1, jos Tullin päätösesitys hyväksytään, muuten '0'. &amp;#8594; Ilmoitetaan vastauskoodi '1', jos Tullin päätösesitys hyväksytään, muuten '0'., (sv) beskrivningen ändrad: Ange 1 som svarskod, om Tullens förslag till beslut godkänns, i annat fall ange 0. &amp;#8594; Ange '1' som svarskod, om Tullens förslag till beslut godkänns, i annat fall ange '0'., (en) beskrivningen ändrad: Enter the response code 1, if the proposed decision by Customs is accepted, otherwise ‘0’. &amp;#8594; Enter the response code '1', if the proposed decision by Customs is accepted, otherwise '0'.</Note>
+        <Note lang="en">(fi) description changed: Ilmoitetaan vastauskoodi 1, jos Tullin päätösesitys hyväksytään, muuten '0'. &amp;#8594; Ilmoitetaan vastauskoodi '1', jos Tullin päätösesitys hyväksytään, muuten '0'., (sv) description changed: Ange 1 som svarskod, om Tullens förslag till beslut godkänns, i annat fall ange 0. &amp;#8594; Ange '1' som svarskod, om Tullens förslag till beslut godkänns, i annat fall ange '0'., (en) description changed: Enter the response code 1, if the proposed decision by Customs is accepted, otherwise ‘0’. &amp;#8594; Enter the response code '1', if the proposed decision by Customs is accepted, otherwise '0'.</Note>
+        <Note lang="fi">(sv) selite muutettu: Leveransvillkoret enligt fakturan med en Incoterm-kod anmäls. Om det inte är fråga om ett Incoterms-villkor, anges ’XXX’. &amp;#8594; Leveransvillkoret enligt fakturan med en Incoterm-kod anmäls. Om det inte är fråga om ett Incoterms-villkor, anges 'XXX'., (en) selite muutettu: The terms of delivery according to the invoice in the form of an Incoterms code is entered. If the terms used are not Incoterms, code ‘XXX’ is entered. &amp;#8594; The terms of delivery according to the invoice in the form of an Incoterms code is entered. If the terms used are not Incoterms, code 'XXX' is entered.</Note>
+        <Note lang="sv">(sv) beskrivningen ändrad: Leveransvillkoret enligt fakturan med en Incoterm-kod anmäls. Om det inte är fråga om ett Incoterms-villkor, anges ’XXX’. &amp;#8594; Leveransvillkoret enligt fakturan med en Incoterm-kod anmäls. Om det inte är fråga om ett Incoterms-villkor, anges 'XXX'., (en) beskrivningen ändrad: The terms of delivery according to the invoice in the form of an Incoterms code is entered. If the terms used are not Incoterms, code ‘XXX’ is entered. &amp;#8594; The terms of delivery according to the invoice in the form of an Incoterms code is entered. If the terms used are not Incoterms, code 'XXX' is entered.</Note>
+        <Note lang="en">(sv) description changed: Leveransvillkoret enligt fakturan med en Incoterm-kod anmäls. Om det inte är fråga om ett Incoterms-villkor, anges ’XXX’. &amp;#8594; Leveransvillkoret enligt fakturan med en Incoterm-kod anmäls. Om det inte är fråga om ett Incoterms-villkor, anges 'XXX'., (en) description changed: The terms of delivery according to the invoice in the form of an Incoterms code is entered. If the terms used are not Incoterms, code ‘XXX’ is entered. &amp;#8594; The terms of delivery according to the invoice in the form of an Incoterms code is entered. If the terms used are not Incoterms, code 'XXX' is entered.</Note>
+        <Note lang="fi">(fi) selite muutettu: Ilmoitetaan bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa "0,654", enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti. &amp;#8594; Ilmoitetaan bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa '0,654', enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti., (sv) selite muutettu: Bruttovikten i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen "0,654", dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler. &amp;#8594; Bruttovikten i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen '0,654', dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler., (en) selite muutettu: Gross mass in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. "0,654" up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram. &amp;#8594; Gross mass in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. '0,654' up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram.</Note>
+        <Note lang="sv">(fi) beskrivningen ändrad: Ilmoitetaan bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa "0,654", enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti. &amp;#8594; Ilmoitetaan bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa '0,654', enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti., (sv) beskrivningen ändrad: Bruttovikten i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen "0,654", dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler. &amp;#8594; Bruttovikten i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen '0,654', dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler., (en) beskrivningen ändrad: Gross mass in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. "0,654" up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram. &amp;#8594; Gross mass in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. '0,654' up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram.</Note>
+        <Note lang="en">(fi) description changed: Ilmoitetaan bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa "0,654", enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti. &amp;#8594; Ilmoitetaan bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa '0,654', enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti., (sv) description changed: Bruttovikten i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen "0,654", dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler. &amp;#8594; Bruttovikten i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen '0,654', dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler., (en) description changed: Gross mass in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. "0,654" up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram. &amp;#8594; Gross mass in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. '0,654' up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram.</Note>
+        <Note lang="fi">(fi) selite muutettu: Ilmoitetaan tavaroiden tavanomainen kauppanimitys, jolla tavarat voidaan tunnistaa. Esimerkiksi "vaatteet" ei ole riittävän tarkka kuvaus, vaan pitää yksilöidä, mistä vaatteista on kyse, kuten "puuvillaisia T-paitoja".[Komission luettelo kelpaamattomista tavarankuvauksista (englanniksi)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf) &amp;#8594; Ilmoitetaan tavaroiden tavanomainen kauppanimitys, jolla tavarat voidaan tunnistaa. Esimerkiksi 'vaatteet' ei ole riittävän tarkka kuvaus, vaan pitää yksilöidä, mistä vaatteista on kyse, kuten 'puuvillaisia T-paitoja'. [Komission luettelo kelpaamattomista tavarankuvauksista (englanniksi)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf), (sv) selite muutettu: Den normala handelsbenämningen med hjälp av vilken varorna kan identifieras anges. Benämningen "kläder" är t.ex. inte tillräckligt exakt, utan man ska specificera vilken typ av kläder det är fråga om, t.ex. "T-skjortor av bomull".[Kommissionens förteckning över odugliga varubeskrivningar (på engelska)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf) &amp;#8594; Den normala handelsbenämningen med hjälp av vilken varorna kan identifieras anges. Benämningen 'kläder' är t.ex. inte tillräckligt exakt, utan man ska specificera vilken typ av kläder det är fråga om, t.ex. 'T-skjortor av bomull'. [Kommissionens förteckning över odugliga varubeskrivningar (på engelska)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf), (en) selite muutettu: The common trade name accurate enough in order to identify the goods is entered. E.g. "clothes" is not accurate enough but you need to specify which kind of clothes are declared, e.g. "Cotton T-shirts".[Commission list of unacceptable goods descriptions](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf) &amp;#8594; The common trade name accurate enough in order to identify the goods is entered. E.g. 'clothes' is not accurate enough but you need to specify which kind of clothes are declared, e.g. 'Cotton T-shirts'. [Commission list of unacceptable goods descriptions](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf)</Note>
+        <Note lang="sv">(fi) beskrivningen ändrad: Ilmoitetaan tavaroiden tavanomainen kauppanimitys, jolla tavarat voidaan tunnistaa. Esimerkiksi "vaatteet" ei ole riittävän tarkka kuvaus, vaan pitää yksilöidä, mistä vaatteista on kyse, kuten "puuvillaisia T-paitoja".[Komission luettelo kelpaamattomista tavarankuvauksista (englanniksi)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf) &amp;#8594; Ilmoitetaan tavaroiden tavanomainen kauppanimitys, jolla tavarat voidaan tunnistaa. Esimerkiksi 'vaatteet' ei ole riittävän tarkka kuvaus, vaan pitää yksilöidä, mistä vaatteista on kyse, kuten 'puuvillaisia T-paitoja'. [Komission luettelo kelpaamattomista tavarankuvauksista (englanniksi)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf), (sv) beskrivningen ändrad: Den normala handelsbenämningen med hjälp av vilken varorna kan identifieras anges. Benämningen "kläder" är t.ex. inte tillräckligt exakt, utan man ska specificera vilken typ av kläder det är fråga om, t.ex. "T-skjortor av bomull".[Kommissionens förteckning över odugliga varubeskrivningar (på engelska)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf) &amp;#8594; Den normala handelsbenämningen med hjälp av vilken varorna kan identifieras anges. Benämningen 'kläder' är t.ex. inte tillräckligt exakt, utan man ska specificera vilken typ av kläder det är fråga om, t.ex. 'T-skjortor av bomull'. [Kommissionens förteckning över odugliga varubeskrivningar (på engelska)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf), (en) beskrivningen ändrad: The common trade name accurate enough in order to identify the goods is entered. E.g. "clothes" is not accurate enough but you need to specify which kind of clothes are declared, e.g. "Cotton T-shirts".[Commission list of unacceptable goods descriptions](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf) &amp;#8594; The common trade name accurate enough in order to identify the goods is entered. E.g. 'clothes' is not accurate enough but you need to specify which kind of clothes are declared, e.g. 'Cotton T-shirts'. [Commission list of unacceptable goods descriptions](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf)</Note>
+        <Note lang="en">(fi) description changed: Ilmoitetaan tavaroiden tavanomainen kauppanimitys, jolla tavarat voidaan tunnistaa. Esimerkiksi "vaatteet" ei ole riittävän tarkka kuvaus, vaan pitää yksilöidä, mistä vaatteista on kyse, kuten "puuvillaisia T-paitoja".[Komission luettelo kelpaamattomista tavarankuvauksista (englanniksi)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf) &amp;#8594; Ilmoitetaan tavaroiden tavanomainen kauppanimitys, jolla tavarat voidaan tunnistaa. Esimerkiksi 'vaatteet' ei ole riittävän tarkka kuvaus, vaan pitää yksilöidä, mistä vaatteista on kyse, kuten 'puuvillaisia T-paitoja'. [Komission luettelo kelpaamattomista tavarankuvauksista (englanniksi)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf), (sv) description changed: Den normala handelsbenämningen med hjälp av vilken varorna kan identifieras anges. Benämningen "kläder" är t.ex. inte tillräckligt exakt, utan man ska specificera vilken typ av kläder det är fråga om, t.ex. "T-skjortor av bomull".[Kommissionens förteckning över odugliga varubeskrivningar (på engelska)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf) &amp;#8594; Den normala handelsbenämningen med hjälp av vilken varorna kan identifieras anges. Benämningen 'kläder' är t.ex. inte tillräckligt exakt, utan man ska specificera vilken typ av kläder det är fråga om, t.ex. 'T-skjortor av bomull'. [Kommissionens förteckning över odugliga varubeskrivningar (på engelska)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf), (en) description changed: The common trade name accurate enough in order to identify the goods is entered. E.g. "clothes" is not accurate enough but you need to specify which kind of clothes are declared, e.g. "Cotton T-shirts".[Commission list of unacceptable goods descriptions](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf) &amp;#8594; The common trade name accurate enough in order to identify the goods is entered. E.g. 'clothes' is not accurate enough but you need to specify which kind of clothes are declared, e.g. 'Cotton T-shirts'. [Commission list of unacceptable goods descriptions](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf)</Note>
+        <Note lang="fi">(fi) selite muutettu: Ilmoitetaan tulliselvitettävän erän bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa "0,654", enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti. &amp;#8594; Ilmoitetaan tulliselvitettävän erän bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa '0,654', enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti., (sv) selite muutettu: Deklarationspartiets bruttovikt i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen "0,654", dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler. &amp;#8594; Deklarationspartiets bruttovikt i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen '0,654', dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler., (en) selite muutettu: Gross mass of the goods at declaration header level in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. "0,654" up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram. &amp;#8594; Gross mass of the goods at declaration header level in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. '0,654' up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram.</Note>
+        <Note lang="sv">(fi) beskrivningen ändrad: Ilmoitetaan tulliselvitettävän erän bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa "0,654", enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti. &amp;#8594; Ilmoitetaan tulliselvitettävän erän bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa '0,654', enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti., (sv) beskrivningen ändrad: Deklarationspartiets bruttovikt i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen "0,654", dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler. &amp;#8594; Deklarationspartiets bruttovikt i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen '0,654', dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler., (en) beskrivningen ändrad: Gross mass of the goods at declaration header level in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. "0,654" up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram. &amp;#8594; Gross mass of the goods at declaration header level in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. '0,654' up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram.</Note>
+        <Note lang="en">(fi) description changed: Ilmoitetaan tulliselvitettävän erän bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa "0,654", enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti. &amp;#8594; Ilmoitetaan tulliselvitettävän erän bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa '0,654', enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti., (sv) description changed: Deklarationspartiets bruttovikt i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen "0,654", dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler. &amp;#8594; Deklarationspartiets bruttovikt i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen '0,654', dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler., (en) description changed: Gross mass of the goods at declaration header level in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. "0,654" up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram. &amp;#8594; Gross mass of the goods at declaration header level in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. '0,654' up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram.</Note>
+        <Note lang="fi">(fi) selite muutettu: Ilmoitetaan vapaamuotoinen kuvaus kollien tai pakkausten merkinnöistä ja numeroista. Jos kolleissa ei ole merkintöjä, ilmoita "ei merkkejä". Jos pakkauksen lukumääräksi on ilmoitettu nolla (0), pakkausmerkintöjen tulee olla samat kuin sillä erällä, jossa kokonaismäärä on ilmoitettu. &amp;#8594; Ilmoitetaan vapaamuotoinen kuvaus kollien tai pakkausten merkinnöistä ja numeroista. Jos kolleissa ei ole merkintöjä, ilmoita 'ei merkkejä'. Jos pakkauksen lukumääräksi on ilmoitettu nolla (0), pakkausmerkintöjen tulee olla samat kuin sillä erällä, jossa kokonaismäärä on ilmoitettu., (sv) selite muutettu: En fritt formulerad beskrivning av kollinas eller förpackningarnas märken och nummer anges. Om kollina inte har några märken, ange "inga märken". Om man som antal förpackningar angett noll (0), ska förpackningarnas märken och nummer vara de samma som för den varupost där totala antalet förpackningar har angetts. &amp;#8594; En fritt formulerad beskrivning av kollinas eller förpackningarnas märken och nummer anges. Om kollina inte har några märken, ange 'inga märken'. Om man som antal förpackningar angett noll (0), ska förpackningarnas märken och nummer vara de samma som för den varupost där totala antalet förpackningar har angetts., (en) selite muutettu: A free-form description of the marks and numbers on transport units or packages is entered. If the packages are not marked, enter "no markings". If the number of packages is zero (0), the marks and numbers shall be the same as on the goods item for which the total number of packages has been entered. &amp;#8594; A free-form description of the marks and numbers on transport units or packages is entered. If the packages are not marked, enter 'no markings'. If the number of packages is zero (0), the marks and numbers shall be the same as on the goods item for which the total number of packages has been entered.</Note>
+        <Note lang="sv">(fi) beskrivningen ändrad: Ilmoitetaan vapaamuotoinen kuvaus kollien tai pakkausten merkinnöistä ja numeroista. Jos kolleissa ei ole merkintöjä, ilmoita "ei merkkejä". Jos pakkauksen lukumääräksi on ilmoitettu nolla (0), pakkausmerkintöjen tulee olla samat kuin sillä erällä, jossa kokonaismäärä on ilmoitettu. &amp;#8594; Ilmoitetaan vapaamuotoinen kuvaus kollien tai pakkausten merkinnöistä ja numeroista. Jos kolleissa ei ole merkintöjä, ilmoita 'ei merkkejä'. Jos pakkauksen lukumääräksi on ilmoitettu nolla (0), pakkausmerkintöjen tulee olla samat kuin sillä erällä, jossa kokonaismäärä on ilmoitettu., (sv) beskrivningen ändrad: En fritt formulerad beskrivning av kollinas eller förpackningarnas märken och nummer anges. Om kollina inte har några märken, ange "inga märken". Om man som antal förpackningar angett noll (0), ska förpackningarnas märken och nummer vara de samma som för den varupost där totala antalet förpackningar har angetts. &amp;#8594; En fritt formulerad beskrivning av kollinas eller förpackningarnas märken och nummer anges. Om kollina inte har några märken, ange 'inga märken'. Om man som antal förpackningar angett noll (0), ska förpackningarnas märken och nummer vara de samma som för den varupost där totala antalet förpackningar har angetts., (en) beskrivningen ändrad: A free-form description of the marks and numbers on transport units or packages is entered. If the packages are not marked, enter "no markings". If the number of packages is zero (0), the marks and numbers shall be the same as on the goods item for which the total number of packages has been entered. &amp;#8594; A free-form description of the marks and numbers on transport units or packages is entered. If the packages are not marked, enter 'no markings'. If the number of packages is zero (0), the marks and numbers shall be the same as on the goods item for which the total number of packages has been entered.</Note>
+        <Note lang="en">(fi) description changed: Ilmoitetaan vapaamuotoinen kuvaus kollien tai pakkausten merkinnöistä ja numeroista. Jos kolleissa ei ole merkintöjä, ilmoita "ei merkkejä". Jos pakkauksen lukumääräksi on ilmoitettu nolla (0), pakkausmerkintöjen tulee olla samat kuin sillä erällä, jossa kokonaismäärä on ilmoitettu. &amp;#8594; Ilmoitetaan vapaamuotoinen kuvaus kollien tai pakkausten merkinnöistä ja numeroista. Jos kolleissa ei ole merkintöjä, ilmoita 'ei merkkejä'. Jos pakkauksen lukumääräksi on ilmoitettu nolla (0), pakkausmerkintöjen tulee olla samat kuin sillä erällä, jossa kokonaismäärä on ilmoitettu., (sv) description changed: En fritt formulerad beskrivning av kollinas eller förpackningarnas märken och nummer anges. Om kollina inte har några märken, ange "inga märken". Om man som antal förpackningar angett noll (0), ska förpackningarnas märken och nummer vara de samma som för den varupost där totala antalet förpackningar har angetts. &amp;#8594; En fritt formulerad beskrivning av kollinas eller förpackningarnas märken och nummer anges. Om kollina inte har några märken, ange 'inga märken'. Om man som antal förpackningar angett noll (0), ska förpackningarnas märken och nummer vara de samma som för den varupost där totala antalet förpackningar har angetts., (en) description changed: A free-form description of the marks and numbers on transport units or packages is entered. If the packages are not marked, enter "no markings". If the number of packages is zero (0), the marks and numbers shall be the same as on the goods item for which the total number of packages has been entered. &amp;#8594; A free-form description of the marks and numbers on transport units or packages is entered. If the packages are not marked, enter 'no markings'. If the number of packages is zero (0), the marks and numbers shall be the same as on the goods item for which the total number of packages has been entered.</Note>
+        <Note lang="fi">NR0044: (fi) selite muutettu: general:
+Atleast one of notification text, or provided information must be present. &amp;#8594; Vähintään toinen tiedoista {{FIe-164}} tai {{FIg-012}} on annettava, (sv) selite muutettu: general:
+Atleast one of notification text, or provided information must be present. &amp;#8594; Minst en av {{FIe-164}} eller {{FIg-012}} måste anges, (en) selite muutettu: general:
+Atleast one of notification text, or provided information must be present. &amp;#8594; At least one of {{FIe-164}} or {{FIg-012}} must be entered</Note>
+        <Note lang="sv">NR0044: (fi) beskrivningen ändrad: general:
+Atleast one of notification text, or provided information must be present. &amp;#8594; Vähintään toinen tiedoista {{FIe-164}} tai {{FIg-012}} on annettava, (sv) beskrivningen ändrad: general:
+Atleast one of notification text, or provided information must be present. &amp;#8594; Minst en av {{FIe-164}} eller {{FIg-012}} måste anges, (en) beskrivningen ändrad: general:
+Atleast one of notification text, or provided information must be present. &amp;#8594; At least one of {{FIe-164}} or {{FIg-012}} must be entered</Note>
+        <Note lang="en">NR0044: (fi) description changed: general:
+Atleast one of notification text, or provided information must be present. &amp;#8594; Vähintään toinen tiedoista {{FIe-164}} tai {{FIg-012}} on annettava, (sv) description changed: general:
+Atleast one of notification text, or provided information must be present. &amp;#8594; Minst en av {{FIe-164}} eller {{FIg-012}} måste anges, (en) description changed: general:
+Atleast one of notification text, or provided information must be present. &amp;#8594; At least one of {{FIe-164}} or {{FIg-012}} must be entered</Note>
+        <Note lang="fi">NC0016: (fi) selite muutettu: general:
+IF TraderOfficeCode is Empty or ID is Finnish personal identification number&#13;
+THEN 'Name' and 'ADDRESS' must be used,&#13;
+ELSE 'Name' and 'ADDRESS' must not be used. &amp;#8594; JOS {{FIe-169}} ei ole ILMOITETTU TAI {{FIe-123}} sisältää suomalaisen henkilötunnuksen&#13;
+  NIIN {{FIe-154}} JA {{FIg-083}} = 'R'&#13;
+MUUTEN {{FIe-154}} JA {{FIg-083}} = 'N', (sv) selite muutettu: general:
+IF TraderOfficeCode is Empty or ID is Finnish personal identification number&#13;
+THEN 'Name' and 'ADDRESS' must be used,&#13;
+ELSE 'Name' and 'ADDRESS' must not be used. &amp;#8594; OM {{FIe-169}} inte är ANMÄLT ELLER {{FIe-123}} innehåller en finskt personbeteckning&#13;
+  DÅ är {{FIe-154}} COH {{FIg-083}} = 'R'&#13;
+ANNARS är {{FIe-154}} OCH {{FIg-083}} = 'N', (en) selite muutettu: general:
+IF TraderOfficeCode is Empty or ID is Finnish personal identification number&#13;
+THEN 'Name' and 'ADDRESS' must be used,&#13;
+ELSE 'Name' and 'ADDRESS' must not be used. &amp;#8594; IF {{FIe-169}} is not ENTERED OR {{FIe-123}} contains a Finnish personal identity code&#13;
+  THEN {{FIe-154}} AND {{FIg-083}} = 'R'&#13;
+ELSE {{FIe-154}} AND {{FIg-083}} = 'N'</Note>
+        <Note lang="sv">NC0016: (fi) beskrivningen ändrad: general:
+IF TraderOfficeCode is Empty or ID is Finnish personal identification number&#13;
+THEN 'Name' and 'ADDRESS' must be used,&#13;
+ELSE 'Name' and 'ADDRESS' must not be used. &amp;#8594; JOS {{FIe-169}} ei ole ILMOITETTU TAI {{FIe-123}} sisältää suomalaisen henkilötunnuksen&#13;
+  NIIN {{FIe-154}} JA {{FIg-083}} = 'R'&#13;
+MUUTEN {{FIe-154}} JA {{FIg-083}} = 'N', (sv) beskrivningen ändrad: general:
+IF TraderOfficeCode is Empty or ID is Finnish personal identification number&#13;
+THEN 'Name' and 'ADDRESS' must be used,&#13;
+ELSE 'Name' and 'ADDRESS' must not be used. &amp;#8594; OM {{FIe-169}} inte är ANMÄLT ELLER {{FIe-123}} innehåller en finskt personbeteckning&#13;
+  DÅ är {{FIe-154}} COH {{FIg-083}} = 'R'&#13;
+ANNARS är {{FIe-154}} OCH {{FIg-083}} = 'N', (en) beskrivningen ändrad: general:
+IF TraderOfficeCode is Empty or ID is Finnish personal identification number&#13;
+THEN 'Name' and 'ADDRESS' must be used,&#13;
+ELSE 'Name' and 'ADDRESS' must not be used. &amp;#8594; IF {{FIe-169}} is not ENTERED OR {{FIe-123}} contains a Finnish personal identity code&#13;
+  THEN {{FIe-154}} AND {{FIg-083}} = 'R'&#13;
+ELSE {{FIe-154}} AND {{FIg-083}} = 'N'</Note>
+        <Note lang="en">NC0016: (fi) description changed: general:
+IF TraderOfficeCode is Empty or ID is Finnish personal identification number&#13;
+THEN 'Name' and 'ADDRESS' must be used,&#13;
+ELSE 'Name' and 'ADDRESS' must not be used. &amp;#8594; JOS {{FIe-169}} ei ole ILMOITETTU TAI {{FIe-123}} sisältää suomalaisen henkilötunnuksen&#13;
+  NIIN {{FIe-154}} JA {{FIg-083}} = 'R'&#13;
+MUUTEN {{FIe-154}} JA {{FIg-083}} = 'N', (sv) description changed: general:
+IF TraderOfficeCode is Empty or ID is Finnish personal identification number&#13;
+THEN 'Name' and 'ADDRESS' must be used,&#13;
+ELSE 'Name' and 'ADDRESS' must not be used. &amp;#8594; OM {{FIe-169}} inte är ANMÄLT ELLER {{FIe-123}} innehåller en finskt personbeteckning&#13;
+  DÅ är {{FIe-154}} COH {{FIg-083}} = 'R'&#13;
+ANNARS är {{FIe-154}} OCH {{FIg-083}} = 'N', (en) description changed: general:
+IF TraderOfficeCode is Empty or ID is Finnish personal identification number&#13;
+THEN 'Name' and 'ADDRESS' must be used,&#13;
+ELSE 'Name' and 'ADDRESS' must not be used. &amp;#8594; IF {{FIe-169}} is not ENTERED OR {{FIe-123}} contains a Finnish personal identity code&#13;
+  THEN {{FIe-154}} AND {{FIg-083}} = 'R'&#13;
+ELSE {{FIe-154}} AND {{FIg-083}} = 'N'</Note>
+        <Note lang="fi">FI413B/​GoodsShipment/​GovernmentAgencyGoodsItem/​PreviousDocument: NC0018 lisätty (12.3.2024 - 31.12.2099)</Note>
+        <Note lang="sv">FI413B/​GoodsShipment/​GovernmentAgencyGoodsItem/​PreviousDocument: NC0018 lagt till (12.3.2024 - 31.12.2099)</Note>
+        <Note lang="en">FI413B/​GoodsShipment/​GovernmentAgencyGoodsItem/​PreviousDocument: NC0018 added (12.3.2024 - 31.12.2099)</Note>
+        <Note lang="fi">FI415B/​GoodsShipment/​GovernmentAgencyGoodsItem/​PreviousDocument: NC0018 lisätty (12.3.2024 - 31.12.2099)</Note>
+        <Note lang="sv">FI415B/​GoodsShipment/​GovernmentAgencyGoodsItem/​PreviousDocument: NC0018 lagt till (12.3.2024 - 31.12.2099)</Note>
+        <Note lang="en">FI415B/​GoodsShipment/​GovernmentAgencyGoodsItem/​PreviousDocument: NC0018 added (12.3.2024 - 31.12.2099)</Note>
+        <Note lang="fi">FI414B/​Applicant: FId-118: loppupäivä muutettu: 31.12.2099 &amp;#8594; 14.3.2024</Note>
+        <Note lang="sv">FI414B/​Applicant: FId-118: slutdatumet ändrat: 31.12.2099 &amp;#8594; 14.3.2024</Note>
+        <Note lang="en">FI414B/​Applicant: FId-118: end date changed: 31.12.2099 &amp;#8594; 14.3.2024</Note>
+        <Note lang="fi">FI414B/​Applicant: FId-350 lisätty (15.3.2024 - 31.12.2099)</Note>
+        <Note lang="sv">FI414B/​Applicant: FId-350 lagts till (15.3.2024 - 31.12.2099)</Note>
+        <Note lang="en">FI414B/​Applicant: FId-350 added (15.3.2024 - 31.12.2099)</Note>
+        <Note lang="fi">C0619: (fi) selite muutettu: general:
+IF &lt;Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O", (sv) selite muutettu: general:
+IF &lt;Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O", (en) selite muutettu: general:
+IF &lt;Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"</Note>
+        <Note lang="sv">C0619: (fi) beskrivningen ändrad: general:
+IF &lt;Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O", (sv) beskrivningen ändrad: general:
+IF &lt;Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O", (en) beskrivningen ändrad: general:
+IF &lt;Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"</Note>
+        <Note lang="en">C0619: (fi) description changed: general:
+IF &lt;Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O", (sv) description changed: general:
+IF &lt;Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O", (en) description changed: general:
+IF &lt;Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"</Note>
+        <Note lang="fi">C0646: (fi) selite muutettu: general:
+IF  &lt;Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"", (sv) selite muutettu: general:
+IF  &lt;Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"", (en) selite muutettu: general:
+IF  &lt;Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O""</Note>
+        <Note lang="sv">C0646: (fi) beskrivningen ändrad: general:
+IF  &lt;Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"", (sv) beskrivningen ändrad: general:
+IF  &lt;Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"", (en) beskrivningen ändrad: general:
+IF  &lt;Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O""</Note>
+        <Note lang="en">C0646: (fi) description changed: general:
+IF  &lt;Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"", (sv) description changed: general:
+IF  &lt;Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"", (en) description changed: general:
+IF  &lt;Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O""</Note>
+        <Note lang="fi">NR0262: (fi) selite muutettu: general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+, (sv) selite muutettu: general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+, (en) selite muutettu: general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+</Note>
+        <Note lang="sv">NR0262: (fi) beskrivningen ändrad: general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+, (sv) beskrivningen ändrad: general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+, (en) beskrivningen ändrad: general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+</Note>
+        <Note lang="en">NR0262: (fi) description changed: general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+, (sv) description changed: general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+, (en) description changed: general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF(H5 (both FI &amp; EU) or H7)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+</Note>
+        <Note lang="fi">NR0263: (fi) selite muutettu: general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Statistical value must be  =&lt; 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Statistical value must be  =« 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+, (sv) selite muutettu: general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Statistical value must be  =&lt; 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Statistical value must be  =« 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+, (en) selite muutettu: general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Statistical value must be  =&lt; 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Statistical value must be  =« 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+</Note>
+        <Note lang="sv">NR0263: (fi) beskrivningen ändrad: general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Statistical value must be  =&lt; 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Statistical value must be  =« 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+, (sv) beskrivningen ändrad: general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Statistical value must be  =&lt; 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Statistical value must be  =« 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+, (en) beskrivningen ändrad: general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Statistical value must be  =&lt; 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Statistical value must be  =« 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+</Note>
+        <Note lang="en">NR0263: (fi) description changed: general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Statistical value must be  =&lt; 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Statistical value must be  =« 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+, (sv) description changed: general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Statistical value must be  =&lt; 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Statistical value must be  =« 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+, (en) description changed: general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =&lt; 45 euro&#13;
+		Statistical value must be  =&lt; 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+ &amp;#8594; general:
+IF (H1 and (Requested procedure = 40)&#13;
+THEN&#13;
+	IF (Additional Procedure code = C08)&#13;
+	THEN&#13;
+		Item price must be =« 45 euro&#13;
+		Statistical value must be  =« 45 euro&#13;
+		Nature of transaction must be 30&#13;
+		Importer role must be private person&#13;
+	ENDIF&#13;
+ENDIF&#13;
+</Note>
+        <Note lang="fi">NR1011: (fi) selite muutettu: general:
+If authorisation type in [EIR, SDE] AND requested procedure &lt;&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber, (sv) selite muutettu: general:
+If authorisation type in [EIR, SDE] AND requested procedure &lt;&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber, (en) selite muutettu: general:
+If authorisation type in [EIR, SDE] AND requested procedure &lt;&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber</Note>
+        <Note lang="sv">NR1011: (fi) beskrivningen ändrad: general:
+If authorisation type in [EIR, SDE] AND requested procedure &lt;&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber, (sv) beskrivningen ändrad: general:
+If authorisation type in [EIR, SDE] AND requested procedure &lt;&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber, (en) beskrivningen ändrad: general:
+If authorisation type in [EIR, SDE] AND requested procedure &lt;&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber</Note>
+        <Note lang="en">NR1011: (fi) description changed: general:
+If authorisation type in [EIR, SDE] AND requested procedure &lt;&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber, (sv) description changed: general:
+If authorisation type in [EIR, SDE] AND requested procedure &lt;&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber, (en) description changed: general:
+If authorisation type in [EIR, SDE] AND requested procedure &lt;&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber</Note>
+        <Note lang="fi">NR3061: (fi) selite muutettu: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists, (sv) selite muutettu: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists, (en) selite muutettu: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists</Note>
+        <Note lang="sv">NR3061: (fi) beskrivningen ändrad: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists, (sv) beskrivningen ändrad: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists, (en) beskrivningen ändrad: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists</Note>
+        <Note lang="en">NR3061: (fi) description changed: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists, (sv) description changed: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists, (en) description changed: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists</Note>
+        <Note lang="fi">NR3061: (fi) selite muutettu: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists, (sv) selite muutettu: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists, (en) selite muutettu: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists</Note>
+        <Note lang="sv">NR3061: (fi) beskrivningen ändrad: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists, (sv) beskrivningen ändrad: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists, (en) beskrivningen ändrad: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists</Note>
+        <Note lang="en">NR3061: (fi) description changed: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists, (sv) description changed: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists, (en) description changed: import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? &lt; tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists &amp;#8594; import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type MRN and case identification number (MRN) of inward processing declaration&#13;
+o type 821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists
+
+import:
+If Previous procedure is 51 there must be declared one of the following previous documents for each goods item:&#13;
+o type 'IM' (national previous document type) and case identification number (MRN) of inward processing declaration&#13;
+o type NMRN and case identification number (MRN) of inward processing declaration&#13;
+o type N821 and transit MRN?? « tarkista!&#13;
+or &#13;
+o Additional document type C710(detail of used  the standardized exchange of information exists</Note>
+        <Note lang="fi">C0619: (fi) selite muutettu: general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure» = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O", (sv) selite muutettu: general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure» = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O", (en) selite muutettu: general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure» = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"</Note>
+        <Note lang="sv">C0619: (fi) beskrivningen ändrad: general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure» = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O", (sv) beskrivningen ändrad: general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure» = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O", (en) beskrivningen ändrad: general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure» = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"</Note>
+        <Note lang="en">C0619: (fi) description changed: general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure» = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O", (sv) description changed: general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure» = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O", (en) description changed: general:
+IF «Requested procedure&gt; = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O" &amp;#8594; general:
+IF «Requested procedure» = "71"&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"</Note>
+        <Note lang="fi">C0646: (fi) selite muutettu: general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border» is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"", (sv) selite muutettu: general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border» is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"", (en) selite muutettu: general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border» is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O""</Note>
+        <Note lang="sv">C0646: (fi) beskrivningen ändrad: general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border» is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"", (sv) beskrivningen ändrad: general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border» is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"", (en) beskrivningen ändrad: general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border» is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O""</Note>
+        <Note lang="en">C0646: (fi) description changed: general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border» is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"", (sv) description changed: general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border» is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"", (en) description changed: general:
+IF  «Mode Of Transport At The Border&gt; is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O"" &amp;#8594; general:
+IF  «Mode Of Transport At The Border» is in SET {‘5’, ‘7’}&#13;
+THEN this DG/DI = "N"&#13;
+ELSE this DG/DI = "O""</Note>
+        <Note lang="fi">NC0022: (fi) selite muutettu: general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -&gt; requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+ &amp;#8594; general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -» requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+, (sv) selite muutettu: general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -&gt; requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+ &amp;#8594; general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -» requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+, (en) selite muutettu: general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -&gt; requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+ &amp;#8594; general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -» requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+</Note>
+        <Note lang="sv">NC0022: (fi) beskrivningen ändrad: general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -&gt; requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+ &amp;#8594; general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -» requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+, (sv) beskrivningen ändrad: general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -&gt; requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+ &amp;#8594; general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -» requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+, (en) beskrivningen ändrad: general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -&gt; requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+ &amp;#8594; general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -» requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+</Note>
+        <Note lang="en">NC0022: (fi) description changed: general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -&gt; requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+ &amp;#8594; general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -» requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+, (sv) description changed: general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -&gt; requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+ &amp;#8594; general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -» requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+, (en) description changed: general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -&gt; requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+ &amp;#8594; general:
+If requested procedure = 71,&#13;
+  then if (previous procedure is 00 and declaration type is CO) or (goods location is in [FI994400, FI994900, FI998002, FI999500, FI999800, FI999801])&#13;
+            then previous document is optional&#13;
+            else previous document is required&#13;
+  else ( -» requested procedure different then 71)&#13;
+          if (declaration type is IM, country of departure is NO and transport mode at border is 3)&#13;
+          then previous document is optional&#13;
+          else previous document is required&#13;
+</Note>
+        <Note lang="fi">NC0246: (fi) selite muutettu: general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -&gt; If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items &amp;#8594; general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -» If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items, (sv) selite muutettu: general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -&gt; If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items &amp;#8594; general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -» If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items, (en) selite muutettu: general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -&gt; If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items &amp;#8594; general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -» If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items</Note>
+        <Note lang="sv">NC0246: (fi) beskrivningen ändrad: general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -&gt; If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items &amp;#8594; general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -» If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items, (sv) beskrivningen ändrad: general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -&gt; If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items &amp;#8594; general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -» If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items, (en) beskrivningen ändrad: general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -&gt; If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items &amp;#8594; general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -» If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items</Note>
+        <Note lang="en">NC0246: (fi) description changed: general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -&gt; If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items &amp;#8594; general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -» If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items, (sv) description changed: general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -&gt; If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items &amp;#8594; general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -» If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items, (en) description changed: general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -&gt; If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items &amp;#8594; general:
+If the goods are packaged together in such a way that it is impossible to determine the gross mass of the individual items, then gross mass is entered on declaration level. -» If Total gross mass exists on header level, then cannot be used on goods items level, else must be used on each goods items</Note>
+        <Note lang="fi">NR0350: (fi) selite muutettu: general:
+If (submissionTime from serviceOfNotificationDate &gt; 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate &gt; 1 year AND reason in F), then the request will be rejected&#13;
+ &amp;#8594; general:
+If (submissionTime from serviceOfNotificationDate » 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate » 1 year AND reason in F), then the request will be rejected&#13;
+, (sv) selite muutettu: general:
+If (submissionTime from serviceOfNotificationDate &gt; 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate &gt; 1 year AND reason in F), then the request will be rejected&#13;
+ &amp;#8594; general:
+If (submissionTime from serviceOfNotificationDate » 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate » 1 year AND reason in F), then the request will be rejected&#13;
+, (en) selite muutettu: general:
+If (submissionTime from serviceOfNotificationDate &gt; 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate &gt; 1 year AND reason in F), then the request will be rejected&#13;
+ &amp;#8594; general:
+If (submissionTime from serviceOfNotificationDate » 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate » 1 year AND reason in F), then the request will be rejected&#13;
+</Note>
+        <Note lang="sv">NR0350: (fi) beskrivningen ändrad: general:
+If (submissionTime from serviceOfNotificationDate &gt; 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate &gt; 1 year AND reason in F), then the request will be rejected&#13;
+ &amp;#8594; general:
+If (submissionTime from serviceOfNotificationDate » 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate » 1 year AND reason in F), then the request will be rejected&#13;
+, (sv) beskrivningen ändrad: general:
+If (submissionTime from serviceOfNotificationDate &gt; 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate &gt; 1 year AND reason in F), then the request will be rejected&#13;
+ &amp;#8594; general:
+If (submissionTime from serviceOfNotificationDate » 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate » 1 year AND reason in F), then the request will be rejected&#13;
+, (en) beskrivningen ändrad: general:
+If (submissionTime from serviceOfNotificationDate &gt; 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate &gt; 1 year AND reason in F), then the request will be rejected&#13;
+ &amp;#8594; general:
+If (submissionTime from serviceOfNotificationDate » 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate » 1 year AND reason in F), then the request will be rejected&#13;
+</Note>
+        <Note lang="en">NR0350: (fi) description changed: general:
+If (submissionTime from serviceOfNotificationDate &gt; 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate &gt; 1 year AND reason in F), then the request will be rejected&#13;
+ &amp;#8594; general:
+If (submissionTime from serviceOfNotificationDate » 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate » 1 year AND reason in F), then the request will be rejected&#13;
+, (sv) description changed: general:
+If (submissionTime from serviceOfNotificationDate &gt; 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate &gt; 1 year AND reason in F), then the request will be rejected&#13;
+ &amp;#8594; general:
+If (submissionTime from serviceOfNotificationDate » 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate » 1 year AND reason in F), then the request will be rejected&#13;
+, (en) description changed: general:
+If (submissionTime from serviceOfNotificationDate &gt; 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate &gt; 1 year AND reason in F), then the request will be rejected&#13;
+ &amp;#8594; general:
+If (submissionTime from serviceOfNotificationDate » 3 years and reason in B, C, I, J, T, X) OR&#13;
+    (submissionTime from serviceOfNotificationDate » 1 year AND reason in F), then the request will be rejected&#13;
+</Note>
+        <Note lang="fi">NR1011: (fi) selite muutettu: general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «» 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber, (sv) selite muutettu: general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «» 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber, (en) selite muutettu: general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «» 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber</Note>
+        <Note lang="sv">NR1011: (fi) beskrivningen ändrad: general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «» 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber, (sv) beskrivningen ändrad: general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «» 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber, (en) beskrivningen ändrad: general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «» 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber</Note>
+        <Note lang="en">NR1011: (fi) description changed: general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «» 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber, (sv) description changed: general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «» 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber, (en) description changed: general:
+If authorisation type in [EIR, SDE] AND requested procedure «&gt; 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber &amp;#8594; general:
+If authorisation type in [EIR, SDE] AND requested procedure «» 71&#13;
+THEN &#13;
+declared Authorisation/HolderID must be either Importer/IdentificationNumber or Representative/IdentificationNumber</Note>
+        <Note lang="fi">NR1351: (fi) selite muutettu: general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount &gt;= 20 000€ &amp;#8594; general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount »= 20 000€, (sv) selite muutettu: general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount &gt;= 20 000€ &amp;#8594; general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount »= 20 000€, (en) selite muutettu: general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount &gt;= 20 000€ &amp;#8594; general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount »= 20 000€</Note>
+        <Note lang="sv">NR1351: (fi) beskrivningen ändrad: general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount &gt;= 20 000€ &amp;#8594; general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount »= 20 000€, (sv) beskrivningen ändrad: general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount &gt;= 20 000€ &amp;#8594; general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount »= 20 000€, (en) beskrivningen ändrad: general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount &gt;= 20 000€ &amp;#8594; general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount »= 20 000€</Note>
+        <Note lang="en">NR1351: (fi) description changed: general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount &gt;= 20 000€ &amp;#8594; general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount »= 20 000€, (sv) description changed: general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount &gt;= 20 000€ &amp;#8594; general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount »= 20 000€, (en) description changed: general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount &gt;= 20 000€ &amp;#8594; general:
+1A = additions using unclassified amount / 2A = deductions using unclassified amount: cannot be used if amount »= 20 000€</Note>
+        <Note lang="fi">(fi) selite muutettu: Ilmoitetaan muutoksenhakija, jos ilmoitukselle haetaan oikaisua. &amp;#8594; Muutoksenhakijaksi ilmoitetaan alkuperäisen ilmoituksen ilmoittaja. Jos alkuperäisen ilmoituksen on tehnyt edustaja välillisessä edustuksessa, muutoksenhakijaksi ilmoitetaan alkuperäisen ilmoituksen tehnyt välillinen edustaja., (sv) selite muutettu: Ange ändringssökande, om ändring av deklaration söks. &amp;#8594; Som ändringssökande ska man ange deklaranten i den ursprungliga deklarationen. Om den ursprungliga deklarationen ingetts av ett ombud vid indirekt ombudskap, ska man som ändringssökande ange det indirekta ombudet som gjort den ursprungliga deklarationen., (en) selite muutettu: Provide the applicant if amendment of the declaration is requested. &amp;#8594; As the applicant, provide the declarant in the original declaration. If the original declaration was made by a representative using indirect representation, provide the indirect representative that submitted the original declaration as the applicant.</Note>
+        <Note lang="sv">(fi) beskrivningen ändrad: Ilmoitetaan muutoksenhakija, jos ilmoitukselle haetaan oikaisua. &amp;#8594; Muutoksenhakijaksi ilmoitetaan alkuperäisen ilmoituksen ilmoittaja. Jos alkuperäisen ilmoituksen on tehnyt edustaja välillisessä edustuksessa, muutoksenhakijaksi ilmoitetaan alkuperäisen ilmoituksen tehnyt välillinen edustaja., (sv) beskrivningen ändrad: Ange ändringssökande, om ändring av deklaration söks. &amp;#8594; Som ändringssökande ska man ange deklaranten i den ursprungliga deklarationen. Om den ursprungliga deklarationen ingetts av ett ombud vid indirekt ombudskap, ska man som ändringssökande ange det indirekta ombudet som gjort den ursprungliga deklarationen., (en) beskrivningen ändrad: Provide the applicant if amendment of the declaration is requested. &amp;#8594; As the applicant, provide the declarant in the original declaration. If the original declaration was made by a representative using indirect representation, provide the indirect representative that submitted the original declaration as the applicant.</Note>
+        <Note lang="en">(fi) description changed: Ilmoitetaan muutoksenhakija, jos ilmoitukselle haetaan oikaisua. &amp;#8594; Muutoksenhakijaksi ilmoitetaan alkuperäisen ilmoituksen ilmoittaja. Jos alkuperäisen ilmoituksen on tehnyt edustaja välillisessä edustuksessa, muutoksenhakijaksi ilmoitetaan alkuperäisen ilmoituksen tehnyt välillinen edustaja., (sv) description changed: Ange ändringssökande, om ändring av deklaration söks. &amp;#8594; Som ändringssökande ska man ange deklaranten i den ursprungliga deklarationen. Om den ursprungliga deklarationen ingetts av ett ombud vid indirekt ombudskap, ska man som ändringssökande ange det indirekta ombudet som gjort den ursprungliga deklarationen., (en) description changed: Provide the applicant if amendment of the declaration is requested. &amp;#8594; As the applicant, provide the declarant in the original declaration. If the original declaration was made by a representative using indirect representation, provide the indirect representative that submitted the original declaration as the applicant.</Note>
+      </Notes>
+      <Data>1</Data>
+      <Schema/>
+      <ME/>
+    </Version>
+  </VersionHistory>
+  <MessageList>
+    <Message base="decl">FI415B</Message>
+    <Message base="decl">FI413B</Message>
+    <Message base="decl">FI475B</Message>
+    <Message base="decl">FI473B</Message>
+    <Message base="decl">FI485B</Message>
+    <Message base="decl">FI483B</Message>
+    <Message base="decl">FI414B</Message>
+    <Message base="decl">FI439B</Message>
+    <Message base="decl">FI453B</Message>
+    <Message base="decl">FI446B</Message>
+    <Message base="decl">FI488B</Message>
+    <Message base="resp">FI416B</Message>
+    <Message base="resp">FI426B</Message>
+    <Message base="resp">FI428B</Message>
+    <Message base="resp">FI444B</Message>
+    <Message base="resp">FI429B</Message>
+    <Message base="resp">FI468B</Message>
+    <Message base="resp">FI403B</Message>
+    <Message base="resp">FI405B</Message>
+    <Message base="resp">FI448B</Message>
+    <Message base="resp">FI410B</Message>
+    <Message base="resp">FI470B</Message>
+    <Message base="resp">FI450B</Message>
+    <Message base="resp">FI452B</Message>
+    <Message base="resp">FI430B</Message>
+    <Message base="resp">FI445B</Message>
+    <Message base="resp">FI420B</Message>
+    <Message base="resp">FI451B</Message>
+    <Message base="resp">FI419B</Message>
+    <Message base="resp">FI905B</Message>
 		<Example>FI403B</Example>
 		<Example>FI405B</Example>
 		<Example>FI410B</Example>
@@ -135,5 +2323,5 @@
 		<Example>FI485B</Example>
 		<Example>FI488B</Example>
 		<Example>FI905B</Example>
-	</MessageList>
+  </MessageList>
 </Introduction>
