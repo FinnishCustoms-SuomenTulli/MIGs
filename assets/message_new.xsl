@@ -5,10 +5,8 @@
 	<xsl:param name="messageType"/>
 	<xsl:template match="/">
 		<xsl:variable name="filteringapplied">
-			<xsl:for-each select="Message/DataGroup/Filter">
-				<xsl:if test="contains(.,$messageType)">
-					<xsl:value-of select="'1'"/>
-				</xsl:if>
+			<xsl:for-each select="Message/DataGroup/Subset[@use = $messageType]">
+				<xsl:value-of select="'1'"/>
 			</xsl:for-each>
 		</xsl:variable>
 		<xsl:if test="Message/Rule!='' and Message/Rule/@use=$messageType">
@@ -125,10 +123,8 @@
 								<xsl:value-of select="' all'"/>
 							</xsl:when>
 							<xsl:otherwise>
-								<xsl:for-each select="Filter">
-									<xsl:if test="substring(., 1, 6) = $messageType">
-										<xsl:value-of select="concat(' ',substring(.,7,3))"/>
-									</xsl:if>
+								<xsl:for-each select="Subset[@use=$messageType]">
+									<xsl:value-of select="concat(' ', .)"/>
 								</xsl:for-each>
 							</xsl:otherwise>
 						</xsl:choose>
@@ -378,10 +374,8 @@
 							<xsl:value-of select="' all'"/>
 						</xsl:when>
 						<xsl:otherwise>
-							<xsl:for-each select="Filter">
-								<xsl:if test="substring(., 1, 6) = $messageType">
-									<xsl:value-of select="concat(' ',substring(.,7,3))"/>
-								</xsl:if>
+							<xsl:for-each select="Subset[@use=$messageType]">
+								<xsl:value-of select="concat(' ', .)"/>
 							</xsl:for-each>
 						</xsl:otherwise>
 					</xsl:choose>
@@ -456,7 +450,7 @@
 								</td>
 								<td>
 									<xsl:value-of select="$messageType"/>
-										<xsl:value-of select="XPath"/>
+									<xsl:value-of select="XPath"/>
 								</td>
 								<td>
 									<xsl:for-each select="Codelist[@use=$messageType] | Codelist[not(@*)]">
