@@ -211,15 +211,17 @@
 															</thead>
 															<tbody>
 																<xsl:for-each select="Line">
-																<tr>
-																	<xsl:for-each select="Cell">
-																		<td>
-																			<xsl:for-each select="TextLine[@lang=($language)] | TextLine[not(@*)]">
-																				<p><xsl:value-of select="."/></p>
-																			</xsl:for-each>
-																		</td>
-																	</xsl:for-each>
-																</tr>
+																	<tr>
+																		<xsl:for-each select="Cell">
+																			<td>
+																				<xsl:for-each select="TextLine[@lang=($language)] | TextLine[not(@*)]">
+																					<p>
+																						<xsl:value-of select="."/>
+																					</p>
+																				</xsl:for-each>
+																			</td>
+																		</xsl:for-each>
+																	</tr>
 																</xsl:for-each>
 															</tbody>
 														</table>
@@ -338,8 +340,26 @@
 												<xsl:for-each select="SequenceDescription/Item">
 													<li>
 														<xsl:for-each select="ItemLine[@lang=($language)]">
-															<xsl:value-of select="."/>
-															<br/>
+															<!-- Check if the ItemLine contains a hyperlink -->
+															<xsl:choose>
+																<xsl:when test="contains(., '[') and contains(., '](')">
+																	<xsl:value-of select="substring-before(., '[')"/>
+																	<!-- Extract hyperlink text and URL -->
+																	<xsl:variable name="linkText" select="substring-before(substring-after(., '['), ']')"/>
+																	<xsl:variable name="linkURL" select="substring-before(substring-after(., ']('), ')')"/>
+																	<!-- Create the hyperlink -->
+																	<a href="{$linkURL}">
+																		<xsl:value-of select="$linkText"/>
+																	</a>
+																	<xsl:value-of select="substring-after(., concat($linkURL, ')'))"/>
+																	<br/>
+																</xsl:when>
+																<xsl:otherwise>
+																	<!-- If no hyperlink is present, simply output the text -->
+																	<xsl:value-of select="."/>
+																	<br/>
+																</xsl:otherwise>
+															</xsl:choose>
 														</xsl:for-each>
 													</li>
 												</xsl:for-each>
