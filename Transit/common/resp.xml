@@ -194,6 +194,51 @@
       <Codelist use="FI029A">CL027</Codelist>
     </DataElement>
     <DataElement>
+      <Name lang="fi">Vähennetyn tietosisällön indikaattori</Name>
+      <Name lang="sv">Indikator för reducerad datauppsättning</Name>
+      <Name lang="en">Reduced dataset indicator</Name>
+      <XPath>/​ReducedDatasetIndicator</XPath>
+      <Format>n1</Format>
+      <Use>FI029A</Use>
+      <Use>FI043A</Use>
+      <MinOccurrence use="FI029A">1</MinOccurrence>
+      <MinOccurrence use="FI043A">1</MinOccurrence>
+      <Codelist use="FI029A">CL027</Codelist>
+      <Codelist use="FI043A">CL027</Codelist>
+    </DataElement>
+    <DataElement>
+      <Name lang="fi">Määräaika</Name>
+      <Name lang="sv">Tidsfrist</Name>
+      <Name lang="en">Time limit</Name>
+      <XPath>/​Limit</XPath>
+      <Format>date</Format>
+      <Use>FI029A</Use>
+      <MinOccurrence use="FI029A">1</MinOccurrence>
+    </DataElement>
+    <DataElement>
+      <Name lang="fi">Turvaindikaattori</Name>
+      <Name lang="sv">Säkerhetsindikator</Name>
+      <Name lang="en">Security</Name>
+      <XPath>/​Security</XPath>
+      <Format>n1</Format>
+      <Use>FI029A</Use>
+      <Use>FI043A</Use>
+      <MinOccurrence use="FI029A">1</MinOccurrence>
+      <MinOccurrence use="FI043A">1</MinOccurrence>
+      <Codelist use="FI029A">CL217</Codelist>
+      <Codelist use="FI043A">CL217</Codelist>
+    </DataElement>
+    <DataElement>
+      <Name lang="fi">Erityisolosuhdekoodi</Name>
+      <Name lang="sv">Indikator för särskild omständighet</Name>
+      <Name lang="en">Specific circumstance indicator</Name>
+      <XPath>/​SpecificCircumstances</XPath>
+      <Format>an3</Format>
+      <Use>FI029A</Use>
+      <MinOccurrence use="FI029A">0</MinOccurrence>
+      <Codelist use="FI029A">CL296</Codelist>
+    </DataElement>
+    <DataElement>
       <Name lang="fi">Kielikoodi</Name>
       <Name lang="sv">Språkkod</Name>
       <Name lang="en">Language code</Name>
@@ -244,51 +289,6 @@
       <Codelist use="FI070A">CL012</Codelist>
       <Codelist use="FI182A">CL012</Codelist>
       <Codelist use="FI944A">CL012</Codelist>
-    </DataElement>
-    <DataElement>
-      <Name lang="fi">Määräaika</Name>
-      <Name lang="sv">Tidsfrist</Name>
-      <Name lang="en">Time limit</Name>
-      <XPath>/​Limit</XPath>
-      <Format>date</Format>
-      <Use>FI029A</Use>
-      <MinOccurrence use="FI029A">1</MinOccurrence>
-    </DataElement>
-    <DataElement>
-      <Name lang="fi">Vähennetyn tietosisällön indikaattori</Name>
-      <Name lang="sv">Indikator för reducerad datauppsättning</Name>
-      <Name lang="en">Reduced dataset indicator</Name>
-      <XPath>/​ReducedDatasetIndicator</XPath>
-      <Format>n1</Format>
-      <Use>FI029A</Use>
-      <Use>FI043A</Use>
-      <MinOccurrence use="FI029A">1</MinOccurrence>
-      <MinOccurrence use="FI043A">1</MinOccurrence>
-      <Codelist use="FI029A">CL027</Codelist>
-      <Codelist use="FI043A">CL027</Codelist>
-    </DataElement>
-    <DataElement>
-      <Name lang="fi">Turvaindikaattori</Name>
-      <Name lang="sv">Säkerhetsindikator</Name>
-      <Name lang="en">Security</Name>
-      <XPath>/​Security</XPath>
-      <Format>n1</Format>
-      <Use>FI029A</Use>
-      <Use>FI043A</Use>
-      <MinOccurrence use="FI029A">1</MinOccurrence>
-      <MinOccurrence use="FI043A">1</MinOccurrence>
-      <Codelist use="FI029A">CL217</Codelist>
-      <Codelist use="FI043A">CL217</Codelist>
-    </DataElement>
-    <DataElement>
-      <Name lang="fi">Erityisolosuhdekoodi</Name>
-      <Name lang="sv">Indikator för särskild omständighet</Name>
-      <Name lang="en">Specific circumstance indicator</Name>
-      <XPath>/​SpecificCircumstances</XPath>
-      <Format>an3</Format>
-      <Use>FI029A</Use>
-      <MinOccurrence use="FI029A">0</MinOccurrence>
-      <Codelist use="FI029A">CL296</Codelist>
     </DataElement>
     <DataElement>
       <Name lang="fi">TIR-carnet'n numero</Name>
@@ -541,9 +541,9 @@
         <MinOccurrence use="FI944A">0</MinOccurrence>
       </DataElement>
       <DataElement>
-        <Name lang="fi">Määräaika, määräajan laji</Name>
-        <Name lang="sv">Tidsfrist, typ av tidsfrist</Name>
-        <Name lang="en">Time limit, time limit type</Name>
+        <Name lang="fi">Määräajan laji</Name>
+        <Name lang="sv">Typ av tidsgräns</Name>
+        <Name lang="en">Time limit type</Name>
         <XPath>/​Notification/​Limit@LimitType</XPath>
         <Format>an..3</Format>
         <Use>FI944A</Use>
@@ -562,9 +562,9 @@
         <MinOccurrence use="FI052A">0</MinOccurrence>
       </DataElement>
       <DataElement>
-        <Name lang="fi">Määräaika, määräajan laji</Name>
-        <Name lang="sv">Tidsfrist, typ av tidsfrist</Name>
-        <Name lang="en">Time limit, time limit type</Name>
+        <Name lang="fi">Määräajan laji</Name>
+        <Name lang="sv">Typ af tidsgräns</Name>
+        <Name lang="en">Time limit type</Name>
         <XPath>/​Notification/​Limit@LimitType</XPath>
         <Format>an..3</Format>
         <Use>FI030A</Use>
@@ -963,8 +963,8 @@
         <Use>FI944A</Use>
         <MinOccurrence use="FI016A">1</MinOccurrence>
         <MinOccurrence use="FI944A">1</MinOccurrence>
-        <MaxOccurrence use="FI016A">999</MaxOccurrence>
-        <MaxOccurrence use="FI944A">999</MaxOccurrence>
+        <MaxOccurrence use="FI016A">9999</MaxOccurrence>
+        <MaxOccurrence use="FI944A">9999</MaxOccurrence>
         <DataElement>
           <Name lang="fi">Virhekoodi</Name>
           <Name lang="sv">Felkod</Name>
@@ -1467,6 +1467,17 @@
         </DataElement>
       </DataGroup>
       <DataElement>
+        <Name lang="fi">Bruttopaino</Name>
+        <Name lang="sv">Bruttovikt</Name>
+        <Name lang="en">Gross mass</Name>
+        <XPath>/​Consignment/​TotalGrossMass</XPath>
+        <Format>n..16,6</Format>
+        <Use>FI029A</Use>
+        <Use>FI043A</Use>
+        <MinOccurrence use="FI029A">1</MinOccurrence>
+        <MinOccurrence use="FI043A">0</MinOccurrence>
+      </DataElement>
+      <DataElement>
         <Name lang="fi">Kuljetusmuoto rajalla</Name>
         <Name lang="sv">Transportsätt vid gränsen</Name>
         <Name lang="en">Mode of transport at the border</Name>
@@ -1489,260 +1500,23 @@
         <Codelist use="FI029A">CL218</Codelist>
         <Codelist use="FI043A">CL218</Codelist>
       </DataElement>
-      <DataElement>
-        <Name lang="fi">Bruttopaino</Name>
-        <Name lang="sv">Bruttovikt</Name>
-        <Name lang="en">Gross mass</Name>
-        <XPath>/​Consignment/​TotalGrossMass</XPath>
-        <Format>n..16,6</Format>
-        <Use>FI029A</Use>
-        <Use>FI043A</Use>
-        <MinOccurrence use="FI029A">1</MinOccurrence>
-        <MinOccurrence use="FI043A">0</MinOccurrence>
-      </DataElement>
       <DataGroup>
-        <Name lang="fi">Liiteasiakirja</Name>
-        <Name lang="sv">Bifogat dokument</Name>
-        <Name lang="en">Supporting document</Name>
-        <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"</XPath>
+        <Name lang="fi">Viitenumero/UCR</Name>
+        <Name lang="sv">Referensnummer/UCR</Name>
+        <Name lang="en">Reference number/UCR</Name>
+        <XPath>/​Consignment/​UCR</XPath>
         <Use>FI029A</Use>
-        <Use>FI043A</Use>
         <MinOccurrence use="FI029A">0</MinOccurrence>
-        <MinOccurrence use="FI043A">0</MinOccurrence>
-        <MaxOccurrence use="FI029A">99</MaxOccurrence>
-        <MaxOccurrence use="FI043A">99</MaxOccurrence>
+        <MaxOccurrence use="FI029A">1</MaxOccurrence>
         <DataElement>
-          <Name lang="fi">Järjestysnumero</Name>
-          <Name lang="sv">Ordningsnummer</Name>
-          <Name lang="en">Sequence number</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Sequence</XPath>
-          <Format>n..5</Format>
-          <Use>FI029A</Use>
-          <Use>FI043A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
-          <MinOccurrence use="FI043A">1</MinOccurrence>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Asiakirjatyyppi</Name>
-          <Name lang="sv">Typ av dokument</Name>
-          <Name lang="en">Document type</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Type</XPath>
-          <Format>an4</Format>
-          <Use>FI029A</Use>
-          <Use>FI043A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
-          <MinOccurrence use="FI043A">1</MinOccurrence>
-          <Codelist use="FI029A">CL213_NCTS</Codelist>
-          <Codelist use="FI043A">CL213_NCTS</Codelist>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Asiakirjatunniste</Name>
-          <Name lang="sv">Dokumentets identifierare</Name>
-          <Name lang="en">Document identifier</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Identification</XPath>
-          <Format>an..70</Format>
-          <Use>FI029A</Use>
-          <Use>FI043A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
-          <MinOccurrence use="FI043A">1</MinOccurrence>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Asiakirjan rivin numero</Name>
-          <Name lang="sv">Varupostnummer i dokumentraden</Name>
-          <Name lang="en">Document line item number</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Line</XPath>
-          <Format>n..5</Format>
-          <Use>FI029A</Use>
-          <MinOccurrence use="FI029A">0</MinOccurrence>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Lisätietoja</Name>
-          <Name lang="sv">Kompletterande information</Name>
-          <Name lang="en">Complement of information</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​ComplementOfInformation</XPath>
+          <Name lang="fi">Viitenumero/UCR</Name>
+          <Name lang="sv">Referensnummer/UCR</Name>
+          <Name lang="en">Reference number/UCR</Name>
+          <XPath>/​Consignment/​UCR/​TraderAssignedReference</XPath>
           <Format>an..35</Format>
           <Use>FI029A</Use>
-          <Use>FI043A</Use>
-          <MinOccurrence use="FI029A">0</MinOccurrence>
-          <MinOccurrence use="FI043A">0</MinOccurrence>
-        </DataElement>
-        <DataGroup>
-          <Name lang="fi">Liitteen viite</Name>
-          <Name lang="sv">Bilagans referens</Name>
-          <Name lang="en">Attachment reference</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​NationalReference</XPath>
-          <Use>FI029A</Use>
-          <MinOccurrence use="FI029A">0</MinOccurrence>
-          <MaxOccurrence use="FI029A">1</MaxOccurrence>
-          <DataElement>
-            <Name lang="fi">Liitteen viite</Name>
-            <Name lang="sv">Bilagans referens</Name>
-            <Name lang="en">Attachment reference</Name>
-            <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​NationalReference/​Identification</XPath>
-            <Format>an..22</Format>
-            <Use>FI029A</Use>
-            <MinOccurrence use="FI029A">1</MinOccurrence>
-          </DataElement>
-        </DataGroup>
-      </DataGroup>
-      <DataGroup>
-        <Name lang="fi">Muu viite</Name>
-        <Name lang="sv">Ytterligare referens</Name>
-        <Name lang="en">Additional reference</Name>
-        <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"</XPath>
-        <Use>FI029A</Use>
-        <Use>FI043A</Use>
-        <MinOccurrence use="FI029A">0</MinOccurrence>
-        <MinOccurrence use="FI043A">0</MinOccurrence>
-        <MaxOccurrence use="FI029A">99</MaxOccurrence>
-        <MaxOccurrence use="FI043A">99</MaxOccurrence>
-        <DataElement>
-          <Name lang="fi">Järjestysnumero</Name>
-          <Name lang="sv">Ordningsnummer</Name>
-          <Name lang="en">Sequence number</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"/​Sequence</XPath>
-          <Format>n..5</Format>
-          <Use>FI029A</Use>
-          <Use>FI043A</Use>
           <MinOccurrence use="FI029A">1</MinOccurrence>
-          <MinOccurrence use="FI043A">1</MinOccurrence>
         </DataElement>
-        <DataElement>
-          <Name lang="fi">Tyyppi</Name>
-          <Name lang="sv">Typ</Name>
-          <Name lang="en">Type</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"/​Type</XPath>
-          <Format>an4</Format>
-          <Use>FI029A</Use>
-          <Use>FI043A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
-          <MinOccurrence use="FI043A">1</MinOccurrence>
-          <Codelist use="FI029A">CL380</Codelist>
-          <Codelist use="FI043A">CL380</Codelist>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Viitenumero</Name>
-          <Name lang="sv">Referensnummer</Name>
-          <Name lang="en">Reference number</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"/​Identification</XPath>
-          <Format>an..70</Format>
-          <Use>FI029A</Use>
-          <Use>FI043A</Use>
-          <MinOccurrence use="FI029A">0</MinOccurrence>
-          <MinOccurrence use="FI043A">0</MinOccurrence>
-        </DataElement>
-      </DataGroup>
-      <DataGroup>
-        <Name lang="fi">Lisätieto</Name>
-        <Name lang="sv">Ytterligare uppgifter</Name>
-        <Name lang="en">Additional information</Name>
-        <XPath>/​Consignment/​AdditionalInformation</XPath>
-        <Use>FI029A</Use>
-        <Use>FI043A</Use>
-        <MinOccurrence use="FI029A">0</MinOccurrence>
-        <MinOccurrence use="FI043A">0</MinOccurrence>
-        <MaxOccurrence use="FI029A">99</MaxOccurrence>
-        <MaxOccurrence use="FI043A">99</MaxOccurrence>
-        <DataElement>
-          <Name lang="fi">Järjestysnumero</Name>
-          <Name lang="sv">Ordningsnummer</Name>
-          <Name lang="en">Sequence number</Name>
-          <XPath>/​Consignment/​AdditionalInformation/​Sequence</XPath>
-          <Format>n..5</Format>
-          <Use>FI029A</Use>
-          <Use>FI043A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
-          <MinOccurrence use="FI043A">1</MinOccurrence>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Lisätietokoodi</Name>
-          <Name lang="sv">Kod för ytterligare uppgifter</Name>
-          <Name lang="en">Additional information code</Name>
-          <XPath>/​Consignment/​AdditionalInformation/​Statement</XPath>
-          <Format>an5</Format>
-          <Use>FI029A</Use>
-          <Use>FI043A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
-          <MinOccurrence use="FI043A">1</MinOccurrence>
-          <Codelist use="FI029A">CL039H</Codelist>
-          <Codelist use="FI043A">CL239</Codelist>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Lisätiedon kuvaus</Name>
-          <Name lang="sv">Beskrivning av ytterligare uppgifter</Name>
-          <Name lang="en">Additional information description</Name>
-          <XPath>/​Consignment/​AdditionalInformation/​StatementDescription</XPath>
-          <Format>an..512</Format>
-          <Use>FI029A</Use>
-          <Use>FI043A</Use>
-          <MinOccurrence use="FI029A">0</MinOccurrence>
-          <MinOccurrence use="FI043A">0</MinOccurrence>
-        </DataElement>
-      </DataGroup>
-      <DataGroup>
-        <Name lang="fi">Kuljetusasiakirja</Name>
-        <Name lang="sv">Transportdokument</Name>
-        <Name lang="en">Transport document</Name>
-        <XPath>/​Consignment/​TransportContractDocument</XPath>
-        <Use>FI029A</Use>
-        <Use>FI043A</Use>
-        <MinOccurrence use="FI029A">0</MinOccurrence>
-        <MinOccurrence use="FI043A">0</MinOccurrence>
-        <MaxOccurrence use="FI029A">99</MaxOccurrence>
-        <MaxOccurrence use="FI043A">99</MaxOccurrence>
-        <DataElement>
-          <Name lang="fi">Järjestysnumero</Name>
-          <Name lang="sv">Ordningsnummer</Name>
-          <Name lang="en">Sequence number</Name>
-          <XPath>/​Consignment/​TransportContractDocument/​Sequence</XPath>
-          <Format>n..5</Format>
-          <Use>FI029A</Use>
-          <Use>FI043A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
-          <MinOccurrence use="FI043A">1</MinOccurrence>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Asiakirjatyyppi</Name>
-          <Name lang="sv">Typ av dokument</Name>
-          <Name lang="en">Document type</Name>
-          <XPath>/​Consignment/​TransportContractDocument/​Type</XPath>
-          <Format>an4</Format>
-          <Use>FI029A</Use>
-          <Use>FI043A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
-          <MinOccurrence use="FI043A">1</MinOccurrence>
-          <Codelist use="FI029A">CL754</Codelist>
-          <Codelist use="FI043A">CL754_NCTS</Codelist>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Asiakirjatunniste</Name>
-          <Name lang="sv">Dokumentets identifierare</Name>
-          <Name lang="en">Document identifier</Name>
-          <XPath>/​Consignment/​TransportContractDocument/​Identification</XPath>
-          <Format>an..70</Format>
-          <Use>FI029A</Use>
-          <Use>FI043A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
-          <MinOccurrence use="FI043A">1</MinOccurrence>
-        </DataElement>
-        <DataGroup>
-          <Name lang="fi">Liitteen viite</Name>
-          <Name lang="sv">Bilagans referens</Name>
-          <Name lang="en">Attachment reference</Name>
-          <XPath>/​Consignment/​TransportContractDocument/​NationalReference</XPath>
-          <Use>FI029A</Use>
-          <MinOccurrence use="FI029A">0</MinOccurrence>
-          <MaxOccurrence use="FI029A">1</MaxOccurrence>
-          <DataElement>
-            <Name lang="fi">Liitteen viite</Name>
-            <Name lang="sv">Bilagans referens</Name>
-            <Name lang="en">Attachment reference</Name>
-            <XPath>/​Consignment/​TransportContractDocument/​NationalReference/​Identification</XPath>
-            <Format>an..22</Format>
-            <Use>FI029A</Use>
-            <MinOccurrence use="FI029A">1</MinOccurrence>
-          </DataElement>
-        </DataGroup>
       </DataGroup>
       <DataGroup>
         <Name lang="fi">Toimitusketjun muu toimija</Name>
@@ -2573,6 +2347,269 @@
         </DataGroup>
       </DataGroup>
       <DataGroup>
+        <Name lang="fi">Liiteasiakirja</Name>
+        <Name lang="sv">Bifogat dokument</Name>
+        <Name lang="en">Supporting document</Name>
+        <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"</XPath>
+        <Use>FI029A</Use>
+        <Use>FI043A</Use>
+        <MinOccurrence use="FI029A">0</MinOccurrence>
+        <MinOccurrence use="FI043A">0</MinOccurrence>
+        <MaxOccurrence use="FI029A">99</MaxOccurrence>
+        <MaxOccurrence use="FI043A">99</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Järjestysnumero</Name>
+          <Name lang="sv">Ordningsnummer</Name>
+          <Name lang="en">Sequence number</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Sequence</XPath>
+          <Format>n..5</Format>
+          <Use>FI029A</Use>
+          <Use>FI043A</Use>
+          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI043A">1</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Asiakirjatyyppi</Name>
+          <Name lang="sv">Typ av dokument</Name>
+          <Name lang="en">Document type</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Type</XPath>
+          <Format>an4</Format>
+          <Use>FI029A</Use>
+          <Use>FI043A</Use>
+          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI043A">1</MinOccurrence>
+          <Codelist use="FI029A">CL213_NCTS</Codelist>
+          <Codelist use="FI043A">CL213_NCTS</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Asiakirjatunniste</Name>
+          <Name lang="sv">Dokumentets identifierare</Name>
+          <Name lang="en">Document identifier</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Identification</XPath>
+          <Format>an..70</Format>
+          <Use>FI029A</Use>
+          <Use>FI043A</Use>
+          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI043A">1</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Asiakirjan rivin numero</Name>
+          <Name lang="sv">Varupostnummer i dokumentraden</Name>
+          <Name lang="en">Document line item number</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Line</XPath>
+          <Format>n..5</Format>
+          <Use>FI029A</Use>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Lisätietoja</Name>
+          <Name lang="sv">Kompletterande information</Name>
+          <Name lang="en">Complement of information</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​ComplementOfInformation</XPath>
+          <Format>an..35</Format>
+          <Use>FI029A</Use>
+          <Use>FI043A</Use>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
+          <MinOccurrence use="FI043A">0</MinOccurrence>
+        </DataElement>
+        <DataGroup>
+          <Name lang="fi">Liitteen viite</Name>
+          <Name lang="sv">Bilagans referens</Name>
+          <Name lang="en">Attachment reference</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​NationalReference</XPath>
+          <Use>FI029A</Use>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
+          <MaxOccurrence use="FI029A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Liitteen viite</Name>
+            <Name lang="sv">Bilagans referens</Name>
+            <Name lang="en">Attachment reference</Name>
+            <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​NationalReference/​Identification</XPath>
+            <Format>an..22</Format>
+            <Use>FI029A</Use>
+            <MinOccurrence use="FI029A">1</MinOccurrence>
+          </DataElement>
+        </DataGroup>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Muu viite</Name>
+        <Name lang="sv">Ytterligare referens</Name>
+        <Name lang="en">Additional reference</Name>
+        <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"</XPath>
+        <Use>FI029A</Use>
+        <Use>FI043A</Use>
+        <MinOccurrence use="FI029A">0</MinOccurrence>
+        <MinOccurrence use="FI043A">0</MinOccurrence>
+        <MaxOccurrence use="FI029A">99</MaxOccurrence>
+        <MaxOccurrence use="FI043A">99</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Järjestysnumero</Name>
+          <Name lang="sv">Ordningsnummer</Name>
+          <Name lang="en">Sequence number</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"/​Sequence</XPath>
+          <Format>n..5</Format>
+          <Use>FI029A</Use>
+          <Use>FI043A</Use>
+          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI043A">1</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Tyyppi</Name>
+          <Name lang="sv">Typ</Name>
+          <Name lang="en">Type</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"/​Type</XPath>
+          <Format>an4</Format>
+          <Use>FI029A</Use>
+          <Use>FI043A</Use>
+          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI043A">1</MinOccurrence>
+          <Codelist use="FI029A">CL380</Codelist>
+          <Codelist use="FI043A">CL380</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Viitenumero</Name>
+          <Name lang="sv">Referensnummer</Name>
+          <Name lang="en">Reference number</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"/​Identification</XPath>
+          <Format>an..70</Format>
+          <Use>FI029A</Use>
+          <Use>FI043A</Use>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
+          <MinOccurrence use="FI043A">0</MinOccurrence>
+        </DataElement>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Kuljetusasiakirja</Name>
+        <Name lang="sv">Transportdokument</Name>
+        <Name lang="en">Transport document</Name>
+        <XPath>/​Consignment/​TransportContractDocument</XPath>
+        <Use>FI029A</Use>
+        <Use>FI043A</Use>
+        <MinOccurrence use="FI029A">0</MinOccurrence>
+        <MinOccurrence use="FI043A">0</MinOccurrence>
+        <MaxOccurrence use="FI029A">99</MaxOccurrence>
+        <MaxOccurrence use="FI043A">99</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Järjestysnumero</Name>
+          <Name lang="sv">Ordningsnummer</Name>
+          <Name lang="en">Sequence number</Name>
+          <XPath>/​Consignment/​TransportContractDocument/​Sequence</XPath>
+          <Format>n..5</Format>
+          <Use>FI029A</Use>
+          <Use>FI043A</Use>
+          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI043A">1</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Asiakirjatyyppi</Name>
+          <Name lang="sv">Typ av dokument</Name>
+          <Name lang="en">Document type</Name>
+          <XPath>/​Consignment/​TransportContractDocument/​Type</XPath>
+          <Format>an4</Format>
+          <Use>FI029A</Use>
+          <Use>FI043A</Use>
+          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI043A">1</MinOccurrence>
+          <Codelist use="FI029A">CL754</Codelist>
+          <Codelist use="FI043A">CL754_NCTS</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Asiakirjatunniste</Name>
+          <Name lang="sv">Dokumentets identifierare</Name>
+          <Name lang="en">Document identifier</Name>
+          <XPath>/​Consignment/​TransportContractDocument/​Identification</XPath>
+          <Format>an..70</Format>
+          <Use>FI029A</Use>
+          <Use>FI043A</Use>
+          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI043A">1</MinOccurrence>
+        </DataElement>
+        <DataGroup>
+          <Name lang="fi">Liitteen viite</Name>
+          <Name lang="sv">Bilagans referens</Name>
+          <Name lang="en">Attachment reference</Name>
+          <XPath>/​Consignment/​TransportContractDocument/​NationalReference</XPath>
+          <Use>FI029A</Use>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
+          <MaxOccurrence use="FI029A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Liitteen viite</Name>
+            <Name lang="sv">Bilagans referens</Name>
+            <Name lang="en">Attachment reference</Name>
+            <XPath>/​Consignment/​TransportContractDocument/​NationalReference/​Identification</XPath>
+            <Format>an..22</Format>
+            <Use>FI029A</Use>
+            <MinOccurrence use="FI029A">1</MinOccurrence>
+          </DataElement>
+        </DataGroup>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Lisätieto</Name>
+        <Name lang="sv">Ytterligare uppgifter</Name>
+        <Name lang="en">Additional information</Name>
+        <XPath>/​Consignment/​AdditionalInformation</XPath>
+        <Use>FI029A</Use>
+        <Use>FI043A</Use>
+        <MinOccurrence use="FI029A">0</MinOccurrence>
+        <MinOccurrence use="FI043A">0</MinOccurrence>
+        <MaxOccurrence use="FI029A">99</MaxOccurrence>
+        <MaxOccurrence use="FI043A">99</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Järjestysnumero</Name>
+          <Name lang="sv">Ordningsnummer</Name>
+          <Name lang="en">Sequence number</Name>
+          <XPath>/​Consignment/​AdditionalInformation/​Sequence</XPath>
+          <Format>n..5</Format>
+          <Use>FI029A</Use>
+          <Use>FI043A</Use>
+          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI043A">1</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Lisätietokoodi</Name>
+          <Name lang="sv">Kod för ytterligare uppgifter</Name>
+          <Name lang="en">Additional information code</Name>
+          <XPath>/​Consignment/​AdditionalInformation/​Statement</XPath>
+          <Format>an5</Format>
+          <Use>FI029A</Use>
+          <Use>FI043A</Use>
+          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI043A">1</MinOccurrence>
+          <Codelist use="FI029A">CL039H</Codelist>
+          <Codelist use="FI043A">CL239</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Lisätiedon kuvaus</Name>
+          <Name lang="sv">Beskrivning av ytterligare uppgifter</Name>
+          <Name lang="en">Additional information description</Name>
+          <XPath>/​Consignment/​AdditionalInformation/​StatementDescription</XPath>
+          <Format>an..512</Format>
+          <Use>FI029A</Use>
+          <Use>FI043A</Use>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
+          <MinOccurrence use="FI043A">0</MinOccurrence>
+        </DataElement>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Kuljetuskustannukset</Name>
+        <Name lang="sv">Transportkostnader</Name>
+        <Name lang="en">Transport charges</Name>
+        <XPath>/​Consignment/​Freight</XPath>
+        <Use>FI029A</Use>
+        <MinOccurrence use="FI029A">0</MinOccurrence>
+        <MaxOccurrence use="FI029A">1</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Maksutapa</Name>
+          <Name lang="sv">Betalningssätt</Name>
+          <Name lang="en">Method of payment</Name>
+          <XPath>/​Consignment/​Freight/​PaymentMethod</XPath>
+          <Format>a1</Format>
+          <Use>FI029A</Use>
+          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <Codelist use="FI029A">CL116_NCTS</Codelist>
+        </DataElement>
+      </DataGroup>
+      <DataGroup>
         <Name lang="fi">Lähetyksen kauttakulkumaa</Name>
         <Name lang="sv">Landkoder i ruttordning för försändelsen</Name>
         <Name lang="en">Country of routing of the consignment</Name>
@@ -2692,15 +2729,6 @@
         <Use>FI029A</Use>
         <MinOccurrence use="FI029A">1</MinOccurrence>
         <MaxOccurrence use="FI029A">1</MaxOccurrence>
-        <DataElement>
-          <Name lang="fi">Paikan nimi</Name>
-          <Name lang="sv">Platsens namn</Name>
-          <Name lang="en">Location name</Name>
-          <XPath>/​Consignment/​LoadingLocation/​Name</XPath>
-          <Format>an..35</Format>
-          <Use>FI029A</Use>
-          <MinOccurrence use="FI029A">0</MinOccurrence>
-        </DataElement>
         <DataGroup>
           <Name lang="fi">Osoite</Name>
           <Name lang="sv">Adress</Name>
@@ -2720,6 +2748,15 @@
             <Codelist use="FI029A">CL008_NCTS</Codelist>
           </DataElement>
         </DataGroup>
+        <DataElement>
+          <Name lang="fi">Paikan nimi</Name>
+          <Name lang="sv">Platsens namn</Name>
+          <Name lang="en">Location name</Name>
+          <XPath>/​Consignment/​LoadingLocation/​Name</XPath>
+          <Format>an..35</Format>
+          <Use>FI029A</Use>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
+        </DataElement>
       </DataGroup>
       <DataGroup>
         <Name lang="fi">Purkauspaikka</Name>
@@ -2729,15 +2766,6 @@
         <Use>FI029A</Use>
         <MinOccurrence use="FI029A">0</MinOccurrence>
         <MaxOccurrence use="FI029A">1</MaxOccurrence>
-        <DataElement>
-          <Name lang="fi">Paikan nimi</Name>
-          <Name lang="sv">Platsens namn</Name>
-          <Name lang="en">Location name</Name>
-          <XPath>/​Consignment/​UnloadingLocation/​Name</XPath>
-          <Format>an..35</Format>
-          <Use>FI029A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
-        </DataElement>
         <DataGroup>
           <Name lang="fi">Osoite</Name>
           <Name lang="sv">Adress</Name>
@@ -2757,6 +2785,15 @@
             <Codelist use="FI029A">CL008_NCTS</Codelist>
           </DataElement>
         </DataGroup>
+        <DataElement>
+          <Name lang="fi">Paikan nimi</Name>
+          <Name lang="sv">Platsens namn</Name>
+          <Name lang="en">Location name</Name>
+          <XPath>/​Consignment/​UnloadingLocation/​Name</XPath>
+          <Format>an..35</Format>
+          <Use>FI029A</Use>
+          <MinOccurrence use="FI029A">1</MinOccurrence>
+        </DataElement>
       </DataGroup>
       <DataGroup>
         <Name lang="fi">Kuljetusvälineet</Name>
@@ -2870,25 +2907,6 @@
             <MinOccurrence use="FI043A">1</MinOccurrence>
           </DataElement>
         </DataGroup>
-      </DataGroup>
-      <DataGroup>
-        <Name lang="fi">Kuljetuskustannukset</Name>
-        <Name lang="sv">Transportkostnader</Name>
-        <Name lang="en">Transport charges</Name>
-        <XPath>/​Consignment/​Freight</XPath>
-        <Use>FI029A</Use>
-        <MinOccurrence use="FI029A">0</MinOccurrence>
-        <MaxOccurrence use="FI029A">1</MaxOccurrence>
-        <DataElement>
-          <Name lang="fi">Maksutapa</Name>
-          <Name lang="sv">Betalningssätt</Name>
-          <Name lang="en">Method of payment</Name>
-          <XPath>/​Consignment/​Freight/​PaymentMethod</XPath>
-          <Format>a1</Format>
-          <Use>FI029A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
-          <Codelist use="FI029A">CL116_NCTS</Codelist>
-        </DataElement>
       </DataGroup>
       <DataGroup>
         <Name lang="fi">Alatason lähetyserä</Name>
@@ -3330,25 +3348,6 @@
           </DataGroup>
         </DataGroup>
         <DataGroup>
-          <Name lang="fi">Kuljetuskustannukset</Name>
-          <Name lang="sv">Transportkostnader</Name>
-          <Name lang="en">Transport charges</Name>
-          <XPath>/​Consignment/​HouseConsignment/​Freight</XPath>
-          <Use>FI029A</Use>
-          <MinOccurrence use="FI029A">0</MinOccurrence>
-          <MaxOccurrence use="FI029A">1</MaxOccurrence>
-          <DataElement>
-            <Name lang="fi">Maksutapa</Name>
-            <Name lang="sv">Betalningssätt</Name>
-            <Name lang="en">Method of payment</Name>
-            <XPath>/​Consignment/​HouseConsignment/​Freight/​PaymentMethod</XPath>
-            <Format>a1</Format>
-            <Use>FI029A</Use>
-            <MinOccurrence use="FI029A">1</MinOccurrence>
-            <Codelist use="FI029A">CL116_NCTS</Codelist>
-          </DataElement>
-        </DataGroup>
-        <DataGroup>
           <Name lang="fi">Kuljetusväline lähdettäessä</Name>
           <Name lang="sv">Transportmedel vid avgång</Name>
           <Name lang="en">Departure transport means</Name>
@@ -3406,6 +3405,25 @@
             <MinOccurrence use="FI043A">1</MinOccurrence>
             <Codelist use="FI029A">CL165</Codelist>
             <Codelist use="FI043A">CL165</Codelist>
+          </DataElement>
+        </DataGroup>
+        <DataGroup>
+          <Name lang="fi">Kuljetuskustannukset</Name>
+          <Name lang="sv">Transportkostnader</Name>
+          <Name lang="en">Transport charges</Name>
+          <XPath>/​Consignment/​HouseConsignment/​Freight</XPath>
+          <Use>FI029A</Use>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
+          <MaxOccurrence use="FI029A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Maksutapa</Name>
+            <Name lang="sv">Betalningssätt</Name>
+            <Name lang="en">Method of payment</Name>
+            <XPath>/​Consignment/​HouseConsignment/​Freight/​PaymentMethod</XPath>
+            <Format>a1</Format>
+            <Use>FI029A</Use>
+            <MinOccurrence use="FI029A">1</MinOccurrence>
+            <Codelist use="FI029A">CL116_NCTS</Codelist>
           </DataElement>
         </DataGroup>
         <DataGroup>
@@ -4259,24 +4277,6 @@
           <Format>dateTime</Format>
           <Use>FI029A</Use>
           <MinOccurrence use="FI029A">0</MinOccurrence>
-        </DataElement>
-      </DataGroup>
-      <DataGroup>
-        <Name lang="fi">Viitenumero/UCR</Name>
-        <Name lang="sv">Referensnummer/UCR</Name>
-        <Name lang="en">Reference number/UCR</Name>
-        <XPath>/​Consignment/​UCR</XPath>
-        <Use>FI029A</Use>
-        <MinOccurrence use="FI029A">0</MinOccurrence>
-        <MaxOccurrence use="FI029A">1</MaxOccurrence>
-        <DataElement>
-          <Name lang="fi">Viitenumero/UCR</Name>
-          <Name lang="sv">Referensnummer/UCR</Name>
-          <Name lang="en">Reference number/UCR</Name>
-          <XPath>/​Consignment/​UCR/​TraderAssignedReference</XPath>
-          <Format>an..35</Format>
-          <Use>FI029A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
         </DataElement>
       </DataGroup>
     </DataGroup>

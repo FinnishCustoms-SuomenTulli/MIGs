@@ -13,6 +13,7 @@
     <Use>FI044A</Use>
     <Use>FI046A</Use>
     <Use>FI053A</Use>
+    <Use>FI170A</Use>
     <MinOccurrence use="FI007A">1</MinOccurrence>
     <MinOccurrence use="FI013A">1</MinOccurrence>
     <MinOccurrence use="FI014A">1</MinOccurrence>
@@ -21,6 +22,7 @@
     <MinOccurrence use="FI044A">1</MinOccurrence>
     <MinOccurrence use="FI046A">1</MinOccurrence>
     <MinOccurrence use="FI053A">1</MinOccurrence>
+    <MinOccurrence use="FI170A">1</MinOccurrence>
     <MaxOccurrence use="FI007A">1</MaxOccurrence>
     <MaxOccurrence use="FI013A">1</MaxOccurrence>
     <MaxOccurrence use="FI014A">1</MaxOccurrence>
@@ -29,6 +31,7 @@
     <MaxOccurrence use="FI044A">1</MaxOccurrence>
     <MaxOccurrence use="FI046A">1</MaxOccurrence>
     <MaxOccurrence use="FI053A">1</MaxOccurrence>
+    <MaxOccurrence use="FI170A">1</MaxOccurrence>
     <DataElement>
       <Name lang="fi">Tapahtuman tunniste</Name>
       <Name lang="sv">Händelsens identifierare</Name>
@@ -43,6 +46,7 @@
       <Use>FI044A</Use>
       <Use>FI046A</Use>
       <Use>FI053A</Use>
+      <Use>FI170A</Use>
       <MinOccurrence use="FI007A">1</MinOccurrence>
       <MinOccurrence use="FI013A">1</MinOccurrence>
       <MinOccurrence use="FI014A">1</MinOccurrence>
@@ -51,6 +55,7 @@
       <MinOccurrence use="FI044A">1</MinOccurrence>
       <MinOccurrence use="FI046A">0</MinOccurrence>
       <MinOccurrence use="FI053A">1</MinOccurrence>
+      <MinOccurrence use="FI170A">1</MinOccurrence>
       <Description lang="fi" use="FI007A">Tapahtuman tunniste on sanoman yksilöllinen tunniste. Ensimmäiset viisi merkkiä koostuvat Tullin antamasta yrityskohtaisesta merkkijonosta.&lt;br&gt;
 Toistaiseksi Tulli hyväksyy vain enintään 14 merkin pituisen tunnisteen.</Description>
       <Description lang="sv" use="FI007A">Händelsens identifierare är meddelandets unika identifierare. De fem första tecknen består av en teckensträng som tilldelats av Tullen.&lt;br&gt;
@@ -99,6 +104,12 @@ Toistaiseksi Tulli hyväksyy vain enintään 14 merkin pituisen tunnisteen.</Des
 Tills vidare accepterar Tullen endast en identifierare på upp till 14 tecken.</Description>
       <Description lang="en" use="FI053A">The case identification is the message's unique identification. The first five characters are assigned by Customs.&lt;br&gt;
 For the time being, Customs will only accept an identifier of up to 14 characters.</Description>
+      <Description lang="fi" use="FI170A">Tapahtuman tunniste on sanoman yksilöllinen tunniste. Ensimmäiset viisi merkkiä koostuvat Tullin antamasta yrityskohtaisesta merkkijonosta.&lt;br&gt;
+Toistaiseksi Tulli hyväksyy vain enintään 14 merkin pituisen tunnisteen.</Description>
+      <Description lang="sv" use="FI170A">Händelsens identifierare är meddelandets unika identifierare. De fem första tecknen består av en teckensträng som tilldelats av Tullen.&lt;br&gt;
+Tills vidare accepterar Tullen endast en identifierare på upp till 14 tecken.</Description>
+      <Description lang="en" use="FI170A">The case identification is the message's unique identification. The first five characters are assigned by Customs.&lt;br&gt;
+For the time being, Customs will only accept an identifier of up to 14 characters.</Description>
     </DataElement>
     <DataElement>
       <Name lang="fi">MRN</Name>
@@ -113,6 +124,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Use>FI044A</Use>
       <Use>FI046A</Use>
       <Use>FI053A</Use>
+      <Use>FI170A</Use>
       <MinOccurrence use="FI007A">1</MinOccurrence>
       <MinOccurrence use="FI013A">1</MinOccurrence>
       <MinOccurrence use="FI014A">1</MinOccurrence>
@@ -120,8 +132,10 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MinOccurrence use="FI044A">1</MinOccurrence>
       <MinOccurrence use="FI046A">1</MinOccurrence>
       <MinOccurrence use="FI053A">1</MinOccurrence>
+      <MinOccurrence use="FI170A">1</MinOccurrence>
       <Rule use="FI007A">R0028</Rule>
       <Rule use="FI013A">NR9003</Rule>
+      <Rule use="FI170A">NR9001</Rule>
       <Condition use="FI013A">NC9014</Condition>
       <Condition use="FI014A">C0467</Condition>
       <Condition use="FI014A">NC9014</Condition>
@@ -141,13 +155,16 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Use>FI039A</Use>
       <Use>FI046A</Use>
       <Use>FI053A</Use>
+      <Use>FI170A</Use>
       <MinOccurrence use="FI013A">1</MinOccurrence>
       <MinOccurrence use="FI014A">1</MinOccurrence>
       <MinOccurrence use="FI015A">1</MinOccurrence>
       <MinOccurrence use="FI039A">0</MinOccurrence>
       <MinOccurrence use="FI046A">1</MinOccurrence>
       <MinOccurrence use="FI053A">0</MinOccurrence>
+      <MinOccurrence use="FI170A">1</MinOccurrence>
       <Rule use="FI013A">NR9001</Rule>
+      <Rule use="FI170A">NR9001</Rule>
       <Condition use="FI013A">NC9014</Condition>
       <Condition use="FI014A">C0467</Condition>
       <Condition use="FI014A">NC9014</Condition>
@@ -169,6 +186,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Description lang="fi" use="FI053A">Ilmoitetaan viitenumero, joka yksilöi tulli-ilmoituksen, esim. keikkaviite. Tätä viitettä käytetään myös Tullin vastaussanomissa asiakkaan viitteenä.</Description>
       <Description lang="sv" use="FI053A">Referensnummer som specificerar tulldeklarationen anmäls. Denna referens används också som referens för kunden i Tullens svarsmeddelanden.</Description>
       <Description lang="en" use="FI053A">Declarant's reference number which specifies the customs declaration is entered. This reference is also used as a customer reference in the response messages sent by Customs.</Description>
+      <Description lang="fi" use="FI170A">Ilmoitetaan viitenumero, joka yksilöi tulli-ilmoituksen, esim. keikkaviite. Tätä viitettä käytetään myös Tullin vastaussanomissa asiakkaan viitteenä.</Description>
+      <Description lang="sv" use="FI170A">Referensnummer som specificerar tulldeklarationen anmäls. Denna referens används också som referens för kunden i Tullens svarsmeddelanden.</Description>
+      <Description lang="en" use="FI170A">Declarant's reference number which specifies the customs declaration is entered. This reference is also used as a customer reference in the response messages sent by Customs.</Description>
     </DataElement>
     <DataElement>
       <Name lang="fi">Ilmoitustyyppi</Name>
@@ -218,6 +238,51 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Codelist use="FI015A">CL027</Codelist>
     </DataElement>
     <DataElement>
+      <Name lang="fi">Vähennetyn tietosisällön indikaattori</Name>
+      <Name lang="sv">Indikator för reducerad datauppsättning</Name>
+      <Name lang="en">Reduced dataset indicator</Name>
+      <XPath>/​ReducedDatasetIndicator</XPath>
+      <Format>n1</Format>
+      <Use>FI013A</Use>
+      <Use>FI015A</Use>
+      <MinOccurrence use="FI013A">1</MinOccurrence>
+      <MinOccurrence use="FI015A">1</MinOccurrence>
+      <Codelist use="FI013A">CL027</Codelist>
+      <Codelist use="FI015A">CL027</Codelist>
+      <Rule use="FI013A">R0849</Rule>
+      <Rule use="FI015A">R0849</Rule>
+    </DataElement>
+    <DataElement>
+      <Name lang="fi">Määräaika</Name>
+      <Name lang="sv">Tidsfrist</Name>
+      <Name lang="en">Time limit</Name>
+      <XPath>/​Limit</XPath>
+      <Format>date</Format>
+      <Use>FI013A</Use>
+      <Use>FI015A</Use>
+      <Use>FI170A</Use>
+      <MinOccurrence use="FI013A">0</MinOccurrence>
+      <MinOccurrence use="FI015A">0</MinOccurrence>
+      <MinOccurrence use="FI170A">0</MinOccurrence>
+      <Rule use="FI013A">NR9004</Rule>
+      <Rule use="FI013A">NR9025</Rule>
+      <Rule use="FI015A">NR9004</Rule>
+      <Rule use="FI015A">NR9025</Rule>
+      <Rule use="FI170A">NR9025</Rule>
+      <Condition use="FI013A">C0839</Condition>
+      <Condition use="FI015A">C0839</Condition>
+      <Condition use="FI170A">C0840</Condition>
+      <Description lang="fi" use="FI013A">Yksinkertaistetussa menettelyssä (VL) ilmoitetaan se päivämäärä, jolloin passitus esitetään määrätoimipaikassa.</Description>
+      <Description lang="sv" use="FI013A">Vid förenklat förfarande (GA) anges det datum då transiteringen ska uppvisas vid bestämmelsetullkontoret.</Description>
+      <Description lang="en" use="FI013A">In a simplified procedure (authorised consignor), enter the date when the transit is presented at the customs office of destination.</Description>
+      <Description lang="fi" use="FI015A">Yksinkertaistetussa menettelyssä (VL) ilmoitetaan se päivämäärä, jolloin passitus esitetään määrätoimipaikassa.</Description>
+      <Description lang="sv" use="FI015A">Vid förenklat förfarande (GA) anges det datum då transiteringen ska uppvisas vid bestämmelsetullkontoret.</Description>
+      <Description lang="en" use="FI015A">In a simplified procedure (authorised consignor), enter the date when the transit is presented at the customs office of destination.</Description>
+      <Description lang="fi" use="FI170A">Yksinkertaistetussa menettelyssä (VL) ilmoitetaan se päivämäärä, jolloin passitus esitetään määrätoimipaikassa.</Description>
+      <Description lang="sv" use="FI170A">Vid förenklat förfarande (GA) anges det datum då transiteringen ska uppvisas vid bestämmelsetullkontoret.</Description>
+      <Description lang="en" use="FI170A">In a simplified procedure (authorised consignor), enter the date when the transit is presented at the customs office of destination.</Description>
+    </DataElement>
+    <DataElement>
       <Name lang="fi">Saapumisilmoituksen päivä ja aika</Name>
       <Name lang="sv">Datum och tid för ankomstanmälan</Name>
       <Name lang="en">Arrival notification date and time</Name>
@@ -225,6 +290,33 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Format>dateTime</Format>
       <Use>FI007A</Use>
       <MinOccurrence use="FI007A">1</MinOccurrence>
+    </DataElement>
+    <DataElement>
+      <Name lang="fi">Turvaindikaattori</Name>
+      <Name lang="sv">Säkerhetsindikator</Name>
+      <Name lang="en">Security</Name>
+      <XPath>/​Security</XPath>
+      <Format>n1</Format>
+      <Use>FI013A</Use>
+      <Use>FI015A</Use>
+      <MinOccurrence use="FI013A">1</MinOccurrence>
+      <MinOccurrence use="FI015A">1</MinOccurrence>
+      <Codelist use="FI013A">CL217_NCTS</Codelist>
+      <Codelist use="FI015A">CL217</Codelist>
+      <Rule use="FI013A">NR9001</Rule>
+    </DataElement>
+    <DataElement>
+      <Name lang="fi">Erityisolosuhdekoodi</Name>
+      <Name lang="sv">Indikator för särskild omständighet</Name>
+      <Name lang="en">Specific circumstance indicator</Name>
+      <XPath>/​SpecificCircumstances</XPath>
+      <Format>an3</Format>
+      <Use>FI013A</Use>
+      <Use>FI015A</Use>
+      <MinOccurrence use="FI013A">0</MinOccurrence>
+      <MinOccurrence use="FI015A">0</MinOccurrence>
+      <Codelist use="FI013A">CL296</Codelist>
+      <Codelist use="FI015A">CL296</Codelist>
     </DataElement>
     <DataElement>
       <Name lang="fi">Kielikoodi</Name>
@@ -240,6 +332,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Use>FI044A</Use>
       <Use>FI046A</Use>
       <Use>FI053A</Use>
+      <Use>FI170A</Use>
       <MinOccurrence use="FI007A">0</MinOccurrence>
       <MinOccurrence use="FI013A">1</MinOccurrence>
       <MinOccurrence use="FI014A">1</MinOccurrence>
@@ -248,6 +341,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MinOccurrence use="FI044A">1</MinOccurrence>
       <MinOccurrence use="FI046A">1</MinOccurrence>
       <MinOccurrence use="FI053A">1</MinOccurrence>
+      <MinOccurrence use="FI170A">1</MinOccurrence>
       <Codelist use="FI007A">CL012</Codelist>
       <Codelist use="FI013A">CL012</Codelist>
       <Codelist use="FI014A">CL012</Codelist>
@@ -256,6 +350,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Codelist use="FI044A">CL012</Codelist>
       <Codelist use="FI046A">CL012</Codelist>
       <Codelist use="FI053A">CL012</Codelist>
+      <Codelist use="FI170A">CL012</Codelist>
       <Rule use="FI007A">R0100</Rule>
       <Rule use="FI013A">R0100</Rule>
       <Rule use="FI014A">R0100</Rule>
@@ -284,71 +379,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Description lang="fi" use="FI053A">Ilmoitetaan kieli, jolla tätä ilmoitusta koskevat vastaussanomat ja päätökset halutaan.</Description>
       <Description lang="sv" use="FI053A">Det språk på vilket svarsmeddelanden och besluten som hänför sig till deklarationen öskas mottas.</Description>
       <Description lang="en" use="FI053A">Choose in which language the response messages and decisions are requested to be received.</Description>
-    </DataElement>
-    <DataElement>
-      <Name lang="fi">Määräaika</Name>
-      <Name lang="sv">Tidsfrist</Name>
-      <Name lang="en">Time limit</Name>
-      <XPath>/​Limit</XPath>
-      <Format>date</Format>
-      <Use>FI013A</Use>
-      <Use>FI015A</Use>
-      <MinOccurrence use="FI013A">0</MinOccurrence>
-      <MinOccurrence use="FI015A">0</MinOccurrence>
-      <Rule use="FI013A">NR9004</Rule>
-      <Rule use="FI013A">NR9025</Rule>
-      <Rule use="FI015A">NR9004</Rule>
-      <Rule use="FI015A">NR9025</Rule>
-      <Condition use="FI013A">C0839</Condition>
-      <Condition use="FI015A">C0839</Condition>
-      <Description lang="fi" use="FI013A">Yksinkertaistetussa menettelyssä (VL) ilmoitetaan se päivämäärä, jolloin passitus esitetään määrätoimipaikassa.</Description>
-      <Description lang="sv" use="FI013A">Vid förenklat förfarande (GA) anges det datum då transiteringen ska uppvisas vid bestämmelsetullkontoret.</Description>
-      <Description lang="en" use="FI013A">In a simplified procedure (authorised consignor), enter the date when the transit is presented at the customs office of destination.</Description>
-      <Description lang="fi" use="FI015A">Yksinkertaistetussa menettelyssä (VL) ilmoitetaan se päivämäärä, jolloin passitus esitetään määrätoimipaikassa.</Description>
-      <Description lang="sv" use="FI015A">Vid förenklat förfarande (GA) anges det datum då transiteringen ska uppvisas vid bestämmelsetullkontoret.</Description>
-      <Description lang="en" use="FI015A">In a simplified procedure (authorised consignor), enter the date when the transit is presented at the customs office of destination.</Description>
-    </DataElement>
-    <DataElement>
-      <Name lang="fi">Vähennetyn tietosisällön indikaattori</Name>
-      <Name lang="sv">Indikator för reducerad datauppsättning</Name>
-      <Name lang="en">Reduced dataset indicator</Name>
-      <XPath>/​ReducedDatasetIndicator</XPath>
-      <Format>n1</Format>
-      <Use>FI013A</Use>
-      <Use>FI015A</Use>
-      <MinOccurrence use="FI013A">1</MinOccurrence>
-      <MinOccurrence use="FI015A">1</MinOccurrence>
-      <Codelist use="FI013A">CL027</Codelist>
-      <Codelist use="FI015A">CL027</Codelist>
-      <Rule use="FI013A">R0849</Rule>
-      <Rule use="FI015A">R0849</Rule>
-    </DataElement>
-    <DataElement>
-      <Name lang="fi">Turvaindikaattori</Name>
-      <Name lang="sv">Säkerhetsindikator</Name>
-      <Name lang="en">Security</Name>
-      <XPath>/​Security</XPath>
-      <Format>n1</Format>
-      <Use>FI013A</Use>
-      <Use>FI015A</Use>
-      <MinOccurrence use="FI013A">1</MinOccurrence>
-      <MinOccurrence use="FI015A">1</MinOccurrence>
-      <Codelist use="FI013A">CL217_NCTS</Codelist>
-      <Codelist use="FI015A">CL217</Codelist>
-      <Rule use="FI013A">NR9001</Rule>
-    </DataElement>
-    <DataElement>
-      <Name lang="fi">Erityisolosuhdekoodi</Name>
-      <Name lang="sv">Indikator för särskild omständighet</Name>
-      <Name lang="en">Specific circumstance indicator</Name>
-      <XPath>/​SpecificCircumstances</XPath>
-      <Format>an3</Format>
-      <Use>FI013A</Use>
-      <Use>FI015A</Use>
-      <MinOccurrence use="FI013A">0</MinOccurrence>
-      <MinOccurrence use="FI015A">0</MinOccurrence>
-      <Codelist use="FI013A">CL296</Codelist>
-      <Codelist use="FI015A">CL296</Codelist>
+      <Description lang="fi" use="FI170A">Ilmoitetaan kieli, jolla tätä ilmoitusta koskevat vastaussanomat ja päätökset halutaan.</Description>
+      <Description lang="sv" use="FI170A">Det språk på vilket svarsmeddelanden och besluten som hänför sig till deklarationen öskas mottas.</Description>
+      <Description lang="en" use="FI170A">Choose in which language the response messages and decisions are requested to be received.</Description>
     </DataElement>
     <DataElement>
       <Name lang="fi">Seuraava menettely</Name>
@@ -484,9 +517,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Format>n1</Format>
         <Use>FI046A</Use>
         <MinOccurrence use="FI046A">1</MinOccurrence>
-        <Description lang="fi" use="FI046A">Ilmoitetaan vastauskoodi 1, jos Tullin päätösesitys hyväksytään, muuten '0'.</Description>
-        <Description lang="sv" use="FI046A">Ange 1 som svarskod, om Tullens förslag till beslut godkänns, i annat fall ange 0.</Description>
-        <Description lang="en" use="FI046A">Enter the response code 1, if the proposed decision by Customs is accepted, otherwise ‘0’.</Description>
+        <Description lang="fi" use="FI046A">Ilmoitetaan vastauskoodi '1', jos Tullin päätösesitys hyväksytään, muuten '0'.</Description>
+        <Description lang="sv" use="FI046A">Ange '1' som svarskod, om Tullens förslag till beslut godkänns, i annat fall ange '0'.</Description>
+        <Description lang="en" use="FI046A">Enter the response code '1', if the proposed decision by Customs is accepted, otherwise '0'.</Description>
       </DataElement>
       <DataElement>
         <Name lang="fi">Ilmoituksen kuvaus</Name>
@@ -666,12 +699,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Use>FI013A</Use>
       <Use>FI014A</Use>
       <Use>FI015A</Use>
+      <Use>FI170A</Use>
       <MinOccurrence use="FI013A">0</MinOccurrence>
       <MinOccurrence use="FI014A">0</MinOccurrence>
       <MinOccurrence use="FI015A">0</MinOccurrence>
+      <MinOccurrence use="FI170A">0</MinOccurrence>
       <MaxOccurrence use="FI013A">1</MaxOccurrence>
       <MaxOccurrence use="FI014A">1</MaxOccurrence>
       <MaxOccurrence use="FI015A">1</MaxOccurrence>
+      <MaxOccurrence use="FI170A">1</MaxOccurrence>
       <Rule use="FI013A">NR9001</Rule>
       <DataElement>
         <Name lang="fi">Edustajan asemaa koskeva koodi</Name>
@@ -682,12 +718,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI013A</Use>
         <Use>FI014A</Use>
         <Use>FI015A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI013A">1</MinOccurrence>
         <MinOccurrence use="FI014A">1</MinOccurrence>
         <MinOccurrence use="FI015A">1</MinOccurrence>
+        <MinOccurrence use="FI170A">1</MinOccurrence>
         <Codelist use="FI013A">CL094</Codelist>
         <Codelist use="FI014A">CL094</Codelist>
         <Codelist use="FI015A">CL094</Codelist>
+        <Codelist use="FI170A">CL530</Codelist>
         <Description lang="fi" use="FI013A">Käytetään vain suoraa edustusta.</Description>
         <Description lang="sv" use="FI013A">Bara direkt ombudskap används.</Description>
         <Description lang="en" use="FI013A">Only direct representation is used.</Description>
@@ -697,6 +736,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Description lang="fi" use="FI015A">Käytetään vain suoraa edustusta.</Description>
         <Description lang="sv" use="FI015A">Bara direkt ombudskap används.</Description>
         <Description lang="en" use="FI015A">Only direct representation is used.</Description>
+        <Description lang="fi" use="FI170A">Käytetään vain suoraa edustusta.</Description>
+        <Description lang="sv" use="FI170A">Bara direkt ombudskap används.</Description>
+        <Description lang="en" use="FI170A">Only direct representation is used.</Description>
       </DataElement>
       <DataElement>
         <Name lang="fi">Tunnistenumero</Name>
@@ -707,16 +749,18 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI013A</Use>
         <Use>FI014A</Use>
         <Use>FI015A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI013A">1</MinOccurrence>
         <MinOccurrence use="FI014A">1</MinOccurrence>
         <MinOccurrence use="FI015A">1</MinOccurrence>
+        <MinOccurrence use="FI170A">1</MinOccurrence>
         <Rule use="FI013A">R0850</Rule>
         <Rule use="FI014A">R0850</Rule>
         <Rule use="FI015A">NR0034</Rule>
         <Rule use="FI015A">NR0035</Rule>
-        <Rule use="FI015A">NR0036</Rule>
         <Rule use="FI015A">NR9021</Rule>
         <Rule use="FI015A">R0850</Rule>
+        <Rule use="FI170A">R0850</Rule>
       </DataElement>
       <DataGroup>
         <Name lang="fi">Toimipaikkakoodi</Name>
@@ -726,12 +770,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI013A</Use>
         <Use>FI014A</Use>
         <Use>FI015A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI013A">0</MinOccurrence>
         <MinOccurrence use="FI014A">0</MinOccurrence>
         <MinOccurrence use="FI015A">0</MinOccurrence>
+        <MinOccurrence use="FI170A">0</MinOccurrence>
         <MaxOccurrence use="FI013A">1</MaxOccurrence>
         <MaxOccurrence use="FI014A">1</MaxOccurrence>
         <MaxOccurrence use="FI015A">1</MaxOccurrence>
+        <MaxOccurrence use="FI170A">1</MaxOccurrence>
         <Condition use="FI013A">NC0221</Condition>
         <Condition use="FI014A">NC0221</Condition>
         <DataElement>
@@ -743,15 +790,19 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI013A</Use>
           <Use>FI014A</Use>
           <Use>FI015A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI013A">1</MinOccurrence>
           <MinOccurrence use="FI014A">1</MinOccurrence>
           <MinOccurrence use="FI015A">1</MinOccurrence>
+          <MinOccurrence use="FI170A">1</MinOccurrence>
           <Rule use="FI013A">NR1103</Rule>
           <Rule use="FI013A">NR1104</Rule>
           <Rule use="FI014A">NR1103</Rule>
           <Rule use="FI014A">NR1104</Rule>
           <Rule use="FI015A">NR1103</Rule>
           <Rule use="FI015A">NR1104</Rule>
+          <Rule use="FI170A">NR1103</Rule>
+          <Rule use="FI170A">NR1104</Rule>
           <Description lang="fi" use="FI013A">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</Description>
           <Description lang="sv" use="FI013A">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</Description>
           <Description lang="en" use="FI013A">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</Description>
@@ -761,6 +812,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Description lang="fi" use="FI015A">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</Description>
           <Description lang="sv" use="FI015A">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</Description>
           <Description lang="en" use="FI015A">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</Description>
+          <Description lang="fi" use="FI170A">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</Description>
+          <Description lang="sv" use="FI170A">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</Description>
+          <Description lang="en" use="FI170A">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</Description>
         </DataElement>
       </DataGroup>
     </DataGroup>
@@ -782,7 +836,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI014A">1</MinOccurrence>
         <Rule use="FI014A">NR0034</Rule>
         <Rule use="FI014A">NR0035</Rule>
-        <Rule use="FI014A">NR0036</Rule>
         <Rule use="FI014A">NR9021</Rule>
         <Rule use="FI014A">NR9050</Rule>
         <Rule use="FI014A">R0850</Rule>
@@ -909,7 +962,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI044A</Use>
         <MinOccurrence use="FI007A">1</MinOccurrence>
         <MinOccurrence use="FI044A">1</MinOccurrence>
-        <Rule use="FI007A">NR1003</Rule>
         <Rule use="FI007A">R0850</Rule>
         <Rule use="FI044A">R0850</Rule>
       </DataElement>
@@ -953,17 +1005,24 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <XPath>/​Principal</XPath>
       <Use>FI013A</Use>
       <Use>FI015A</Use>
+      <Use>FI170A</Use>
       <MinOccurrence use="FI013A">1</MinOccurrence>
       <MinOccurrence use="FI015A">1</MinOccurrence>
+      <MinOccurrence use="FI170A">1</MinOccurrence>
       <MaxOccurrence use="FI013A">1</MaxOccurrence>
       <MaxOccurrence use="FI015A">1</MaxOccurrence>
+      <MaxOccurrence use="FI170A">1</MaxOccurrence>
       <Rule use="FI013A">NR9001</Rule>
+      <Rule use="FI170A">NR9001</Rule>
       <Description lang="fi" use="FI013A">Ilmoitetaan passituksesta vastaava passitusvakuuden haltija, joka vastaa ilmoituksen oikeellisuudesta.</Description>
       <Description lang="sv" use="FI013A">Ange den huvudansvarige för transiteringen, dvs. innehavaren av transiteringsgarantin som ansvarar för deklarationens riktighet.</Description>
       <Description lang="en" use="FI013A">Provide the principal holding the transit guarantee, who is in charge of the accuracy of the declaration.</Description>
       <Description lang="fi" use="FI015A">Ilmoitetaan passituksesta vastaava passitusvakuuden haltija, joka vastaa ilmoituksen oikeellisuudesta.</Description>
       <Description lang="sv" use="FI015A">Ange den huvudansvarige för transiteringen, dvs. innehavaren av transiteringsgarantin som ansvarar för deklarationens riktighet.</Description>
       <Description lang="en" use="FI015A">Provide the principal holding the transit guarantee, who is in charge of the accuracy of the declaration.</Description>
+      <Description lang="fi" use="FI170A">Ilmoitetaan passituksesta vastaava passitusvakuuden haltija, joka vastaa ilmoituksen oikeellisuudesta.</Description>
+      <Description lang="sv" use="FI170A">Ange den huvudansvarige för transiteringen, dvs. innehavaren av transiteringsgarantin som ansvarar för deklarationens riktighet.</Description>
+      <Description lang="en" use="FI170A">Provide the principal holding the transit guarantee, who is in charge of the accuracy of the declaration.</Description>
       <DataElement>
         <Name lang="fi">Tunnistenumero</Name>
         <Name lang="sv">Identifieringsnummer</Name>
@@ -972,16 +1031,20 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Format>an..17</Format>
         <Use>FI013A</Use>
         <Use>FI015A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI013A">1</MinOccurrence>
         <MinOccurrence use="FI015A">1</MinOccurrence>
+        <MinOccurrence use="FI170A">1</MinOccurrence>
         <Rule use="FI013A">NR0034</Rule>
         <Rule use="FI013A">NR0035</Rule>
-        <Rule use="FI013A">NR0036</Rule>
         <Rule use="FI013A">NR9021</Rule>
         <Rule use="FI013A">NR9039</Rule>
         <Rule use="FI013A">R0850</Rule>
         <Rule use="FI015A">NR9021</Rule>
         <Rule use="FI015A">R0850</Rule>
+        <Rule use="FI170A">NR9021</Rule>
+        <Rule use="FI170A">NR9039</Rule>
+        <Rule use="FI170A">R0850</Rule>
       </DataElement>
       <DataGroup>
         <Name lang="fi">Toimipaikkakoodi</Name>
@@ -990,10 +1053,13 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <XPath>/​Principal/​AdditionalIdentifier</XPath>
         <Use>FI013A</Use>
         <Use>FI015A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI013A">0</MinOccurrence>
         <MinOccurrence use="FI015A">0</MinOccurrence>
+        <MinOccurrence use="FI170A">0</MinOccurrence>
         <MaxOccurrence use="FI013A">1</MaxOccurrence>
         <MaxOccurrence use="FI015A">1</MaxOccurrence>
+        <MaxOccurrence use="FI170A">1</MaxOccurrence>
         <DataElement>
           <Name lang="fi">Toimipaikkakoodi</Name>
           <Name lang="sv">Kod för verksamhetsställe</Name>
@@ -1002,18 +1068,25 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Format>n3</Format>
           <Use>FI013A</Use>
           <Use>FI015A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI013A">1</MinOccurrence>
           <MinOccurrence use="FI015A">1</MinOccurrence>
+          <MinOccurrence use="FI170A">1</MinOccurrence>
           <Rule use="FI013A">NR1103</Rule>
           <Rule use="FI013A">NR1104</Rule>
           <Rule use="FI015A">NR1103</Rule>
           <Rule use="FI015A">NR1104</Rule>
+          <Rule use="FI170A">NR1103</Rule>
+          <Rule use="FI170A">NR1104</Rule>
           <Description lang="fi" use="FI013A">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</Description>
           <Description lang="sv" use="FI013A">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</Description>
           <Description lang="en" use="FI013A">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</Description>
           <Description lang="fi" use="FI015A">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</Description>
           <Description lang="sv" use="FI015A">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</Description>
           <Description lang="en" use="FI015A">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</Description>
+          <Description lang="fi" use="FI170A">Ilmoitetaan toimipisteen kolmenumeroinen (esimerkiksi 000) kansallinen tunniste, jos sellainen on annettu.</Description>
+          <Description lang="sv" use="FI170A">Verksamhetsställets nationella kod med tre siffror (t.ex. 000) anges, om en sådan har tilldelats.</Description>
+          <Description lang="en" use="FI170A">The three-digit national identifier of the office (e.g. 000) is entered, if such an identifier has been issued.</Description>
         </DataElement>
       </DataGroup>
       <DataElement>
@@ -1024,10 +1097,13 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Format>an..17</Format>
         <Use>FI013A</Use>
         <Use>FI015A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI013A">0</MinOccurrence>
         <MinOccurrence use="FI015A">0</MinOccurrence>
+        <MinOccurrence use="FI170A">0</MinOccurrence>
         <Condition use="FI013A">C0904</Condition>
         <Condition use="FI015A">C0904</Condition>
+        <Condition use="FI170A">C0904</Condition>
       </DataElement>
       <DataElement>
         <Name lang="fi">Nimi</Name>
@@ -1133,14 +1209,17 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Use>FI013A</Use>
       <Use>FI014A</Use>
       <Use>FI015A</Use>
+      <Use>FI170A</Use>
       <MinOccurrence use="FI007A">0</MinOccurrence>
       <MinOccurrence use="FI013A">0</MinOccurrence>
       <MinOccurrence use="FI014A">0</MinOccurrence>
       <MinOccurrence use="FI015A">0</MinOccurrence>
+      <MinOccurrence use="FI170A">0</MinOccurrence>
       <MaxOccurrence use="FI007A">1</MaxOccurrence>
       <MaxOccurrence use="FI013A">1</MaxOccurrence>
       <MaxOccurrence use="FI014A">1</MaxOccurrence>
       <MaxOccurrence use="FI015A">1</MaxOccurrence>
+      <MaxOccurrence use="FI170A">1</MaxOccurrence>
       <Description lang="fi" use="FI007A">Suoran sanoma-asioinnin palveluntarjoaja (sanoman tekninen lähettäjä) ilmoitetaan, jos sanomailmoittaja itse ei välitä sanomaa Tullille.</Description>
       <Description lang="sv" use="FI007A">Tjänsteleverantören för direkt meddelandedeklarering (teknisk avsändare av meddelanden) anges, om meddelandedeklaranten inte själv förmedlar meddelanden till Tullen.</Description>
       <Description lang="en" use="FI007A">The service provider for direct message exchange (technical sender of the message) is entered if the message exchange customer does not transmit messages to Customs.</Description>
@@ -1153,6 +1232,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Description lang="fi" use="FI015A">Suoran sanoma-asioinnin palveluntarjoaja (sanoman tekninen lähettäjä) ilmoitetaan, jos sanomailmoittaja itse ei välitä sanomaa Tullille.</Description>
       <Description lang="sv" use="FI015A">Tjänsteleverantören för direkt meddelandedeklarering (teknisk avsändare av meddelanden) anges, om meddelandedeklaranten inte själv förmedlar meddelanden till Tullen.</Description>
       <Description lang="en" use="FI015A">The service provider for direct message exchange (technical sender of the message) is entered if the message exchange customer does not transmit messages to Customs.</Description>
+      <Description lang="fi" use="FI170A">Suoran sanoma-asioinnin palveluntarjoaja (sanoman tekninen lähettäjä) ilmoitetaan, jos sanomailmoittaja itse ei välitä sanomaa Tullille.</Description>
+      <Description lang="sv" use="FI170A">Tjänsteleverantören för direkt meddelandedeklarering (teknisk avsändare av meddelanden) anges, om meddelandedeklaranten inte själv förmedlar meddelanden till Tullen.</Description>
+      <Description lang="en" use="FI170A">The service provider for direct message exchange (technical sender of the message) is entered if the message exchange customer does not transmit messages to Customs.</Description>
       <DataElement>
         <Name lang="fi">Tunnistenumero</Name>
         <Name lang="sv">Identifieringsnummer</Name>
@@ -1163,16 +1245,19 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI013A</Use>
         <Use>FI014A</Use>
         <Use>FI015A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI007A">1</MinOccurrence>
         <MinOccurrence use="FI013A">1</MinOccurrence>
         <MinOccurrence use="FI014A">1</MinOccurrence>
         <MinOccurrence use="FI015A">1</MinOccurrence>
+        <MinOccurrence use="FI170A">1</MinOccurrence>
         <Rule use="FI007A">NR1109</Rule>
         <Rule use="FI013A">NR1109</Rule>
         <Rule use="FI013A">NR9015</Rule>
         <Rule use="FI014A">NR1109</Rule>
         <Rule use="FI015A">NR1109</Rule>
         <Rule use="FI015A">NR9015</Rule>
+        <Rule use="FI170A">NR1109</Rule>
       </DataElement>
     </DataGroup>
     <DataGroup>
@@ -1187,6 +1272,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Use>FI039A</Use>
       <Use>FI044A</Use>
       <Use>FI046A</Use>
+      <Use>FI170A</Use>
       <MinOccurrence use="FI007A">1</MinOccurrence>
       <MinOccurrence use="FI013A">1</MinOccurrence>
       <MinOccurrence use="FI014A">1</MinOccurrence>
@@ -1194,6 +1280,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MinOccurrence use="FI039A">1</MinOccurrence>
       <MinOccurrence use="FI044A">1</MinOccurrence>
       <MinOccurrence use="FI046A">1</MinOccurrence>
+      <MinOccurrence use="FI170A">1</MinOccurrence>
       <MaxOccurrence use="FI007A">1</MaxOccurrence>
       <MaxOccurrence use="FI013A">1</MaxOccurrence>
       <MaxOccurrence use="FI014A">1</MaxOccurrence>
@@ -1201,6 +1288,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MaxOccurrence use="FI039A">1</MaxOccurrence>
       <MaxOccurrence use="FI044A">1</MaxOccurrence>
       <MaxOccurrence use="FI046A">1</MaxOccurrence>
+      <MaxOccurrence use="FI170A">1</MaxOccurrence>
       <DataElement>
         <Name lang="fi">Nimi</Name>
         <Name lang="sv">Namn</Name>
@@ -1214,6 +1302,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI039A</Use>
         <Use>FI044A</Use>
         <Use>FI046A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI007A">1</MinOccurrence>
         <MinOccurrence use="FI013A">1</MinOccurrence>
         <MinOccurrence use="FI014A">1</MinOccurrence>
@@ -1221,6 +1310,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI039A">1</MinOccurrence>
         <MinOccurrence use="FI044A">1</MinOccurrence>
         <MinOccurrence use="FI046A">1</MinOccurrence>
+        <MinOccurrence use="FI170A">1</MinOccurrence>
         <Description lang="fi" use="FI007A">Ilmoitusta tekevän henkilön nimi.</Description>
         <Description lang="sv" use="FI007A">Namnet på personen som upprättar deklarationen.</Description>
         <Description lang="en" use="FI007A">Name of the person actually filing the declaration.</Description>
@@ -1242,6 +1332,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Description lang="fi" use="FI046A">Ilmoitusta tekevän henkilön nimi.</Description>
         <Description lang="sv" use="FI046A">Namnet på personen som upprättar deklarationen.</Description>
         <Description lang="en" use="FI046A">Name of the person actually filing the declaration.</Description>
+        <Description lang="fi" use="FI170A">Ilmoitusta tekevän henkilön nimi.</Description>
+        <Description lang="sv" use="FI170A">Namnet på personen som upprättar deklarationen.</Description>
+        <Description lang="en" use="FI170A">Name of the person actually filing the declaration.</Description>
       </DataElement>
       <DataGroup>
         <Name lang="fi">Sähköposti</Name>
@@ -1255,6 +1348,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI039A</Use>
         <Use>FI044A</Use>
         <Use>FI046A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI007A">1</MinOccurrence>
         <MinOccurrence use="FI013A">1</MinOccurrence>
         <MinOccurrence use="FI014A">1</MinOccurrence>
@@ -1262,6 +1356,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI039A">1</MinOccurrence>
         <MinOccurrence use="FI044A">1</MinOccurrence>
         <MinOccurrence use="FI046A">1</MinOccurrence>
+        <MinOccurrence use="FI170A">1</MinOccurrence>
         <MaxOccurrence use="FI007A">1</MaxOccurrence>
         <MaxOccurrence use="FI013A">1</MaxOccurrence>
         <MaxOccurrence use="FI014A">1</MaxOccurrence>
@@ -1269,6 +1364,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MaxOccurrence use="FI039A">1</MaxOccurrence>
         <MaxOccurrence use="FI044A">1</MaxOccurrence>
         <MaxOccurrence use="FI046A">1</MaxOccurrence>
+        <MaxOccurrence use="FI170A">1</MaxOccurrence>
         <DataElement>
           <Name lang="fi">Sähköpostiosoite</Name>
           <Name lang="sv">E-postadress</Name>
@@ -1282,6 +1378,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI039A</Use>
           <Use>FI044A</Use>
           <Use>FI046A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI007A">1</MinOccurrence>
           <MinOccurrence use="FI013A">1</MinOccurrence>
           <MinOccurrence use="FI014A">1</MinOccurrence>
@@ -1289,6 +1386,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI039A">1</MinOccurrence>
           <MinOccurrence use="FI044A">1</MinOccurrence>
           <MinOccurrence use="FI046A">1</MinOccurrence>
+          <MinOccurrence use="FI170A">1</MinOccurrence>
           <Description lang="fi" use="FI007A">Ilmoitetaan sähköpostiosoite, josta Tulli voi kysyä tarvittessa lisätietoa tästä ilmoituksesta.</Description>
           <Description lang="sv" use="FI007A">E-postadress från vilken Tullen vid behov kan begära ytterligare uppgifter om denna deklaration anmäls.</Description>
           <Description lang="en" use="FI007A">Email address for Customs' additional inquiries on this declaration is entered.</Description>
@@ -1310,6 +1408,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Description lang="fi" use="FI046A">Ilmoitetaan sähköpostiosoite, josta Tulli voi kysyä tarvittessa lisätietoa tästä ilmoituksesta.</Description>
           <Description lang="sv" use="FI046A">E-postadress från vilken Tullen vid behov kan begära ytterligare uppgifter om denna deklaration anmäls.</Description>
           <Description lang="en" use="FI046A">Email address for Customs' additional inquiries on this declaration is entered.</Description>
+          <Description lang="fi" use="FI170A">Ilmoitetaan sähköpostiosoite, josta Tulli voi kysyä tarvittessa lisätietoa tästä ilmoituksesta.</Description>
+          <Description lang="sv" use="FI170A">E-postadress från vilken Tullen vid behov kan begära ytterligare uppgifter om denna deklaration anmäls.</Description>
+          <Description lang="en" use="FI170A">Email address for Customs' additional inquiries on this declaration is entered.</Description>
         </DataElement>
         <DataElement>
           <Name lang="fi">Viestintätapa</Name>
@@ -1324,6 +1425,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI039A</Use>
           <Use>FI044A</Use>
           <Use>FI046A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI007A">1</MinOccurrence>
           <MinOccurrence use="FI013A">1</MinOccurrence>
           <MinOccurrence use="FI014A">1</MinOccurrence>
@@ -1331,6 +1433,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI039A">1</MinOccurrence>
           <MinOccurrence use="FI044A">1</MinOccurrence>
           <MinOccurrence use="FI046A">1</MinOccurrence>
+          <MinOccurrence use="FI170A">1</MinOccurrence>
           <Codelist use="FI007A">CL707</Codelist>
           <Codelist use="FI013A">CL707</Codelist>
           <Codelist use="FI014A">CL707</Codelist>
@@ -1338,6 +1441,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Codelist use="FI039A">CL707</Codelist>
           <Codelist use="FI044A">CL707</Codelist>
           <Codelist use="FI046A">CL707</Codelist>
+          <Codelist use="FI170A">CL707</Codelist>
         </DataElement>
       </DataGroup>
       <DataGroup>
@@ -1352,6 +1456,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI039A</Use>
         <Use>FI044A</Use>
         <Use>FI046A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI007A">0</MinOccurrence>
         <MinOccurrence use="FI013A">0</MinOccurrence>
         <MinOccurrence use="FI014A">0</MinOccurrence>
@@ -1359,6 +1464,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI039A">0</MinOccurrence>
         <MinOccurrence use="FI044A">0</MinOccurrence>
         <MinOccurrence use="FI046A">0</MinOccurrence>
+        <MinOccurrence use="FI170A">0</MinOccurrence>
         <MaxOccurrence use="FI007A">1</MaxOccurrence>
         <MaxOccurrence use="FI013A">1</MaxOccurrence>
         <MaxOccurrence use="FI014A">1</MaxOccurrence>
@@ -1366,6 +1472,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MaxOccurrence use="FI039A">1</MaxOccurrence>
         <MaxOccurrence use="FI044A">1</MaxOccurrence>
         <MaxOccurrence use="FI046A">1</MaxOccurrence>
+        <MaxOccurrence use="FI170A">1</MaxOccurrence>
         <DataElement>
           <Name lang="fi">Puhelinnumero</Name>
           <Name lang="sv">Telefonnummer</Name>
@@ -1379,6 +1486,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI039A</Use>
           <Use>FI044A</Use>
           <Use>FI046A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI007A">1</MinOccurrence>
           <MinOccurrence use="FI013A">1</MinOccurrence>
           <MinOccurrence use="FI014A">1</MinOccurrence>
@@ -1386,6 +1494,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI039A">1</MinOccurrence>
           <MinOccurrence use="FI044A">1</MinOccurrence>
           <MinOccurrence use="FI046A">1</MinOccurrence>
+          <MinOccurrence use="FI170A">1</MinOccurrence>
           <Description lang="fi" use="FI007A">Ilmoitetaan puhelinnumero, josta Tulli voi kysyä tarvittaessa lisätietoa tästä ilmoituksesta.</Description>
           <Description lang="sv" use="FI007A">Telefonnummer från vilken Tullen vid behov kan begära ytterligare uppgifter om denna deklaration anmäls.</Description>
           <Description lang="en" use="FI007A">Phone number for Customs' additional inquiries on this declaration is entered.</Description>
@@ -1407,6 +1516,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Description lang="fi" use="FI046A">Ilmoitetaan puhelinnumero, josta Tulli voi kysyä tarvittaessa lisätietoa tästä ilmoituksesta.</Description>
           <Description lang="sv" use="FI046A">Telefonnummer från vilken Tullen vid behov kan begära ytterligare uppgifter om denna deklaration anmäls.</Description>
           <Description lang="en" use="FI046A">Phone number for Customs' additional inquiries on this declaration is entered.</Description>
+          <Description lang="fi" use="FI170A">Ilmoitetaan puhelinnumero, josta Tulli voi kysyä tarvittaessa lisätietoa tästä ilmoituksesta.</Description>
+          <Description lang="sv" use="FI170A">Telefonnummer från vilken Tullen vid behov kan begära ytterligare uppgifter om denna deklaration anmäls.</Description>
+          <Description lang="en" use="FI170A">Phone number for Customs' additional inquiries on this declaration is entered.</Description>
         </DataElement>
         <DataElement>
           <Name lang="fi">Viestintätapa</Name>
@@ -1421,6 +1533,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI039A</Use>
           <Use>FI044A</Use>
           <Use>FI046A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI007A">1</MinOccurrence>
           <MinOccurrence use="FI013A">1</MinOccurrence>
           <MinOccurrence use="FI014A">1</MinOccurrence>
@@ -1428,6 +1541,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI039A">1</MinOccurrence>
           <MinOccurrence use="FI044A">1</MinOccurrence>
           <MinOccurrence use="FI046A">1</MinOccurrence>
+          <MinOccurrence use="FI170A">1</MinOccurrence>
           <Codelist use="FI007A">CL707</Codelist>
           <Codelist use="FI013A">CL707</Codelist>
           <Codelist use="FI014A">CL707</Codelist>
@@ -1435,6 +1549,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Codelist use="FI039A">CL707</Codelist>
           <Codelist use="FI044A">CL707</Codelist>
           <Codelist use="FI046A">CL707</Codelist>
+          <Codelist use="FI170A">CL707</Codelist>
         </DataElement>
       </DataGroup>
     </DataGroup>
@@ -1544,10 +1659,8 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI015A">0</MinOccurrence>
         <Rule use="FI007A">NR9041</Rule>
         <Rule use="FI007A">R0995</Rule>
-        <Rule use="FI013A">NR1003</Rule>
         <Rule use="FI013A">NR9042</Rule>
         <Rule use="FI013A">R0995</Rule>
-        <Rule use="FI015A">NR1003</Rule>
         <Rule use="FI015A">NR9042</Rule>
         <Rule use="FI015A">R0995</Rule>
         <Condition use="FI013A">NC9021</Condition>
@@ -1563,14 +1676,17 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Use>FI013A</Use>
       <Use>FI015A</Use>
       <Use>FI044A</Use>
+      <Use>FI170A</Use>
       <MinOccurrence use="FI007A">1</MinOccurrence>
       <MinOccurrence use="FI013A">1</MinOccurrence>
       <MinOccurrence use="FI015A">1</MinOccurrence>
       <MinOccurrence use="FI044A">0</MinOccurrence>
+      <MinOccurrence use="FI170A">1</MinOccurrence>
       <MaxOccurrence use="FI007A">1</MaxOccurrence>
       <MaxOccurrence use="FI013A">1</MaxOccurrence>
       <MaxOccurrence use="FI015A">1</MaxOccurrence>
       <MaxOccurrence use="FI044A">1</MaxOccurrence>
+      <MaxOccurrence use="FI170A">1</MaxOccurrence>
       <Description lang="fi" use="FI013A">Jos passituksella on tavaraa vain yhdeltä lähettäjältä yhdelle vastaanottajalle, ilmoitetaan toimijat vain lähetyserällä.</Description>
       <Description lang="sv" use="FI013A">Om transitering innehåller varor från en avsändare till en enda mottagare, anges aktörerna endast i leveransparti.</Description>
       <Description lang="en" use="FI013A">If the transit only contains goods from one consignor to one consignee, the operators are only provided on consignment level.</Description>
@@ -1588,12 +1704,16 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Format>n1</Format>
         <Use>FI013A</Use>
         <Use>FI015A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI013A">0</MinOccurrence>
         <MinOccurrence use="FI015A">0</MinOccurrence>
+        <MinOccurrence use="FI170A">0</MinOccurrence>
         <Codelist use="FI013A">CL027</Codelist>
         <Codelist use="FI015A">CL027</Codelist>
+        <Codelist use="FI170A">CL027</Codelist>
         <Condition use="FI013A">C0822</Condition>
         <Condition use="FI015A">C0822</Condition>
+        <Condition use="FI170A">C0824</Condition>
       </DataElement>
       <DataGroup>
         <Name lang="fi">Määrämaa</Name>
@@ -1650,6 +1770,24 @@ For the time being, Customs will only accept an identifier of up to 14 character
         </DataElement>
       </DataGroup>
       <DataElement>
+        <Name lang="fi">Bruttopaino</Name>
+        <Name lang="sv">Bruttovikt</Name>
+        <Name lang="en">Gross mass</Name>
+        <XPath>/​Consignment/​TotalGrossMass</XPath>
+        <Format>n..16,6</Format>
+        <Use>FI013A</Use>
+        <Use>FI015A</Use>
+        <Use>FI044A</Use>
+        <MinOccurrence use="FI013A">1</MinOccurrence>
+        <MinOccurrence use="FI015A">1</MinOccurrence>
+        <MinOccurrence use="FI044A">0</MinOccurrence>
+        <Rule use="FI013A">E1109</Rule>
+        <Rule use="FI013A">R0994</Rule>
+        <Rule use="FI015A">E1109</Rule>
+        <Rule use="FI015A">R0994</Rule>
+        <Rule use="FI044A">R0021</Rule>
+      </DataElement>
+      <DataElement>
         <Name lang="fi">Kuljetusmuoto rajalla</Name>
         <Name lang="sv">Transportsätt vid gränsen</Name>
         <Name lang="en">Mode of transport at the border</Name>
@@ -1678,390 +1816,53 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Format>n1</Format>
         <Use>FI013A</Use>
         <Use>FI015A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI013A">0</MinOccurrence>
         <MinOccurrence use="FI015A">0</MinOccurrence>
+        <MinOccurrence use="FI170A">0</MinOccurrence>
         <Codelist use="FI013A">CL218</Codelist>
         <Codelist use="FI015A">CL218</Codelist>
+        <Codelist use="FI170A">CL218</Codelist>
         <Rule use="FI013A">NR9006</Rule>
         <Rule use="FI013A">NR9007</Rule>
         <Rule use="FI015A">NR9006</Rule>
         <Rule use="FI015A">NR9007</Rule>
-      </DataElement>
-      <DataElement>
-        <Name lang="fi">Bruttopaino</Name>
-        <Name lang="sv">Bruttovikt</Name>
-        <Name lang="en">Gross mass</Name>
-        <XPath>/​Consignment/​TotalGrossMass</XPath>
-        <Format>n..16,6</Format>
-        <Use>FI013A</Use>
-        <Use>FI015A</Use>
-        <Use>FI044A</Use>
-        <MinOccurrence use="FI013A">1</MinOccurrence>
-        <MinOccurrence use="FI015A">1</MinOccurrence>
-        <MinOccurrence use="FI044A">0</MinOccurrence>
-        <Rule use="FI013A">E1109</Rule>
-        <Rule use="FI013A">R0994</Rule>
-        <Rule use="FI015A">E1109</Rule>
-        <Rule use="FI015A">R0994</Rule>
-        <Rule use="FI044A">R0021</Rule>
+        <Condition use="FI170A">C0170</Condition>
       </DataElement>
       <DataGroup>
-        <Name lang="fi">Liiteasiakirja</Name>
-        <Name lang="sv">Bifogat dokument</Name>
-        <Name lang="en">Supporting document</Name>
-        <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"</XPath>
+        <Name lang="fi">Viitenumero/UCR</Name>
+        <Name lang="sv">Referensnummer/UCR</Name>
+        <Name lang="en">Reference number/UCR</Name>
+        <XPath>/​Consignment/​UCR</XPath>
         <Use>FI013A</Use>
         <Use>FI015A</Use>
-        <Use>FI044A</Use>
         <MinOccurrence use="FI013A">0</MinOccurrence>
         <MinOccurrence use="FI015A">0</MinOccurrence>
-        <MinOccurrence use="FI044A">0</MinOccurrence>
-        <MaxOccurrence use="FI013A">99</MaxOccurrence>
-        <MaxOccurrence use="FI015A">99</MaxOccurrence>
-        <MaxOccurrence use="FI044A">99</MaxOccurrence>
-        <Rule use="FI013A">E1301</Rule>
-        <Rule use="FI015A">E1301</Rule>
-        <Description lang="fi" use="FI044A">Ilmoita valtuutetun vastaanottajan luvan tiedot.</Description>
-        <Description lang="sv" use="FI044A">Ange den godkända mottagarens tillståndsuppgifter.</Description>
-        <Description lang="en" use="FI044A">Enter the authorised consignee’s authorisation details.</Description>
+        <MaxOccurrence use="FI013A">1</MaxOccurrence>
+        <MaxOccurrence use="FI015A">1</MaxOccurrence>
+        <Rule use="FI015A">NB9005</Rule>
+        <Condition use="FI013A">C0502</Condition>
+        <Condition use="FI015A">C0502</Condition>
         <DataElement>
-          <Name lang="fi">Järjestysnumero</Name>
-          <Name lang="sv">Ordningsnummer</Name>
-          <Name lang="en">Sequence number</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Sequence</XPath>
-          <Format>n..5</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <Use>FI044A</Use>
-          <MinOccurrence use="FI013A">1</MinOccurrence>
-          <MinOccurrence use="FI015A">1</MinOccurrence>
-          <MinOccurrence use="FI044A">1</MinOccurrence>
-          <Rule use="FI013A">R0987</Rule>
-          <Rule use="FI015A">R0987</Rule>
-          <Rule use="FI044A">R0054</Rule>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Asiakirjatyyppi</Name>
-          <Name lang="sv">Typ av dokument</Name>
-          <Name lang="en">Document type</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Type</XPath>
-          <Format>an4</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <Use>FI044A</Use>
-          <MinOccurrence use="FI013A">1</MinOccurrence>
-          <MinOccurrence use="FI015A">1</MinOccurrence>
-          <MinOccurrence use="FI044A">0</MinOccurrence>
-          <Codelist use="FI013A">CL213_NCTS</Codelist>
-          <Codelist use="FI015A">CL213_NCTS</Codelist>
-          <Codelist use="FI044A">CL213_NCTS</Codelist>
-          <Description lang="fi" use="FI013A">Ilmoitetaan koko tulliselvitettävää erää koskevan liiteasiakirjan / luvan koodi.</Description>
-          <Description lang="sv" use="FI013A">Kod för det bifogade dokument / tillstånd som gäller hela deklarationspartiet anges.</Description>
-          <Description lang="en" use="FI013A">Code for a supporting document/licence that relates to the whole declaration at header level is entered.</Description>
-          <Description lang="fi" use="FI015A">Ilmoitetaan koko tulliselvitettävää erää koskevan liiteasiakirjan / luvan koodi.</Description>
-          <Description lang="sv" use="FI015A">Kod för det bifogade dokument / tillstånd som gäller hela deklarationspartiet anges.</Description>
-          <Description lang="en" use="FI015A">Code for a supporting document/licence that relates to the whole declaration at header level is entered.</Description>
-          <Description lang="fi" use="FI044A">Ilmoitetaan koko tulliselvitettävää erää koskevan liiteasiakirjan / luvan koodi.</Description>
-          <Description lang="sv" use="FI044A">Kod för det bifogade dokument / tillstånd som gäller hela deklarationspartiet anges.</Description>
-          <Description lang="en" use="FI044A">Code for a supporting document/licence that relates to the whole declaration at header level is entered.</Description>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Asiakirjatunniste</Name>
-          <Name lang="sv">Dokumentets identifierare</Name>
-          <Name lang="en">Document identifier</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Identification</XPath>
-          <Format>an..70</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <Use>FI044A</Use>
-          <MinOccurrence use="FI013A">1</MinOccurrence>
-          <MinOccurrence use="FI015A">1</MinOccurrence>
-          <MinOccurrence use="FI044A">0</MinOccurrence>
-          <Description lang="fi" use="FI013A">Ilmoitetaan liiteasiakirjaa / lupaa koskeva numero, tunniste tai muu yksilöintitieto.</Description>
-          <Description lang="sv" use="FI013A">Nummer, identifikation eller annan specificerande uppgift anges för det bifogade dokumentet / tillståndet anmäls.</Description>
-          <Description lang="en" use="FI013A">Number, reference or other identifier for the supporting document/licence is entered.</Description>
-          <Description lang="fi" use="FI015A">Ilmoitetaan liiteasiakirjaa / lupaa koskeva numero, tunniste tai muu yksilöintitieto.</Description>
-          <Description lang="sv" use="FI015A">Nummer, identifikation eller annan specificerande uppgift anges för det bifogade dokumentet / tillståndet anmäls.</Description>
-          <Description lang="en" use="FI015A">Number, reference or other identifier for the supporting document/licence is entered.</Description>
-          <Description lang="fi" use="FI044A">Ilmoitetaan liiteasiakirjaa / lupaa koskeva numero, tunniste tai muu yksilöintitieto.</Description>
-          <Description lang="sv" use="FI044A">Nummer, identifikation eller annan specificerande uppgift anges för det bifogade dokumentet / tillståndet anmäls.</Description>
-          <Description lang="en" use="FI044A">Number, reference or other identifier for the supporting document/licence is entered.</Description>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Asiakirjan rivin numero</Name>
-          <Name lang="sv">Varupostnummer i dokumentraden</Name>
-          <Name lang="en">Document line item number</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Line</XPath>
-          <Format>n..5</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <MinOccurrence use="FI013A">0</MinOccurrence>
-          <MinOccurrence use="FI015A">0</MinOccurrence>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Lisätietoja</Name>
-          <Name lang="sv">Kompletterande information</Name>
-          <Name lang="en">Complement of information</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​ComplementOfInformation</XPath>
+          <Name lang="fi">Viitenumero/UCR</Name>
+          <Name lang="sv">Referensnummer/UCR</Name>
+          <Name lang="en">Reference number/UCR</Name>
+          <XPath>/​Consignment/​UCR/​TraderAssignedReference</XPath>
           <Format>an..35</Format>
           <Use>FI013A</Use>
           <Use>FI015A</Use>
-          <Use>FI044A</Use>
-          <MinOccurrence use="FI013A">0</MinOccurrence>
-          <MinOccurrence use="FI015A">0</MinOccurrence>
-          <MinOccurrence use="FI044A">0</MinOccurrence>
-        </DataElement>
-        <DataGroup>
-          <Name lang="fi">Liitteen viite</Name>
-          <Name lang="sv">Bilagans referens</Name>
-          <Name lang="en">Attachment reference</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​NationalReference</XPath>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <Use>FI044A</Use>
-          <MinOccurrence use="FI013A">0</MinOccurrence>
-          <MinOccurrence use="FI015A">0</MinOccurrence>
-          <MinOccurrence use="FI044A">0</MinOccurrence>
-          <MaxOccurrence use="FI013A">1</MaxOccurrence>
-          <MaxOccurrence use="FI015A">1</MaxOccurrence>
-          <MaxOccurrence use="FI044A">1</MaxOccurrence>
-          <DataElement>
-            <Name lang="fi">Liitteen viite</Name>
-            <Name lang="sv">Bilagans referens</Name>
-            <Name lang="en">Attachment reference</Name>
-            <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​NationalReference/​Identification</XPath>
-            <Format>an..22</Format>
-            <Use>FI013A</Use>
-            <Use>FI015A</Use>
-            <Use>FI044A</Use>
-            <MinOccurrence use="FI013A">1</MinOccurrence>
-            <MinOccurrence use="FI015A">1</MinOccurrence>
-            <MinOccurrence use="FI044A">1</MinOccurrence>
-            <Description lang="fi" use="FI013A">Tullin järjestelmän antama liitetiedosoton viite.</Description>
-            <Description lang="sv" use="FI013A">Den referens som givits till bilagda dokumentet av Tullens system.</Description>
-            <Description lang="en" use="FI013A">The reference of the attachment that the Customs' system has provided.</Description>
-            <Description lang="fi" use="FI015A">Tullin järjestelmän antama liitetiedosoton viite.</Description>
-            <Description lang="sv" use="FI015A">Den referens som givits till bilagda dokumentet av Tullens system.</Description>
-            <Description lang="en" use="FI015A">The reference of the attachment that the Customs' system has provided.</Description>
-            <Description lang="fi" use="FI044A">Tullin järjestelmän antama liitetiedosoton viite.</Description>
-            <Description lang="sv" use="FI044A">Den referens som givits till bilagda dokumentet av Tullens system.</Description>
-            <Description lang="en" use="FI044A">The reference of the attachment that the Customs' system has provided.</Description>
-          </DataElement>
-        </DataGroup>
-      </DataGroup>
-      <DataGroup>
-        <Name lang="fi">Muu viite</Name>
-        <Name lang="sv">Ytterligare referens</Name>
-        <Name lang="en">Additional reference</Name>
-        <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"</XPath>
-        <Use>FI013A</Use>
-        <Use>FI015A</Use>
-        <Use>FI044A</Use>
-        <MinOccurrence use="FI013A">0</MinOccurrence>
-        <MinOccurrence use="FI015A">0</MinOccurrence>
-        <MinOccurrence use="FI044A">0</MinOccurrence>
-        <MaxOccurrence use="FI013A">99</MaxOccurrence>
-        <MaxOccurrence use="FI015A">99</MaxOccurrence>
-        <MaxOccurrence use="FI044A">99</MaxOccurrence>
-        <Rule use="FI013A">E1301</Rule>
-        <Rule use="FI015A">E1301</Rule>
-        <Description lang="fi" use="FI013A">Tälle tietoryhmälle ei ole toistaiseksi käyttöä.</Description>
-        <Description lang="sv" use="FI013A">Denna datagrupp används inte tills vidare.</Description>
-        <Description lang="en" use="FI013A">For the time being this data group is not used.</Description>
-        <Description lang="fi" use="FI015A">Tälle tietoryhmälle ei ole toistaiseksi käyttöä.</Description>
-        <Description lang="sv" use="FI015A">Denna datagrupp används inte tills vidare.</Description>
-        <Description lang="en" use="FI015A">For the time being this data group is not used.</Description>
-        <Description lang="fi" use="FI044A">Tälle tietoryhmälle ei ole toistaiseksi käyttöä.</Description>
-        <Description lang="sv" use="FI044A">Denna datagrupp används inte tills vidare.</Description>
-        <Description lang="en" use="FI044A">For the time being this data group is not used.</Description>
-        <DataElement>
-          <Name lang="fi">Järjestysnumero</Name>
-          <Name lang="sv">Ordningsnummer</Name>
-          <Name lang="en">Sequence number</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"/​Sequence</XPath>
-          <Format>n..5</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <Use>FI044A</Use>
           <MinOccurrence use="FI013A">1</MinOccurrence>
           <MinOccurrence use="FI015A">1</MinOccurrence>
-          <MinOccurrence use="FI044A">1</MinOccurrence>
-          <Rule use="FI013A">R0987</Rule>
-          <Rule use="FI015A">R0987</Rule>
-          <Rule use="FI044A">R0054</Rule>
+          <Rule use="FI013A">NB9005</Rule>
+          <Rule use="FI013A">NB9007</Rule>
+          <Rule use="FI015A">NB9007</Rule>
+          <Description lang="fi" use="FI013A">Ilmoitetaan, jos lähetykselle on annettu yhtenäisviite UCR, eli lähettäjän antama yksilöllinen ja pysyvä viite läpi koko toimitusketjun. Se voi olla WCO (ISO 15459) -koodi tai vastaava.</Description>
+          <Description lang="sv" use="FI013A">Anges om försändelsen har tilldelats ett unikt referensnummer (UCR) av avsändaren som en unik och permanent referens genom hela leveranskedjan. Det kan vara en WCO-kod (ISO 15459) eller motsvarande.</Description>
+          <Description lang="en" use="FI013A">This detail is entered if a unique consignment reference (UCR) has been issued for the consignment, i.e. a reference issued by the consignor that is unique and remains the same throughout the supply chain. It can be a WCO (ISO 15459) code or an equivalent.</Description>
+          <Description lang="fi" use="FI015A">Ilmoitetaan, jos lähetykselle on annettu yhtenäisviite UCR, eli lähettäjän antama yksilöllinen ja pysyvä viite läpi koko toimitusketjun. Se voi olla WCO (ISO 15459) -koodi tai vastaava.</Description>
+          <Description lang="sv" use="FI015A">Anges om försändelsen har tilldelats ett unikt referensnummer (UCR) av avsändaren som en unik och permanent referens genom hela leveranskedjan. Det kan vara en WCO-kod (ISO 15459) eller motsvarande.</Description>
+          <Description lang="en" use="FI015A">This detail is entered if a unique consignment reference (UCR) has been issued for the consignment, i.e. a reference issued by the consignor that is unique and remains the same throughout the supply chain. It can be a WCO (ISO 15459) code or an equivalent.</Description>
         </DataElement>
-        <DataElement>
-          <Name lang="fi">Tyyppi</Name>
-          <Name lang="sv">Typ</Name>
-          <Name lang="en">Type</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"/​Type</XPath>
-          <Format>an4</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <Use>FI044A</Use>
-          <MinOccurrence use="FI013A">1</MinOccurrence>
-          <MinOccurrence use="FI015A">1</MinOccurrence>
-          <MinOccurrence use="FI044A">0</MinOccurrence>
-          <Codelist use="FI013A">CL380</Codelist>
-          <Codelist use="FI015A">CL380</Codelist>
-          <Codelist use="FI044A">CL380</Codelist>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Viitenumero</Name>
-          <Name lang="sv">Referensnummer</Name>
-          <Name lang="en">Reference number</Name>
-          <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"/​Identification</XPath>
-          <Format>an..70</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <Use>FI044A</Use>
-          <MinOccurrence use="FI013A">0</MinOccurrence>
-          <MinOccurrence use="FI015A">0</MinOccurrence>
-          <MinOccurrence use="FI044A">0</MinOccurrence>
-        </DataElement>
-      </DataGroup>
-      <DataGroup>
-        <Name lang="fi">Lisätieto</Name>
-        <Name lang="sv">Ytterligare uppgifter</Name>
-        <Name lang="en">Additional information</Name>
-        <XPath>/​Consignment/​AdditionalInformation</XPath>
-        <Use>FI013A</Use>
-        <Use>FI015A</Use>
-        <MinOccurrence use="FI013A">0</MinOccurrence>
-        <MinOccurrence use="FI015A">0</MinOccurrence>
-        <MaxOccurrence use="FI013A">99</MaxOccurrence>
-        <MaxOccurrence use="FI015A">99</MaxOccurrence>
-        <Rule use="FI013A">NB9000</Rule>
-        <Rule use="FI015A">NB9000</Rule>
-        <DataElement>
-          <Name lang="fi">Järjestysnumero</Name>
-          <Name lang="sv">Ordningsnummer</Name>
-          <Name lang="en">Sequence number</Name>
-          <XPath>/​Consignment/​AdditionalInformation/​Sequence</XPath>
-          <Format>n..5</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <MinOccurrence use="FI013A">1</MinOccurrence>
-          <MinOccurrence use="FI015A">1</MinOccurrence>
-          <Rule use="FI013A">R0987</Rule>
-          <Rule use="FI015A">R0987</Rule>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Lisätietokoodi</Name>
-          <Name lang="sv">Kod för ytterligare uppgifter</Name>
-          <Name lang="en">Additional information code</Name>
-          <XPath>/​Consignment/​AdditionalInformation/​Statement</XPath>
-          <Format>an5</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <MinOccurrence use="FI013A">1</MinOccurrence>
-          <MinOccurrence use="FI015A">1</MinOccurrence>
-          <Codelist use="FI013A">CL039H</Codelist>
-          <Codelist use="FI015A">CL239</Codelist>
-          <Rule use="FI013A">R3060</Rule>
-          <Rule use="FI015A">R3060</Rule>
-          <Description lang="fi" use="FI013A">Ilmoiteaan koko ilmoitukselle yhteinen lisätiedon koodi.</Description>
-          <Description lang="sv" use="FI013A">Kod för ytterligare uppgifter som är gemensam för hela deklarationen anges.</Description>
-          <Description lang="en" use="FI013A">Additional information code for the whole declaration is entered.</Description>
-          <Description lang="fi" use="FI015A">Ilmoiteaan koko ilmoitukselle yhteinen lisätiedon koodi.</Description>
-          <Description lang="sv" use="FI015A">Kod för ytterligare uppgifter som är gemensam för hela deklarationen anges.</Description>
-          <Description lang="en" use="FI015A">Additional information code for the whole declaration is entered.</Description>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Lisätiedon kuvaus</Name>
-          <Name lang="sv">Beskrivning av ytterligare uppgifter</Name>
-          <Name lang="en">Additional information description</Name>
-          <XPath>/​Consignment/​AdditionalInformation/​StatementDescription</XPath>
-          <Format>an..512</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <MinOccurrence use="FI013A">0</MinOccurrence>
-          <MinOccurrence use="FI015A">0</MinOccurrence>
-        </DataElement>
-      </DataGroup>
-      <DataGroup>
-        <Name lang="fi">Kuljetusasiakirja</Name>
-        <Name lang="sv">Transportdokument</Name>
-        <Name lang="en">Transport document</Name>
-        <XPath>/​Consignment/​TransportContractDocument</XPath>
-        <Use>FI013A</Use>
-        <Use>FI015A</Use>
-        <MinOccurrence use="FI013A">0</MinOccurrence>
-        <MinOccurrence use="FI015A">0</MinOccurrence>
-        <MaxOccurrence use="FI013A">99</MaxOccurrence>
-        <MaxOccurrence use="FI015A">99</MaxOccurrence>
-        <Rule use="FI013A">NB9001</Rule>
-        <Rule use="FI013A">NB9002</Rule>
-        <Rule use="FI013A">NB9003</Rule>
-        <Rule use="FI015A">NB9001</Rule>
-        <Rule use="FI015A">NB9002</Rule>
-        <Rule use="FI015A">NB9003</Rule>
-        <DataElement>
-          <Name lang="fi">Järjestysnumero</Name>
-          <Name lang="sv">Ordningsnummer</Name>
-          <Name lang="en">Sequence number</Name>
-          <XPath>/​Consignment/​TransportContractDocument/​Sequence</XPath>
-          <Format>n..5</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <MinOccurrence use="FI013A">1</MinOccurrence>
-          <MinOccurrence use="FI015A">1</MinOccurrence>
-          <Rule use="FI013A">R0987</Rule>
-          <Rule use="FI015A">R0987</Rule>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Asiakirjatyyppi</Name>
-          <Name lang="sv">Typ av dokument</Name>
-          <Name lang="en">Document type</Name>
-          <XPath>/​Consignment/​TransportContractDocument/​Type</XPath>
-          <Format>an4</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <MinOccurrence use="FI013A">1</MinOccurrence>
-          <MinOccurrence use="FI015A">1</MinOccurrence>
-          <Codelist use="FI013A">CL754</Codelist>
-          <Codelist use="FI015A">CL754_NCTS</Codelist>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Asiakirjatunniste</Name>
-          <Name lang="sv">Dokumentets identifierare</Name>
-          <Name lang="en">Document identifier</Name>
-          <XPath>/​Consignment/​TransportContractDocument/​Identification</XPath>
-          <Format>an..70</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <MinOccurrence use="FI013A">1</MinOccurrence>
-          <MinOccurrence use="FI015A">1</MinOccurrence>
-        </DataElement>
-        <DataGroup>
-          <Name lang="fi">Liitteen viite</Name>
-          <Name lang="sv">Bilagans referens</Name>
-          <Name lang="en">Attachment reference</Name>
-          <XPath>/​Consignment/​TransportContractDocument/​NationalReference</XPath>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <MinOccurrence use="FI013A">0</MinOccurrence>
-          <MinOccurrence use="FI015A">0</MinOccurrence>
-          <MaxOccurrence use="FI013A">1</MaxOccurrence>
-          <MaxOccurrence use="FI015A">1</MaxOccurrence>
-          <DataElement>
-            <Name lang="fi">Liitteen viite</Name>
-            <Name lang="sv">Bilagans referens</Name>
-            <Name lang="en">Attachment reference</Name>
-            <XPath>/​Consignment/​TransportContractDocument/​NationalReference/​Identification</XPath>
-            <Format>an..22</Format>
-            <Use>FI013A</Use>
-            <Use>FI015A</Use>
-            <MinOccurrence use="FI013A">1</MinOccurrence>
-            <MinOccurrence use="FI015A">1</MinOccurrence>
-            <Description lang="fi" use="FI013A">Tullin järjestelmän antama liitetiedosoton viite.</Description>
-            <Description lang="sv" use="FI013A">Den referens som givits till bilagda dokumentet av Tullens system.</Description>
-            <Description lang="en" use="FI013A">The reference of the attachment that the Customs' system has provided.</Description>
-            <Description lang="fi" use="FI015A">Tullin järjestelmän antama liitetiedosoton viite.</Description>
-            <Description lang="sv" use="FI015A">Den referens som givits till bilagda dokumentet av Tullens system.</Description>
-            <Description lang="en" use="FI015A">The reference of the attachment that the Customs' system has provided.</Description>
-          </DataElement>
-        </DataGroup>
       </DataGroup>
       <DataGroup>
         <Name lang="fi">Toimitusketjun muu toimija</Name>
@@ -2615,25 +2416,32 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI013A</Use>
         <Use>FI015A</Use>
         <Use>FI044A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI013A">0</MinOccurrence>
         <MinOccurrence use="FI015A">0</MinOccurrence>
         <MinOccurrence use="FI044A">0</MinOccurrence>
+        <MinOccurrence use="FI170A">0</MinOccurrence>
         <MaxOccurrence use="FI013A">999</MaxOccurrence>
         <MaxOccurrence use="FI015A">999</MaxOccurrence>
         <MaxOccurrence use="FI044A">999</MaxOccurrence>
+        <MaxOccurrence use="FI170A">999</MaxOccurrence>
         <Rule use="FI013A">B1891</Rule>
         <Rule use="FI013A">R0855</Rule>
         <Rule use="FI015A">B1890</Rule>
         <Rule use="FI015A">R0855</Rule>
+        <Rule use="FI170A">R0855</Rule>
         <Condition use="FI013A">C0826</Condition>
         <Condition use="FI015A">C0826</Condition>
-        <Condition use="FI015A">C0826</Condition>
+        <Condition use="FI170A">C0833</Condition>
         <Description lang="fi" use="FI013A">Ilmoitetaan sen kulkuneuvon tunnistetieto, johon tavarat on välittömästi lastattu silloin, kun passitusta aloitetaan.</Description>
         <Description lang="sv" use="FI013A">Ange identifieringsuppgifterna för det transportmedel på vilket varorna omedelbart lastats när transiteringen inleds.</Description>
         <Description lang="en" use="FI013A">Provide the identity of the means of transport onto which the goods are immediately loaded when the transit procedure starts.</Description>
         <Description lang="fi" use="FI015A">Ilmoitetaan sen kulkuneuvon tunnistetieto, johon tavarat on välittömästi lastattu silloin, kun passitusta aloitetaan.</Description>
         <Description lang="sv" use="FI015A">Ange identifieringsuppgifterna för det transportmedel på vilket varorna omedelbart lastats när transiteringen inleds.</Description>
         <Description lang="en" use="FI015A">Provide the identity of the means of transport onto which the goods are immediately loaded when the transit procedure starts.</Description>
+        <Description lang="fi" use="FI170A">Ilmoitetaan sen kulkuneuvon tunnistetieto, johon tavarat on välittömästi lastattu silloin, kun passitusta aloitetaan.</Description>
+        <Description lang="sv" use="FI170A">Ange identifieringsuppgifterna för det transportmedel på vilket varorna omedelbart lastats när transiteringen inleds.</Description>
+        <Description lang="en" use="FI170A">Provide the identity of the means of transport onto which the goods are immediately loaded when the transit procedure starts.</Description>
         <DataElement>
           <Name lang="fi">Järjestysnumero</Name>
           <Name lang="sv">Ordningsnummer</Name>
@@ -2643,12 +2451,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI013A</Use>
           <Use>FI015A</Use>
           <Use>FI044A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI013A">1</MinOccurrence>
           <MinOccurrence use="FI015A">1</MinOccurrence>
           <MinOccurrence use="FI044A">1</MinOccurrence>
+          <MinOccurrence use="FI170A">1</MinOccurrence>
           <Rule use="FI013A">R0987</Rule>
           <Rule use="FI015A">R0987</Rule>
           <Rule use="FI044A">R0054</Rule>
+          <Rule use="FI170A">R0987</Rule>
         </DataElement>
         <DataElement>
           <Name lang="fi">Kuljetusvälineen tunnistenumero</Name>
@@ -2659,9 +2470,11 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI013A</Use>
           <Use>FI015A</Use>
           <Use>FI044A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI013A">0</MinOccurrence>
           <MinOccurrence use="FI015A">0</MinOccurrence>
           <MinOccurrence use="FI044A">0</MinOccurrence>
+          <MinOccurrence use="FI170A">1</MinOccurrence>
           <Rule use="FI013A">B1815</Rule>
           <Rule use="FI013A">B1892</Rule>
           <Rule use="FI013A">B2101</Rule>
@@ -2672,6 +2485,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Rule use="FI015A">B2101</Rule>
           <Rule use="FI015A">E1103</Rule>
           <Rule use="FI015A">R0473</Rule>
+          <Rule use="FI170A">R0473</Rule>
         </DataElement>
         <DataElement>
           <Name lang="fi">Tunnistetietojen tyyppi</Name>
@@ -2682,12 +2496,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI013A</Use>
           <Use>FI015A</Use>
           <Use>FI044A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI013A">0</MinOccurrence>
           <MinOccurrence use="FI015A">0</MinOccurrence>
           <MinOccurrence use="FI044A">0</MinOccurrence>
+          <MinOccurrence use="FI170A">1</MinOccurrence>
           <Codelist use="FI013A">CL750</Codelist>
           <Codelist use="FI015A">CL750</Codelist>
           <Codelist use="FI044A">CL750</Codelist>
+          <Codelist use="FI170A">CL750</Codelist>
           <Rule use="FI013A">B1091</Rule>
           <Rule use="FI013A">B1892</Rule>
           <Rule use="FI013A">B2101</Rule>
@@ -2700,6 +2517,10 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Rule use="FI015A">R0472</Rule>
           <Rule use="FI015A">R0474</Rule>
           <Rule use="FI015A">R0476</Rule>
+          <Rule use="FI170A">B1091</Rule>
+          <Rule use="FI170A">R0472</Rule>
+          <Rule use="FI170A">R0474</Rule>
+          <Rule use="FI170A">R0476</Rule>
         </DataElement>
         <DataElement>
           <Name lang="fi">Kansallisuus</Name>
@@ -2710,16 +2531,406 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI013A</Use>
           <Use>FI015A</Use>
           <Use>FI044A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI013A">0</MinOccurrence>
           <MinOccurrence use="FI015A">0</MinOccurrence>
           <MinOccurrence use="FI044A">0</MinOccurrence>
+          <MinOccurrence use="FI170A">1</MinOccurrence>
           <Codelist use="FI013A">CL165</Codelist>
           <Codelist use="FI015A">CL165</Codelist>
           <Codelist use="FI044A">CL165</Codelist>
+          <Codelist use="FI170A">CL165</Codelist>
           <Rule use="FI013A">B1897</Rule>
           <Rule use="FI013A">B2101</Rule>
           <Rule use="FI015A">B1897</Rule>
           <Rule use="FI015A">B2101</Rule>
+        </DataElement>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Liiteasiakirja</Name>
+        <Name lang="sv">Bifogat dokument</Name>
+        <Name lang="en">Supporting document</Name>
+        <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"</XPath>
+        <Use>FI013A</Use>
+        <Use>FI015A</Use>
+        <Use>FI044A</Use>
+        <MinOccurrence use="FI013A">0</MinOccurrence>
+        <MinOccurrence use="FI015A">0</MinOccurrence>
+        <MinOccurrence use="FI044A">0</MinOccurrence>
+        <MaxOccurrence use="FI013A">99</MaxOccurrence>
+        <MaxOccurrence use="FI015A">99</MaxOccurrence>
+        <MaxOccurrence use="FI044A">99</MaxOccurrence>
+        <Rule use="FI013A">E1301</Rule>
+        <Rule use="FI015A">E1301</Rule>
+        <Description lang="fi" use="FI044A">Ilmoita valtuutetun vastaanottajan luvan tiedot.</Description>
+        <Description lang="sv" use="FI044A">Ange den godkända mottagarens tillståndsuppgifter.</Description>
+        <Description lang="en" use="FI044A">Enter the authorised consignee’s authorisation details.</Description>
+        <DataElement>
+          <Name lang="fi">Järjestysnumero</Name>
+          <Name lang="sv">Ordningsnummer</Name>
+          <Name lang="en">Sequence number</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Sequence</XPath>
+          <Format>n..5</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <Use>FI044A</Use>
+          <MinOccurrence use="FI013A">1</MinOccurrence>
+          <MinOccurrence use="FI015A">1</MinOccurrence>
+          <MinOccurrence use="FI044A">1</MinOccurrence>
+          <Rule use="FI013A">R0987</Rule>
+          <Rule use="FI015A">R0987</Rule>
+          <Rule use="FI044A">R0054</Rule>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Asiakirjatyyppi</Name>
+          <Name lang="sv">Typ av dokument</Name>
+          <Name lang="en">Document type</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Type</XPath>
+          <Format>an4</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <Use>FI044A</Use>
+          <MinOccurrence use="FI013A">1</MinOccurrence>
+          <MinOccurrence use="FI015A">1</MinOccurrence>
+          <MinOccurrence use="FI044A">0</MinOccurrence>
+          <Codelist use="FI013A">CL213_NCTS</Codelist>
+          <Codelist use="FI015A">CL213_NCTS</Codelist>
+          <Codelist use="FI044A">CL213_NCTS</Codelist>
+          <Description lang="fi" use="FI013A">Ilmoitetaan koko tulliselvitettävää erää koskevan liiteasiakirjan / luvan koodi.</Description>
+          <Description lang="sv" use="FI013A">Kod för det bifogade dokument / tillstånd som gäller hela deklarationspartiet anges.</Description>
+          <Description lang="en" use="FI013A">Code for a supporting document/licence that relates to the whole declaration at header level is entered.</Description>
+          <Description lang="fi" use="FI015A">Ilmoitetaan koko tulliselvitettävää erää koskevan liiteasiakirjan / luvan koodi.</Description>
+          <Description lang="sv" use="FI015A">Kod för det bifogade dokument / tillstånd som gäller hela deklarationspartiet anges.</Description>
+          <Description lang="en" use="FI015A">Code for a supporting document/licence that relates to the whole declaration at header level is entered.</Description>
+          <Description lang="fi" use="FI044A">Ilmoitetaan koko tulliselvitettävää erää koskevan liiteasiakirjan / luvan koodi.</Description>
+          <Description lang="sv" use="FI044A">Kod för det bifogade dokument / tillstånd som gäller hela deklarationspartiet anges.</Description>
+          <Description lang="en" use="FI044A">Code for a supporting document/licence that relates to the whole declaration at header level is entered.</Description>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Asiakirjatunniste</Name>
+          <Name lang="sv">Dokumentets identifierare</Name>
+          <Name lang="en">Document identifier</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Identification</XPath>
+          <Format>an..70</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <Use>FI044A</Use>
+          <MinOccurrence use="FI013A">1</MinOccurrence>
+          <MinOccurrence use="FI015A">1</MinOccurrence>
+          <MinOccurrence use="FI044A">0</MinOccurrence>
+          <Description lang="fi" use="FI013A">Ilmoitetaan liiteasiakirjaa / lupaa koskeva numero, tunniste tai muu yksilöintitieto.</Description>
+          <Description lang="sv" use="FI013A">Nummer, identifikation eller annan specificerande uppgift anges för det bifogade dokumentet / tillståndet anmäls.</Description>
+          <Description lang="en" use="FI013A">Number, reference or other identifier for the supporting document/licence is entered.</Description>
+          <Description lang="fi" use="FI015A">Ilmoitetaan liiteasiakirjaa / lupaa koskeva numero, tunniste tai muu yksilöintitieto.</Description>
+          <Description lang="sv" use="FI015A">Nummer, identifikation eller annan specificerande uppgift anges för det bifogade dokumentet / tillståndet anmäls.</Description>
+          <Description lang="en" use="FI015A">Number, reference or other identifier for the supporting document/licence is entered.</Description>
+          <Description lang="fi" use="FI044A">Ilmoitetaan liiteasiakirjaa / lupaa koskeva numero, tunniste tai muu yksilöintitieto.</Description>
+          <Description lang="sv" use="FI044A">Nummer, identifikation eller annan specificerande uppgift anges för det bifogade dokumentet / tillståndet anmäls.</Description>
+          <Description lang="en" use="FI044A">Number, reference or other identifier for the supporting document/licence is entered.</Description>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Asiakirjan rivin numero</Name>
+          <Name lang="sv">Varupostnummer i dokumentraden</Name>
+          <Name lang="en">Document line item number</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​Line</XPath>
+          <Format>n..5</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <MinOccurrence use="FI013A">0</MinOccurrence>
+          <MinOccurrence use="FI015A">0</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Lisätietoja</Name>
+          <Name lang="sv">Kompletterande information</Name>
+          <Name lang="en">Complement of information</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​ComplementOfInformation</XPath>
+          <Format>an..35</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <Use>FI044A</Use>
+          <MinOccurrence use="FI013A">0</MinOccurrence>
+          <MinOccurrence use="FI015A">0</MinOccurrence>
+          <MinOccurrence use="FI044A">0</MinOccurrence>
+        </DataElement>
+        <DataGroup>
+          <Name lang="fi">Liitteen viite</Name>
+          <Name lang="sv">Bilagans referens</Name>
+          <Name lang="en">Attachment reference</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​NationalReference</XPath>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <Use>FI044A</Use>
+          <MinOccurrence use="FI013A">0</MinOccurrence>
+          <MinOccurrence use="FI015A">0</MinOccurrence>
+          <MinOccurrence use="FI044A">0</MinOccurrence>
+          <MaxOccurrence use="FI013A">1</MaxOccurrence>
+          <MaxOccurrence use="FI015A">1</MaxOccurrence>
+          <MaxOccurrence use="FI044A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Liitteen viite</Name>
+            <Name lang="sv">Bilagans referens</Name>
+            <Name lang="en">Attachment reference</Name>
+            <XPath>/​Consignment/​AdditionalDocument@function="SupportingDocument"/​NationalReference/​Identification</XPath>
+            <Format>an..22</Format>
+            <Use>FI013A</Use>
+            <Use>FI015A</Use>
+            <Use>FI044A</Use>
+            <MinOccurrence use="FI013A">1</MinOccurrence>
+            <MinOccurrence use="FI015A">1</MinOccurrence>
+            <MinOccurrence use="FI044A">1</MinOccurrence>
+            <Description lang="fi" use="FI013A">Tullin järjestelmän antama liitetiedosoton viite.</Description>
+            <Description lang="sv" use="FI013A">Den referens som givits till bilagda dokumentet av Tullens system.</Description>
+            <Description lang="en" use="FI013A">The reference of the attachment that the Customs' system has provided.</Description>
+            <Description lang="fi" use="FI015A">Tullin järjestelmän antama liitetiedosoton viite.</Description>
+            <Description lang="sv" use="FI015A">Den referens som givits till bilagda dokumentet av Tullens system.</Description>
+            <Description lang="en" use="FI015A">The reference of the attachment that the Customs' system has provided.</Description>
+            <Description lang="fi" use="FI044A">Tullin järjestelmän antama liitetiedosoton viite.</Description>
+            <Description lang="sv" use="FI044A">Den referens som givits till bilagda dokumentet av Tullens system.</Description>
+            <Description lang="en" use="FI044A">The reference of the attachment that the Customs' system has provided.</Description>
+          </DataElement>
+        </DataGroup>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Muu viite</Name>
+        <Name lang="sv">Ytterligare referens</Name>
+        <Name lang="en">Additional reference</Name>
+        <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"</XPath>
+        <Use>FI013A</Use>
+        <Use>FI015A</Use>
+        <Use>FI044A</Use>
+        <MinOccurrence use="FI013A">0</MinOccurrence>
+        <MinOccurrence use="FI015A">0</MinOccurrence>
+        <MinOccurrence use="FI044A">0</MinOccurrence>
+        <MaxOccurrence use="FI013A">99</MaxOccurrence>
+        <MaxOccurrence use="FI015A">99</MaxOccurrence>
+        <MaxOccurrence use="FI044A">99</MaxOccurrence>
+        <Rule use="FI013A">E1301</Rule>
+        <Rule use="FI015A">E1301</Rule>
+        <Description lang="fi" use="FI013A">Tälle tietoryhmälle ei ole toistaiseksi käyttöä.</Description>
+        <Description lang="sv" use="FI013A">Denna datagrupp används inte tills vidare.</Description>
+        <Description lang="en" use="FI013A">For the time being this data group is not used.</Description>
+        <Description lang="fi" use="FI015A">Tälle tietoryhmälle ei ole toistaiseksi käyttöä.</Description>
+        <Description lang="sv" use="FI015A">Denna datagrupp används inte tills vidare.</Description>
+        <Description lang="en" use="FI015A">For the time being this data group is not used.</Description>
+        <Description lang="fi" use="FI044A">Tälle tietoryhmälle ei ole toistaiseksi käyttöä.</Description>
+        <Description lang="sv" use="FI044A">Denna datagrupp används inte tills vidare.</Description>
+        <Description lang="en" use="FI044A">For the time being this data group is not used.</Description>
+        <DataElement>
+          <Name lang="fi">Järjestysnumero</Name>
+          <Name lang="sv">Ordningsnummer</Name>
+          <Name lang="en">Sequence number</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"/​Sequence</XPath>
+          <Format>n..5</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <Use>FI044A</Use>
+          <MinOccurrence use="FI013A">1</MinOccurrence>
+          <MinOccurrence use="FI015A">1</MinOccurrence>
+          <MinOccurrence use="FI044A">1</MinOccurrence>
+          <Rule use="FI013A">R0987</Rule>
+          <Rule use="FI015A">R0987</Rule>
+          <Rule use="FI044A">R0054</Rule>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Tyyppi</Name>
+          <Name lang="sv">Typ</Name>
+          <Name lang="en">Type</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"/​Type</XPath>
+          <Format>an4</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <Use>FI044A</Use>
+          <MinOccurrence use="FI013A">1</MinOccurrence>
+          <MinOccurrence use="FI015A">1</MinOccurrence>
+          <MinOccurrence use="FI044A">0</MinOccurrence>
+          <Codelist use="FI013A">CL380</Codelist>
+          <Codelist use="FI015A">CL380</Codelist>
+          <Codelist use="FI044A">CL380</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Viitenumero</Name>
+          <Name lang="sv">Referensnummer</Name>
+          <Name lang="en">Reference number</Name>
+          <XPath>/​Consignment/​AdditionalDocument@function="AdditionalReference"/​Identification</XPath>
+          <Format>an..70</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <Use>FI044A</Use>
+          <MinOccurrence use="FI013A">0</MinOccurrence>
+          <MinOccurrence use="FI015A">0</MinOccurrence>
+          <MinOccurrence use="FI044A">0</MinOccurrence>
+        </DataElement>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Kuljetusasiakirja</Name>
+        <Name lang="sv">Transportdokument</Name>
+        <Name lang="en">Transport document</Name>
+        <XPath>/​Consignment/​TransportContractDocument</XPath>
+        <Use>FI013A</Use>
+        <Use>FI015A</Use>
+        <MinOccurrence use="FI013A">0</MinOccurrence>
+        <MinOccurrence use="FI015A">0</MinOccurrence>
+        <MaxOccurrence use="FI013A">99</MaxOccurrence>
+        <MaxOccurrence use="FI015A">99</MaxOccurrence>
+        <Rule use="FI013A">E1301</Rule>
+        <Rule use="FI013A">NB9001</Rule>
+        <Rule use="FI013A">NB9002</Rule>
+        <Rule use="FI013A">NB9003</Rule>
+        <Rule use="FI015A">NB9001</Rule>
+        <Rule use="FI015A">NB9002</Rule>
+        <Rule use="FI015A">NB9003</Rule>
+        <DataElement>
+          <Name lang="fi">Järjestysnumero</Name>
+          <Name lang="sv">Ordningsnummer</Name>
+          <Name lang="en">Sequence number</Name>
+          <XPath>/​Consignment/​TransportContractDocument/​Sequence</XPath>
+          <Format>n..5</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <MinOccurrence use="FI013A">1</MinOccurrence>
+          <MinOccurrence use="FI015A">1</MinOccurrence>
+          <Rule use="FI013A">R0987</Rule>
+          <Rule use="FI015A">R0987</Rule>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Asiakirjatyyppi</Name>
+          <Name lang="sv">Typ av dokument</Name>
+          <Name lang="en">Document type</Name>
+          <XPath>/​Consignment/​TransportContractDocument/​Type</XPath>
+          <Format>an4</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <MinOccurrence use="FI013A">1</MinOccurrence>
+          <MinOccurrence use="FI015A">1</MinOccurrence>
+          <Codelist use="FI013A">CL754</Codelist>
+          <Codelist use="FI015A">CL754_NCTS</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Asiakirjatunniste</Name>
+          <Name lang="sv">Dokumentets identifierare</Name>
+          <Name lang="en">Document identifier</Name>
+          <XPath>/​Consignment/​TransportContractDocument/​Identification</XPath>
+          <Format>an..70</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <MinOccurrence use="FI013A">1</MinOccurrence>
+          <MinOccurrence use="FI015A">1</MinOccurrence>
+        </DataElement>
+        <DataGroup>
+          <Name lang="fi">Liitteen viite</Name>
+          <Name lang="sv">Bilagans referens</Name>
+          <Name lang="en">Attachment reference</Name>
+          <XPath>/​Consignment/​TransportContractDocument/​NationalReference</XPath>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <MinOccurrence use="FI013A">0</MinOccurrence>
+          <MinOccurrence use="FI015A">0</MinOccurrence>
+          <MaxOccurrence use="FI013A">1</MaxOccurrence>
+          <MaxOccurrence use="FI015A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Liitteen viite</Name>
+            <Name lang="sv">Bilagans referens</Name>
+            <Name lang="en">Attachment reference</Name>
+            <XPath>/​Consignment/​TransportContractDocument/​NationalReference/​Identification</XPath>
+            <Format>an..22</Format>
+            <Use>FI013A</Use>
+            <Use>FI015A</Use>
+            <MinOccurrence use="FI013A">1</MinOccurrence>
+            <MinOccurrence use="FI015A">1</MinOccurrence>
+            <Description lang="fi" use="FI013A">Tullin järjestelmän antama liitetiedosoton viite.</Description>
+            <Description lang="sv" use="FI013A">Den referens som givits till bilagda dokumentet av Tullens system.</Description>
+            <Description lang="en" use="FI013A">The reference of the attachment that the Customs' system has provided.</Description>
+            <Description lang="fi" use="FI015A">Tullin järjestelmän antama liitetiedosoton viite.</Description>
+            <Description lang="sv" use="FI015A">Den referens som givits till bilagda dokumentet av Tullens system.</Description>
+            <Description lang="en" use="FI015A">The reference of the attachment that the Customs' system has provided.</Description>
+          </DataElement>
+        </DataGroup>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Lisätieto</Name>
+        <Name lang="sv">Ytterligare uppgifter</Name>
+        <Name lang="en">Additional information</Name>
+        <XPath>/​Consignment/​AdditionalInformation</XPath>
+        <Use>FI013A</Use>
+        <Use>FI015A</Use>
+        <MinOccurrence use="FI013A">0</MinOccurrence>
+        <MinOccurrence use="FI015A">0</MinOccurrence>
+        <MaxOccurrence use="FI013A">99</MaxOccurrence>
+        <MaxOccurrence use="FI015A">99</MaxOccurrence>
+        <Rule use="FI013A">E1301</Rule>
+        <Rule use="FI013A">NB9000</Rule>
+        <Rule use="FI015A">NB9000</Rule>
+        <DataElement>
+          <Name lang="fi">Järjestysnumero</Name>
+          <Name lang="sv">Ordningsnummer</Name>
+          <Name lang="en">Sequence number</Name>
+          <XPath>/​Consignment/​AdditionalInformation/​Sequence</XPath>
+          <Format>n..5</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <MinOccurrence use="FI013A">1</MinOccurrence>
+          <MinOccurrence use="FI015A">1</MinOccurrence>
+          <Rule use="FI013A">R0987</Rule>
+          <Rule use="FI015A">R0987</Rule>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Lisätietokoodi</Name>
+          <Name lang="sv">Kod för ytterligare uppgifter</Name>
+          <Name lang="en">Additional information code</Name>
+          <XPath>/​Consignment/​AdditionalInformation/​Statement</XPath>
+          <Format>an5</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <MinOccurrence use="FI013A">1</MinOccurrence>
+          <MinOccurrence use="FI015A">1</MinOccurrence>
+          <Codelist use="FI013A">CL239_NCTS</Codelist>
+          <Codelist use="FI015A">CL239_NCTS</Codelist>
+          <Rule use="FI013A">R3060</Rule>
+          <Rule use="FI015A">R3060</Rule>
+          <Description lang="fi" use="FI013A">Ilmoiteaan koko ilmoitukselle yhteinen lisätiedon koodi.</Description>
+          <Description lang="sv" use="FI013A">Kod för ytterligare uppgifter som är gemensam för hela deklarationen anges.</Description>
+          <Description lang="en" use="FI013A">Additional information code for the whole declaration is entered.</Description>
+          <Description lang="fi" use="FI015A">Ilmoiteaan koko ilmoitukselle yhteinen lisätiedon koodi.</Description>
+          <Description lang="sv" use="FI015A">Kod för ytterligare uppgifter som är gemensam för hela deklarationen anges.</Description>
+          <Description lang="en" use="FI015A">Additional information code for the whole declaration is entered.</Description>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Lisätiedon kuvaus</Name>
+          <Name lang="sv">Beskrivning av ytterligare uppgifter</Name>
+          <Name lang="en">Additional information description</Name>
+          <XPath>/​Consignment/​AdditionalInformation/​StatementDescription</XPath>
+          <Format>an..512</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <MinOccurrence use="FI013A">0</MinOccurrence>
+          <MinOccurrence use="FI015A">0</MinOccurrence>
+        </DataElement>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Kuljetuskustannukset</Name>
+        <Name lang="sv">Transportkostnader</Name>
+        <Name lang="en">Transport charges</Name>
+        <XPath>/​Consignment/​Freight</XPath>
+        <Use>FI013A</Use>
+        <Use>FI015A</Use>
+        <MinOccurrence use="FI013A">0</MinOccurrence>
+        <MinOccurrence use="FI015A">0</MinOccurrence>
+        <MaxOccurrence use="FI013A">1</MaxOccurrence>
+        <MaxOccurrence use="FI015A">1</MaxOccurrence>
+        <Condition use="FI013A">C0186</Condition>
+        <Condition use="FI015A">C0186</Condition>
+        <DataElement>
+          <Name lang="fi">Maksutapa</Name>
+          <Name lang="sv">Betalningssätt</Name>
+          <Name lang="en">Method of payment</Name>
+          <XPath>/​Consignment/​Freight/​PaymentMethod</XPath>
+          <Format>a1</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <MinOccurrence use="FI013A">1</MinOccurrence>
+          <MinOccurrence use="FI015A">1</MinOccurrence>
+          <Codelist use="FI013A">CL116_NCTS</Codelist>
+          <Codelist use="FI015A">CL116_NCTS</Codelist>
         </DataElement>
       </DataGroup>
       <DataGroup>
@@ -2778,12 +2989,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI007A</Use>
         <Use>FI013A</Use>
         <Use>FI015A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI007A">1</MinOccurrence>
         <MinOccurrence use="FI013A">1</MinOccurrence>
         <MinOccurrence use="FI015A">1</MinOccurrence>
+        <MinOccurrence use="FI170A">1</MinOccurrence>
         <MaxOccurrence use="FI007A">1</MaxOccurrence>
         <MaxOccurrence use="FI013A">1</MaxOccurrence>
         <MaxOccurrence use="FI015A">1</MaxOccurrence>
+        <MaxOccurrence use="FI170A">1</MaxOccurrence>
         <Rule use="FI013A">B1804</Rule>
         <Rule use="FI015A">B1804</Rule>
         <Condition use="FI013A">C0710</Condition>
@@ -2806,12 +3020,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI007A</Use>
           <Use>FI013A</Use>
           <Use>FI015A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI007A">1</MinOccurrence>
           <MinOccurrence use="FI013A">1</MinOccurrence>
           <MinOccurrence use="FI015A">1</MinOccurrence>
+          <MinOccurrence use="FI170A">1</MinOccurrence>
           <Codelist use="FI007A">CL347</Codelist>
           <Codelist use="FI013A">CL347</Codelist>
           <Codelist use="FI015A">CL347</Codelist>
+          <Codelist use="FI170A">CL521</Codelist>
           <Rule use="FI007A">NR9032</Rule>
           <Rule use="FI013A">NR9044</Rule>
           <Rule use="FI015A">NR9044</Rule>
@@ -2830,16 +3047,22 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Format>an8</Format>
           <Use>FI013A</Use>
           <Use>FI015A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI013A">0</MinOccurrence>
           <MinOccurrence use="FI015A">0</MinOccurrence>
+          <MinOccurrence use="FI170A">0</MinOccurrence>
           <Codelist use="FI013A">CL171</Codelist>
           <Codelist use="FI015A">CL171</Codelist>
+          <Codelist use="FI170A">CL171</Codelist>
           <Description lang="fi" use="FI013A">Tullitoimipaikan koodia ei toistaiseksi voi käyttää.</Description>
           <Description lang="sv" use="FI013A">Tullkontorets kod kan tills vidare inte användas.</Description>
           <Description lang="en" use="FI013A">For the time being the customs office code cannot be used.</Description>
           <Description lang="fi" use="FI015A">Tullitoimipaikan koodia ei toistaiseksi voi käyttää.</Description>
           <Description lang="sv" use="FI015A">Tullkontorets kod kan tills vidare inte användas.</Description>
           <Description lang="en" use="FI015A">For the time being the customs office code cannot be used.</Description>
+          <Description lang="fi" use="FI170A">Tullitoimipaikan koodia ei toistaiseksi voi käyttää.</Description>
+          <Description lang="sv" use="FI170A">Tullkontorets kod kan tills vidare inte användas.</Description>
+          <Description lang="en" use="FI170A">For the time being the customs office code cannot be used.</Description>
         </DataElement>
         <DataElement>
           <Name lang="fi">Talouden toimija</Name>
@@ -2850,15 +3073,19 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI007A</Use>
           <Use>FI013A</Use>
           <Use>FI015A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI007A">1</MinOccurrence>
           <MinOccurrence use="FI013A">0</MinOccurrence>
           <MinOccurrence use="FI015A">0</MinOccurrence>
+          <MinOccurrence use="FI170A">0</MinOccurrence>
           <Rule use="FI007A">NR9048</Rule>
           <Rule use="FI013A">R0850</Rule>
           <Rule use="FI015A">R0850</Rule>
+          <Rule use="FI170A">R0850</Rule>
           <Condition use="FI007A">NC0035</Condition>
           <Condition use="FI013A">NC0035</Condition>
           <Condition use="FI015A">NC0035</Condition>
+          <Condition use="FI170A">NC0035</Condition>
           <Description lang="fi" use="FI007A">Ilmoitetaan toimijan EORI, jos kyseessä on tullin hyväksymä paikka. Jos tavarat halutaan tarkastettavan varastossa, ilmoitetaan varaston tunniste muodossa EORI+3+2.</Description>
           <Description lang="sv" use="FI007A">Aktörens EORI ska anges om fråga om en plats godtagen av Tullen. Om varorna ska inspekteras i lager ska lageridentifieringen ha formen EORI+3+2.</Description>
           <Description lang="en" use="FI007A">The EORI of the operator, in the case of a place approved by Customs, is entered. If goods are to be inspected in a warehouse, the warehouse identifier shall be in the form EORI+3+2.</Description>
@@ -2868,6 +3095,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Description lang="fi" use="FI015A">Ilmoitetaan toimijan EORI, jos kyseessä on tullin hyväksymä paikka. Jos tavarat halutaan tarkastettavan varastossa, ilmoitetaan varaston tunniste muodossa EORI+3+2.</Description>
           <Description lang="sv" use="FI015A">Aktörens EORI ska anges om fråga om en plats godtagen av Tullen. Om varorna ska inspekteras i lager ska lageridentifieringen ha formen EORI+3+2.</Description>
           <Description lang="en" use="FI015A">The EORI of the operator, in the case of a place approved by Customs, is entered. If goods are to be inspected in a warehouse, the warehouse identifier shall be in the form EORI+3+2.</Description>
+          <Description lang="fi" use="FI170A">Ilmoitetaan toimijan EORI, jos kyseessä on tullin hyväksymä paikka. Jos tavarat halutaan tarkastettavan varastossa, ilmoitetaan varaston tunniste muodossa EORI+3+2.</Description>
+          <Description lang="sv" use="FI170A">Aktörens EORI ska anges om fråga om en plats godtagen av Tullen. Om varorna ska inspekteras i lager ska lageridentifieringen ha formen EORI+3+2.</Description>
+          <Description lang="en" use="FI170A">The EORI of the operator, in the case of a place approved by Customs, is entered. If goods are to be inspected in a warehouse, the warehouse identifier shall be in the form EORI+3+2.</Description>
         </DataElement>
         <DataGroup>
           <Name lang="fi">Osoite</Name>
@@ -2877,15 +3107,19 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI007A</Use>
           <Use>FI013A</Use>
           <Use>FI015A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI007A">0</MinOccurrence>
           <MinOccurrence use="FI013A">0</MinOccurrence>
           <MinOccurrence use="FI015A">0</MinOccurrence>
+          <MinOccurrence use="FI170A">0</MinOccurrence>
           <MaxOccurrence use="FI007A">1</MaxOccurrence>
           <MaxOccurrence use="FI013A">1</MaxOccurrence>
           <MaxOccurrence use="FI015A">1</MaxOccurrence>
+          <MaxOccurrence use="FI170A">1</MaxOccurrence>
           <Condition use="FI007A">NC9012</Condition>
           <Condition use="FI013A">NC9012</Condition>
           <Condition use="FI015A">NC9012</Condition>
+          <Condition use="FI170A">NC9012</Condition>
           <Description lang="fi" use="FI013A">Ilmoitetaan sijaintipaikan osoite vain kun sijantipaikan tyyppi on 'D'.</Description>
           <Description lang="sv" use="FI013A">Ange förvaringsplatsens adress endast när typen av förvaringsplats är 'D'.</Description>
           <Description lang="en" use="FI013A">Provide the address of the location of the goods only when the type of location is 'D'.</Description>
@@ -2901,9 +3135,11 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Use>FI007A</Use>
             <Use>FI013A</Use>
             <Use>FI015A</Use>
+            <Use>FI170A</Use>
             <MinOccurrence use="FI007A">1</MinOccurrence>
             <MinOccurrence use="FI013A">1</MinOccurrence>
             <MinOccurrence use="FI015A">1</MinOccurrence>
+            <MinOccurrence use="FI170A">1</MinOccurrence>
             <Rule use="FI013A">E1104</Rule>
             <Rule use="FI015A">E1104</Rule>
           </DataElement>
@@ -2916,9 +3152,11 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Use>FI007A</Use>
             <Use>FI013A</Use>
             <Use>FI015A</Use>
+            <Use>FI170A</Use>
             <MinOccurrence use="FI007A">1</MinOccurrence>
             <MinOccurrence use="FI013A">1</MinOccurrence>
             <MinOccurrence use="FI015A">1</MinOccurrence>
+            <MinOccurrence use="FI170A">1</MinOccurrence>
           </DataElement>
           <DataElement>
             <Name lang="fi">Postinumero</Name>
@@ -2929,14 +3167,17 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Use>FI007A</Use>
             <Use>FI013A</Use>
             <Use>FI015A</Use>
+            <Use>FI170A</Use>
             <MinOccurrence use="FI007A">0</MinOccurrence>
             <MinOccurrence use="FI013A">0</MinOccurrence>
             <MinOccurrence use="FI015A">0</MinOccurrence>
+            <MinOccurrence use="FI170A">0</MinOccurrence>
             <Rule use="FI013A">E1102</Rule>
             <Rule use="FI015A">E1102</Rule>
             <Condition use="FI007A">C0505</Condition>
             <Condition use="FI013A">C0505</Condition>
             <Condition use="FI015A">C0505</Condition>
+            <Condition use="FI170A">C0505</Condition>
           </DataElement>
           <DataElement>
             <Name lang="fi">Maa</Name>
@@ -2947,12 +3188,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Use>FI007A</Use>
             <Use>FI013A</Use>
             <Use>FI015A</Use>
+            <Use>FI170A</Use>
             <MinOccurrence use="FI007A">1</MinOccurrence>
             <MinOccurrence use="FI013A">1</MinOccurrence>
             <MinOccurrence use="FI015A">1</MinOccurrence>
+            <MinOccurrence use="FI170A">1</MinOccurrence>
             <Codelist use="FI007A">CL009</Codelist>
             <Codelist use="FI013A">CL009</Codelist>
             <Codelist use="FI015A">CL009</Codelist>
+            <Codelist use="FI170A">CL009</Codelist>
           </DataElement>
         </DataGroup>
       </DataGroup>
@@ -2971,19 +3215,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Rule use="FI015A">B1893</Rule>
         <Condition use="FI013A">C0403</Condition>
         <Condition use="FI015A">C0403</Condition>
-        <DataElement>
-          <Name lang="fi">Paikan nimi</Name>
-          <Name lang="sv">Platsens namn</Name>
-          <Name lang="en">Location name</Name>
-          <XPath>/​Consignment/​LoadingLocation/​Name</XPath>
-          <Format>an..35</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <MinOccurrence use="FI013A">1</MinOccurrence>
-          <MinOccurrence use="FI015A">1</MinOccurrence>
-          <Rule use="FI013A">E1114</Rule>
-          <Rule use="FI015A">E1114</Rule>
-        </DataElement>
         <DataGroup>
           <Name lang="fi">Osoite</Name>
           <Name lang="sv">Adress</Name>
@@ -3009,6 +3240,19 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Codelist use="FI015A">CL008_NCTS</Codelist>
           </DataElement>
         </DataGroup>
+        <DataElement>
+          <Name lang="fi">Paikan nimi</Name>
+          <Name lang="sv">Platsens namn</Name>
+          <Name lang="en">Location name</Name>
+          <XPath>/​Consignment/​LoadingLocation/​Name</XPath>
+          <Format>an..35</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <MinOccurrence use="FI013A">1</MinOccurrence>
+          <MinOccurrence use="FI015A">1</MinOccurrence>
+          <Rule use="FI013A">E1114</Rule>
+          <Rule use="FI015A">E1114</Rule>
+        </DataElement>
       </DataGroup>
       <DataGroup>
         <Name lang="fi">Purkauspaikka</Name>
@@ -3025,17 +3269,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Rule use="FI015A">B1858</Rule>
         <Condition use="FI013A">C0191</Condition>
         <Condition use="FI015A">C0191</Condition>
-        <DataElement>
-          <Name lang="fi">Paikan nimi</Name>
-          <Name lang="sv">Platsens namn</Name>
-          <Name lang="en">Location name</Name>
-          <XPath>/​Consignment/​UnloadingLocation/​Name</XPath>
-          <Format>an..35</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <MinOccurrence use="FI013A">1</MinOccurrence>
-          <MinOccurrence use="FI015A">1</MinOccurrence>
-        </DataElement>
         <DataGroup>
           <Name lang="fi">Osoite</Name>
           <Name lang="sv">Adress</Name>
@@ -3061,6 +3294,17 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Codelist use="FI015A">CL008_NCTS</Codelist>
           </DataElement>
         </DataGroup>
+        <DataElement>
+          <Name lang="fi">Paikan nimi</Name>
+          <Name lang="sv">Platsens namn</Name>
+          <Name lang="en">Location name</Name>
+          <XPath>/​Consignment/​UnloadingLocation/​Name</XPath>
+          <Format>an..35</Format>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <MinOccurrence use="FI013A">1</MinOccurrence>
+          <MinOccurrence use="FI015A">1</MinOccurrence>
+        </DataElement>
       </DataGroup>
       <DataGroup>
         <Name lang="fi">Kuljetusvälineet</Name>
@@ -3070,16 +3314,20 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI013A</Use>
         <Use>FI015A</Use>
         <Use>FI044A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI013A">0</MinOccurrence>
         <MinOccurrence use="FI015A">0</MinOccurrence>
         <MinOccurrence use="FI044A">0</MinOccurrence>
+        <MinOccurrence use="FI170A">0</MinOccurrence>
         <MaxOccurrence use="FI013A">9999</MaxOccurrence>
         <MaxOccurrence use="FI015A">9999</MaxOccurrence>
         <MaxOccurrence use="FI044A">9999</MaxOccurrence>
+        <MaxOccurrence use="FI170A">9999</MaxOccurrence>
         <Rule use="FI013A">NR9002</Rule>
         <Rule use="FI015A">NR9002</Rule>
         <Condition use="FI013A">C0823</Condition>
         <Condition use="FI015A">C0823</Condition>
+        <Condition use="FI170A">C0823</Condition>
         <DataElement>
           <Name lang="fi">Järjestysnumero</Name>
           <Name lang="sv">Ordningsnummer</Name>
@@ -3089,12 +3337,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI013A</Use>
           <Use>FI015A</Use>
           <Use>FI044A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI013A">1</MinOccurrence>
           <MinOccurrence use="FI015A">1</MinOccurrence>
           <MinOccurrence use="FI044A">1</MinOccurrence>
+          <MinOccurrence use="FI170A">1</MinOccurrence>
           <Rule use="FI013A">R0987</Rule>
           <Rule use="FI015A">R0987</Rule>
           <Rule use="FI044A">R0054</Rule>
+          <Rule use="FI170A">R0987</Rule>
         </DataElement>
         <DataElement>
           <Name lang="fi">Kontin tunnistenumero</Name>
@@ -3105,11 +3356,14 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI013A</Use>
           <Use>FI015A</Use>
           <Use>FI044A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI013A">0</MinOccurrence>
           <MinOccurrence use="FI015A">0</MinOccurrence>
           <MinOccurrence use="FI044A">0</MinOccurrence>
+          <MinOccurrence use="FI170A">0</MinOccurrence>
           <Condition use="FI013A">C0055</Condition>
           <Condition use="FI015A">C0055</Condition>
+          <Condition use="FI170A">C0055</Condition>
           <Description lang="fi" use="FI013A">Ilmoitetaan merikontin, jalkalavakontin tai puoliperävaunun tunnistenumero(t). Merikontin tunnus ilmoitetaan: neljä kirjainta (jos on) + kuusi numeroa + väliviiva + tarkistenumero.</Description>
           <Description lang="sv" use="FI013A">Identifieringsnummer för sjöcontainer, container med stödben eller påhängsvagn anges. Sjöcontainrars nummer anges: fyra bokstäver (om dessa finns) + sex siffror + bindestreck + kontrollnummer.</Description>
           <Description lang="en" use="FI013A">Identification number(s) for a sea container, swap body or semi-trailer is/are entered. The identification of a sea container is provided using four letters (if available) + six digits + hyphen + check digit.</Description>
@@ -3119,6 +3373,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Description lang="fi" use="FI044A">Ilmoitetaan merikontin, jalkalavakontin tai puoliperävaunun tunnistenumero(t). Merikontin tunnus ilmoitetaan: neljä kirjainta (jos on) + kuusi numeroa + väliviiva + tarkistenumero.</Description>
           <Description lang="sv" use="FI044A">Identifieringsnummer för sjöcontainer, container med stödben eller påhängsvagn anges. Sjöcontainrars nummer anges: fyra bokstäver (om dessa finns) + sex siffror + bindestreck + kontrollnummer.</Description>
           <Description lang="en" use="FI044A">Identification number(s) for a sea container, swap body or semi-trailer is/are entered. The identification of a sea container is provided using four letters (if available) + six digits + hyphen + check digit.</Description>
+          <Description lang="fi" use="FI170A">Ilmoitetaan merikontin, jalkalavakontin tai puoliperävaunun tunnistenumero(t). Merikontin tunnus ilmoitetaan: neljä kirjainta (jos on) + kuusi numeroa + väliviiva + tarkistenumero.</Description>
+          <Description lang="sv" use="FI170A">Identifieringsnummer för sjöcontainer, container med stödben eller påhängsvagn anges. Sjöcontainrars nummer anges: fyra bokstäver (om dessa finns) + sex siffror + bindestreck + kontrollnummer.</Description>
+          <Description lang="en" use="FI170A">Identification number(s) for a sea container, swap body or semi-trailer is/are entered. The identification of a sea container is provided using four letters (if available) + six digits + hyphen + check digit.</Description>
         </DataElement>
         <DataElement>
           <Name lang="fi">Sinettien lukumäärä</Name>
@@ -3129,9 +3386,11 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI013A</Use>
           <Use>FI015A</Use>
           <Use>FI044A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI013A">1</MinOccurrence>
           <MinOccurrence use="FI015A">1</MinOccurrence>
           <MinOccurrence use="FI044A">0</MinOccurrence>
+          <MinOccurrence use="FI170A">1</MinOccurrence>
           <Rule use="FI013A">B1832</Rule>
           <Rule use="FI013A">R0021</Rule>
           <Rule use="FI013A">R0106</Rule>
@@ -3143,6 +3402,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Rule use="FI015A">R0165</Rule>
           <Rule use="FI015A">R0448</Rule>
           <Rule use="FI044A">R0021</Rule>
+          <Rule use="FI170A">R0021</Rule>
+          <Rule use="FI170A">R0106</Rule>
+          <Rule use="FI170A">R0448</Rule>
         </DataElement>
         <DataGroup>
           <Name lang="fi">Sinetit</Name>
@@ -3152,14 +3414,18 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI013A</Use>
           <Use>FI015A</Use>
           <Use>FI044A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI013A">0</MinOccurrence>
           <MinOccurrence use="FI015A">0</MinOccurrence>
           <MinOccurrence use="FI044A">0</MinOccurrence>
+          <MinOccurrence use="FI170A">0</MinOccurrence>
           <MaxOccurrence use="FI013A">99</MaxOccurrence>
           <MaxOccurrence use="FI015A">99</MaxOccurrence>
           <MaxOccurrence use="FI044A">99</MaxOccurrence>
+          <MaxOccurrence use="FI170A">99</MaxOccurrence>
           <Condition use="FI013A">C0569</Condition>
           <Condition use="FI015A">C0569</Condition>
+          <Condition use="FI170A">C0569</Condition>
           <DataElement>
             <Name lang="fi">Järjestysnumero</Name>
             <Name lang="sv">Ordningsnummer</Name>
@@ -3169,12 +3435,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Use>FI013A</Use>
             <Use>FI015A</Use>
             <Use>FI044A</Use>
+            <Use>FI170A</Use>
             <MinOccurrence use="FI013A">1</MinOccurrence>
             <MinOccurrence use="FI015A">1</MinOccurrence>
             <MinOccurrence use="FI044A">1</MinOccurrence>
+            <MinOccurrence use="FI170A">1</MinOccurrence>
             <Rule use="FI013A">R0987</Rule>
             <Rule use="FI015A">R0987</Rule>
             <Rule use="FI044A">R0054</Rule>
+            <Rule use="FI170A">R0987</Rule>
           </DataElement>
           <DataElement>
             <Name lang="fi">Tunniste</Name>
@@ -3185,9 +3454,11 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Use>FI013A</Use>
             <Use>FI015A</Use>
             <Use>FI044A</Use>
+            <Use>FI170A</Use>
             <MinOccurrence use="FI013A">1</MinOccurrence>
             <MinOccurrence use="FI015A">1</MinOccurrence>
             <MinOccurrence use="FI044A">1</MinOccurrence>
+            <MinOccurrence use="FI170A">1</MinOccurrence>
             <Rule use="FI013A">NR9005</Rule>
             <Rule use="FI013A">NR9040</Rule>
             <Rule use="FI013A">R0107</Rule>
@@ -3195,6 +3466,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Rule use="FI015A">NR9040</Rule>
             <Rule use="FI015A">R0107</Rule>
             <Rule use="FI044A">R0107</Rule>
+            <Rule use="FI170A">R0107</Rule>
           </DataElement>
         </DataGroup>
         <DataGroup>
@@ -3205,14 +3477,18 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI013A</Use>
           <Use>FI015A</Use>
           <Use>FI044A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI013A">0</MinOccurrence>
           <MinOccurrence use="FI015A">0</MinOccurrence>
           <MinOccurrence use="FI044A">0</MinOccurrence>
+          <MinOccurrence use="FI170A">0</MinOccurrence>
           <MaxOccurrence use="FI013A">9999</MaxOccurrence>
           <MaxOccurrence use="FI015A">9999</MaxOccurrence>
           <MaxOccurrence use="FI044A">9999</MaxOccurrence>
+          <MaxOccurrence use="FI170A">9999</MaxOccurrence>
           <Condition use="FI013A">C0670</Condition>
           <Condition use="FI015A">C0670</Condition>
+          <Condition use="FI170A">C0670</Condition>
           <DataElement>
             <Name lang="fi">Järjestysnumero</Name>
             <Name lang="sv">Ordningsnummer</Name>
@@ -3222,12 +3498,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Use>FI013A</Use>
             <Use>FI015A</Use>
             <Use>FI044A</Use>
+            <Use>FI170A</Use>
             <MinOccurrence use="FI013A">1</MinOccurrence>
             <MinOccurrence use="FI015A">1</MinOccurrence>
             <MinOccurrence use="FI044A">1</MinOccurrence>
+            <MinOccurrence use="FI170A">1</MinOccurrence>
             <Rule use="FI013A">R0987</Rule>
             <Rule use="FI015A">R0987</Rule>
             <Rule use="FI044A">R0054</Rule>
+            <Rule use="FI170A">R0987</Rule>
           </DataElement>
           <DataElement>
             <Name lang="fi">Ilmoituksen tavaraerän numero</Name>
@@ -3238,38 +3517,13 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Use>FI013A</Use>
             <Use>FI015A</Use>
             <Use>FI044A</Use>
+            <Use>FI170A</Use>
             <MinOccurrence use="FI013A">1</MinOccurrence>
             <MinOccurrence use="FI015A">1</MinOccurrence>
             <MinOccurrence use="FI044A">1</MinOccurrence>
+            <MinOccurrence use="FI170A">1</MinOccurrence>
           </DataElement>
         </DataGroup>
-      </DataGroup>
-      <DataGroup>
-        <Name lang="fi">Kuljetuskustannukset</Name>
-        <Name lang="sv">Transportkostnader</Name>
-        <Name lang="en">Transport charges</Name>
-        <XPath>/​Consignment/​Freight</XPath>
-        <Use>FI013A</Use>
-        <Use>FI015A</Use>
-        <MinOccurrence use="FI013A">0</MinOccurrence>
-        <MinOccurrence use="FI015A">0</MinOccurrence>
-        <MaxOccurrence use="FI013A">1</MaxOccurrence>
-        <MaxOccurrence use="FI015A">1</MaxOccurrence>
-        <Condition use="FI013A">C0186</Condition>
-        <Condition use="FI015A">C0186</Condition>
-        <DataElement>
-          <Name lang="fi">Maksutapa</Name>
-          <Name lang="sv">Betalningssätt</Name>
-          <Name lang="en">Method of payment</Name>
-          <XPath>/​Consignment/​Freight/​PaymentMethod</XPath>
-          <Format>a1</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <MinOccurrence use="FI013A">1</MinOccurrence>
-          <MinOccurrence use="FI015A">1</MinOccurrence>
-          <Codelist use="FI013A">CL116_NCTS</Codelist>
-          <Codelist use="FI015A">CL116_NCTS</Codelist>
-        </DataElement>
       </DataGroup>
       <DataGroup>
         <Name lang="fi">Alatason lähetyserä</Name>
@@ -3279,12 +3533,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI013A</Use>
         <Use>FI015A</Use>
         <Use>FI044A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI013A">1</MinOccurrence>
         <MinOccurrence use="FI015A">1</MinOccurrence>
         <MinOccurrence use="FI044A">0</MinOccurrence>
+        <MinOccurrence use="FI170A">1</MinOccurrence>
         <MaxOccurrence use="FI013A">99</MaxOccurrence>
         <MaxOccurrence use="FI015A">99</MaxOccurrence>
         <MaxOccurrence use="FI044A">99</MaxOccurrence>
+        <MaxOccurrence use="FI170A">99</MaxOccurrence>
         <Rule use="FI013A">E1406</Rule>
         <Rule use="FI015A">E1406</Rule>
         <DataElement>
@@ -3296,12 +3553,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI013A</Use>
           <Use>FI015A</Use>
           <Use>FI044A</Use>
+          <Use>FI170A</Use>
           <MinOccurrence use="FI013A">1</MinOccurrence>
           <MinOccurrence use="FI015A">1</MinOccurrence>
           <MinOccurrence use="FI044A">1</MinOccurrence>
+          <MinOccurrence use="FI170A">1</MinOccurrence>
           <Rule use="FI013A">R0987</Rule>
           <Rule use="FI015A">R0987</Rule>
           <Rule use="FI044A">R0054</Rule>
+          <Rule use="FI170A">R0987</Rule>
         </DataElement>
         <DataGroup>
           <Name lang="fi">Lähetysmaa</Name>
@@ -3870,6 +4130,119 @@ For the time being, Customs will only accept an identifier of up to 14 character
           </DataGroup>
         </DataGroup>
         <DataGroup>
+          <Name lang="fi">Kuljetusväline lähdettäessä</Name>
+          <Name lang="sv">Transportmedel vid avgång</Name>
+          <Name lang="en">Departure transport means</Name>
+          <XPath>/​Consignment/​HouseConsignment/​DepartureTransportMeans</XPath>
+          <Use>FI013A</Use>
+          <Use>FI015A</Use>
+          <Use>FI044A</Use>
+          <Use>FI170A</Use>
+          <MinOccurrence use="FI013A">0</MinOccurrence>
+          <MinOccurrence use="FI015A">0</MinOccurrence>
+          <MinOccurrence use="FI044A">0</MinOccurrence>
+          <MinOccurrence use="FI170A">0</MinOccurrence>
+          <MaxOccurrence use="FI013A">999</MaxOccurrence>
+          <MaxOccurrence use="FI015A">999</MaxOccurrence>
+          <MaxOccurrence use="FI044A">999</MaxOccurrence>
+          <MaxOccurrence use="FI170A">999</MaxOccurrence>
+          <Rule use="FI013A">E1301</Rule>
+          <Rule use="FI013A">R0506</Rule>
+          <Rule use="FI013A">R0855</Rule>
+          <Rule use="FI015A">E1301</Rule>
+          <Rule use="FI015A">R0506</Rule>
+          <Rule use="FI015A">R0855</Rule>
+          <Rule use="FI170A">R0506</Rule>
+          <Rule use="FI170A">R0855</Rule>
+          <Condition use="FI013A">C0826</Condition>
+          <Condition use="FI015A">C0826</Condition>
+          <Condition use="FI170A">C0833</Condition>
+          <DataElement>
+            <Name lang="fi">Järjestysnumero</Name>
+            <Name lang="sv">Ordningsnummer</Name>
+            <Name lang="en">Sequence number</Name>
+            <XPath>/​Consignment/​HouseConsignment/​DepartureTransportMeans/​Sequence</XPath>
+            <Format>n..5</Format>
+            <Use>FI013A</Use>
+            <Use>FI015A</Use>
+            <Use>FI044A</Use>
+            <Use>FI170A</Use>
+            <MinOccurrence use="FI013A">1</MinOccurrence>
+            <MinOccurrence use="FI015A">1</MinOccurrence>
+            <MinOccurrence use="FI044A">1</MinOccurrence>
+            <MinOccurrence use="FI170A">1</MinOccurrence>
+            <Rule use="FI013A">R0987</Rule>
+            <Rule use="FI015A">R0987</Rule>
+            <Rule use="FI044A">R0054</Rule>
+            <Rule use="FI170A">R0987</Rule>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">Kuljetusvälineen tunnistenumero</Name>
+            <Name lang="sv">Identifieringsnummer av transportmedlet</Name>
+            <Name lang="en">Identification number of transport means</Name>
+            <XPath>/​Consignment/​HouseConsignment/​DepartureTransportMeans/​Identification</XPath>
+            <Format>an..35</Format>
+            <Use>FI013A</Use>
+            <Use>FI015A</Use>
+            <Use>FI044A</Use>
+            <Use>FI170A</Use>
+            <MinOccurrence use="FI013A">1</MinOccurrence>
+            <MinOccurrence use="FI015A">1</MinOccurrence>
+            <MinOccurrence use="FI044A">0</MinOccurrence>
+            <MinOccurrence use="FI170A">1</MinOccurrence>
+            <Rule use="FI013A">R0473</Rule>
+            <Rule use="FI015A">R0473</Rule>
+            <Rule use="FI170A">R0473</Rule>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">Tunnistetietojen tyyppi</Name>
+            <Name lang="sv">Typ av identifiering</Name>
+            <Name lang="en">Type of identification</Name>
+            <XPath>/​Consignment/​HouseConsignment/​DepartureTransportMeans/​IdentificationType</XPath>
+            <Format>n2</Format>
+            <Use>FI013A</Use>
+            <Use>FI015A</Use>
+            <Use>FI044A</Use>
+            <Use>FI170A</Use>
+            <MinOccurrence use="FI013A">1</MinOccurrence>
+            <MinOccurrence use="FI015A">1</MinOccurrence>
+            <MinOccurrence use="FI044A">0</MinOccurrence>
+            <MinOccurrence use="FI170A">1</MinOccurrence>
+            <Codelist use="FI013A">CL750</Codelist>
+            <Codelist use="FI015A">CL750</Codelist>
+            <Codelist use="FI044A">CL750</Codelist>
+            <Codelist use="FI170A">CL750</Codelist>
+            <Rule use="FI013A">R0472</Rule>
+            <Rule use="FI013A">R0474</Rule>
+            <Rule use="FI013A">R0476</Rule>
+            <Rule use="FI015A">R0472</Rule>
+            <Rule use="FI015A">R0474</Rule>
+            <Rule use="FI015A">R0476</Rule>
+            <Rule use="FI170A">R0472</Rule>
+            <Rule use="FI170A">R0474</Rule>
+            <Rule use="FI170A">R0476</Rule>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">Kansallisuus</Name>
+            <Name lang="sv">Nationalitet</Name>
+            <Name lang="en">Nationality</Name>
+            <XPath>/​Consignment/​HouseConsignment/​DepartureTransportMeans/​Nationality</XPath>
+            <Format>a2</Format>
+            <Use>FI013A</Use>
+            <Use>FI015A</Use>
+            <Use>FI044A</Use>
+            <Use>FI170A</Use>
+            <MinOccurrence use="FI013A">1</MinOccurrence>
+            <MinOccurrence use="FI015A">1</MinOccurrence>
+            <MinOccurrence use="FI044A">0</MinOccurrence>
+            <MinOccurrence use="FI170A">1</MinOccurrence>
+            <Codelist use="FI013A">CL008_NCTS</Codelist>
+            <Codelist use="FI015A">CL165</Codelist>
+            <Codelist use="FI044A">CL165</Codelist>
+            <Codelist use="FI170A">CL165</Codelist>
+          </DataElement>
+        </DataGroup>
+        <DataGroup>
           <Name lang="fi">Kuljetuskustannukset</Name>
           <Name lang="sv">Transportkostnader</Name>
           <Name lang="en">Transport charges</Name>
@@ -3900,98 +4273,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <MinOccurrence use="FI015A">1</MinOccurrence>
             <Codelist use="FI013A">CL116_NCTS</Codelist>
             <Codelist use="FI015A">CL116_NCTS</Codelist>
-          </DataElement>
-        </DataGroup>
-        <DataGroup>
-          <Name lang="fi">Kuljetusväline lähdettäessä</Name>
-          <Name lang="sv">Transportmedel vid avgång</Name>
-          <Name lang="en">Departure transport means</Name>
-          <XPath>/​Consignment/​HouseConsignment/​DepartureTransportMeans</XPath>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <Use>FI044A</Use>
-          <MinOccurrence use="FI013A">0</MinOccurrence>
-          <MinOccurrence use="FI015A">0</MinOccurrence>
-          <MinOccurrence use="FI044A">0</MinOccurrence>
-          <MaxOccurrence use="FI013A">999</MaxOccurrence>
-          <MaxOccurrence use="FI015A">999</MaxOccurrence>
-          <MaxOccurrence use="FI044A">999</MaxOccurrence>
-          <Rule use="FI013A">E1301</Rule>
-          <Rule use="FI013A">R0506</Rule>
-          <Rule use="FI013A">R0855</Rule>
-          <Rule use="FI015A">E1301</Rule>
-          <Rule use="FI015A">R0506</Rule>
-          <Rule use="FI015A">R0855</Rule>
-          <Condition use="FI013A">C0826</Condition>
-          <Condition use="FI015A">C0826</Condition>
-          <DataElement>
-            <Name lang="fi">Järjestysnumero</Name>
-            <Name lang="sv">Ordningsnummer</Name>
-            <Name lang="en">Sequence number</Name>
-            <XPath>/​Consignment/​HouseConsignment/​DepartureTransportMeans/​Sequence</XPath>
-            <Format>n..5</Format>
-            <Use>FI013A</Use>
-            <Use>FI015A</Use>
-            <Use>FI044A</Use>
-            <MinOccurrence use="FI013A">1</MinOccurrence>
-            <MinOccurrence use="FI015A">1</MinOccurrence>
-            <MinOccurrence use="FI044A">1</MinOccurrence>
-            <Rule use="FI013A">R0987</Rule>
-            <Rule use="FI015A">R0987</Rule>
-            <Rule use="FI044A">R0054</Rule>
-          </DataElement>
-          <DataElement>
-            <Name lang="fi">Kuljetusvälineen tunnistenumero</Name>
-            <Name lang="sv">Identifieringsnummer av transportmedlet</Name>
-            <Name lang="en">Identification number of transport means</Name>
-            <XPath>/​Consignment/​HouseConsignment/​DepartureTransportMeans/​Identification</XPath>
-            <Format>an..35</Format>
-            <Use>FI013A</Use>
-            <Use>FI015A</Use>
-            <Use>FI044A</Use>
-            <MinOccurrence use="FI013A">1</MinOccurrence>
-            <MinOccurrence use="FI015A">1</MinOccurrence>
-            <MinOccurrence use="FI044A">0</MinOccurrence>
-            <Rule use="FI013A">R0473</Rule>
-            <Rule use="FI015A">R0473</Rule>
-          </DataElement>
-          <DataElement>
-            <Name lang="fi">Tunnistetietojen tyyppi</Name>
-            <Name lang="sv">Typ av identifiering</Name>
-            <Name lang="en">Type of identification</Name>
-            <XPath>/​Consignment/​HouseConsignment/​DepartureTransportMeans/​IdentificationType</XPath>
-            <Format>n2</Format>
-            <Use>FI013A</Use>
-            <Use>FI015A</Use>
-            <Use>FI044A</Use>
-            <MinOccurrence use="FI013A">1</MinOccurrence>
-            <MinOccurrence use="FI015A">1</MinOccurrence>
-            <MinOccurrence use="FI044A">0</MinOccurrence>
-            <Codelist use="FI013A">CL750</Codelist>
-            <Codelist use="FI015A">CL750</Codelist>
-            <Codelist use="FI044A">CL750</Codelist>
-            <Rule use="FI013A">R0472</Rule>
-            <Rule use="FI013A">R0474</Rule>
-            <Rule use="FI013A">R0476</Rule>
-            <Rule use="FI015A">R0472</Rule>
-            <Rule use="FI015A">R0474</Rule>
-            <Rule use="FI015A">R0476</Rule>
-          </DataElement>
-          <DataElement>
-            <Name lang="fi">Kansallisuus</Name>
-            <Name lang="sv">Nationalitet</Name>
-            <Name lang="en">Nationality</Name>
-            <XPath>/​Consignment/​HouseConsignment/​DepartureTransportMeans/​Nationality</XPath>
-            <Format>a2</Format>
-            <Use>FI013A</Use>
-            <Use>FI015A</Use>
-            <Use>FI044A</Use>
-            <MinOccurrence use="FI013A">1</MinOccurrence>
-            <MinOccurrence use="FI015A">1</MinOccurrence>
-            <MinOccurrence use="FI044A">0</MinOccurrence>
-            <Codelist use="FI013A">CL008_NCTS</Codelist>
-            <Codelist use="FI015A">CL165</Codelist>
-            <Codelist use="FI044A">CL165</Codelist>
           </DataElement>
         </DataGroup>
         <DataGroup>
@@ -4414,12 +4695,12 @@ For the time being, Customs will only accept an identifier of up to 14 character
               <MinOccurrence use="FI044A">0</MinOccurrence>
               <Rule use="FI013A">E1107</Rule>
               <Rule use="FI015A">E1107</Rule>
-              <Description lang="fi" use="FI013A">Ilmoitetaan tavaroiden tavanomainen kauppanimitys, jolla tavarat voidaan tunnistaa. Esimerkiksi "vaatteet" ei ole riittävän tarkka kuvaus, vaan pitää yksilöidä, mistä vaatteista on kyse, kuten "puuvillaisia T-paitoja".&lt;a href="https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf" target="_blank"&gt;Komission luettelo kelpaamattomista tavarankuvauksista (englanniksi)&lt;/a&gt;</Description>
-              <Description lang="sv" use="FI013A">Den normala handelsbenämningen med hjälp av vilken varorna kan identifieras anges. Benämningen "kläder" är t.ex. inte tillräckligt exakt, utan man ska specificera vilken typ av kläder det är fråga om, t.ex. "T-skjortor av bomull".[Kommissionens förteckning över odugliga varubeskrivningar (på engelska)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf)</Description>
-              <Description lang="en" use="FI013A">The common trade name accurate enough in order to identify the goods is entered. E.g. "clothes" is not accurate enough but you need to specify which kind of clothes are declared, e.g. "Cotton T-shirts".[Commission list of unacceptable goods descriptions](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf)</Description>
-              <Description lang="fi" use="FI015A">Ilmoitetaan tavaroiden tavanomainen kauppanimitys, jolla tavarat voidaan tunnistaa. Esimerkiksi "vaatteet" ei ole riittävän tarkka kuvaus, vaan pitää yksilöidä, mistä vaatteista on kyse, kuten "puuvillaisia T-paitoja".&lt;a href="https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf" target="_blank"&gt;Komission luettelo kelpaamattomista tavarankuvauksista (englanniksi)&lt;/a&gt;</Description>
-              <Description lang="sv" use="FI015A">Den normala handelsbenämningen med hjälp av vilken varorna kan identifieras anges. Benämningen "kläder" är t.ex. inte tillräckligt exakt, utan man ska specificera vilken typ av kläder det är fråga om, t.ex. "T-skjortor av bomull".[Kommissionens förteckning över odugliga varubeskrivningar (på engelska)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf)</Description>
-              <Description lang="en" use="FI015A">The common trade name accurate enough in order to identify the goods is entered. E.g. "clothes" is not accurate enough but you need to specify which kind of clothes are declared, e.g. "Cotton T-shirts".[Commission list of unacceptable goods descriptions](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf)</Description>
+              <Description lang="fi" use="FI013A">Ilmoitetaan tavaroiden tavanomainen kauppanimitys, jolla tavarat voidaan tunnistaa. Esimerkiksi 'vaatteet' ei ole riittävän tarkka kuvaus, vaan pitää yksilöidä, mistä vaatteista on kyse, kuten 'puuvillaisia T-paitoja'. &lt;a href="https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf" target="_blank"&gt;Komission luettelo kelpaamattomista tavarankuvauksista (englanniksi)&lt;/a&gt;</Description>
+              <Description lang="sv" use="FI013A">Den normala handelsbenämningen med hjälp av vilken varorna kan identifieras anges. Benämningen 'kläder' är t.ex. inte tillräckligt exakt, utan man ska specificera vilken typ av kläder det är fråga om, t.ex. 'T-skjortor av bomull'. [Kommissionens förteckning över odugliga varubeskrivningar (på engelska)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf)</Description>
+              <Description lang="en" use="FI013A">The common trade name accurate enough in order to identify the goods is entered. E.g. 'clothes' is not accurate enough but you need to specify which kind of clothes are declared, e.g. 'Cotton T-shirts'. [Commission list of unacceptable goods descriptions](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf)</Description>
+              <Description lang="fi" use="FI015A">Ilmoitetaan tavaroiden tavanomainen kauppanimitys, jolla tavarat voidaan tunnistaa. Esimerkiksi 'vaatteet' ei ole riittävän tarkka kuvaus, vaan pitää yksilöidä, mistä vaatteista on kyse, kuten 'puuvillaisia T-paitoja'. &lt;a href="https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf" target="_blank"&gt;Komission luettelo kelpaamattomista tavarankuvauksista (englanniksi)&lt;/a&gt;</Description>
+              <Description lang="sv" use="FI015A">Den normala handelsbenämningen med hjälp av vilken varorna kan identifieras anges. Benämningen 'kläder' är t.ex. inte tillräckligt exakt, utan man ska specificera vilken typ av kläder det är fråga om, t.ex. 'T-skjortor av bomull'. [Kommissionens förteckning över odugliga varubeskrivningar (på engelska)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf)</Description>
+              <Description lang="en" use="FI015A">The common trade name accurate enough in order to identify the goods is entered. E.g. 'clothes' is not accurate enough but you need to specify which kind of clothes are declared, e.g. 'Cotton T-shirts'. [Commission list of unacceptable goods descriptions](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf)</Description>
               <Description lang="fi" use="FI044A">Ilmoitetaan tavarankuvaus, jos on havaittu eroavaisuuksia. Jos koko tavaraerä puuttuu ilmoitetaan tavaraerän numero ja muut kohdat jätetään tyhjäksi.&lt;a href="https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf" target="_blank"&gt;Komission luettelo kelpaamattomista tavarankuvauksista (englanniksi)&lt;/a&gt;</Description>
               <Description lang="sv" use="FI044A">Varubeskrivningen anges om avvikelser har upptäckts. Om hela varuposten fattas, anges endast varupostens nummer och de andra punkterna lämnas tomma.[Kommissionens förteckning över odugliga varubeskrivningar (på engelska)](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf)</Description>
               <Description lang="en" use="FI044A">Goods description is entered if discrepancies have been identified. If the whole goods item is missing only the goods item number is entered and all other details are left empty.[Commission list of unacceptable goods descriptions](https://ec.europa.eu/taxation_customs/sites/taxation/files/resources/documents/customs/customs_code/guidance_acceptable_goods_description_en.pdf)</Description>
@@ -4656,12 +4937,12 @@ For the time being, Customs will only accept an identifier of up to 14 character
               <Rule use="FI015A">R0021</Rule>
               <Rule use="FI015A">R0221</Rule>
               <Rule use="FI044A">R0021</Rule>
-              <Description lang="fi" use="FI013A">Ilmoitetaan bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa "0,654", enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti.</Description>
-              <Description lang="sv" use="FI013A">Bruttovikten i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen "0,654", dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler.</Description>
-              <Description lang="en" use="FI013A">Gross mass in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. "0,654" up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram.</Description>
-              <Description lang="fi" use="FI015A">Ilmoitetaan bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa "0,654", enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti.</Description>
-              <Description lang="sv" use="FI015A">Bruttovikten i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen "0,654", dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler.</Description>
-              <Description lang="en" use="FI015A">Gross mass in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. "0,654" up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram.</Description>
+              <Description lang="fi" use="FI013A">Ilmoitetaan bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa '0,654', enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti.</Description>
+              <Description lang="sv" use="FI013A">Bruttovikten i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen '0,654', dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler.</Description>
+              <Description lang="en" use="FI013A">Gross mass in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. '0,654' up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram.</Description>
+              <Description lang="fi" use="FI015A">Ilmoitetaan bruttopaino kilogrammoina. Bruttopaino on tavaran paino pakkauspäällyksineen lukuun ottamatta kuljetusvälineitä ja kontteja. Ilmoita alle 1 kilogramman bruttopaino esimerkiksi muodossa '0,654', enintään kuuden desimaalin tarkkuudella. Yli kilogramman paino voidaan pyöristää lähimpään kilogrammaan pyöristyssääntöjen mukaisesti.</Description>
+              <Description lang="sv" use="FI015A">Bruttovikten i kilogram anmäls. Bruttovikten omfattar varans vikt med emballage, med undantag för transportmedel och containrar. En bruttovikt som underskrider 1 kilogram anges i formen '0,654', dock högst med 6 decimaler. Bruttomassor över 1 kilogram kan avrundas till närmaste kilogram enligt normala avrundningsregler.</Description>
+              <Description lang="en" use="FI015A">Gross mass in kilograms is entered. The gross mass includes the goods and packaging, but not the means of transport or containers. If the gross mass is below 1 kilogram, enter the value with decimals, e.g. '0,654' up to maximum of 6 digits. If the gross mass exceeds 1 kilogram, it is possible to round to the mass to the closest full kilogram.</Description>
               <Description lang="fi" use="FI044A">Ilmoitetaan todettu bruttopaino kilogrammoina, jos havaittu eroavaisuuksia. Pieniä, esimerkiksi pakkausmateriaalin muuttumisesta johtuvia painoeroja ei ilmoiteta.</Description>
               <Description lang="sv" use="FI044A">Ange den konstaterade bruttovikten i kilogram, om avvikelser har upptäckts. Små ändringar i vikten, till exempel på grund av ändrat förpackningsmaterial, anges inte.</Description>
               <Description lang="en" use="FI044A">Provide the confirmed gross mass in kilograms if discrepancies are observed. Small weight differences, e.g. due to change of packaging materials, are not entered.</Description>
@@ -4760,12 +5041,12 @@ For the time being, Customs will only accept an identifier of up to 14 character
               <Rule use="FI015A">E1105</Rule>
               <Condition use="FI013A">C0060</Condition>
               <Condition use="FI015A">C0060</Condition>
-              <Description lang="fi" use="FI013A">Ilmoitetaan vapaamuotoinen kuvaus kollien tai pakkausten merkinnöistä ja numeroista. Jos kolleissa ei ole merkintöjä, ilmoita "ei merkkejä". Jos pakkauksen lukumääräksi on ilmoitettu nolla (0), pakkausmerkintöjen tulee olla samat kuin sillä erällä, jossa kokonaismäärä on ilmoitettu.</Description>
-              <Description lang="sv" use="FI013A">En fritt formulerad beskrivning av kollinas eller förpackningarnas märken och nummer anges. Om kollina inte har några märken, ange "inga märken". Om man som antal förpackningar angett noll (0), ska förpackningarnas märken och nummer vara de samma som för den varupost där totala antalet förpackningar har angetts.</Description>
-              <Description lang="en" use="FI013A">A free-form description of the marks and numbers on transport units or packages is entered. If the packages are not marked, enter "no markings". If the number of packages is zero (0), the marks and numbers shall be the same as on the goods item for which the total number of packages has been entered.</Description>
-              <Description lang="fi" use="FI015A">Ilmoitetaan vapaamuotoinen kuvaus kollien tai pakkausten merkinnöistä ja numeroista. Jos kolleissa ei ole merkintöjä, ilmoita "ei merkkejä". Jos pakkauksen lukumääräksi on ilmoitettu nolla (0), pakkausmerkintöjen tulee olla samat kuin sillä erällä, jossa kokonaismäärä on ilmoitettu.</Description>
-              <Description lang="sv" use="FI015A">En fritt formulerad beskrivning av kollinas eller förpackningarnas märken och nummer anges. Om kollina inte har några märken, ange "inga märken". Om man som antal förpackningar angett noll (0), ska förpackningarnas märken och nummer vara de samma som för den varupost där totala antalet förpackningar har angetts.</Description>
-              <Description lang="en" use="FI015A">A free-form description of the marks and numbers on transport units or packages is entered. If the packages are not marked, enter "no markings". If the number of packages is zero (0), the marks and numbers shall be the same as on the goods item for which the total number of packages has been entered.</Description>
+              <Description lang="fi" use="FI013A">Ilmoitetaan vapaamuotoinen kuvaus kollien tai pakkausten merkinnöistä ja numeroista. Jos kolleissa ei ole merkintöjä, ilmoita 'ei merkkejä'. Jos pakkauksen lukumääräksi on ilmoitettu nolla (0), pakkausmerkintöjen tulee olla samat kuin sillä erällä, jossa kokonaismäärä on ilmoitettu.</Description>
+              <Description lang="sv" use="FI013A">En fritt formulerad beskrivning av kollinas eller förpackningarnas märken och nummer anges. Om kollina inte har några märken, ange 'inga märken'. Om man som antal förpackningar angett noll (0), ska förpackningarnas märken och nummer vara de samma som för den varupost där totala antalet förpackningar har angetts.</Description>
+              <Description lang="en" use="FI013A">A free-form description of the marks and numbers on transport units or packages is entered. If the packages are not marked, enter 'no markings'. If the number of packages is zero (0), the marks and numbers shall be the same as on the goods item for which the total number of packages has been entered.</Description>
+              <Description lang="fi" use="FI015A">Ilmoitetaan vapaamuotoinen kuvaus kollien tai pakkausten merkinnöistä ja numeroista. Jos kolleissa ei ole merkintöjä, ilmoita 'ei merkkejä'. Jos pakkauksen lukumääräksi on ilmoitettu nolla (0), pakkausmerkintöjen tulee olla samat kuin sillä erällä, jossa kokonaismäärä on ilmoitettu.</Description>
+              <Description lang="sv" use="FI015A">En fritt formulerad beskrivning av kollinas eller förpackningarnas märken och nummer anges. Om kollina inte har några märken, ange 'inga märken'. Om man som antal förpackningar angett noll (0), ska förpackningarnas märken och nummer vara de samma som för den varupost där totala antalet förpackningar har angetts.</Description>
+              <Description lang="en" use="FI015A">A free-form description of the marks and numbers on transport units or packages is entered. If the packages are not marked, enter 'no markings'. If the number of packages is zero (0), the marks and numbers shall be the same as on the goods item for which the total number of packages has been entered.</Description>
               <Description lang="fi" use="FI044A">Jos joku tavaraerän pakkausrivi puuttuu jätetään tämä kohta tyhjäksi.</Description>
               <Description lang="sv" use="FI044A">Om en förpackningsrad fråm varuposten fattas, lämnas denna uppgift tom.</Description>
               <Description lang="en" use="FI044A">If a packaging line is missing from the goods item, then this data is left empty.</Description>
@@ -4784,9 +5065,11 @@ For the time being, Customs will only accept an identifier of up to 14 character
               <MinOccurrence use="FI044A">0</MinOccurrence>
               <Rule use="FI013A">E1111</Rule>
               <Rule use="FI013A">R0021</Rule>
+              <Rule use="FI013A">R0219</Rule>
               <Rule use="FI013A">R0364</Rule>
               <Rule use="FI015A">E1111</Rule>
               <Rule use="FI015A">R0021</Rule>
+              <Rule use="FI015A">R0219</Rule>
               <Rule use="FI015A">R0364</Rule>
               <Rule use="FI044A">R0021</Rule>
               <Condition use="FI013A">C0060</Condition>
@@ -5383,41 +5666,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Condition use="FI015A">C0598</Condition>
         </DataElement>
       </DataGroup>
-      <DataGroup>
-        <Name lang="fi">Viitenumero/UCR</Name>
-        <Name lang="sv">Referensnummer/UCR</Name>
-        <Name lang="en">Reference number/UCR</Name>
-        <XPath>/​Consignment/​UCR</XPath>
-        <Use>FI013A</Use>
-        <Use>FI015A</Use>
-        <MinOccurrence use="FI013A">0</MinOccurrence>
-        <MinOccurrence use="FI015A">0</MinOccurrence>
-        <MaxOccurrence use="FI013A">1</MaxOccurrence>
-        <MaxOccurrence use="FI015A">1</MaxOccurrence>
-        <Rule use="FI015A">NB9005</Rule>
-        <Condition use="FI013A">C0502</Condition>
-        <Condition use="FI015A">C0502</Condition>
-        <DataElement>
-          <Name lang="fi">Viitenumero/UCR</Name>
-          <Name lang="sv">Referensnummer/UCR</Name>
-          <Name lang="en">Reference number/UCR</Name>
-          <XPath>/​Consignment/​UCR/​TraderAssignedReference</XPath>
-          <Format>an..35</Format>
-          <Use>FI013A</Use>
-          <Use>FI015A</Use>
-          <MinOccurrence use="FI013A">1</MinOccurrence>
-          <MinOccurrence use="FI015A">1</MinOccurrence>
-          <Rule use="FI013A">NB9005</Rule>
-          <Rule use="FI013A">NB9007</Rule>
-          <Rule use="FI015A">NB9007</Rule>
-          <Description lang="fi" use="FI013A">Ilmoitetaan, jos lähetykselle on annettu yhtenäisviite UCR, eli lähettäjän antama yksilöllinen ja pysyvä viite läpi koko toimitusketjun. Se voi olla WCO (ISO 15459) -koodi tai vastaava.</Description>
-          <Description lang="sv" use="FI013A">Anges om försändelsen har tilldelats ett unikt referensnummer (UCR) av avsändaren som en unik och permanent referens genom hela leveranskedjan. Det kan vara en WCO-kod (ISO 15459) eller motsvarande.</Description>
-          <Description lang="en" use="FI013A">This detail is entered if a unique consignment reference (UCR) has been issued for the consignment, i.e. a reference issued by the consignor that is unique and remains the same throughout the supply chain. It can be a WCO (ISO 15459) code or an equivalent.</Description>
-          <Description lang="fi" use="FI015A">Ilmoitetaan, jos lähetykselle on annettu yhtenäisviite UCR, eli lähettäjän antama yksilöllinen ja pysyvä viite läpi koko toimitusketjun. Se voi olla WCO (ISO 15459) -koodi tai vastaava.</Description>
-          <Description lang="sv" use="FI015A">Anges om försändelsen har tilldelats ett unikt referensnummer (UCR) av avsändaren som en unik och permanent referens genom hela leveranskedjan. Det kan vara en WCO-kod (ISO 15459) eller motsvarande.</Description>
-          <Description lang="en" use="FI015A">This detail is entered if a unique consignment reference (UCR) has been issued for the consignment, i.e. a reference issued by the consignor that is unique and remains the same throughout the supply chain. It can be a WCO (ISO 15459) code or an equivalent.</Description>
-        </DataElement>
-      </DataGroup>
     </DataGroup>
     <DataGroup>
       <Name lang="fi">Vakuus</Name>
@@ -5627,16 +5875,22 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <XPath>/​DepartureOffice</XPath>
       <Use>FI013A</Use>
       <Use>FI015A</Use>
+      <Use>FI170A</Use>
       <MinOccurrence use="FI013A">1</MinOccurrence>
       <MinOccurrence use="FI015A">1</MinOccurrence>
+      <MinOccurrence use="FI170A">1</MinOccurrence>
       <MaxOccurrence use="FI013A">1</MaxOccurrence>
       <MaxOccurrence use="FI015A">1</MaxOccurrence>
+      <MaxOccurrence use="FI170A">1</MaxOccurrence>
       <Description lang="fi" use="FI013A">Valtuutetun lähettäjän antamissa ilmoituksissa ilmoitetaan luvanmukainen toimipaikka (FI002006).</Description>
       <Description lang="sv" use="FI013A">I deklarationer upprättade av en godkänd avsändare anges tullkontor enligt tillståndet (FI002006).</Description>
       <Description lang="en" use="FI013A">In declarations lodged by the authorised consignor, the customs office (FI002006) according to the authorisation is provided.</Description>
       <Description lang="fi" use="FI015A">Valtuutetun lähettäjän antamissa ilmoituksissa ilmoitetaan luvanmukainen toimipaikka (FI002006).</Description>
       <Description lang="sv" use="FI015A">I deklarationer upprättade av en godkänd avsändare anges tullkontor enligt tillståndet (FI002006).</Description>
       <Description lang="en" use="FI015A">In declarations lodged by the authorised consignor, the customs office (FI002006) according to the authorisation is provided.</Description>
+      <Description lang="fi" use="FI170A">Valtuutetun lähettäjän antamissa ilmoituksissa ilmoitetaan luvanmukainen toimipaikka (FI002006).</Description>
+      <Description lang="sv" use="FI170A">I deklarationer upprättade av en godkänd avsändare anges tullkontor enligt tillståndet (FI002006).</Description>
+      <Description lang="en" use="FI170A">In declarations lodged by the authorised consignor, the customs office (FI002006) according to the authorisation is provided.</Description>
       <DataElement>
         <Name lang="fi">Tullitoimipaikan tunniste</Name>
         <Name lang="sv">Identifierare för tullkontor</Name>
@@ -5645,10 +5899,13 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Format>an8</Format>
         <Use>FI013A</Use>
         <Use>FI015A</Use>
+        <Use>FI170A</Use>
         <MinOccurrence use="FI013A">1</MinOccurrence>
         <MinOccurrence use="FI015A">1</MinOccurrence>
+        <MinOccurrence use="FI170A">1</MinOccurrence>
         <Codelist use="FI013A">CL171</Codelist>
         <Codelist use="FI015A">CL171</Codelist>
+        <Codelist use="FI170A">CL171</Codelist>
         <Rule use="FI013A">NR9031</Rule>
         <Rule use="FI015A">NR9031</Rule>
       </DataElement>
