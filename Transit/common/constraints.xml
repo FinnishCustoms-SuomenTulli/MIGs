@@ -2597,6 +2597,51 @@ THEN&#13;
 /*/​Guarantee/​GuaranteeReference/​Amount =R</Description>
   </Constraint>
   <Constraint>
+    <Code>NC9032</Code>
+    <Description lang="fi">JOS ainoastaan yksi esiintymä tietoryhmästä &lt;i&gt;Kuljetusvälineet&lt;/i&gt; on ILMOITETTU JA &lt;i&gt;Kontin tunnistenumero&lt;/i&gt; on ILMOITETTU&#13;
+  NIIN &lt;i&gt;Tavaraviite&lt;/i&gt; = 'O'&#13;
+MUUTEN &lt;i&gt;Tavaraviite&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM endast en förekomst av &lt;i&gt;Transportutrustning&lt;/i&gt; är ANMÄLD OCH &lt;i&gt;Containernummer&lt;/i&gt; är ANMÄLD&#13;
+  DÅ är &lt;i&gt;Varureferens&lt;/i&gt; = 'O'&#13;
+ANNARS är &lt;i&gt;Varureferens&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF only one instance of &lt;i&gt;Transport equipment&lt;/i&gt; is PRESENT AND &lt;i&gt;Container identification number&lt;/i&gt; is PRESENT&#13;
+  THEN &lt;i&gt;Goods reference&lt;/i&gt; = 'O'&#13;
+ELSE &lt;i&gt;Goods reference&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC9036</Code>
+    <Description lang="fi">JOS &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt; on JOUKOSSA {B, C}&#13;
+  NIIN &lt;i&gt;Talouden toimija&lt;/i&gt; = 'R'&#13;
+MUUTEN &lt;i&gt;Talouden toimija&lt;/i&gt; = 'N'</Description>
+    <Description lang="sv">OM &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; är i GRUPPEN {B, C}&#13;
+  DÅ är &lt;i&gt;Ekonomisk aktör&lt;/i&gt; = 'R'&#13;
+ANNARS är &lt;i&gt;Ekonomisk aktör&lt;/i&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Type of location&lt;/i&gt; is in SET {B, C}&#13;
+  THEN &lt;i&gt;Economic operator&lt;/i&gt; = 'R'&#13;
+ELSE &lt;i&gt;Economic operator&lt;/i&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC9038</Code>
+    <Description lang="fi">JOS FI015/&lt;i&gt;Ilmoitustyyppi&lt;/i&gt; = 'A'&#13;
+  NIIN FI017 ei voida lähettää</Description>
+    <Description lang="sv">OM FI015/&lt;i&gt;Typ av deklaration&lt;/i&gt; = 'A'&#13;
+  DÅ kan FI017 inte skickas</Description>
+    <Description lang="en">IF FI015/&lt;i&gt;Declaration type&lt;/i&gt; = 'A'&#13;
+  THEN FI017 cannot be sent</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC9040</Code>
+    <Description lang="fi">JOS &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt; = 'A'&#13;
+  NIIN &lt;i&gt;Tullitoimipaikka&lt;/i&gt; = 'O'&#13;
+MUUTEN &lt;i&gt;Tullitoimipaikka&lt;/i&gt; = 'N'</Description>
+    <Description lang="sv">OM &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; = 'A'&#13;
+  DÅ är &lt;i&gt;Tullkontor&lt;/i&gt; = 'O'&#13;
+ANNARS är &lt;i&gt;Tullkontor&lt;/i&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Type of location&lt;/i&gt; = 'A'&#13;
+  THEN &lt;i&gt;Customs office&lt;/i&gt; = 'O'&#13;
+ELSE &lt;i&gt;Customs office&lt;/i&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
     <Code>NR0028</Code>
     <Description lang="fi">&lt;i&gt;Luvan tyyppi&lt;/i&gt; on oltava uniikki.</Description>
     <Description lang="sv">&lt;i&gt;Typ av tillstånd&lt;/i&gt; måste vara unikt.</Description>
@@ -2713,20 +2758,20 @@ THEN&#13;
   <Constraint>
     <Code>NR9006</Code>
     <Description lang="fi">JOS &lt;i&gt;Sisämaan kuljetusmuoto&lt;/i&gt; TAI &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt; EI ole JOUKOSSA {5, 7}&#13;
-  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusmuoto rajalla&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
     <Description lang="sv">OM &lt;i&gt;Transportsätt inrikes&lt;/i&gt; ELLER &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt; INTE är i GRUPPEN {5, 7}&#13;
-  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportsätt vid gränsen&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
     <Description lang="en">IF &lt;i&gt;Inland mode of transport&lt;/i&gt; OR &lt;i&gt;Active border transport means&lt;/i&gt; is NOT in SET {5, 7}&#13;
-  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Mode of transport at the border&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NR9007</Code>
     <Description lang="fi">JOS &lt;i&gt;Sisämaan kuljetusmuoto&lt;/i&gt; TAI &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt; EI ole JOUKOSSA {2, 5, 7}&#13;
-  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusmuoto rajalla&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kansallisuus&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kansallisuus&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kansallisuus&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
     <Description lang="sv">OM &lt;i&gt;Transportsätt inrikes&lt;/i&gt; ELLER &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt; INTE är i GRUPPEN {2, 5, 7}&#13;
-  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportsätt vid gränsen&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Nationalitet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Nationalitet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Nationalitet&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
     <Description lang="en">IF &lt;i&gt;Inland mode of transport&lt;/i&gt; OR &lt;i&gt;Active border transport means&lt;/i&gt; is NOT in SET {2, 5, 7}&#13;
-  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Mode of transport at the border&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Nationality&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Nationality&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Nationality&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NR9008</Code>
@@ -3018,6 +3063,30 @@ THEN&#13;
     <Description lang="en">IF /*/​Authorisation/​Category is in set 'C521'&#13;
 THEN&#13;
 /*/​Type@function="DeclarationType" cannot be TIR</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9064</Code>
+    <Description lang="fi">JOS &lt;i&gt;Tunnistetietojen tyyppi&lt;/i&gt; = '30'&#13;
+  NIIN kardinaliteetti = '1x'</Description>
+    <Description lang="sv">OM &lt;i&gt;Typ av identifiering&lt;/i&gt; = '30'&#13;
+  DÅ är kardinaliteten = '1x'</Description>
+    <Description lang="en">IF &lt;i&gt;Type of identification&lt;/i&gt; = '30'&#13;
+  THEN cardinality = '1x'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9066</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; = 'D'&#13;
+  NIIN ilmoituskanavaa ei voi vaihtaa</Description>
+    <Description lang="sv">OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; = 'D'&#13;
+  DÅ kan anmälningskanalen inte ändras</Description>
+    <Description lang="en">IF &lt;i&gt;Additional declaration type&lt;/i&gt; = 'D'&#13;
+  THEN channel change is not allowed</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9075</Code>
+    <Description lang="fi">Tiedon &lt;i&gt;Järjestysnumero&lt;/i&gt; maksimiarvon on oltava sama kuin FI015/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Järjestysnumero&lt;/i&gt;</Description>
+    <Description lang="sv">Maximala värdet av &lt;i&gt;Ordningsnummer&lt;/i&gt; måste vara lika med FI015/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Ordningsnummer&lt;/i&gt;</Description>
+    <Description lang="en">Maximum value of &lt;i&gt;Sequence number&lt;/i&gt; must be equal to maximum value of FI015/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Sequence number&lt;/i&gt;</Description>
   </Constraint>
   <Constraint>
     <Code>R0003</Code>
