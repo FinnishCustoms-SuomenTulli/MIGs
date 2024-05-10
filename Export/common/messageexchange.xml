@@ -1183,4 +1183,621 @@ Tullin järjestelmä tarkastaa vienti-ilmoitukselta asiakkaan tunnistetiedot ja 
 			</SequenceDescription>
 		</UseCase>
 	</UseCases>
+	<UseCases>
+		<Label lang="fi">Jälleenvientitiedonannon antaminen Tullille</Label>
+		<Label lang="sv">Ingivande av en anmälan om återexport till Tullen</Label>
+		<Label lang="en">Submitting a re-export notification to Customs</Label>
+		<UseCase>
+			<Name lang="fi">Jälleenvientitiedonanto – ilmoitus virheetön</Name>
+			<Name lang="sv">Anmälan om återexport – anmälan är felfri</Name>
+			<Name lang="en">Re-export notification – the notification is correct</Name>
+			<Sequence>
+				<EO labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI570A</EO>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI526A</Customs>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI525A</Customs>
+				<Customs labelfi="Asiakas B (Väliaikaisen varaston luvanhaltija)" labelsv="Kund B (Innehavare av tillstånd till tillfälligt lager)" labelen="Customer B (Holder of the temporary storage authorisation)">FI519A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas A lähettää Tullille jälleenvientitiedonannon (FI570). Tullin järjestelmä tarkastaa jälleenvientitiedonannolta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä sisällöllisen oikeellisuuden. Ilmoitus on muodollisesti virheetön, eikä siinä havaittu sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Kund A skickar Tullen en anmälan om återexport (FI570). Tullens system kontrollerar kundens identifieringsuppgifter i anmälan om återexport samt datainnehållets formbundenhet och riktighet. Anmälan är formellt felfri och inga innehållsliga fel upptäcks i den.</ItemLine>
+					<ItemLine lang="en">Customer A sends Customs a re-export notification (FI570). Customs' system checks the customer’s identification details provided in the re-export notification as well as the specified form and correctness of the content. The notification is formally correct, and no errors were detected in its content.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A rekisteröintisanoman (FI526). Tällä sanomalla asiakkaalle ilmoitetaan jälleenvientitiedonannon rekisteröintipäivä ja MRN-numero, joka yksilöi ilmoituksen.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om registrering (FI526). Med detta meddelande delges kunden datumet för registrering av anmälan om återexport samt ett MRN-nummer som identifierar anmälan.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A a registration notification (FI526). It notifies the customer of the registration date of the re-export notification and the MRN that identifies the notification.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A lastauslupasanoman (FI525). Tällä sanomalla asiakkaalle ilmoitetaan, että tavarat saadaan lastata ja ne voivat poistua Unionin tullialueelta.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om lastningstillstånd (FI525). Med detta meddelande får kunden beskedet att varorna får lastas och kan föras ut ur EU:s tullområde.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A an exit release notification (FI525). It notifies the customer that the goods can be loaded and that they can exit the territory of the Union.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle B (väliaikaisen varaston luvanhaltija) varaston luovutussanoman (FI519).</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund B (innehavaren av tillståndet till tillfälligt lager) ett meddelande om frigörande från lager (FI519).</ItemLine>
+					<ItemLine lang="en">Customs sends customer B (holder of the temporary storage authorisation) a storage release notification (FI519).</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Jälleenvientitiedonanto – ilmoitus virheetön, ilmoitukseen kohdistetaan tarkastustoimenpiteitä; lastauslupa myönnetään</Name>
+			<Name lang="sv">Anmälan om återexport – anmälan är felfri, anmälan blir föremål för kontrollåtgärder; lastningstillstånd beviljas</Name>
+			<Name lang="en">Re-export notification – the notification is correct, the notification is subject to control measures; loading permission granted</Name>
+			<Sequence>
+				<EO labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI570A</EO>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI526A</Customs>
+				<Customs labelfi="Asiakas A + B" labelsv="Kund A + B" labelen="Customer A + B">FI550A</Customs>
+				<Customs labelfi="Asiakas A + B" labelsv="Kund A + B" labelen="Customer A + B">FI525A</Customs>
+				<Customs labelfi="Asiakas B (Väliaikaisen varaston luvanhaltija)" labelsv="Kund B (Innehavare av tillstånd till tillfälligt lager)" labelen="Customer B (Holder of the temporary storage authorisation)">FI519A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas A lähettää Tullille jälleenvientitiedonannon (FI570). Tullin järjestelmä tarkastaa jälleenvientitiedonannolta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä sisällöllisen oikeellisuuden. Ilmoitus on muodollisesti virheetön, eikä siinä havaittu sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Kund A skickar Tullen en anmälan om återexport (FI570). Tullens system kontrollerar kundens identifieringsuppgifter i anmälan om återexport samt datainnehållets formbundenhet och riktighet. Anmälan är formellt felfri och inga innehållsliga fel upptäcks i den.</ItemLine>
+					<ItemLine lang="en">Customer A sends Customs a re-export notification (FI570). Customs' system checks the customer’s identification details provided in the re-export notification as well as the specified form and correctness of the content. The notification is formally correct, and no errors were detected in its content.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A rekisteröintisanoman (FI526). Tällä sanomalla asiakkaalle ilmoitetaan jälleenvientitiedonannon rekisteröintipäivä ja MRN-numero, joka yksilöi ilmoituksen.</ItemLine>
+					<ItemLine lang="fi">Tulli tarkastaa ilmoituksella ilmoitettujen tietojen aineellisen oikeellisuuden. Tarkastuksessa ei ilmoituksella havaita aineellisia virheitä mutta tavaroihin kohdistetaan tarkastustoimenpiteitä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om registrering (FI526). Med detta meddelande delges kunden datumet för registrering av anmälan om återexport samt ett MRN-nummer som identifierar anmälan.</ItemLine>
+					<ItemLine lang="sv">Tullen kontrollerar att uppgifterna som angetts i anmälan är materiellt felfria. Vid kontrollen upptäcks inga materiella fel i anmälan, men varorna ska genomgå kontrollåtgärder.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A a registration notification (FI526). It notifies the customer of the registration date of the re-export notification and the MRN that identifies the notification.</ItemLine>
+					<ItemLine lang="en">Customs checks the material correctness of the details provided in the notification. The check does not reveal any material errors in the notification, but the goods will be subject to control measures.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaille A + B Tullin tarkastusilmoituksen (FI550), mikäli ilmoituksen antaja (FI570) asiakas A on eri toimija kuin väliaikaisen varaston luvanhaltija asiakas B. Tarkastusilmoituksella yksilöidään suoritettava tarkastus.</ItemLine>
+					<ItemLine lang="fi">Tulli suorittaa tarvittavat tavaraan kohdistuvat tarkastustoimenpiteet.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunderna A + B Tullens anmälan om kontroll (FI550) ifall den som inlämnat anmälan (FI570), kund A, är en annan aktör än innehavaren av tillstånd till tillfällig lager, kund B. I anmälan specificeras kontrollen som ska utföras.</ItemLine>
+					<ItemLine lang="sv">Tullen vidtar de kontrollåtgärder som ska riktas mot varan.</ItemLine>
+					<ItemLine lang="en">Customs sends the customers A + B Customs’ control notification (FI550), if the submitter of the notification (FI570), customer A, is not the same as the holder of the temporary storage authorisation, customer B. The control notification specifies the control to be carried out.</ItemLine>
+					<ItemLine lang="en">Customs carries out the necessary control measures on the goods.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A tarkastuksen jälkeen Lastauslupasanoman (FI525).</ItemLine>
+					<ItemLine lang="sv">Efter kontrollen skickar Tullen kund A ett Meddelande om lastningstillstånd (FI525).</ItemLine>
+					<ItemLine lang="en">After the control, Customs sends customer A an exit release notification (FI525).</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle B (väliaikaisen varaston luvanhaltija) varaston luovutussanoman (FI519).</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund B (innehavaren av tillståndet till tillfälligt lager) ett meddelande om frigörande från lager (FI519).</ItemLine>
+					<ItemLine lang="en">Customs sends customer B (holder of the temporary storage authorisation) a storage release notification (FI519).</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Jälleenvientitiedonanto – ilmoitus virheetön, ilmoitukseen kohdistetaan tarkastustoimenpiteitä; lastauslupa evätään</Name>
+			<Name lang="sv">Anmälan om återexport – anmälan är felfri, anmälan blir föremål för kontrollåtgärder; lastningstillstånd avslås</Name>
+			<Name lang="en">Re-export notification – the notification is correct, the notification is subject to control measures; loading permission denied</Name>
+			<Sequence>
+				<EO labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI570A</EO>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI526A</Customs>
+				<Customs labelfi="Asiakas A + B" labelsv="Kund A + B" labelen="Customer A + B">FI550A</Customs>
+				<Customs labelfi="Asiakas A + B" labelsv="Kund A + B" labelen="Customer A + B">FI522A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas A lähettää Tullille jälleenvientitiedonannon (FI570). Tullin järjestelmä tarkastaa jälleenvientitiedonannolta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä sisällöllisen oikeellisuuden. Ilmoitus on muodollisesti virheetön, eikä siinä havaittu sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Kund A skickar Tullen en anmälan om återexport (FI570). Tullens system kontrollerar kundens identifieringsuppgifter i anmälan om återexport samt datainnehållets formbundenhet och riktighet. Anmälan är formellt felfri och inga innehållsliga fel upptäcks i den.</ItemLine>
+					<ItemLine lang="en">Customer A sends Customs a re-export notification (FI570). Customs' system checks the customer’s identification details provided in the re-export notification as well as the specified form and correctness of the content. The notification is formally correct, and no errors were detected in its content.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A rekisteröintisanoman (FI526). Tällä sanomalla asiakkaalle ilmoitetaan jälleenvientitiedonannon rekisteröintipäivä ja MRN-numero, joka yksilöi ilmoituksen.</ItemLine>
+					<ItemLine lang="fi">Tulli tarkastaa ilmoituksella ilmoitettujen tietojen aineellisen oikeellisuuden. Tarkastuksessa ei ilmoituksella havaita aineellisia virheitä mutta tavaroihin kohdistetaan tarkastustoimenpiteitä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om registrering (FI526). Med detta meddelande delges kunden datumet för registrering av anmälan om återexport samt ett MRN-nummer som identifierar anmälan.</ItemLine>
+					<ItemLine lang="sv">Tullen kontrollerar att uppgifterna som angetts i anmälan är materiellt felfria. Vid kontrollen upptäcks inga materiella fel i anmälan, men varorna ska genomgå kontrollåtgärder.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A a registration notification (FI526). It notifies the customer of the registration date of the re-export notification and the MRN that identifies the notification.</ItemLine>
+					<ItemLine lang="en">Customs checks the material correctness of the details provided in the notification. The check does not reveal any material errors in the notification, but the goods will be subject to control measures.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaille A + B Tullin tarkastusilmoituksen (FI550), mikäli ilmoituksen antaja (FI570) asiakas A on eri toimija kuin väliaikaisen varaston luvanhaltija asiakas B. Tarkastusilmoituksella yksilöidään suoritettava tarkastus.</ItemLine>
+					<ItemLine lang="fi">Tulli suorittaa tarvittavat tavaraan kohdistuvat tarkastustoimenpiteet.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunderna A + B Tullens anmälan om kontroll (FI550) ifall den som inlämnat anmälan (FI570), kund A, är en annan aktör än innehavaren av tillstånd till tillfällig lager, kund B. I anmälan specificeras kontrollen som ska utföras.</ItemLine>
+					<ItemLine lang="sv">Tullen vidtar de kontrollåtgärder som ska riktas mot varan.</ItemLine>
+					<ItemLine lang="en">Customs sends the customers A + B Customs’ control notification (FI550), if the submitter of the notification (FI570), customer A, is not the same as the holder of the temporary storage authorisation, customer B. The control notification specifies the control to be carried out.</ItemLine>
+					<ItemLine lang="en">Customs carries out the necessary control measures on the goods.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A tarkastuksen jälkeen Lastauslupa hylätty -sanoman (FI522).</ItemLine>
+					<ItemLine lang="sv">Efter kontrollen skickar Tullen kund A ett Meddelande om avslag av lastningstillstånd  (FI522).</ItemLine>
+					<ItemLine lang="en">After the control, Customs sends customer A b)	an exit release rejection (FI522).</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Jälleenvientitiedonanto – ilmoitus virheetön, tavarat eivät ole poistuneet määräajassa</Name>
+			<Name lang="sv">Anmälan om återexport – anmälan är felfri, varorna har inte förts ut inom tidsfristen</Name>
+			<Name lang="en">Re-export notification – the notification is correct, the goods have not exited within the specified time limit</Name>
+			<Sequence>
+				<EO labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI570A</EO>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI526A</Customs>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI525A</Customs>
+				<Customs labelfi="Asiakas B (Väliaikaisen varaston luvanhaltija)" labelsv="Kund B (Innehavare av tillstånd till tillfälligt lager)" labelen="Customer B (Holder of the temporary storage authorisation)">FI519A</Customs>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI552A</Customs>
+				<EO labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI553A</EO>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI572A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas A lähettää Tullille jälleenvientitiedonannon (FI570). Tullin järjestelmä tarkastaa jälleenvientitiedonannolta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä sisällöllisen oikeellisuuden. Ilmoitus on muodollisesti virheetön, eikä siinä havaittu sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Kund A skickar Tullen en anmälan om återexport (FI570). Tullens system kontrollerar kundens identifieringsuppgifter i anmälan om återexport samt datainnehållets formbundenhet och riktighet. Anmälan är formellt felfri och inga innehållsliga fel upptäcks i den.</ItemLine>
+					<ItemLine lang="en">Customer A sends Customs a re-export notification (FI570). Customs' system checks the customer’s identification details provided in the re-export notification as well as the specified form and correctness of the content. The notification is formally correct, and no errors were detected in its content.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A rekisteröintisanoman (FI526). Tällä sanomalla asiakkaalle ilmoitetaan jälleenvientitiedonannon rekisteröintipäivä ja MRN-numero, joka yksilöi ilmoituksen.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om registrering (FI526). Med detta meddelande delges kunden datumet för registrering av anmälan om återexport samt ett MRN-nummer som identifierar anmälan.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A a registration notification (FI526). It notifies the customer of the registration date of the re-export notification and the MRN that identifies the notification.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A lastauslupasanoman (FI525). Tällä sanomalla asiakkaalle ilmoitetaan, että tavarat saadaan lastata ja ne voivat poistua Unionin tullialueelta.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om lastningstillstånd (FI525). Med detta meddelande får kunden beskedet att varorna får lastas och kan föras ut ur EU:s tullområde.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A an exit release notification (FI525). It notifies the customer that the goods can be loaded and that they can exit the territory of the Union.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle B (väliaikaisen varaston luvanhaltija) varaston luovutussanoman (FI519).</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund B (innehavaren av tillståndet till tillfälligt lager) ett meddelande om frigörande från lager (FI519).</ItemLine>
+					<ItemLine lang="en">Customs sends customer B (holder of the temporary storage authorisation) a storage release notification (FI519).</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää jälleenvientitiedonannon (FI570) antaneelle asiakkaalle A lisäselvityspyyntösanoman (FI552), jos poistumisilmoitusta (FI590) ei ole annettu 90 päivän kuluessa jälleenvientitiedonannon antamisesta.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A som inlämnat anmälan om återexport (FI570) en begäran om tilläggsutredning (FI552) om en anmälan om utförsel (FI590) inte har ingetts inom 90 dagar från inlämnandet av anmälan om återexport.</ItemLine>
+					<ItemLine lang="en">Customs sends an additional information request (FI552) to customer A, who submitted the re-export notification (FI570) if no exit notification (FI590) has been submitted within 90 days of the submission of the re-export notification.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Asiakas A lähettää Tullille lisäselvityspyynnön vastausanoman (FI553) sekä mahdolliset vaihtoehtoiset todisteet.</ItemLine>
+					<ItemLine lang="fi">Jos vaihtoehtoiset todisteet hyväksytään, Tulli vahvistaa poistumisen UTU-järjestelmään mutta asiakkaalle ei lähetetä poistumisen vahvistussanomaa (FI599).</ItemLine>
+					<ItemLine lang="sv">Kund A skickar Tullen ett svar på begäran om tilläggsutredning (FI553) samt eventuella alternativa bevis.</ItemLine>
+					<ItemLine lang="sv">Om de alternativa bevisen godtas bekräftar Tullen utförseln i UTU-systemet, men det skickas inget meddelande om utförsel (FI599) till kunden.</ItemLine>
+					<ItemLine lang="en">Customer A sends Customs an additional information response (FI553) as well as any alternative proof.</ItemLine>
+					<ItemLine lang="en">If the alternative proof is accepted, Customs will certifiy the exit in the UTU system, but no Export notification (Exit confirmation) (FI599) will be sent to the customer.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">(Tulli lähettää asiakkaalle A Tullin ilmoituksen (FI572) tilanteessa, jos vaihtoehtoisia todisteita ei hyväksytä.)</ItemLine>
+					<ItemLine lang="sv">(Tullen skickar kund A meddelandet Tullens anmälan (FI572) i det fall att de alternativa bevisen inte godtas.)</ItemLine>
+					<ItemLine lang="en">(If the alternative proof is not accepted, Customs will send customer A Custom’s notification (FI572).)</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Jälleenvientitiedonanto – ilmoitus muodollisesti virheellinen</Name>
+			<Name lang="sv">Anmälan om återexport – anmälan är formellt felaktig</Name>
+			<Name lang="en">Re-export notification – the notification is formally incorrect</Name>
+			<Sequence>
+				<EO>FI570A</EO>
+				<Customs>FI516A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille jälleenvientitiedonannon (FI570). Tullin järjestelmä tarkastaa jälleenvientitiedonannolta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä sisällöllisen oikeellisuuden. Ilmoitus ei täytä määrämuotoisuuden vaatimuksia.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar Tullen en anmälan om återexport (FI570). Tullens system kontrollerar kundens identifieringsuppgifter i anmälan om återexport samt datainnehållets formbundenhet och riktighet. Anmälan uppfyller inte kraven på formbundenhet.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs a re-export notification (FI570). Customs' system checks the customer’s identification details provided in the re-export notification as well as the specified form and correctness of the content. The notification does not meet the requirements for specified form.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle jälleenvientitiedonantoa koskevan hylkäyssanoman (FI516). Asia ei ole Tullissa vireillä. Asiakkaan pitää lähettää uusi jälleenvientitiedonanto.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om avslag (FI516) gällande anmälan om återexport. Ärendet är inte längre anhängigt vid Tullen. Kunden måste skicka in en ny anmälan om återexport.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a rejection notification (FI516) concerning the re-export notification. The matter is not pending at Customs. The customer must send a new re-export notification.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+	</UseCases>
+	<UseCases>
+		<Label lang="fi">Poistumisen yleisilmoituksen antaminen Tullille</Label>
+		<Label lang="sv">Ingivande av en summarisk utförseldeklaration till Tullen</Label>
+		<Label lang="en">Submitting an exit summary declaration to Customs</Label>
+		<UseCase>
+			<Name lang="fi">Poistumisen yleisilmoitus –ilmoitus virheetön</Name>
+			<Name lang="sv">Summarisk utförseldeklaration – deklarationen är felfri</Name>
+			<Name lang="en">Exit summary declaration – the declaration is correct</Name>
+			<Sequence>
+				<EO labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI615A</EO>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI526A</Customs>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI525A</Customs>
+				<EO labelfi="Asiakas B (Väliaikaisen varaston luvanhaltija)" labelsv="Kund B (Innehavare av tillstånd till tillfälligt lager)" labelen="Customer B (Holder of the temporary storage authorisation)">FI519A</EO>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas A lähettää Tullille poistumisen yleisilmoituksen (FI615). Tullin järjestelmä tarkastaa poistumisen yleisilmoitussanomasta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä oikeellisuuden. Ilmoitus on muodollisesti virheetön, eikä siinä havaittu sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Kund A skickar en summarisk utförseldeklaration (FI615) till Tullen. Tullens system kontrollerar kundens identifieringsuppgifter i den summariska utförseldeklarationen samt innehållets formbundenhet och riktighet. Deklarationen är formellt felfri och inga innehållsliga fel upptäcks i den.</ItemLine>
+					<ItemLine lang="en">Customer A sends Customs an exit summary declaration (FI615). Customs' system checks the customer’s identification details provided in the exit summary declaration as well as the specified form and correctness of the content of the declaration. The declaration is formally correct, and no errors were detected in its content.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A rekisteröintisanoman (FI526). Tällä sanomalla asiakkaalle ilmoitetaan poistumisen yleisilmoituksen rekisteröintipäivä ja MRN-numero, joka yksilöi ilmoituksen.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om registrering (FI526). Med detta meddelande delges kunden datumet för registrering av den summariska utförseldeklarationen samt ett MRN-nummer som identifierar deklarationen.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A a registration notification (FI526). It notifies the customer of the registration date of the exit summary declaration and its MRN, which identifies the declaration.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A lastauslupasanoman (FI525). Tällä sanomalla asiakkaalle ilmoitetaan, että tavarat saadaan lastata ja ne voivat poistua Unionin tullialueelta.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om lastningstillstånd (FI525). Med detta meddelande får kunden beskedet att varorna får lastas och kan föras ut ur EU:s tullområde.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A an exit release notification (FI525). It notifies the customer that the goods can be loaded and that they can exit the territory of the Union.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle B (väliaikaisen varaston luvanhaltija) varaston luovutussanoman (FI519).</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund B (innehavaren av tillståndet till tillfälligt lager) ett meddelande om frigörande från lager (FI519).</ItemLine>
+					<ItemLine lang="en">Customs sends customer B (holder of the temporary storage authorisation) a storage release notification (FI519).</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Poistumisen yleisilmoitus –muodollisesti virheetön, Tulli lähettää virhesanoman</Name>
+			<Name lang="sv">Summarisk utförseldeklaration – deklarationen är formellt felfri, Tullen skickar ett felmeddelande</Name>
+			<Name lang="en">Exit summary declaration – formally correct, Customs sends an error notification</Name>
+			<Sequence>
+				<EO labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI615A</EO>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI526A</Customs>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI544A</Customs>
+				<EO labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI613A</EO>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI526A</Customs>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI525A</Customs>
+				<EO labelfi="Asiakas B (Väliaikaisen varaston luvanhaltija)" labelsv="Kund B (Innehavare av tillstånd till tillfälligt lager)" labelen="Customer B (Holder of the temporary storage authorisation)">FI519A</EO>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas A lähettää Tullille poistumisen yleisilmoituksen (FI615). Tullin järjestelmä tarkastaa poistumisen yleisilmoitussanomasta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä oikeellisuuden. Ilmoitus on muodollisesti virheetön, eikä siinä havaittu sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Kund A skickar en summarisk utförseldeklaration (FI615) till Tullen. Tullens system kontrollerar kundens identifieringsuppgifter i den summariska utförseldeklarationen samt innehållets formbundenhet och riktighet. Deklarationen är formellt felfri och inga innehållsliga fel upptäcks i den.</ItemLine>
+					<ItemLine lang="en">Customer A sends Customs an exit summary declaration (FI615). Customs' system checks the customer’s identification details provided in the exit summary declaration as well as the specified form and correctness of the content of the declaration. The declaration is formally correct, and no errors were detected in its content.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A rekisteröintisanoman (FI526). Tällä sanomalla asiakkaalle ilmoitetaan poistumisen yleisilmoituksen rekisteröintipäivä ja MRN-numero, joka yksilöi ilmoituksen.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om registrering (FI526). Med detta meddelande delges kunden datumet för registrering av den summariska utförseldeklarationen samt ett MRN-nummer som identifierar deklarationen.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A a registration notification (FI526). It notifies the customer of the registration date of the exit summary declaration and its MRN, which identifies the declaration.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tullin käsittelyssä ilmenee, että sanomassa on virheitä, jotka eivät ole ilmenneet automaattisen käsittelyn aikana. Tulli lähettää asiakkaalle A virheilmoituksen (FI544), jossa Tulli pyytää asiakasta korjaamaan poistumisen yleisilmoitus -sanomassa (FI615) esittämänsä tiedot.</ItemLine>
+					<ItemLine lang="sv">Vid Tullens handläggning upptäcker man i meddelandet fel som inte upptäckts vid den automatiska hanteringen. Tullen skickar kund A ett felmeddelande (FI544) där Tullen begär att kunden ska korrigera uppgifter som angetts i den summariska utförseldeklarationen (FI615).</ItemLine>
+					<ItemLine lang="en">When customs is processing the declaration, it appears that the declaration contains errors which did not occur during the automatic processing. Customs sends customer A an error notification (FI544) requesting the customer to amend details provided entered in the exit summary declaration (FI615).</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Asiakas A lähettää Tullille poistumisen yleisilmoituksen korjauspyyntösanoman (FI613), joka sisältää poistumisen yleisilmoituksen kaikki tiedot sekä alkuperäisen yleisilmoituksen MRN-numeron.</ItemLine>
+					<ItemLine lang="sv">Kund A skickar Tullen en begäran om korrigering av summarisk utförseldeklaration (FI613), som innehåller samtliga uppgifter från den summariska utförseldeklarationen samt MRN-numret från den ursprungliga summariska deklarationen.</ItemLine>
+					<ItemLine lang="en">Customer A sends Customs an amendment request of exit summary declaration (FI613) that contains all the details of the exit summary declaration as well as the MRN of the original summary declaration.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A rekisteröintisanoman (FI526). Tällä sanomalla asiakkaalle ilmoitetaan poistumisen yleisilmoituksen korjauspyynnön rekisteröintipäivä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om registrering (FI526). Med detta meddelande delges kunden datumet för registrering av begäran om korrigering av den summariska utförseldeklarationen.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A a registration notification (FI526). It notifies the customer of the registration date of the amendment request of exit summary declaration.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A lastauslupasanoman (FI525). Tällä sanomalla asiakkaalle ilmoitetaan, että tavarat saadaan lastata ja ne voivat poistua Unionin tullialueelta.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om lastningstillstånd (FI525). Med detta meddelande får kunden beskedet att varorna får lastas och kan föras ut ur EU:s tullområde.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A an exit release notification (FI525). It notifies the customer that the goods can be loaded and that they can exit the territory of the Union.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle B (väliaikaisen varaston luvanhaltija) varaston luovutussanoman (FI519).</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund B (innehavaren av tillståndet till tillfälligt lager) ett meddelande om frigörande från lager (FI519).</ItemLine>
+					<ItemLine lang="en">Customs sends customer B (holder of the temporary storage authorisation) a storage release notification (FI519).</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Poistumisen yleisilmoitus – muodollisesti virheetön, muutos asiakkaan aloitteesta</Name>
+			<Name lang="sv">Summarisk utförseldeklaration – deklarationen är formellt felfri, ändring på kundens initiativ</Name>
+			<Name lang="en">Exit summary declaration – formally correct, customer-initiated amendment</Name>
+			<Sequence>
+				<EO labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI615A</EO>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI526A</Customs>
+				<EO labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI613A</EO>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI526A</Customs>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI525A</Customs>
+				<EO labelfi="Asiakas B (Väliaikaisen varaston luvanhaltija)" labelsv="Kund B (Innehavare av tillstånd till tillfälligt lager)" labelen="Customer B (Holder of the temporary storage authorisation)">FI519A</EO>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas A lähettää Tullille poistumisen yleisilmoituksen (FI615). Tullin järjestelmä tarkastaa poistumisen yleisilmoitus -sanomasta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä oikeellisuuden. Ilmoitus on muodollisesti virheetön, eikä siinä havaittu sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Kund A skickar en summarisk utförseldeklaration (FI615) till Tullen. Tullens system kontrollerar kundens identifieringsuppgifter i den summariska utförseldeklarationen samt innehållets formbundenhet och riktighet. Deklarationen är formellt felfri och inga innehållsliga fel upptäcks i den.</ItemLine>
+					<ItemLine lang="en">Customer A sends Customs an exit summary declaration (FI615). Customs' system checks the customer’s identification details provided in the exit summary declaration as well as the specified form and correctness of the content of the declaration. The declaration is formally correct, and no errors were detected in its content.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A rekisteröintisanoman (FI526). Tällä sanomalla asiakkaalle ilmoitetaan poistumisen yleisilmoituksen rekisteröintipäivä ja MRN-numero, joka yksilöi ilmoituksen.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om registrering (FI526). Med detta meddelande delges kunden datumet för registrering av den summariska utförseldeklarationen samt ett MRN-nummer som identifierar deklarationen.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A a registration notification (FI526). It notifies the customer of the registration date of the exit summary declaration and its MRN, which identifies the declaration.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Asiakas A lähettää Tullille poistumisen yleisilmoituksen muutospyyntösanoman (FI613). Tullin järjestelmä tarkastaa poistumisen yleisilmoituksen muutospyyntösanomasta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä oikeellisuuden. Ilmoitus on muodollisesti virheetön, eikä siinä havaittu sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Kund A skickar Tullen en begäran om ändring av summarisk utförseldeklaration (FI613). Tullens system kontrollerar kundens identifieringsuppgifter i begäran om ändring av summarisk utförseldeklaration samt innehållets formbundenhet och riktighet. Begäran är formellt felfri och inga innehållsliga fel upptäcks i den.</ItemLine>
+					<ItemLine lang="en">Customer A sends Customs an amendment request of exit summary declaration (FI613). Customs' system checks the customer’s identification details provided in the amendment request of exit summary declaration as well as the specified form and correctness of the content. The request is formally correct, and no errors were detected in its content.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A rekisteröintisanoman (FI526). Tällä sanomalla asiakkaalle ilmoitetaan, että poistumisen yleisilmoituksen muutospyyntö hyväksytty ja alkuperäinen poistumisen yleisilmoitus on korvattu muutospyynnöllä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om registrering (FI526). Med detta meddelande ges kunden besked om att begäran om ändring av den summariska utförseldeklarationen har godtagits och att den ursprungliga summariska utförseldeklarationen har ersatts med begäran om ändring.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A a registration notification (FI526). It notifies the customer that the amendment request of exit summary declaration has been accepted and that the original exit summary declaration has been replaced with the amendment request.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A Lastauslupa -sanoman (FI525).</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om lastningstillstånd (FI525).</ItemLine>
+					<ItemLine lang="en">Customs sends customer A an exit release notification (FI525).</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle B (väliaikaisen varaston luvanhaltija) varaston luovutussanoman (FI519).</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund B (innehavaren av tillståndet till tillfälligt lager) ett meddelande om frigörande från lager (FI519).</ItemLine>
+					<ItemLine lang="en">Customs sends customer B (holder of the temporary storage authorisation) a storage release notification (FI519).</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Poistumisen yleisilmoitus – ilmoitus virheetön, ilmoitukseen kohdistetaan tarkastustoimenpiteitä; lastauslupa myönnetään</Name>
+			<Name lang="sv">Summarisk utförseldeklaration – deklarationen är felfri, deklarationen blir föremål för kontrollåtgärder; lastningstillstånd beviljas</Name>
+			<Name lang="en">Exit summary declaration – the declaration is correct, the declaration is subject to control measures; loading permission granted</Name>
+			<Sequence>
+				<EO labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI615A</EO>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI526A</Customs>
+				<Customs labelfi="Asiakas A + B" labelsv="Kund A + B" labelen="Customer A + B">FI550A</Customs>
+				<Customs labelfi="Asiakas A + B" labelsv="Kund A + B" labelen="Customer A + B">FI525A</Customs>
+				<Customs labelfi="Asiakas B (Väliaikaisen varaston luvanhaltija)" labelsv="Kund B (Innehavare av tillstånd till tillfälligt lager)" labelen="Customer B (Holder of the temporary storage authorisation)">FI519A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas A lähettää Tullille poistumisen yleisilmoituksen (FI615). Tullin järjestelmä tarkastaa poistumisen yleisilmoitus -sanomasta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä oikeellisuuden. Ilmoitus on muodollisesti virheetön, eikä siinä havaittu sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Kund A skickar en summarisk utförseldeklaration (FI615) till Tullen. Tullens system kontrollerar kundens identifieringsuppgifter i den summariska utförseldeklarationen samt innehållets formbundenhet och riktighet. Deklarationen är formellt felfri och inga innehållsliga fel upptäcks i den.</ItemLine>
+					<ItemLine lang="en">Customer A sends Customs an exit summary declaration (FI615). Customs' system checks the customer’s identification details provided in the exit summary declaration as well as the specified form and correctness of the content of the declaration. The declaration is formally correct, and no errors were detected in its content.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A rekisteröintisanoman (FI526). Tällä sanomalla asiakkaalle ilmoitetaan poistumisen yleisilmoituksen rekisteröintipäivä ja MRN-numero, joka yksilöi ilmoituksen.</ItemLine>
+					<ItemLine lang="fi">Tulli tarkastaa ilmoituksella ilmoitettujen tietojen aineellisen oikeellisuuden. Tarkastuksessa ei ilmoituksella havaita aineellisia virheitä, mutta ilmoituksella ilmoitettuihin tavaroihin kohdistetaan tarkastustoimenpiteitä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om registrering (FI526). Med detta meddelande delges kunden datumet för registrering av den summariska utförseldeklarationen samt ett MRN-nummer som identifierar deklarationen.</ItemLine>
+					<ItemLine lang="sv">Tullen kontrollerar att uppgifterna som angetts i deklarationen är materiellt felfria. Vid kontrollen upptäcks inga materiella fel i deklarationen, men de varor som deklarerats ska genomgå kontrollåtgärder.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A a registration notification (FI526). It notifies the customer of the registration date of the exit summary declaration and its MRN, which identifies the declaration.</ItemLine>
+					<ItemLine lang="en">Customs checks the material correctness of the details provided in the declaration. The check does not reveal any material errors in the declaration, but the declared goods will be subject to control measures.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaille A ja B Tullin tarkastusilmoituksen (FI550), mikäli asiakas B on eri toimija kuin poistumisen yleisilmoituksen (FI615) antanut toimija. Tarkastusilmoituksella yksilöidään suoritettava tarkastus.</ItemLine>
+					<ItemLine lang="fi">Tulli suorittaa tarvittavat tavaraan kohdistuvat tarkastustoimenpiteet.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A och B Tullens anmälan om kontroll (FI550) ifall kund B är en annan aktör än den som ingett den summariska utförseldeklarationen (FI615). I anmälan specificeras kontrollen som ska utföras.</ItemLine>
+					<ItemLine lang="sv">Tullen vidtar de kontrollåtgärder som ska riktas mot varan.</ItemLine>
+					<ItemLine lang="en">Customs sends the customers A and B Customs’ control notification (FI550), if customer B is not the same as the submitter of the exit summary declaration (FI615). The control notification specifies the control to be carried out.</ItemLine>
+					<ItemLine lang="en">Customs carries out the necessary control measures on the goods.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A tarkastuksen jälkeen Lastauslupasanoman (FI525).</ItemLine>
+					<ItemLine lang="sv">Efter kontrollen skickar Tullen kund A ett Meddelande om lastningstillstånd (FI525).</ItemLine>
+					<ItemLine lang="en">After the control, Customs sends customer A an exit release notification (FI525).</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle B (väliaikaisen varaston luvanhaltija) varaston luovutussanoman (FI519).</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund B (innehavaren av tillståndet till tillfälligt lager) ett meddelande om frigörande från lager (FI519).</ItemLine>
+					<ItemLine lang="en">Customs sends customer B (holder of the temporary storage authorisation) a storage release notification (FI519).</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Poistumisen yleisilmoitus – ilmoitus virheetön, ilmoitukseen kohdistetaan tarkastustoimenpiteitä; lastauslupa evätään</Name>
+			<Name lang="sv">Summarisk utförseldeklaration – deklarationen är felfri, deklarationen blir föremål för kontrollåtgärder; lastningstillstånd avslås</Name>
+			<Name lang="en">Exit summary declaration – the declaration is correct, the declaration is subject to control measures; loading permission denied</Name>
+			<Sequence>
+				<EO labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI615A</EO>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI526A</Customs>
+				<Customs labelfi="Asiakas A + B" labelsv="Kund A + B" labelen="Customer A + B">FI550A</Customs>
+				<Customs labelfi="Asiakas A + B" labelsv="Kund A + B" labelen="Customer A + B">FI522A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas A lähettää Tullille poistumisen yleisilmoituksen (FI615). Tullin järjestelmä tarkastaa poistumisen yleisilmoitus -sanomasta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä oikeellisuuden. Ilmoitus on muodollisesti virheetön, eikä siinä havaittu sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Kund A skickar en summarisk utförseldeklaration (FI615) till Tullen. Tullens system kontrollerar kundens identifieringsuppgifter i den summariska utförseldeklarationen samt innehållets formbundenhet och riktighet. Deklarationen är formellt felfri och inga innehållsliga fel upptäcks i den.</ItemLine>
+					<ItemLine lang="en">Customer A sends Customs an exit summary declaration (FI615). Customs' system checks the customer’s identification details provided in the exit summary declaration as well as the specified form and correctness of the content of the declaration. The declaration is formally correct, and no errors were detected in its content.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A rekisteröintisanoman (FI526). Tällä sanomalla asiakkaalle ilmoitetaan poistumisen yleisilmoituksen rekisteröintipäivä ja MRN-numero, joka yksilöi ilmoituksen.</ItemLine>
+					<ItemLine lang="fi">Tulli tarkastaa ilmoituksella ilmoitettujen tietojen aineellisen oikeellisuuden. Tarkastuksessa ei ilmoituksella havaita aineellisia virheitä, mutta ilmoituksella ilmoitettuihin tavaroihin kohdistetaan tarkastustoimenpiteitä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om registrering (FI526). Med detta meddelande delges kunden datumet för registrering av den summariska utförseldeklarationen samt ett MRN-nummer som identifierar deklarationen.</ItemLine>
+					<ItemLine lang="sv">Tullen kontrollerar att uppgifterna som angetts i deklarationen är materiellt felfria. Vid kontrollen upptäcks inga materiella fel i deklarationen, men de varor som deklarerats ska genomgå kontrollåtgärder.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A a registration notification (FI526). It notifies the customer of the registration date of the exit summary declaration and its MRN, which identifies the declaration.</ItemLine>
+					<ItemLine lang="en">Customs checks the material correctness of the details provided in the declaration. The check does not reveal any material errors in the declaration, but the declared goods will be subject to control measures.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaille A ja B Tullin tarkastusilmoituksen (FI550), mikäli asiakas B on eri toimija kuin poistumisen yleisilmoituksen (FI615) antanut toimija. Tarkastusilmoituksella yksilöidään suoritettava tarkastus.</ItemLine>
+					<ItemLine lang="fi">Tulli suorittaa tarvittavat tavaraan kohdistuvat tarkastustoimenpiteet.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A och B Tullens anmälan om kontroll (FI550) ifall kund B är en annan aktör än den som ingett den summariska utförseldeklarationen (FI615). I anmälan specificeras kontrollen som ska utföras.</ItemLine>
+					<ItemLine lang="sv">Tullen vidtar de kontrollåtgärder som ska riktas mot varan.</ItemLine>
+					<ItemLine lang="en">Customs sends the customers A and B Customs’ control notification (FI550), if customer B is not the same as the submitter of the exit summary declaration (FI615). The control notification specifies the control to be carried out.</ItemLine>
+					<ItemLine lang="en">Customs carries out the necessary control measures on the goods.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A tarkastuksen jälkeen Lastauslupa hylätty -sanoman (FI522).</ItemLine>
+					<ItemLine lang="sv">Efter kontrollen skickar Tullen kund A ett Meddelande om avslag av lastningstillstånd  (FI522).</ItemLine>
+					<ItemLine lang="en">After the control, Customs sends customer A b)	an exit release rejection (FI522).</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Poistumisen yleisilmoitus – ilmoitus muodollisesti virheellinen</Name>
+			<Name lang="sv">Summarisk utförseldeklaration – anmälan är formellt felaktig</Name>
+			<Name lang="en">Exit summary declaration – the notification is formally incorrect</Name>
+			<Sequence>
+				<EO>FI615A</EO>
+				<Customs>FI516A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille poistumisen yleisilmoituksen (FI615). Tullin järjestelmä tarkastaa poistumisen yleisilmoitus -sanomasta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä oikeellisuuden. Ilmoitus ei täytä määrämuotoisuuden vaatimuksia.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar Tullen en summarisk utförseldeklaration (FI615). Tullens system kontrollerar kundens identifieringsuppgifter i den summariska utförseldeklarationen samt innehållets formbundenhet och riktighet. Deklarationen uppfyller inte kraven på formbundenhet.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs an exit summary declaration (FI615). Customs' system checks the customer’s identification details provided in the exit summary declaration as well as the specified form and correctness of the content of the declaration. The declaration does not meet the requirements for specified form.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle jälleenvientitiedonantoa koskevan hylkäyssanoman (FI516). Asia ei ole Tullissa vireillä. Asiakkaan pitää lähettää uusi jälleenvientitiedonanto.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om avslag (FI516) gällande anmälan om återexport. Ärendet är inte längre anhängigt vid Tullen. Kunden måste skicka in en ny anmälan om återexport.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a rejection notification (FI516) concerning the re-export notification. The matter is not pending at Customs. The customer must send a new re-export notification.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+	</UseCases>
+	<UseCases>
+		<Label lang="fi">Jälleenvientitiedonannon tai poistumisen yleisilmoituksen mitätöinti</Label>
+		<Label lang="sv">Ogiltigförklaring av en anmälan om återexport eller summarisk utförseldeklaration</Label>
+		<Label lang="en">Invalidation of a re-export notification or an exit summary declaration</Label>
+		<UseCase>
+			<Name lang="fi">Jälleenvientitiedonanto tai poistumisen yleisilmoitus - asiakaslähtöinen mitätöinti, mitätöintipyynnön hyväksyminen</Name>
+			<Name lang="sv">Anmälan om återexport eller summarisk utförseldeklaration –ogiltigförklaring på kundens initiativ, godtagande av begäran om ogiltigförklaring</Name>
+			<Name lang="en">Re-export notification or exit summary declaration – customer-initiated invalidation, acceptance of invalidation request</Name>
+			<Sequence>
+				<EO>FI514A</EO>
+				<Customs>FI526A</Customs>
+				<Customs>FI519A</Customs>
+				<Customs labelfi="Asiakas B (Väliaikaisen varaston luvanhaltija)" labelsv="Kund B (Innehavare av tillstånd till tillfälligt lager)" labelen="Customer B (Holder of the temporary storage authorisation)">FI510A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille mitätöintipyynnön (FI514), jolla asiakas pyytää mitätöimään aiemmin antamansa jälleenvientitiedonannon (FI570) tai poistumisen yleisilmoituksen (FI615).  Tullin järjestelmä tarkastaa mitätöintipyynnöltä asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä oikeellisuuden. Tullin järjestelmä tarkastaa lisäksi, onko ilmoituksen tila sellainen, että mitätöinti on mahdollinen. Mitätöintipyyntö on muodollisesti virheetön ja mitätöinti on mahdollinen.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar Tullen en begäran om ogiltigförklaring (FI514) där kunden begär att den anmälan om återexport (FI570) eller summariska utförseldeklaration (FI615) som tidigare ingetts ska ogiltigförklaras.  Tullens system kontrollerar kundens identifieringsuppgifter i begäran om ogiltigförklaring samt innehållets formbundenhet och materiella riktighet. Tullens system kontrollerar även om anmälan eller deklarationen har en sådan status att ogiltigförklaringen kan utföras. Begäran om ogiltigförklaring är formellt felfri och ogiltigförklaringen kan utföras.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs an invalidation request (FI514) to request Customs to invalidate a re-export notification (FI570) or an exit summary declaration (FI615) submitted earlier.  Customs' system checks the customer’s identification data provided in the invalidation request as well as the specified form and correctness of the content of the invalidation request. Customs' system also checks whether the state of the re-export notification or the exit summary declaration enables invalidation.  The invalidation request is formally correct and invalidation is possible.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI526), jolla asiakkaalle ilmoitetaan mitätöintipyynnön rekisteröintipäivä. Tulli ei havaitse ilmoitusta käsitellessään sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om registrering (FI526) med vilket kunden delges datumet för registrering av begäran om ogiltigförklaring. Tullen upptäcker inga innehållsliga fel vid handläggningen begäran.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI526) to notify the customer of the registration date of the invalidation request. Customs does not detect any errors in the content while processing the invalidation request.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle mitätöintisanoman (FI510), jolla Tulli ilmoittaa asiakkaalle päätöksestään mitätöidä ilmoitus. Tullin järjestelmä muodostaa erillisen mitätöintiä koskevan päätöstulosteen asiakkaan noudettavaksi.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om ogiltigförklaring (FI510), med vilket Tullen meddelar kunden om sitt beslut att ogiltigförklara deklarationen/anmälan. Tullens system genererar en separat beslutsutskrift om ogiltigförklaringen som kunden kan hämta.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer an invalidation notification (FI510) to notify the customer of its decision to invalidate the re-export notification or the exit summary declaration. Customs’ system generates a separate decision printout concerning invalidation for the customer to retrieve.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle B (väliaikaisen varaston luvanhaltija) mitätöintisanoman (FI510), jos asiakas A mitätöintipyynnön (FI514) antaja on eri kuin väliaikaisen varaston luvanhaltija ja väliaikaisen varaston luvanhaltija on sanomailmoittaja.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar kund B (innehavaren av tillstånd till tillfälligt lager) ett meddelande om ogiltigförklaring (FI510) om kund A, som inlämnat begäran om ogiltigförklaring (FI514), är en annan aktör än innehavaren av tillstånd till tillfällig lager och innehavaren är meddelandedeklarant.</ItemLine>
+					<ItemLine lang="en">Customs sends customer B (holder of the temporary storage authorisation) an invalidation notification (FI510) if customer A, who submitted the invalidation request (FI514), is not the same as the holder of the temporary storage authorisation and the holder of the temporary storage authorisation is a message declarant.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Jälleenvientitiedonanto tai poistumisen yleisilmoitus - asiakaslähtöinen mitätöinti, mitätöintipyynnön hylkääminen</Name>
+			<Name lang="sv">Anmälan om återexport eller summarisk utförseldeklaration –ogiltigförklaring på kundens initiativ, avslag på begäran om ogiltigförklaring</Name>
+			<Name lang="en">Re-export notification or exit summary declaration – customer-initiated invalidation, rejection of invalidation request</Name>
+			<Sequence>
+				<EO>FI514A</EO>
+				<Customs>FI526A</Customs>
+				<Customs>FI530A</Customs>
+				<EO>546A</EO>
+				<Customs>FI548A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille mitätöintipyynnön (FI514), jolla asiakas pyytää mitätöimään aiemmin antamansa jälleenvientitiedonannon (FI570) tai poistumisen yleisilmoituksen (FI615).  Tullin järjestelmä tarkastaa mitätöintipyynnöltä asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä oikeellisuuden. Tullin järjestelmä tarkastaa lisäksi, onko ilmoituksen tila sellainen, että mitätöinti on mahdollinen. Mitätöintipyyntö on muodollisesti virheetön ja mitätöinti on mahdollinen.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar Tullen en begäran om ogiltigförklaring (FI514) där kunden begär att den anmälan om återexport (FI570) eller summariska utförseldeklaration (FI615) som tidigare ingetts ska ogiltigförklaras.  Tullens system kontrollerar kundens identifieringsuppgifter i begäran om ogiltigförklaring samt innehållets formbundenhet och materiella riktighet. Tullens system kontrollerar även om anmälan eller deklarationen har en sådan status att ogiltigförklaringen kan utföras. Begäran om ogiltigförklaring är formellt felfri och ogiltigförklaringen kan utföras.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs an invalidation request (FI514) to request Customs to invalidate a re-export notification (FI570) or an exit summary declaration (FI615) submitted earlier.  Customs' system checks the customer’s identification data provided in the invalidation request as well as the specified form and correctness of the content of the invalidation request. Customs' system also checks whether the state of the re-export notification or the exit summary declaration enables invalidation.  The invalidation request is formally correct and invalidation is possible.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI526), jolla asiakkaalle ilmoitetaan mitätöintipyynnön rekisteröintipäivä. Tulli ei havaitse ilmoitusta käsitellessään sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om registrering (FI526) med vilket kunden delges datumet för registrering av begäran om ogiltigförklaring. Tullen upptäcker inga innehållsliga fel vid handläggningen begäran.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI526) to notify the customer of the registration date of the invalidation request. Customs does not detect any errors in the content while processing the invalidation request.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle kuulemispyynnön (FI530). Tällä sanomalla asiakkaalle ilmoitetaan kuulemisesta tilanteessa, jossa Tulli aikoo hylätä asiakkaan mitätöintipyynnön.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden en begäran om hörande (FI530). Med detta meddelande underrättas kunden om hörande i en situation där Tullen kommer att avslå kundens begäran om ogiltigförklaring.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a hearing request (FI530). The hearing request notifies the customer of hearing in a situation where Customs intends to reject the customer’s invalidation request.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Asiakas antaa vastineensa lähettämällä tullille vastauksen kuulemispyyntöön (FI546).</ItemLine>
+					<ItemLine lang="sv">Kunden avger sitt bemötande genom att skicka ett svar på begäran om hörande (FI546) till Tullen.</ItemLine>
+					<ItemLine lang="en">The customer submits a rejoinder by sending a hearing response (FI546) to Customs.  </ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle mitätöintipyynnön hylkäyssanoman (FI548), jolla Tulli ilmoittaa asiakkaalle päätöksestään hylätä asiakkaan mitätöintipyyntö. Tullin järjestelmä muodostaa erillisen mitätöintipyynnön hylkäystä koskevan päätöstulosteen asiakkaan noudettavaksi.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om avslag på begäran om ogiltigförklaring (FI548), med vilket Tullen meddelar kunden om sitt beslut att avslå kundens begäran om ogiltigförklaring. Tullens system genererar en separat beslutsutskrift om avslaget på begäran om ogiltigförklaring som kunden kan hämta.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer an invalidation request rejection notification (FI548) to notify the customer of its decision to reject the customer’s invalidation request. Customs’ system generates a separate decision printout concerning the rejection of the invalidation request for the customer to retrieve.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Jälleenvientitiedonanto tai poistumisen yleisilmoitus - tullilähtöinen mitätöinti, poistuminen ei ole tapahtunut määräajassa</Name>
+			<Name lang="sv">Anmälan om återexport eller summarisk utförseldeklaration – ogiltigförklaring på Tullens initiativ, utförseln har inte skett inom tidsfristen</Name>
+			<Name lang="en">Re-export notification or exit summary declaration – Customs-initiated invalidation, the goods did not exit within the specified time limit</Name>
+			<Sequence>
+				<EO labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI615A</EO>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI526A</Customs>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI525A</Customs>
+				<Customs labelfi="Asiakas B (Väliaikaisen varaston luvanhaltija, jos eri kuin asiakas A)" labelsv="Kund B (Innehavare av tillstånd till tillfälligt lager, om annan än kund A)" labelen="Customer B (Holder of the temporary storage authorisation, if not customer A)">FI519A</Customs>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI570A</Customs>
+				<Customs labelfi="Asiakas A (esim. kuljetusliike)" labelsv="Kund A (t.ex. transportföretag)" labelen="Customer A (e.g. transport company)">FI510A</Customs>
+				<Customs labelfi="Asiakas B (Väliaikaisen varaston luvanhaltija, jos eri kuin asiakas A)" labelsv="Kund B (Innehavare av tillstånd till tillfälligt lager, om annan än kund A)" labelen="Customer B (Holder of the temporary storage authorisation, if not customer A)">FI510A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas A lähettää Tullille jälleenvientitiedonannon (FI570) tai poistumisen yleisilmoituksen (FI615). Tullin järjestelmä tarkastaa jälleenvientitiedonannolta tai poistumisen yleisilmoitukselta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä oikeellisuuden. Ilmoitus on muodollisesti virheetön, eikä siinä havaittu sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Kund A skickar Tullen en anmälan om återexport (FI570) eller en summarisk utförseldeklaration (FI615). Tullens system kontrollerar kundens identifieringsuppgifter i anmälan om återexport eller i den summariska utförseldeklarationen samt innehållets formbundenhet och riktighet. Anmälan/deklarationen är formellt felfri och inga innehållsliga fel upptäcks i den.</ItemLine>
+					<ItemLine lang="en">Customer A sends Customs a re-export notification (FI570) or an exit summary declaration (FI615). Customs’ system checks the customer’s identification details provided in the re-export notification or in the exit summary declaration as well as the specified form and correctness of the content of the notification or declaration. The notification or declaration is formally correct, and no errors were detected in its content.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A rekisteröintisanoman (FI526). Tällä sanomalla asiakkaalle ilmoitetaan jälleenvientitiedonannon (FI570) tai poistumisen yleisilmoituksen (FI615) rekisteröintipäivä ja MRN-numero, joka yksilöi ilmoituksen.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om registrering (FI526). Med detta meddelande delges kunden datumet för registrering av anmälan om återexport (FI570) eller av den summariska utförseldeklarationen (FI615) samt ett MRN-nummer som identifierar anmälan/deklarationen.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A a registration notification (FI526). It notifies the customer of the registration date of the re-export notification (FI570) or the exit summary declaration (FI615) and the MRN that identifies the notification or declaration.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle A lastauslupasanoman (FI525). Tällä sanomalla asiakkaalle ilmoitetaan, että tavarat saadaan lastata ja ne voivat poistua Unionin tullialueelta.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A ett meddelande om lastningstillstånd (FI525). Med detta meddelande får kunden beskedet att varorna får lastas och kan föras ut ur EU:s tullområde.</ItemLine>
+					<ItemLine lang="en">Customs sends customer A an exit release notification (FI525). It notifies the customer that the goods can be loaded and that they can exit the territory of the Union.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle B (väliaikaisen varaston luvanhaltija) varaston luovutussanoman (FI519), jos jälleenvientitiedonannon (FI570) tai poistumisen yleisilmoituksen (FI615) antaja on eri kuin väliaikaisen varaston luvanhaltija.  </ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund B (innehavaren av tillstånd till tillfälligt lager) ett meddelande om frigörande från lager (FI519) om inlämnaren av anmälan om återexport (FI570) eller den summariska utförseldeklarationen (FI615) är en annan aktör än innehavaren av tillståndet till tillfälligt lager.  </ItemLine>
+					<ItemLine lang="en">Customs sends customer B (holder of the temporary storage authorisation) a storage release notification (FI519) if the submitter of the re-export notification (FI570) or the exit summary declaration (FI615) is not the same as the holder of the temporary storage authorisation.  </ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää jälleenvientitiedonannon (FI570) tai poistumisen yleisilmoituksen (FI615) antaneelle asiakkaalle A lisäselvityspyyntösanoman (FI552), jos poistumisilmoitusta (FI590) ei ole annettu 90 päivän kuluessa jälleenvientitiedonannon tai poistumisen yleisilmoituksen antamisesta.</ItemLine>
+					<ItemLine lang="fi">Asiakas A ei reagoi Tullin lähettämään lisäselvityspyyntöön (FI552) eikä poistumisilmoitusta (FI590) ole lähetetty 150 päivän kuluessa lastausluvan myöntämisestä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kund A som inlämnat anmälan om återexport (FI570) eller den summariska utförseldeklarationen (FI615) en begäran om tilläggsutredning (FI552) om en anmälan om utförsel (FI590) inte har ingetts inom 90 dagar från inlämnandet av anmälan om återexport eller den summariska utförseldeklarationen.</ItemLine>
+					<ItemLine lang="sv">Kund A reagerar inte på begäran om tilläggsutredning (FI552) som Tullen skickat, och ingen anmälan om utförsel (FI590) har skickats inom 150 dagar från beviljandet av lastningstillstånd.</ItemLine>
+					<ItemLine lang="en">Customs sends an additional information request (FI552) to customer A, who submitted the re-export notification (FI570) or exit summary declaration (FI615) if no exit notification (FI590) has been submitted within 90 days of the submission of the re-export notification or exit summary declaration.</ItemLine>
+					<ItemLine lang="en">The customer does not react to the additional information request (FI552) sent by Customs no exit notification (FI590) has been submitted within 150 days of the sending of the exit release notification (loading permit).</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli mitätöi ilmoituksen jälleenvientitiedonannon (FI570) tai poistumisen yleisilmoituksen (FI615) ja lähettää asiakkaalle A mitätöintisanoman (FI510), jolla Tulli ilmoittaa asiakkaalle päätöksestään mitätöidä ilmoitus. Tullin järjestelmä muodostaa erillisen mitätöintiä koskevan päätöstulosteen asiakkaan noudettavaksi.</ItemLine>
+					<ItemLine lang="sv">Tullen ogiltigförklarar anmälan om återexport (FI570) eller den summariska utförseldeklarationen (FI615) och skickar kund A ett meddelande om ogiltigförklaring (FI510) med vilket Tullen delger sitt beslut att ogiltigförklara anmälan/deklarationen. Tullens system genererar en separat beslutsutskrift om ogiltigförklaringen som kunden kan hämta.</ItemLine>
+					<ItemLine lang="en">Customs invalidates the re-export notification (FI570) or the exit summary declaration (FI615) and sends customer A an invalidation notification (FI510) to notify the customer of its decision to invalidate the notification or declaration. Customs’ system generates a separate decision printout concerning invalidation for the customer to retrieve.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle B (väliaikaisen varaston luvanhaltija) mitätöintisanoman (FI510), jos asiakas A mitätöintipyynnön (FI514) antaja on eri kuin väliaikaisen varaston luvanhaltija ja väliaikaisen varaston luvanhaltija on sanomailmoittaja.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar kund B (innehavaren av tillstånd till tillfälligt lager) ett meddelande om ogiltigförklaring (FI510) om kund A, som inlämnat begäran om ogiltigförklaring (FI514), är en annan aktör än innehavaren av tillstånd till tillfällig lager och innehavaren är meddelandedeklarant.</ItemLine>
+					<ItemLine lang="en">Customs sends customer B (holder of the temporary storage authorisation) an invalidation notification (FI510) if customer A, who submitted the invalidation request (FI514), is not the same as the holder of the temporary storage authorisation and the holder of the temporary storage authorisation is a message declarant.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+	</UseCases>
+	<UseCases>
+		<Label lang="fi">Poistumisilmoituksen antaminen Tullille</Label>
+		<Label lang="sv">Ingivande av anmälan om utförsel till Tullen</Label>
+		<Label lang="en">Submitting an exit notification to Customs</Label>
+		<UseCase>
+			<Name lang="fi">Poistumisilmoitus - muodollisesti virheetön</Name>
+			<Name lang="sv">Anmälan om utförsel – formellt felfri</Name>
+			<Name lang="en">Exit notification – formally correct</Name>
+			<Sequence>
+				<EO>FI590</EO>
+				<Customs>FI599A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille poistumisilmoituksen (FI590). Tullin järjestelmä tarkastaa poistumisilmoitukselta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä oikeellisuuden. Ilmoitus on muodollisesti virheetön, eikä siinä havaittu sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar en anmälan om utförsel (FI590) till Tullen. Tullens system kontrollerar kundens identifieringsuppgifter i anmälan om utförsel samt innehållets formbundenhet och riktighet. Anmälan är formellt felfri och inga innehållsliga fel upptäcks i den.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs an exit notification (FI590). Customs' system checks the customer’s identification details provided in the exit notification as well as the specified form and correctness of the content of the notification. The notification is formally correct, and no errors were detected in its content.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI526). Tällä sanomalla asiakkaalle ilmoitetaan poistumisilmoituksen rekisteröintipäivä ja MRN-numero, joka yksilöi ilmoituksen.</ItemLine>
+					<ItemLine lang="fi">Kun poistumisilmoitus annetaan jälleenvientitiedonannon (FI570) tai poistumisen yleisilmoituksen (FI615) jälkeen, Tulli ei lähetä asiakkaalle poistumissanomaa (FI599).</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om registrering (FI526). Med detta meddelande delges kunden datumet för registrering av anmälan om utförsel samt ett MRN-nummer som identifierar anmälan.</ItemLine>
+					<ItemLine lang="sv">När anmälan om utförsel inges efter en anmälan om återexport (FI570) eller en summarisk utförseldeklaration (FI615) skickar Tullen inget meddelande om utförsel (FI599) till kunden.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI526). It notifies the customer of the registration date of the exit notification and the MRN that identifies the notification.</ItemLine>
+					<ItemLine lang="en">When the exit notification is sent after a re-export notification (FI570) or an exit summary declaration (FI615), Customs will not send the customer an Export notification (Exit confirmation (FI599).</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Poistumisilmoitus - muodollisesti virheellinen</Name>
+			<Name lang="sv">Anmälan om utförsel – formellt felaktig</Name>
+			<Name lang="en">Exit notification – formally incorrect</Name>
+			<Sequence>
+				<EO>FI590</EO>
+				<Customs>FI516A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille poistumisilmoituksen (FI590). Tullin järjestelmä tarkastaa poistumisilmoitukselta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä oikeellisuuden. Ilmoitus on muodollisesti virheetön, eikä siinä havaittu sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar en anmälan om utförsel (FI590) till Tullen. Tullens system kontrollerar kundens identifieringsuppgifter i anmälan om utförsel samt innehållets formbundenhet och riktighet. Anmälan är formellt felfri och inga innehållsliga fel upptäcks i den.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs an exit notification (FI590). Customs' system checks the customer’s identification details provided in the exit notification as well as the specified form and correctness of the content of the notification. The notification is formally correct, and no errors were detected in its content.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle poistumisilmoitusta koskevan hylkäyssanoman (FI516). Asia ei ole Tullissa vireillä. Asiakkaan pitää lähettää uusi poistumisilmoitus -sanoma.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om avslag (FI516) gällande anmälan om utförsel. Ärendet är inte längre anhängigt vid Tullen. Kunden måste skicka in en ny anmälan om utförsel.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a rejection notification (FI516) concerning the exit notification. The matter is not pending at Customs. The customer must submit a new exit notification.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+	</UseCases>
 </MessageExchange>
