@@ -14,9 +14,15 @@ ELSE this data = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0010</Code>
-    <Description lang="fi">The number of packages must be declared, except for bulk goods, such as VQ, VG, VL, VY, VR, VS and VO.</Description>
-    <Description lang="sv">The number of packages must be declared, except for bulk goods, such as VQ, VG, VL, VY, VR, VS and VO.</Description>
-    <Description lang="en">The number of packages must be declared, except for bulk goods, such as VQ, VG, VL, VY, VR, VS and VO.</Description>
+    <Description lang="fi">JOS &lt;i&gt;Kollien laji&lt;/i&gt; on JOUKOSSA CL181 &#13;
+  NIIN &lt;i&gt;Kolliluku&lt;/i&gt; = 'N'&#13;
+MUUTEN &lt;i&gt;Kolliluku&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kollislag&lt;/i&gt; är i GRUPPEN CL181 &#13;
+  DÅ är &lt;i&gt;Antal kollin&lt;/i&gt; = 'N'&#13;
+ANNARS är &lt;i&gt;Antal kollin&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Type of packages&lt;/i&gt; is in SET CL181 &#13;
+  THEN &lt;i&gt;Number of packages&lt;/i&gt; = 'N'&#13;
+ELSE &lt;i&gt;Number of packages&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0025_OPT</Code>
@@ -69,17 +75,17 @@ ELSE this data element = 'N'</Description>
   <Constraint>
     <Code>NC3007</Code>
     <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; = FISSL (Suora siirtolastaus) tai JOS tulliselvitys suoritetaan heti&#13;
-  NIIN &lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Varaston tunnistetiedot&lt;/i&gt; = 'N' ja &lt;i&gt;Lisätietokoodi&lt;/i&gt; FITSH ja FIEVT ei voida käyttää&#13;
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Varaston tunnistetiedot&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N' ja &lt;i&gt;Lisätietokoodi&lt;/i&gt; FITSH ja FIEVT ei voida käyttää&#13;
 MUUTEN JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; = FIHPL () tai FISOP () TAI JOS &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; = 'N825'&#13;
-  NIIN &lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Varaston tunnistetiedot&lt;/i&gt; = 'O'</Description>
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Varaston tunnistetiedot&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
     <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = FISSL (Direkt omlastning) eller OM tullklareringen görs genast&#13;
-  DÅ är &lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Identifiering av lager&lt;/i&gt; = 'N' och &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; FITSH och FIEVR kan inte användas&#13;
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Identifiering av lager&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N' och &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; FITSH och FIEVR kan inte användas&#13;
 ANNARS OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = FIHPL () eller FISOP () ELLER OM &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; = 'N825'&#13;
-  DÅ är &lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Identifiering av lager&lt;/i&gt; = 'O'</Description>
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Identifiering av lager&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
     <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; = FISSL (Direct transhipment) or IF customs clearance is done immediately&#13;
-  THEN &lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Identification of warehouse&lt;/i&gt; = 'N' and &lt;i&gt;Additional information code&lt;/i&gt; FITSH and FIEVR cannot be used&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Identification of warehouse&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N' and &lt;i&gt;Additional information code&lt;/i&gt; FITSH and FIEVR cannot be used&#13;
 ELSE IF &lt;i&gt;Additional information code&lt;/i&gt; = FIHPL () or FISOP () OR IF &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; = 'N825'&#13;
-  THEN &lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Identification of warehouse&lt;/i&gt; = 'O'</Description>
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Identification of warehouse&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
   </Constraint>
   <Constraint>
     <Code>NC3008</Code>
@@ -220,26 +226,26 @@ ELSE this data = 'O'</Description>
     <Code>NCS006</Code>
     <Description lang="fi">JOS &lt;i&gt;Edeltävän asiakirjan viite&lt;/i&gt; on 'IM' tai 'N825' tai JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; 'FIPML' on ilmoitettu&#13;
 &#13;
-  NIIN &lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Tavaraerän tunniste&lt;/i&gt; = 'N'&#13;
-MUUTEN &lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Tavaraerän tunniste&lt;/i&gt; = 'O'</Description>
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Tavaraerän tunniste&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
+MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Tavaraerän tunniste&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
     <Description lang="sv">OM &lt;i&gt;Referens för tidigare dokument&lt;/i&gt; är 'IM' eller 'N825' eller OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; 'FIPML' är anmält&#13;
-  DÅ är &lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Varupostidentifierare&lt;/i&gt; = 'N'&#13;
-ANNARS är &lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Varupostidentifierare&lt;/i&gt; = 'O'</Description>
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Varupostidentifierare&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
+ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Varupostidentifierare&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
     <Description lang="en">IF &lt;i&gt;Previous document reference&lt;/i&gt; is 'IM' or 'N825' or IF &lt;i&gt;Additional information code&lt;/i&gt; 'FIPML' is declared&#13;
-  THEN &lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Goods item identifier&lt;/i&gt; = 'N'&#13;
-ELSE &lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Goods item identifier&lt;/i&gt; = 'O'</Description>
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Goods item identifier&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
+ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Goods item identifier&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
   </Constraint>
   <Constraint>
     <Code>NCS007</Code>
     <Description lang="fi">JOS &lt;i&gt;Edeltävän asiakirjan viite&lt;/i&gt; on 'IM', '1ZZZ' tai 'N825'&#13;
-  NIIN &lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusasiakirja&lt;/i&gt; = 'N'&#13;
-MUUTEN &lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusasiakirja&lt;/i&gt; = 'R'</Description>
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusasiakirja&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
+MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusasiakirja&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
     <Description lang="sv">OM &lt;i&gt;Referens för tidigare dokument&lt;/i&gt; är 'IM', '1ZZZ' eller 'N825'&#13;
-  DÅ är &lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportdokument&lt;/i&gt; = 'N'&#13;
-ANNARS är &lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportdokument&lt;/i&gt; = 'R'</Description>
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportdokument&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
+ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportdokument&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
     <Description lang="en">IF &lt;i&gt;Previous document reference&lt;/i&gt; is 'IM', '1ZZZ' or 'N825'&#13;
-  THEN &lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Transport document&lt;/i&gt; = 'N'&#13;
-ELSE &lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Transport document&lt;/i&gt; = 'R'</Description>
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Transport document&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
+ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Transport document&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NCS008</Code>

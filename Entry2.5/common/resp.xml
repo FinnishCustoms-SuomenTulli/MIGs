@@ -164,6 +164,15 @@
       <MinOccurrence use="FI370A">0</MinOccurrence>
     </DataElement>
     <DataElement>
+      <Name lang="fi">Tavaroiden arvioitu esittämispäivä ja -aika</Name>
+      <Name lang="sv">Beräknad dag och tid för anmälan av varornas ankomst</Name>
+      <Name lang="en">Estimated date and time of presentation of the goods</Name>
+      <XPath>/​Jurisdiction</XPath>
+      <Format>dateTime</Format>
+      <Use>FI319A</Use>
+      <MinOccurrence use="FI319A">0</MinOccurrence>
+    </DataElement>
+    <DataElement>
       <Name lang="fi">Kielikoodi</Name>
       <Name lang="sv">Språkkod</Name>
       <Name lang="en">Language code</Name>
@@ -205,15 +214,6 @@
       <Codelist use="FI351A">CL012</Codelist>
       <Codelist use="FI352A">CL012</Codelist>
       <Codelist use="FI370A">CL012</Codelist>
-    </DataElement>
-    <DataElement>
-      <Name lang="fi">Tavaroiden arvioitu esittämispäivä ja -aika</Name>
-      <Name lang="sv">Beräknad dag och tid för anmälan av varornas ankomst</Name>
-      <Name lang="en">Estimated date and time of presentation of the goods</Name>
-      <XPath>/​Jurisdiction</XPath>
-      <Format>dateTime</Format>
-      <Use>FI319A</Use>
-      <MinOccurrence use="FI319A">0</MinOccurrence>
     </DataElement>
     <DataGroup>
       <Name lang="fi">Tiedonanto</Name>
@@ -412,9 +412,9 @@
         <MinOccurrence use="FI352A">0</MinOccurrence>
       </DataElement>
       <DataElement>
-        <Name lang="fi">Määräaika, määräajan laji</Name>
-        <Name lang="sv">Tidsfrist, typ av tidsfrist</Name>
-        <Name lang="en">Time limit, time limit type</Name>
+        <Name lang="fi">Määräajan laji</Name>
+        <Name lang="sv">Typ af tidsgräns</Name>
+        <Name lang="en">Time limit type</Name>
         <XPath>/​Notification/​Limit@LimitType</XPath>
         <Format>an..3</Format>
         <Use>FI330A</Use>
@@ -1048,37 +1048,29 @@
       <MaxOccurrence use="FI329A">1</MaxOccurrence>
       <MaxOccurrence use="FI351A">1</MaxOccurrence>
       <DataGroup>
-        <Name lang="fi">Edeltävä asiakirja</Name>
-        <Name lang="sv">Tidigare dokument</Name>
-        <Name lang="en">Previous document</Name>
-        <XPath>/​Consignment/​PreviousDocument</XPath>
+        <Name lang="fi">Viitenumero/UCR</Name>
+        <Name lang="sv">Referensnummer/UCR</Name>
+        <Name lang="en">Reference number/UCR</Name>
+        <XPath>/​Consignment/​UCR</XPath>
+        <Use>FI319A</Use>
         <Use>FI329A</Use>
         <Use>FI351A</Use>
+        <MinOccurrence use="FI319A">0</MinOccurrence>
         <MinOccurrence use="FI329A">0</MinOccurrence>
         <MinOccurrence use="FI351A">0</MinOccurrence>
-        <MaxOccurrence use="FI329A">9999</MaxOccurrence>
-        <MaxOccurrence use="FI351A">9999</MaxOccurrence>
+        <MaxOccurrence use="FI319A">1</MaxOccurrence>
+        <MaxOccurrence use="FI329A">1</MaxOccurrence>
+        <MaxOccurrence use="FI351A">1</MaxOccurrence>
         <DataElement>
-          <Name lang="fi">Asiakirjatyyppi</Name>
-          <Name lang="sv">Typ av dokument</Name>
-          <Name lang="en">Document type</Name>
-          <XPath>/​Consignment/​PreviousDocument/​Type</XPath>
-          <Format>an..4</Format>
+          <Name lang="fi">Viitenumero/UCR</Name>
+          <Name lang="sv">Referensnummer/UCR</Name>
+          <Name lang="en">Reference number/UCR</Name>
+          <XPath>/​Consignment/​UCR/​TraderAssignedReference</XPath>
+          <Format>an..35</Format>
+          <Use>FI319A</Use>
           <Use>FI329A</Use>
           <Use>FI351A</Use>
-          <MinOccurrence use="FI329A">1</MinOccurrence>
-          <MinOccurrence use="FI351A">1</MinOccurrence>
-          <Codelist use="FI329A">CL014</Codelist>
-          <Codelist use="FI351A">CL014</Codelist>
-        </DataElement>
-        <DataElement>
-          <Name lang="fi">Edeltävän asiakirjan viite</Name>
-          <Name lang="sv">Referens för tidigare dokument</Name>
-          <Name lang="en">Previous document reference</Name>
-          <XPath>/​Consignment/​PreviousDocument/​Identification</XPath>
-          <Format>an..70</Format>
-          <Use>FI329A</Use>
-          <Use>FI351A</Use>
+          <MinOccurrence use="FI319A">1</MinOccurrence>
           <MinOccurrence use="FI329A">1</MinOccurrence>
           <MinOccurrence use="FI351A">1</MinOccurrence>
         </DataElement>
@@ -1394,6 +1386,42 @@
           <Use>FI319A</Use>
           <MinOccurrence use="FI319A">1</MinOccurrence>
           <Codelist use="FI319A">CL750</Codelist>
+        </DataElement>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Edeltävä asiakirja</Name>
+        <Name lang="sv">Tidigare dokument</Name>
+        <Name lang="en">Previous document</Name>
+        <XPath>/​Consignment/​PreviousDocument</XPath>
+        <Use>FI329A</Use>
+        <Use>FI351A</Use>
+        <MinOccurrence use="FI329A">0</MinOccurrence>
+        <MinOccurrence use="FI351A">0</MinOccurrence>
+        <MaxOccurrence use="FI329A">9999</MaxOccurrence>
+        <MaxOccurrence use="FI351A">9999</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Asiakirjatyyppi</Name>
+          <Name lang="sv">Typ av dokument</Name>
+          <Name lang="en">Document type</Name>
+          <XPath>/​Consignment/​PreviousDocument/​Type</XPath>
+          <Format>an..4</Format>
+          <Use>FI329A</Use>
+          <Use>FI351A</Use>
+          <MinOccurrence use="FI329A">1</MinOccurrence>
+          <MinOccurrence use="FI351A">1</MinOccurrence>
+          <Codelist use="FI329A">CL014</Codelist>
+          <Codelist use="FI351A">CL014</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Edeltävän asiakirjan viite</Name>
+          <Name lang="sv">Referens för tidigare dokument</Name>
+          <Name lang="en">Previous document reference</Name>
+          <XPath>/​Consignment/​PreviousDocument/​Identification</XPath>
+          <Format>an..70</Format>
+          <Use>FI329A</Use>
+          <Use>FI351A</Use>
+          <MinOccurrence use="FI329A">1</MinOccurrence>
+          <MinOccurrence use="FI351A">1</MinOccurrence>
         </DataElement>
       </DataGroup>
       <DataGroup>
@@ -2349,34 +2377,6 @@
           <Format>an8</Format>
           <Use>FI319A</Use>
           <MinOccurrence use="FI319A">1</MinOccurrence>
-        </DataElement>
-      </DataGroup>
-      <DataGroup>
-        <Name lang="fi">Viitenumero/UCR</Name>
-        <Name lang="sv">Referensnummer/UCR</Name>
-        <Name lang="en">Reference number/UCR</Name>
-        <XPath>/​Consignment/​UCR</XPath>
-        <Use>FI319A</Use>
-        <Use>FI329A</Use>
-        <Use>FI351A</Use>
-        <MinOccurrence use="FI319A">0</MinOccurrence>
-        <MinOccurrence use="FI329A">0</MinOccurrence>
-        <MinOccurrence use="FI351A">0</MinOccurrence>
-        <MaxOccurrence use="FI319A">1</MaxOccurrence>
-        <MaxOccurrence use="FI329A">1</MaxOccurrence>
-        <MaxOccurrence use="FI351A">1</MaxOccurrence>
-        <DataElement>
-          <Name lang="fi">Viitenumero/UCR</Name>
-          <Name lang="sv">Referensnummer/UCR</Name>
-          <Name lang="en">Reference number/UCR</Name>
-          <XPath>/​Consignment/​UCR/​TraderAssignedReference</XPath>
-          <Format>an..35</Format>
-          <Use>FI319A</Use>
-          <Use>FI329A</Use>
-          <Use>FI351A</Use>
-          <MinOccurrence use="FI319A">1</MinOccurrence>
-          <MinOccurrence use="FI329A">1</MinOccurrence>
-          <MinOccurrence use="FI351A">1</MinOccurrence>
         </DataElement>
       </DataGroup>
     </DataGroup>
