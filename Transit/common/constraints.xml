@@ -1844,6 +1844,18 @@ ELSE IF &lt;i&gt;Time limit&lt;/i&gt; is NOT PRESENT on FI015/FI013&#13;
 ELSE &lt;i&gt;Time limit&lt;/i&gt; = 'O'</Description>
   </Constraint>
   <Constraint>
+    <Code>C0848</Code>
+    <Description lang="fi">JOS &lt;i&gt;Luvan tyyppi&lt;/i&gt; on JOUKOSSA {'C626', 'C627'}&#13;
+  NIIN &lt;i&gt;Luvanhaltijan tunnistenumero&lt;/i&gt; = 'R'&#13;
+MUUTEN &lt;i&gt;Luvanhaltijan tunnistenumero&lt;/i&gt; = 'O'</Description>
+    <Description lang="sv">OM &lt;i&gt;Typ av tillstånd&lt;/i&gt; är i GRUPPEN {'C626', 'C627'}&#13;
+  DÅ är &lt;i&gt;Tillståndshavarens identifieringsnummer&lt;/i&gt; = 'R'&#13;
+ANNARS är &lt;i&gt;Tillståndshavarens identifieringsnummer&lt;/i&gt; = 'O'</Description>
+    <Description lang="en">IF &lt;i&gt;Authorisation type&lt;/i&gt; is in SET {'C626', 'C627'}&#13;
+  THEN &lt;i&gt;Holder of the authorisation identification no.&lt;/i&gt; = 'R'&#13;
+ELSE &lt;i&gt;Holder of the authorisation identification no.&lt;/i&gt; = 'O'</Description>
+  </Constraint>
+  <Constraint>
     <Code>C0904</Code>
     <Description lang="fi">JOS &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; sanomalla FI013/FI015/FI170 = 'TIR'&#13;
   NIIN &lt;i&gt;TIR-haltijan tunnistenumero&lt;/i&gt; = 'R'&#13;
@@ -2256,9 +2268,12 @@ ELSE &lt;i&gt;Office code&lt;/i&gt; = 'N'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0329</Code>
-    <Description lang="fi">If previous document type is 355, 337, N355 or N337 from UTU Entry, then data element is Required</Description>
-    <Description lang="sv">If previous document type is 355, 337, N355 or N337 from UTU Entry, then data element is Required</Description>
-    <Description lang="en">If previous document type is 355, 337, N355 or N337 from UTU Entry, then data element is Required</Description>
+    <Description lang="fi">JOS &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on JOUKOSSA {N337, N355}&#13;
+  NIIN &lt;i&gt;Kuljetusasiakirjan viite&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Typ av dokument&lt;/i&gt; är i GRUPPEN {N337, N355}&#13;
+  DÅ är &lt;i&gt;Referens för transportdokument&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Document type&lt;/i&gt; is IN SET {N337, N355}&#13;
+  THEN &lt;i&gt;Transport document reference&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NC9000</Code>
@@ -2421,21 +2436,6 @@ ANNARS är &lt;i&gt;Adress&lt;/i&gt; = 'N'</Description>
     <Description lang="en">IF &lt;i&gt;Type of location&lt;/i&gt; is in SET {A, D}&#13;
   THEN &lt;i&gt;Address&lt;/i&gt; = 'O'&#13;
 ELSE &lt;i&gt;Address&lt;/i&gt; = 'N'</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NC9013</Code>
-    <Description lang="fi">IF Transaction Type is in SET {'W', 'W1')&#13;
-THEN&#13;
-/*/​Authorisation is 'R'&#13;
-ELSE  /*/​Authorisation is 'O'</Description>
-    <Description lang="sv">IF Transaction Type is in SET {'W', 'W1')&#13;
-THEN&#13;
-/*/​Authorisation is 'R'&#13;
-ELSE  /*/​Authorisation is 'O'</Description>
-    <Description lang="en">IF Transaction Type is in SET {'W', 'W1')&#13;
-THEN&#13;
-/*/​Authorisation is 'R'&#13;
-ELSE  /*/​Authorisation is 'O'</Description>
   </Constraint>
   <Constraint>
     <Code>NC9014</Code>
@@ -2670,6 +2670,12 @@ ELSE &lt;i&gt;Customs office&lt;/i&gt; = 'N'</Description>
     <Description lang="fi">Atleast one of Description, document link must be present.</Description>
     <Description lang="sv">Atleast one of Description, document link must be present.</Description>
     <Description lang="en">Atleast one of Description, document link must be present.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR0049</Code>
+    <Description lang="fi">Palveluntarjoajan on oltava eri kuin maahantuoja (saapuminen ja tuonti), viejä (vienti), tavaranhaltija ja edustaja.</Description>
+    <Description lang="sv">Tjänsteleverantören måste skilja sig från importör (införsel och import), exportör (export), deklarant och representant.</Description>
+    <Description lang="en">Service provider has to be different from importer (entry and import), exporter (export), declarant and representative.</Description>
   </Constraint>
   <Constraint>
     <Code>NR0511</Code>
@@ -3038,19 +3044,10 @@ warehouse id must be found in Authorisation.</Description>
     <Description lang="en">/*/​Notification/​ContactReason must be in SET {004, 006}</Description>
   </Constraint>
   <Constraint>
-    <Code>NR9053</Code>
-    <Description lang="fi">Element /*/​DestinationTrader/​AdditionalIdentifier/Identification IS 'R'</Description>
-    <Description lang="sv">Element /*/​DestinationTrader/​AdditionalIdentifier/Identification IS 'R'</Description>
-    <Description lang="en">Element /*/​DestinationTrader/​AdditionalIdentifier/Identification IS 'R'</Description>
-  </Constraint>
-  <Constraint>
     <Code>NR9054</Code>
-    <Description lang="fi">MAX value for element /'/​Consignment/​HouseConsignment/​ConsignmentItem/​GoodsItemNumber&#13;
-IS 1999</Description>
-    <Description lang="sv">MAX value for element /'/​Consignment/​HouseConsignment/​ConsignmentItem/​GoodsItemNumber&#13;
-IS 1999</Description>
-    <Description lang="en">MAX value for element /'/​Consignment/​HouseConsignment/​ConsignmentItem/​GoodsItemNumber&#13;
-IS 1999</Description>
+    <Description lang="fi">MAX value for element /'/​Consignment/​HouseConsignment/​ConsignmentItem/​GoodsItemNumber IS 1999</Description>
+    <Description lang="sv">MAX value for element /'/​Consignment/​HouseConsignment/​ConsignmentItem/​GoodsItemNumber IS 1999</Description>
+    <Description lang="en">MAX value for element /'/​Consignment/​HouseConsignment/​ConsignmentItem/​GoodsItemNumber IS 1999</Description>
   </Constraint>
   <Constraint>
     <Code>NR9056</Code>
@@ -3063,6 +3060,15 @@ THEN&#13;
     <Description lang="en">IF /*/​Authorisation/​Category is in set 'C521'&#13;
 THEN&#13;
 /*/​Type@function="DeclarationType" cannot be TIR</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9057</Code>
+    <Description lang="fi">IF &lt;i&gt;Luvan tunniste&lt;/i&gt; is present AND &lt;i&gt;Luvan tyyppi&lt;/i&gt; is in SET {C520, C522}&#13;
+  THEN &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt; must be in SET {B,C}</Description>
+    <Description lang="sv">IF &lt;i&gt;Tillståndets identifierare&lt;/i&gt; is present AND &lt;i&gt;Typ av tillstånd&lt;/i&gt; is in SET {C520, C522}&#13;
+  THEN &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; must be in SET {B,C}</Description>
+    <Description lang="en">IF &lt;i&gt;Authorisation identifier&lt;/i&gt; is present AND &lt;i&gt;Authorisation type&lt;/i&gt; is in SET {C520, C522}&#13;
+  THEN &lt;i&gt;Type of location&lt;/i&gt; must be in SET {B,C}</Description>
   </Constraint>
   <Constraint>
     <Code>NR9064</Code>
