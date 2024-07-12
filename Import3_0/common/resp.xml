@@ -2136,6 +2136,19 @@
         <Codelist use="FI429B">CL013H</Codelist>
       </DataElement>
       <DataElement>
+        <Name lang="fi">CC-ilmaisin</Name>
+        <Name lang="sv">CC-kvalificerare</Name>
+        <Name lang="en">CC Qualifier</Name>
+        <XPath>/​AdditionalDocument@function="SupportingDocument"/​CCQualifier</XPath>
+        <Format>a2</Format>
+        <Use>FI403B</Use>
+        <Use>FI429B</Use>
+        <MinOccurrence use="FI403B">0</MinOccurrence>
+        <MinOccurrence use="FI429B">0</MinOccurrence>
+        <Codelist use="FI403B">CL010</Codelist>
+        <Codelist use="FI429B">CL010</Codelist>
+      </DataElement>
+      <DataElement>
         <Name lang="fi">Asiakirjatunniste</Name>
         <Name lang="sv">Dokumentets identifierare</Name>
         <Name lang="en">Document identifier</Name>
@@ -2218,6 +2231,61 @@
       </DataElement>
     </DataGroup>
     <DataGroup>
+      <Name lang="fi">Edeltävä asiakirja</Name>
+      <Name lang="sv">Tidigare dokument</Name>
+      <Name lang="en">Previous document</Name>
+      <XPath>/​PreviousDocument</XPath>
+      <Use>FI403B</Use>
+      <Use>FI429B</Use>
+      <MinOccurrence use="FI403B">0</MinOccurrence>
+      <MinOccurrence use="FI429B">0</MinOccurrence>
+      <MaxOccurrence use="FI403B">9999</MaxOccurrence>
+      <MaxOccurrence use="FI429B">9999</MaxOccurrence>
+      <DataElement>
+        <Name lang="fi">Asiakirjatyyppi</Name>
+        <Name lang="sv">Typ av dokument</Name>
+        <Name lang="en">Document type</Name>
+        <XPath>/​PreviousDocument/​Type</XPath>
+        <Format>an..4</Format>
+        <Use>FI403B</Use>
+        <Use>FI429B</Use>
+        <MinOccurrence use="FI403B">1</MinOccurrence>
+        <MinOccurrence use="FI429B">1</MinOccurrence>
+        <Codelist use="FI403B">CL014</Codelist>
+        <Codelist use="FI429B">CL014</Codelist>
+        <Description lang="fi" use="FI403B">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, ilmoitetaan MRN.</Description>
+        <Description lang="sv" use="FI403B">Tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration anges. Om den tidigare deklarationen har ingetts till UTU-systemet, anges MRN.</Description>
+        <Description lang="en" use="FI403B">Previous document which is most often entry summary declaration, summary declaration or T1-transit declaration is entered. If previous declaration is submitted to Finnish Customs UTU system, MRN is entered.</Description>
+        <Description lang="fi" use="FI429B">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, ilmoitetaan MRN.</Description>
+        <Description lang="sv" use="FI429B">Tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration anges. Om den tidigare deklarationen har ingetts till UTU-systemet, anges MRN.</Description>
+        <Description lang="en" use="FI429B">Previous document which is most often entry summary declaration, summary declaration or T1-transit declaration is entered. If previous declaration is submitted to Finnish Customs UTU system, MRN is entered.</Description>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">CC-ilmaisin</Name>
+        <Name lang="sv">CC-kvalificerare</Name>
+        <Name lang="en">CC Qualifier</Name>
+        <XPath>/​PreviousDocument/​CCQualifier</XPath>
+        <Format>a2</Format>
+        <Use>FI403B</Use>
+        <Use>FI429B</Use>
+        <MinOccurrence use="FI403B">0</MinOccurrence>
+        <MinOccurrence use="FI429B">0</MinOccurrence>
+        <Codelist use="FI403B">CL010</Codelist>
+        <Codelist use="FI429B">CL010</Codelist>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Edeltävän asiakirjan viite</Name>
+        <Name lang="sv">Referens för tidigare dokument</Name>
+        <Name lang="en">Previous document reference</Name>
+        <XPath>/​PreviousDocument/​Identification</XPath>
+        <Format>an..35</Format>
+        <Use>FI403B</Use>
+        <Use>FI429B</Use>
+        <MinOccurrence use="FI403B">1</MinOccurrence>
+        <MinOccurrence use="FI429B">1</MinOccurrence>
+      </DataElement>
+    </DataGroup>
+    <DataGroup>
       <Name lang="fi">Lisätieto</Name>
       <Name lang="sv">Ytterligare uppgifter</Name>
       <Name lang="en">Additional information</Name>
@@ -2240,6 +2308,19 @@
         <MinOccurrence use="FI429B">1</MinOccurrence>
         <Codelist use="FI403B">CL039H</Codelist>
         <Codelist use="FI429B">CL039H</Codelist>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">CC-ilmaisin</Name>
+        <Name lang="sv">CC-kvalificerare</Name>
+        <Name lang="en">CC Qualifier</Name>
+        <XPath>/​AdditionalInformation/​CCQualifier</XPath>
+        <Format>a2</Format>
+        <Use>FI403B</Use>
+        <Use>FI429B</Use>
+        <MinOccurrence use="FI403B">0</MinOccurrence>
+        <MinOccurrence use="FI429B">0</MinOccurrence>
+        <Codelist use="FI403B">CL010</Codelist>
+        <Codelist use="FI429B">CL010</Codelist>
       </DataElement>
       <DataElement>
         <Name lang="fi">Lisätiedon kuvaus</Name>
@@ -2289,48 +2370,6 @@
         <MinOccurrence use="FI429B">0</MinOccurrence>
         <Codelist use="FI403B">CL008</Codelist>
         <Codelist use="FI429B">CL008</Codelist>
-      </DataElement>
-    </DataGroup>
-    <DataGroup>
-      <Name lang="fi">Edeltävä asiakirja</Name>
-      <Name lang="sv">Tidigare dokument</Name>
-      <Name lang="en">Previous document</Name>
-      <XPath>/​PreviousDocument</XPath>
-      <Use>FI403B</Use>
-      <Use>FI429B</Use>
-      <MinOccurrence use="FI403B">0</MinOccurrence>
-      <MinOccurrence use="FI429B">0</MinOccurrence>
-      <MaxOccurrence use="FI403B">9999</MaxOccurrence>
-      <MaxOccurrence use="FI429B">9999</MaxOccurrence>
-      <DataElement>
-        <Name lang="fi">Asiakirjatyyppi</Name>
-        <Name lang="sv">Typ av dokument</Name>
-        <Name lang="en">Document type</Name>
-        <XPath>/​PreviousDocument/​Type</XPath>
-        <Format>an..4</Format>
-        <Use>FI403B</Use>
-        <Use>FI429B</Use>
-        <MinOccurrence use="FI403B">1</MinOccurrence>
-        <MinOccurrence use="FI429B">1</MinOccurrence>
-        <Codelist use="FI403B">CL014</Codelist>
-        <Codelist use="FI429B">CL014</Codelist>
-        <Description lang="fi" use="FI403B">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, ilmoitetaan MRN.</Description>
-        <Description lang="sv" use="FI403B">Tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration anges. Om den tidigare deklarationen har ingetts till UTU-systemet, anges MRN.</Description>
-        <Description lang="en" use="FI403B">Previous document which is most often entry summary declaration, summary declaration or T1-transit declaration is entered. If previous declaration is submitted to Finnish Customs UTU system, MRN is entered.</Description>
-        <Description lang="fi" use="FI429B">Ilmoitetaan edeltävä asiakirja, yleisimmin saapumisen yleisilmoitus, yleisilmoitus tai T1-passitusilmoitus. Jos edeltävä ilmoitus on annettu UTU-järjestelmään, ilmoitetaan MRN.</Description>
-        <Description lang="sv" use="FI429B">Tidigare dokument, oftast summarisk införseldeklaration, summarisk deklaration eller T1-transiteringsdeklaration anges. Om den tidigare deklarationen har ingetts till UTU-systemet, anges MRN.</Description>
-        <Description lang="en" use="FI429B">Previous document which is most often entry summary declaration, summary declaration or T1-transit declaration is entered. If previous declaration is submitted to Finnish Customs UTU system, MRN is entered.</Description>
-      </DataElement>
-      <DataElement>
-        <Name lang="fi">Edeltävän asiakirjan viite</Name>
-        <Name lang="sv">Referens för tidigare dokument</Name>
-        <Name lang="en">Previous document reference</Name>
-        <XPath>/​PreviousDocument/​Identification</XPath>
-        <Format>an..35</Format>
-        <Use>FI403B</Use>
-        <Use>FI429B</Use>
-        <MinOccurrence use="FI403B">1</MinOccurrence>
-        <MinOccurrence use="FI429B">1</MinOccurrence>
       </DataElement>
     </DataGroup>
     <DataGroup>
@@ -2627,6 +2666,30 @@
           <Use>FI429B</Use>
           <MinOccurrence use="FI403B">1</MinOccurrence>
           <MinOccurrence use="FI429B">1</MinOccurrence>
+          <Codelist use="FI403B">CL010</Codelist>
+          <Codelist use="FI429B">CL010</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Määränpääalue</Name>
+          <Name lang="sv">Destinationsregion</Name>
+          <Name lang="en">Region of destination</Name>
+          <XPath>/​GoodsShipment/​Destination/​Region</XPath>
+          <Format>an..35</Format>
+          <Use>FI403B</Use>
+          <Use>FI429B</Use>
+          <MinOccurrence use="FI403B">0</MinOccurrence>
+          <MinOccurrence use="FI429B">0</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">CC-ilmaisin</Name>
+          <Name lang="sv">CC-kvalificerare</Name>
+          <Name lang="en">CC Qualifier</Name>
+          <XPath>/​GoodsShipment/​Destination/​CCQualifier</XPath>
+          <Format>a2</Format>
+          <Use>FI403B</Use>
+          <Use>FI429B</Use>
+          <MinOccurrence use="FI403B">0</MinOccurrence>
+          <MinOccurrence use="FI429B">0</MinOccurrence>
           <Codelist use="FI403B">CL010</Codelist>
           <Codelist use="FI429B">CL010</Codelist>
         </DataElement>
@@ -3417,6 +3480,51 @@
             <MinOccurrence use="FI403B">0</MinOccurrence>
             <MinOccurrence use="FI429B">0</MinOccurrence>
           </DataElement>
+          <DataElement>
+            <Name lang="fi">UN/LOCODE</Name>
+            <Name lang="sv">UN/LOCODE</Name>
+            <Name lang="en">UN/LOCODE</Name>
+            <XPath>/​GoodsShipment/​Consignment/​GoodsLocation/​UNLOCODE</XPath>
+            <Format>an..17</Format>
+            <Use>FI403B</Use>
+            <Use>FI429B</Use>
+            <MinOccurrence use="FI403B">0</MinOccurrence>
+            <MinOccurrence use="FI429B">0</MinOccurrence>
+          </DataElement>
+          <DataGroup>
+            <Name lang="fi">GNSS</Name>
+            <Name lang="sv">GNSS</Name>
+            <Name lang="en">GNSS</Name>
+            <XPath>/​GoodsShipment/​Consignment/​GoodsLocation/​GNSS</XPath>
+            <Use>FI403B</Use>
+            <Use>FI429B</Use>
+            <MinOccurrence use="FI403B">0</MinOccurrence>
+            <MinOccurrence use="FI429B">0</MinOccurrence>
+            <MaxOccurrence use="FI403B">1</MaxOccurrence>
+            <MaxOccurrence use="FI429B">1</MaxOccurrence>
+            <DataElement>
+              <Name lang="fi">Leveysaste</Name>
+              <Name lang="sv">Latitud</Name>
+              <Name lang="en">Latitude</Name>
+              <XPath>/​GoodsShipment/​Consignment/​GoodsLocation/​GNSS/​Latitude</XPath>
+              <Format>an..17</Format>
+              <Use>FI403B</Use>
+              <Use>FI429B</Use>
+              <MinOccurrence use="FI403B">1</MinOccurrence>
+              <MinOccurrence use="FI429B">1</MinOccurrence>
+            </DataElement>
+            <DataElement>
+              <Name lang="fi">Pituusaste</Name>
+              <Name lang="sv">Longitud</Name>
+              <Name lang="en">Longitude</Name>
+              <XPath>/​GoodsShipment/​Consignment/​GoodsLocation/​GNSS/​Longitude</XPath>
+              <Format>an..17</Format>
+              <Use>FI403B</Use>
+              <Use>FI429B</Use>
+              <MinOccurrence use="FI403B">1</MinOccurrence>
+              <MinOccurrence use="FI429B">1</MinOccurrence>
+            </DataElement>
+          </DataGroup>
           <DataGroup>
             <Name lang="fi">Osoite</Name>
             <Name lang="sv">Adress</Name>
@@ -3485,6 +3593,53 @@
               <Codelist use="FI403B">CL008</Codelist>
               <Codelist use="FI429B">CL008</Codelist>
               <Codelist use="FI445B">CL008</Codelist>
+            </DataElement>
+          </DataGroup>
+          <DataGroup>
+            <Name lang="fi">Postinumero-osoite</Name>
+            <Name lang="sv">Postnummeradress</Name>
+            <Name lang="en">Postcode address</Name>
+            <XPath>/​GoodsShipment/​Consignment/​GoodsLocation/​PostcodeAddress</XPath>
+            <Use>FI403B</Use>
+            <Use>FI429B</Use>
+            <MinOccurrence use="FI403B">0</MinOccurrence>
+            <MinOccurrence use="FI429B">0</MinOccurrence>
+            <MaxOccurrence use="FI403B">1</MaxOccurrence>
+            <MaxOccurrence use="FI429B">1</MaxOccurrence>
+            <DataElement>
+              <Name lang="fi">Maa</Name>
+              <Name lang="sv">Land</Name>
+              <Name lang="en">Country</Name>
+              <XPath>/​GoodsShipment/​Consignment/​GoodsLocation/​PostcodeAddress/​Country</XPath>
+              <Format>a2</Format>
+              <Use>FI403B</Use>
+              <Use>FI429B</Use>
+              <MinOccurrence use="FI403B">1</MinOccurrence>
+              <MinOccurrence use="FI429B">1</MinOccurrence>
+              <Codelist use="FI403B">CL190</Codelist>
+              <Codelist use="FI429B">CL190</Codelist>
+            </DataElement>
+            <DataElement>
+              <Name lang="fi">Rakennuksen numero</Name>
+              <Name lang="sv">Byggnadens nummer</Name>
+              <Name lang="en">House number</Name>
+              <XPath>/​GoodsShipment/​Consignment/​GoodsLocation/​PostcodeAddress/​Line</XPath>
+              <Format>an..17</Format>
+              <Use>FI403B</Use>
+              <Use>FI429B</Use>
+              <MinOccurrence use="FI403B">0</MinOccurrence>
+              <MinOccurrence use="FI429B">0</MinOccurrence>
+            </DataElement>
+            <DataElement>
+              <Name lang="fi">Postinumero</Name>
+              <Name lang="sv">Postnummer</Name>
+              <Name lang="en">Postcode</Name>
+              <XPath>/​GoodsShipment/​Consignment/​GoodsLocation/​PostcodeAddress/​Postcode</XPath>
+              <Format>an..17</Format>
+              <Use>FI403B</Use>
+              <Use>FI429B</Use>
+              <MinOccurrence use="FI403B">1</MinOccurrence>
+              <MinOccurrence use="FI429B">1</MinOccurrence>
             </DataElement>
           </DataGroup>
         </DataGroup>
@@ -3595,6 +3750,29 @@
             <MinOccurrence use="FI429B">1</MinOccurrence>
             <MinOccurrence use="FI445B">1</MinOccurrence>
           </DataElement>
+          <DataGroup>
+            <Name lang="fi">Tavaraviite</Name>
+            <Name lang="sv">Varureferens</Name>
+            <Name lang="en">Goods reference</Name>
+            <XPath>/​GoodsShipment/​Consignment/​TransportEquipment/​GoodsReference</XPath>
+            <Use>FI403B</Use>
+            <Use>FI429B</Use>
+            <MinOccurrence use="FI403B">0</MinOccurrence>
+            <MinOccurrence use="FI429B">0</MinOccurrence>
+            <MaxOccurrence use="FI403B">999</MaxOccurrence>
+            <MaxOccurrence use="FI429B">999</MaxOccurrence>
+            <DataElement>
+              <Name lang="fi">Ilmoituksen tavaraerän numero</Name>
+              <Name lang="sv">Varupostnummer i deklarationen</Name>
+              <Name lang="en">Declaration goods item number</Name>
+              <XPath>/​GoodsShipment/​Consignment/​TransportEquipment/​GoodsReference/​GoodsItemNumber</XPath>
+              <Format>n..5</Format>
+              <Use>FI403B</Use>
+              <Use>FI429B</Use>
+              <MinOccurrence use="FI403B">1</MinOccurrence>
+              <MinOccurrence use="FI429B">1</MinOccurrence>
+            </DataElement>
+          </DataGroup>
         </DataGroup>
       </DataGroup>
       <DataGroup>
@@ -3655,6 +3833,17 @@
           <MinOccurrence use="FI429B">0</MinOccurrence>
           <Codelist use="FI403B">CL008</Codelist>
           <Codelist use="FI429B">CL008</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Teksti</Name>
+          <Name lang="sv">Text</Name>
+          <Name lang="en">Text</Name>
+          <XPath>/​GoodsShipment/​TradeTerms/​Text</XPath>
+          <Format>an..512</Format>
+          <Use>FI403B</Use>
+          <Use>FI429B</Use>
+          <MinOccurrence use="FI403B">0</MinOccurrence>
+          <MinOccurrence use="FI429B">0</MinOccurrence>
         </DataElement>
       </DataGroup>
       <DataGroup>
@@ -4343,6 +4532,16 @@
             <MaxOccurrence use="FI445B">99</MaxOccurrence>
             <MaxOccurrence use="FI468B">99</MaxOccurrence>
             <DataElement>
+              <Name lang="fi">Järjestysnumero</Name>
+              <Name lang="sv">Ordningsnummer</Name>
+              <Name lang="en">Sequence number</Name>
+              <XPath>/​GoodsShipment/​GovernmentAgencyGoodsItem/​Commodity/​Classification/​Sequence</XPath>
+              <Format>n..5</Format>
+              <Use>FI429B</Use>
+              <MinOccurrence use="FI429B">0</MinOccurrence>
+              <Codelist use="FI429B">CL010</Codelist>
+            </DataElement>
+            <DataElement>
               <Name lang="fi">Tavaran koodi - kansallinen lisäkoodi</Name>
               <Name lang="sv">Varukod - nationellt tilläggsnummer</Name>
               <Name lang="en">Commodity code - National additional code</Name>
@@ -4360,6 +4559,16 @@
               <MinOccurrence use="FI429B">1</MinOccurrence>
               <MinOccurrence use="FI445B">1</MinOccurrence>
               <MinOccurrence use="FI468B">1</MinOccurrence>
+            </DataElement>
+            <DataElement>
+              <Name lang="fi">CC-ilmaisin</Name>
+              <Name lang="sv">CC-kvalificerare</Name>
+              <Name lang="en">CC Qualifier</Name>
+              <XPath>/​GoodsShipment/​GovernmentAgencyGoodsItem/​Commodity/​Classification/​CCQualifier</XPath>
+              <Format>a2</Format>
+              <Use>FI403B</Use>
+              <MinOccurrence use="FI403B">0</MinOccurrence>
+              <Codelist use="FI403B">CL010</Codelist>
             </DataElement>
             <DataElement>
               <Name lang="fi">Luokitustyyppi</Name>
@@ -4986,6 +5195,19 @@
             <Codelist use="FI429B">CL013G</Codelist>
           </DataElement>
           <DataElement>
+            <Name lang="fi">CC-ilmaisin</Name>
+            <Name lang="sv">CC-kvalificerare</Name>
+            <Name lang="en">CC Qualifier</Name>
+            <XPath>/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalDocument@function="SupportingDocument"/​CCQualifier</XPath>
+            <Format>a2</Format>
+            <Use>FI403B</Use>
+            <Use>FI429B</Use>
+            <MinOccurrence use="FI403B">0</MinOccurrence>
+            <MinOccurrence use="FI429B">0</MinOccurrence>
+            <Codelist use="FI403B">CL010</Codelist>
+            <Codelist use="FI429B">CL010</Codelist>
+          </DataElement>
+          <DataElement>
             <Name lang="fi">Asiakirjatunniste</Name>
             <Name lang="sv">Dokumentets identifierare</Name>
             <Name lang="en">Document identifier</Name>
@@ -5164,6 +5386,18 @@
             <Codelist use="FI429B">CL039G</Codelist>
           </DataElement>
           <DataElement>
+            <Name lang="fi">CC-ilmaisin</Name>
+            <Name lang="sv">CC-kvalificerare</Name>
+            <Name lang="en">CC Qualifier</Name>
+            <XPath>/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalInformation/​CCQualifier</XPath>
+            <Format>a2</Format>
+            <Use>FI403B</Use>
+            <Use>FI429B</Use>
+            <MinOccurrence use="FI403B">0</MinOccurrence>
+            <MinOccurrence use="FI429B">0</MinOccurrence>
+            <Codelist use="FI429B">CL010</Codelist>
+          </DataElement>
+          <DataElement>
             <Name lang="fi">Lisätiedon kuvaus</Name>
             <Name lang="sv">Beskrivning av ytterligare uppgifter</Name>
             <Name lang="en">Additional information description</Name>
@@ -5216,6 +5450,19 @@
             <Codelist use="FI420B">CL014</Codelist>
             <Codelist use="FI429B">CL014</Codelist>
             <Codelist use="FI445B">CL014</Codelist>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">CC-ilmaisin</Name>
+            <Name lang="sv">CC-kvalificerare</Name>
+            <Name lang="en">CC Qualifier</Name>
+            <XPath>/​GoodsShipment/​GovernmentAgencyGoodsItem/​PreviousDocument/​CCQualifier</XPath>
+            <Format>a2</Format>
+            <Use>FI403B</Use>
+            <Use>FI429B</Use>
+            <MinOccurrence use="FI403B">0</MinOccurrence>
+            <MinOccurrence use="FI429B">0</MinOccurrence>
+            <Codelist use="FI403B">CL010</Codelist>
+            <Codelist use="FI429B">CL010</Codelist>
           </DataElement>
           <DataElement>
             <Name lang="fi">Edeltävän asiakirjan viite</Name>
@@ -5331,6 +5578,100 @@
           </DataElement>
         </DataGroup>
       </DataGroup>
+    </DataGroup>
+    <DataGroup>
+      <Name lang="fi">Vakuus</Name>
+      <Name lang="sv">Garanti</Name>
+      <Name lang="en">Guarantee</Name>
+      <XPath>/​Guarantee</XPath>
+      <Use>FI403B</Use>
+      <Use>FI429B</Use>
+      <MinOccurrence use="FI403B">0</MinOccurrence>
+      <MinOccurrence use="FI429B">0</MinOccurrence>
+      <MaxOccurrence use="FI403B">1</MaxOccurrence>
+      <MaxOccurrence use="FI429B">1</MaxOccurrence>
+      <DataElement>
+        <Name lang="fi">Vakuuden tyyppi</Name>
+        <Name lang="sv">Garantityp</Name>
+        <Name lang="en">Guarantee type</Name>
+        <XPath>/​Guarantee/​Type</XPath>
+        <Format>an1</Format>
+        <Use>FI403B</Use>
+        <Use>FI429B</Use>
+        <MinOccurrence use="FI403B">1</MinOccurrence>
+        <MinOccurrence use="FI429B">1</MinOccurrence>
+        <Codelist use="FI403B">CL251</Codelist>
+        <Codelist use="FI429B">CL251</Codelist>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Muu vakuusviite</Name>
+        <Name lang="sv">Annan referens för garanti</Name>
+        <Name lang="en">Other guarantee reference</Name>
+        <XPath>/​Guarantee/​OtherGuaranteeReference</XPath>
+        <Format>an..35</Format>
+        <Use>FI403B</Use>
+        <Use>FI429B</Use>
+        <MinOccurrence use="FI403B">0</MinOccurrence>
+        <MinOccurrence use="FI429B">0</MinOccurrence>
+      </DataElement>
+      <DataGroup>
+        <Name lang="fi">Vakuuden viite</Name>
+        <Name lang="sv">Referens för garanti</Name>
+        <Name lang="en">Guarantee reference</Name>
+        <XPath>/​Guarantee/​GuaranteeReference</XPath>
+        <Use>FI403B</Use>
+        <Use>FI429B</Use>
+        <MinOccurrence use="FI403B">0</MinOccurrence>
+        <MinOccurrence use="FI429B">0</MinOccurrence>
+        <MaxOccurrence use="FI403B">99</MaxOccurrence>
+        <MaxOccurrence use="FI429B">99</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Vakuuden viitenumero (GRN)</Name>
+          <Name lang="sv">Referensnummer för garanti (GRN)</Name>
+          <Name lang="en">Guarantee reference number (GRN)</Name>
+          <XPath>/​Guarantee/​GuaranteeReference/​OtherGuaranteeReference</XPath>
+          <Format>an..24</Format>
+          <Use>FI403B</Use>
+          <Use>FI429B</Use>
+          <MinOccurrence use="FI403B">1</MinOccurrence>
+          <MinOccurrence use="FI429B">1</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">CC-ilmaisin</Name>
+          <Name lang="sv">CC-kvalificerare</Name>
+          <Name lang="en">CC Qualifier</Name>
+          <XPath>/​Guarantee/​GuaranteeReference/​CCQualifier</XPath>
+          <Format>a2</Format>
+          <Use>FI403B</Use>
+          <Use>FI429B</Use>
+          <MinOccurrence use="FI403B">0</MinOccurrence>
+          <MinOccurrence use="FI429B">0</MinOccurrence>
+          <Codelist use="FI403B">CL010</Codelist>
+        </DataElement>
+      </DataGroup>
+    </DataGroup>
+    <DataGroup>
+      <Name lang="fi">Esittämistullitoimipaikka</Name>
+      <Name lang="sv">Anmälningstullkontor</Name>
+      <Name lang="en">Customs office of presentation</Name>
+      <XPath>/​PresentationOffice</XPath>
+      <Use>FI403B</Use>
+      <Use>FI429B</Use>
+      <MinOccurrence use="FI403B">0</MinOccurrence>
+      <MinOccurrence use="FI429B">0</MinOccurrence>
+      <MaxOccurrence use="FI403B">1</MaxOccurrence>
+      <MaxOccurrence use="FI429B">1</MaxOccurrence>
+      <DataElement>
+        <Name lang="fi">Tullitoimipaikan tunniste</Name>
+        <Name lang="sv">Identifierare för tullkontor</Name>
+        <Name lang="en">Customs office identifier</Name>
+        <XPath>/​PresentationOffice/​Identification</XPath>
+        <Format>an8</Format>
+        <Use>FI403B</Use>
+        <Use>FI429B</Use>
+        <MinOccurrence use="FI403B">1</MinOccurrence>
+        <MinOccurrence use="FI429B">1</MinOccurrence>
+      </DataElement>
     </DataGroup>
   </DataGroup>
 </Message>
