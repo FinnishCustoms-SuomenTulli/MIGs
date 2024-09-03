@@ -1837,7 +1837,7 @@
           <XPath>/​Consignment/​BorderTransportMeans/​Identification</XPath>
           <Format>an..35</Format>
           <Use>FI029A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
         </DataElement>
         <DataElement>
           <Name lang="fi">Tunnistetietojen tyyppi</Name>
@@ -1846,7 +1846,7 @@
           <XPath>/​Consignment/​BorderTransportMeans/​IdentificationType</XPath>
           <Format>n2</Format>
           <Use>FI029A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
           <Codelist use="FI029A">CL219</Codelist>
         </DataElement>
         <DataElement>
@@ -1856,7 +1856,7 @@
           <XPath>/​Consignment/​BorderTransportMeans/​Nationality</XPath>
           <Format>a2</Format>
           <Use>FI029A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
           <Codelist use="FI029A">CL008_NCTS</Codelist>
         </DataElement>
         <DataElement>
@@ -1875,7 +1875,7 @@
           <XPath>/​Consignment/​BorderTransportMeans/​OfficeIdentification</XPath>
           <Format>an8</Format>
           <Use>FI029A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
           <Codelist use="FI029A">CL141</Codelist>
         </DataElement>
       </DataGroup>
@@ -1909,7 +1909,7 @@
           <Format>an..35</Format>
           <Use>FI029A</Use>
           <Use>FI043A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
           <MinOccurrence use="FI043A">0</MinOccurrence>
         </DataElement>
         <DataElement>
@@ -1920,7 +1920,7 @@
           <Format>n2</Format>
           <Use>FI029A</Use>
           <Use>FI043A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
           <MinOccurrence use="FI043A">0</MinOccurrence>
           <Codelist use="FI029A">CL750</Codelist>
           <Codelist use="FI043A">CL750</Codelist>
@@ -1933,7 +1933,7 @@
           <Format>a2</Format>
           <Use>FI029A</Use>
           <Use>FI043A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
           <MinOccurrence use="FI043A">0</MinOccurrence>
           <Codelist use="FI029A">CL008_NCTS</Codelist>
           <Codelist use="FI043A">CL008_NCTS</Codelist>
@@ -2727,7 +2727,7 @@
         <Name lang="en">Place of loading</Name>
         <XPath>/​Consignment/​LoadingLocation</XPath>
         <Use>FI029A</Use>
-        <MinOccurrence use="FI029A">1</MinOccurrence>
+        <MinOccurrence use="FI029A">0</MinOccurrence>
         <MaxOccurrence use="FI029A">1</MaxOccurrence>
         <DataGroup>
           <Name lang="fi">Osoite</Name>
@@ -2917,8 +2917,8 @@
         <Use>FI043A</Use>
         <MinOccurrence use="FI029A">1</MinOccurrence>
         <MinOccurrence use="FI043A">1</MinOccurrence>
-        <MaxOccurrence use="FI029A">99</MaxOccurrence>
-        <MaxOccurrence use="FI043A">99</MaxOccurrence>
+        <MaxOccurrence use="FI029A">1999</MaxOccurrence>
+        <MaxOccurrence use="FI043A">1999</MaxOccurrence>
         <DataElement>
           <Name lang="fi">Järjestysnumero</Name>
           <Name lang="sv">Ordningsnummer</Name>
@@ -2949,6 +2949,31 @@
             <Codelist use="FI029A">CL008_NCTS</Codelist>
           </DataElement>
         </DataGroup>
+        <DataGroup>
+          <Name lang="fi">Määrämaa</Name>
+          <Name lang="sv">Destinationsland</Name>
+          <Name lang="en">Country of destination</Name>
+          <XPath>/​Consignment/​HouseConsignment/​Destination</XPath>
+          <Use>FI029A</Use>
+          <Use>FI043A</Use>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
+          <MinOccurrence use="FI043A">0</MinOccurrence>
+          <MaxOccurrence use="FI029A">1</MaxOccurrence>
+          <MaxOccurrence use="FI043A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Määrämaan koodi</Name>
+            <Name lang="sv">Kod för destinationsland</Name>
+            <Name lang="en">Country of destination code</Name>
+            <XPath>/​Consignment/​HouseConsignment/​Destination/​Country</XPath>
+            <Format>a2</Format>
+            <Use>FI029A</Use>
+            <Use>FI043A</Use>
+            <MinOccurrence use="FI029A">1</MinOccurrence>
+            <MinOccurrence use="FI043A">1</MinOccurrence>
+            <Codelist use="FI029A">CL008_NCTS</Codelist>
+            <Codelist use="FI043A">CL008_NCTS</Codelist>
+          </DataElement>
+        </DataGroup>
         <DataElement>
           <Name lang="fi">Bruttopaino</Name>
           <Name lang="sv">Bruttovikt</Name>
@@ -2958,7 +2983,7 @@
           <Use>FI029A</Use>
           <Use>FI043A</Use>
           <MinOccurrence use="FI029A">1</MinOccurrence>
-          <MinOccurrence use="FI043A">1</MinOccurrence>
+          <MinOccurrence use="FI043A">0</MinOccurrence>
         </DataElement>
         <DataGroup>
           <Name lang="fi">Muu viite</Name>
@@ -3857,8 +3882,8 @@
             <XPath>/​Consignment/​HouseConsignment/​ConsignmentItem/​GoodsMeasure</XPath>
             <Use>FI029A</Use>
             <Use>FI043A</Use>
-            <MinOccurrence use="FI029A">1</MinOccurrence>
-            <MinOccurrence use="FI043A">1</MinOccurrence>
+            <MinOccurrence use="FI029A">0</MinOccurrence>
+            <MinOccurrence use="FI043A">0</MinOccurrence>
             <MaxOccurrence use="FI029A">1</MaxOccurrence>
             <MaxOccurrence use="FI043A">1</MaxOccurrence>
             <DataElement>
@@ -3869,8 +3894,8 @@
               <Format>n..16,6</Format>
               <Use>FI029A</Use>
               <Use>FI043A</Use>
-              <MinOccurrence use="FI029A">1</MinOccurrence>
-              <MinOccurrence use="FI043A">1</MinOccurrence>
+              <MinOccurrence use="FI029A">0</MinOccurrence>
+              <MinOccurrence use="FI043A">0</MinOccurrence>
             </DataElement>
             <DataElement>
               <Name lang="fi">Nettopaino</Name>
@@ -4404,7 +4429,7 @@
           <XPath>/​Guarantee/​GuaranteeReference/​Amount</XPath>
           <Format>n..16,2</Format>
           <Use>FI029A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
         </DataElement>
         <DataElement>
           <Name lang="fi">Katettava määrä, valuuttalaji</Name>
@@ -4413,7 +4438,7 @@
           <XPath>/​Guarantee/​GuaranteeReference/​Amount@CurrencyUnit</XPath>
           <Format>a3</Format>
           <Use>FI029A</Use>
-          <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI029A">0</MinOccurrence>
           <Codelist use="FI029A">CL352</Codelist>
         </DataElement>
       </DataGroup>
