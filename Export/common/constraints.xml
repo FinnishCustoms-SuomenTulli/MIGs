@@ -449,11 +449,11 @@ ELSE &lt;i&gt;House number&lt;/i&gt; = 'R'</Description>
   <Constraint>
     <Code>C0407</Code>
     <Description lang="fi">JOS &lt;i&gt;Laskutettu kokonaissumma&lt;/i&gt; on ILMOITETTU&#13;
-  NIIN &lt;i&gt;Laskutettu kokonaissumma&lt;/i&gt; = 'R'</Description>
+  NIIN &lt;i&gt;Laskutettu kokonaissumma, valuuttalaji&lt;/i&gt; = 'R'</Description>
     <Description lang="sv">OM &lt;i&gt;Fakturerat totalbelopp&lt;/i&gt; är ANMÄLT&#13;
-  DÅ är &lt;i&gt;Fakturerat totalbelopp&lt;/i&gt; = 'R'</Description>
+  DÅ är &lt;i&gt;Fakturerat totalbelopp, valutaslag&lt;/i&gt; = 'R'</Description>
     <Description lang="en">IF &lt;i&gt;Total amount invoiced&lt;/i&gt; is PRESENT&#13;
-  THEN &lt;i&gt;Total amount invoiced&lt;/i&gt; = 'R'</Description>
+  THEN &lt;i&gt;Total amount invoiced, currency code&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>C0463</Code>
@@ -1305,6 +1305,18 @@ ANNARS är &lt;i&gt;Ombud&lt;/i&gt; = 'N'</Description>
 ELSE &lt;i&gt;Representative&lt;/i&gt; = 'N'</Description>
   </Constraint>
   <Constraint>
+    <Code>NC5022</Code>
+    <Description lang="fi">JOS &lt;i&gt;Eroavaisuuksia havaittu&lt;/i&gt; on YHTÄ KUIN '1'&#13;
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaroiden esittämispäivä ja -aika&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tiedonanto&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaroiden esittämispäivä ja -aika&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tiedonanto&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="sv">OM &lt;i&gt;Skillnader finns&lt;/i&gt; är LIKA MED '1'&#13;
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varornas presentationsdag och tid&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Underrättelse&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varornas presentationsdag och tid&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Underrättelse&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Discrepansies exist&lt;/i&gt; is EQUAL to '1'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Presentation of goods date and time&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Notification&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Presentation of goods date and time&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Notification&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
     <Code>NC5024</Code>
     <Description lang="fi">IF /​Amendment/​AmendmentType is EQUAL to 'OIK' THEN this element = 'R'&#13;
 ELSE IF /​Amendment/​AmendmentType is EQUAL to 'KOR' THEN this element = 'N'&#13;
@@ -1791,6 +1803,54 @@ ANNARS är &lt;i&gt;Tidigare dokument&lt;/i&gt; = 'R'</Description>
 ELSE &lt;i&gt;Previous document&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
+    <Code>NC5066</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Lisätieto&lt;/i&gt;/&lt;i&gt;Lisätietokoodi&lt;/i&gt; on YHTÄ KUIN ‘30600’ TAI tämä &lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Lisätieto&lt;/i&gt;/&lt;i&gt;Lisätietokoodi&lt;/i&gt; on YHTÄ KUIN ‘30600’&#13;
+  NIIN tämä &lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Vastaanottaja&lt;/i&gt; = 'N'&#13;
+  MUUTEN JOS &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Vastaanottaja&lt;/i&gt; on LMOITETTU&#13;
+    NIIN tämä &lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Vastaanottaja&lt;/i&gt; = 'N'&#13;
+    MUUTEN tämä &lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Vastaanottaja&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Ytterligare uppgifter&lt;/i&gt;/&lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; är LIKA MED ‘30600’ ELLER denna &lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Ytterligare uppgifter&lt;/i&gt;/&lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; är LIKA MED ‘30600’&#13;
+  DÅ är denna &lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Mottagare&lt;/i&gt; = 'N'&#13;
+  ANNARS OM &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Mottagare&lt;/i&gt; är ANMÄLD&#13;
+    DÅ är denna &lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Mottagare&lt;/i&gt; = 'N'&#13;
+    ANNARS är denna &lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Mottagare&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Additional information&lt;/i&gt;/&lt;i&gt;Additional information code&lt;/i&gt; is EQUAL TO ‘30600’ OR this &lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Additional information&lt;/i&gt;/&lt;i&gt;Additional information code&lt;/i&gt; is EQUAL to ‘30600’&#13;
+  THEN this &lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Consignee&lt;/i&gt; = 'N'&#13;
+  ELSE IF &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Consignee&lt;/i&gt; is PRESENT&#13;
+    THEN this &lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Consignee&lt;/i&gt; = 'N'&#13;
+    ELSE this &lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Consignee&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC5067</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Lisätieto&lt;/i&gt;/&lt;i&gt;Lisätietokoodi&lt;/i&gt; on YHTÄ KUIN ‘30600’ TAI mikä tahansa &lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Lisätieto&lt;/i&gt;/&lt;i&gt;Lisätietokoodi&lt;/i&gt; on YHTÄ KUIN ‘30600’&#13;
+  NIIN &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Vastaanottaja&lt;/i&gt; = 'N'&#13;
+  MUUTEN JOS &lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Vastaanottaja&lt;/i&gt; on ILMOITETTU&#13;
+    NIIN &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Vastaanottaja&lt;/i&gt; = 'N'&#13;
+    MUUTEN &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Vastaanottaja&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Ytterligare uppgifter&lt;/i&gt;/&lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; är LIKA MED ‘30600’ ELLER en av &lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Ytterligare uppgifter&lt;/i&gt;/&lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; är LIKA MED ‘30600’&#13;
+  DÅ är &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Mottagare&lt;/i&gt; = 'N'&#13;
+  ANNARS OM &lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Mottagare&lt;/i&gt; är ANMÄLD&#13;
+    DÅ är &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Mottagare&lt;/i&gt; = 'N'&#13;
+    ANNARS är &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Mottagare&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Additional information&lt;/i&gt;/&lt;i&gt;Additional information code&lt;/i&gt; is EQUAL to ‘30600’ OR any &lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Additional information&lt;/i&gt;/&lt;i&gt;Additional information code&lt;/i&gt; is EQUAL to ‘30600’&#13;
+  THEN &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Consignee&lt;/i&gt; = 'N'&#13;
+  ELSE IF &lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Consignee&lt;/i&gt; is PRESENT&#13;
+    THEN &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Consignee&lt;/i&gt; = 'N'&#13;
+    ELSE &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Consignee&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC5068</Code>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on JOUKOSSA {N337, N355}&#13;
+  NIIN &lt;i&gt;Tavaraerän tunniste&lt;/i&gt; = 'R'&#13;
+  MUUTEN &lt;i&gt;Tavaraerän tunniste&lt;/i&gt; = 'O'</Description>
+    <Description lang="sv">OM &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; är i GRUPPEN {N337, N355}&#13;
+  DÅ är &lt;i&gt;Varupostidentifierare&lt;/i&gt; = 'R'&#13;
+  ANNARS är &lt;i&gt;Varupostidentifierare&lt;/i&gt; = 'O'</Description>
+    <Description lang="en">IF &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; is in SET {N337, N355}&#13;
+  THEN &lt;i&gt;Goods item identifier&lt;/i&gt; = 'R'&#13;
+  ELSE &lt;i&gt;Goods item identifier&lt;/i&gt; = 'O'</Description>
+  </Constraint>
+  <Constraint>
     <Code>NC5283</Code>
     <Description lang="fi">IF /*/GoodsShipment/AdditionalInformation/code is EQUAL TO ‘30600’ OR any /*/GoodsShipment/GoodsItem/AdditionalInformation/code is EQUAL to ‘30600’&#13;
 THEN /*/GoodsShipment/Consignment/Consignee = "N"&#13;
@@ -1876,9 +1936,12 @@ ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"</Description>
   </Constraint>
   <Constraint>
     <Code>NR0019</Code>
-    <Description lang="fi">Ainoastaan arvo 'FI' on sallittu.</Description>
-    <Description lang="sv">Endast värder 'FI' är giltigt.</Description>
-    <Description lang="en">Only value 'FI' is allowed.</Description>
+    <Description lang="fi">JOS CCL-lupaa EI ole ilmoitettu&#13;
+ NIIN ainoastaan arvo 'FI' on sallittu.</Description>
+    <Description lang="sv">OM ett CCL-tillstånd INTE är anmält&#13;
+ DÅ är endast värdet 'FI' giltigt.</Description>
+    <Description lang="en">IF a CCL authorization is NOT declared&#13;
+  THEN only value 'FI' is allowed.</Description>
   </Constraint>
   <Constraint>
     <Code>NR0028</Code>
@@ -1978,6 +2041,15 @@ THEN /*/ExportOperation/additionalDeclarationType is in SET {'C', 'F', 'Y'}</Des
   DÅ måste de anmälda varukoderna motsvara se i tillståndsuppgifterna</Description>
     <Description lang="en">IF Additional declaration type is in SET {B, C, E, F, U, X, Y} AND commodity codes are specified in the SDE authorisation&#13;
   THEN commodity codes much match authorisation details</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR1101</Code>
+    <Description lang="fi">JOS &lt;i&gt;Tunnistenumero&lt;/i&gt; alkaa EU:n ulkopuolisella maakoodilla, kuten 'NO' tai 'RU' (Suomessa tehty 3. maan EORI-rekisteröinti)&#13;
+  NIIN toimijan on löydettävä asiakasrekisteristä myös ilman &lt;i&gt;Toimipaikkakoodi&lt;/i&gt;</Description>
+    <Description lang="sv">OM &lt;i&gt;Identifieringsnummer&lt;/i&gt; börjar med en landskod utanför EU som 'NO' eller 'RU' (3. lands EORI-registrering gjord i Finland)&#13;
+  DÅ måste aktören hittas i kundregistret även utan &lt;i&gt;Kod för verksamhetsställe&lt;/i&gt;</Description>
+    <Description lang="en">IF &lt;i&gt;Identification number&lt;/i&gt; starts with a non-EU country code such as 'NO' or 'RU' (3. country EORI registration made in Finland)&#13;
+  THEN trader must be found in trader register even without &lt;i&gt;Office code&lt;/i&gt;</Description>
   </Constraint>
   <Constraint>
     <Code>NR1109</Code>
@@ -2637,15 +2709,6 @@ Exporter identification = companyInvolvedInOtherCountriesIdentificationEori in t
   THEN &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; = 'NMRN'</Description>
   </Constraint>
   <Constraint>
-    <Code>NR5102</Code>
-    <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; = ‘FIETD’&#13;
-  NIIN &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; = ‘1ZZZ’ JA tietoelementtiä &lt;i&gt;Edeltävän asiakirjan viite&lt;/i&gt; ei validoida</Description>
-    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = ‘FIETD’&#13;
-  DÅ är &lt;i&gt;Typ av dokument&lt;/i&gt; = ‘1ZZZ’ OCH &lt;i&gt;Referens för tidigare dokument&lt;/i&gt; valideras inte</Description>
-    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; = ‘FIETD’&#13;
-  THEN &lt;i&gt;Document type&lt;/i&gt; = ‘1ZZZ’ AND &lt;i&gt;Previous document reference&lt;/i&gt; will not be validated</Description>
-  </Constraint>
-  <Constraint>
     <Code>NR5103</Code>
     <Description lang="fi">IF /*/​Exporter/​Identification starts with 2-digit code that is not in codelist Maa;CountryCodeEUTerritory&#13;
 AND /*/​Exporter/​Role is EQUAL to 'P' &#13;
@@ -2905,6 +2968,72 @@ Note: The 'Sequence number' is unique if the XPath (without the last datagroup's
     <Description lang="fi">&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava 'N830'</Description>
     <Description lang="sv">&lt;i&gt;Typ av dokument&lt;/i&gt; måste vara 'N830'</Description>
     <Description lang="en">&lt;i&gt;Document type&lt;/i&gt; must be 'N830'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR5139</Code>
+    <Description lang="fi">JOS &lt;i&gt;Toimipaikkakoodi&lt;/i&gt; on ILMOITETTU&#13;
+  NIIN arvon on vastattava alkuperäisen ilmoituksen sen toimijan (joko Edustaja, Ilmoittaja tai Viejä) arvo jonka tunniste on sama</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för verksamhetsställe&lt;/i&gt; är ANMÄLD&#13;
+  DÅ måste den motsvara värdet för den parten med samma identifiering på den ursprungliga deklarationen (antingen  Representanten, Deklaranten eller Exportören)</Description>
+    <Description lang="en">IF &lt;i&gt;Office code&lt;/i&gt; is DECLARED&#13;
+  THEN it must match the value of the party on the original declaration that has the same trader identification (either Representative, Declarant or Exporter)</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR5141</Code>
+    <Description lang="fi">JOS tässä tietoryhmässä havaitaan yksi tai useampi ristiriita, NIIN:&#13;
+- &lt;i&gt;Tavaraerän numero&lt;/i&gt; / &lt;i&gt;Järjestysnumero&lt;/i&gt; on aina käytössä&#13;
+- Ylimääräisiä tavaraeriä ei raportoida.&#13;
+ &#13;
+Kohteiden numerointi:&#13;
+JOS tässä tietoryhmässä havaitaan yksi tai useampi ristiriita, NIIN:&#13;
+- "&lt;i&gt;Tavaraerän numero&lt;/i&gt; / &lt;i&gt;Järjestysnumero&lt;/i&gt; on oltava yksilöllinen JA YHTÄ KUIN sen tietoryhmän &lt;i&gt;Tavaraerän numero&lt;/i&gt; / &lt;i&gt;Järjestysnumero&lt;/i&gt;, joka on määritelty ilmoituksessa, jonka osalta poikkeama on raportoitu;&#13;
+ &#13;
+JOS uusi tietoryhmä tunnistetaan NIIN:&#13;
+    - &lt;i&gt;Järjestysnumero&lt;/i&gt; on oltava yksilöllinen JA YHTÄ KUIN tietoryhmän viimeinen &lt;i&gt;Järjestysnumero&lt;/i&gt; + 1 JA loput sisältämät tietoelementit tietoryhmässä on täytettävä ilmoituksessa määriteltyjen pakollisuuksien mukaan.&#13;
+ &#13;
+JOS Tavaraerään TAI tietoryhmään liittyvät tiedot puuttuvat NIIN:&#13;
+    - Tavaraerää TAI tietoryhmää ei ilmoiteta.&#13;
+   &#13;
+Huom: &lt;i&gt;Tavaraerän numero&lt;/i&gt; / &lt;i&gt;Järjestysnumero&lt;/i&gt; on ainutlaatuinen, jos XPath (ilman viimeistä tietoryhmän predikaattia, eli viimeistä tietoryhmän esiintymisnumeroa, joka sisältyy "[]" -kenttään) ja &lt;i&gt;Tavaraerän numero&lt;/i&gt; / &lt;i&gt;Järjestysnumero&lt;/i&gt; arvo ovat ainutlaatuisia tässä viestissä.</Description>
+    <Description lang="sv">OM en eller flera avvikelser identifieras i denna datagrupp DÅ:&#13;
+- &lt;i&gt;Varupostnummer&lt;/i&gt; / &lt;i&gt;Ordningsnummer&lt;/i&gt; används alltid&#13;
+- Varuöverskott ska inte rapporteras.&#13;
+ &#13;
+Numrering av objekt:&#13;
+OM en eller flera avvikelser identifieras i denna datagrupp DÅ:&#13;
+   - &lt;i&gt;Varupostnummer&lt;/i&gt; / &lt;i&gt;Ordningsnummer&lt;/i&gt; ska vara unikt OCH LIKA MED &lt;i&gt;Varupostnummer&lt;/i&gt; / &lt;i&gt;Ordningsnummer&lt;/i&gt; för den datagrupp som definieras i deklarationen för vilken avvikelsen rapporteras;&#13;
+ &#13;
+OM en ny datagrupp identifieras DÅ:&#13;
+    - &lt;i&gt;Ordningsnummer&lt;/i&gt; ska vara unikt OCH LIKA MED med numret för det sista &lt;i&gt;Ordningsnummer&lt;/i&gt; i datagruppen + 1 OCH resten av de dataelement som ingår i datagruppen ska fyllas i, vilket tillåter de valfrihetsbegränsningar som definieras i deklarationen.&#13;
+ &#13;
+OM en Varupost ELLER informationen om en datagrupp saknas DÅ:&#13;
+    - anmäls Varuposten ELLER datagruppen inte.&#13;
+   &#13;
+Obs: &lt;i&gt;Varupostnummer&lt;/i&gt; / &lt;i&gt;Ordningsnummer&lt;/i&gt; är unikt om XPath (utan det sista datagruppen predikat, dvs. den sista datagruppens förekomstnummer som ingår i "[]") och värdet för &lt;i&gt;Varupostnummer&lt;/i&gt; / &lt;i&gt;Ordningsnummer&lt;/i&gt; är unika i detta meddelande.</Description>
+    <Description lang="en">IF one of more discrepancy(ies) is(are) identified in this Data Group THEN:&#13;
+- &lt;i&gt;Goods item number&lt;/i&gt; / &lt;i&gt;Sequence number&lt;/i&gt; is always used&#13;
+- Excess goods items shall not be reported.&#13;
+ &#13;
+Numbering of items:&#13;
+IF one of more discrepancy(ies) is(are) identified in this Data Group THEN:&#13;
+   - the &lt;i&gt;Goods item number&lt;/i&gt; / &lt;i&gt;Sequence number&lt;/i&gt; shall be unique AND EQUAL to the &lt;i&gt;Goods item number&lt;/i&gt; / &lt;i&gt;Sequence number&lt;/i&gt; of the Data Group defined in the declaration for which the discrepancy is reported; &#13;
+ &#13;
+IF a new Data Group is identified THEN:&#13;
+   - &lt;i&gt;Sequence number&lt;/i&gt; shall be unique AND EQUAL to the number of the last &lt;i&gt;Sequence number&lt;/i&gt; of the Data Group + 1 AND the rest of the Data Items contained in the Data Group and all sub–Data Groups shall be filled in, allowing the optionality constraints defined in the declaration.&#13;
+ &#13;
+IF a Goods Item is missing OR the information related to a Data Group is missing THEN:&#13;
+   - the whole Goods Item OR Data Group is not reported.&#13;
+   &#13;
+Note: The &lt;i&gt;Goods item number&lt;/i&gt; / &lt;i&gt;Sequence number&lt;/i&gt; is unique if the XPath (without the last DG’s predicate, i.e. the last DG’s occurrence number included in "[]") and the value of the &lt;i&gt;Goods item number&lt;/i&gt; / &lt;i&gt;Sequence number&lt;/i&gt; are unique in this message.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR5143</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; 'FIXFJ' on ILMOITETTU&#13;
+  NIIN &lt;i&gt;Liiteasiakirja&lt;/i&gt; = 'R' JA &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; '7LVM' on ilmoitettava</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; 'FIXFJ' är ANMÄLD&#13;
+  DÅ är &lt;i&gt;Bifogat dokument&lt;/i&gt; = 'R' OCH &lt;i&gt;Typ av dokument&lt;/i&gt; '7LVM' måste anmälas</Description>
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; 'FIXFJ' is DECLARED&#13;
+  THEN &lt;i&gt;Supporting document&lt;/i&gt; = 'R' AND &lt;i&gt;Document type&lt;/i&gt; '7LVM' must be declared</Description>
   </Constraint>
   <Constraint>
     <Code>NR5501</Code>
@@ -3337,54 +3466,6 @@ THEN all other Goods Items on the declaration must have /*/​GoodsShipment/​G
     <Description lang="fi">Tarkistusnumeron on oltava ISO 6346 -standardin mukainen.</Description>
     <Description lang="sv">Kontrollsiffran måste följa ISO 6346-standarden.</Description>
     <Description lang="en">The check digit must follow the ISO 6346 standard.</Description>
-  </Constraint>
-  <Constraint>
-    <Code>R0054</Code>
-    <Description lang="fi">JOS tässä tietoryhmässä havaitaan yksi tai useampi ristiriita, NIIN:&#13;
-- "Järjestysnumero" on aina käytössä&#13;
-- Ylimääräisiä tavaraeriä ei raportoida.&#13;
- &#13;
-Kohteiden numerointi:&#13;
-JOS tässä tietoryhmässä havaitaan yksi tai useampi ristiriita, NIIN:&#13;
-- "Järjestysnumeron" on oltava yksilöllinen JA YHTÄ KUIN sen tietoryhmän "sekvenssinumero", joka on määritelty ilmoituksessa, jonka osalta poikkeama on raportoitu;&#13;
- &#13;
-JOS uusi tietoryhmä tunnistetaan NIIN:&#13;
-    - "Järjestysnumeron" on oltava yksilöllinen JA YHTÄ KUIN tietoryhmän viimeinen "sekvenssinumero" + 1 JA loput sisältämät tietoelementit tietoryhmässä on täytettävä ilmoituksessa määriteltyjen pakollisuuksien mukaan.&#13;
- &#13;
-JOS tietoryhmään liittyvät tiedot puuttuvat NIIN:&#13;
-    - "Järjestysnumeron" on oltava yksilöllinen JA YHTÄ KUIN "Järjestysnumero" (sellaisena kuin se on määritelty ilmoituksessa, mutta puuttuu tarkastuksen aikana), ja muut tietoryhmän sisältämät tietoelementit jätetään täyttämättä.&#13;
-   &#13;
-Huom: 'Järjestysnumero' on ainutlaatuinen, jos XPath (ilman viimeistä tietoryhmän predikaattia, eli viimeistä tietoryhmän esiintymisnumeroa, joka sisältyy "[]" -kenttään) ja "Järjestysnumeron" arvo ovat ainutlaatuisia tässä viestissä.</Description>
-    <Description lang="sv">OM en eller flera avvikelser identifieras i denna datagrupp DÅ:&#13;
-- 'Sekvensnummer' används alltid&#13;
-- Varuöverskott ska inte rapporteras.&#13;
- &#13;
-Numrering av objekt:&#13;
-OM en eller flera avvikelser identifieras i denna datagrupp DÅ:&#13;
-- "Sekvensnumret" ska vara unikt  OCH LIKA MED "Sekvensnumret" för den datagrupp som definieras i deklarationen för vilken avvikelsen rapporteras;&#13;
- &#13;
-OM en ny datagrupp identifieras DÅ:&#13;
-    - "Sekvensnummer" ska vara unikt OCH LIKA MED med numret för det sista "sekvensnumret" i datagruppen + 1 OCH resten av de dataelement som ingår i datagruppen ska fyllas i, vilket tillåter de valfrihetsbegränsningar som definieras i deklarationen.&#13;
- &#13;
-OM informationen relaterad till en datagrupp saknas DÅ:&#13;
-    - "Sekvensnummer" ska vara unikt OCH LIKA MED "Sekvensnummer" (enligt definitionen i deklarationen, men saknas under kontroll) och resten av dataelementen i datagruppen ska inte fyllas i.&#13;
-   &#13;
-Obs: "Sekvensnumret" är unikt om XPath (utan det sista datagruppen predikat, dvs. den sista datagruppens förekomstnummer som ingår i "[]") och värdet på "Sekvensnumret" är unika i detta meddelande.</Description>
-    <Description lang="en">IF one of more discrepancy(ies) is(are) identified in this Data Group THEN:&#13;
-- 'Sequence number' is always used&#13;
-- Excess goods items shall not be reported.&#13;
- &#13;
-Numbering of items:&#13;
-IF one of more discrepancy(ies) is(are) identified in this Data Group THEN:&#13;
-- the 'Sequence number' shall be unique  AND EQUAL to the 'Sequence number' of the Data Group defined in the declaration for which the discrepancy is reported; &#13;
- &#13;
-IF a new Data Group is identified THEN:&#13;
-   - 'Sequence number' shall be unique AND EQUAL to the number of the last 'Sequence number' of the Data Group + 1 AND the rest of the Data Items contained in the Data Group shall be filled in, allowing the optionality constraints defined in the declaration.&#13;
- &#13;
-IF the information related to a Data Group is missing THEN:&#13;
-   - 'Sequence number' shall be unique AND EQUAL to the 'Sequence number' (as defined in the declaration, but missing during control) and the rest of the Data Items contained in the Data Group shall not be filled in.&#13;
-   &#13;
-Note: The 'Sequence number' is unique if the XPath (without the last datagroup's predicate, i.e. the last datagroup’s occurrence number included in “[]”) and the value of the 'Sequence number' are unique in this message.</Description>
   </Constraint>
   <Constraint>
     <Code>R0076</Code>
