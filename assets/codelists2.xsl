@@ -3,6 +3,7 @@
 	<xsl:output method="html"/>
 	<xsl:param name="language"/>
 	<xsl:param name="messageType"/>
+	<xsl:key name="filterDefinitions" match="CodeLists/Definitions/Filter" use="Name"/>
 	<xsl:template match="/">
 		<div class="container">
 			<div>
@@ -22,9 +23,9 @@
 				<div class="accordion">
 					<xsl:for-each select="CodeLists/CodeList">
 						<div class="accordion-row" style="display: block">
-								<xsl:attribute name="id">
-									<xsl:value-of select="concat('CODELIST_',Identification)"/>
-								</xsl:attribute>
+							<xsl:attribute name="id">
+								<xsl:value-of select="concat('CODELIST_',Identification)"/>
+							</xsl:attribute>
 							<!--xsl:if test="position()=1">
 								<xsl:attribute name="class">active</xsl:attribute>
 							</xsl:if-->
@@ -66,8 +67,20 @@
 															<th>Selite</th>
 														</xsl:if>
 														<xsl:for-each select="CodeItem[not(Filter/Name=preceding-sibling::CodeItem/Filter/Name)]/Filter">
-															<th>
-																<xsl:value-of select="substring-after(Name,'_')"/>
+															<th data-toggle="tooltip" data-placement="top">
+																<xsl:variable name="filterName" select="Name"/>
+																<xsl:variable name="definitionFi" select="key('filterDefinitions', $filterName)/Definition[@lang='fi']"/>
+																<xsl:attribute name="title">
+																	<xsl:value-of select="$definitionFi"/>
+																</xsl:attribute>
+																<xsl:choose>
+																	<xsl:when test="contains(Name, '_')">
+																		<xsl:value-of select="substring-after(Name, '_')"/>
+																	</xsl:when>
+																	<xsl:otherwise>
+																		<xsl:value-of select="Name"/>
+																	</xsl:otherwise>
+																</xsl:choose>
 															</th>
 														</xsl:for-each>
 														<th>Voimassaolo</th>
@@ -79,8 +92,20 @@
 															<th>Beskrivning</th>
 														</xsl:if>
 														<xsl:for-each select="CodeItem[not(Filter/Name=preceding-sibling::CodeItem/Filter/Name)]/Filter">
-															<th>
-																<xsl:value-of select="substring-after(Name,'_')"/>
+															<th data-toggle="tooltip" data-placement="top">
+																<xsl:variable name="filterName" select="Name"/>
+																<xsl:variable name="definitionSv" select="key('filterDefinitions', $filterName)/Definition[@lang='sv']"/>
+																<xsl:attribute name="title">
+																	<xsl:value-of select="$definitionSv"/>
+																</xsl:attribute>
+																<xsl:choose>
+																	<xsl:when test="contains(Name, '_')">
+																		<xsl:value-of select="substring-after(Name, '_')"/>
+																	</xsl:when>
+																	<xsl:otherwise>
+																		<xsl:value-of select="Name"/>
+																	</xsl:otherwise>
+																</xsl:choose>
 															</th>
 														</xsl:for-each>
 														<th>Giltighet</th>
@@ -92,8 +117,20 @@
 															<th>Description</th>
 														</xsl:if>
 														<xsl:for-each select="CodeItem[not(Filter/Name=preceding-sibling::CodeItem/Filter/Name)]/Filter">
-															<th>
-																<xsl:value-of select="substring-after(Name,'_')"/>
+															<th data-toggle="tooltip" data-placement="top">
+																<xsl:variable name="filterName" select="Name"/>
+																<xsl:variable name="definitionEn" select="key('filterDefinitions', $filterName)/Definition[@lang='en']"/>
+																<xsl:attribute name="title">
+																	<xsl:value-of select="$definitionEn"/>
+																</xsl:attribute>
+																<xsl:choose>
+																	<xsl:when test="contains(Name, '_')">
+																		<xsl:value-of select="substring-after(Name, '_')"/>
+																	</xsl:when>
+																	<xsl:otherwise>
+																		<xsl:value-of select="Name"/>
+																	</xsl:otherwise>
+																</xsl:choose>
 															</th>
 														</xsl:for-each>
 														<th>Validity</th>
