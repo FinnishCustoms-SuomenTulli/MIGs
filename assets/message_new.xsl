@@ -34,7 +34,7 @@
 				<h3>Structure of groups</h3>
 			</xsl:when>
 		</xsl:choose>
-		<table class="datatable table table-responsive">
+		<table class="datatable table table-responsive table-striped2">
 			<thead>
 				<tr>
 					<xsl:choose>
@@ -133,7 +133,6 @@
 						<tr>
 							<xsl:attribute name="class">
 								<xsl:value-of select="concat('indent-',count(ancestor::*)-1,' oddeven',$filter)"/>
-								<xsl:if test="position() mod 2 = 1"> odd</xsl:if>
 							</xsl:attribute>
 							<td>
 								<a>
@@ -275,7 +274,7 @@
 				<h3>Structure of elements</h3>
 			</xsl:when>
 		</xsl:choose>
-		<table class="datatable table table-responsive">
+		<table class="datatable table table-responsive table-striped2">
 			<thead>
 				<tr>
 					<xsl:choose>
@@ -417,13 +416,11 @@
 									<xsl:when test="count(ancestor::*)>2">
 										<xsl:attribute name="class">
 											<xsl:value-of select="concat('indent-',count(ancestor::*[not(@hidden='true')])-1,$filter,' oddeven')"/>
-											<xsl:if test="position() mod 2 = 1"> odd</xsl:if>
 										</xsl:attribute>
 									</xsl:when>
 									<xsl:otherwise>
 										<xsl:attribute name="class">
 											<xsl:value-of select="concat('indent-2',$filter,' oddeven')"/>
-											<xsl:if test="position() mod 2 = 1"> odd</xsl:if>
 										</xsl:attribute>
 									</xsl:otherwise>
 								</xsl:choose>
