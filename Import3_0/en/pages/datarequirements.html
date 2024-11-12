@@ -125,66 +125,78 @@
 
     <script>
         var i = 1;
-        $(document).ready(function() {
+        $(document).ready(function () {
             $.ajax({
                 url: '../../common/intro.xml',
                 type: 'GET',
                 dataType: 'xml',
-                success: function(returnedXMLResponse) {
-                        $('Message', returnedXMLResponse).each(function() {
-                            var path = '../../common/';
-                            var message = $(this).text();
-                            var base = $(this).attr('base');
-                            // nav-tabs
-                            if (base == 'decl') {
-                                $(".messagetabs").append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '"><span class="icon icon-tulli-file-export"/>' + message + '</a></li>');
-                            } else {
-                                $(".messagetabs").append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '"><span class="icon icon-tulli-file-import"/>' + message + '</a></li>');
-                            }
-                            // panels
-                            $(".tab-content").append('<div role="tabpanel" class="tab-pane" id="' + message + '"><div class="panel panel-primary"><div class="panel-heading" role="tab" id=header' + message + '></div></div><div id="contents' + message + '"></div></div>');
-                            $(".messagetabs").find("a").first().addClass("active");
-                            $(".tab-content").find(".tab-pane").first().addClass("active");
-                            transform('../../common/messageexchange.xml', '../../../assets/messageheader.xsl', document.getElementById('header' + message), 'en', message);
-                            transform(path.concat(base, '.xml'), '../../../assets/message_new.xsl', document.getElementById('contents' + message), 'en', message);
-                            i++;
-                        })
-                        $('VersionHistory Version:last Number', returnedXMLResponse).each(function() {
-                            var version = $(this).text();
-                            $(".main-navbar").append(version + " ");
+                success: function (returnedXMLResponse) {
+                    $('Message', returnedXMLResponse).each(function () {
+                        var path = '../../common/';
+                        var message = $(this).text();
+                        var base = $(this).attr('base');
+                        // nav-tabs
+                        if (base == 'decl') {
+                            $('.messagetabs').append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '"><span class="icon icon-tulli-file-export"/>' + message + '</a></li>');
+                        } else {
+                            $('.messagetabs').append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '"><span class="icon icon-tulli-file-import"/>' + message + '</a></li>');
+                        }
+                        // panels
+                        $('.tab-content').append('<div role="tabpanel" class="tab-pane" id="' + message + '"><div class="panel panel-primary"><div class="panel-heading" role="tab" id=header' + message + '></div></div><div id="contents' + message + '"></div></div>');
+                        $('.messagetabs').find("a").first().addClass("active");
+                        $('.tab-content').find(".tab-pane").first().addClass("active");
+                        transform('../../common/messageexchange.xml', '../../../assets/messageheader.xsl', document.getElementById('header' + message), 'en', message);
+                        transform(path.concat(base, '.xml'), '../../../assets/message_new.xsl', document.getElementById('contents' + message), 'en', message);
+                        i++;
+                    })
+                    $('VersionHistory Version:last Number', returnedXMLResponse).each(function () {
+                        var version = $(this).text();
+                        $('.main-navbar').append(version + ' ');
 
-                        })
-                        $('VersionHistory Version:last Date', returnedXMLResponse).each(function() {
-                            var generated = new Date($(this).text());
-                            var generated = generated.toLocaleDateString("en-GB");
-                            $(".main-navbar").append(generated);
-                        })
-                        $('System[lang="en"]', returnedXMLResponse).each(function() {
-                            var system = $(this).text();
-                            document.title += " " + system;
-                        })
-                        $('.nav-tabs').tabdrop({
-                            text: 'More'
-                        });
+                    })
+                    $('VersionHistory Version:last Date', returnedXMLResponse).each(function () {
+                        var generated = new Date($(this).text());
+                        var generated = generated.toLocaleDateString('en-GB');
+                        $('.main-navbar').append(generated);
+                    })
+                    $('System[lang="fi"]', returnedXMLResponse).each(function () {
+                        var system = $(this).text();
+                        document.title += " " + system;
+                    })
+                    $('.nav-tabs').tabdrop({
+                        text: 'Lisää'
+                    });
 
-                    } // End Success
+                } // End Success
             }); // End AJAX
+            $('body').append('<span id="toTop" class="badge"><i class="media-object icon-md icon icon-tulli-arrow-up"></i></span>');
+            $(window).scroll(function () {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function () {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 600);
+                return false;
+            });
+            offsetAnchor();
         });
-    </script>
 
-    <script>
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear();
         today = yyyy + mm + dd;
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             transform('../../../../codelists/codelists.xml', '../../../assets/codedata.xsl', document.getElementById('codemodal'), 'en', today);
             transform('../../common/constraints.xml', '../../../assets/constraints_new.xsl', document.getElementById('rulesmodal'), 'en', 'na');
         })
-    </script>
-    <script>
+
         // The function actually applying the offset
         function offsetAnchor() {
             if (location.hash.length !== 0) {
@@ -193,104 +205,57 @@
         }
 
         // This will capture hash changes while on the page
-        $(window).on("hashchange", function() {
+        $(window).on('hashchange', function () {
             offsetAnchor();
         });
 
-        // Let the page finish loading.
-        $(document).ready(function() {
-            offsetAnchor();
-        });
-    </script>
-
-    <script>
         $(document.body).tooltip({
-            selector: "[title]"
+            selector: '[title]'
         });
-   </script>
 
-    <script>
-        $(document).ready(function() {
-            $('body').append('<span id="toTop" class="badge"><i class="media-object icon-md icon icon-tulli-arrow-up"></i></span>');
-            $(window).scroll(function() {
-                if ($(this).scrollTop() != 0) {
-                    $('#toTop').fadeIn();
-                } else {
-                    $('#toTop').fadeOut();
-                }
-            });
-            $('#toTop').click(function() {
-                $("html, body").animate({
-                    scrollTop: 0
-                }, 600);
-                return false;
-            });
-        });
-    </script>
-
-    <script>
-        $('#Select').on('change', function() {
+        $('#Select').on('change', function () {
             switch (this.value) {
                 case 'all':
-                    $(".datatable > tbody > tr").show();
-                    $(".datatable > tbody > tr").removeClass("odd");
-                    $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    $('.datatable > tbody > tr').show();
                     break;
                 case 'H2':
-                    $(".datatable > tbody > tr").show();
-                    $(".datatable > tbody > tr:not(.H2):not(.all)").hide();
-                    $(".datatable > tbody > tr").removeClass("odd");
-                    $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    $('.datatable > tbody > tr').show();
+                    $('.datatable > tbody > tr:not(.H2):not(.all)').hide();
                     break;
                 case 'H3':
-                    $(".datatable > tbody > tr").show();
-                    $(".datatable > tbody > tr:not(.H3):not(.all)").hide();
-                    $(".datatable > tbody > tr").removeClass("odd");
-                    $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    $('.datatable > tbody > tr').show();
+                    $('.datatable > tbody > tr:not(.H3):not(.all)').hide();
                     break;
                 case 'H4':
-                    $(".datatable > tbody > tr").show();
-                    $(".datatable > tbody > tr:not(.H4):not(.all)").hide();
-                    $(".datatable > tbody > tr").removeClass("odd");
-                    $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    $('.datatable > tbody > tr').show();
+                    $('.datatable > tbody > tr:not(.H4):not(.all)').hide();
                     break;
                 case 'I1':
-                    $(".datatable > tbody > tr").show();
-                    $(".datatable > tbody > tr:not(.I1):not(.all)").hide();
-                    $(".datatable > tbody > tr").removeClass("odd");
-                    $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    $('.datatable > tbody > tr').show();
+                    $('.datatable > tbody > tr:not(.I1):not(.all)').hide();
                     break;
                 case 'H5E':
-                    $(".datatable > tbody > tr").show();
-                    $(".datatable > tbody > tr:not(.H5E):not(.all)").hide();
-                    $(".datatable > tbody > tr").removeClass("odd");
-                    $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    $('.datatable > tbody > tr').show();
+                    $('.datatable > tbody > tr:not(.H5E):not(.all)').hide();
                     break;
                 case 'H5N':
-                    $(".datatable > tbody > tr").show();
-                    $(".datatable > tbody > tr:not(.H5N):not(.all)").hide();
-                    $(".datatable > tbody > tr").removeClass("odd");
-                    $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    $('.datatable > tbody > tr').show();
+                    $('.datatable > tbody > tr:not(.H5N):not(.all)').hide();
                     break;
                 case 'H5R':
-                    $(".datatable > tbody > tr").show();
-                    $(".datatable > tbody > tr:not(.H5R):not(.all)").hide();
-                    $(".datatable > tbody > tr").removeClass("odd");
-                    $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    $('.datatable > tbody > tr').show();
+                    $('.datatable > tbody > tr:not(.H5R):not(.all)').hide();
+
                     break;
                 case 'H5P':
-                    $(".datatable > tbody > tr").show();
-                    $(".datatable > tbody > tr:not(.H5P):not(.all)").hide();
-                    $(".datatable > tbody > tr").removeClass("odd");
-                    $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+                    $('.datatable > tbody > tr').show();
+                    $('.datatable > tbody > tr:not(.H5P):not(.all)').hide();
                     break;
             }
-        });
-    </script>
-
-    <script>
-        $(document).on('DOMNodeInserted', 'table', function() {
-            $(".datatable > tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+            $('.datatable > tbody > tr').removeClass('odd');
+            $('.datatable > tbody > tr.oddeven:visible').filter(function (index) {
+                return $(this).is(':visible') && index % 2 === 0;  // Only keep visible odd rows
+            }).addClass('odd');
         });
     </script>
 
