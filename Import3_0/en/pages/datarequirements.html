@@ -112,15 +112,10 @@
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src='../../../assets/javascripts/vendor/jquery.js'></script>
-
     <script src='../../../assets/xsltProcessor2.js'></script>
-
     <script src="../../../assets/javascripts/popper.min.js"></script>
-
     <script src='../../../assets/javascripts/bootstrap.js'></script>
-
     <script src='../../../assets/javascripts/custom-ui.js'></script>
-
     <script src="../../../assets/javascripts/bootstrap-tabdrop.js"></script>
 
     <script>
@@ -216,46 +211,41 @@
         $('#Select').on('change', function () {
             switch (this.value) {
                 case 'all':
-                    $('.datatable > tbody > tr').show();
+                    $('.datatable > tbody > tr:not(.description)').removeClass('hidden').addClass('oddeven').show();
                     break;
                 case 'H2':
-                    $('.datatable > tbody > tr').show();
-                    $('.datatable > tbody > tr:not(.H2):not(.all)').hide();
+                    $('.datatable > tbody > tr:not(.description)').removeClass('hidden').addClass('oddeven').show();
+                    $('.datatable > tbody > tr:not(.H2):not(.all)').removeClass('oddeven').addClass('hidden').hide();
                     break;
                 case 'H3':
-                    $('.datatable > tbody > tr').show();
-                    $('.datatable > tbody > tr:not(.H3):not(.all)').hide();
+                    $('.datatable > tbody > tr:not(.description)').removeClass('hidden').addClass('oddeven').show();
+                    $('.datatable > tbody > tr:not(.H3):not(.all)').removeClass('oddeven').addClass('hidden').hide();
                     break;
                 case 'H4':
-                    $('.datatable > tbody > tr').show();
-                    $('.datatable > tbody > tr:not(.H4):not(.all)').hide();
+                    $('.datatable > tbody > tr:not(.description)').removeClass('hidden').addClass('oddeven').show();
+                    $('.datatable > tbody > tr:not(.H4):not(.all)').removeClass('oddeven').addClass('hidden').hide();
                     break;
                 case 'I1':
-                    $('.datatable > tbody > tr').show();
-                    $('.datatable > tbody > tr:not(.I1):not(.all)').hide();
+                    $('.datatable > tbody > tr:not(.description)').removeClass('hidden').addClass('oddeven').show();
+                    $('.datatable > tbody > tr:not(.I1):not(.all)').removeClass('oddeven').addClass('hidden').hide();
                     break;
                 case 'H5E':
-                    $('.datatable > tbody > tr').show();
-                    $('.datatable > tbody > tr:not(.H5E):not(.all)').hide();
+                    $('.datatable > tbody > tr:not(.description)').removeClass('hidden').addClass('oddeven').show();
+                    $('.datatable > tbody > tr:not(.H5E):not(.all)').removeClass('oddeven').addClass('hidden').hide();
                     break;
                 case 'H5N':
-                    $('.datatable > tbody > tr').show();
-                    $('.datatable > tbody > tr:not(.H5N):not(.all)').hide();
+                    $('.datatable > tbody > tr:not(.description)').removeClass('hidden').addClass('oddeven').show();
+                    $('.datatable > tbody > tr:not(.H5N):not(.all)').removeClass('oddeven').addClass('hidden').hide();
                     break;
                 case 'H5R':
-                    $('.datatable > tbody > tr').show();
-                    $('.datatable > tbody > tr:not(.H5R):not(.all)').hide();
-
+                    $('.datatable > tbody > tr:not(.description)').removeClass('hidden').addClass('oddeven').show();
+                    $('.datatable > tbody > tr:not(.H5R):not(.all)').removeClass('oddeven').addClass('hidden').hide();
                     break;
                 case 'H5P':
-                    $('.datatable > tbody > tr').show();
-                    $('.datatable > tbody > tr:not(.H5P):not(.all)').hide();
+                    $('.datatable > tbody > tr:not(.description)').removeClass('hidden').addClass('oddeven').show();
+                    $('.datatable > tbody > tr:not(.H5P):not(.all)').removeClass('oddeven').addClass('hidden').hide();
                     break;
             }
-            $('.datatable > tbody > tr').removeClass('odd');
-            $('.datatable > tbody > tr.oddeven:visible').filter(function (index) {
-                return $(this).is(':visible') && index % 2 === 0;  // Only keep visible odd rows
-            }).addClass('odd');
         });
     </script>
 
