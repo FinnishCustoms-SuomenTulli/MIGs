@@ -83,14 +83,6 @@
         <div class="col-xs-12" role="main">
             <div>
                 <ul class="nav nav-tabs messagetabs" role="tablist"></ul>
-                <!--select name="filter" id="Select" class="form-control">
-                    <option value="null">-- Suodata tietosis&auml;lt&ouml; --</option>
-                    <option value="all">Näytä kaikki</option>
-                    <option value="I1">Yksinkertaistettu ilmoitus</option>
-                    <option value="H2">Tullivarastointi</option>
-                    <option value="H5E">Verorajailmoitus</option>
-                    <option value="H5N">Kansallinen verorajailmoitus</option>
-                </select-->
                 <div class="tab-content"></div>
                 <div id="codemodal"></div>
                 <div id="rulesmodal"></div>
@@ -110,16 +102,12 @@
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src='../../../assets/javascripts/vendor/jquery.js'></script>
-
     <script src='../../../assets/xsltProcessor2.js'></script>
-
     <script src="../../../assets/javascripts/popper.min.js"></script>
-
     <script src='../../../assets/javascripts/bootstrap.js'></script>
-
     <script src='../../../assets/javascripts/custom-ui.js'></script>
-
     <script src="../../../assets/javascripts/bootstrap-tabdrop.js"></script>
+
     <script>
         var i = 1;
         $(document).ready(function () {
@@ -134,42 +122,55 @@
                         var base = $(this).attr('base');
                         // nav-tabs
                         if (base == 'decl') {
-                            $(".messagetabs").append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '"><span class="icon icon-tulli-file-export"/>' + message + '</a></li>');
+                            $('.messagetabs').append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '"><span class="icon icon-tulli-file-export"/>' + message + '</a></li>');
                         } else {
-                            $(".messagetabs").append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '"><span class="icon icon-tulli-file-import"/>' + message + '</a></li>');
+                            $('.messagetabs').append('<li><a href="#' + message + '" role="tab" data-toggle="tab" name="' + message + '"><span class="icon icon-tulli-file-import"/>' + message + '</a></li>');
                         }
                         // panels
-                        $(".tab-content").append('<div role="tabpanel" class="tab-pane" id="' + message + '"><div class="panel panel-primary"><div class="panel-heading" role="tab" id=header' + message + '></div></div><div id="contents' + message + '"></div></div>');
-                        $(".messagetabs").find("a").first().addClass("active");
-                        $(".tab-content").find(".tab-pane").first().addClass("active");
+                        $('.tab-content').append('<div role="tabpanel" class="tab-pane" id="' + message + '"><div class="panel panel-primary"><div class="panel-heading" role="tab" id=header' + message + '></div></div><div id="contents' + message + '"></div></div>');
+                        $('.messagetabs').find("a").first().addClass("active");
+                        $('.tab-content').find(".tab-pane").first().addClass("active");
                         transform('../../common/messageexchange.xml', '../../../assets/messageheader.xsl', document.getElementById('header' + message), 'fi', message);
                         transform(path.concat(base, '.xml'), '../../../assets/message_new.xsl', document.getElementById('contents' + message), 'fi', message);
                         i++;
                     })
                     $('VersionHistory Version:last Number', returnedXMLResponse).each(function () {
                         var version = $(this).text();
-                        $(".main-navbar").append(version + " ");
+                        $('.main-navbar').append(version + ' ');
 
                     })
                     $('VersionHistory Version:last Date', returnedXMLResponse).each(function () {
                         var generated = new Date($(this).text());
-                        var generated = generated.toLocaleDateString("fi-FI");
-                        $(".main-navbar").append(generated);
+                        var generated = generated.toLocaleDateString('fi-FI');
+                        $('.main-navbar').append(generated);
                     })
                     $('System[lang="fi"]', returnedXMLResponse).each(function () {
                         var system = $(this).text();
                         document.title += " " + system;
                     })
                     $('.nav-tabs').tabdrop({
-                        text: 'Lis&auml;&auml;'
+                        text: 'Lisää'
                     });
 
                 } // End Success
             }); // End AJAX
+            $('body').append('<span id="toTop" class="badge"><i class="media-object icon-md icon icon-tulli-arrow-up"></i></span>');
+            $(window).scroll(function () {
+                if ($(this).scrollTop() != 0) {
+                    $('#toTop').fadeIn();
+                } else {
+                    $('#toTop').fadeOut();
+                }
+            });
+            $('#toTop').click(function () {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 600);
+                return false;
+            });
+            offsetAnchor();
         });
-    </script>
 
-    <script>
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -180,8 +181,7 @@
             transform('../../../../codelists/codelists.xml', '../../../assets/codedata.xsl', document.getElementById('codemodal'), 'fi', today);
             transform('../../common/constraints.xml', '../../../assets/constraints_new.xsl', document.getElementById('rulesmodal'), 'fi', 'na');
         })
-    </script>
-    <script>
+
         // The function actually applying the offset
         function offsetAnchor() {
             if (location.hash.length !== 0) {
@@ -190,48 +190,12 @@
         }
 
         // This will capture hash changes while on the page
-        $(window).on("hashchange", function () {
+        $(window).on('hashchange', function () {
             offsetAnchor();
         });
 
-        // Let the page finish loading.
-        $(document).ready(function () {
-            offsetAnchor();
-        });
-    </script>
-
-    <script>
         $(document.body).tooltip({
-            selector: "[title]"
-        });
-
-        $(function () {
-
-        });
-    </script>
-
-    <script>
-        $(document).ready(function () {
-            $('body').append('<span id="toTop" class="badge"><i class="media-object icon-md icon icon-tulli-arrow-up"></i></span>');
-            $(window).scroll(function () {
-                if ($(this).scrollTop() != 0) {
-                    $('#toTop').fadeIn();
-                } else {
-                    $('#toTop').fadeOut();
-                }
-            });
-            $('#toTop').click(function () {
-                $("html, body").animate({
-                    scrollTop: 0
-                }, 600);
-                return false;
-            });
-        });
-    </script>
-
-    <script>
-        $(document).on('DOMNodeInserted', 'table', function () {
-            $("tbody > tr.oddeven").filter(":nth-child(odd)").addClass("odd");
+            selector: '[title]'
         });
     </script>
 
