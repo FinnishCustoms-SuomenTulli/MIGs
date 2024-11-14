@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../../assets/tulli-bootstrap-style.css" type="text/css" />
     <link rel="stylesheet" href="../../../assets/tulli-mig-tables-style.css" type="text/css" />
     <link rel="stylesheet" href="../../../assets/scroll-style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../assets/daterangepicker.css" type="text/css" />
 </head>
 
 <body class="Site">
@@ -30,9 +31,11 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <a class="" href="../index.html">
-                            <img class="img-responsive pull-left" src="../../../assets/images/logo-tulli.svg" alt="Finnish Customs logotype" /></a>
+                            <img class="img-responsive pull-left" src="../../../assets/images/logo-tulli.svg"
+                                alt="Finnish Customs logotype" /></a>
 
-                        <button type="button" class="navbar-toggle collapsed pull-right margin-0" data-toggle="collapse" data-target="#navbar-mainmenu" aria-expanded="false" aria-controls="navbar-mainmenu">
+                        <button type="button" class="navbar-toggle collapsed pull-right margin-0" data-toggle="collapse"
+                            data-target="#navbar-mainmenu" aria-expanded="false" aria-controls="navbar-mainmenu">
                             <span class="sr-only">Menu</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -83,18 +86,28 @@
             <div class="panel panel-primary">
                 <div class="panel-body">
                     <div class="container">
+                        <p>Code lists not published on this page are also used in customs declarations. For example, VAT
+                            rate codes beginning with Q and additional excise codes beginning with V are used as
+                            national additional codes. You can find these codes as well as the Taric additional codes in
+                            <a href="https://asiointi.tulli.fi/asiointipalvelu/fintaric/BrowsingCodes/AdditionalCodes">the
+                                Fintaric service</a>.</p>
                         <label>Date of validity</label>
-                    <div class="input-group date">
-                        <input type="text" class="form-control" aria-describedby="form-instruction-visuallyHidden"><span class="input-group-addon" aria-hidden="true"><i class="icon icon-tulli-calendar"></i></span>
+                        <div class="input-group date">
+                            <input type="text" class="form-control" id="dateInput"
+                                aria-describedby="form-instruction-visuallyHidden"><span class="input-group-addon"
+                                aria-hidden="true"><i class="icon icon-tulli-calendar"></i></span>
+                        </div>
+                        <div class="sr-only" id="form-instruction-visuallyHidden">Enter date in format dd slash mm slash
+                            yyyy</div>
+                        <div id="accordion_search_bar_container">
+                            <label>Search within contents</label>
+                            <input type="search" class="form-control"
+                                aria-describedby="form-instruction-visuallyHidden2" id="accordion_search_bar"
+                                placeholder="Search term" />
+                        </div>
+                        <div class="sr-only" id="form-instruction-visuallyHidden2">Input term to search for</div>
                     </div>
-                    <div class="sr-only" id="form-instruction-visuallyHidden">Enter date in format dd slash mm slash yyyy</div>
-                    <div id="accordion_search_bar_container">
-                        <label>Search within contents</label>
-                        <input type="search" class="form-control" aria-describedby="form-instruction-visuallyHidden2" id="accordion_search_bar" placeholder="Search term" />
-                    </div>
-                    <div class="sr-only" id="form-instruction-visuallyHidden2">Input term to search for</div>
                 </div>
-            </div>
                 <div class="panel-body" id="contents"></div>
             </div>
         </div>
@@ -107,124 +120,92 @@
             </div>
         </div>
     </footer>
-    <!-- Bootstrap core JavaScript
+	<!-- Bootstrap core JavaScript
 ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src='../../../assets/javascripts/vendor/jquery.js'></script>
-    <script src="../../../assets/datepicker/js/bootstrap-datepicker.min.js"></script>
-    <script src="../../../assets/datepicker/locales/bootstrap-datepicker.fi.min.js" charset="UTF-8"></script>
-    <script src="../../../assets/datepicker/moment/moment.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $.ajax({
-                url: '../../../../codelists/codelists.xml',
-                type: 'GET',
-                dataType: 'xml',
-                success: function(returnedXMLResponse) {
-                        $('Generated', returnedXMLResponse).each(function() {
-                            var version = new Date($(this).text());
-                            version = version.toLocaleString("en-GB");
-                            $(".main-navbar").append(version);
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src='../../../assets/javascripts/vendor/jquery.js'></script>
+	<script src='../../../assets/javascripts/moment.min.js'></script>
+	<script src='../../../assets/javascripts/daterangepicker.js'></script>
+	<script src='../../../assets/xsltProcessor2.js'></script>
+	<script src='../../../assets/javascripts/popper.min.js'></script>
+	<script src='../../../assets/javascripts/bootstrap.js'></script>
+	<script src='../../../assets/javascripts/custom-ui.js'></script>
+	<script>
+		$.ajax({
+			url: '../../common/intro.xml',
+			type: 'GET',
+			dataType: 'xml',
+			success: function (returnedXMLResponse) {
+				$('System[lang="en"]', returnedXMLResponse).each(function () {
+					var system = $(this).text();
+					document.title += " " + system;
+				})
+			} // End Success
+		}); // End AJAX
+		$.ajax({
+			url: '../../../../codelists/codelists.xml',
+			type: 'GET',
+			dataType: 'xml',
+			success: function (returnedXMLResponse) {
+				$('Generated', returnedXMLResponse).each(function () {
+					var version = new Date($(this).text());
+					version = version.toLocaleString('en-GB');
+					$('.main-navbar').append(version);
 
-                        })
-                    } // End Success
-            }); // End AJAX
-        });
-    </script>
+				})
+			} // End Success
+		}); // End AJAX
+		transform('../../../../codelists/codelists.xml', '../../../assets/codelists2.xsl', document.getElementById('contents'), 'en', moment().format('YYYYMMDD'));
+		$(document.body).tooltip({
+			selector: '[title]'
+		});
 
-    <script type="text/javascript">
-        $('.input-group.date').datepicker({
-            format: "dd/mm/yyyy",
-            startDate: "-6m",
-            endDate: "+1y",
-            maxViewMode: 2,
-            language: "en-GB",
-            orientation: "bottom auto",
-            keyboardNavigation: false,
-            autoclose: true,
-            todayHighlight: true
-        }).datepicker("setDate",'now');
-        $('.input-group.date').on('changeDate', function(e){
-            var checkDate = moment(e.date).format('YYYYMMDD');
-            transform('../../../../codelists/codelists.xml', '../../../assets/codelists2.xsl', document.getElementById('contents'), 'en', checkDate);
-        });
-    </script>
+		$('body').append('<span id="toTop" class="badge"><i class="media-object icon-md icon icon-tulli-arrow-up"></i></span>');
+		$(window).scroll(function () {
+			if ($(this).scrollTop() != 0) {
+				$('#toTop').fadeIn();
+			} else {
+				$('#toTop').fadeOut();
+			}
+		});
+		$('#toTop').click(function () {
+			$('html, body').animate({ scrollTop: 0 }, 600);
+			return false;
+		});
 
-    <script>
-        $(document).ready(function() {
-            $.ajax({
-                url: '../../common/intro.xml',
-                type: 'GET',
-                dataType: 'xml',
-                success: function(returnedXMLResponse) {
-                        $('System[lang="en"]', returnedXMLResponse).each(function() {
-                            var system = $(this).text();
-                            document.title += " " + system;
-                        })
-                    } // End Success
-            }); // End AJAX
-        });
-    </script>
+		$('#dateInput').daterangepicker({
+			singleDatePicker: true,
+			showDropdowns: true,
+			minDate: moment().subtract(10, 'years').startOf('year'),
+			maxDate: '31-12-2099',
+			opens: 'center',
+			drops: 'auto',
+			locale: {
+				format: 'D/M/YYYY',
+				firstDay: 1
+			},
+		}).on('apply.daterangepicker', function (ev, picker) {
+			var checkDate = picker.startDate.format('YYYYMMDD');
+			transform('../../../../codelists/codelists.xml', '../../../assets/codelists2.xsl', document.getElementById('contents'), 'en', checkDate);
+		});
 
-    <script src='../../../assets/xsltProcessor2.js'></script>
+		(function () {
+			var searchTerm, panelContainerId;
+			// Create a new contains that is case insensitive
+			$.expr[':'].containsCaseInsensitive = function (n, i, m) {
+				return jQuery(n).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
+			};
 
-    <script>
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
-        today = yyyy + mm + dd;
-
-        document.addEventListener('DOMContentLoaded', function() {
-            transform('../../../../codelists/codelists.xml', '../../../assets/codelists2.xsl', document.getElementById('contents'), 'en', today);
-        })
-    </script>
-    <script src='../../../assets/javascripts/bootstrap.js'></script>
-
-    <script src='../../../assets/javascripts/custom-ui.js'></script>
-
-    <script>
-        $(function() {
-
-        });
-    </script>
-
-    <script>
-        $(document).ready(function(){
-              $('body').append('<span id="toTop" class="badge"><i class="media-object icon-md icon icon-tulli-arrow-up"></i></span>');
-    	        $(window).scroll(function () {
-			        if ($(this).scrollTop() != 0) {
-				        $('#toTop').fadeIn();
-			        } else {
-				        $('#toTop').fadeOut();
-			        }
-		        }); 
-            $('#toTop').click(function(){
-                $("html, body").animate({ scrollTop: 0 }, 600);
-                return false;
-            });
-        });
-    </script>
-
-    <script>
-        (function(){
-        var searchTerm, panelContainerId;
-        // Create a new contains that is case insensitive
-        $.expr[':'].containsCaseInsensitive = function (n, i, m) {
-            return jQuery(n).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
-        };
-
-        $('#accordion_search_bar').on('change keyup paste click', function () {
-            searchTerm = $(this).val();
-            $('.accordion-row').each(function () {
-            panelContainerId = '#' + $(this).attr('id');
-            $(panelContainerId + ':not(:containsCaseInsensitive(' + searchTerm + '))').hide();
-            $(panelContainerId + ':containsCaseInsensitive(' + searchTerm + ')').show();
-            });
-        });
-        }());
-    </script>
-
+			$('#accordion_search_bar').on('change keyup paste click', function () {
+				searchTerm = $(this).val();
+				$('.accordion-row').each(function () {
+					panelContainerId = '#' + $(this).attr('id');
+					$(panelContainerId + ':not(:containsCaseInsensitive(' + searchTerm + '))').hide();
+					$(panelContainerId + ':containsCaseInsensitive(' + searchTerm + ')').show();
+				});
+			});
+		}());
+	</script>
 </body>
 
 </html>
