@@ -3,6 +3,7 @@
 	<xsl:output method="html"/>
 	<xsl:param name="language"/>
 	<xsl:param name="messageType"/>
+	<xsl:key name="filterDefinitions" match="CodeLists/Definitions/Filter" use="Name"/>
 	<xsl:template match="/">
 		<xsl:for-each select="CodeLists/CodeList">
 			<div class="modal fade" tabindex="-1" role="dialog" data-keyboard="false">
@@ -30,6 +31,23 @@
 												<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
 													<th>Selite</th>
 												</xsl:if>
+												<xsl:for-each select="CodeItem[not(Filter/Name=preceding-sibling::CodeItem/Filter/Name)]/Filter">
+													<th data-toggle="tooltip" data-placement="top">
+														<xsl:variable name="filterName" select="Name"/>
+														<xsl:variable name="definitionFi" select="key('filterDefinitions', $filterName)/Definition[@lang='fi']"/>
+														<xsl:attribute name="title">
+															<xsl:value-of select="$definitionFi"/>
+														</xsl:attribute>
+														<xsl:choose>
+															<xsl:when test="contains(Name, '_')">
+																<xsl:value-of select="substring-after(Name, '_')"/>
+															</xsl:when>
+															<xsl:otherwise>
+																<xsl:value-of select="Name"/>
+															</xsl:otherwise>
+														</xsl:choose>
+													</th>
+												</xsl:for-each>
 												<th>Voimassaolo</th>
 											</xsl:when>
 											<xsl:when test="$language='sv'">
@@ -38,6 +56,23 @@
 												<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
 													<th>Förklaring</th>
 												</xsl:if>
+												<xsl:for-each select="CodeItem[not(Filter/Name=preceding-sibling::CodeItem/Filter/Name)]/Filter">
+													<th data-toggle="tooltip" data-placement="top">
+														<xsl:variable name="filterName" select="Name"/>
+														<xsl:variable name="definitionSv" select="key('filterDefinitions', $filterName)/Definition[@lang='sv']"/>
+														<xsl:attribute name="title">
+															<xsl:value-of select="$definitionSv"/>
+														</xsl:attribute>
+														<xsl:choose>
+															<xsl:when test="contains(Name, '_')">
+																<xsl:value-of select="substring-after(Name, '_')"/>
+															</xsl:when>
+															<xsl:otherwise>
+																<xsl:value-of select="Name"/>
+															</xsl:otherwise>
+														</xsl:choose>
+													</th>
+												</xsl:for-each>
 												<th>Giltighet</th>
 											</xsl:when>
 											<xsl:when test="$language='en'">
@@ -46,6 +81,23 @@
 												<xsl:if test="count(CodeItem/Description[@lang=($language)][string(.)]) > 0">
 													<th>Description</th>
 												</xsl:if>
+												<xsl:for-each select="CodeItem[not(Filter/Name=preceding-sibling::CodeItem/Filter/Name)]/Filter">
+													<th data-toggle="tooltip" data-placement="top">
+														<xsl:variable name="filterName" select="Name"/>
+														<xsl:variable name="definitionEn" select="key('filterDefinitions', $filterName)/Definition[@lang='en']"/>
+														<xsl:attribute name="title">
+															<xsl:value-of select="$definitionEn"/>
+														</xsl:attribute>
+														<xsl:choose>
+															<xsl:when test="contains(Name, '_')">
+																<xsl:value-of select="substring-after(Name, '_')"/>
+															</xsl:when>
+															<xsl:otherwise>
+																<xsl:value-of select="Name"/>
+															</xsl:otherwise>
+														</xsl:choose>
+													</th>
+												</xsl:for-each>
 												<th>Validity</th>
 											</xsl:when>
 										</xsl:choose>
@@ -108,6 +160,18 @@
 														</xsl:otherwise>
 													</xsl:choose>
 												</td>
+											</xsl:if>
+											<xsl:for-each select="Filter">
+												<td>
+													<xsl:if test="Value = 1">
+														<span class="icon icon-tulli-checkmark"/>
+													</xsl:if>
+												</td>
+											</xsl:for-each>
+											<xsl:if test="../CodeItem/Filter and not(Filter)">
+												<xsl:for-each select="../CodeItem[not(Filter=preceding-sibling::CodeItem/Filter)]/Filter">
+													<td/>
+												</xsl:for-each>
 											</xsl:if>
 											<xsl:choose>
 												<xsl:when test="$language='fi'">
