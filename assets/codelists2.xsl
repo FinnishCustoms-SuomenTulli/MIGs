@@ -197,7 +197,9 @@
 													</xsl:if>
 													<xsl:for-each select="Filter">
 														<td>
-															<xsl:value-of select="Value"/>
+															<xsl:if test="Value = 1">
+																<span class="icon icon-tulli-checkmark"/>
+															</xsl:if>
 														</td>
 													</xsl:for-each>
 													<xsl:if test="../CodeItem/Filter and not(Filter)">
