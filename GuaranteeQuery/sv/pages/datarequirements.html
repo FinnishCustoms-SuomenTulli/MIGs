@@ -129,7 +129,7 @@
                         $('.messagetabs').find("a").first().addClass("active");
                         $('.tab-content').find(".tab-pane").first().addClass("active");
                         transform('../../common/messageexchange.xml', '../../../assets/messageheader.xsl', document.getElementById('header' + message), 'sv', message);
-                        transform(path.concat(base, '.xml'), '../../../assets/message_new.xsl', document.getElementById('contents' + message), 'sv', message);
+                        transform(path.concat(base, '.xml'), '../../../assets/message2.xsl', document.getElementById('contents' + message), 'sv', message);
                         i++;
                     })
                     $('VersionHistory Version:last Number', returnedXMLResponse).each(function () {
@@ -177,7 +177,7 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             transform('../../../../codelists/codelists.xml', '../../../assets/codedata.xsl', document.getElementById('codemodal'), 'sv', today);
-            transform('../../common/constraints.xml', '../../../assets/constraints_new.xsl', document.getElementById('rulesmodal'), 'sv', 'na');
+            transform('../../common/constraints.xml', '../../../assets/constraints.xsl', document.getElementById('rulesmodal'), 'sv', 'na');
         })
 
         // The function actually applying the offset
