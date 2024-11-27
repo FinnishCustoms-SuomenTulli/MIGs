@@ -337,15 +337,6 @@ ELSE /*/Consignment/PlaceOfUnloading = "R"&#13;
 </Description>
   </Constraint>
   <Constraint>
-    <Code>B1860</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0221 attached to /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/GoodsMeasure/grossMass shall be disabled</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0221 attached to /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/GoodsMeasure/grossMass shall be disabled</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0221 attached to /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/GoodsMeasure/grossMass shall be disabled</Description>
-  </Constraint>
-  <Constraint>
     <Code>B1862</Code>
     <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
 THEN R0223 attached to /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/GoodsMeasure/netMass will be disabled.</Description>
@@ -663,11 +654,11 @@ ELSE &#13;
   </Constraint>
   <Constraint>
     <Code>B2101</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
+    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on SUUREMPI kuin &lt;TPendDate&gt;&#13;
   NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kansallisuus&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Tunnistetietojen tyyppi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Paljoudet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Paljoudet&lt;/i&gt;/&lt;i&gt;Bruttopaino&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Rajatullitoimipaikan viitenumero&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kansallisuus&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Tunnistetietojen tyyppi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Vakuus&lt;/i&gt;/&lt;i&gt;Vakuuden viite&lt;/i&gt;/&lt;i&gt;Katettava määrä&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
+    <Description lang="sv">OM &lt;Avgörande datum&gt; är STÖRRE ÄN &lt;TPendDate&gt;&#13;
   DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Nationalitet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Typ av identifiering&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Varumängder&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Varumängder&lt;/i&gt;/&lt;i&gt;Bruttovikt&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Transittullkontorets referensnummer&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Nationalitet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Typ av identifiering&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Garanti&lt;/i&gt;/&lt;i&gt;Referens för garanti&lt;/i&gt;/&lt;i&gt;Belopp som ska täckas&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
+    <Description lang="en">IF &lt;Decisive Date&gt; is GREATER than &lt;TPendDate&gt;&#13;
   THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Nationality&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Type of identification&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Goods measure&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Goods measure&lt;/i&gt;/&lt;i&gt;Gross mass&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Customs office at border identification number&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Nationality&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Type of identification&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Guarantee&lt;/i&gt;/&lt;i&gt;Guarantee reference&lt;/i&gt;/&lt;i&gt;Amount to be covered&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
@@ -2343,11 +2334,11 @@ ELSE &lt;i&gt;Office code&lt;/i&gt; = 'N'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0329</Code>
-    <Description lang="fi">JOS &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on JOUKOSSA {N337, N355}&#13;
+    <Description lang="fi">JOS &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on JOUKOSSA {N337, N355} JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
   NIIN &lt;i&gt;Kuljetusasiakirjan viite&lt;/i&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;i&gt;Typ av dokument&lt;/i&gt; är i GRUPPEN {N337, N355}&#13;
+    <Description lang="sv">OM &lt;i&gt;Typ av dokument&lt;/i&gt; är i GRUPPEN {N337, N355} OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
   DÅ är &lt;i&gt;Referens för transportdokument&lt;/i&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;i&gt;Document type&lt;/i&gt; is IN SET {N337, N355}&#13;
+    <Description lang="en">IF &lt;i&gt;Document type&lt;/i&gt; is IN SET {N337, N355} AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
   THEN &lt;i&gt;Transport document reference&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
@@ -2816,6 +2807,45 @@ ELSE &lt;i&gt;Customs office&lt;/i&gt; = 'N'</Description>
   THEN &lt;i&gt;Location of goods&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
+    <Code>NC9044</Code>
+    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on SUUREMPI kuin &lt;TPendDate&gt;&#13;
+  NIIN &lt;i&gt;Lastauspaikka&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;Avgörande datum&gt; är STÖRRE ÄN &lt;TPendDate&gt;&#13;
+  DÅ är &lt;i&gt;Lastningsplats&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;Decisive Date&gt; is GREATER than &lt;TPendDate&gt;&#13;
+  THEN &lt;i&gt;Place of loading&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC9045</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; = 'D' JA &lt;i&gt;Turvaindikaattori&lt;/i&gt; on JOUKOSSA {1,2,3}&#13;
+  NIIN &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; = 'D' OCH &lt;i&gt;Säkerhetsindikator&lt;/i&gt; är i GRUPPEN {1,2,3}&#13;
+  DÅ är &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Additional declaration type&lt;/i&gt; = 'D' AND &lt;i&gt;Security&lt;/i&gt; is in SET {1,2,3}&#13;
+  THEN &lt;i&gt;Active border transport means&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC9046</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; = 'D' JA &lt;i&gt;Turvaindikaattori&lt;/i&gt; on JOUKOSSA {1,2,3}&#13;
+  NIIN &lt;i&gt;Kuljetusmuoto rajalla&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; = 'D' OCH &lt;i&gt;Säkerhetsindikator&lt;/i&gt; är i GRUPPEN {1,2,3}&#13;
+  DÅ är {{FIg-146}} = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Additional declaration type&lt;/i&gt; = 'D' AND &lt;i&gt;Security&lt;/i&gt; is in SET {1,2,3}&#13;
+  THEN &lt;i&gt;Mode of transport at the border&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC9047</Code>
+    <Description lang="fi">JOS &lt;i&gt;Tunnistenumero&lt;/i&gt; is suomalainen EORI&#13;
+  NIIN &lt;i&gt;Toimipaikkakoodi&lt;/i&gt; = 'O'&#13;
+MUUTEN &lt;i&gt;Toimipaikkakoodi&lt;/i&gt; = 'N'</Description>
+    <Description lang="sv">OM &lt;i&gt;Identifieringsnummer&lt;/i&gt; 'r ett finskt EORI&#13;
+  DÅ är &lt;i&gt;Kod för verksamhetsställe&lt;/i&gt; = 'O'&#13;
+ANNARS är &lt;i&gt;Kod för verksamhetsställe&lt;/i&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Identification number&lt;/i&gt; is Finnish EORI&#13;
+  THEN &lt;i&gt;Office code&lt;/i&gt; = 'O'&#13;
+ELSE &lt;i&gt;Office code&lt;/i&gt; = 'N' </Description>
+  </Constraint>
+  <Constraint>
     <Code>NR0028</Code>
     <Description lang="fi">&lt;i&gt;Luvan tyyppi&lt;/i&gt; on oltava uniikki.</Description>
     <Description lang="sv">&lt;i&gt;Typ av tillstånd&lt;/i&gt; måste vara unikt.</Description>
@@ -2876,7 +2906,7 @@ ELSE &lt;i&gt;Customs office&lt;/i&gt; = 'N'</Description>
     <Description lang="sv">OM &lt;i&gt;Identifieringsnummer&lt;/i&gt; börjar med en landskod utanför EU som 'NO' eller 'RU' (3. lands EORI-registrering gjord i Finland)&#13;
   DÅ måste aktören hittas i kundregistret även utan &lt;i&gt;Kod för verksamhetsställe&lt;/i&gt;</Description>
     <Description lang="en">IF &lt;i&gt;Identification number&lt;/i&gt; starts with a non-EU country code such as 'NO' or 'RU' (3. country EORI registration made in Finland)&#13;
-  THEN trader must be found in trader regiser even without &lt;i&gt;Office code&lt;/i&gt;</Description>
+  THEN trader must be found in trader register even without &lt;i&gt;Office code&lt;/i&gt;</Description>
   </Constraint>
   <Constraint>
     <Code>NR1103</Code>
@@ -3171,9 +3201,9 @@ warehouse id must be found in Authorisation.</Description>
   </Constraint>
   <Constraint>
     <Code>NR9052</Code>
-    <Description lang="fi">/*/​Notification/​ContactReason must be in SET {004, 006}</Description>
-    <Description lang="sv">/*/​Notification/​ContactReason must be in SET {004, 006}</Description>
-    <Description lang="en">/*/​Notification/​ContactReason must be in SET {004, 006}</Description>
+    <Description lang="fi">&lt;i&gt;Yhteydenoton syy&lt;/i&gt; on oltava JOUKOSSA {003, 004, 006}</Description>
+    <Description lang="sv">&lt;i&gt;Orsak till kontakt&lt;/i&gt; måste vara i GRUPPEN {003, 004, 006}</Description>
+    <Description lang="en">&lt;i&gt;Reason for contact&lt;/i&gt; must be in SET {003, 004, 006}</Description>
   </Constraint>
   <Constraint>
     <Code>NR9054</Code>
