@@ -449,11 +449,11 @@ ELSE &lt;i&gt;House number&lt;/i&gt; = 'R'</Description>
   <Constraint>
     <Code>C0407</Code>
     <Description lang="fi">JOS &lt;i&gt;Laskutettu kokonaissumma&lt;/i&gt; on ILMOITETTU&#13;
-  NIIN &lt;i&gt;Laskutettu kokonaissumma, valuuttalaji&lt;/i&gt; = 'R'</Description>
+  NIIN &lt;i&gt;Erän laskutusarvo, valuuttalaji&lt;/i&gt; = 'R'</Description>
     <Description lang="sv">OM &lt;i&gt;Fakturerat totalbelopp&lt;/i&gt; är ANMÄLT&#13;
-  DÅ är &lt;i&gt;Fakturerat totalbelopp, valutaslag&lt;/i&gt; = 'R'</Description>
+  DÅ är &lt;i&gt;Fakturerat belopp, valutaslag&lt;/i&gt; = 'R'</Description>
     <Description lang="en">IF &lt;i&gt;Total amount invoiced&lt;/i&gt; is PRESENT&#13;
-  THEN &lt;i&gt;Total amount invoiced, currency code&lt;/i&gt; = 'R'</Description>
+  THEN &lt;i&gt;Item amount invoiced, currency unit&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>C0463</Code>
@@ -649,15 +649,15 @@ ELSE &lt;i&gt;Goods reference&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>C0671</Code>
-    <Description lang="fi">JOS &lt;i&gt;Tavaran sijaintipaikka&lt;/i&gt;/&lt;i&gt;Talouden toimija&lt;/i&gt; TAI &lt;i&gt;Tavaran sijaintipaikka&lt;/i&gt;/&lt;i&gt;Luvan numero&lt;/i&gt; on ILMOITETTU&#13;
+    <Description lang="fi">JOS &lt;i&gt;Talouden toimija&lt;/i&gt; on ILMOITETTU TAI &lt;i&gt;Luvan numero&lt;/i&gt; on ILMOITETTU&#13;
   NIIN &lt;i&gt;Lisätunniste&lt;/i&gt; = 'O'&#13;
-MUUTEN &lt;i&gt;Lisätunniste&lt;/i&gt; = 'N'</Description>
-    <Description lang="sv">OM &lt;i&gt;Varornas förvaringsplats&lt;/i&gt;/&lt;i&gt;Ekonomisk aktör&lt;/i&gt; ELLER &lt;i&gt;Varornas förvaringsplats&lt;/i&gt;/&lt;i&gt;Tillståndsnummer&lt;/i&gt; är ANMÄLDA&#13;
+  MUUTEN &lt;i&gt;Lisätunniste&lt;/i&gt; = 'N'</Description>
+    <Description lang="sv">OM &lt;i&gt;Ekonomisk aktör&lt;/i&gt; är ANMÄLD ELLER &lt;i&gt;Tillståndsnummer&lt;/i&gt; är ANMÄLD&#13;
   DÅ är &lt;i&gt;Tilläggskod&lt;/i&gt; = 'O'&#13;
-ANNARS är &lt;i&gt;Tilläggskod&lt;/i&gt; = 'N'</Description>
-    <Description lang="en">IF &lt;i&gt;Location of goods&lt;/i&gt;/&lt;i&gt;Economic operator&lt;/i&gt; OR &lt;i&gt;Location of goods&lt;/i&gt;/&lt;i&gt;Authorisation number&lt;/i&gt; is PRESENT&#13;
+  ANNARS är &lt;i&gt;Tilläggskod&lt;/i&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Economic operator&lt;/i&gt; is PRESENT OR &lt;i&gt;Authorisation number&lt;/i&gt; is PRESENT&#13;
   THEN &lt;i&gt;Additional identifier&lt;/i&gt; = 'O'&#13;
-ELSE &lt;i&gt;Additional identifier&lt;/i&gt; = 'N'</Description>
+  ELSE &lt;i&gt;Additional identifier&lt;/i&gt; = 'N'</Description>
   </Constraint>
   <Constraint>
     <Code>C0672</Code>
@@ -1980,6 +1980,15 @@ ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"</Description>
     <Description lang="en">Service provider has to be different from importer (entry and import), exporter (export), declarant and representative.</Description>
   </Constraint>
   <Constraint>
+    <Code>NR0057</Code>
+    <Description lang="fi">If representative is a private person, then declarant and importer must be a private person as well.&#13;
+If representative does not exist and declarant is a private person, then importer must be a private person as well.</Description>
+    <Description lang="sv">If representative is a private person, then declarant and importer must be a private person as well.&#13;
+If representative does not exist and declarant is a private person, then importer must be a private person as well.</Description>
+    <Description lang="en">If representative is a private person, then declarant and importer must be a private person as well.&#13;
+If representative does not exist and declarant is a private person, then importer must be a private person as well.</Description>
+  </Constraint>
+  <Constraint>
     <Code>NR0511</Code>
     <Description lang="fi">MRN:n oltava olemassa UTU:ssa.</Description>
     <Description lang="sv">MRN måste existera I UTU.</Description>
@@ -2401,18 +2410,18 @@ the Administrative Reference Code (ARC) in the field /*/​GoodsShipment/​Good
   </Constraint>
   <Constraint>
     <Code>NR5055</Code>
-    <Description lang="fi">IF /*/​GoodsShipment/​GoodsItem/​Destination/Country is EQUAL to 'QR'&#13;
-THEN /*/​GoodsShipment/​Consignment/​BorderTransportMeans/​Nationality must be in Koodisto: Maa;CountryCodesCommunity&#13;
-ELSE IF /*/​GoodsShipment/​GoodsItem/​Destination/Country is EQUAL to 'QS'&#13;
-THEN /*/​GoodsShipment/​Consignment/​BorderTransportMeans/​Nationality must be in Koodisto: Maa;CountryCodesCommunityEiFi</Description>
-    <Description lang="sv">IF /*/​GoodsShipment/​GoodsItem/​Destination/Country is EQUAL to 'QR'&#13;
-THEN /*/​GoodsShipment/​Consignment/​BorderTransportMeans/​Nationality must be in Koodisto: Maa;CountryCodesCommunity&#13;
-ELSE IF /*/​GoodsShipment/​GoodsItem/​Destination/Country is EQUAL to 'QS'&#13;
-THEN /*/​GoodsShipment/​Consignment/​BorderTransportMeans/​Nationality must be in Koodisto: Maa;CountryCodesCommunityEiFi</Description>
-    <Description lang="en">IF /*/​GoodsShipment/​GoodsItem/​Destination/Country is EQUAL to 'QR'&#13;
-THEN /*/​GoodsShipment/​Consignment/​BorderTransportMeans/​Nationality must be in Koodisto: Maa;CountryCodesCommunity&#13;
-ELSE IF /*/​GoodsShipment/​GoodsItem/​Destination/Country is EQUAL to 'QS'&#13;
-THEN /*/​GoodsShipment/​Consignment/​BorderTransportMeans/​Nationality must be in Koodisto: Maa;CountryCodesCommunityEiFi</Description>
+    <Description lang="fi">JOS &lt;i&gt;Määrämaan koodi&lt;/i&gt; on YHTÄ KUIN 'QR'&#13;
+  NIIN &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kansallisuus&lt;/i&gt; on oltava JOUKOSSA CL010&#13;
+MUUTEN JOS &lt;i&gt;Määrämaan koodi&lt;/i&gt; on YHTÄ KUIN 'QS'&#13;
+  NIIN &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kansallisuus&lt;/i&gt; on oltava JOUKOSSA CL207</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för destinationsland&lt;/i&gt; är LIKA MED 'QR'&#13;
+  DÅ måste &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Nationalitet&lt;/i&gt; vara i GRUPPEN CL010&#13;
+ANNARS OM &lt;i&gt;Kod för destinationsland&lt;/i&gt; är LIKA MED 'QS'&#13;
+  DÅ ,åste &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Nationalitet&lt;/i&gt; vara i GRUPPEN CL207</Description>
+    <Description lang="en">IF &lt;i&gt;Country of destination code&lt;/i&gt; is EQUAL to 'QR'&#13;
+  THEN &lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Nationality&lt;/i&gt; must be in SET CL010&#13;
+ELSE IF &lt;i&gt;Country of destination code&lt;/i&gt; is EQUAL to 'QS'&#13;
+  THEN &lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Nationality&lt;/i&gt; must be in SET CL207</Description>
   </Constraint>
   <Constraint>
     <Code>NR5056</Code>
@@ -3036,6 +3045,12 @@ Note: The &lt;i&gt;Goods item number&lt;/i&gt; / &lt;i&gt;Sequence number&lt;/i&
   THEN &lt;i&gt;Supporting document&lt;/i&gt; = 'R' AND &lt;i&gt;Document type&lt;/i&gt; '7LVM' must be declared</Description>
   </Constraint>
   <Constraint>
+    <Code>NR5145</Code>
+    <Description lang="fi">&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {'N337', 'N355', 'N821', N952'}</Description>
+    <Description lang="sv">&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; måste vara i GRUPPEN {'N337', 'N355', 'N821', N952'}</Description>
+    <Description lang="en">&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {'N337', 'N355', 'N821', N952'}</Description>
+  </Constraint>
+  <Constraint>
     <Code>NR5501</Code>
     <Description lang="fi">JOS &lt;i&gt;Menettely&lt;/i&gt; on JOUKOSSA {1100, 1140, 2100, 2101, 2140, 2142, 2145, 2146, 2107, 2143, 2144} JA &lt;i&gt;Viejä&lt;/i&gt;/&lt;i&gt;Luonne&lt;/i&gt; ei ole JOUKOSSA {H, C} JA &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; ei ole YHTÄ KUIN 'CO'&#13;
   NIIN &lt;i&gt;Liiteasiakirja&lt;/i&gt; = 'R' JA &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava YHTÄ KUIN 'C710' TAI&#13;
@@ -3228,15 +3243,6 @@ THEN /*/​GoodsShipment/​TransactionNature must be EQUAL to '60'</Description
 THEN /*/​GoodsShipment/​TransactionNature must be EQUAL to '60'</Description>
   </Constraint>
   <Constraint>
-    <Code>NR5517</Code>
-    <Description lang="fi">JOS &lt;i&gt;Menettely&lt;/i&gt;  = '3151'&#13;
-  NIIN on oltava &lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Liiteasiakirja&lt;/i&gt; jolla &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; = 'C601' TAI &lt;i&gt;Lisätieto&lt;/i&gt; jolla &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FISAP'</Description>
-    <Description lang="sv">OM &lt;i&gt;Förfarande&lt;/i&gt;  = '3151'&#13;
-  DÅ måste det finnas en &lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Bifogat dokument&lt;/i&gt; med &lt;i&gt;Typ av dokument&lt;/i&gt; = 'C601' ELLER en &lt;i&gt;Ytterligare uppgifter&lt;/i&gt; med &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = 'FISAP'</Description>
-    <Description lang="en">IF &lt;i&gt;Procedure&lt;/i&gt;  = '3151'&#13;
-  THEN there must exist a &lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Supporting document&lt;/i&gt; with &lt;i&gt;Document type&lt;/i&gt; = 'C601' OR an &lt;i&gt;Additional information&lt;/i&gt; with &lt;i&gt;Additional information code&lt;/i&gt; = 'FISAP'</Description>
-  </Constraint>
-  <Constraint>
     <Code>NR5518</Code>
     <Description lang="fi">IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is EQUAL to '3153' &#13;
 THEN  /*/​AdditionalInformation/​Statement that is EQUAL to '00900' must be lodged</Description>
@@ -3244,15 +3250,6 @@ THEN  /*/​AdditionalInformation/​Statement that is EQUAL to '00900' must be 
 THEN  /*/​AdditionalInformation/​Statement that is EQUAL to '00900' must be lodged</Description>
     <Description lang="en">IF /*/​GoodsShipment/​GovernmentAgencyGoodsItem/​GovernmentProcedure (Current + Previous) is EQUAL to '3153' &#13;
 THEN  /*/​AdditionalInformation/​Statement that is EQUAL to '00900' must be lodged</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NR5519</Code>
-    <Description lang="fi">JOS &lt;i&gt;Menettely&lt;/i&gt;  = '3153'&#13;
-  NIIN on oltava &lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Liiteasiakirja&lt;/i&gt; jolla &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; = 'C516' TAI &lt;i&gt;Lisätieto&lt;/i&gt; jolla &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FISAP'</Description>
-    <Description lang="sv">OM &lt;i&gt;Förfarande&lt;/i&gt;  = '3153'&#13;
-  DÅ måste det finnas en &lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Bifogat dokument&lt;/i&gt; med &lt;i&gt;Typ av dokument&lt;/i&gt; = 'C516' ELLER en &lt;i&gt;Ytterligare uppgifter&lt;/i&gt; med &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = 'FISAP'</Description>
-    <Description lang="en">IF &lt;i&gt;Procedure&lt;/i&gt;  = '3153'&#13;
-  THEN there must exist a &lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Supporting document&lt;/i&gt; with &lt;i&gt;Document type&lt;/i&gt; = 'C516' OR an &lt;i&gt;Additional information&lt;/i&gt; with &lt;i&gt;Additional information code&lt;/i&gt; = 'FISAP'</Description>
   </Constraint>
   <Constraint>
     <Code>NR5520</Code>

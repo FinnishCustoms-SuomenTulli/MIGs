@@ -400,8 +400,11 @@
 			<SequenceDescription>
 				<Item>
 					<ItemLine lang="fi">Asiakas lähettää Tullille vienti-ilmoitussanoman (FI515). Tullin järjestelmä tarkastaa vienti-ilmoitussanomasta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä oikeellisuuden. Ilmoitus on muodollisesti virheetön, eikä siinä havaittu sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="fi">Ilmoitustyypin EX kanssa tulee ilmoittaa turvatiedot.</ItemLine>
 					<ItemLine lang="sv">Kunden skickar ett exportdeklarationsmeddelande (FI515) till Tullen. Tullens system kontrollerar kundens identifieringsuppgifter i exportdeklarationsmeddelandet samt innehållets formbundenhet och riktighet. Deklarationen är formellt felfri och inga innehållsliga fel upptäcks i den.</ItemLine>
+					<ItemLine lang="sv">Med deklarationstypen EX ska säkerhetsuppgifterna anges.</ItemLine>
 					<ItemLine lang="en">The customer sends Customs an export declaration message (FI515). Customs' system checks the customer’s identification details provided in the export declaration message as well as the specified form and correctness of the content of the declaration. The declaration is formally correct, and no errors were detected in its content.</ItemLine>
+					<ItemLine lang="en">With declaration type EX, security details must be provided.</ItemLine>
 				</Item>
 				<Item>
 					<ItemLine lang="fi">Tulli lähettää asiakkaalle hyväksymissanoman (FI528). Tällä sanomalla asiakkaalle ilmoitetaan vienti-ilmoituksen hyväksymispäivä ja MRN-numero, joka yksilöi ilmoituksen.</ItemLine>
@@ -1125,6 +1128,7 @@ Tullin järjestelmä tarkastaa vienti-ilmoitukselta asiakkaan tunnistetiedot ja 
 			<Name lang="en">Arrival at exit notification – the notification is correct</Name>
 			<Sequence>
 				<EO>FI507A</EO>
+				<Customs>FI526A</Customs>
 				<Customs>FI525A</Customs>
 			</Sequence>
 			<SequenceDescription>
@@ -1132,6 +1136,11 @@ Tullin järjestelmä tarkastaa vienti-ilmoitukselta asiakkaan tunnistetiedot ja 
 					<ItemLine lang="fi">Asiakas lähettää Tullille saapuminen poistumispaikalle -ilmoituksen (FI507) kaikista vientimenettelyssä poistumispaikalle saapuvista tavaroista, kun tavara poistuu Suomesta EU:n ulkopuolelle merialuksessa, ilma-aluksessa tai junassa.</ItemLine>
 					<ItemLine lang="sv">Kunden skickar Tullen en anmälan om ankomst till utförselstället (FI507) för alla varor som under exportförfarande ankommer till utförselstället när varan ska lämna Finland sjöledes, med flyg eller tåg till ett område utanför EU.</ItemLine>
 					<ItemLine lang="en">The customer sends Customs an arrival at exit notification (FI507) for all goods arriving at exit under the export procedure, when the goods exit Finland on a ship, aircraft or train for non-EU territory.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI526).</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om registrering (FI526).</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI526).</ItemLine>
 				</Item>
 				<Item>
 					<ItemLine lang="fi">Tullin järjestelmä lähettää asiakkaalle saapumisen hyväksyminen -sanomalla (FI525) tiedon saapuminen poistumispaikalle -sanoman (FI507) hyväksymisestä. Hyväksymissanoma toimii lastauslupana asiakkaalle.</ItemLine>
@@ -1146,6 +1155,7 @@ Tullin järjestelmä tarkastaa vienti-ilmoitukselta asiakkaan tunnistetiedot ja 
 			<Name lang="en">Arrival at exit notification – the notification is incorrect</Name>
 			<Sequence>
 				<EO>FI507A</EO>
+				<Customs>FI526A</Customs>
 				<Customs>FI522A</Customs>
 			</Sequence>
 			<SequenceDescription>
@@ -1153,6 +1163,11 @@ Tullin järjestelmä tarkastaa vienti-ilmoitukselta asiakkaan tunnistetiedot ja 
 					<ItemLine lang="fi">Asiakas lähettää Tullille saapuminen poistumispaikalle -ilmoituksen (FI507) kaikista vientimenettelyssä poistumispaikalle saapuvista tavaroista, kun tavara poistuu Suomesta EU:n ulkopuolelle merialuksessa, ilma-aluksessa tai junassa.</ItemLine>
 					<ItemLine lang="sv">Kunden skickar Tullen en anmälan om ankomst till utförselstället (FI507) för alla varor som under exportförfarande ankommer till utförselstället när varan ska lämna Finland sjöledes, med flyg eller tåg till ett område utanför EU.</ItemLine>
 					<ItemLine lang="en">The customer sends Customs an arrival at exit notification (FI507) for all goods arriving at exit under the export procedure, when the goods exit Finland on a ship, aircraft or train for non-EU territory.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI526).</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om registrering (FI526).</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI526).</ItemLine>
 				</Item>
 				<Item>
 					<ItemLine lang="fi">Tulli lähettää asiakkaalle saapumisen hylkäyssanomalla (FI522) tiedon päätöksestään hylätä asiakkaan saapuminen poistumispaikalle -sanomalla (FI507) lähettämä lastauslupapyyntö.</ItemLine>
