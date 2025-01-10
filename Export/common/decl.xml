@@ -647,6 +647,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Format>dateTime</Format>
       <Use>FI590A</Use>
       <MinOccurrence use="FI590A">1</MinOccurrence>
+      <Rule use="FI590A">NR5109</Rule>
     </DataElement>
     <DataElement>
       <Name lang="fi">Tavaroiden esittämispäivä ja -aika</Name>
@@ -4578,9 +4579,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI590A</Use>
         <MinOccurrence use="FI590A">1</MinOccurrence>
         <MaxOccurrence use="FI590A">1</MaxOccurrence>
-        <Description lang="fi" use="FI590A">Ilmoitetaan se toimija, joka todellisuudessa antaa tämän ilmoituksen ('trader at exit').</Description>
-        <Description lang="sv" use="FI590A">Ange den aktör som de facto lämnar in denna anmälan ('trader at exit').</Description>
-        <Description lang="en" use="FI590A">Provide the trader that actually submits this notification.</Description>
+        <Description lang="fi" use="FI590A">Ilmoitetaan se toimija, joka operoi kuljetusvälinettä, jolla tavarat kuljetetaan pois poistumistullitoimipaikasta.</Description>
+        <Description lang="sv" use="FI590A">Ange den aktör som opererar det transportmedel med vilket varorna transporteras från utförseltullkontoret.</Description>
+        <Description lang="en" use="FI590A">Provide the trader operating the means of transport with which the goods are transported from the customs office of exit.</Description>
         <DataElement>
           <Name lang="fi">Tunnistenumero</Name>
           <Name lang="sv">Identifieringsnummer</Name>
@@ -4589,7 +4590,8 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Format>an..17</Format>
           <Use>FI590A</Use>
           <MinOccurrence use="FI590A">1</MinOccurrence>
-          <Rule use="FI590A">R0840</Rule>
+          <Rule use="FI590A">NR5111</Rule>
+          <Rule use="FI590A">R0995</Rule>
         </DataElement>
         <DataGroup>
           <Name lang="fi">Toimipaikkakoodi</Name>
@@ -5009,15 +5011,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI613A">1</MinOccurrence>
           <MinOccurrence use="FI615A">1</MinOccurrence>
         </DataElement>
-        <DataElement>
-          <Name lang="fi">Kuljetusasiakirjan viite</Name>
-          <Name lang="sv">Referens för transportdokument</Name>
-          <Name lang="en">Transport document reference</Name>
-          <XPath>/​Consignment/​PreviousDocument/​TransportDocumentIdentification</XPath>
-          <Format>an..70</Format>
-          <Use>FI590A</Use>
-          <MinOccurrence use="FI590A">0</MinOccurrence>
-        </DataElement>
       </DataGroup>
       <DataGroup>
         <Name lang="fi">Liiteasiakirja</Name>
@@ -5282,12 +5275,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Name lang="en">Additional information</Name>
         <XPath>/​Consignment/​AdditionalInformation</XPath>
         <Use>FI570A</Use>
+        <Use>FI590A</Use>
         <Use>FI613A</Use>
         <Use>FI615A</Use>
         <MinOccurrence use="FI570A">0</MinOccurrence>
+        <MinOccurrence use="FI590A">0</MinOccurrence>
         <MinOccurrence use="FI613A">0</MinOccurrence>
         <MinOccurrence use="FI615A">0</MinOccurrence>
         <MaxOccurrence use="FI570A">99</MaxOccurrence>
+        <MaxOccurrence use="FI590A">99</MaxOccurrence>
         <MaxOccurrence use="FI613A">99</MaxOccurrence>
         <MaxOccurrence use="FI615A">99</MaxOccurrence>
         <DataElement>
@@ -5297,12 +5293,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <XPath>/​Consignment/​AdditionalInformation/​Sequence</XPath>
           <Format>n..5</Format>
           <Use>FI570A</Use>
+          <Use>FI590A</Use>
           <Use>FI613A</Use>
           <Use>FI615A</Use>
           <MinOccurrence use="FI570A">1</MinOccurrence>
+          <MinOccurrence use="FI590A">1</MinOccurrence>
           <MinOccurrence use="FI613A">1</MinOccurrence>
           <MinOccurrence use="FI615A">1</MinOccurrence>
           <Rule use="FI570A">R0987</Rule>
+          <Rule use="FI590A">NR0987</Rule>
           <Rule use="FI613A">NR5141</Rule>
           <Rule use="FI615A">R0987</Rule>
         </DataElement>
@@ -5313,12 +5312,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <XPath>/​Consignment/​AdditionalInformation/​Statement</XPath>
           <Format>an5</Format>
           <Use>FI570A</Use>
+          <Use>FI590A</Use>
           <Use>FI613A</Use>
           <Use>FI615A</Use>
           <MinOccurrence use="FI570A">1</MinOccurrence>
+          <MinOccurrence use="FI590A">1</MinOccurrence>
           <MinOccurrence use="FI613A">1</MinOccurrence>
           <MinOccurrence use="FI615A">1</MinOccurrence>
           <Codelist use="FI570A">CL239</Codelist>
+          <Codelist use="FI590A">CL239</Codelist>
           <Codelist use="FI613A">CL239</Codelist>
           <Codelist use="FI615A">CL239</Codelist>
           <Rule use="FI570A">NR5108</Rule>
@@ -5341,12 +5343,15 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <XPath>/​Consignment/​AdditionalInformation/​StatementDescription</XPath>
           <Format>an..512</Format>
           <Use>FI570A</Use>
+          <Use>FI590A</Use>
           <Use>FI613A</Use>
           <Use>FI615A</Use>
           <MinOccurrence use="FI570A">0</MinOccurrence>
+          <MinOccurrence use="FI590A">0</MinOccurrence>
           <MinOccurrence use="FI613A">0</MinOccurrence>
           <MinOccurrence use="FI615A">0</MinOccurrence>
           <Condition use="FI570A">NC5006</Condition>
+          <Condition use="FI590A">NC5006</Condition>
           <Condition use="FI613A">NC5006</Condition>
           <Condition use="FI615A">NC5006</Condition>
         </DataElement>
@@ -6629,7 +6634,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MaxOccurrence use="FI570A">99</MaxOccurrence>
           <MaxOccurrence use="FI613A">99</MaxOccurrence>
           <MaxOccurrence use="FI615A">99</MaxOccurrence>
-          <Condition use="FI613A">C0595</Condition>
           <DataElement>
             <Name lang="fi">Järjestysnumero</Name>
             <Name lang="sv">Ordningsnummer</Name>
@@ -8734,21 +8738,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Condition use="FI515A">NC5035</Condition>
             <Condition use="FI515A">NC5036</Condition>
             <DataElement>
-              <Name lang="fi">Maa</Name>
-              <Name lang="sv">Land</Name>
-              <Name lang="en">Country</Name>
-              <XPath>/​GoodsShipment/​Consignment/​GoodsLocation/​PostcodeAddress/​Country</XPath>
-              <Format>a2</Format>
-              <Use>FI513A</Use>
-              <Use>FI515A</Use>
-              <MinOccurrence use="FI513A">1</MinOccurrence>
-              <MinOccurrence use="FI515A">1</MinOccurrence>
-              <Codelist use="FI513A">CL190</Codelist>
-              <Codelist use="FI515A">CL190</Codelist>
-              <Rule use="FI513A">NR5038</Rule>
-              <Rule use="FI515A">NR5042</Rule>
-            </DataElement>
-            <DataElement>
               <Name lang="fi">Rakennuksen numero</Name>
               <Name lang="sv">Byggnadens nummer</Name>
               <Name lang="en">House number</Name>
@@ -8773,6 +8762,21 @@ For the time being, Customs will only accept an identifier of up to 14 character
               <Use>FI515A</Use>
               <MinOccurrence use="FI513A">1</MinOccurrence>
               <MinOccurrence use="FI515A">1</MinOccurrence>
+              <Rule use="FI513A">NR5038</Rule>
+              <Rule use="FI515A">NR5042</Rule>
+            </DataElement>
+            <DataElement>
+              <Name lang="fi">Maa</Name>
+              <Name lang="sv">Land</Name>
+              <Name lang="en">Country</Name>
+              <XPath>/​GoodsShipment/​Consignment/​GoodsLocation/​PostcodeAddress/​Country</XPath>
+              <Format>a2</Format>
+              <Use>FI513A</Use>
+              <Use>FI515A</Use>
+              <MinOccurrence use="FI513A">1</MinOccurrence>
+              <MinOccurrence use="FI515A">1</MinOccurrence>
+              <Codelist use="FI513A">CL190</Codelist>
+              <Codelist use="FI515A">CL190</Codelist>
               <Rule use="FI513A">NR5038</Rule>
               <Rule use="FI515A">NR5042</Rule>
             </DataElement>
@@ -9749,22 +9753,14 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI595A">0</MinOccurrence>
           <Rule use="FI513A">E1113</Rule>
           <Rule use="FI513A">NB1886</Rule>
-          <Rule use="FI513A">NB1887</Rule>
-          <Rule use="FI513A">R0021</Rule>
           <Rule use="FI515A">E1113</Rule>
           <Rule use="FI515A">NB1886</Rule>
-          <Rule use="FI515A">NB1887</Rule>
-          <Rule use="FI515A">R0021</Rule>
-          <Rule use="FI583A">R0021</Rule>
-          <Rule use="FI585A">R0021</Rule>
-          <Rule use="FI593A">R0021</Rule>
-          <Rule use="FI595A">R0021</Rule>
-          <Condition use="FI513A">NC5028</Condition>
-          <Condition use="FI515A">NC5028</Condition>
-          <Condition use="FI583A">NC5028</Condition>
-          <Condition use="FI585A">NC5028</Condition>
-          <Condition use="FI593A">NC5028</Condition>
-          <Condition use="FI595A">NC5028</Condition>
+          <Condition use="FI513A">NC5606</Condition>
+          <Condition use="FI515A">NC5606</Condition>
+          <Condition use="FI583A">NC5606</Condition>
+          <Condition use="FI585A">NC5606</Condition>
+          <Condition use="FI593A">NC5606</Condition>
+          <Condition use="FI595A">NC5606</Condition>
           <Description lang="fi" use="FI513A">Viennin tilastoarvona käytetään tavaran verotonta myyntihintaa. Viennissä tilastoarvo on FOB-arvo Suomen rajalla. Tilastoarvoon sisällytetään tavaran kuljetus- ja vakuutuskustannukset Suomen rajalle. Jos tavaroita jälleenviedään sisäisestä jalostuksesta, tilastoarvoon sisällytetään myös jalostukseen tuotu materiaali ja Suomessa syntyneet jalostuskustannukset. Vastaavasti tilastoarvosta vähennetään Suomen rajojen ulkopuoliset kustannukset, jos ne toimitusehdon mukaisesti sisältyvät hintaan.</Description>
           <Description lang="sv" use="FI513A">Vid export används varans skattefria försäljningspris som statistiskt värde. Vid export är det statistiska värdet FOB-värdet vid den finska gränsen. I statistiskt värde inkluderas kostnaderna för transport och försäkring fram till den finska gränsen. Om varor återexporteras efter aktiv förädling ska det statistiska värdet också inkludera det material som importerats för förädling och de förädlingskostnader som uppstått i Finland. På motsvarande sätt minskas det statistiska värdet med kostnader som uppstått utanför Finland, om dessa enligt leveransvillkoret ingår i priset.</Description>
           <Description lang="en" use="FI513A">In export, the statistical value is the FOB value at the Finnish border. The statistical value includes the cost of transport and insurance of the goods up to the Finnish border. If goods are re-exported after inward processing, the material brought in for processing and the processing costs incurred in Finland will also be included in the statistical value. Correspondingly, any costs incurred outside the Finnish borders are deducted from the statistical value, if they are included in the price according to the term of delivery.</Description>

@@ -573,18 +573,6 @@ THEN&#13;
 ELSE /*/Consignment/TransportEquipment = "N"</Description>
   </Constraint>
   <Constraint>
-    <Code>C0595</Code>
-    <Description lang="fi">IF /*/ExportOperation/specificCircumstanceIndicator is EQUAL to 'A20'&#13;
-THEN /*/Consignment/SupportingDocument = "N" AND /*/Consignment/ConsignmentItem/SupportingDocument = "N"&#13;
-ELSE /*/Consignment/SupportingDocument = "O" AND /*/Consignment/ConsignmentItem/SupportingDocument = "O"</Description>
-    <Description lang="sv">IF /*/ExportOperation/specificCircumstanceIndicator is EQUAL to 'A20'&#13;
-THEN /*/Consignment/SupportingDocument = "N" AND /*/Consignment/ConsignmentItem/SupportingDocument = "N"&#13;
-ELSE /*/Consignment/SupportingDocument = "O" AND /*/Consignment/ConsignmentItem/SupportingDocument = "O"</Description>
-    <Description lang="en">IF /*/ExportOperation/specificCircumstanceIndicator is EQUAL to 'A20'&#13;
-THEN /*/Consignment/SupportingDocument = "N" AND /*/Consignment/ConsignmentItem/SupportingDocument = "N"&#13;
-ELSE /*/Consignment/SupportingDocument = "O" AND /*/Consignment/ConsignmentItem/SupportingDocument = "O"</Description>
-  </Constraint>
-  <Constraint>
     <Code>C0596</Code>
     <Description lang="fi">IF /*/GoodsShipment/DeliveryTerms/incotermCode is EQUAL to "XXX"&#13;
 THEN&#13;
@@ -945,21 +933,6 @@ ELSE /*/GoodsShipment/Consignment/ActiveBorderTransportMeans = "N" &#13;
   THEN C0028 AND NC5028 shall be disabled</Description>
   </Constraint>
   <Constraint>
-    <Code>NB1887</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {31, 71, 76, 77, 78} TAI &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; on JOUKOSSA {C, F} &#13;
-    NIIN &lt;i&gt;Tilastoarvo&lt;/i&gt; = 'O'&#13;
-  MUUTEN &lt;i&gt;Tilastoarvo&lt;/i&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {31, 71, 76, 77, 78} ELLER &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; är i GRUPPEN {C, F} &#13;
-    DÅ är &lt;i&gt;Statistiskt värde&lt;/i&gt; = 'O'&#13;
-  ANNARS är &lt;i&gt;Statistiskt värde&lt;/i&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {31, 71, 76, 77, 78} OR &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {C, F} &#13;
-    THEN &lt;i&gt;Statistical value&lt;/i&gt; = 'O'&#13;
-  ELSE &lt;i&gt;Statistical value&lt;/i&gt; = 'R'</Description>
-  </Constraint>
-  <Constraint>
     <Code>NB1930</Code>
     <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
 NIIN NR5113 JA R0997 poistetaan käytöstä</Description>
@@ -1273,15 +1246,16 @@ THEN /*/​GoodsShipment/​Consignment/​Container should be EQUAL to '0'</Des
   </Constraint>
   <Constraint>
     <Code>NC5017</Code>
-    <Description lang="fi">IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT&#13;
-THEN Name AND Address = 'O'&#13;
-ELSE Name AND Address = 'R'</Description>
-    <Description lang="sv">IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT&#13;
-THEN Name AND Address = 'O'&#13;
-ELSE Name AND Address = 'R'</Description>
-    <Description lang="en">IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT&#13;
-THEN Name AND Address = 'O'&#13;
-ELSE Name AND Address = 'R'</Description>
+    <Description lang="fi">JOS &lt;i&gt;Tunnistenumero&lt;/i&gt; on ILMOITETTU&#13;
+  NIIN &lt;i&gt;Nimi&lt;/i&gt; JA &lt;i&gt;Osoite&lt;/i&gt; = 'O'&#13;
+  MUUTEN &lt;i&gt;Nimi&lt;/i&gt; JA &lt;i&gt;Osoite&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Identifieringsnummer&lt;/i&gt; är ANMÄLD&#13;
+  DÅ är &lt;i&gt;Namn&lt;/i&gt; OCH &lt;i&gt;Adress&lt;/i&gt; = 'O'&#13;
+  ANNARS är &lt;i&gt;Namn&lt;/i&gt; OCH &lt;i&gt;Adress&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Identification number&lt;/i&gt; is PRESENT&#13;
+  THEN &lt;i&gt;Name&lt;/i&gt; AND &lt;i&gt;Address&lt;/i&gt; = 'O'&#13;
+&#13;
+  ELSE &lt;i&gt;Name&lt;/i&gt; AND &lt;i&gt;Address&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NC5018</Code>
@@ -1354,27 +1328,6 @@ ELSE this element = 'O'</Description>
 ELSE this element = 'O'</Description>
     <Description lang="en">IF /*/​Notification/​ProvidedInfo is not present THEN this element = 'R' &#13;
 ELSE this element = 'O'</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NC5028</Code>
-    <Description lang="fi">IF /*/ExportOperation/declarationType is EQUAL to 'CO'&#13;
-THEN /*/GoodsShipment/GoodsItem/statisticalValue = "O"&#13;
-ELSE &#13;
-         IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} OR IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is in SET {76, 77}&#13;
-         THEN /*/GoodsShipment/GoodsItem/statisticalValue = "O"&#13;
-                   ELSE /*/GoodsShipment/GoodsItem/statisticalValue = "R"</Description>
-    <Description lang="sv">IF /*/ExportOperation/declarationType is EQUAL to 'CO'&#13;
-THEN /*/GoodsShipment/GoodsItem/statisticalValue = "O"&#13;
-ELSE &#13;
-         IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} OR IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is in SET {76, 77}&#13;
-         THEN /*/GoodsShipment/GoodsItem/statisticalValue = "O"&#13;
-                   ELSE /*/GoodsShipment/GoodsItem/statisticalValue = "R"</Description>
-    <Description lang="en">IF /*/ExportOperation/declarationType is EQUAL to 'CO'&#13;
-THEN /*/GoodsShipment/GoodsItem/statisticalValue = "O"&#13;
-ELSE &#13;
-         IF /*/ExportOperation/additionalDeclarationType is in SET {B, C, E, F} OR IF /*/​GoodsShipment/​GoodsItem/​Procedure/​Current is in SET {76, 77}&#13;
-         THEN /*/GoodsShipment/GoodsItem/statisticalValue = "O"&#13;
-                   ELSE /*/GoodsShipment/GoodsItem/statisticalValue = "R"</Description>
   </Constraint>
   <Constraint>
     <Code>NC5030</Code>
@@ -1648,18 +1601,15 @@ THEN either /*/​Amendment/​Text = 'R' OR /*/Amendment/​ProvidedInfo = 'R'<
   </Constraint>
   <Constraint>
     <Code>NC5046</Code>
-    <Description lang="fi">IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT &#13;
-AND /*/Role is in SET {'Y', 'K', 'V', 'T', 'E'}&#13;
-THEN Name AND Address = 'O'&#13;
-ELSE Name AND Address = 'R'</Description>
-    <Description lang="sv">IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT &#13;
-AND /*/Role is in SET {'Y', 'K', 'V', 'T', 'E'}&#13;
-THEN Name AND Address = 'O'&#13;
-ELSE Name AND Address = 'R'</Description>
-    <Description lang="en">IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT &#13;
-AND /*/Role is in SET {'Y', 'K', 'V', 'T', 'E'}&#13;
-THEN Name AND Address = 'O'&#13;
-ELSE Name AND Address = 'R'</Description>
+    <Description lang="fi">JOS &lt;i&gt;Tunnistenumero&lt;/i&gt; on ILMOITETTU JA &lt;i&gt;Luonne&lt;/i&gt; on JOUKOSSA {'E', 'K', 'T', 'V', 'Y'}&#13;
+  NIIN &lt;i&gt;Nimi&lt;/i&gt; JA &lt;i&gt;Osoite&lt;/i&gt; = 'O'&#13;
+  MUUTEN &lt;i&gt;Nimi&lt;/i&gt; JA &lt;i&gt;Osoite&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Identifieringsnummer&lt;/i&gt; är ANMÄLD OCH &lt;i&gt;Natur&lt;/i&gt; är i GRUPPEN {'E', 'K', 'T', 'V', 'Y'}&#13;
+  DÅ är &lt;i&gt;Namn&lt;/i&gt; OCH &lt;i&gt;Adress&lt;/i&gt; = 'O'&#13;
+  ANNARS är &lt;i&gt;Namn&lt;/i&gt; OCH &lt;i&gt;Adress&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Identification number&lt;/i&gt; is PRESENT AND &lt;i&gt;Nature&lt;/i&gt; is in SET {'E', 'K', 'T', 'V', 'Y'}&#13;
+  THEN &lt;i&gt;Name&lt;/i&gt; AND &lt;i&gt;Address&lt;/i&gt; = 'O'&#13;
+  ELSE &lt;i&gt;Name&lt;/i&gt; AND &lt;i&gt;Address&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NC5047</Code>
@@ -1792,13 +1742,13 @@ ELSE &lt;i&gt;Customs office of presentation&lt;/i&gt; = 'O'</Description>
   </Constraint>
   <Constraint>
     <Code>NC5060</Code>
-    <Description lang="fi">JOS &lt;i&gt;Tavaraerä&lt;/i&gt;&lt;i&gt;Edeltävä asiakirja&lt;/i&gt; on ILMOITETTU TAI &lt;i&gt;Lisätietokoodi&lt;/i&gt; on YHTÄ KUIN ‘FIXKK’&#13;
+    <Description lang="fi">JOS &lt;i&gt;Tavaraerä&lt;/i&gt;&lt;i&gt;Edeltävä asiakirja&lt;/i&gt; on ILMOITETTU TAI &lt;i&gt;Lisätietokoodi&lt;/i&gt; on JOUKOSSA {FIXKK, FIXTT}&#13;
   NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; = 'N'&#13;
 MUUTEN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;i&gt;Varupost&lt;/i&gt;&lt;i&gt;Tidigare dokument&lt;/i&gt; är ANMÄLD ELLER &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; är LIKA MED ‘FIXKK’&#13;
+    <Description lang="sv">OM &lt;i&gt;Varupost&lt;/i&gt;&lt;i&gt;Tidigare dokument&lt;/i&gt; är ANMÄLD ELLER &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; är i GRUPPEN {FIXKK, FIXTT}&#13;
   DÅ är &lt;i&gt;Tidigare dokument&lt;/i&gt; = 'N'&#13;
 ANNARS är &lt;i&gt;Tidigare dokument&lt;/i&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;i&gt;Goods item&lt;/i&gt;&lt;i&gt;Previous document&lt;/i&gt; is PRESENT OR &lt;i&gt;Additional information code&lt;/i&gt; is EQUAL to ‘FIXKK’&#13;
+    <Description lang="en">IF &lt;i&gt;Goods item&lt;/i&gt;&lt;i&gt;Previous document&lt;/i&gt; is PRESENT OR &lt;i&gt;Additional information code&lt;/i&gt; is in SET {FIXKK, FIXTT}&#13;
   THEN &lt;i&gt;Previous document&lt;/i&gt; = 'N'&#13;
 ELSE &lt;i&gt;Previous document&lt;/i&gt; = 'R'</Description>
   </Constraint>
@@ -1903,6 +1853,18 @@ ELSE /*/GoodsShipment/Warehouse = "N"</Description>
     <Description lang="en">IF /*/GoodsShipment/GoodsItem/Procedure/previousProcedure is in SET {71, 76, 77, 78}&#13;
 THEN /*/GoodsShipment/Warehouse = "R"&#13;
 ELSE /*/GoodsShipment/Warehouse = "N"</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC5606</Code>
+    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {31, 71, 76, 77, 78} JA &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; on JOUKOSSA {C, F}&#13;
+  NIIN &lt;i&gt;Tilastoarvo&lt;/i&gt; = 'O'&#13;
+MUUTEN &lt;i&gt;Tilastoarvo&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {31, 71, 76, 77, 78} OCH &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; är I GRUPPEN {C, F}&#13;
+  DÅ är &lt;i&gt;Statistiskt värde&lt;/i&gt; = 'O'&#13;
+ANNARS är &lt;i&gt;Statistiskt värde&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {31, 71, 76, 77, 78} AND &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {C, F}&#13;
+  THEN &lt;i&gt;Statistical value&lt;/i&gt; = 'O'&#13;
+ELSE &lt;i&gt;Statistical value&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NC5655</Code>
@@ -2017,6 +1979,12 @@ THEN /*/ExportOperation/additionalDeclarationType is in SET {'C', 'F', 'Y'}</Des
 THEN /*/ExportOperation/additionalDeclarationType is in SET {'C', 'F', 'Y'}</Description>
     <Description lang="en">IF /*/Authorisation/Category is EQUAL to ’C512’&#13;
 THEN /*/ExportOperation/additionalDeclarationType is in SET {'C', 'F', 'Y'}</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR0987</Code>
+    <Description lang="fi">Jokainen &lt;i&gt;Järjestysnumero&lt;/i&gt; on yksilöllinen sille tietoryhmälle, johon se kuuluu. Niiden on oltava peräkkäisiä.</Description>
+    <Description lang="sv">Varje &lt;i&gt;Ordningsnummer&lt;/i&gt; är unik för den datagrupp som den tillhör. De ska vara sekventiella.</Description>
+    <Description lang="en">Each &lt;i&gt;Sequence number&lt;/i&gt; is unique for the data group is belongs to. They shall be sequential.</Description>
   </Constraint>
   <Constraint>
     <Code>NR1001</Code>
@@ -2767,6 +2735,12 @@ THEN NR5032 is not used</Description>
     <Description lang="fi">Vain yksi JOUKON {'FIXVO', 'FIETD', 'FIXSU'} koodeista voidaan ilmoittaa.</Description>
     <Description lang="sv">Endast en kod i GRUPPEN {'FIXVO', 'FIETD', 'FIXSU'} kan anmälas.</Description>
     <Description lang="en">Only a single code in the SET {'FIXVO', 'FIETD', 'FIXSU'} can be declared.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR5109</Code>
+    <Description lang="fi">Ei voi olla tulevaisuudessa</Description>
+    <Description lang="sv">Kan inte vara i framtiden</Description>
+    <Description lang="en">Cannot be a future date</Description>
   </Constraint>
   <Constraint>
     <Code>NR5110</Code>

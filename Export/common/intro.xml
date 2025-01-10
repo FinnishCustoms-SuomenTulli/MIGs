@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Introduction xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Intro.xsd">
-  <System lang="fi">Vienti</System>
-  <System lang="sv">Export</System>
-  <System lang="en">Export</System>
+  <System lang="fi">Vienti ja poistuminen</System>
+  <System lang="sv">Export och utförsel</System>
+  <System lang="en">Export and exit</System>
   <VersionHistory>
     <Version>
       <Number>&lt;0.9.0</Number>
@@ -20202,6 +20202,321 @@ ELSE IF {{FIe-063}} is EQUAL to 'QS'&#13;
       <Data>1</Data>
       <Schema/>
       <ME>1</ME>
+    </Version>
+    <Version>
+      <Number>1.0.3</Number>
+      <Date>2025-01-10</Date>
+      <Remarks lang="fi">Järjestelmäkehitys</Remarks>
+      <Remarks lang="sv">Systemutveckling</Remarks>
+      <Remarks lang="en">System development</Remarks>
+      <Notes>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;Carrier: FId-150: loppupäivä muutettu: 31.12.2099 &amp;#8594; 16.12.2024</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;Carrier: FId-150: slutdatumet ändrat: 31.12.2099 &amp;#8594; 16.12.2024</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;Carrier: FId-150: end date changed: 31.12.2099 &amp;#8594; 16.12.2024</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;Carrier: FId-149 lisätty (17.12.2024 - 31.12.2099)</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;Carrier: FId-149 lagts till (17.12.2024 - 31.12.2099)</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;Carrier: FId-149 added (17.12.2024 - 31.12.2099)</Note>
+        <Note lang="fi">NC5017: (fi) selite muutettu: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; JOS {{FIe-123}} on ILMOITETTU&#13;
+  NIIN {{FIe-154}} JA {{FIg-083}} = 'O'&#13;
+  MUUTEN {{FIe-154}} JA {{FIg-083}} = 'R', (sv) selite muutettu: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; OM {{FIe-123}} är ANMÄLD&#13;
+  DÅ är {{FIe-154}} OCH {{FIg-083}} = 'O'&#13;
+  ANNARS är {{FIe-154}} OCH {{FIg-083}} = 'R', (en) selite muutettu: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; IF {{FIe-123}} is PRESENT&#13;
+  THEN {{FIe-154}} AND {{FIg-083}} = 'O'&#13;
+&#13;
+  ELSE {{FIe-154}} AND {{FIg-083}} = 'R'</Note>
+        <Note lang="sv">NC5017: (fi) beskrivningen ändrad: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; JOS {{FIe-123}} on ILMOITETTU&#13;
+  NIIN {{FIe-154}} JA {{FIg-083}} = 'O'&#13;
+  MUUTEN {{FIe-154}} JA {{FIg-083}} = 'R', (sv) beskrivningen ändrad: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; OM {{FIe-123}} är ANMÄLD&#13;
+  DÅ är {{FIe-154}} OCH {{FIg-083}} = 'O'&#13;
+  ANNARS är {{FIe-154}} OCH {{FIg-083}} = 'R', (en) beskrivningen ändrad: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; IF {{FIe-123}} is PRESENT&#13;
+  THEN {{FIe-154}} AND {{FIg-083}} = 'O'&#13;
+&#13;
+  ELSE {{FIe-154}} AND {{FIg-083}} = 'R'</Note>
+        <Note lang="en">NC5017: (fi) description changed: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; JOS {{FIe-123}} on ILMOITETTU&#13;
+  NIIN {{FIe-154}} JA {{FIg-083}} = 'O'&#13;
+  MUUTEN {{FIe-154}} JA {{FIg-083}} = 'R', (sv) description changed: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; OM {{FIe-123}} är ANMÄLD&#13;
+  DÅ är {{FIe-154}} OCH {{FIg-083}} = 'O'&#13;
+  ANNARS är {{FIe-154}} OCH {{FIg-083}} = 'R', (en) description changed: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; IF {{FIe-123}} is PRESENT&#13;
+  THEN {{FIe-154}} AND {{FIg-083}} = 'O'&#13;
+&#13;
+  ELSE {{FIe-154}} AND {{FIg-083}} = 'R'</Note>
+        <Note lang="fi">NC5046: (fi) selite muutettu: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT &#13;
+AND /*/Role is in SET {'Y', 'K', 'V', 'T', 'E'}&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; JOS {{FIe-123}} on ILMOITETTU JA {{FIe-157}} on JOUKOSSA {'E', 'K', 'T', 'V', 'Y'}&#13;
+  NIIN {{FIe-154}} JA {{FIg-083}} = 'O'&#13;
+  MUUTEN {{FIe-154}} JA {{FIg-083}} = 'R', (sv) selite muutettu: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT &#13;
+AND /*/Role is in SET {'Y', 'K', 'V', 'T', 'E'}&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; OM {{FIe-123}} är ANMÄLD OCH {{FIe-157}} är i GRUPPEN {'E', 'K', 'T', 'V', 'Y'}&#13;
+  DÅ är {{FIe-154}} OCH {{FIg-083}} = 'O'&#13;
+  ANNARS är {{FIe-154}} OCH {{FIg-083}} = 'R', (en) selite muutettu: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT &#13;
+AND /*/Role is in SET {'Y', 'K', 'V', 'T', 'E'}&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; IF {{FIe-123}} is PRESENT AND {{FIe-157}} is in SET {'E', 'K', 'T', 'V', 'Y'}&#13;
+  THEN {{FIe-154}} AND {{FIg-083}} = 'O'&#13;
+  ELSE {{FIe-154}} AND {{FIg-083}} = 'R'</Note>
+        <Note lang="sv">NC5046: (fi) beskrivningen ändrad: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT &#13;
+AND /*/Role is in SET {'Y', 'K', 'V', 'T', 'E'}&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; JOS {{FIe-123}} on ILMOITETTU JA {{FIe-157}} on JOUKOSSA {'E', 'K', 'T', 'V', 'Y'}&#13;
+  NIIN {{FIe-154}} JA {{FIg-083}} = 'O'&#13;
+  MUUTEN {{FIe-154}} JA {{FIg-083}} = 'R', (sv) beskrivningen ändrad: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT &#13;
+AND /*/Role is in SET {'Y', 'K', 'V', 'T', 'E'}&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; OM {{FIe-123}} är ANMÄLD OCH {{FIe-157}} är i GRUPPEN {'E', 'K', 'T', 'V', 'Y'}&#13;
+  DÅ är {{FIe-154}} OCH {{FIg-083}} = 'O'&#13;
+  ANNARS är {{FIe-154}} OCH {{FIg-083}} = 'R', (en) beskrivningen ändrad: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT &#13;
+AND /*/Role is in SET {'Y', 'K', 'V', 'T', 'E'}&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; IF {{FIe-123}} is PRESENT AND {{FIe-157}} is in SET {'E', 'K', 'T', 'V', 'Y'}&#13;
+  THEN {{FIe-154}} AND {{FIg-083}} = 'O'&#13;
+  ELSE {{FIe-154}} AND {{FIg-083}} = 'R'</Note>
+        <Note lang="en">NC5046: (fi) description changed: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT &#13;
+AND /*/Role is in SET {'Y', 'K', 'V', 'T', 'E'}&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; JOS {{FIe-123}} on ILMOITETTU JA {{FIe-157}} on JOUKOSSA {'E', 'K', 'T', 'V', 'Y'}&#13;
+  NIIN {{FIe-154}} JA {{FIg-083}} = 'O'&#13;
+  MUUTEN {{FIe-154}} JA {{FIg-083}} = 'R', (sv) description changed: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT &#13;
+AND /*/Role is in SET {'Y', 'K', 'V', 'T', 'E'}&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; OM {{FIe-123}} är ANMÄLD OCH {{FIe-157}} är i GRUPPEN {'E', 'K', 'T', 'V', 'Y'}&#13;
+  DÅ är {{FIe-154}} OCH {{FIg-083}} = 'O'&#13;
+  ANNARS är {{FIe-154}} OCH {{FIg-083}} = 'R', (en) description changed: general:
+IF /*/Identification AND /*/​AdditionalIdentifier/Identification (Office code) are PRESENT &#13;
+AND /*/Role is in SET {'Y', 'K', 'V', 'T', 'E'}&#13;
+THEN Name AND Address = 'O'&#13;
+ELSE Name AND Address = 'R' &amp;#8594; IF {{FIe-123}} is PRESENT AND {{FIe-157}} is in SET {'E', 'K', 'T', 'V', 'Y'}&#13;
+  THEN {{FIe-154}} AND {{FIg-083}} = 'O'&#13;
+  ELSE {{FIe-154}} AND {{FIg-083}} = 'R'</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation: Tieto lisätty sanomalle 10.1.2025 alkaen.</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation: Data lagts till i meddelandet från och med10.1.2025.</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation: Data added to message beginning 10.1.2025.</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;Sequence: Tieto lisätty sanomalle 10.1.2025 alkaen.</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;Sequence: Data lagts till i meddelandet från och med10.1.2025.</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;Sequence: Data added to message beginning 10.1.2025.</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;Statement: Tieto lisätty sanomalle 10.1.2025 alkaen.</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;Statement: Data lagts till i meddelandet från och med10.1.2025.</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;Statement: Data added to message beginning 10.1.2025.</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;StatementDescription: Tieto lisätty sanomalle 10.1.2025 alkaen.</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;StatementDescription: Data lagts till i meddelandet från och med10.1.2025.</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;StatementDescription: Data added to message beginning 10.1.2025.</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation: NR0310 lisätty (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation: NR0310 lagt till (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation: NR0310 added (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation: NR0313 lisätty (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation: NR0313 lagt till (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation: NR0313 added (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;Statement: NR0312 lisätty (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;Statement: NR0312 lagt till (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;Statement: NR0312 added (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;StatementDescription: O &amp;#8594; D 10.1.2025 alkaen.</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;StatementDescription: O &amp;#8594; D från 10.1.2025.</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;StatementDescription: O &amp;#8594; D beginning 10.1.2025.</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;StatementDescription: NC5006 lisätty (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;StatementDescription: NC5006 lagt till (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;StatementDescription: NC5006 added (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;Sequence: NR0987 lisätty (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;Sequence: NR0987 lagt till (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;AdditionalInformation/&amp;ZeroWidthSpace;Sequence: NR0987 added (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Exit: NR5109 lisätty (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Exit: NR5109 lagt till (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Exit: NR5109 added (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;Carrier/&amp;ZeroWidthSpace;Identification: R0840: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;Carrier/&amp;ZeroWidthSpace;Identification: R0840: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;Carrier/&amp;ZeroWidthSpace;Identification: R0840: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;Carrier/&amp;ZeroWidthSpace;Identification: R0995 lisätty (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;Carrier/&amp;ZeroWidthSpace;Identification: R0995 lagt till (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;Carrier/&amp;ZeroWidthSpace;Identification: R0995 added (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;Carrier/&amp;ZeroWidthSpace;Identification: NR5111 lisätty (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;Carrier/&amp;ZeroWidthSpace;Identification: NR5111 lagt till (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;Carrier/&amp;ZeroWidthSpace;Identification: NR5111 added (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="fi">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;PreviousDocument/&amp;ZeroWidthSpace;TransportDocumentIdentification: Tieto poistettu alkaen 9.1.2025.</Note>
+        <Note lang="sv">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;PreviousDocument/&amp;ZeroWidthSpace;TransportDocumentIdentification: Data raderat från 9.1.2025.</Note>
+        <Note lang="en">FI590A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;PreviousDocument/&amp;ZeroWidthSpace;TransportDocumentIdentification: Data removed beginning 9.1.2025.</Note>
+        <Note lang="fi">FI613A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;ConsignmentItem/&amp;ZeroWidthSpace;AdditionalDocument@function="SupportingDocument": O &amp;#8594; D 1.1.2023 alkaen.</Note>
+        <Note lang="sv">FI613A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;ConsignmentItem/&amp;ZeroWidthSpace;AdditionalDocument@function="SupportingDocument": O &amp;#8594; D från1.1.2023.</Note>
+        <Note lang="en">FI613A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;ConsignmentItem/&amp;ZeroWidthSpace;AdditionalDocument@function="SupportingDocument": O &amp;#8594; D beginning 1.1.2023.</Note>
+        <Note lang="fi">FI613A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;ConsignmentItem/&amp;ZeroWidthSpace;AdditionalDocument@function="SupportingDocument": D &amp;#8594; O10.1.2025 alkaen.</Note>
+        <Note lang="sv">FI613A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;ConsignmentItem/&amp;ZeroWidthSpace;AdditionalDocument@function="SupportingDocument": D &amp;#8594; O från 10.1.2025.</Note>
+        <Note lang="en">FI613A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;ConsignmentItem/&amp;ZeroWidthSpace;AdditionalDocument@function="SupportingDocument": D &amp;#8594; O beginning 10.1.2025.</Note>
+        <Note lang="fi">FI613A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;ConsignmentItem/&amp;ZeroWidthSpace;AdditionalDocument@function="SupportingDocument": C0595: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI613A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;ConsignmentItem/&amp;ZeroWidthSpace;AdditionalDocument@function="SupportingDocument": C0595: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI613A/&amp;ZeroWidthSpace;Consignment/&amp;ZeroWidthSpace;ConsignmentItem/&amp;ZeroWidthSpace;AdditionalDocument@function="SupportingDocument": C0595: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="fi">NC5060: (fi) selite muutettu: JOS {{FIg-090}}{{FIg-135}} on ILMOITETTU TAI {{FIe-008}} on YHTÄ KUIN ‘FIXKK’&#13;
+  NIIN {{FIg-135}} = 'N'&#13;
+MUUTEN {{FIg-135}} = 'R' &amp;#8594; JOS {{FIg-090}}{{FIg-135}} on ILMOITETTU TAI {{FIe-008}} on JOUKOSSA {FIXKK, FIXTT}&#13;
+  NIIN {{FIg-135}} = 'N'&#13;
+MUUTEN {{FIg-135}} = 'R', (sv) selite muutettu: OM {{FIg-090}}{{FIg-135}} är ANMÄLD ELLER {{FIe-008}} är LIKA MED ‘FIXKK’&#13;
+  DÅ är {{FIg-135}} = 'N'&#13;
+ANNARS är {{FIg-135}} = 'R' &amp;#8594; OM {{FIg-090}}{{FIg-135}} är ANMÄLD ELLER {{FIe-008}} är i GRUPPEN {FIXKK, FIXTT}&#13;
+  DÅ är {{FIg-135}} = 'N'&#13;
+ANNARS är {{FIg-135}} = 'R', (en) selite muutettu: IF {{FIg-090}}{{FIg-135}} is PRESENT OR {{FIe-008}} is EQUAL to ‘FIXKK’&#13;
+  THEN {{FIg-135}} = 'N'&#13;
+ELSE {{FIg-135}} = 'R' &amp;#8594; IF {{FIg-090}}{{FIg-135}} is PRESENT OR {{FIe-008}} is in SET {FIXKK, FIXTT}&#13;
+  THEN {{FIg-135}} = 'N'&#13;
+ELSE {{FIg-135}} = 'R'</Note>
+        <Note lang="sv">NC5060: (fi) beskrivningen ändrad: JOS {{FIg-090}}{{FIg-135}} on ILMOITETTU TAI {{FIe-008}} on YHTÄ KUIN ‘FIXKK’&#13;
+  NIIN {{FIg-135}} = 'N'&#13;
+MUUTEN {{FIg-135}} = 'R' &amp;#8594; JOS {{FIg-090}}{{FIg-135}} on ILMOITETTU TAI {{FIe-008}} on JOUKOSSA {FIXKK, FIXTT}&#13;
+  NIIN {{FIg-135}} = 'N'&#13;
+MUUTEN {{FIg-135}} = 'R', (sv) beskrivningen ändrad: OM {{FIg-090}}{{FIg-135}} är ANMÄLD ELLER {{FIe-008}} är LIKA MED ‘FIXKK’&#13;
+  DÅ är {{FIg-135}} = 'N'&#13;
+ANNARS är {{FIg-135}} = 'R' &amp;#8594; OM {{FIg-090}}{{FIg-135}} är ANMÄLD ELLER {{FIe-008}} är i GRUPPEN {FIXKK, FIXTT}&#13;
+  DÅ är {{FIg-135}} = 'N'&#13;
+ANNARS är {{FIg-135}} = 'R', (en) beskrivningen ändrad: IF {{FIg-090}}{{FIg-135}} is PRESENT OR {{FIe-008}} is EQUAL to ‘FIXKK’&#13;
+  THEN {{FIg-135}} = 'N'&#13;
+ELSE {{FIg-135}} = 'R' &amp;#8594; IF {{FIg-090}}{{FIg-135}} is PRESENT OR {{FIe-008}} is in SET {FIXKK, FIXTT}&#13;
+  THEN {{FIg-135}} = 'N'&#13;
+ELSE {{FIg-135}} = 'R'</Note>
+        <Note lang="en">NC5060: (fi) description changed: JOS {{FIg-090}}{{FIg-135}} on ILMOITETTU TAI {{FIe-008}} on YHTÄ KUIN ‘FIXKK’&#13;
+  NIIN {{FIg-135}} = 'N'&#13;
+MUUTEN {{FIg-135}} = 'R' &amp;#8594; JOS {{FIg-090}}{{FIg-135}} on ILMOITETTU TAI {{FIe-008}} on JOUKOSSA {FIXKK, FIXTT}&#13;
+  NIIN {{FIg-135}} = 'N'&#13;
+MUUTEN {{FIg-135}} = 'R', (sv) description changed: OM {{FIg-090}}{{FIg-135}} är ANMÄLD ELLER {{FIe-008}} är LIKA MED ‘FIXKK’&#13;
+  DÅ är {{FIg-135}} = 'N'&#13;
+ANNARS är {{FIg-135}} = 'R' &amp;#8594; OM {{FIg-090}}{{FIg-135}} är ANMÄLD ELLER {{FIe-008}} är i GRUPPEN {FIXKK, FIXTT}&#13;
+  DÅ är {{FIg-135}} = 'N'&#13;
+ANNARS är {{FIg-135}} = 'R', (en) description changed: IF {{FIg-090}}{{FIg-135}} is PRESENT OR {{FIe-008}} is EQUAL to ‘FIXKK’&#13;
+  THEN {{FIg-135}} = 'N'&#13;
+ELSE {{FIg-135}} = 'R' &amp;#8594; IF {{FIg-090}}{{FIg-135}} is PRESENT OR {{FIe-008}} is in SET {FIXKK, FIXTT}&#13;
+  THEN {{FIg-135}} = 'N'&#13;
+ELSE {{FIg-135}} = 'R'</Note>
+        <Note lang="fi">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 lisätty (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="sv">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 lagt till (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="en">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 added (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="fi">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 lisätty (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="sv">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 lagt till (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="en">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 added (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="fi">FI583A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 lisätty (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="sv">FI583A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 lagt till (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="en">FI583A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 added (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="fi">FI585A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 lisätty (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="sv">FI585A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 lagt till (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="en">FI585A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 added (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="fi">FI593A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 lisätty (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="sv">FI593A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 lagt till (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="en">FI593A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 added (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="fi">FI595A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 lisätty (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="sv">FI595A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 lagt till (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="en">FI595A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5606 added (10.1.2025 - 31.12.2099)</Note>
+        <Note lang="fi">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NB1887: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NB1887: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NB1887: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="fi">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D 1.1.2023 alkaen.</Note>
+        <Note lang="sv">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D från1.1.2023.</Note>
+        <Note lang="en">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D beginning 1.1.2023.</Note>
+        <Note lang="fi">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O10.1.2025 alkaen.</Note>
+        <Note lang="sv">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O från 10.1.2025.</Note>
+        <Note lang="en">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O beginning 10.1.2025.</Note>
+        <Note lang="fi">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="fi">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI515A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="fi">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NB1887: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NB1887: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NB1887: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="fi">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D 1.1.2023 alkaen.</Note>
+        <Note lang="sv">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D från1.1.2023.</Note>
+        <Note lang="en">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D beginning 1.1.2023.</Note>
+        <Note lang="fi">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O10.1.2025 alkaen.</Note>
+        <Note lang="sv">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O från 10.1.2025.</Note>
+        <Note lang="en">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O beginning 10.1.2025.</Note>
+        <Note lang="fi">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="fi">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI513A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="fi">FI585A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D 1.1.2023 alkaen.</Note>
+        <Note lang="sv">FI585A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D från1.1.2023.</Note>
+        <Note lang="en">FI585A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D beginning 1.1.2023.</Note>
+        <Note lang="fi">FI585A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O10.1.2025 alkaen.</Note>
+        <Note lang="sv">FI585A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O från 10.1.2025.</Note>
+        <Note lang="en">FI585A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O beginning 10.1.2025.</Note>
+        <Note lang="fi">FI585A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI585A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI585A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="fi">FI585A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI585A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI585A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="fi">FI583A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D 1.1.2023 alkaen.</Note>
+        <Note lang="sv">FI583A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D från1.1.2023.</Note>
+        <Note lang="en">FI583A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D beginning 1.1.2023.</Note>
+        <Note lang="fi">FI583A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O10.1.2025 alkaen.</Note>
+        <Note lang="sv">FI583A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O från 10.1.2025.</Note>
+        <Note lang="en">FI583A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O beginning 10.1.2025.</Note>
+        <Note lang="fi">FI583A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI583A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI583A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="fi">FI583A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI583A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI583A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="fi">FI595A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D 1.1.2023 alkaen.</Note>
+        <Note lang="sv">FI595A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D från1.1.2023.</Note>
+        <Note lang="en">FI595A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D beginning 1.1.2023.</Note>
+        <Note lang="fi">FI595A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O10.1.2025 alkaen.</Note>
+        <Note lang="sv">FI595A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O från 10.1.2025.</Note>
+        <Note lang="en">FI595A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O beginning 10.1.2025.</Note>
+        <Note lang="fi">FI595A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI595A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI595A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="fi">FI595A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI595A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI595A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="fi">FI593A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D 1.1.2023 alkaen.</Note>
+        <Note lang="sv">FI593A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D från1.1.2023.</Note>
+        <Note lang="en">FI593A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: O &amp;#8594; D beginning 1.1.2023.</Note>
+        <Note lang="fi">FI593A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O10.1.2025 alkaen.</Note>
+        <Note lang="sv">FI593A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O från 10.1.2025.</Note>
+        <Note lang="en">FI593A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: D &amp;#8594; O beginning 10.1.2025.</Note>
+        <Note lang="fi">FI593A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI593A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI593A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: NC5028: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="fi">FI593A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: loppupäivä muutettu: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="sv">FI593A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: slutdatum ändrat: 31.12.2099 -&gt; 9.1.2025</Note>
+        <Note lang="en">FI593A/&amp;ZeroWidthSpace;GoodsShipment/&amp;ZeroWidthSpace;GovernmentAgencyGoodsItem/&amp;ZeroWidthSpace;StatisticalValue: R0021: end date changed: 31.12.2099 -&gt; 9.1.2025</Note>
+      </Notes>
+      <Data>1</Data>
+      <Schema>1</Schema>
+      <ME/>
     </Version>
   </VersionHistory>
   <MessageList>
