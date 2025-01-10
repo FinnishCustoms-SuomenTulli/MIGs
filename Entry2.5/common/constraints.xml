@@ -13,6 +13,30 @@ ANNARS är denna uppgift = 'R'</Description>
 ELSE this data = 'R'</Description>
   </Constraint>
   <Constraint>
+    <Code>C0671</Code>
+    <Description lang="fi">JOS &lt;i&gt;Talouden toimija&lt;/i&gt; on ILMOITETTU TAI &lt;i&gt;Luvan numero&lt;/i&gt; on ILMOITETTU&#13;
+  NIIN &lt;i&gt;Lisätunniste&lt;/i&gt; = 'O'&#13;
+  MUUTEN &lt;i&gt;Lisätunniste&lt;/i&gt; = 'N'</Description>
+    <Description lang="sv">OM &lt;i&gt;Ekonomisk aktör&lt;/i&gt; är ANMÄLD ELLER &lt;i&gt;Tillståndsnummer&lt;/i&gt; är ANMÄLD&#13;
+  DÅ är &lt;i&gt;Tilläggskod&lt;/i&gt; = 'O'&#13;
+  ANNARS är &lt;i&gt;Tilläggskod&lt;/i&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Economic operator&lt;/i&gt; is PRESENT OR &lt;i&gt;Authorisation number&lt;/i&gt; is PRESENT&#13;
+  THEN &lt;i&gt;Additional identifier&lt;/i&gt; = 'O'&#13;
+  ELSE &lt;i&gt;Additional identifier&lt;/i&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>C3318</Code>
+    <Description lang="fi">JOS esitetään CGM&#13;
+  NIIN tämä tieto = 'R'&#13;
+  MUUTEN tämä tieto = 'N'</Description>
+    <Description lang="sv">OM CGM presenteras&#13;
+  DÅ är denna uppgift = 'R'&#13;
+  ANNARS är denna uppgift = 'N'</Description>
+    <Description lang="en">IF CGM is presented&#13;
+  THEN this data = 'R'&#13;
+  ELSE this data = 'N'</Description>
+  </Constraint>
+  <Constraint>
     <Code>NC0010</Code>
     <Description lang="fi">JOS &lt;i&gt;Kollien laji&lt;/i&gt; on JOUKOSSA CL181 &#13;
   NIIN &lt;i&gt;Kolliluku&lt;/i&gt; = 'N'&#13;
@@ -258,9 +282,12 @@ ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;
   </Constraint>
   <Constraint>
     <Code>NR0019</Code>
-    <Description lang="fi">Ainoastaan arvo 'FI' on sallittu.</Description>
-    <Description lang="sv">Endast värder 'FI' är giltigt.</Description>
-    <Description lang="en">Only value 'FI' is allowed.</Description>
+    <Description lang="fi">JOS CCL-lupaa EI ole ilmoitettu&#13;
+ NIIN ainoastaan arvo 'FI' on sallittu.</Description>
+    <Description lang="sv">OM ett CCL-tillstånd INTE är anmält&#13;
+ DÅ är endast värdet 'FI' giltigt.</Description>
+    <Description lang="en">IF a CCL authorization is NOT declared&#13;
+  THEN only value 'FI' is allowed.</Description>
   </Constraint>
   <Constraint>
     <Code>NR0026</Code>
@@ -317,7 +344,7 @@ ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;
     <Description lang="sv">OM &lt;i&gt;Identifieringsnummer&lt;/i&gt; börjar med en landskod utanför EU som 'NO' eller 'RU' (3. lands EORI-registrering gjord i Finland)&#13;
   DÅ måste aktören hittas i kundregistret även utan &lt;i&gt;Kod för verksamhetsställe&lt;/i&gt;</Description>
     <Description lang="en">IF &lt;i&gt;Identification number&lt;/i&gt; starts with a non-EU country code such as 'NO' or 'RU' (3. country EORI registration made in Finland)&#13;
-  THEN trader must be found in trader regiser even without &lt;i&gt;Office code&lt;/i&gt;</Description>
+  THEN trader must be found in trader register even without &lt;i&gt;Office code&lt;/i&gt;</Description>
   </Constraint>
   <Constraint>
     <Code>NR1109</Code>
@@ -414,6 +441,12 @@ Please remove the house level presentation from this presentation notification a
     <Description lang="fi">Lisätietokoodi FIPML voidaan ilmoittaa ainoastaan ilmoitustasolla.</Description>
     <Description lang="sv">Kod för ytterligare uppgifter FIPML kan endast ges på deklarationsnivå.</Description>
     <Description lang="en">Additional information code FIPML can only be given on declaration level.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NRS012</Code>
+    <Description lang="fi">MRN:n on oltava lähetyseräkohtaisesti yksilöllinen</Description>
+    <Description lang="sv">MRN måste vara unikt för varje leveransparti</Description>
+    <Description lang="en">The MRN must be unique for each consignment</Description>
   </Constraint>
   <Constraint>
     <Code>R0005</Code>

@@ -1,157 +1,136 @@
-graph Entry {
-   node [shape=plaintext, fontname = "helvetica"];
-	edge [fontname = "helvetica"];
-	{rank=same "Amendment" "Notification" "HouseConsignment"}
-	"ImportOperation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Import operation</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Case identification<br align="left"/>MRN<br align="left"/>LRN<br align="left"/>Additional LRN<br align="left"/>Actual date and time of presentation of the goods<br align="left"/>Estimated date and time of presentation of the goods<br align="left"/>Original date and time of presentation of the goods<br align="left"/>Language code<br align="left"/></td></tr></table>>];
-	"Consignment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Consignment  </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">MRN of temporary storage after movement</td></tr></table>>];
-	"HouseConsignment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>House consignment   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Sequence number<br align="left"/>MRN<br align="left"/>LRN<br align="left"/>Total gross mass<br align="left"/></td></tr></table>>];
-	
-	"GoodsItem" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Goods item</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Goods item number<br align="left"/>Union status<br align="left"/>Description of goods<br align="left"/>Commodity code - Harmonised System code<br align="left"/>Commodity code - Combined nomenclature code<br align="left"/>CUS code<br align="left"/></td></tr></table>>];
-	"GoodsLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Location of goods</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Type of location<br align="left"/>UN/LOCODE<br align="left"/>Customs office<br align="left"/>GNSS<br align="left"/>Economic operator<br align="left"/>Authorisation number<br align="left"/>Additional identifier<br align="left"/></td></tr></table>>];
-	"LoadingLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Place of loading  </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Location name<br align="left"/>Country<br align="left"/>Identification of sending warehouse<br align="left"/>Estimated date and time of transfer<br align="left"/></td></tr></table>>];
-	"UnloadingLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Place of unloading</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identification of receiving warehouse</td></tr></table>>];
-	"UCR" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Reference number/UCR  </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Reference number/UCR  </td></tr></table>>];
-	"DangerousGoods" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Dangerous goods  </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">UNDG</td></tr></table>>];
-	"Packaging" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Packages</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Shipping marks<br align="left"/>Number of packages<br align="left"/>Type of packages<br align="left"/></td></tr></table>>];
-	"SupportingDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Supporting document   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Document type<br align="left"/>Document identifier<br align="left"/></td></tr></table>>];
-	"Authorisation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Authorisation</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Type<br align="left"/>Reference number<br align="left"/>Holder of the authorisation identification no.<br align="left"/></td></tr></table>>];
-	"TransportDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transport document   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Document type<br align="left"/>Document identifier<br align="left"/>Goods item identifier<br align="left"/></td></tr></table>>];
-	"PreviousDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Previous document</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Previous document type<br align="left"/>Previous document reference<br align="left"/>Goods item identifier<br align="left"/>Transport document reference<br align="left"/></td></tr></table>>];
-	"AdditionalInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Additional information</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Additional information code<br align="left"/>Additional information description<br align="left"/></td></tr></table>>];
-	"Warehouse" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Identification of warehouse    </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Warehouse identifier<br align="left"/>Warehouse type<br align="left"/></td></tr></table>>];
-
-	"AdditionalSupplyChainActor" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Additional supply chain actor</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identification number<br align="left"/>Additional supply chain actor role code<br align="left"/></td></tr></table>>];
-	"Applicant" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Applicant</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identification number<br align="left"/>Office code<br align="left"/>Name<br align="left"/>Type<br align="left"/></td></tr></table>>];
-	"Consignee" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Consignee</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identification number<br align="left"/>Office code<br align="left"/>Name<br align="left"/>Type<br align="left"/></td></tr></table>>];
-	"Consignor" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Consignor</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identification number<br align="left"/>Office code<br align="left"/>Name<br align="left"/>Type<br align="left"/></td></tr></table>>];
-	"Declarant" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Declarant</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identification number<br align="left"/>Office code<br align="left"/></td></tr></table>>];
-	"Holder" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Holder of temporary storage    </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identification number<br align="left"/>Office code<br align="left"/></td></tr></table>>];
-	"NotifyParty" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Notify party</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identification number<br align="left"/>Office code<br align="left"/>Name<br align="left"/>Type<br align="left"/></td></tr></table>>];
-	"PersonPresenting" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Person presenting the goods to customs      </b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identification number<br align="left"/>Office code<br align="left"/></td></tr></table>>];
-	"Representative" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Representative</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Representative status code<br align="left"/>Identification no.<br align="left"/>Office code<br align="left"/></td></tr></table>>];
-	"ServiceProvider" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Service provider   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identification number</td></tr></table>>];
-	"Submitter" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Submitter</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identification number<br align="left"/>Office code<br align="left"/>Name<br align="left"/>E-mail address<br align="left"/>Telephone number<br align="left"/></td></tr></table>>];
-	"PresentationOffice" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Customs office of presentation     </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Customs office identifier<br align="left"/></td></tr></table>>];
-	"Address" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Address</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Street and number<br align="left"/>City<br align="left"/>Postcode<br align="left"/>Country<br align="left"/></td></tr></table>>];
-
-	"ArrivalTransportMeans" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Means of transport on arrival    </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identification number<br align="left"/>Type of identification<br align="left"/></td></tr></table>>];
-	"PassiveBorderTransportMeans" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Passive border transport means    </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Identification number<br/>Type of identification<br align="left"/></td></tr></table>>];
-	"TransportEquipment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transport equipment</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Container identification number<br align="left"/>Number of seals<br align="left"/></td></tr></table>>];
-	"Seal" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Seal</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Seal identifier<br align="left"/></td></tr></table>>];
-
-	"Amendment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Amendment</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Amendment date and time<br align="left"/>Reason for amendment request<br align="left"/>Request correlation<br align="left"/></td></tr></table>>];
-	"Notification" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Notification</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Notification type<br align="left"/>Notification date and time<br align="left"/>Response code<br align="left"/>Notification description<br align="left"/>Declaration part<br align="left"/>Invalidation reason<br align="left"/>Reason for contact<br align="left"/>Superceding MRN<br align="left"/>Related goods item<br align="left"/>Request correlation<br align="left"/>Time limit<br align="left"/></td></tr></table>>];
-	"Error" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Error</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Error code<br align="left"/>Error reason<br align="left"/>Error pointer<br align="left"/>Original attribute value<br align="left"/></td></tr></table>>];
-	"ProvidedInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Provided information   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Description<br align="left"/>Attachment reference<br align="left"/></td></tr></table>>];
-	"Control" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Control</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Control type<br align="left"/>Control location<br align="left"/>Estimated control time<br align="left"/>Contol subject<br align="left"/>Related goods item<br align="left"/>Additonal information regarding control<br align="left"/></td></tr></table>>];
-	"ContactInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Contact information   </b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Customs office name<br align="left"/>Name<br align="left"/>E-mail address<br align="left"/>Telephone number<br align="left"/></td></tr></table>>];
-	"Decision" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Decision</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Decision date and time</td></tr></table>>];
-	"Note" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Note</b></font></td></tr>
-	<tr><td bgcolor="#fafafa" align="left">Note type<br align="left"/>Note text<br align="left"/></td></tr></table>>];
-
-	"ImportOperation" -- "Consignment" [headlabel="0..9999", taillabel="1" fontsize=10]
-	"ImportOperation" -- "Amendment" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "AdditionalSupplyChainActor" [headlabel="0..99", taillabel="1" fontsize=10]
-	"ImportOperation" -- "PersonPresenting" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "Representative" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "Holder" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "ServiceProvider" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "Submitter" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "Applicant" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "AdditionalInformation" [headlabel="0..99", taillabel="1" fontsize=10]
-	"ImportOperation" -- "ArrivalTransportMeans" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "GoodsLocation" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "Warehouse" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "PresentationOffice" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "Declarant" [headlabel="0..1", taillabel="1" fontsize=10]
-	"ImportOperation" -- "SupportingDocument" [headlabel="0..99", taillabel="1" fontsize=10]
-	"ImportOperation" -- "AdditionalInformation" [headlabel="0..99", taillabel="1" fontsize=10]
-	"ImportOperation" -- "Authorisation" [headlabel="0..9", taillabel="1" fontsize=10]
-	"ImportOperation" -- "Notification" [headlabel="1", taillabel="1" fontsize=10]
-	"Applicant" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignee" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignor" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
-	"NotifyParty" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
-	"GoodsLocation" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Notification" -- "ContactInformation" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Notification" -- "Control" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Notification" -- "Decision" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Notification" -- "ProvidedInformation" [headlabel="0..999", taillabel="1" fontsize=10]
-	"Notification" -- "Error" [headlabel="0..999", taillabel="1" fontsize=10]
-	"ContactInformation"-- "Control" [headlabel="1", taillabel="0..1" fontsize=10]
-	"Decision" -- "Note" [headlabel="0..999", taillabel="1" fontsize=10]
-	"Consignment" -- "GoodsLocation" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "LoadingLocation" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "UnloadingLocation" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "ArrivalTransportMeans" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "Warehouse" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "Consignee" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "Consignor" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "NotifyParty" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "TransportEquipment" [headlabel="0..9999", taillabel="1" fontsize=10]
-	"Consignment" -- "HouseConsignment" [headlabel="0..99999", taillabel="1" fontsize=10]
-	"Consignment" -- "PreviousDocument" [headlabel="0..9999", taillabel="1" fontsize=10]
-	"Consignment" -- "TransportDocument" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "GoodsItem" [headlabel="0..9999", taillabel="1" fontsize=10]
-	"Consignment" -- "UCR" [headlabel="0..1", taillabel="1" fontsize=10]
-
-	"AdditionalInformation" -- "HouseConsignment" [headlabel="1", taillabel="0..99" fontsize=10]
-	"Consignee" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
-	"Consignor" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
-	"NotifyParty" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
-	"LoadingLocation" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
-	"HouseConsignment" -- "TransportEquipment" [headlabel="0..9999", taillabel="1" fontsize=10]
-	"TransportDocument" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
-	"HouseConsignment" -- "PreviousDocument" [headlabel="0..1", taillabel="1" fontsize=10]
-	"HouseConsignment" -- "PassiveBorderTransportMeans" [headlabel="0..1", taillabel="1" fontsize=10]
-	"HouseConsignment" -- "GoodsItem" [headlabel="0..9999", taillabel="1" fontsize=10]
-	"UCR" -- "HouseConsignment" [headlabel="1", taillabel="0..1" fontsize=10]
-
-	"TransportEquipment" -- "GoodsItem" [headlabel="1", taillabel="0..9999" fontsize=10]
-	"TransportEquipment" -- "Seal" [headlabel="0..9999", taillabel="1" fontsize=10]
-	"GoodsItem" --"DangerousGoods" [headlabel="0..99", taillabel="1" fontsize=10]
-	"GoodsItem" --"Packaging" [headlabel="0..99", taillabel="1" fontsize=10]
-	"PassiveBorderTransportMeans" -- "GoodsItem" [headlabel="1", taillabel="0..1" fontsize=10]
-	"PreviousDocument" -- "GoodsItem" [headlabel="1", taillabel="0..1" fontsize=10]
-	// Adjust the layout, not real connections
-	//"Notification" -- "Consignment" [style=invis]
+Graph ClassDiagram {
+bgcolor="#fafafa"
+node [shape=plain, fontname="Open Sans"]
+edge [fontname="Open Sans" width="2"]
+"FIg-038" -- "FIg-029" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-045" -- "FIg-081" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-045" -- "FIg-051" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-045" -- "FIg-047" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-045" -- "FIg-087" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-055" -- "FIg-083" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-055" -- "FIg-029" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-090" [headlabel="0..9999" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-055" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-080" [headlabel="0..99999" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-127" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-074" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-030" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-044" [headlabel="0..9999" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-126" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-073" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-135" [headlabel="0..9999" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-122" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-132" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-035" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-116" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-129" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-129" -- "FIg-083" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-019" -- "FIg-016" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-015" -- "FIg-011" [headlabel="0..999" taillabel="1" fontsize=10]
+"FIg-036" -- "FIg-029" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-032" [headlabel="0..9" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-026" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-040" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-102" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-079" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-134" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-025" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-038" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-028" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-075" [headlabel="0..9999" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-132" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-014" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-027" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-073" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-127" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-031" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-036" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-116" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-017" -- "FIg-023" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-102" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-089" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-135" [headlabel="0..9999" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-056" [headlabel="0..999" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-045" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-052" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-044" [headlabel="0..9999" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-090" [headlabel="0..9999" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-102" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-056" [headlabel="0..999" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-135" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-055" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-044" [headlabel="0..9999" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-129" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-035" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-126" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-030" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-122" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-127" -- "FIg-083" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-028" -- "FIg-012" [headlabel="0..999" taillabel="1" fontsize=10]
+"FIg-028" -- "FIg-019" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-028" -- "FIg-009" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-028" -- "FIg-017" [headlabel="0..999" taillabel="1" fontsize=10]
+"FIg-028" -- "FIg-015" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-030" -- "FIg-083" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-030" -- "FIg-029" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-025" -- "FIg-029" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-035" -- "FIg-083" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-026" -- "FIg-029" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-031" -- "FIg-105" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-031" -- "FIg-043" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-031" -- "FIg-029" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-040" -- "FIg-042" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-044" -- "FIg-039" [headlabel="0..9999" taillabel="1" fontsize=10]
+"FIg-102" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Additional information</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Additional information code</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Additional information description</td></tr></table>>]
+"FIg-134" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Additional supply chain actor</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identification number</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Role code</td></tr></table>>]
+"FIg-083" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Address</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">City</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Country</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Postcode</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Street and number</td></tr></table>>]
+"FIg-014" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Amendment</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Amendment date and time</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Reason for amendment request</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Request correlation</td></tr></table>>]
+"FIg-038" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Applicant</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Identification number</td></tr></table>>]
+"FIg-073" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Arrival transport means</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identification number of transport means</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Type of identification</td></tr></table>>]
+"FIg-042" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Attachment reference</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Attachment reference</td></tr></table>>]
+"FIg-032" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Authorisation</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Authorization type</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Holder of the authorisation identification no.</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Reference number</td></tr></table>>]
+"FIg-045" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Commodity</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Description of goods</td></tr></table>>]
+"FIg-047" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Commodity code - Combined Nomenclature code</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Classification type</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Commodity code - Combined Nomenclature code</td></tr></table>>]
+"FIg-081" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Commodity code - Harmonised System code</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Classification type</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Commodity code - Harmonised System code</td></tr></table>>]
+"FIg-055" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Consignee</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identification number</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kind</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Name</td></tr></table>>]
+"FIg-075" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Consignment</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Mode of transport on arrival</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">MRN of temporary storage after movement</td></tr></table>>]
+"FIg-129" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Consignor</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identification number</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kind</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Name</td></tr></table>>]
+"FIg-009" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Contact information</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">E-mail address</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Name</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Telephone number</td></tr></table>>]
+"FIg-016" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Contact information</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Customs office name</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">E-mail address</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Telephone number</td></tr></table>>]
+"FIg-019" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Control</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Additonal information regarding control</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Control location</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Control subject</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Control type</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Estimated control time</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Related goods item</td></tr></table>>]
+"FIg-087" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>CUS code</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Classification type</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">CUS code</td></tr></table>>]
+"FIg-116" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Customs office of presentation</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Customs office identifier</td></tr></table>>]
+"FIg-051" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Dangerous goods</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">UNDG</td></tr></table>>]
+"FIg-015" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Decision</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Decision date and time</td></tr></table>>]
+"FIg-036" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Declarant</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Identification number</td></tr></table>>]
+"FIg-001" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Declaration</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Actual date and time of presentation of the goods</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Additional LRN</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Case identification</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Estimated date and time of presentation of the goods</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Language code</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">LRN</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Mode of transport at the border</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">MRN</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Original date and time of presentation of the goods</td></tr></table>>]
+"FIg-105" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>E-mail</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Communication means</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">E-mail address</td></tr></table>>]
+"FIg-017" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Error</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Error code</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Error description</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Error reason</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Original attribute value</td></tr></table>>]
+"FIg-023" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Error pointer</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Error pointer</td></tr></table>>]
+"FIg-090" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Goods item</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Customs status</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Goods item number</td></tr></table>>]
+"FIg-089" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Goods measure</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Gross mass</td></tr></table>>]
+"FIg-027" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Holder of temporary storage</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Identification number</td></tr></table>>]
+"FIg-080" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>House consignment</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Receptacle identification number</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Sequence number</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Total gross mass</td></tr></table>>]
+"FIg-132" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Identification of warehouse</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Warehouse identifier</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Warehouse type</td></tr></table>>]
+"FIg-127" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Location of goods</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Additional identifier</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Authorisation number</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Customs office</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Economic operator</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">GNSS</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Type of location</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">UN/LOCODE</td></tr></table>>]
+"FIg-011" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Note</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Note text</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Note type</td></tr></table>>]
+"FIg-028" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Notification</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Declaration part</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Invalidation reason</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Notification date and time</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Notification description</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Notification type</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Reason for contact</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Related goods item</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Request correlation</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Response code</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Superseding MRN</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Time limit</td></tr></table>>]
+"FIg-030" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Notify party</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identification number</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kind</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Name</td></tr></table>>]
+"FIg-029" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Office code</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Office code</td></tr></table>>]
+"FIg-052" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Packages</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Number of packages</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Shipping marks</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Type of packages</td></tr></table>>]
+"FIg-056" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Passive border transport means</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identification number of transport means</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Type of identification</td></tr></table>>]
+"FIg-025" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Person presenting the goods to customs</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identification number</td></tr></table>>]
+"FIg-035" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Place of loading</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Estimated date and time of transfer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identification of sending warehouse</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Location name</td></tr></table>>]
+"FIg-074" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Place of unloading</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identification of receiving warehouse</td></tr></table>>]
+"FIg-135" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Previous document</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Document type</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Goods item identifier</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Movement complete</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Previous document reference</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Transport document reference</td></tr></table>>]
+"FIg-012" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Provided information</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Attachment reference</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Description</td></tr></table>>]
+"FIg-126" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Reference number/UCR</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Reference number/UCR</td></tr></table>>]
+"FIg-026" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Representative</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identification number</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Representative status code</td></tr></table>>]
+"FIg-039" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Seal</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Seal identifier</td></tr></table>>]
+"FIg-079" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Service provider</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identification number</td></tr></table>>]
+"FIg-031" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Submitter</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identification number</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Name</td></tr></table>>]
+"FIg-040" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Supporting document</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Document identifier</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Document type</td></tr></table>>]
+"FIg-043" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Telephone</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Communication means</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Telephone number</td></tr></table>>]
+"FIg-122" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transport document</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Document identifier</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Document type</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Goods item identifier</td></tr></table>>]
+"FIg-044" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transport equipment</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Container identification number</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Number of seals</td></tr></table>>]
 }
