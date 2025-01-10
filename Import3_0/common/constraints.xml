@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Constraints>
   <Constraint>
+    <Code>C0130</Code>
+    <Description lang="fi">IF /*/Guarantee/guaranteeType is EQUAL to "8" &#13;
+THEN /*/Guarantee/otherGuaranteeReference = "R"&#13;
+ELSE IF /*/Guarantee/guaranteeType is EQUAL to "3"&#13;
+THEN /*/Guarantee/otherGuaranteeReference = "O" &#13;
+ELSE /*/Guarantee/otherGuaranteeReference = "N"</Description>
+    <Description lang="sv">IF /*/Guarantee/guaranteeType is EQUAL to "8" &#13;
+THEN /*/Guarantee/otherGuaranteeReference = "R"&#13;
+ELSE IF /*/Guarantee/guaranteeType is EQUAL to "3"&#13;
+THEN /*/Guarantee/otherGuaranteeReference = "O" &#13;
+ELSE /*/Guarantee/otherGuaranteeReference = "N"</Description>
+    <Description lang="en">IF /*/Guarantee/guaranteeType is EQUAL to "8" &#13;
+THEN /*/Guarantee/otherGuaranteeReference = "R"&#13;
+ELSE IF /*/Guarantee/guaranteeType is EQUAL to "3"&#13;
+THEN /*/Guarantee/otherGuaranteeReference = "O" &#13;
+ELSE /*/Guarantee/otherGuaranteeReference = "N"</Description>
+  </Constraint>
+  <Constraint>
+    <Code>C0382</Code>
+    <Description lang="fi">JOS &lt;i&gt;Postinumero-osoite&lt;/i&gt;/&lt;i&gt;Maa&lt;/i&gt; on koodistossa CL198&#13;
+  NIIN &lt;i&gt;Rakennuksen numero&lt;/i&gt; = 'O'&#13;
+MUUTEN &lt;i&gt;Rakennuksen numero&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Postnummeradress&lt;/i&gt;/&lt;i&gt;Land&lt;/i&gt; finns i kodförteckning CL198&#13;
+  DÅ är &lt;i&gt;Byggnadens nummer&lt;/i&gt; = 'O'&#13;
+ANNARS är &lt;i&gt;Byggnadens nummer&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Postcode address&lt;/i&gt;/&lt;i&gt;Country&lt;/i&gt; is in code list CL198&#13;
+  THEN &lt;i&gt;House number&lt;/i&gt; = 'O'&#13;
+ELSE &lt;i&gt;House number&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>C0505</Code>
+    <Description lang="fi">JOS &lt;i&gt;Osoite&lt;/i&gt;/&lt;i&gt;Maa&lt;/i&gt; on koodistossa CL505&#13;
+  NIIN &lt;i&gt;Postinumero&lt;/i&gt; = 'O'&#13;
+MUUTEN &lt;i&gt;Postinumero&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Adress&lt;/i&gt;/&lt;i&gt;Land&lt;/i&gt; är i kodförteckning CL505&#13;
+  DÅ är &lt;i&gt;Postnummer&lt;/i&gt; = 'O'&#13;
+ANNARS är &lt;i&gt;Postnummer&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Address&lt;/i&gt;/&lt;i&gt;Country&lt;/i&gt; is in code list CL505&#13;
+  THEN &lt;i&gt;Postcode&lt;/i&gt; = 'O'&#13;
+ELSE &lt;i&gt;Postcode&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
     <Code>C0619</Code>
     <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '71'&#13;
   NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Laskutettu kokonaissumma&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Verotuksellinen lisäviitetieto&lt;/i&gt;/&lt;i&gt;Toimipaikkakoodi&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
@@ -59,48 +101,60 @@ ELSE &lt;i&gt;Name&lt;/i&gt; AND &lt;i&gt;Address&lt;/i&gt; = 'N'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0018</Code>
-    <Description lang="fi">JOS &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; on JOUKOSSA {'10', '22', '23', '54', '71', '78'}&#13;
+    <Description lang="fi">JOS CCL-lupa on ilmoitettu JA Suomi on SCI&#13;
+  NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; = 'O'&#13;
+MUUTEN JOS &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; on JOUKOSSA {'10', '22', '23', '54', '71', '78'}&#13;
   NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; är i GRUPPEN {'10', '22', '23', '54', '71', '78'}&#13;
+    <Description lang="sv">OM ett CCL-tillstånd är anmält OCH Finland är SCI&#13;
+  DÅ är &lt;i&gt;Tidigare dokument&lt;/i&gt; = 'O'&#13;
+ANNARS OM &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; är i GRUPPEN {'10', '22', '23', '54', '71', '78'}&#13;
   DÅ är &lt;i&gt;Tidigare dokument&lt;/i&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;i&gt;Previous procedure code&lt;/i&gt; is in SET {'10', '22', '23', '54', '71', '78'}&#13;
+    <Description lang="en">IF CCL authorization is declared AND Finland is SCI&#13;
+  THEN &lt;i&gt;Previous document&lt;/i&gt; = 'O'&#13;
+ELSE IF &lt;i&gt;Previous procedure code&lt;/i&gt; is in SET {'10', '22', '23', '54', '71', '78'}&#13;
   THEN &lt;i&gt;Previous document&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0021</Code>
     <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {44, 46, 48, 51, 53, 71} JA &lt;i&gt;Lisätietokoodi&lt;/i&gt; = '00100' ei ole ilmoitettu JA &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; on JOUKOSSA {C, F, U, V, Y, Z}&#13;
   NIIN &lt;i&gt;Lupa&lt;/i&gt; = 'R'&#13;
-MUUTEN JOS #H5N&#13;
+MUUTEN JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  != 'FIPER'&#13;
   NIIN &lt;i&gt;Lupa&lt;/i&gt; = 'N'&#13;
 MUUTEN &lt;i&gt;Lupa&lt;/i&gt; = 'O'</Description>
     <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {44, 46, 48, 51, 53, 71} OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = '00100' inte är anmält OCH &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; är i GRUPPEN {C, F, U, V, Y, Z}&#13;
   DÅ är &lt;i&gt;Tillstånd&lt;/i&gt; = 'R'&#13;
-ANNARS OM #H5N&#13;
+ANNARS OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  != 'FIPER'&#13;
   DÅ är &lt;i&gt;Tillstånd&lt;/i&gt; = 'N'&#13;
 ANNARS är &lt;i&gt;Tillstånd&lt;/i&gt; = 'O'</Description>
     <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {44, 46, 48, 51, 53, 71} AND &lt;i&gt;Additional information code&lt;/i&gt; = '00100' is not declared AND &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {C, F, U, V, Y, Z}&#13;
   THEN &lt;i&gt;Authorisation&lt;/i&gt; = 'R'&#13;
-ELSE IF #H5N&#13;
+ELSE IF &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  != 'FIPER'&#13;
   THEN &lt;i&gt;Authorisation&lt;/i&gt; = 'N'&#13;
 ELSE &lt;i&gt;Authorisation&lt;/i&gt; = 'O'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0022</Code>
-    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '71'&#13;
+    <Description lang="fi">JOS CCL-lupa on ilmoitettu JA Suomi on SCI&#13;
+  NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; = 'O'&#13;
+MUUTEN JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '71'&#13;
   NIIN JOS (&lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; = '00' JA &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; = 'CO')  TAI &lt;i&gt;Tullitoimipaikka&lt;/i&gt; on JOUKOSSA {FI994400, FI994900, FI998002, FI999500, FI999800, FI999801}&#13;
     NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; = 'O'&#13;
   MUUTEN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; = 'R'&#13;
 MUUTEN JOS &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; = 'IM' JA &lt;i&gt;Lähetysmaan koodi&lt;/i&gt; = 'NO' JA &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt; = '3'&#13;
   NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; = 'O'&#13;
 MUUTEN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '71'&#13;
+    <Description lang="sv">OM ett CCL-tillstånd är anmält OCH Finland är SCI&#13;
+  DÅ är &lt;i&gt;Tidigare dokument&lt;/i&gt; = 'O'&#13;
+ANNARS OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '71'&#13;
   DÅ OM (&lt;i&gt;Kod för föregående förfarande&lt;/i&gt; = '00' OCH &lt;i&gt;Typ av deklaration&lt;/i&gt; = 'CO') ELLER &lt;i&gt;Tullkontor&lt;/i&gt; är i GRUPPEN {FI994400, FI994900, FI998002, FI999500, FI999800, FI999801}&#13;
     DÅ är &lt;i&gt;Tidigare dokument&lt;/i&gt; = 'O'&#13;
   ANNARS är &lt;i&gt;Tidigare dokument&lt;/i&gt; = 'R'&#13;
 ANNARS OM &lt;i&gt;Typ av deklaration&lt;/i&gt; = 'IM' OCH &lt;i&gt;Kod för avsändningsland&lt;/i&gt; = 'NO' OCH &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt; = '3'&#13;
   DÅ är &lt;i&gt;Tidigare dokument&lt;/i&gt; = 'O'&#13;
 ANNARS är &lt;i&gt;Tidigare dokument&lt;/i&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; = '71'&#13;
+    <Description lang="en">IF CCL authorization is declared AND Finland is SCI&#13;
+  THEN &lt;i&gt;Previous document&lt;/i&gt; = 'O'&#13;
+ELSE IF &lt;i&gt;Requested procedure code&lt;/i&gt; = '71'&#13;
   THEN IF (&lt;i&gt;Previous procedure code&lt;/i&gt; = '00' AND &lt;i&gt;Declaration type&lt;/i&gt; = 'CO') OR &lt;i&gt;Customs office&lt;/i&gt; is in SET {FI994400, FI994900, FI998002, FI999500, FI999800, FI999801}&#13;
     THEN &lt;i&gt;Previous document&lt;/i&gt; = 'O'&#13;
   ELSE &lt;i&gt;Previous document&lt;/i&gt; = 'R'&#13;
@@ -134,11 +188,11 @@ ELSE &lt;i&gt;LRN&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0028</Code>
-    <Description lang="fi">JOS &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on JOUKOSSA {N337, N355, N825}&#13;
+    <Description lang="fi">JOS &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on JOUKOSSA {N337, N355, N825} JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
   NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Tavaraerän tunniste&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; är i GRUPPEN {N337, N355, N825}&#13;
+    <Description lang="sv">OM &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; är i GRUPPEN {N337, N355, N825} OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
   DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Varupostidentifierare&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; is in SET {N337, N355, N825}&#13;
+    <Description lang="en">IF &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; is in SET {N337, N355, N825} AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
   THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Goods item identifier&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
@@ -272,15 +326,15 @@ then Elected entry is required.</Description>
   </Constraint>
   <Constraint>
     <Code>NC0200</Code>
-    <Description lang="fi">IF H5 (N/E/P) or I1&#13;
-THEN data item can NOT be USED&#13;
-ELSE data item is REQUIRED</Description>
-    <Description lang="sv">IF H5 (N/E/P) or I1&#13;
-THEN data item can NOT be USED&#13;
-ELSE data item is REQUIRED</Description>
-    <Description lang="en">IF H5 (N/E/P) or I1&#13;
-THEN data item can NOT be USED&#13;
-ELSE data item is REQUIRED</Description>
+    <Description lang="fi">JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = 'F15', &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  != 'FIPER', &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  = 'FIPER' tai &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; on JOUKOSSA {B, C, E, F} JA CCL-lupaa EI ole ilmoitettu&#13;
+  NIIN &lt;i&gt;Kontti&lt;/i&gt; = 'N'&#13;
+  MUUTEN &lt;i&gt;Kontti&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = 'F15', &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  != 'FIPER', &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  = 'FIPER' eller &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; är i GRUPPEN {B, C, E, F} OCH ett CCL-tillstånd INTE är anmält&#13;
+  DÅ är &lt;i&gt;Container&lt;/i&gt; = 'N'&#13;
+  ANNARS är &lt;i&gt;Container&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Additional procedure code&lt;/i&gt; = 'F15', &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  != 'FIPER', &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  = 'FIPER' or &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {B, C, E, F} AND CCL authorization is NOT declared&#13;
+  THEN &lt;i&gt;Container&lt;/i&gt; = 'N'&#13;
+  ELSE &lt;i&gt;Container&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0202</Code>
@@ -296,15 +350,24 @@ else not used.</Description>
   </Constraint>
   <Constraint>
     <Code>NC0203</Code>
-    <Description lang="fi">IF Dataset type = H2 then this is required, &#13;
-else if dataset type is H5P then this is not used,&#13;
-else optional</Description>
-    <Description lang="sv">IF Dataset type = H2 then this is required, &#13;
-else if dataset type is H5P then this is not used,&#13;
-else optional</Description>
-    <Description lang="en">IF Dataset type = H2 then this is required, &#13;
-else if dataset type is H5P then this is not used,&#13;
-else optional</Description>
+    <Description lang="fi">JOS CCL-lupaa EI ole ilmoitettu&#13;
+  NIIN JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '71'&#13;
+    NIIN &lt;i&gt;Varaston tunnistetiedot&lt;/i&gt; = 'R'&#13;
+  MUUTEN JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  = 'FIPER'&#13;
+    NIIN &lt;i&gt;Varaston tunnistetiedot&lt;/i&gt; = 'N'&#13;
+MUUTEN &lt;i&gt;Varaston tunnistetiedot&lt;/i&gt; = 'O'</Description>
+    <Description lang="sv">OM ett CCL-tillstånd INTE är anmält&#13;
+  DÅ OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '71'&#13;
+    DÅ är &lt;i&gt;Identifiering av lager&lt;/i&gt; = 'R'&#13;
+  ANNARS OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  = 'FIPER'&#13;
+    DÅ är &lt;i&gt;Identifiering av lager&lt;/i&gt; = 'N'&#13;
+ANNARS är &lt;i&gt;Identifiering av lager&lt;/i&gt; = 'O'</Description>
+    <Description lang="en">IF CCL authorization is NOT declared&#13;
+  THEN IF &lt;i&gt;Requested procedure code&lt;/i&gt; = '71'&#13;
+    THEN &lt;i&gt;Identification of warehouse&lt;/i&gt; = 'R'&#13;
+  ELSE IF &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  = 'FIPER'&#13;
+    THEN &lt;i&gt;Identification of warehouse&lt;/i&gt; = 'N'&#13;
+ELSE &lt;i&gt;Identification of warehouse&lt;/i&gt; = 'O'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0204</Code>
@@ -320,25 +383,25 @@ ELSE data item can NOT be USED</Description>
   </Constraint>
   <Constraint>
     <Code>NC0205</Code>
-    <Description lang="fi">IF dataset is H1 or H5&#13;
-THEN data item is OPTIONAL&#13;
-ELSE data item can NOT be USED</Description>
-    <Description lang="sv">IF dataset is H1 or H5&#13;
-THEN data item is OPTIONAL&#13;
-ELSE data item can NOT be USED</Description>
-    <Description lang="en">IF dataset is H1 or H5&#13;
-THEN data item is OPTIONAL&#13;
-ELSE data item can NOT be USED</Description>
+    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '71', &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = 'F15', &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  != 'FIPER', &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  = 'FIPER', #H5R TAI CCL-lupaa EI ole ilmoitettu&#13;
+  NIIN &lt;i&gt;Arvonoikaisu&lt;/i&gt; = 'N'&#13;
+MUUTEN &lt;i&gt;Arvonoikaisu&lt;/i&gt; = 'O'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '71', &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = 'F15', &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  != 'FIPER', &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  = 'FIPER', #H5R ELLER ett CCL-tillstånd INTE är anmält&#13;
+  DÅ är &lt;i&gt;Justering&lt;/i&gt; = 'N'&#13;
+ANNARS är &lt;i&gt;Justering&lt;/i&gt; = 'O'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; = '71', &lt;i&gt;Additional procedure code&lt;/i&gt; = 'F15', &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  != 'FIPER', &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  = 'FIPER', #H5R OR CCL authorization is NOT declared&#13;
+  THEN &lt;i&gt;Adjustment&lt;/i&gt; = 'N'&#13;
+ELSE &lt;i&gt;Adjustment&lt;/i&gt; = 'O'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0206</Code>
-    <Description lang="fi">JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; on JOUKOSSA {B, C, E, F}, &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '71' TAI &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; = 'CO' JA &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615'&#13;
+    <Description lang="fi">JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; on JOUKOSSA {B, C, E, F}, &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '71' TAI &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = 'F15'&#13;
   NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Tullausarvo&lt;/i&gt;/&lt;i&gt;Arvonmääritysmenetelmä&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
 MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Tullausarvo&lt;/i&gt;/&lt;i&gt;Arvonmääritysmenetelmä&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; är i GRUPPEN {B, C, E, F}, &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '71' ELLER &lt;i&gt;Typ av deklaration&lt;/i&gt; = 'CO' OCH &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615'&#13;
+    <Description lang="sv">OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; är i GRUPPEN {B, C, E, F}, &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '71' ELLER &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = 'F15'&#13;
   DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Tullvärdering&lt;/i&gt;/&lt;i&gt;Värderingsmetod&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
 ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Tullvärdering&lt;/i&gt;/&lt;i&gt;Värderingsmetod&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {B, C, E, F}, &lt;i&gt;Requested procedure code&lt;/i&gt; = '71' OR &lt;i&gt;Declaration type&lt;/i&gt; = 'CO' AND &lt;i&gt;Additional procedure code&lt;/i&gt; = '615'&#13;
+    <Description lang="en">IF &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {B, C, E, F}, &lt;i&gt;Requested procedure code&lt;/i&gt; = '71' OR &lt;i&gt;Additional procedure code&lt;/i&gt; = 'F15'&#13;
   THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Customs valuation&lt;/i&gt;/&lt;i&gt;Valuation method&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
 ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Customs valuation&lt;/i&gt;/&lt;i&gt;Valuation method&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
   </Constraint>
@@ -359,38 +422,38 @@ else optional.</Description>
   </Constraint>
   <Constraint>
     <Code>NC0209</Code>
-    <Description lang="fi">JOS #H5N TAI #H5P&#13;
+    <Description lang="fi">JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  != 'FIPER' TAI &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  = 'FIPER'&#13;
   NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetysmaa&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetysmaa&lt;/i&gt;/&lt;i&gt;Lähetysmaan koodi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Tavara&lt;/i&gt;/&lt;i&gt;Tavaran kuvaus&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Pakkaukset&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Pakkaukset&lt;/i&gt;/&lt;i&gt;Lähetysmerkinnät&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
 MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetysmaa&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetysmaa&lt;/i&gt;/&lt;i&gt;Lähetysmaan koodi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Tavara&lt;/i&gt;/&lt;i&gt;Tavaran kuvaus&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Pakkaukset&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Pakkaukset&lt;/i&gt;/&lt;i&gt;Lähetysmerkinnät&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="sv">OM #H5N ELLER #H5P&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  != 'FIPER' ELLER &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  = 'FIPER'&#13;
   SÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Avsändningsland&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Avsändningsland&lt;/i&gt;/&lt;i&gt;Kod för avsändningsland&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Vara&lt;/i&gt;/&lt;i&gt;Varubeskrivning&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Förpackningar&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Förpackningar&lt;/i&gt;/&lt;i&gt;Märken&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
 ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Avsändningsland&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Avsändningsland&lt;/i&gt;/&lt;i&gt;Kod för avsändningsland&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Vara&lt;/i&gt;/&lt;i&gt;Varubeskrivning&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Förpackningar&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Förpackningar&lt;/i&gt;/&lt;i&gt;Märken&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="en">IF #H5N OR #H5P&#13;
+    <Description lang="en">IF &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  != 'FIPER' OR &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  = 'FIPER'&#13;
   THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Country of dispatch&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Country of dispatch&lt;/i&gt;/&lt;i&gt;Country of dispatch code&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Commodity&lt;/i&gt;/&lt;i&gt;Description of goods&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Packages&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Packages&lt;/i&gt;/&lt;i&gt;Shipping marks&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
 ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Country of dispatch&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Country of dispatch&lt;/i&gt;/&lt;i&gt;Country of dispatch code&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Commodity&lt;/i&gt;/&lt;i&gt;Description of goods&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Packages&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Packages&lt;/i&gt;/&lt;i&gt;Shipping marks&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0210</Code>
-    <Description lang="fi">JOS #H5N TAI #H5P&#13;
-  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Tavara&lt;/i&gt;/&lt;i&gt;Tavaran koodi - Taric-lisäkoodi(t)&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Tavara&lt;/i&gt;/&lt;i&gt;CUS-koodi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Muu viite&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Viitenumero/UCR&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Liiteasiakirja&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Viitenumero/UCR&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Toimitusketjun muu toimija&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
-    <Description lang="sv">OM #H5N ELLER #H5P&#13;
-  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportutrustning&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Transportutrustning&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Vara&lt;/i&gt;/&lt;i&gt;Varukod - Taric-tilläggsnummer&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Vara&lt;/i&gt;/&lt;i&gt;CUS-kod&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Ytterligare referens&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Referensnummer/UCR&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Bifogat dokument&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Referensnummer/UCR&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Ytterligare aktör i leveranskedjan&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
-    <Description lang="en">IF #H5N OR #H5P&#13;
-  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Transport equipment&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Transport equipment&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Commodity&lt;/i&gt;/&lt;i&gt;Commodity code - TARIC additional code(s)&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Commodity&lt;/i&gt;/&lt;i&gt;CUS code&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Additional reference&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Reference number/UCR&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Supporting document&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Reference number/UCR&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Additional supply chain actor&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="fi">JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  != 'FIPER' TAI &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  = 'FIPER'&#13;
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Muu viite&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Tavara&lt;/i&gt;/&lt;i&gt;Tavaran koodi - Taric-lisäkoodi(t)&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Tavara&lt;/i&gt;/&lt;i&gt;CUS-koodi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Muu viite&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Viitenumero/UCR&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Liiteasiakirja&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Viitenumero/UCR&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Toimitusketjun muu toimija&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  != 'FIPER' ELLER &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  = 'FIPER'&#13;
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Ytterligare referens&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportutrustning&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Transportutrustning&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Vara&lt;/i&gt;/&lt;i&gt;Varukod - Taric-tilläggsnummer&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Vara&lt;/i&gt;/&lt;i&gt;CUS-kod&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Ytterligare referens&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Referensnummer/UCR&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Bifogat dokument&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Referensnummer/UCR&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Ytterligare aktör i leveranskedjan&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  != 'FIPER' OR &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  = 'FIPER'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Additional reference&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Transport equipment&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Transport equipment&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Commodity&lt;/i&gt;/&lt;i&gt;Commodity code - TARIC additional code(s)&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Commodity&lt;/i&gt;/&lt;i&gt;CUS code&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Additional reference&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Reference number/UCR&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Supporting document&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Reference number/UCR&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Additional supply chain actor&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0211</Code>
-    <Description lang="fi">JOS #H5N TAI #H5P&#13;
+    <Description lang="fi">JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  != 'FIPER' TAI &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  = 'FIPER'&#13;
   NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Määrämaa&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
 MUUTEN JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; on JOUKOSSA {B, C, E, F} JA &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; EI ole JOUKOSSA {42, 63}&#13;
   NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Määrämaa&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
 MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Määrämaa&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="sv">OM #H5N ELLER #H5P&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  != 'FIPER' ELLER &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  = 'FIPER'&#13;
   DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Destinationsland&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
 ANANRS OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; är i GRUPPEN {B, C, E, F} OCH &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; INTE är i GRUPPEN {42, 63}&#13;
   DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Destinationsland&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
 ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Destinationsland&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="en">IF #H5N OR #H5P&#13;
+    <Description lang="en">IF &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  != 'FIPER' OR &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  = 'FIPER'&#13;
   THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Country of destination&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
 ELSE IF &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {B, C, E, F} AND &lt;i&gt;Requested procedure code&lt;/i&gt; is NOT in SET {42, 63}&#13;
   THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Country of destination&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
@@ -428,25 +491,25 @@ ELSE data item is REQUIRED</Description>
   </Constraint>
   <Constraint>
     <Code>NC0216</Code>
-    <Description lang="fi">JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; on JOUKOSSA {B, C, E, F}, #H5N or #H5P&#13;
+    <Description lang="fi">JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; on JOUKOSSA {B, C, E, F}, &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  != 'FIPER' or &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  = 'FIPER'&#13;
   NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Tilastoarvo&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
 MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Tilastoarvo&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; är i GRUPPEN {B, C, E, F}, #H5N eller #H5P&#13;
+    <Description lang="sv">OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; är i GRUPPEN {B, C, E, F}, &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  != 'FIPER' eller &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  = 'FIPER'&#13;
   DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Statistiskt värde&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
 ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Statistiskt värde&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {B, C, E, F}, #H5N or #H5P&#13;
+    <Description lang="en">IF &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {B, C, E, F}, &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  != 'FIPER' or &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  = 'FIPER'&#13;
   THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Statistical value&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
 ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Statistical value&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0217</Code>
-    <Description lang="fi">JOS &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; = 'CO' JA &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA ilmoituksen jättää yksityishenkilö&lt;br&gt;&#13;
+    <Description lang="fi">JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = 'F15' JA ilmoituksen jättää yksityishenkilö&lt;br&gt;&#13;
   NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Paljoudet&lt;/i&gt;/&lt;i&gt;Nettopaino&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
 MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Paljoudet&lt;/i&gt;/&lt;i&gt;Nettopaino&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
-    <Description lang="sv">OM &lt;i&gt;Typ av deklaration&lt;/i&gt; = 'CO' OCH &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH deklarationen läggs in av en privatperson&lt;br&gt;&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = 'F15' OCH deklarationen läggs in av en privatperson&lt;br&gt;&#13;
   DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Varumängder&lt;/i&gt;/&lt;i&gt;Nettovikt&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
 ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Varumängder&lt;/i&gt;/&lt;i&gt;Nettovikt&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
-    <Description lang="en">IF &lt;i&gt;Declaration type&lt;/i&gt; = 'CO' AND &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND declaration is lodged by private person&lt;br&gt;&#13;
+    <Description lang="en">IF &lt;i&gt;Additional procedure code&lt;/i&gt; = 'F15' AND declaration is lodged by private person&lt;br&gt;&#13;
   THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Goods measure&lt;/i&gt;/&lt;i&gt;Net mass&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
 ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Goods measure&lt;/i&gt;/&lt;i&gt;Net mass&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
   </Constraint>
@@ -506,19 +569,19 @@ ELSE &lt;i&gt;Office code&lt;/i&gt; = 'N'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0223</Code>
-    <Description lang="fi">JOS #H5N TAI #H5P&#13;
+    <Description lang="fi">JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  != 'FIPER' TAI &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  = 'FIPER'&#13;
   NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Tavara&lt;/i&gt;/&lt;i&gt;Tavaran koodi - harmonoidun järjestelmän koodi&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
-MUUTEN JOS (&lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {01, 07, 40, 42, 43, 44, 45, 46, 48, 61, 63, 68} TAI #H7 JA ilmoituksen jättää yksityishenkilö JA &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = 'C08') TAI &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; = 'CO' JA &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615'&#13;
+MUUTEN JOS (&lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {01, 07, 40, 42, 43, 44, 45, 46, 48, 61, 63, 68} TAI #H7 JA ilmoituksen jättää yksityishenkilö JA &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = 'C08') TAI &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = 'F15'&#13;
   NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Tavara&lt;/i&gt;/&lt;i&gt;Tavaran koodi - harmonoidun järjestelmän koodi&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
 MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Tavara&lt;/i&gt;/&lt;i&gt;Tavaran koodi - harmonoidun järjestelmän koodi&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="sv">OM #H5N ELLER #H5P&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  != 'FIPER' ELLER &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  = 'FIPER'&#13;
   DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Vara&lt;/i&gt;/&lt;i&gt;Varukod - HS-nummer&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
-ANNARS OM (&lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {01, 07, 40, 42, 43, 44, 45, 46, 48, 61, 63, 68} ELLER #H7 OCH deklarationen läggs in av en privatperson OCH &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = 'C08') ELLER &lt;i&gt;Typ av deklaration&lt;/i&gt; = 'CO' OCH &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615'&#13;
+ANNARS OM (&lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {01, 07, 40, 42, 43, 44, 45, 46, 48, 61, 63, 68} ELLER #H7 OCH deklarationen läggs in av en privatperson OCH &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = 'C08') ELLER &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = 'F15'&#13;
   DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Vara&lt;/i&gt;/&lt;i&gt;Varukod - HS-nummer&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
 ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Vara&lt;/i&gt;/&lt;i&gt;Varukod - HS-nummer&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="en">IF #H5N OR #H5P&#13;
+    <Description lang="en">IF &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  != 'FIPER' OR &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  = 'FIPER'&#13;
   THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Commodity&lt;/i&gt;/&lt;i&gt;Commodity code - Harmonised System code&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
-ELSE IF (&lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {01, 07, 40, 42, 43, 44, 45, 46, 48, 61, 63, 68} OR #H7 AND declaration is lodged by a private person AND &lt;i&gt;Additional procedure code&lt;/i&gt; = 'C08') OR &lt;i&gt;Declaration type&lt;/i&gt; = 'CO' AND &lt;i&gt;Additional procedure code&lt;/i&gt; = '615'&#13;
+ELSE IF (&lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {01, 07, 40, 42, 43, 44, 45, 46, 48, 61, 63, 68} OR #H7 AND declaration is lodged by a private person AND &lt;i&gt;Additional procedure code&lt;/i&gt; = 'C08') OR &lt;i&gt;Additional procedure code&lt;/i&gt; = 'F15'&#13;
   THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Commodity&lt;/i&gt;/&lt;i&gt;Commodity code - Harmonised System code&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
 ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Commodity&lt;/i&gt;/&lt;i&gt;Commodity code - Harmonised System code&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
   </Constraint>
@@ -542,17 +605,17 @@ ELSE this data group / data element is REQUIRED</Description>
   </Constraint>
   <Constraint>
     <Code>NC0227</Code>
-    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '71', &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '53', &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '51', &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; = 'CO' JA &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615', #H5N, #H5R tai #H5P&#13;
+    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '71', &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '53', &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '51', &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = 'F15', &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  != 'FIPER', #H5R tai &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  = 'FIPER'&#13;
   NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Verotuksellinen lisäviitetieto&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
 MUUTEN JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {42, 63} TAI &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = 'F48'&#13;
   NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Verotuksellinen lisäviitetieto&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
 MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Verotuksellinen lisäviitetieto&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
-    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '71', &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '53', &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '51', &lt;i&gt;Typ av deklaration&lt;/i&gt; = 'CO' OCH &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615', #H5N, #H5R eller #H5P&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '71', &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '53', &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '51', &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = 'F15', &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  != 'FIPER', #H5R eller &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  = 'FIPER'&#13;
   DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Ytterligare skatterelaterad referensuppgift&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
 ANNARS OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {42, 63} ELLER &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = 'F48'&#13;
   DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Ytterligare skatterelaterad referensuppgift&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
 ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Ytterligare skatterelaterad referensuppgift&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
-    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; = '71', &lt;i&gt;Requested procedure code&lt;/i&gt; = '53', &lt;i&gt;Requested procedure code&lt;/i&gt; = '51', &lt;i&gt;Declaration type&lt;/i&gt; = 'CO' AND &lt;i&gt;Additional procedure code&lt;/i&gt; = '615', #H5N, #H5R or #H5P&#13;
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; = '71', &lt;i&gt;Requested procedure code&lt;/i&gt; = '53', &lt;i&gt;Requested procedure code&lt;/i&gt; = '51', &lt;i&gt;Additional procedure code&lt;/i&gt; = 'F15', &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  != 'FIPER', #H5R or &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  = 'FIPER'&#13;
   THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Additional fiscal reference&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
 ELSE IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {42, 63} OR &lt;i&gt;Additional procedure code&lt;/i&gt; = 'F48'&#13;
   THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Additional fiscal reference&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
@@ -858,11 +921,11 @@ else this is optional.</Description>
   <Constraint>
     <Code>NC0254</Code>
     <Description lang="fi">JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; = 'R'&#13;
-  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;LRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kontti&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline saavuttaessa&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaroiden sijaintipaikka ilmoitusta annettaessa&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Toimitusehto&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Varaston tunnistetiedot&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;LRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kontti&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline saavuttaessa&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaroiden sijaintipaikka ilmoitusta annettaessa&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Toimitusehto&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
     <Description lang="sv">OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; = 'R'&#13;
-  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;LRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Container&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportmedlet vid ankomsten&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Varornas förvaringsplats när deklarationen inges&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransvillkor&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Identifiering av lager&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;LRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Container&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportmedlet vid ankomsten&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Varornas förvaringsplats när deklarationen inges&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransvillkor&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
     <Description lang="en">IF &lt;i&gt;Additional declaration type&lt;/i&gt; = 'R'&#13;
-  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;LRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Container&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Arrival transport means&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Location of the goods at time of declaration submission&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Delivery term&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Identification of warehouse&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;LRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Container&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Arrival transport means&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Location of the goods at time of declaration submission&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Delivery term&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0256</Code>
@@ -881,9 +944,18 @@ else this cannot be used.</Description>
   </Constraint>
   <Constraint>
     <Code>NC0258</Code>
-    <Description lang="fi">If additional declaration type is (X, Y, U) or (V or Z with I2 notification), then this is not used.</Description>
-    <Description lang="sv">If additional declaration type is (X, Y, U) or (V or Z with I2 notification), then this is not used.</Description>
-    <Description lang="en">If additional declaration type is (X, Y, U) or (V or Z with I2 notification), then this is not used.</Description>
+    <Description lang="fi">JOS CCL-lupa on ilmoitettu JA Suomi on SCI&#13;
+  NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; = 'O'&#13;
+MUUTEN JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; on JOUKOSSA {U, X, Y} TAI (JOUKOSSA {V, Z) JA esittämistiedonanto tavaroiden asettamiseksi menettelyyn kirjanpitoon tehtävällä merkinnällä on jätetty)&#13;
+  NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; = 'N'</Description>
+    <Description lang="sv">OM ett CCL-tillstånd är anmält OCH Finland är SCI&#13;
+  DÅ är &lt;i&gt;Tidigare dokument&lt;/i&gt; = 'O'&#13;
+ANNARS OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt;är i GRUPPEN {U, X, Y} ELLER (i GRUPPEN {V, Z) OCH en a&lt;span style="white-space-collapse: collapse; background-color: rgb(250, 250, 250);"&gt;nmälan av varors ankomst för hänförande av varor till förfarandet genom registrering i bokföringen har lämnats in&lt;/span&gt;)&#13;
+  DÅ är &lt;i&gt;Tidigare dokument&lt;/i&gt; = 'N'</Description>
+    <Description lang="en">IF CCL authorization is declared AND Finland is SCI&#13;
+  THEN &lt;i&gt;Previous document&lt;/i&gt; = 'O'&#13;
+ELSE IF &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {U, X, Y} OR (in SET {V, Z) AND an EIDR presentation notification has been lodged)&#13;
+  THEN &lt;i&gt;Previous document&lt;/i&gt; = 'N'</Description>
   </Constraint>
   <Constraint>
     <Code>NC0259</Code>
@@ -965,11 +1037,11 @@ For other datasets optional or as other conditions apply</Description>
   </Constraint>
   <Constraint>
     <Code>NC0329</Code>
-    <Description lang="fi">JOS &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on JOUKOSSA {N337, N355}&#13;
+    <Description lang="fi">JOS &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on JOUKOSSA {N337, N355} JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
   NIIN &lt;i&gt;Kuljetusasiakirjan viite&lt;/i&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;i&gt;Typ av dokument&lt;/i&gt; är i GRUPPEN {N337, N355}&#13;
+    <Description lang="sv">OM &lt;i&gt;Typ av dokument&lt;/i&gt; är i GRUPPEN {N337, N355} OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
   DÅ är &lt;i&gt;Referens för transportdokument&lt;/i&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;i&gt;Document type&lt;/i&gt; is IN SET {N337, N355}&#13;
+    <Description lang="en">IF &lt;i&gt;Document type&lt;/i&gt; is IN SET {N337, N355} AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
   THEN &lt;i&gt;Transport document reference&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
@@ -1079,13 +1151,13 @@ else required (or as other conditions apply)</Description>
   </Constraint>
   <Constraint>
     <Code>NC4016</Code>
-    <Description lang="fi">JOS #H5P TAI #H5N&#13;
+    <Description lang="fi">JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  = 'FIPER' TAI &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  != 'FIPER'&#13;
   NIIN &lt;i&gt;Ilmoittaja&lt;/i&gt; = 'N'&#13;
 MUUTEN &lt;i&gt;Ilmoittaja&lt;/i&gt; = 'R'</Description>
-    <Description lang="sv">OM #H5P ELLER #H5N&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  = 'FIPER' ELLER &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  != 'FIPER'&#13;
   DÅ är &lt;i&gt;Deklarant&lt;/i&gt; = 'N'&#13;
 ANNARS är &lt;i&gt;Deklarant&lt;/i&gt; = 'R'</Description>
-    <Description lang="en">IF #H5P OR #H5N&#13;
+    <Description lang="en">IF &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  = 'FIPER' OR &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  != 'FIPER'&#13;
   THEN &lt;i&gt;Declarant&lt;/i&gt; = 'N'&#13;
 ELSE &lt;i&gt;Declarant&lt;/i&gt; = 'R'</Description>
   </Constraint>
@@ -1097,6 +1169,127 @@ ELSE &lt;i&gt;Declarant&lt;/i&gt; = 'R'</Description>
   DÅ är &lt;i&gt;Ändringssökande&lt;/i&gt; = 'R'</Description>
     <Description lang="en">IF &lt;i&gt;Amendment type&lt;/i&gt; = 'OIK', 'PAL' or 'JAL'&#13;
   THEN &lt;i&gt;Applicant&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC4022</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  = 'FIPER' TAI &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  != 'FIPER'&#13;
+  NIIN &lt;i&gt;Kuljetusasiakirja&lt;/i&gt; = 'N'&#13;
+MUUTEN &lt;i&gt;Kuljetusasiakirja&lt;/i&gt; = 'O'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  = 'FIPER' ELLER &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  != 'FIPER'&#13;
+  DÅ är &lt;i&gt;Transportdokument&lt;/i&gt; = 'N'&#13;
+ANNARS är &lt;i&gt;Transportdokument&lt;/i&gt; = 'O'</Description>
+    <Description lang="en">IF &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  = 'FIPER' OR &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  != 'FIPER'&#13;
+  THEN &lt;i&gt;Transport document&lt;/i&gt; = 'N'&#13;
+ELSE &lt;i&gt;Transport document&lt;/i&gt; = 'O'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC4023</Code>
+    <Description lang="fi">JOS ilmoitus ei koske keskitettyä tullausta&#13;
+  NIIN&#13;
+    JOS &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt; on YHTÄ KUIN 'A'&#13;
+      NIIN &lt;i&gt;Tullitoimipaikka&lt;/i&gt; = 'O'&#13;
+    MUUTEN &lt;i&gt;Tullitoimipaikka&lt;/i&gt; = 'N'</Description>
+    <Description lang="sv">OM deklarationen inte gäller centraliserad klarering&#13;
+  DÅ&#13;
+    OM &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; är LIKA MED 'A'&#13;
+      DÅ är &lt;i&gt;Tullkontor&lt;/i&gt; = 'O'&#13;
+    ANNARS är &lt;i&gt;Tullkontor&lt;/i&gt; = 'N'</Description>
+    <Description lang="en">IF declaration does not concern centralized clearance&#13;
+  THEN&#13;
+    IF &lt;i&gt;Type of location&lt;/i&gt; is EQUAL to 'A'&#13;
+      THEN &lt;i&gt;Customs office&lt;/i&gt; = 'O'&#13;
+    ELSE &lt;i&gt;Customs office&lt;/i&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC4403</Code>
+    <Description lang="fi">JOS ilmoitus koskee keskitettyä tullausta&#13;
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaroiden sijaintipaikka ilmoitusta annettaessa&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
+  MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaroiden sijaintipaikka ilmoitusta annettaessa&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O' TAI kuten muut ehdot ilmaisevat</Description>
+    <Description lang="sv">OM deklarationen gäller centraliserad klarering&#13;
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Varornas förvaringsplats när deklarationen inges&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
+  ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Varornas förvaringsplats när deklarationen inges&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O' ELLER som andra villkor antyder</Description>
+    <Description lang="en">IF declaration concerns centralized clearance&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Location of the goods at time of declaration submission&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Location of the goods at time of declaration submission&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O' OR as other conditions suggest</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC4404</Code>
+    <Description lang="fi">JOS CCL-lupa on ilmoitettu&#13;
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Edustaja&lt;/i&gt;/&lt;i&gt;Toimipaikkakoodi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Ilmoittaja&lt;/i&gt;/&lt;i&gt;Toimipaikkakoodi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tuoja&lt;/i&gt;/&lt;i&gt;Toimipaikkakoodi&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Edustaja&lt;/i&gt;/&lt;i&gt;Toimipaikkakoodi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Ilmoittaja&lt;/i&gt;/&lt;i&gt;Toimipaikkakoodi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tuoja&lt;/i&gt;/&lt;i&gt;Toimipaikkakoodi&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O', paitsi jos muut ehdot toisin määräävät</Description>
+    <Description lang="sv">OM ett CCL-tillstånd är anmält&#13;
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Ombud&lt;/i&gt;/&lt;i&gt;Kod för verksamhetsställe&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Deklarant&lt;/i&gt;/&lt;i&gt;Kod för verksamhetsställe&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Importör&lt;/i&gt;/&lt;i&gt;Kod för verksamhetsställe&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Ombud&lt;/i&gt;/&lt;i&gt;Kod för verksamhetsställe&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Deklarant&lt;/i&gt;/&lt;i&gt;Kod för verksamhetsställe&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Importör&lt;/i&gt;/&lt;i&gt;Kod för verksamhetsställe&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O', utom då ytterligare villkor antyder något annat</Description>
+    <Description lang="en">IF CCL authorization is declared&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Representative&lt;/i&gt;/&lt;i&gt;Office code&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Declarant&lt;/i&gt;/&lt;i&gt;Office code&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Importer&lt;/i&gt;/&lt;i&gt;Office code&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; is 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Representative&lt;/i&gt;/&lt;i&gt;Office code&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Declarant&lt;/i&gt;/&lt;i&gt;Office code&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Importer&lt;/i&gt;/&lt;i&gt;Office code&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O', except where additional conditions imply something else</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC4405</Code>
+    <Description lang="fi">JOS CCL-lupa on ilmoitettu&#13;
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Vakuus&lt;/i&gt;/&lt;i&gt;Vakuuden viite&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Esittämistullitoimipaikka&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Menettely&lt;/i&gt;/&lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Vakuus&lt;/i&gt;/&lt;i&gt;Vakuuden viite&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Esittämistullitoimipaikka&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Menettely&lt;/i&gt;/&lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N', paitsi jos muut ehdot toisin määräävät</Description>
+    <Description lang="sv">OM ett CCL-tillstånd är anmält&#13;
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Garanti&lt;/i&gt;/&lt;i&gt;Referens för garanti&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Anmälningstullkontor&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Förfarande&lt;/i&gt;/&lt;i&gt;Kod för föregående förfarande&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Garanti&lt;/i&gt;/&lt;i&gt;Referens för garanti&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Anmälningstullkontor&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Förfarande&lt;/i&gt;/&lt;i&gt;Kod för föregående förfarande&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N', utom då ytterligare villkor antyder något annat</Description>
+    <Description lang="en">IF CCL authorization is declared&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Guarantee&lt;/i&gt;/&lt;i&gt;Guarantee reference&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Customs office of presentation&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Procedure&lt;/i&gt;/&lt;i&gt;Previous procedure code&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; is 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Guarantee&lt;/i&gt;/&lt;i&gt;Guarantee reference&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Customs office of presentation&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Procedure&lt;/i&gt;/&lt;i&gt;Previous procedure code&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N', except where additional conditions imply something else</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC4406</Code>
+    <Description lang="fi">JOS CCL-lupa on ilmoitettu&#13;
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Vakuus&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Vakuus&lt;/i&gt;/&lt;i&gt;Vakuuden viite&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lisätieto&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineet&lt;/i&gt;/&lt;i&gt;Tavaraviite&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaran sijaintipaikka&lt;/i&gt;/&lt;i&gt;GNSS&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaran sijaintipaikka&lt;/i&gt;/&lt;i&gt;Postinumero-osoite&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Toimitusehto&lt;/i&gt;/&lt;i&gt;Teksti&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Tavara&lt;/i&gt;/&lt;i&gt;Tavaran koodi - kansalliset lisäkoodit&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Lisätieto&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Muu viite&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Menettely&lt;/i&gt;/&lt;i&gt;Lisämenettely&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Menettely&lt;/i&gt;/&lt;i&gt;Lisämenettely&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Liiteasiakirja&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Määrämaa&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Määrämaa&lt;/i&gt;/&lt;i&gt;Määränpääalue&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Liiteasiakirja&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Vakuus&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Vakuus&lt;/i&gt;/&lt;i&gt;Vakuuden viite&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lisätieto&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineet&lt;/i&gt;/&lt;i&gt;Tavaraviite&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaran sijaintipaikka&lt;/i&gt;/&lt;i&gt;GNSS&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaran sijaintipaikka&lt;/i&gt;/&lt;i&gt;Postinumero-osoite&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Toimitusehto&lt;/i&gt;/&lt;i&gt;Teksti&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Tavara&lt;/i&gt;/&lt;i&gt;Tavaran koodi - kansalliset lisäkoodit&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Lisätieto&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Muu viite&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Menettely&lt;/i&gt;/&lt;i&gt;Lisämenettely&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Menettely&lt;/i&gt;/&lt;i&gt;Lisämenettely&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Liiteasiakirja&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Määrämaa&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Määrämaa&lt;/i&gt;/&lt;i&gt;Määränpääalue&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Liiteasiakirja&lt;/i&gt;/&lt;i&gt;CC-ilmaisin&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N', paitsi jos muut ehdot toisin määräävät</Description>
+    <Description lang="sv">OM ett CCL-tillstånd är anmält&#13;
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Garanti&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Garanti&lt;/i&gt;/&lt;i&gt;Referens för garanti&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Ytterligare uppgifter&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportutrustning&lt;/i&gt;/&lt;i&gt;Varureferens&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Varornas förvaringsplats&lt;/i&gt;/&lt;i&gt;GNSS&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Varornas förvaringsplats&lt;/i&gt;/&lt;i&gt;Postnummeradress&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransvillkor&lt;/i&gt;/&lt;i&gt;Text&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Vara&lt;/i&gt;/&lt;i&gt;Varukod - nationellt/nationella tilläggsnummer&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Ytterligare uppgifter&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Ytterligare referens&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Förfarande&lt;/i&gt;/&lt;i&gt;Ytterligare förfarande&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Förfarande&lt;/i&gt;/&lt;i&gt;Ytterligare förfarande&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Bifogat dokument&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Destinationsland&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Destinationsland&lt;/i&gt;/&lt;i&gt;Destinationsregion&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Bifogat dokument&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Garanti&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Garanti&lt;/i&gt;/&lt;i&gt;Referens för garanti&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Ytterligare uppgifter&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportutrustning&lt;/i&gt;/&lt;i&gt;Varureferens&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Varornas förvaringsplats&lt;/i&gt;/&lt;i&gt;GNSS&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Varornas förvaringsplats&lt;/i&gt;/&lt;i&gt;Postnummeradress&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Leveransvillkor&lt;/i&gt;/&lt;i&gt;Text&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Vara&lt;/i&gt;/&lt;i&gt;Varukod - nationellt/nationella tilläggsnummer&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Ytterligare uppgifter&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Ytterligare referens&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Förfarande&lt;/i&gt;/&lt;i&gt;Ytterligare förfarande&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Förfarande&lt;/i&gt;/&lt;i&gt;Ytterligare förfarande&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Bifogat dokument&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Destinationsland&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Destinationsland&lt;/i&gt;/&lt;i&gt;Destinationsregion&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Bifogat dokument&lt;/i&gt;/&lt;i&gt;CC-kvalificerare&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N', utom då ytterligare villkor antyder något annat</Description>
+    <Description lang="en">IF CCL authorization is declared&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Guarantee&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Guarantee&lt;/i&gt;/&lt;i&gt;Guarantee reference&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Additional information&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Transport equipment&lt;/i&gt;/&lt;i&gt;Goods reference&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Location of goods&lt;/i&gt;/&lt;i&gt;GNSS&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Location of goods&lt;/i&gt;/&lt;i&gt;Postcode address&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Delivery term&lt;/i&gt;/&lt;i&gt;Text&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Commodity&lt;/i&gt;/&lt;i&gt;Commodity code - National additional code(s)&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Additional information&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Additional reference&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Procedure&lt;/i&gt;/&lt;i&gt;Additional procedure&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Procedure&lt;/i&gt;/&lt;i&gt;Additional procedure&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Supporting document&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Country of destination&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Country of destination&lt;/i&gt;/&lt;i&gt;Region of destination&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Supporting document&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; is 'O'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Guarantee&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Guarantee&lt;/i&gt;/&lt;i&gt;Guarantee reference&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Additional information&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Transport equipment&lt;/i&gt;/&lt;i&gt;Goods reference&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Location of goods&lt;/i&gt;/&lt;i&gt;GNSS&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Location of goods&lt;/i&gt;/&lt;i&gt;Postcode address&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Delivery term&lt;/i&gt;/&lt;i&gt;Text&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Commodity&lt;/i&gt;/&lt;i&gt;Commodity code - National additional code(s)&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Additional information&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Additional reference&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Procedure&lt;/i&gt;/&lt;i&gt;Additional procedure&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Procedure&lt;/i&gt;/&lt;i&gt;Additional procedure&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Supporting document&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Country of destination&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Country of destination&lt;/i&gt;/&lt;i&gt;Region of destination&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Supporting document&lt;/i&gt;/&lt;i&gt;CC Qualifier&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N', except where additional conditions imply something else</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC4411</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; = 'R' TAI CCL-lupa on ilmoitettu&#13;
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Varaston tunnistetiedot&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Varaston tunnistetiedot&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R', paitsi jos muut ehdot toisin määräävät</Description>
+    <Description lang="sv">OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; = 'R' ELLER ett CCL-tillstånd är anmält&#13;
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Identifiering av lager&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Identifiering av lager&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R', utom då ytterligare villkor antyder något annat</Description>
+    <Description lang="en">IF &lt;i&gt;Additional declaration type&lt;/i&gt; = 'R' OR CCL authorization is declared&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Identification of warehouse&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Identification of warehouse&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R', except where additional conditions imply something else</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC4412</Code>
+    <Description lang="fi">JOS &lt;i&gt;CC-ilmaisin&lt;/i&gt; on YHTÄ KUIN 'FI' TAI &lt;i&gt;Vakuuden tyyppi&lt;/i&gt; on YHTÄ KUIN '5'&#13;
+  NIIN &lt;i&gt;Vakuustullitoimipaikka&lt;/i&gt; = 'N'&#13;
+MUUTEN &lt;i&gt;Vakuustullitoimipaikka&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;CC-kvalificerare&lt;/i&gt; är LIKA MED 'FI' ELLER &lt;i&gt;Garantityp&lt;/i&gt; är LIKA MED '5'&#13;
+  DÅ är &lt;i&gt;Garantitullkontor&lt;/i&gt; = 'N'&#13;
+ANNARS är &lt;i&gt;Garantitullkontor&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">&#13;
+IF &lt;i&gt;CC Qualifier&lt;/i&gt; is EQUAL to 'FI' OR &lt;i&gt;Guarantee type&lt;/i&gt; is EQUAL to '5'&#13;
+  THEN &lt;i&gt;Customs office of guarantee&lt;/i&gt; = 'N'&#13;
+ELSE &lt;i&gt;Customs office of guarantee&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC4413</Code>
+    <Description lang="fi">JOS ilmoitus koskee keskitettyä tullausta&#13;
+  NIIN&#13;
+    JOS &lt;i&gt;Tavaran sijaintipaikka&lt;/i&gt; on JOUKOSSA {&lt;i&gt;Luvan numero&lt;/i&gt;, &lt;i&gt;Talouden toimija&lt;/i&gt;}&#13;
+      NIIN &lt;i&gt;Lisätunniste&lt;/i&gt; = 'O'&#13;
+    MUUTEN &lt;i&gt;Lisätunniste&lt;/i&gt; = 'N'</Description>
+    <Description lang="sv">OM deklarationen gäller centraliserad klarering&#13;
+  DÅ&#13;
+    OM &lt;i&gt;Varornas förvaringsplats&lt;/i&gt; är i GRUPPEN {&lt;i&gt;Tillståndsnummer&lt;/i&gt;, &lt;i&gt;Ekonomisk aktör&lt;/i&gt;}&#13;
+      DÅ är &lt;i&gt;Tilläggskod&lt;/i&gt; = 'O'&#13;
+    ANNARS är &lt;i&gt;Tilläggskod&lt;/i&gt; = 'N'</Description>
+    <Description lang="en">IF declaration concerns centralized clearance&#13;
+  THEN&#13;
+    IF &lt;i&gt;Location of goods&lt;/i&gt; is in SET {&lt;i&gt;Authorisation number&lt;/i&gt;, &lt;i&gt;Economic operator&lt;/i&gt;}&#13;
+      THEN &lt;i&gt;Additional identifier&lt;/i&gt; = 'O'&#13;
+    ELSE &lt;i&gt;Additional identifier&lt;/i&gt; = 'N'</Description>
   </Constraint>
   <Constraint>
     <Code>NR0001</Code>
@@ -1139,42 +1332,39 @@ ELSE &lt;i&gt;Declarant&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NR0008</Code>
-    <Description lang="fi">If declaration is standard customs declaration (FI415) and previous procedure is 21,&#13;
-then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of 337, 355, 820, 821, 952, ZZZ,&#13;
-        else the  previous document type must be one of 337, 355, 820, 821, 952, ZZZ or 781.</Description>
-    <Description lang="sv">If declaration is standard customs declaration (FI415) and previous procedure is 21,&#13;
-then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of 337, 355, 820, 821, 952, ZZZ,&#13;
-        else the  previous document type must be one of 337, 355, 820, 821, 952, ZZZ or 781.</Description>
-    <Description lang="en">If declaration is standard customs declaration (FI415) and previous procedure is 21,&#13;
-then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of 337, 355, 820, 821, 952, ZZZ,&#13;
-        else the  previous document type must be one of 337, 355, 820, 821, 952, ZZZ or 781.</Description>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; on '21' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
+  NIIN&#13;
+    JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '71' &#13;
+      NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {N337, N355, N825, N820, N821, N952, 1ZZZ}&#13;
+      MUUTEN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {N337, N355, N825, N820, N821, N952, 1ZZZ, 1781}</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; är '21' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
+  DÅ&#13;
+    OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '71' &#13;
+      DÅ måste &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; vara i GRUPPEN {N337, N355, N825, N820, N821, N952, 1ZZZ}&#13;
+      ANNARS måste &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; vara i GRUPPEN {N337, N355, N825, N820, N821, N952, 1ZZZ, 1781}</Description>
+    <Description lang="en">IF &lt;i&gt;Previous procedure code&lt;/i&gt; is '21' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
+  THEN&#13;
+    IF &lt;i&gt;Requested procedure code&lt;/i&gt; = '71' &#13;
+      THEN &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {N337, N355, N825, N820, N821, N952, 1ZZZ}&#13;
+      ELSE &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {N337, N355, N825, N820, N821, N952, 1ZZZ, 1781}</Description>
   </Constraint>
   <Constraint>
     <Code>NR0009</Code>
-    <Description lang="fi">IF previous procedure is 44 and there is at least one Requested procedure = 71 (Customs warehouse)&#13;
-THEN&#13;
-	previous document MUST be declared with type 'IM' (national previous document type) &#13;
-	AND as reference is case identification number of end use declaration (and import must be found from other customs clearance system)</Description>
-    <Description lang="sv">IF previous procedure is 44 and there is at least one Requested procedure = 71 (Customs warehouse)&#13;
-THEN&#13;
-	previous document MUST be declared with type 'IM' (national previous document type) &#13;
-	AND as reference is case identification number of end use declaration (and import must be found from other customs clearance system)</Description>
-    <Description lang="en">IF previous procedure is 44 and there is at least one Requested procedure = 71 (Customs warehouse)&#13;
-THEN&#13;
-	previous document MUST be declared with type 'IM' (national previous document type) &#13;
-	AND as reference is case identification number of end use declaration (and import must be found from other customs clearance system)</Description>
+    <Description lang="fi">JOS &lt;i&gt;Menettely&lt;/i&gt; on YHTÄ KUIN '7144' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
+  NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; = 'IM'</Description>
+    <Description lang="sv">OM &lt;i&gt;Förfarande&lt;/i&gt; är LIKA MED '7144' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
+  DÅ är &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; = 'IM'</Description>
+    <Description lang="en">IF &lt;i&gt;Procedure&lt;/i&gt; is EQUAL to '7144' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
+  THEN &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; = 'IM'</Description>
   </Constraint>
   <Constraint>
     <Code>NR0010</Code>
-    <Description lang="fi">If declaration is standard customs declaration (FI415) and previous procedure is 51,&#13;
-then previous document type must be one of IM, N821 or 1ZZZ.&#13;
-</Description>
-    <Description lang="sv">If declaration is standard customs declaration (FI415) and previous procedure is 51,&#13;
-then previous document type must be one of IM, N821 or 1ZZZ.&#13;
-</Description>
-    <Description lang="en">If declaration is standard customs declaration (FI415) and previous procedure is 51,&#13;
-then previous document type must be one of IM, N821 or 1ZZZ.&#13;
-</Description>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; on YHTÄ KUIN '51' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
+  NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {IM, N821, 1ZZZ}</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; är LIKA MED '51' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
+  DÅ måste &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; vara i GRUPPEN {IM, N821, 1ZZZ}</Description>
+    <Description lang="en">IF &lt;i&gt;Previous procedure code&lt;/i&gt; is EQUAL to '51' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
+  THEN &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {IM, N821, 1ZZZ}</Description>
   </Constraint>
   <Constraint>
     <Code>NR0011</Code>
@@ -1187,9 +1377,12 @@ then previous document type must be one of IM, N821 or 1ZZZ.&#13;
   </Constraint>
   <Constraint>
     <Code>NR0019</Code>
-    <Description lang="fi">Ainoastaan arvo 'FI' on sallittu.</Description>
-    <Description lang="sv">Endast värder 'FI' är giltigt.</Description>
-    <Description lang="en">Only value 'FI' is allowed.</Description>
+    <Description lang="fi">JOS CCL-lupaa EI ole ilmoitettu&#13;
+ NIIN ainoastaan arvo 'FI' on sallittu.</Description>
+    <Description lang="sv">OM ett CCL-tillstånd INTE är anmält&#13;
+ DÅ är endast värdet 'FI' giltigt.</Description>
+    <Description lang="en">IF a CCL authorization is NOT declared&#13;
+  THEN only value 'FI' is allowed.</Description>
   </Constraint>
   <Constraint>
     <Code>NR0020</Code>
@@ -1199,32 +1392,20 @@ then previous document type must be one of IM, N821 or 1ZZZ.&#13;
   </Constraint>
   <Constraint>
     <Code>NR0021</Code>
-    <Description lang="fi">If previous procedure is 71&#13;
-THEN&#13;
-	there MUST be declared one of the following previous documents:&#13;
-	- type 1ZZZ and reference to customs warehousing SAD&#13;
-	- type NMRN and customs warehousing MRN (in UTU)&#13;
-	- type N821 and transit MRN</Description>
-    <Description lang="sv">If previous procedure is 71&#13;
-THEN&#13;
-	there MUST be declared one of the following previous documents:&#13;
-	- type 1ZZZ and reference to customs warehousing SAD&#13;
-	- type NMRN and customs warehousing MRN (in UTU)&#13;
-	- type N821 and transit MRN</Description>
-    <Description lang="en">If previous procedure is 71&#13;
-THEN&#13;
-	there MUST be declared one of the following previous documents:&#13;
-	- type 1ZZZ and reference to customs warehousing SAD&#13;
-	- type NMRN and customs warehousing MRN (in UTU)&#13;
-	- type N821 and transit MRN</Description>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; on YHTÄ KUIN '71' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
+  NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {1ZZZ, NMRN, N821}</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; är LIKA MED '71' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
+  DÅ måste &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; vara i GRUPPEN {1ZZZ, NMRN, N821}</Description>
+    <Description lang="en">IF &lt;i&gt;Previous procedure code&lt;/i&gt; is EQUAL to '71' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
+  THEN &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {1ZZZ, NMRN, N821}</Description>
   </Constraint>
   <Constraint>
     <Code>NR0022</Code>
-    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '71'&#13;
+    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '71' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
   NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; ei voi olla '1781'</Description>
-    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '71'&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '71' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
   DÅ kan &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; inte vara '1781'</Description>
-    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; = '71'&#13;
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; = '71' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
   THEN &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; cannot be '1781'</Description>
   </Constraint>
   <Constraint>
@@ -1280,12 +1461,6 @@ THEN&#13;
     <Description lang="fi">There must not be more than one declared customs warehousing authorisation (CWP, CW1 or CW2)</Description>
     <Description lang="sv">There must not be more than one declared customs warehousing authorisation (CWP, CW1 or CW2)</Description>
     <Description lang="en">There must not be more than one declared customs warehousing authorisation (CWP, CW1 or CW2)</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NR0032</Code>
-    <Description lang="fi">Must be greater than zero</Description>
-    <Description lang="sv">Must be greater than zero</Description>
-    <Description lang="en">Must be greater than zero</Description>
   </Constraint>
   <Constraint>
     <Code>NR0034</Code>
@@ -1391,66 +1566,74 @@ If representative does not exist and declarant is a private person, then importe
   </Constraint>
   <Constraint>
     <Code>NR0060</Code>
-    <Description lang="fi">If declaration is standard customs declaration (FI415) and previous procedure is 53,&#13;
-then if previous document type must be one of IM, 821 or ZZZ.</Description>
-    <Description lang="sv">If declaration is standard customs declaration (FI415) and previous procedure is 53,&#13;
-then if previous document type must be one of IM, 821 or ZZZ.</Description>
-    <Description lang="en">If declaration is standard customs declaration (FI415) and previous procedure is 53,&#13;
-then if previous document type must be one of IM, 821 or ZZZ.</Description>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; is EQUAL to '53' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
+  NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {IM, N821, 1ZZZ}</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; is EQUAL to '53' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
+  DÅ måste &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; vara i GRUPPEN {IM, N821, 1ZZZ}</Description>
+    <Description lang="en">IF &lt;i&gt;Previous procedure code&lt;/i&gt; is EQUAL to '53' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
+  THEN &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {IM, N821, 1ZZZ}</Description>
   </Constraint>
   <Constraint>
     <Code>NR0061</Code>
-    <Description lang="fi">If declaration is standard customs declaration (FI415) and previous procedure is 10,&#13;
-then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of  N337, N355, N825, N820, N821, N952, 1ZZZ,&#13;
-        else the  previous document type must be one of  N337, N355, N825, N820, N821, N952, 1ZZZ or 1781.</Description>
-    <Description lang="sv">If declaration is standard customs declaration (FI415) and previous procedure is 10,&#13;
-then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of  N337, N355, N825, N820, N821, N952, 1ZZZ,&#13;
-        else the  previous document type must be one of  N337, N355, N825, N820, N821, N952, 1ZZZ or 1781.</Description>
-    <Description lang="en">If declaration is standard customs declaration (FI415) and previous procedure is 10,&#13;
-then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of  N337, N355, N825, N820, N821, N952, 1ZZZ,&#13;
-        else the  previous document type must be one of  N337, N355, N825, N820, N821, N952, 1ZZZ or 1781.</Description>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; on YHTÄ KUIN '10' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
+  NIIN JOS &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; on YHTÄ KUIN '71'&#13;
+    NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {N337, N355, N825, N820, N821, N952, 1ZZZ}&#13;
+  NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {N337, N355, N825, N820, N821, N952, 1ZZZ, 1781}</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; är LIKA MED '10' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
+  DÅ OM &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; är LIKA MED '71'&#13;
+    DÅ måste &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; vara i GRUPPEN {N337, N355, N825, N820, N821, N952, 1ZZZ}&#13;
+  ANNARS måste &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; vara i GRUPPEN {N337, N355, N825, N820, N821, N952, 1ZZZ, 1781}</Description>
+    <Description lang="en">IF &lt;i&gt;Previous procedure code&lt;/i&gt; is EQUAL to '10' AND (CCL authorization is NOT declared OR Finland is PCI)  THEN IF &lt;i&gt;Previous procedure code&lt;/i&gt; is EQUAL to '71'&#13;
+    THEN &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {N337, N355, N825, N820, N821, N952, 1ZZZ}&#13;
+  ELSE &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {N337, N355, N825, N820, N821, N952, 1ZZZ, 1781}</Description>
   </Constraint>
   <Constraint>
     <Code>NR0062</Code>
-    <Description lang="fi">If declaration is standard customs declaration (FI415) and previous procedure is 22,&#13;
-then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of  N337, N355, N825, N820, N821, N952, 1ZZZ,&#13;
-        else the  previous document type must be one of  N337, N355, N825, N820, N821, N952, 1ZZZ or 1781.</Description>
-    <Description lang="sv">If declaration is standard customs declaration (FI415) and previous procedure is 22,&#13;
-then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of  N337, N355, N825, N820, N821, N952, 1ZZZ,&#13;
-        else the  previous document type must be one of  N337, N355, N825, N820, N821, N952, 1ZZZ or 1781.</Description>
-    <Description lang="en">If declaration is standard customs declaration (FI415) and previous procedure is 22,&#13;
-then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of  N337, N355, N825, N820, N821, N952, 1ZZZ,&#13;
-        else the  previous document type must be one of  N337, N355, N825, N820, N821, N952, 1ZZZ or 1781.</Description>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; on YHTÄ KUIN '22' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
+  NIIN JOS &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; on YHTÄ KUIN '71'&#13;
+    NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {N337, N355, N825, N820, N821, N952, 1ZZZ}&#13;
+  NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {N337, N355, N825, N820, N821, N952, 1ZZZ, 1781}</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; är LIKA MED '22' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
+  DÅ OM &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; är LIKA MED '71'&#13;
+    DÅ måste &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; vara i GRUPPEN {N337, N355, N825, N820, N821, N952, 1ZZZ}&#13;
+  ANNARS måste &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; vara i GRUPPEN {N337, N355, N825, N820, N821, N952, 1ZZZ, 1781}</Description>
+    <Description lang="en">IF &lt;i&gt;Previous procedure code&lt;/i&gt; is EQUAL to '22' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
+  THEN IF &lt;i&gt;Previous procedure code&lt;/i&gt; is EQUAL to '71'&#13;
+    THEN &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {N337, N355, N825, N820, N821, N952, 1ZZZ}&#13;
+  ELSE &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {N337, N355, N825, N820, N821, N952, 1ZZZ, 1781}</Description>
   </Constraint>
   <Constraint>
     <Code>NR0063</Code>
-    <Description lang="fi">If declaration is standard customs declaration (FI415) and previous procedure is 23,&#13;
-then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of  N337, N355, N825, N820, N821, N952, 1ZZZ,&#13;
-        else the  previous document type must be one of N337, N355, N825, N820, N821, N952, 1ZZZ or 1781.</Description>
-    <Description lang="sv">If declaration is standard customs declaration (FI415) and previous procedure is 23,&#13;
-then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of  N337, N355, N825, N820, N821, N952, 1ZZZ,&#13;
-        else the  previous document type must be one of N337, N355, N825, N820, N821, N952, 1ZZZ or 1781.</Description>
-    <Description lang="en">If declaration is standard customs declaration (FI415) and previous procedure is 23,&#13;
-then if case is customs warehousing declarations (requested procedure 71), previous document type must be type one of  N337, N355, N825, N820, N821, N952, 1ZZZ,&#13;
-        else the  previous document type must be one of N337, N355, N825, N820, N821, N952, 1ZZZ or 1781.</Description>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; on YHTÄ KUIN '23' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
+  NIIN JOS &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; on YHTÄ KUIN '71'&#13;
+    NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {N337, N355, N825, N820, N821, N952, 1ZZZ}&#13;
+  NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {N337, N355, N825, N820, N821, N952, 1ZZZ, 1781}</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; är LIKA MED '23' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
+  DÅ OM &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; är LIKA MED '71'&#13;
+    DÅ måste &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; vara i GRUPPEN {N337, N355, N825, N820, N821, N952, 1ZZZ}&#13;
+  ANNARS måste &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; vara i GRUPPEN {N337, N355, N825, N820, N821, N952, 1ZZZ, 1781}</Description>
+    <Description lang="en">IF &lt;i&gt;Previous procedure code&lt;/i&gt; is EQUAL to '23' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
+  THEN IF &lt;i&gt;Previous procedure code&lt;/i&gt; is EQUAL to '71'&#13;
+    THEN &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {N337, N355, N825, N820, N821, N952, 1ZZZ}&#13;
+  ELSE &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {N337, N355, N825, N820, N821, N952, 1ZZZ, 1781}</Description>
   </Constraint>
   <Constraint>
     <Code>NR0064</Code>
-    <Description lang="fi">If declaration is standard customs declaration (FI415) and previous procedure is 54,&#13;
-then the previous document type must be one of 337, 355, 820, 821, 952 or ZZZ.</Description>
-    <Description lang="sv">If declaration is standard customs declaration (FI415) and previous procedure is 54,&#13;
-then the previous document type must be one of 337, 355, 820, 821, 952 or ZZZ.</Description>
-    <Description lang="en">If declaration is standard customs declaration (FI415) and previous procedure is 54,&#13;
-then the previous document type must be one of 337, 355, 820, 821, 952 or ZZZ.</Description>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; on YHTÄ KUIN '54' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
+  NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {N337, N355, N825, N820, N821, N952, 1ZZZ}</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; är LIKA MED '54' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
+  DÅ måste &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; vara i GRUPPEN {N337, N355, N825, N820, N821, N952, 1ZZZ}</Description>
+    <Description lang="en">IF &lt;i&gt;Previous procedure code&lt;/i&gt; is EQUAL to '54' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
+  THEN &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {N337, N355, N825, N820, N821, N952, 1ZZZ}</Description>
   </Constraint>
   <Constraint>
     <Code>NR0065</Code>
-    <Description lang="fi">If declaration is standard customs declaration (FI415) and previous procedure is 78,&#13;
-then the previous document type must be one of 337, 355, 820, 821, 952 or ZZZ.</Description>
-    <Description lang="sv">If declaration is standard customs declaration (FI415) and previous procedure is 78,&#13;
-then the previous document type must be one of 337, 355, 820, 821, 952 or ZZZ.</Description>
-    <Description lang="en">If declaration is standard customs declaration (FI415) and previous procedure is 78,&#13;
-then the previous document type must be one of 337, 355, 820, 821, 952 or ZZZ.</Description>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; on YHTÄ KUIN '78' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
+  NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {N337, N355, N825, N820, N821, N952, 1ZZZ}</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; är LIKA MED '78' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
+  DÅ måste &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; vara i GRUPPEN {N337, N355, N825, N820, N821, N952, 1ZZZ}</Description>
+    <Description lang="en">IF &lt;i&gt;Previous procedure code&lt;/i&gt; is EQUAL to '78' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
+  THEN &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {N337, N355, N825, N820, N821, N952, 1ZZZ}</Description>
   </Constraint>
   <Constraint>
     <Code>NR0066</Code>
@@ -1460,12 +1643,12 @@ then the previous document type must be one of 337, 355, 820, 821, 952 or ZZZ.</
   </Constraint>
   <Constraint>
     <Code>NR0068</Code>
-    <Description lang="fi">All previous documents in the declaration must be from the same procedure group&#13;
-</Description>
-    <Description lang="sv">All previous documents in the declaration must be from the same procedure group&#13;
-</Description>
-    <Description lang="en">All previous documents in the declaration must be from the same procedure group&#13;
-</Description>
+    <Description lang="fi">JOS CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI&#13;
+  NIIN kaikkien edeltävien asiakirjojen on kuuluttava samaan menettelyryhmään</Description>
+    <Description lang="sv">OM ett CCL-tillstånd INTE är anmält ELLER Finland är PCI&#13;
+  DÅ måste alla tidigare handlingar höra till samma förfarandegrupp</Description>
+    <Description lang="en">IF CCL authorization is NOT declared OR Finland is PCI&#13;
+  THEN all previous documents must belong to the same procedure group</Description>
   </Constraint>
   <Constraint>
     <Code>NR0070</Code>
@@ -1541,15 +1724,27 @@ ELSE IF &lt;i&gt;Additional declaration type&lt;/i&gt; = 'Z'&#13;
   </Constraint>
   <Constraint>
     <Code>NR0107</Code>
-    <Description lang="fi">Yksinkertaistettua ilmoitusta ei voi korjata  täydentävän ilmoituksen jättämisen jälkeen</Description>
+    <Description lang="fi">Yksinkertaistettua ilmoitusta ei voi korjata täydentävän ilmoituksen jättämisen jälkeen</Description>
     <Description lang="sv">Den förenklade deklarationen kan inte korrigeras efter att den har kompletterats</Description>
     <Description lang="en">The simplified declaration cannot be amended after it has been supplemented</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR0108</Code>
+    <Description lang="fi">Täydentävää ilmoitusta ei voida mitätöidä, jos jollekin asiaan liittyvälle yksinkertaistetulle ilmoitukselle on rekisteröity purkaustulos</Description>
+    <Description lang="sv">En kompletterande deklaration kan inte ogiltigförklaras om en utskrivningsanmälan eller utskrivningssedel har registrerats för någon av de relaterade förenklade deklarationerna</Description>
+    <Description lang="en">A supplementary declaration cannot be invalidated if a discharge notification or bill of discharge has been registered for any of the related simplified declarations</Description>
   </Constraint>
   <Constraint>
     <Code>NR0111</Code>
     <Description lang="fi">&lt;i&gt;Tapahtuman tunniste&lt;/i&gt; on oltava yksilöllinen</Description>
     <Description lang="sv">&lt;i&gt;Händelsens identifierare&lt;/i&gt; måste vara unikt</Description>
     <Description lang="en">&lt;i&gt;Case identification&lt;/i&gt; must be unique</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR0112</Code>
+    <Description lang="fi">Jos ilmoitusta on jo täydennetty, sitä ei voida mitätöidä</Description>
+    <Description lang="sv">Om deklarationen redan har kompletterats kan den inte ogiltigförklaras</Description>
+    <Description lang="en">If declaration is already supplemented, it cannot be invalidated</Description>
   </Constraint>
   <Constraint>
     <Code>NR0200</Code>
@@ -1571,15 +1766,15 @@ ELSE IF &lt;i&gt;Additional declaration type&lt;/i&gt; = 'Z'&#13;
   </Constraint>
   <Constraint>
     <Code>NR0203</Code>
-    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {42, 63} JA &lt;i&gt;Verotuksellinen lisäviitetieto&lt;/i&gt;/&lt;i&gt;Tunnistenumero&lt;/i&gt; on ilmoitettu&#13;
+    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {42, 63} JA &lt;i&gt;Verotuksellinen lisäviitetieto&lt;/i&gt;/&lt;i&gt;Tunnistenumero&lt;/i&gt; on ilmoitettu JA CCL-lupaa EI ole ilmoitettu&#13;
   NIIN &lt;i&gt;Roolikoodi&lt;/i&gt; on oltava JOUKOSSA {FR1, FR2}&#13;
 MUUTEN JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; arvolla 'F48' on ilmoitettu kaikilla tavaraerillä&#13;
   NIIN &lt;i&gt;Roolikoodi&lt;/i&gt; = 'FR5'</Description>
-    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {42, 63} OCH &lt;i&gt;Ytterligare skatterelaterad referensuppgift&lt;/i&gt;/&lt;i&gt;Identifieringsnummer&lt;/i&gt; är anmäld&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {42, 63} OCH &lt;i&gt;Ytterligare skatterelaterad referensuppgift&lt;/i&gt;/&lt;i&gt;Identifieringsnummer&lt;/i&gt; är anmäld OCH ett CCL-tillstånd INTE är anmält&#13;
   DÅ måste &lt;i&gt;Rollkod&lt;/i&gt; vara I GRUPPEN {FR1, FR2}&#13;
 ANNARS OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; med värde 'F48' är anmäld på samtliga varuposter&#13;
   DÅ måste &lt;i&gt;Rollkod&lt;/i&gt; = 'FR5'</Description>
-    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is IN SET {42, 63} AND &lt;i&gt;Additional fiscal reference&lt;/i&gt;/&lt;i&gt;Identification number&lt;/i&gt; is declared&#13;
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is IN SET {42, 63} AND &lt;i&gt;Additional fiscal reference&lt;/i&gt;/&lt;i&gt;Identification number&lt;/i&gt; is declared AND CCL authorization is NOT declared&#13;
   THEN &lt;i&gt;Role code&lt;/i&gt; must be IN SET {FR1, FR2}&#13;
 ELSE IF &lt;i&gt;Additional procedure code&lt;/i&gt; with value 'F48' exists on all goods items&#13;
   THEN &lt;i&gt;Role code&lt;/i&gt; = 'FR5'</Description>
@@ -1598,11 +1793,11 @@ ELSE IF &lt;i&gt;Additional procedure code&lt;/i&gt; with value 'F48' exists on 
   </Constraint>
   <Constraint>
     <Code>NR0224</Code>
-    <Description lang="fi">JOS &lt;i&gt;Verotuksellinen lisäviitetieto&lt;/i&gt;/&lt;i&gt;Roolikoodi&lt;/i&gt; = 'FR2'&#13;
+    <Description lang="fi">JOS &lt;i&gt;Verotuksellinen lisäviitetieto&lt;/i&gt;/&lt;i&gt;Roolikoodi&lt;/i&gt; = 'FR2' JA CCL-lupaa EI ole ilmoitettu&#13;
   NIIN &lt;i&gt;Tunnistenumero&lt;/i&gt; ei voi alkaa merkkijonolla 'FI'</Description>
-    <Description lang="sv">OM &lt;i&gt;Ytterligare skatterelaterad referensuppgift&lt;/i&gt;/&lt;i&gt;Rollkod&lt;/i&gt; = 'FR2'&#13;
+    <Description lang="sv">OM &lt;i&gt;Ytterligare skatterelaterad referensuppgift&lt;/i&gt;/&lt;i&gt;Rollkod&lt;/i&gt; = 'FR2' OCH ett CCL-tillstånd INTE är anmält&#13;
   DÅ kan &lt;i&gt;Identifieringsnummer&lt;/i&gt; inte börja med 'FI'</Description>
-    <Description lang="en">IF &lt;i&gt;Additional fiscal reference&lt;/i&gt;/&lt;i&gt;Role code&lt;/i&gt; = 'FR2'&#13;
+    <Description lang="en">IF &lt;i&gt;Additional fiscal reference&lt;/i&gt;/&lt;i&gt;Role code&lt;/i&gt; = 'FR2' AND CCL authorization is NOT declared&#13;
   THEN &lt;i&gt;Identification number&lt;/i&gt; cannot start with 'FI'</Description>
   </Constraint>
   <Constraint>
@@ -1661,9 +1856,9 @@ ELSE IF &lt;i&gt;Additional procedure code&lt;/i&gt; with value 'F48' exists on 
   </Constraint>
   <Constraint>
     <Code>NR0234</Code>
-    <Description lang="fi">Either Economic Operator, Authorization number, Customs Office or Address must be used in goods location.</Description>
-    <Description lang="sv">Either Economic Operator, Authorization number, Customs Office or Address must be used in goods location.</Description>
-    <Description lang="en">Either Economic Operator, Authorization number, Customs Office or Address must be used in goods location.</Description>
+    <Description lang="fi">Yksi tiedoista &lt;i&gt;Talouden toimija&lt;/i&gt;, &lt;i&gt;Luvan numero&lt;/i&gt;, &lt;i&gt;Tullitoimipaikka&lt;/i&gt;, &lt;i&gt;Osoite&lt;/i&gt;, &lt;i&gt;Postinumero-osoite&lt;/i&gt;, &lt;i&gt;GNSS&lt;/i&gt; tai &lt;i&gt;UN/LOCODE&lt;/i&gt; on ilmoitettava</Description>
+    <Description lang="sv">En av &lt;i&gt;Ekonomisk aktör&lt;/i&gt;, &lt;i&gt;Tillståndsnummer&lt;/i&gt;, &lt;i&gt;Tullkontor&lt;/i&gt;, &lt;i&gt;Adress&lt;/i&gt;, &lt;i&gt;Postnummeradress&lt;/i&gt;, &lt;i&gt;GNSS&lt;/i&gt; eller &lt;i&gt;UN/LOCODE&lt;/i&gt; måste anmälas</Description>
+    <Description lang="en">One of &lt;i&gt;Economic operator&lt;/i&gt;, &lt;i&gt;Authorisation number&lt;/i&gt;, &lt;i&gt;Customs office&lt;/i&gt;, &lt;i&gt;Address&lt;/i&gt;, &lt;i&gt;Postcode address&lt;/i&gt;, &lt;i&gt;GNSS&lt;/i&gt; or &lt;i&gt;UN/LOCODE&lt;/i&gt; must be declared</Description>
   </Constraint>
   <Constraint>
     <Code>NR0235</Code>
@@ -1763,12 +1958,25 @@ then additional information code FIPER cannot be used.</Description>
   </Constraint>
   <Constraint>
     <Code>NR0250</Code>
-    <Description lang="fi">If additional declaration type is X, Y or U, then this must be C512,&#13;
-else if additional declaration type is V or Z, then this must be NCLE.</Description>
-    <Description lang="sv">If additional declaration type is X, Y or U, then this must be C512,&#13;
-else if additional declaration type is V or Z, then this must be NCLE.</Description>
-    <Description lang="en">If additional declaration type is X, Y or U, then this must be C512,&#13;
-else if additional declaration type is V or Z, then this must be NCLE.</Description>
+    <Description lang="fi">JOS CCL-lupaa EI ole ilmoitettu&#13;
+  NIIN&#13;
+    JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; on JOUKOSSA {U, X, Y}&#13;
+      NIIN &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava 'C512'&#13;
+    MUUTEN JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; on JOUKOSSA {V, Z}&#13;
+      NIIN &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava 'NCLE'</Description>
+    <Description lang="sv">OM ett CCL-tillstånd INTE är anmält&#13;
+  DÅ&#13;
+    OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; är i GRUPPEN {U, X, Y}&#13;
+      DÅ måste &lt;i&gt;Typ av dokument&lt;/i&gt; vara 'C512'&#13;
+    ANNARS OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; är i GRUPPEN {V, Z}&#13;
+      DÅ måste &lt;i&gt;Typ av dokument&lt;/i&gt; vara 'NCLE'</Description>
+    <Description lang="en">IF CCL authorization is NOT declared&#13;
+  THEN&#13;
+    IF &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {U, X, Y}&#13;
+      THEN &lt;i&gt;Document type&lt;/i&gt; must be 'C512'&#13;
+&#13;
+    ELSE IF &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {V, Z}&#13;
+      THEN &lt;i&gt;Document type&lt;/i&gt; must be 'NCLE'</Description>
   </Constraint>
   <Constraint>
     <Code>NR0251</Code>
@@ -1979,14 +2187,20 @@ ELSE &lt;i&gt;Additional information code&lt;/i&gt; = 'FIGLO' = 'N'</Description
   </Constraint>
   <Constraint>
     <Code>NR0285</Code>
-    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {42, 63}&#13;
-  NIIN &lt;i&gt;Määrämaan koodi&lt;/i&gt; on oltava EU-maa mutta ei FI&#13;
+    <Description lang="fi">JOS CCL-lupaa on ilmoitettu&#13;
+  NIIN elementin sisältöä ei varmisteta&#13;
+MUUTEN JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {42, 63}&#13;
+  NIIN &lt;i&gt;Määrämaan koodi&lt;/i&gt; on oltava JOUKOSSA {CL010 \ 'FI'}&#13;
 MUUTEN &lt;i&gt;Määrämaan koodi&lt;/i&gt; = 'FI'</Description>
-    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {42, 63}&#13;
-  DÅ måste &lt;i&gt;Kod för destinationsland&lt;/i&gt; vara ett EU-land, men inte FI&#13;
+    <Description lang="sv">OM ett CCL-tillstånd är anmält&#13;
+  DÅ verifieras elementet inte&#13;
+ANNARS OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {42, 63}&#13;
+  DÅ måste &lt;i&gt;Kod för destinationsland&lt;/i&gt; vara i GRUPPEN {CL010 \ 'FI'}&#13;
 ANNARS är &lt;i&gt;Kod för destinationsland&lt;/i&gt; = 'FI'</Description>
-    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {42, 63}&#13;
-  THEN &lt;i&gt;Country of destination code&lt;/i&gt; must be a EU country other than FI&#13;
+    <Description lang="en">IF CCL authorization is declared&#13;
+  THEN element is not verified&#13;
+ELSE IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {42, 63}&#13;
+  THEN &lt;i&gt;Country of destination code&lt;/i&gt; must be in SET {CL010 \ 'FI'}&#13;
 ELSE &lt;i&gt;Country of destination code&lt;/i&gt; = 'FI'</Description>
   </Constraint>
   <Constraint>
@@ -2018,11 +2232,11 @@ Not applicable for dataset H5N.</Description>
   </Constraint>
   <Constraint>
     <Code>NR0292</Code>
-    <Description lang="fi">JOS &lt;i&gt;Verotuksellinen lisäviitetieto&lt;/i&gt;/&lt;i&gt;Roolikoodi&lt;/i&gt; = 'FR2'&#13;
+    <Description lang="fi">JOS &lt;i&gt;Verotuksellinen lisäviitetieto&lt;/i&gt;/&lt;i&gt;Roolikoodi&lt;/i&gt; = 'FR2' JA CCL-lupaa EI ole ilmoitettu&#13;
   NIIN &lt;i&gt;Verotuksellinen lisäviitetieto&lt;/i&gt;/&lt;i&gt;Tunnistenumero&lt;/i&gt; on oltava voimassa VIES:ssä</Description>
-    <Description lang="sv">OM &lt;i&gt;Ytterligare skatterelaterad referensuppgift&lt;/i&gt;/&lt;i&gt;Rollkod&lt;/i&gt; = 'FR2'&#13;
+    <Description lang="sv">OM &lt;i&gt;Ytterligare skatterelaterad referensuppgift&lt;/i&gt;/&lt;i&gt;Rollkod&lt;/i&gt; = 'FR2' OCH ett CCL-tillstånd INTE är anmält&#13;
   SÅ måste &lt;i&gt;Ytterligare skatterelaterad referensuppgift&lt;/i&gt;/&lt;i&gt;Identifieringsnummer&lt;/i&gt; vara giltigt i VIES</Description>
-    <Description lang="en">IF &lt;i&gt;Additional fiscal reference&lt;/i&gt;/&lt;i&gt;Role code&lt;/i&gt; = 'FR2'&#13;
+    <Description lang="en">IF &lt;i&gt;Additional fiscal reference&lt;/i&gt;/&lt;i&gt;Role code&lt;/i&gt; = 'FR2' AND CCL authorization is NOT declared&#13;
   THEN &lt;i&gt;Additional fiscal reference&lt;/i&gt;/&lt;i&gt;Identification number&lt;/i&gt; must be valid in VIES</Description>
   </Constraint>
   <Constraint>
@@ -2066,11 +2280,11 @@ then there cannot exist any manually added liabilities, goods with quota, goods 
   </Constraint>
   <Constraint>
     <Code>NR0301</Code>
-    <Description lang="fi">JOS #H5N&#13;
+    <Description lang="fi">JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  != 'FIPER'&#13;
   NIIN &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on oltava JOUKOSSA {40, 61} JA &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; JOUKOSSA {00, 21, 71}</Description>
-    <Description lang="sv">OM #H5N&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  != 'FIPER'&#13;
   DÅ måste &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; vara i GRUPPEN {40, 61} OCH &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; vara i GRUPPEN {00, 21, 71}</Description>
-    <Description lang="en">IF #H5N&#13;
+    <Description lang="en">IF &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  != 'FIPER'&#13;
   THEN &lt;i&gt;Requested procedure code&lt;/i&gt; must be in SET {40, 61} AND &lt;i&gt;Previous procedure code&lt;/i&gt; in SET {00, 21, 71}</Description>
   </Constraint>
   <Constraint>
@@ -2081,11 +2295,11 @@ then there cannot exist any manually added liabilities, goods with quota, goods 
   </Constraint>
   <Constraint>
     <Code>NR0303</Code>
-    <Description lang="fi">JOS #H5N JA &lt;i&gt;Tuoja&lt;/i&gt; on ALV-rekisteröity&#13;
+    <Description lang="fi">JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  != 'FIPER' JA &lt;i&gt;Tuoja&lt;/i&gt; on ALV-rekisteröity&#13;
   NIIN ALV-koodi on ilmoitettava</Description>
-    <Description lang="sv">OM #H5N OCH &lt;i&gt;Importör&lt;/i&gt; är momsregistrerad&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  != 'FIPER' OCH &lt;i&gt;Importör&lt;/i&gt; är momsregistrerad&#13;
   SÅ måste momskoden anmälas</Description>
-    <Description lang="en">IF #H5N AND &lt;i&gt;Importer&lt;/i&gt; is VAT registered&#13;
+    <Description lang="en">IF &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  != 'FIPER' AND &lt;i&gt;Importer&lt;/i&gt; is VAT registered&#13;
   THEN VAT code must be declared</Description>
   </Constraint>
   <Constraint>
@@ -2147,6 +2361,21 @@ If request is submitted after the release of goods, amendment type is JAL, PAL o
     <Description lang="fi">Target change request cannot be finished or have hearing in progress.</Description>
     <Description lang="sv">Target change request cannot be finished or have hearing in progress.</Description>
     <Description lang="en">Target change request cannot be finished or have hearing in progress.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR0360</Code>
+    <Description lang="fi">Jos mitätöintiä pyydetään tavaroiden luovuttamisen jälkeen, sovelletaan seuraavia rajoituksia:&#13;
+- Jos yksityishenkilö palauttaa verkosta ostettuja tavaroita, hakemus oikaisupäätöstä varten on jätettävä ja tavarat palautettava 90 päivän kuluessa tulli-ilmoituksen hyväksymisestä, syyn ensimmäinen merkki on K – Yksityishenkilön palauttama tavara jotka on ostettu verkosta (DA 148 (1-3) art)&#13;
+- Jos mitätöintipyynnön syyn ensimmäinen merkki on V – Virheelliset ilmoitustiedot, pyyntö tulee tehdä 90 päivän kuluessa tulli-ilmoituksen hyväksymisestä.&#13;
+- Muussa tapauksessa pyyntö on esitettävä kolmen vuoden kuluessa tullivelan tiedoksiantamisesta. (DA 148(4) art)</Description>
+    <Description lang="sv">Om ogiltigförklaring begärs efter frisläppandet av varor, gäller följande begränsningar:&#13;
+- Om en privatperson returnerade varor som köpts online ska ansökan om ändrat beslut lämnas in och varorna returneras inom 90 dagar från dagen för godkännande av tulldeklarationen, första tecknet i orsaken är K – Privatperson returnerade varor som köptes online (DA 148 (1-3) art)&#13;
+- Om det första tecknet i orsaken till begäran om ogiltigförklaring är V – Felaktiga deklarationsuppgifter, måste begäran lämnas in inom 90 dagar från dagen för godkännande av tulldeklarationen.&#13;
+- I annat fall ska begäran lämnas in inom tre år från dagen för underrättelse om tullskulden. (DA 148(4) art)</Description>
+    <Description lang="en">If invalidation is requested after the release of goods, the following limits apply:&#13;
+- If a private person returned goods that were purchased online, the application for a revised decision must be submitted and the goods returned within 90 days of the date of acceptance of the customs declaration, first character of the reason is K – Private person returned goods that were purchased online (DA 148 (1-3) art) &#13;
+- If first character of the invalidation request reason is V – Erroneuous declaration data, the request must be submitted within 90 days of the date of acceptance of the customs declaration.&#13;
+- In other case, the request must be submitted within three years of the date of notification of the customs debt. (DA 148(4) art)</Description>
   </Constraint>
   <Constraint>
     <Code>NR0501</Code>
@@ -2248,12 +2477,6 @@ IF &lt;i&gt;Commodity code - TARIC code&lt;/i&gt; is declared&#13;
     <Description lang="en">If commodity codes are specified in the authorisation details, they have to match the declared commodity codes.</Description>
   </Constraint>
   <Constraint>
-    <Code>NR1006</Code>
-    <Description lang="fi">Ilmoitetun &lt;i&gt;Varaston tunniste&lt;/i&gt; on oltava lueteltuna luvan tiedoissa</Description>
-    <Description lang="sv">Anmäld &lt;i&gt;Lagerkod&lt;/i&gt; måste finnas listat i tillståndets uppgifter</Description>
-    <Description lang="en">Declared &lt;i&gt;Warehouse identifier&lt;/i&gt; must be listed in the authorisation details</Description>
-  </Constraint>
-  <Constraint>
     <Code>NR1008</Code>
     <Description lang="fi">Jos lupatiedoissa on määritelty menettelykoodit, niiden on vastattava ilmoitettuja menettelykoodeja.</Description>
     <Description lang="sv">Om förfarandekoder anges i tillståndsuppgifterna måste de matcha de deklarerade förfarandekoderna.</Description>
@@ -2294,15 +2517,6 @@ declared Authorisation/HolderID must be either Importer/IdentificationNumber or 
     <Description lang="fi">If trader is EORI registered in Finland, trader ID with the type 'EORI' is same as declarant's identifier</Description>
     <Description lang="sv">If trader is EORI registered in Finland, trader ID with the type 'EORI' is same as declarant's identifier</Description>
     <Description lang="en">If trader is EORI registered in Finland, trader ID with the type 'EORI' is same as declarant's identifier</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NR1105</Code>
-    <Description lang="fi">JOS &lt;i&gt;Edustajan asemaa koskeva koodi&lt;/i&gt; = '3'&#13;
-  NIIN &lt;i&gt;Edustaja&lt;/i&gt; on löydyttävä asiakasrekisteristä, jopa ilman &lt;i&gt;Toimipaikkakoodi&lt;/i&gt;</Description>
-    <Description lang="sv">OM &lt;i&gt;Kod för ombuds status&lt;/i&gt; = '3'&#13;
-  DÅ måste &lt;i&gt;Ombud&lt;/i&gt; hittas i kundregistret, även utan &lt;i&gt;Kod för verksamhetsställe&lt;/i&gt;</Description>
-    <Description lang="en">IF &lt;i&gt;Representative status code&lt;/i&gt; = '3'&#13;
-  THEN &lt;i&gt;Representative&lt;/i&gt; must be found in trader register, even without &lt;i&gt;Office code&lt;/i&gt;</Description>
   </Constraint>
   <Constraint>
     <Code>NR1109</Code>
@@ -2393,11 +2607,11 @@ declared Authorisation/HolderID must be either Importer/IdentificationNumber or 
   </Constraint>
   <Constraint>
     <Code>NR1127</Code>
-    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {42, 63}&#13;
+    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {42, 63} JA CCL-lupaa EI ole ilmoitettu&#13;
   NIIN on oltava &lt;i&gt;Verotuksellinen lisäviitetieto&lt;/i&gt; jolla &lt;i&gt;Rooli&lt;/i&gt; = 'FR2'</Description>
-    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {42, 63}&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {42, 63} OCH ett CCL-tillstånd INTE är anmält&#13;
   DÅ måste det finnas en &lt;i&gt;Ytterligare skatterelaterad referensuppgift&lt;/i&gt; med &lt;i&gt;Roll&lt;/i&gt; = 'FR2'</Description>
-    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {42, 63}&#13;
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {42, 63} AND CCL authorization is NOT declared&#13;
   THEN there must exist an &lt;i&gt;Additional fiscal reference&lt;/i&gt; with &lt;i&gt;Role&lt;/i&gt; = 'FR2'</Description>
   </Constraint>
   <Constraint>
@@ -2405,12 +2619,6 @@ declared Authorisation/HolderID must be either Importer/IdentificationNumber or 
     <Description lang="fi">If elected entry date is used on Z with notification, it must be the date of the registration of the original I2 notification</Description>
     <Description lang="sv">If elected entry date is used on Z with notification, it must be the date of the registration of the original I2 notification</Description>
     <Description lang="en">If elected entry date is used on Z with notification, it must be the date of the registration of the original I2 notification</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NR1201</Code>
-    <Description lang="fi">Varaston osoitteen maakoodin on oltava 'FI'</Description>
-    <Description lang="sv">Landskoden för lagrets adress måste vara 'FI'</Description>
-    <Description lang="en">Country code in the address of the warehouse must be 'FI'</Description>
   </Constraint>
   <Constraint>
     <Code>NR1255</Code>
@@ -2453,87 +2661,87 @@ THEN Additional declaration type D cannot be used</Description>
   </Constraint>
   <Constraint>
     <Code>NR1315</Code>
-    <Description lang="fi">If selected type is ”IM”, format must be 17 digits without spaces or any other characters&#13;
-</Description>
-    <Description lang="sv">If selected type is ”IM”, format must be 17 digits without spaces or any other characters&#13;
-</Description>
-    <Description lang="en">If selected type is ”IM”, format must be 17 digits without spaces or any other characters&#13;
-</Description>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on YHTÄ KUIN 'IM'&#13;
+  NIIN muodon on oltava n17</Description>
+    <Description lang="sv">OM &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; är LIKA MED 'IM'&#13;
+  SÅ är formatet be n17</Description>
+    <Description lang="en">IF &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; is EQUAL to 'IM'&#13;
+  THEN format must be n17</Description>
   </Constraint>
   <Constraint>
     <Code>NR1316</Code>
-    <Description lang="fi">If selected type is ”MRN”, format must be UTU format: 18 characters starting with year and ”FIU” etc.&#13;
-</Description>
-    <Description lang="sv">If selected type is ”MRN”, format must be UTU format: 18 characters starting with year and ”FIU” etc.&#13;
-</Description>
-    <Description lang="en">If selected type is ”MRN”, format must be UTU format: 18 characters starting with year and ”FIU” etc.&#13;
-</Description>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on YHTÄ KUIN 'NMRN' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
+  NIIN muoto on an18 ja sisällön on alettava merkkijonolla 'FIU'</Description>
+    <Description lang="sv">OM &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; är LIKAE MED 'NMRN' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
+  DÅ är formatet is an18 med 'FIU' i början av innehållet</Description>
+    <Description lang="en">IF &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; is EQUAL to 'NMRN' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
+  THEN format is an18 and contents must start with 'FIU'</Description>
   </Constraint>
   <Constraint>
     <Code>NR1317</Code>
-    <Description lang="fi">If selected type other value then IM, MRN, ZZZ or 781, format must be generic MRN: 18 characters starting with year and country and then digits and letters and check sum in the end&#13;
-</Description>
-    <Description lang="sv">If selected type other value then IM, MRN, ZZZ or 781, format must be generic MRN: 18 characters starting with year and country and then digits and letters and check sum in the end&#13;
-</Description>
-    <Description lang="en">If selected type other value then IM, MRN, ZZZ or 781, format must be generic MRN: 18 characters starting with year and country and then digits and letters and check sum in the end&#13;
-</Description>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; EI ole JOUKOSSA {IM, NMRN, 1ZZZ, 1781}&#13;
+  NIIN muoto on an18 ja noudattaa yleisen MRN;n ohjeistusta</Description>
+    <Description lang="sv">OM &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; INTE är i GRUPPEN {IM, NMRN, 1ZZZ, 1781}&#13;
+  DÅ är formatet an18 och följer riktlinjerna av ett generellt MRN</Description>
+    <Description lang="en">IF &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; is NOT in SET {IM, NMRN, 1ZZZ, 1781}&#13;
+  THEN the format is an18 and follows the guidelines of a generic MRN</Description>
   </Constraint>
   <Constraint>
     <Code>NR1318</Code>
-    <Description lang="fi">JOS &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; on JOUKOSSA {D, E, F}&#13;
+    <Description lang="fi">JOS &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; on JOUKOSSA {D, E, F} JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
   NIIN kaikissa tietoryhmissä &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; on oltava sama tyyppi</Description>
-    <Description lang="sv">OM &lt;i&gt;Typ av deklaration&lt;/i&gt; är i GRUPPEN {D, E, F}&#13;
+    <Description lang="sv">OM &lt;i&gt;Typ av deklaration&lt;/i&gt; är i GRUPPEN {D, E, F} OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
   DÅ är endast en typ av &lt;i&gt;Tidigare dokument&lt;/i&gt; tillåten</Description>
-    <Description lang="en">IF &lt;i&gt;Declaration type&lt;/i&gt; is in SET {D, E, F}&#13;
+    <Description lang="en">IF &lt;i&gt;Declaration type&lt;/i&gt; is in SET {D, E, F} AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
   THEN only one type of &lt;i&gt;Previous document&lt;/i&gt; is allowed</Description>
   </Constraint>
   <Constraint>
     <Code>NR1319</Code>
-    <Description lang="fi">ITU can not be precending procedure for D, E, F declarations in UTU. (Previous document type IM)</Description>
-    <Description lang="sv">ITU can not be precending procedure for D, E, F declarations in UTU. (Previous document type IM)</Description>
-    <Description lang="en">ITU can not be precending procedure for D, E, F declarations in UTU. (Previous document type IM)</Description>
+    <Description lang="fi">&#13;
+JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; on JOUKOSSA {D, E, F}  NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; ei voi olla 'IM'</Description>
+    <Description lang="sv">&#13;
+OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; är i GRUPPEN {D, E, F}  DÅ kan &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; inte vara 'IM'</Description>
+    <Description lang="en">&#13;
+IF &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {D, E, F}  THEN &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; cannot be 'IM'</Description>
   </Constraint>
   <Constraint>
     <Code>NR1321</Code>
-    <Description lang="fi">If selected type is ”1781”, format must be either Posti - 13 characters: in the beginning and end 2 letters, or Åland post - 11 characters: in the beginning letters AN and in the end letters AX or 21 characters: in the beginning JJFI and 17 numbers.</Description>
-    <Description lang="sv">If selected type is ”1781”, format must be either Posti - 13 characters: in the beginning and end 2 letters, or Åland post - 11 characters: in the beginning letters AN and in the end letters AX or 21 characters: in the beginning JJFI and 17 numbers.</Description>
-    <Description lang="en">If selected type is ”1781”, format must be either Posti - 13 characters: in the beginning and end 2 letters, or Åland post - 11 characters: in the beginning letters AN and in the end letters AX or 21 characters: in the beginning JJFI and 17 numbers.</Description>
+    <Description lang="fi">JOS &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; = '1781' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
+  NIIN muodon on oltava joko Posti - 17 merkkiä: alussa ja lopussa kaksi kirjainta, tai Åland post - 11 merkkiä: alussa AN ja lopussa AX tai 21 merkkiä: alussa JJFI jonka jälkeen 17 numeroa</Description>
+    <Description lang="sv">OM &lt;i&gt;Typ av dokument&lt;/i&gt; = '1781' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
+  DÅ måste formatet vara antingen Posten - 13 tecken: börja och sluta med 2 bokstäver, eller Åland post - 11 tecken: börja med AN och sluta med AX eller 21 tecken: JJFI i början och 17 siffror</Description>
+    <Description lang="en">IF &lt;i&gt;Document type&lt;/i&gt; = '1781' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
+  THEN format must be either Posti - 13 characters: start and finish with 2 letters, or Åland post - 11 characters: starting with letters AN and ending with AX or 21 characters: starting with JJFI and 17 numbers</Description>
   </Constraint>
   <Constraint>
     <Code>NR1322</Code>
-    <Description lang="fi">JOS &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; = '1ZZZ'&#13;
+    <Description lang="fi">JOS &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; = '1ZZZ' JA JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
   NIIN muoto on an..18</Description>
-    <Description lang="sv">OM &lt;i&gt;Typ av dokument&lt;/i&gt; = '1ZZZ'&#13;
+    <Description lang="sv">OM &lt;i&gt;Typ av dokument&lt;/i&gt; = '1ZZZ' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
   DÅ är formatet an..18</Description>
-    <Description lang="en">IF &lt;i&gt;Document type&lt;/i&gt; = '1ZZZ'&#13;
+    <Description lang="en">IF &lt;i&gt;Document type&lt;/i&gt; = '1ZZZ' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
   THEN format is an..18</Description>
   </Constraint>
   <Constraint>
     <Code>NR1323</Code>
-    <Description lang="fi">If means of transport at the border is mail (5),&#13;
-then previous document must be of type 1781, N355, N821 or 1ZZZ, &#13;
-there must be exactly one repetition of the document with this type on each goods item&#13;
-and they must have the same reference.</Description>
-    <Description lang="sv">If means of transport at the border is mail (5),&#13;
-then previous document must be of type 1781, N355, N821 or 1ZZZ, &#13;
-there must be exactly one repetition of the document with this type on each goods item&#13;
-and they must have the same reference.</Description>
-    <Description lang="en">If means of transport at the border is mail (5),&#13;
-then previous document must be of type 1781, N355, N821 or 1ZZZ, &#13;
-there must be exactly one repetition of the document with this type on each goods item&#13;
-and they must have the same reference.</Description>
+    <Description lang="fi">JOS &lt;i&gt;Kuljetusmuoto rajalla&lt;/i&gt; on YHTÄ KUIN '5' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
+  NIIN &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {1781, N355, N337, N821, 1ZZZ} JA jokaiselta tietoryhmältä &lt;i&gt;Tavaraerä&lt;/i&gt; on löydyttävä tasan yksi saman tyyppinen asiakirja JA niillä on oltava sama viite</Description>
+    <Description lang="sv">OM &lt;i&gt;Transportsätt vid gränsen&lt;/i&gt; är LIKA MED '5' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
+  DÅ måste &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; vara i GRUPPEN {1781, N355, N337, N821, 1ZZZ} OCH det måste finnas exakt en förekomst av dokumentet av denna typ för varje &lt;i&gt;Varupost&lt;/i&gt; med samma referens</Description>
+    <Description lang="en">IF &lt;i&gt;Mode of transport at the border&lt;/i&gt; is EQUAL to '5' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
+  THEN &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {1781, N355, N337, N821, 1ZZZ} AND there must be exactly one iteration of the document with this type on each &lt;i&gt;Goods item&lt;/i&gt; AND and they must have the same reference</Description>
   </Constraint>
   <Constraint>
     <Code>NR1324</Code>
-    <Description lang="fi">&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava uniikki tietoryhmän &lt;i&gt;Tavaraerä&lt;/i&gt; sisällä</Description>
-    <Description lang="sv">&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; måste vara unikt inom &lt;i&gt;Varupost&lt;/i&gt;</Description>
-    <Description lang="en">&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be unique within the &lt;i&gt;Goods item&lt;/i&gt;</Description>
+    <Description lang="fi">Ilmoituksilla, joilla ei ole CCL-lupaa TAI Suomi on PCI, &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava uniikki tietoryhmän &lt;i&gt;Tavaraerä&lt;/i&gt; sisällä</Description>
+    <Description lang="sv">För deklarationer utan CCL-tillstånd ELLER om Finland är PCI måste &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; vara unikt inom &lt;i&gt;Varupost&lt;/i&gt;</Description>
+    <Description lang="en">For declaration without CCL authorization OR if Finland is PCI &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be unique within the &lt;i&gt;Goods item&lt;/i&gt;</Description>
   </Constraint>
   <Constraint>
     <Code>NR1325</Code>
-    <Description lang="fi">Previous document must be unique for goods item</Description>
-    <Description lang="sv">Previous document must be unique for goods item</Description>
-    <Description lang="en">Previous document must be unique for goods item</Description>
+    <Description lang="fi">Ilmoituksilla, joilla ei ole CCL-lupaa TAI jos Suomi on PCI, &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; on oltava uniikki tietoryhmän &lt;i&gt;Tavaraerä&lt;/i&gt; sisällä</Description>
+    <Description lang="sv">För deklarationer utan CCL-tillstånd ELLER om Finland är PCI måste &lt;i&gt;Tidigare dokument&lt;/i&gt; vara unikt inom &lt;i&gt;Varupost&lt;/i&gt;</Description>
+    <Description lang="en">For declaration without CCL authorization OR if Finland is PCI &lt;i&gt;Previous document&lt;/i&gt; must be unique within the &lt;i&gt;Goods item&lt;/i&gt;</Description>
   </Constraint>
   <Constraint>
     <Code>NR1350</Code>
@@ -2561,20 +2769,20 @@ and they must have the same reference.</Description>
   </Constraint>
   <Constraint>
     <Code>NR1354</Code>
-    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {07, 44, 45} JA &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = 'F06'&#13;
+    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {07, 44, 45} JA &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = 'F06' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
   NIIN &lt;i&gt;Lisätietokoodi&lt;/i&gt; arvolla 'FIXFC' = 'R'</Description>
-    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {07, 44, 45} OCH &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = 'F06'&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {07, 44, 45} OCH &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = 'F06' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
   DÅ är &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; med värde 'FIXFC' = 'R'</Description>
-    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is IN SET {07, 44, 45} AND &lt;i&gt;Additional procedure code&lt;/i&gt; = 'F06'&#13;
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is IN SET {07, 44, 45} AND &lt;i&gt;Additional procedure code&lt;/i&gt; = 'F06' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
   THEN &lt;i&gt;Additional information code&lt;/i&gt; with value 'FIXFC' = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NR1355</Code>
-    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {07, 44, 45} JA &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = 'F06'&#13;
+    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {07, 44, 45} JA &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = 'F06' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
   NIIN &lt;i&gt;Lisätieto&lt;/i&gt; jolla &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FIXFA' on ilmoitettava</Description>
-    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {07, 44, 45} OCH &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = 'F06'&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {07, 44, 45} OCH &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = 'F06' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
   DÅ måste &lt;i&gt;Ytterligare uppgifter&lt;/i&gt; med &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = 'FIXFA' anmälas</Description>
-    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {07, 44, 45} AND &lt;i&gt;Additional procedure code&lt;/i&gt; = 'F06'&#13;
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {07, 44, 45} AND &lt;i&gt;Additional procedure code&lt;/i&gt; = 'F06' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
   THEN &lt;i&gt;Additional information&lt;/i&gt; with &lt;i&gt;Additional information code&lt;/i&gt; = 'FIXFA' must be declared</Description>
   </Constraint>
   <Constraint>
@@ -3011,18 +3219,12 @@ either additional document type C710 or additional information code FIOEI.&#13;
   </Constraint>
   <Constraint>
     <Code>NR3030</Code>
-    <Description lang="fi">If Requested procedure is 51 and Previous procedure is 21 THEN&#13;
-o only one previous document (IM and ID for import declaration which was lodged for placing goods under original procedure 51) may exist under additional documents&#13;
-AND&#13;
-o only one previous document for temporary re-export for futher processing (MRN and ID for export declaration) may exist in additional documents</Description>
-    <Description lang="sv">If Requested procedure is 51 and Previous procedure is 21 THEN&#13;
-o only one previous document (IM and ID for import declaration which was lodged for placing goods under original procedure 51) may exist under additional documents&#13;
-AND&#13;
-o only one previous document for temporary re-export for futher processing (MRN and ID for export declaration) may exist in additional documents</Description>
-    <Description lang="en">If Requested procedure is 51 and Previous procedure is 21 THEN&#13;
-o only one previous document (IM and ID for import declaration which was lodged for placing goods under original procedure 51) may exist under additional documents&#13;
-AND&#13;
-o only one previous document for temporary re-export for futher processing (MRN and ID for export declaration) may exist in additional documents</Description>
+    <Description lang="fi">JOS &lt;i&gt;Menettely&lt;/i&gt; = '5121' JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
+  NIIN ainoastaan 1 &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; joka viittaa alkuperäiseen sisäiseen jalostukseen JA ainoastaan 1 &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; joka viittaa vienti-ilmoitukseen voidaan ilmoittaa</Description>
+    <Description lang="sv">OM &lt;i&gt;Förfarande&lt;/i&gt; = '5121' OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
+  DÅ kan endast 1 &lt;i&gt;Tidigare dokument&lt;/i&gt; som hänför till den ursprungliga aktiva förädlingen OCH endast 1 &lt;i&gt;Tidigare dokument&lt;/i&gt; som hänför till exporten anmälas</Description>
+    <Description lang="en">IF &lt;i&gt;Procedure&lt;/i&gt; = '5121' AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
+  THEN only 1 &lt;i&gt;Previous document&lt;/i&gt; referring to the original inward processing declaration AND only 1 &lt;i&gt;Previous document&lt;/i&gt; referring to the export declaration may be declared</Description>
   </Constraint>
   <Constraint>
     <Code>NR3035</Code>
@@ -3053,11 +3255,11 @@ o only one previous document for temporary re-export for futher processing (MRN 
   </Constraint>
   <Constraint>
     <Code>NR3041</Code>
-    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {44, 46, 48, 51, 53}&#13;
+    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {44, 46, 48, 51, 53} JA (CCL-lupaa EI ole ilmoitettu TAI Suomi on PCI)&#13;
   NIIN jokaisella tietoryhmällä &lt;i&gt;Tavaraerä&lt;/i&gt; on oltava &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; jolla &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on JOUKOSSA {N337, N355, N825, N820, N821, N952, 1ZZZ, NMRN, IM}</Description>
-    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {44, 46, 48, 51, 53}&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {44, 46, 48, 51, 53} OCH (ett CCL-tillstånd INTE är anmält ELLER Finland är PCI)&#13;
   DÅ måste varje &lt;i&gt;Varupost&lt;/i&gt; innehålla ett &lt;i&gt;Tidigare dokument&lt;/i&gt; med en &lt;i&gt;Typ av dokument&lt;/i&gt; i GRUPPEN {N337, N355, N825, N820, N821, N952, 1ZZZ, NMRN, IM}</Description>
-    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {44, 46, 48, 51, 53}&#13;
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {44, 46, 48, 51, 53} AND (CCL authorization is NOT declared OR Finland is PCI)&#13;
   THEN every &lt;i&gt;Goods item&lt;/i&gt; must have a &lt;i&gt;Previous document&lt;/i&gt; with a &lt;i&gt;Document type&lt;/i&gt; in the SET {N337, N355, N825, N820, N821, N952, 1ZZZ, NMRN, IM}</Description>
   </Constraint>
   <Constraint>
@@ -3330,11 +3532,11 @@ o Previous procedure 21 is not allowed for any goods item</Description>
   </Constraint>
   <Constraint>
     <Code>NR4008</Code>
-    <Description lang="fi">JOS #H5P JA &lt;i&gt;Muutostyyppi&lt;/i&gt; on JOUKOSSA {JAL, PAL, OIK}&#13;
+    <Description lang="fi">JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  = 'FIPER' JA &lt;i&gt;Muutostyyppi&lt;/i&gt; on JOUKOSSA {JAL, PAL, OIK}&#13;
   NIIN &lt;i&gt;Veronmääräytymispäivä&lt;/i&gt; ei voida muuttaa</Description>
-    <Description lang="sv">OM #H5P OCH &lt;i&gt;Typ av ändring&lt;/i&gt; är i GRUPPEN {JAL, PAL, OIK}&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  = 'FIPER' OCH &lt;i&gt;Typ av ändring&lt;/i&gt; är i GRUPPEN {JAL, PAL, OIK}&#13;
   DÅ kan &lt;i&gt;Datum för skattebestämning&lt;/i&gt; inte ändras</Description>
-    <Description lang="en">IF #H5P AND &lt;i&gt;Amendment type&lt;/i&gt; is in SET {JAL, PAL, OIK}&#13;
+    <Description lang="en">IF &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  = 'FIPER' AND &lt;i&gt;Amendment type&lt;/i&gt; is in SET {JAL, PAL, OIK}&#13;
   THEN &lt;i&gt;Tax determination date&lt;/i&gt; cannot be changed</Description>
   </Constraint>
   <Constraint>
@@ -3351,26 +3553,26 @@ o Previous procedure 21 is not allowed for any goods item</Description>
   </Constraint>
   <Constraint>
     <Code>NR4011</Code>
-    <Description lang="fi">JOS #H5P&#13;
+    <Description lang="fi">JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  = 'FIPER'&#13;
   NIIN &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '40' AND &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; = '00'</Description>
-    <Description lang="sv">OM #H5P&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  = 'FIPER'&#13;
   DÅ är &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; = '40' OCH &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; = '00'</Description>
-    <Description lang="en">IF #H5P&#13;
+    <Description lang="en">IF &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  = 'FIPER'&#13;
   THEN &lt;i&gt;Requested procedure code&lt;/i&gt; = '40' AND &lt;i&gt;Previous procedure code&lt;/i&gt; = '00'</Description>
   </Constraint>
   <Constraint>
     <Code>NR4012</Code>
-    <Description lang="fi">JOS #H5P JA tavarat ovat uusia, tulee ALV-kanta ilmoittaa käyttäen tietoelementtiä &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FIALK'</Description>
-    <Description lang="sv">OM #H5P OCH varorna är nya, ska momssatsen anmälas med &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = 'FIALK'</Description>
-    <Description lang="en">IF #H5P AND goods are new, VAT rate must be declared using &lt;i&gt;Additional information code&lt;/i&gt; = 'FIALK'</Description>
+    <Description lang="fi">JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  = 'FIPER' JA tavarat ovat uusia, tulee ALV-kanta ilmoittaa käyttäen tietoelementtiä &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FIALK'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  = 'FIPER' OCH varorna är nya, ska momssatsen anmälas med &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = 'FIALK'</Description>
+    <Description lang="en">IF &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  = 'FIPER' AND goods are new, VAT rate must be declared using &lt;i&gt;Additional information code&lt;/i&gt; = 'FIALK'</Description>
   </Constraint>
   <Constraint>
     <Code>NR4018</Code>
-    <Description lang="fi">JOS #H5P&#13;
+    <Description lang="fi">JOS &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '615' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt;  = 'FIPER'&#13;
   NIIN &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FIKIR' on ilmoitettava</Description>
-    <Description lang="sv">OM #H5P&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare förfarande&lt;/i&gt; = '615' OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;  = 'FIPER'&#13;
   SÅ måste &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = 'FIKIR' anmälas</Description>
-    <Description lang="en">IF #H5P&#13;
+    <Description lang="en">IF &lt;i&gt;Additional procedure code&lt;/i&gt; = '615' AND &lt;i&gt;Additional information code&lt;/i&gt;  = 'FIPER'&#13;
   THEN &lt;i&gt;Additional information code&lt;/i&gt; = 'FIKIR' must be declared</Description>
   </Constraint>
   <Constraint>
@@ -3390,17 +3592,17 @@ o Previous procedure 21 is not allowed for any goods item</Description>
   </Constraint>
   <Constraint>
     <Code>NR4027</Code>
-    <Description lang="fi">&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; = 'N825' voidaan ilmoittaa ainoastaan jos &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; = 'CO'</Description>
-    <Description lang="sv">&lt;i&gt;Typ av dokument&lt;/i&gt; = 'N825' kan användas endast om &lt;i&gt;Typ av deklaration&lt;/i&gt; = 'CO'</Description>
-    <Description lang="en">&lt;i&gt;Document type&lt;/i&gt; = 'N825' can only be used if &lt;i&gt;Declaration type&lt;/i&gt; = 'CO'</Description>
+    <Description lang="fi">&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; = 'N825' voidaan ilmoittaa ainoastaan jos &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; = 'CO' jos CCL-lupaa EI ole ilmoitettu</Description>
+    <Description lang="sv">&lt;i&gt;Typ av dokument&lt;/i&gt; = 'N825' kan användas endast om &lt;i&gt;Typ av deklaration&lt;/i&gt; = 'CO' om ett CCL-tillstånd INTE är anmält</Description>
+    <Description lang="en">&lt;i&gt;Document type&lt;/i&gt; = 'N825' can only be used if &lt;i&gt;Declaration type&lt;/i&gt; = 'CO' if a CCL authorization is NOT declared</Description>
   </Constraint>
   <Constraint>
     <Code>NR4029</Code>
-    <Description lang="fi">JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; = 'D'&#13;
+    <Description lang="fi">JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; = 'D' JA CCL-lupaa EI ole ilmoitettu&#13;
   NIIN &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; ei voi olla 'N825'</Description>
-    <Description lang="sv">OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; = 'D'&#13;
+    <Description lang="sv">OM &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; = 'D' OCH ett CCL-tillstånd INTE är anmält&#13;
   DÅ kan &lt;i&gt;Typ av dokument&lt;/i&gt; inte vara 'N825'</Description>
-    <Description lang="en">IF &lt;i&gt;Additional declaration type&lt;/i&gt; = 'D'&#13;
+    <Description lang="en">IF &lt;i&gt;Additional declaration type&lt;/i&gt; = 'D' AND CCL authorization is NOT declared&#13;
   THEN &lt;i&gt;Document type&lt;/i&gt; cannot be 'N825'</Description>
   </Constraint>
   <Constraint>
@@ -3455,6 +3657,214 @@ o Previous procedure 21 is not allowed for any goods item</Description>
   THEN &lt;i&gt;Additional information description&lt;/i&gt; = '1'</Description>
   </Constraint>
   <Constraint>
+    <Code>NR4406</Code>
+    <Description lang="fi">Vain yksi yleisvakuus on mahdollinen SCI-maalle</Description>
+    <Description lang="sv">Endast en samlad garanti kan anmälas för SCI-landet</Description>
+    <Description lang="en">Only one comprehensive guarantee is possible for SCI country</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4407</Code>
+    <Description lang="fi">Koodit CS, FW, MF ja WH ovat mahdollisia kansallisessa tuonnissa. Tullivarastoinnissa vain FW on mahdollista.</Description>
+    <Description lang="sv">Koderna CS, FW, MF och WH är möjliga för nationell import. För tullager är endast FW möjlig.</Description>
+    <Description lang="en">Codes CS, FW, MF and WH are possible for national import. For customs warehousing only FW is possible.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4408</Code>
+    <Description lang="fi">OM tavaroita esitetään keskitettyyn tullaukseen liittyen&#13;
+  NIIN maakoodi ei voi olla 'FI'</Description>
+    <Description lang="sv">OM varor presenteras i samband med centraliserad klarering&#13;
+  DÅ kan landskoden inte vara 'FI'</Description>
+    <Description lang="en">IF presenting goods in context of centralized clearance&#13;
+  THEN country code cannot be 'FI'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4410</Code>
+    <Description lang="fi">JOS ilmoitus ei koske keskitettyä tullausta TAI Suomi on PCI&#13;
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O',&#13;
+MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R' (tai kuten muut ehdot kuvaavat)</Description>
+    <Description lang="sv">OM deklarationen inte gäller centraliserad klarering ELLER Finland är PCI&#13;
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O',&#13;
+ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R' (eller som andra villkor tyder på)</Description>
+    <Description lang="en">IF declaration does not relate to centralized clearance OR Finland is PCI&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O',&#13;
+ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R' (or as other conditions suggest)</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4411</Code>
+    <Description lang="fi">JOS CCL-lupa on ilmoitettu&#13;
+  NIIN arvo 'R' ei ole sallittu</Description>
+    <Description lang="sv">OM ett CCL-tillstånd är anmält&#13;
+  DÅ är värdet 'R' inte tillåtet</Description>
+    <Description lang="en">IF CCL authorization is declared&#13;
+  THEN value 'R' is not allowed</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4412</Code>
+    <Description lang="fi">JOS CCL-lupa on ilmoitettu&#13;
+ NIIN kardinaliteetti on 99x</Description>
+    <Description lang="sv">OM ett CCL-tillstånd är anmält&#13;
+  DÅ är kardinaliteten 99x</Description>
+    <Description lang="en">IF CCL authorization is declared&#13;
+  THEN the cardinality is 99x</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4413</Code>
+    <Description lang="fi">JOS CCL-lupa on ilmoitettu&#13;
+ NIIN kardinaliteetti on 999x</Description>
+    <Description lang="sv">OM ett CCL-tillstånd är anmält&#13;
+  DÅ är kardinaliteten 999x</Description>
+    <Description lang="en">IF CCL authorization is declared&#13;
+  THEN the cardinality is 999x</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4414</Code>
+    <Description lang="fi">JOS ilmoitus koskee keskitettyä tullausta&#13;
+  NIIN kaikissa &lt;i&gt;Laskutettu kokonaissumma, valuuttalaji&lt;/i&gt; ja &lt;i&gt;Erän laskutusarvo, valuuttalaji&lt;/i&gt; on oltava sama arvo</Description>
+    <Description lang="sv">OM deklarationen gäller centraliserad klarering&#13;
+  DÅ måste alla &lt;i&gt;Fakturerat totalbelopp, valutaslag&lt;/i&gt; och &lt;i&gt;Fakturerat belopp, valutaslag&lt;/i&gt; ha samma värde</Description>
+    <Description lang="en">IF declaration concerns centralized clearance&#13;
+  THEN all &lt;i&gt;Total amount invoiced, currency unit&lt;/i&gt; and &lt;i&gt;Item amount invoiced, currency unit&lt;/i&gt; must have the same value &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Total amount invoiced&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Commodity&lt;/i&gt;/&lt;i&gt;Item amount invoiced&lt;/i&gt;/&lt;i&gt;Item amount invoiced&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4415</Code>
+    <Description lang="fi">&lt;i&gt;Tunnistenumero&lt;/i&gt; ei voi olla suomalainen</Description>
+    <Description lang="sv">&lt;i&gt;Identifieringsnummer&lt;/i&gt; kan inte vara finskt</Description>
+    <Description lang="en">&lt;i&gt;Identification number&lt;/i&gt; cannot be Finnish</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4416</Code>
+    <Description lang="fi">&lt;i&gt;Tunnistenumero&lt;/i&gt; on oltava voimassa VIES-tietokannassa</Description>
+    <Description lang="sv">&lt;i&gt;Identifieringsnummer&lt;/i&gt; måste vara giltigt i VIES</Description>
+    <Description lang="en">&lt;i&gt;Identification number&lt;/i&gt; must be valid in VIES</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4420</Code>
+    <Description lang="fi">Mitätöintipyyntö ei ole sallittu EIDR-ilmoitukselle, joka liittyy keskitettyyn tullaukseen</Description>
+    <Description lang="sv">Begäran om ogiltigförklaring är inte tillåten för EIDR-deklaration med meddelande relaterad till centraliserad klarering</Description>
+    <Description lang="en">Invalidation request is not allowed for EIDR declaration with notification related to centralized clearance</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4424</Code>
+    <Description lang="fi">Mitätöintipyyntöä ei sallita, kun keskitettyyn tullaukseen liittyvä ilmoitus on tarkastettavana</Description>
+    <Description lang="sv">Begäran om ogiltigförklaring är inte tillåten när en deklaration relaterad till centraliserad klarering är under kontroll</Description>
+    <Description lang="en">Invalidation request is not allowed when a declaration related to centralized clearance is under control</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4425</Code>
+    <Description lang="fi">JOS ilmoitus koskee keskitettyä tullausta&#13;
+  NIIN arvon on oltava JOUKOSSA CL165&#13;
+MUUTEN arvon on oltava JOUKOSSA CL008</Description>
+    <Description lang="sv">OM deklarationen gäller centraliserad klarering&#13;
+  DÅ måste värdet vara i GRUPPEN CL165&#13;
+ANNARS måste värdet vara i GRUPPEN CL008</Description>
+    <Description lang="en">IF declaration concerns centralized clearance&#13;
+  THEN value muste be in SET CL165&#13;
+ELSE value mus be in SET CL008</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4426</Code>
+    <Description lang="fi">JOS ilmoitus koskee keskitettyä tullausta&#13;
+  NIIN arvon on oltava JOUKOSSA CL199&#13;
+  MUUTEN arvon on oltava JOUKOSSA CL008</Description>
+    <Description lang="sv">OM deklarationen gäller centraliserad klarering&#13;
+  DÅ måste värdet vara i GRUPPEN CL199&#13;
+  ANNARS måste värdet vara i GRUPPEN CL008</Description>
+    <Description lang="en">IF declaration concerns centralized clearance&#13;
+  THEN the value must be in SET CL199&#13;
+  ELSE the value must be in SET CL008</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4427</Code>
+    <Description lang="fi">JOS ilmoitus koskee keskitettyä tullausta&#13;
+  NIIN tämän on oltava varastoluvan tunniste&#13;
+MUUTEN tämän on oltava tosiasiallinen varaston tunniste</Description>
+    <Description lang="sv">&lt;span style="background-color: rgb(250, 250, 250);"&gt;OM deklarationen gäller centraliserad klarering&lt;/span&gt;&#13;
+  DÅ måste detta vara en identifiering av ett lagertillstånd&#13;
+ANNARS måste detta vara en faktisk lageridentifiering</Description>
+    <Description lang="en">&#13;
+IF declaration concerns centralized clearance&#13;
+  THEN this must be a warehouse authorization ID&#13;
+ELSE this must be an actual warehouse ID</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4428</Code>
+    <Description lang="fi">JOS CCL-lupa on ilmoitettu&#13;
+  NIIN JOS &lt;i&gt;INCOTERM-koodi&lt;/i&gt; = 'XXX'&#13;
+    NIIN &lt;i&gt;Teksti&lt;/i&gt; = 'R' JA &lt;i&gt;UN/LOCODE&lt;/i&gt; = 'O' JA &lt;i&gt;Paikan nimi&lt;/i&gt; = 'O' JA &lt;i&gt;Maa&lt;/i&gt; = 'O'&#13;
+  MUUTEN (&lt;i&gt;Teksti&lt;/i&gt; = 'N' JA &lt;i&gt;UN/LOCODE&lt;/i&gt; = 'R' JA &lt;i&gt;Paikan nimi&lt;/i&gt; = 'O' JA &lt;i&gt;Maa&lt;/i&gt; = 'O') TAI (&lt;i&gt;Teksti&lt;/i&gt; = 'N' JA &lt;i&gt;UN/LOCODE&lt;/i&gt; = 'O' JA &lt;i&gt;Paikan nimi&lt;/i&gt; = 'R' JA &lt;i&gt;Maa&lt;/i&gt; = 'R')</Description>
+    <Description lang="sv">OM ett CCL-tillstånd är anmält&#13;
+  DÅ OM &lt;i&gt;INCOTERM-kod&lt;/i&gt; = 'XXX'&#13;
+    DÅ är &lt;i&gt;Text&lt;/i&gt; = 'R' OCH &lt;i&gt;UN/LOCODE&lt;/i&gt; = 'O' OCH &lt;i&gt;Platsens namn&lt;/i&gt; = 'O' OCH &lt;i&gt;Land&lt;/i&gt; = 'O'&#13;
+  ELSE (&lt;i&gt;Text&lt;/i&gt; = 'N' OCH &lt;i&gt;UN/LOCODE&lt;/i&gt; = 'R' OCH &lt;i&gt;Platsens namn&lt;/i&gt; = 'O' OCH &lt;i&gt;Land&lt;/i&gt; = 'O') ELLER (&lt;i&gt;Text&lt;/i&gt; = 'N' OCH &lt;i&gt;UN/LOCODE&lt;/i&gt; = 'O' OCH &lt;i&gt;Platsens namn&lt;/i&gt; = 'R' OCH &lt;i&gt;Land&lt;/i&gt; = 'R')</Description>
+    <Description lang="en">IF CCL authorization is declared&#13;
+  THEN IF &lt;i&gt;INCOTERM code&lt;/i&gt; = 'XXX'&#13;
+    THEN &lt;i&gt;Text&lt;/i&gt; = 'R' AND &lt;i&gt;UN/LOCODE&lt;/i&gt; = 'O' AND &lt;i&gt;Location name&lt;/i&gt; = 'O' AND &lt;i&gt;Country&lt;/i&gt; = 'O'&#13;
+  ELSE (&lt;i&gt;Text&lt;/i&gt; = 'N' AND &lt;i&gt;UN/LOCODE&lt;/i&gt; = 'R' AND &lt;i&gt;Location name&lt;/i&gt; = 'O' AND &lt;i&gt;Country&lt;/i&gt; = 'O') OR (&lt;i&gt;Text&lt;/i&gt; = 'N' AND &lt;i&gt;UN/LOCODE&lt;/i&gt; = 'O' AND &lt;i&gt;Location name&lt;/i&gt; = 'R' AND &lt;i&gt;Country&lt;/i&gt; = 'R')</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4429</Code>
+    <Description lang="fi">Maakoodin on oltava identtinen joko SCI-maakoodin tai PCI-maakoodin kanssa.</Description>
+    <Description lang="sv">Landskoden måste vara identisk med antingen SCI-landskoden eller PCI-landskoden.</Description>
+    <Description lang="en">The country code must be identical with either the SCI country code or the PCI country code.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4437</Code>
+    <Description lang="fi">JOS ilmoitus koskee keskitettyä tullausta JA Suomi on SCI&#13;
+  NIIN &lt;i&gt;Tullitoimipaikan tunniste&lt;/i&gt; ei voi alkaa 'FI' JA sillä on oltava rooli 'PCI'</Description>
+    <Description lang="sv">OM deklarationen gäller centraliserad klarering OCH Finland är SCI&#13;
+  DÅ kan &lt;i&gt;Identifierare för tullkontor&lt;/i&gt; inte börja med 'FI' OCH måste ha rollen 'PCI'</Description>
+    <Description lang="en">IF declaration concerns centralized clearance AND Finland is SCI&#13;
+  THEN &lt;i&gt;Customs office identifier&lt;/i&gt; cannot start with 'FI' AND must have role 'PCI'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4438</Code>
+    <Description lang="fi">Mitätöintipyyntö ei ole sallittu keskitettyyn tullaukseen liittyvälle täydentävälle ilmoitukselle</Description>
+    <Description lang="sv">Begäran om ogiltigförklaring är inte tillåten för kompletterande deklaration relaterad till centraliserad klarering</Description>
+    <Description lang="en">Invalidation request is not allowed for supplementary declaration related to centralized clearance</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4447</Code>
+    <Description lang="fi">JOS ilmoitus koskee keskitettyä tullausta&#13;
+  NIIN&#13;
+    JOS &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt; on YHTÄ KUIN 'A'&#13;
+      NIIN &lt;i&gt;Tavaran sijaintipaikka&lt;/i&gt; on oltava JOUKOSSA {&lt;i&gt;Osoite&lt;/i&gt;, &lt;i&gt;Tullitoimipaikka&lt;/i&gt;, &lt;i&gt;GNSS&lt;/i&gt;, &lt;i&gt;Postinumero-osoite&lt;/i&gt;, &lt;i&gt;UN/LOCODE&lt;/i&gt;}&#13;
+    MUUTEN JOS &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt; on YHTÄ KUIN 'B'&#13;
+      NIIN &lt;i&gt;Tavaran sijaintipaikka&lt;/i&gt; on oltava JOUKOSSA {&lt;i&gt;Luvan numero&lt;/i&gt;, &lt;i&gt;Talouden toimija&lt;/i&gt;, &lt;i&gt;Postinumero-osoite&lt;/i&gt;, &lt;i&gt;UN/LOCODE&lt;/i&gt;}&#13;
+    MUUTEN JOS &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt; on YHTÄ KUIN 'C'&#13;
+      NIIN &lt;i&gt;Tavaran sijaintipaikka&lt;/i&gt; on oltava JOUKOSSA {&lt;i&gt;Osoite&lt;/i&gt;, &lt;i&gt;Luvan numero&lt;/i&gt;, &lt;i&gt;Talouden toimija&lt;/i&gt;, &lt;i&gt;GNSS&lt;/i&gt;, &lt;i&gt;Postinumero-osoite&lt;/i&gt;, &lt;i&gt;UN/LOCODE&lt;/i&gt;}&#13;
+    MUUTEN JOS &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt; on YHTÄ KUIN 'D'&#13;
+      NIIN &lt;i&gt;Tavaran sijaintipaikka&lt;/i&gt; on oltava JOUKOSSA {&lt;i&gt;Osoite&lt;/i&gt;, &lt;i&gt;GNSS&lt;/i&gt;, &lt;i&gt;Postinumero-osoite&lt;/i&gt;, &lt;i&gt;UN/LOCODE&lt;/i&gt;}</Description>
+    <Description lang="sv">OM deklarationen gäller centraliserad klarering&#13;
+  DÅ&#13;
+    OM &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; är LIKA MED 'A'&#13;
+      DÅ måste &lt;i&gt;Varornas förvaringsplats&lt;/i&gt; vara i GRUPPEN {&lt;i&gt;Adress&lt;/i&gt;, &lt;i&gt;Tullkontor&lt;/i&gt;, &lt;i&gt;GNSS&lt;/i&gt;, &lt;i&gt;Postnummeradress&lt;/i&gt;, &lt;i&gt;UN/LOCODE&lt;/i&gt;}&#13;
+    ANNARS OM &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; är LIKA MED 'B'&#13;
+      DÅ måste &lt;i&gt;Varornas förvaringsplats&lt;/i&gt; vara i GRUPPEN {&lt;i&gt;Tillståndsnummer&lt;/i&gt;, &lt;i&gt;Ekonomisk aktör&lt;/i&gt;, &lt;i&gt;Postnummeradress&lt;/i&gt;, &lt;i&gt;UN/LOCODE&lt;/i&gt;}&#13;
+    ANNARS OM &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; är LIKA MED 'C'&#13;
+      DÅ måste &lt;i&gt;Varornas förvaringsplats&lt;/i&gt; vara i GRUPPEN {&lt;i&gt;Adress&lt;/i&gt;, &lt;i&gt;Tillståndsnummer&lt;/i&gt;, &lt;i&gt;Ekonomisk aktör&lt;/i&gt;, &lt;i&gt;GNSS&lt;/i&gt;, &lt;i&gt;Postnummeradress&lt;/i&gt;, &lt;i&gt;UN/LOCODE&lt;/i&gt;}&#13;
+    ANNARS OM &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; är LIKA MED 'D'&#13;
+      DÅ måste &lt;i&gt;Varornas förvaringsplats&lt;/i&gt; vara i GRUPPEN {&lt;i&gt;Adress&lt;/i&gt;, &lt;i&gt;GNSS&lt;/i&gt;, &lt;i&gt;Postnummeradress&lt;/i&gt;, &lt;i&gt;UN/LOCODE&lt;/i&gt;}</Description>
+    <Description lang="en">IF declaration concerns centralized clearance&#13;
+  THEN&#13;
+    IF &lt;i&gt;Type of location&lt;/i&gt; is EQUAL to 'A'&#13;
+      THEN &lt;i&gt;Location of goods&lt;/i&gt; must be in SET {&lt;i&gt;Address&lt;/i&gt;, &lt;i&gt;Customs office&lt;/i&gt;, &lt;i&gt;GNSS&lt;/i&gt;, &lt;i&gt;Postcode address&lt;/i&gt;, &lt;i&gt;UN/LOCODE&lt;/i&gt;}&#13;
+    ELSE IF &lt;i&gt;Type of location&lt;/i&gt; is EQUAL to 'B'&#13;
+      THEN &lt;i&gt;Location of goods&lt;/i&gt; must be in SET {&lt;i&gt;Authorisation number&lt;/i&gt;, &lt;i&gt;Economic operator&lt;/i&gt;, &lt;i&gt;Postcode address&lt;/i&gt;, &lt;i&gt;UN/LOCODE&lt;/i&gt;}&#13;
+    ELSE IF &lt;i&gt;Type of location&lt;/i&gt; is EQUAL to 'C'&#13;
+      THEN &lt;i&gt;Location of goods&lt;/i&gt; must be in SET {&lt;i&gt;Address&lt;/i&gt;, &lt;i&gt;Authorisation number&lt;/i&gt;, &lt;i&gt;Economic operator&lt;/i&gt;, &lt;i&gt;GNSS&lt;/i&gt;, &lt;i&gt;Postcode address&lt;/i&gt;, &lt;i&gt;UN/LOCODE&lt;/i&gt;}&#13;
+    ELSE IF &lt;i&gt;Type of location&lt;/i&gt; is EQUAL to 'D'&#13;
+      THEN &lt;i&gt;Location of goods&lt;/i&gt; must be in SET {&lt;i&gt;Address&lt;/i&gt;, &lt;i&gt;GNSS&lt;/i&gt;, &lt;i&gt;Postcode address&lt;/i&gt;, &lt;i&gt;UN/LOCODE&lt;/i&gt;}</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4448</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; on YHTÄ KUIN 'FISUR'&#13;
+  NIIN viitattu MRN ei voi kuulua keskitetyn tullauksen ilmoitukselle</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; är LIKA MED 'FISUR'&#13;
+  DÅ kan det refererade MRN inte vara en deklaration för centraliserad klarering</Description>
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; is EQUAL to 'FISUR'&#13;
+  THEN referenced MRN cannot be that of a centralized clearance declaration</Description>
+  </Constraint>
+  <Constraint>
     <Code>R0007</Code>
     <Description lang="fi">Jokainen &lt;i&gt;Tavaraerän numero&lt;/i&gt;/&lt;i&gt;Ilmoituksen tavaraerän numero&lt;/i&gt; on ilmoituksella yksilöllinen. Erät on numeroitava peräkkäin alkaen luvusta '1' ensimmäisen kohdan osalta ja lisäämällä numerointia 1:llä jokaisen seuraavan kohdan osalta.</Description>
     <Description lang="sv">Varje &lt;i&gt;Varupostnummer&lt;/i&gt;/&lt;i&gt;Varupostnummer i deklarationen&lt;/i&gt; är unik genom hela deklarationen. Varuposterna ska numreras på ett sekventiellt sätt, med början från '1' för den första varuposten och öka numreringen med '1' för varje efterföljande artikel.</Description>
@@ -3474,14 +3884,20 @@ o Previous procedure 21 is not allowed for any goods item</Description>
   </Constraint>
   <Constraint>
     <Code>R0672</Code>
-    <Description lang="fi">Tämä tieto tulee täyttää kun myyjä on eri henkilö kuin viejäksi ilmoitettu henkilö</Description>
-    <Description lang="sv">Denna uppgift ska fyllas in då försäljaren är en annan person än den som fyllts i som exportör</Description>
-    <Description lang="en">This information is to be provided where the seller is different to the person provided as exporter</Description>
+    <Description lang="fi">Ilmoituksilla, joilla ei ole CCL-lupaa tämä tieto tulee täyttää kun myyjä on eri henkilö kuin viejäksi ilmoitettu henkilö</Description>
+    <Description lang="sv">För deklarationer utan CCL-tillstånd ska denna uppgift fyllas in då försäljaren är en annan person än den som fyllts i som exportör</Description>
+    <Description lang="en">For declaration without CCL authorization this information is to be provided where the seller is different to the person provided as exporter</Description>
   </Constraint>
   <Constraint>
     <Code>R0862</Code>
     <Description lang="fi">Ilmoittajan tunnusta ei voi muuttaa.</Description>
     <Description lang="sv">Deklarantens identifiering kan inte ändras.</Description>
     <Description lang="en">Declarant identification number cannot be amended.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>R0995</Code>
+    <Description lang="fi">Vain EORI-numero on kelvollinen.</Description>
+    <Description lang="sv">Endast ett EORI-nummer är giltigt.</Description>
+    <Description lang="en">Only an EORI number is valid.</Description>
   </Constraint>
 </Constraints>
