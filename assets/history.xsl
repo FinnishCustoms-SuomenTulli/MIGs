@@ -2,6 +2,9 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="html"/>
 	<xsl:param name="language"/>
+	<xsl:variable name="printerIcon">
+		<span class="printButton icon icon-tulli-printer"/>
+	</xsl:variable>
 	<xsl:template match="Introduction">
 		<table class="table table-striped table-responsive table-condensed">
 			<thead>
@@ -101,10 +104,16 @@
 							<h1 class="modal-title">
 								<xsl:choose>
 									<xsl:when test="$language='fi'">
-										<xsl:value-of select="concat('Versio ',Number)"/>
+										<xsl:text>Versio </xsl:text>
+										<xsl:value-of select="Number"/>
+										<xsl:text> </xsl:text>
+										<xsl:copy-of select="$printerIcon"/>
 									</xsl:when>
 									<xsl:otherwise>
-										<xsl:value-of select="concat('Version ',Number)"/>
+										<xsl:text>Version </xsl:text>
+										<xsl:value-of select="Number"/>
+										<xsl:text> </xsl:text>
+										<xsl:copy-of select="$printerIcon"/>
 									</xsl:otherwise>
 								</xsl:choose>
 							</h1>
