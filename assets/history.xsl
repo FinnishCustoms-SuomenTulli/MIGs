@@ -36,7 +36,9 @@
 				<tr>
 					<td>
 						<a href="#" data-toggle="modal">
-							<xsl:attribute name="data-target"><xsl:value-of select="concat('#Version_',last()-position()+1)"/></xsl:attribute>
+							<xsl:attribute name="data-target">
+								<xsl:value-of select="concat('#Version_',last()-position()+1)"/>
+							</xsl:attribute>
 							<xsl:value-of select="Number"/>
 							<br/>
 							<xsl:choose>
@@ -90,7 +92,9 @@
 		</xsl:choose>
 		<xsl:for-each select="VersionHistory/Version">
 			<div class="modal" tabindex="-1" role="dialog" data-keyboard="false">
-				<xsl:attribute name="id"><xsl:value-of select="concat('Version_',position())"/></xsl:attribute>
+				<xsl:attribute name="id">
+					<xsl:value-of select="concat('Version_',position())"/>
+				</xsl:attribute>
 				<div class="modal-dialog modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -106,11 +110,13 @@
 							</h1>
 						</div>
 						<div class="modal-body">
-							<xsl:for-each select="Notes/Note[@lang=($language)]">
-								<ol>
-									<li><xsl:value-of select="."/></li>
-								</ol>
-							</xsl:for-each>
+							<ol>
+								<xsl:for-each select="Notes/Note[@lang=($language)]">
+									<li>
+										<xsl:value-of select="." disable-output-escaping="yes"/>
+									</li>
+								</xsl:for-each>
+							</ol>
 						</div>
 					</div>
 				</div>
