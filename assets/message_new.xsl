@@ -454,9 +454,9 @@
 								</td>
 								<td>
 									<xsl:for-each select="Codelist[@use=$messageType] | Codelist[not(@*)]">
-										<a href="#" data-toggle="modal">
-											<xsl:attribute name="data-target">
-												<xsl:value-of select="concat('#CODELIST_',.)"/>
+										<a class="modalToggle">
+											<xsl:attribute name="data-modal">
+												<xsl:value-of select="."/>
 											</xsl:attribute>
 											<xsl:value-of select="."/>
 										</a>

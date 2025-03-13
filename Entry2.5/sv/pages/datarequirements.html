@@ -175,10 +175,15 @@
         var yyyy = today.getFullYear();
         today = yyyy + mm + dd;
 
-        document.addEventListener('DOMContentLoaded', function () {
-            transform('../../../../codelists/codelists.xml', '../../../assets/codedata.xsl', document.getElementById('codemodal'), 'sv', today);
-            transform('../../common/constraints.xml', '../../../assets/constraints_new.xsl', document.getElementById('rulesmodal'), 'sv', 'na');
-        })
+        transform('../../../../codelists/codelists.xml', '../../../assets/codeheader.xsl', document.getElementById('codemodal'), 'sv', 'na');
+        transform('../../common/constraints.xml', '../../../assets/constraints_new.xsl', document.getElementById('rulesmodal'), 'sv', 'na');
+
+        $('body').on('click', '.modalToggle', function () {
+            const codelistId = $(this).data('modal');
+            console.log(codelistId);
+            transform('../../../../codelists/codelists.xml', '../../../assets/codecontent.xsl', document.getElementById(codelistId + '_content'), 'sv', today + '|' + codelistId);
+            $('#' + codelistId).modal('show');
+        });
 
         // The function actually applying the offset
         function offsetAnchor() {

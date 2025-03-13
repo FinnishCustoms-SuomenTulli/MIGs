@@ -106,7 +106,6 @@
 								<xsl:for-each select="CodeItem">
 									<xsl:variable name="start" select="concat(substring(StartDate,1,4), substring(StartDate,6,2), substring(StartDate,9,2))"/>
 									<xsl:variable name="end" select="concat(substring(EndDate,1,4), substring(EndDate,6,2), substring(EndDate,9,2))"/>
-									<!--xsl:if test="$messageType > $start and $end > $messageType"-->
 									<xsl:if test="$end > $messageType">
 										<tr>
 											<td>
