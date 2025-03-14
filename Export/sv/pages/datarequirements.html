@@ -180,7 +180,6 @@
 
         $('body').on('click', '.modalToggle', function () {
             const codelistId = $(this).data('modal');
-            console.log(codelistId);
             transform('../../../../codelists/codelists.xml', '../../../assets/codecontent.xsl', document.getElementById(codelistId + '_content'), 'sv', today + '|' + codelistId);
             $('#' + codelistId).modal('show');
         });

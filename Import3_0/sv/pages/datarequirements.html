@@ -15,7 +15,7 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <span class="navbar-text main-navbar">Datainnehåll version  </span>
+                <span class="navbar-text main-navbar">Datainnehåll version </span>
                 <a href="../../fi/pages/datarequirements.html">Suomi</a>
                 <a href="../../en/pages/datarequirements.html">English</a>
             </div>
@@ -30,9 +30,11 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <a class="" href="../index.html">
-                            <img class="img-responsive pull-left" src="../../../assets/images/logo-tulli.svg" alt="Finska tullen logotyp" /></a>
+                            <img class="img-responsive pull-left" src="../../../assets/images/logo-tulli.svg"
+                                alt="Finska tullen logotyp" /></a>
 
-                        <button type="button" class="navbar-toggle collapsed pull-right margin-0" data-toggle="collapse" data-target="#navbar-mainmenu" aria-expanded="false" aria-controls="navbar-mainmenu">
+                        <button type="button" class="navbar-toggle collapsed pull-right margin-0" data-toggle="collapse"
+                            data-target="#navbar-mainmenu" aria-expanded="false" aria-controls="navbar-mainmenu">
                             <span class="sr-only">Meny</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -192,7 +194,6 @@
 
         $('body').on('click', '.modalToggle', function () {
             const codelistId = $(this).data('modal');
-            console.log(codelistId);
             transform('../../../../codelists/codelists.xml', '../../../assets/codecontent.xsl', document.getElementById(codelistId + '_content'), 'sv', today + '|' + codelistId);
             $('#' + codelistId).modal('show');
         });
