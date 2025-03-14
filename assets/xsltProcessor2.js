@@ -14,7 +14,7 @@ function loadXML(url) {
     });
 }
 
-function transform(xmlUrl, xslUrl, targetElement, language, messageType) {
+function transform(xmlUrl, xslUrl, targetElement, language, messageType, callback) {
     Promise.all([loadXML(xmlUrl), loadXML(xslUrl)]).then(function(data) {
         var xmlDoc = data[0];
         var xslDoc = data[1];
@@ -41,12 +41,15 @@ function transform(xmlUrl, xslUrl, targetElement, language, messageType) {
             proc.addParameter(null, "messageType", messageType);
 
             proc.input = xmlDoc;
-
             proc.transform();
 
             var resultHTML = proc.output;
-
             targetElement.innerHTML += resultHTML;
         }
+
+        // Execute callback if provided
+        if (typeof callback === 'function') {
+            callback();
+        }
     });
- }
+}
