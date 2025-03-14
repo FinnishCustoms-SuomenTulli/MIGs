@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../../assets/tulli-bootstrap-style.css" type="text/css" />
     <link rel="stylesheet" href="../../../assets/tulli-mig-tables-style.css" type="text/css" />
     <link rel="stylesheet" href="../../../assets/scroll-style.css" type="text/css" />
-	<link rel="stylesheet" href="../../../assets/daterangepicker.css" type="text/css" />
+    <link rel="stylesheet" href="../../../assets/daterangepicker.css" type="text/css" />
 </head>
 
 <body class="Site">
@@ -155,7 +155,20 @@
                 })
             } // End Success
         }); // End AJAX
-        transform('../../../../codelists/codelists.xml', '../../../assets/codelists2.xsl', document.getElementById('contents'), 'sv', moment().format('YYYYMMDD'));
+        transform('../../../../codelists/codelists.xml', '../../../assets/codelists2.xsl', document.getElementById('contents'), 'sv', moment().format('YYYYMMDD'),
+            function () {
+                document.querySelectorAll('.accordion-content-container').forEach((element) => {
+                    const codelistId = element.dataset.codelist;
+                    transform(
+                        '../../../../codelists/codelists.xml',
+                        '../../../assets/codecontent.xsl',
+                        element, // Directly pass the DOM element
+                        'sv',
+                        moment().format('YYYYMMDD') + '|' + codelistId
+                    );
+                });
+            }
+        );
         $(document.body).tooltip({
             selector: '[title]'
         });
@@ -186,7 +199,16 @@
             },
         }).on('apply.daterangepicker', function (ev, picker) {
             var checkDate = picker.startDate.format('YYYYMMDD');
-            transform('../../../../codelists/codelists.xml', '../../../assets/codelists2.xsl', document.getElementById('contents'), 'sv', checkDate);
+            document.querySelectorAll('.accordion-content-container').forEach((element) => {
+                const codelistId = element.dataset.codelist;
+                transform(
+                    '../../../../codelists/codelists.xml',
+                    '../../../assets/codecontent.xsl',
+                    element, // Directly pass the DOM element
+                    'sv',
+                    checkDate + '|' + codelistId
+                );
+            });
         });
 
         (function () {

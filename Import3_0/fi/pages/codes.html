@@ -155,7 +155,20 @@
 				})
 			} // End Success
 		}); // End AJAX
-		transform('../../../../codelists/codelists.xml', '../../../assets/codelists2.xsl', document.getElementById('contents'), 'fi', moment().format('YYYYMMDD'));
+		transform('../../../../codelists/codelists.xml', '../../../assets/codelists2.xsl', document.getElementById('contents'), 'fi', moment().format('YYYYMMDD'),
+			function () {
+				document.querySelectorAll('.accordion-content-container').forEach((element) => {
+					const codelistId = element.dataset.codelist;
+					transform(
+						'../../../../codelists/codelists.xml',
+						'../../../assets/codecontent.xsl',
+						element, // Directly pass the DOM element
+						'fi',
+						moment().format('YYYYMMDD') + '|' + codelistId
+					);
+				});
+			}
+		);
 		$(document.body).tooltip({
 			selector: '[title]'
 		});
@@ -186,7 +199,16 @@
 			},
 		}).on('apply.daterangepicker', function (ev, picker) {
 			var checkDate = picker.startDate.format('YYYYMMDD');
-			transform('../../../../codelists/codelists.xml', '../../../assets/codelists2.xsl', document.getElementById('contents'), 'fi', checkDate);
+			document.querySelectorAll('.accordion-content-container').forEach((element) => {
+				const codelistId = element.dataset.codelist;
+				transform(
+					'../../../../codelists/codelists.xml',
+					'../../../assets/codecontent.xsl',
+					element, // Directly pass the DOM element
+					'fi',
+					checkDate + '|' + codelistId
+				);
+			});
 		});
 
 		(function () {
