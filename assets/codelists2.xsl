@@ -23,6 +23,9 @@
 				<div class="accordion">
 					<xsl:for-each select="CodeLists/CodeList">
 						<div class="accordion-row" style="display: block">
+								<xsl:attribute name="id">
+									<xsl:value-of select="concat('panel_',Identification)"/>
+								</xsl:attribute>
 							<xsl:attribute name="data-codelist">
 								<xsl:value-of select="Identification"/>
 							</xsl:attribute>
