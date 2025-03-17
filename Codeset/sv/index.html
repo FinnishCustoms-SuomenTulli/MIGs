@@ -122,20 +122,13 @@
                 })
             } // End Success
         }); // End AJAX
-        transform('../../../codelists/codelists.xml', '../../assets/codelists2.xsl', document.getElementById('contents'), 'sv', moment().format('YYYYMMDD'),
-            function () {
-                document.querySelectorAll('.accordion-content-container').forEach((element) => {
-                    const codelistId = element.dataset.codelist;
-                    transform(
-                        '../../../codelists/codelists.xml',
-                        '../../assets/codecontent.xsl',
-                        element, // Directly pass the DOM element
-                        'sv',
-                        moment().format('YYYYMMDD') + '|' + codelistId
-                    );
-                });
-            }
-        );
+        transform('../../../codelists/codelists.xml', '../../assets/codelists2.xsl', document.getElementById('contents'), 'sv', moment().format('YYYYMMDD'));
+        $('body').on('show.bs.collapse', '.accordion-row', function () {
+            const codelistId = $(this).data('codelist');
+            const checkDate = $('#dateInput').data('daterangepicker').startDate.format('YYYYMMDD');
+            transform('../../../codelists/codelists.xml', '../../assets/codecontent.xsl', document.getElementById('CODELIST_' + codelistId), 'sv', checkDate + '|' + codelistId);
+        });
+
         $('body').append('<span id="toTop" class="badge"><i class="media-object icon-md icon icon-tulli-arrow-up"></i></span>');
         $(window).scroll(function () {
             if ($(this).scrollTop() != 0) {
@@ -162,16 +155,7 @@
             },
         }).on('apply.daterangepicker', function (ev, picker) {
             var checkDate = picker.startDate.format('YYYYMMDD');
-            document.querySelectorAll('.accordion-content-container').forEach((element) => {
-                const codelistId = element.dataset.codelist;
-                transform(
-                    '../../../codelists/codelists.xml',
-                    '../../assets/codecontent.xsl',
-                    element, // Directly pass the DOM element
-                    'sv',
-                    checkDate + '|' + codelistId
-                );
-            });
+            transform('../../../codelists/codelists.xml', '../../assets/codelists2.xsl', document.getElementById('contents'), 'sv', checkDate);
         });
 
         (function () {

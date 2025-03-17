@@ -23,15 +23,12 @@
 				<div class="accordion">
 					<xsl:for-each select="CodeLists/CodeList">
 						<div class="accordion-row" style="display: block">
-							<xsl:attribute name="id">
-								<xsl:value-of select="concat('CODELIST_',Identification)"/>
+							<xsl:attribute name="data-codelist">
+								<xsl:value-of select="Identification"/>
 							</xsl:attribute>
 							<a class="accordion-link" role="button" data-toggle="collapse" aria-expanded="false">
 								<xsl:attribute name="href">
 									<xsl:value-of select="concat('#CODELIST_',Identification)"/>
-								</xsl:attribute>
-								<xsl:attribute name="id">
-									<xsl:value-of select="concat('CODELIST_',Identification)"/>
 								</xsl:attribute>
 								<xsl:attribute name="aria-controls">
 									<xsl:value-of select="Name[@lang=($language)]"/>
@@ -39,13 +36,22 @@
 								<xsl:value-of select="concat(Identification,' - ',Name[@lang=($language)])"/>
 								<span class="icon icon-tulli-chevron-tight-down"/>
 							</a>
-							<div class="accordion-content collapse" role="region">
+							<div class="accordion-content collapse">
 								<xsl:attribute name="id">
 									<xsl:value-of select="concat('CODELIST_',Identification)"/>
 								</xsl:attribute>
 								<xsl:attribute name="aria-labelledby">
 									<xsl:value-of select="concat('CODELIST_',Identification)"/>
 								</xsl:attribute>
+								<div style="display: none">
+									<xsl:for-each select="CodeItem">
+										<xsl:variable name="start" select="concat(substring(StartDate,1,4), substring(StartDate,6,2), substring(StartDate,9,2))"/>
+										<xsl:variable name="end" select="concat(substring(EndDate,1,4), substring(EndDate,6,2), substring(EndDate,9,2))"/>
+										<xsl:if test="$messageType >= $start and $end >= $messageType">
+										<xsl:value-of select="concat(Code, '|', Name[@lang=($language)], '|')"/>
+											</xsl:if>
+									</xsl:for-each>
+								</div>
 								<div class="accordion-content-container">
 									<xsl:attribute name="data-codelist">
 										<xsl:value-of select="Identification"/>
