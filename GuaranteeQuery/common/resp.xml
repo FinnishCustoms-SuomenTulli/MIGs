@@ -1,760 +1,1004 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSpy v2018 (x64) (http://www.altova.com) by Finnish Customs (Finnish Customs) -->
-<Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Message.xsd">
-	<DataGroup>
-		<Name lang="fi">Vakuustapahtuma</Name>
-		<Name lang="sv">Garantihändelse</Name>
-		<Name lang="en">Guarantee operation</Name>
-		<Use>FI037A</Use>
-		<Use>FI086A</Use>
-		<Use>FI096A</Use>
-		<Use>FI099A</Use>
-		<XPath/>
-		<Group>GuaranteeOperation</Group>
-		<MinOccurence>1</MinOccurence>
-		<MaxOccurence>1</MaxOccurence>
-		<DataElement>
-			<Name lang="fi">Sanoman tunniste</Name>
-			<Name lang="sv">Meddelandets identifierare</Name>
-			<Name lang="en">Message identification</Name>
-			<Use>FI037A</Use>
-			<Use>FI086A</Use>
-			<Use>FI096A</Use>
-			<Use>FI099A</Use>
-			<XPath>Identification</XPath>
-			<MinOccurence>1</MinOccurence>
-			<Format>an..14</Format>
-		</DataElement>
-		<DataGroup>
-			<Name lang="fi">Ilmoitus</Name>
-			<Name lang="sv">Underrättelse</Name>
-			<Name lang="en">Notification</Name>
-			<Use>FI086A</Use>
-			<Use>FI096A</Use>
-			<Use>FI099A</Use>
-			<XPath>Notification</XPath>
-			<Group>Notification</Group>
-			<MinOccurence>1</MinOccurence>
-			<MaxOccurence>1</MaxOccurence>
-			<DataElement>
-				<Name lang="fi">Ilmoituksen tyyppi</Name>
-				<Name lang="sv">Typ av underrättelse</Name>
-				<Name lang="en">Notification type</Name>
-				<Use>FI086A</Use>
-				<Use>FI096A</Use>
-				<Use>FI099A</Use>
-				<XPath>Type</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Codelist>NCL097</Codelist>
-				<Format>an3</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Ilmoituksen päiväys ja aika</Name>
-				<Name lang="sv">Datum och tid för underrättelsen</Name>
-				<Name lang="en">Notification date and time</Name>
-				<Use>FI086A</Use>
-				<Use>FI096A</Use>
-				<Use>FI099A</Use>
-				<XPath>Notification</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Format>dateTime</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Ilmoituksen kuvaus</Name>
-				<Name lang="sv">Beskrivning av underrättelsen</Name>
-				<Name lang="en">Notification description</Name>
-				<Use>FI099A</Use>
-				<XPath>Text</XPath>
-				<MinOccurence>0</MinOccurence>
-				<Format>an..4096</Format>
-			</DataElement>
-			<DataGroup>
-				<Name lang="fi">Virhe</Name>
-				<Name lang="sv">Fel</Name>
-				<Name lang="en">Error</Name>
-				<Use>FI086A</Use>
-				<XPath>Error</XPath>
-				<Group>Error</Group>
-				<MinOccurence>0</MinOccurence>
-				<MaxOccurence>999</MaxOccurence>
-				<DataElement>
-					<Name lang="fi">Virhekoodi</Name>
-					<Name lang="sv">Felkod</Name>
-					<Name lang="en">Error code</Name>
-					<Use>FI086A</Use>
-					<XPath>Code</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Codelist>CL401</Codelist>
-					<Format>an..200</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Virhesyy</Name>
-					<Name lang="sv">Felorsak</Name>
-					<Name lang="en">Error reason</Name>
-					<Use>FI086A</Use>
-					<XPath>Reason</XPath>
-					<MinOccurence>0</MinOccurence>
-					<Format>an..4096</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Virheen selite</Name>
-					<Name lang="sv">Felbeskrivning</Name>
-					<Name lang="en">Error description</Name>
-					<Use>FI086A</Use>
-					<XPath>Description</XPath>
-					<MinOccurence>0</MinOccurence>
-					<Format>an..4096</Format>
-				</DataElement>
-				<DataGroup hidden="true">
-					<Name lang="fi">Virheosoitin</Name>
-					<Name lang="sv">Felpekare</Name>
-					<Name lang="en">Error pointer</Name>
-					<Use>FI086A</Use>
-					<XPath>Pointer</XPath>
-					<Group>Error</Group>
-					<MinOccurence>0</MinOccurence>
-					<MaxOccurence>1</MaxOccurence>
-					<DataElement>
-						<Name lang="fi">Virheosoitin</Name>
-						<Name lang="sv">Felpekare</Name>
-						<Name lang="en">Error pointer</Name>
-						<Use>FI086A</Use>
-						<XPath>Location</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Format>an..200</Format>
-					</DataElement>
-				</DataGroup>
-				<DataElement>
-					<Name lang="fi">Tiedon alkuperäinen arvo</Name>
-					<Name lang="sv">Ursprungligt attributvärde</Name>
-					<Name lang="en">Original attribute value</Name>
-					<Use>FI086A</Use>
-					<XPath>OriginalValue</XPath>
-					<MinOccurence>0</MinOccurence>
-					<Format>an..512</Format>
-				</DataElement>
-			</DataGroup>
-		</DataGroup>
-		<DataGroup>
-			<Name lang="fi">Pyynnön tekijä</Name>
-			<Name lang="sv">Förfrågare</Name>
-			<Name lang="en">Requester</Name>
-			<Use>FI037A</Use>
-			<XPath>Requester</XPath>
-			<Group>Requester</Group>
-			<MinOccurence>1</MinOccurence>
-			<MaxOccurence>1</MaxOccurence>
-			<DataElement>
-				<Name lang="fi">Tunnistenumero</Name>
-				<Name lang="sv">Identifieringsnummer</Name>
-				<Name lang="en">Identification no.</Name>
-				<Use>FI037A</Use>
-				<XPath>Identification</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Rule>R0850</Rule>
-				<Format>an..17</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Rooli</Name>
-				<Name lang="sv">Roll</Name>
-				<Name lang="en">Role</Name>
-				<Use>FI037A</Use>
-				<XPath>Role</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Codelist>CL156</Codelist>
-				<Format>n1</Format>
-			</DataElement>
-		</DataGroup>
-		<DataGroup>
-			<Name lang="fi">Vakuustullitoimipaikka</Name>
-			<Name lang="sv">Garantitullkontor</Name>
-			<Name lang="en">Customs office of guarantee</Name>
-			<Use>FI037A</Use>
-			<XPath>GuaranteeOffice</XPath>
-			<Group>GuaranteeOffice</Group>
-			<MinOccurence>1</MinOccurence>
-			<MaxOccurence>1</MaxOccurence>
-			<DataElement>
-				<Name lang="fi">Tullitoimipaikan tunniste (viitenumero)</Name>
-				<Name lang="sv">Identifierare för tullkontor (referensnummer)</Name>
-				<Name lang="en">Customs office identifier (reference number)</Name>
-				<Use>FI037A</Use>
-				<XPath>Identification</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Codelist>CL174</Codelist>
-				<Format>an8</Format>
-			</DataElement>
-		</DataGroup>
-		<DataGroup>
-			<Name lang="fi">Vakuuden viite</Name>
-			<Name lang="sv">Referens för garanti</Name>
-			<Name lang="en">Guarantee reference</Name>
-			<Alias lang="fi">Vakuus</Alias>
-			<Alias lang="sv">Garanti</Alias>
-			<Alias lang="en">Guarantee reference</Alias>
-			<Use>FI037A</Use>
-			<XPath>GuaranteeReference</XPath>
-			<Group>GuaranteeReference</Group>
-			<MinOccurence>1</MinOccurence>
-			<MaxOccurence>99</MaxOccurence>
-			<DataElement>
-				<Name lang="fi">Järjestysnumero</Name>
-				<Name lang="sv">Ordningsnummer</Name>
-				<Name lang="en">Sequence number</Name>
-				<Use>FI037A</Use>
-				<XPath>Sequence</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Rule>R0987</Rule>
-				<Format>n..5</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Vakuuden viitenumero (GRN)</Name>
-				<Name lang="sv">Referensnummer för garanti (GRN)</Name>
-				<Name lang="en">Guarantee reference number (GRN)</Name>
-				<Use>FI037A</Use>
-				<XPath>Reference</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Format>an..24</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Käyttöönottopäivä</Name>
-				<Name lang="sv">Dag för ibruktagande</Name>
-				<Name lang="en">Acceptance date and time</Name>
-				<Use>FI037A</Use>
-				<XPath>Acceptance</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Format>dateTime</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Vakuuden tyyppi</Name>
-				<Name lang="sv">Garantityp</Name>
-				<Name lang="en">Guarantee type</Name>
-				<Use>FI037A</Use>
-				<XPath>GuaranteeType</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Codelist>CL251</Codelist>
-				<Format>an1</Format>
-			</DataElement>
-			<DataElement>
-				<Name lang="fi">Käytön seurannan laajuus</Name>
-				<Name lang="sv">Omfattning av användningsövervakning</Name>
-				<Name lang="en">Guarantee monitoring code</Name>
-				<Use>FI037A</Use>
-				<XPath>GuaranteeMonitoring</XPath>
-				<MinOccurence>1</MinOccurence>
-				<Codelist>CL050</Codelist>
-				<Format>n1</Format>
-			</DataElement>
-			<DataGroup>
-				<Name lang="fi">Vakuuskysely</Name>
-				<Name lang="sv">Garantiförfrågan</Name>
-				<Name lang="en">Guarantee query</Name>
-				<Use>FI037A</Use>
-				<XPath>GuaranteeQuery</XPath>
-				<Group>GuaranteeQuery</Group>
-				<MinOccurence>1</MinOccurence>
-				<MaxOccurence>1</MaxOccurence>
-				<DataElement>
-					<Name lang="fi">Kyselyn laajuus</Name>
-					<Name lang="sv">Förfrågans omfattning</Name>
-					<Name lang="en">Query identifier</Name>
-					<Use>FI037A</Use>
-					<XPath>QueryIdentifier</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Codelist>CL054</Codelist>
-					<Format>n1</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Jakson alkupäivä</Name>
-					<Name lang="sv">Periodens startdatum</Name>
-					<Name lang="en">Period from date</Name>
-					<Use>FI037A</Use>
-					<XPath>Start</XPath>
-					<MinOccurence>0</MinOccurence>
-					<Rule>R0263</Rule>
-					<Format>date</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Jakson loppupäivä</Name>
-					<Name lang="sv">Periodens slutdatum</Name>
-					<Name lang="en">Period to date</Name>
-					<Use>FI037A</Use>
-					<XPath>End</XPath>
-					<MinOccurence>0</MinOccurence>
-					<Rule>R0263</Rule>
-					<Rule>R0705</Rule>
-					<Format>date</Format>
-				</DataElement>
-			</DataGroup>
-			<DataGroup>
-				<Name lang="fi">Vakuudenhaltija</Name>
-				<Name lang="sv">Innehavare av garantin</Name>
-				<Name lang="en">Owner</Name>
-				<Use>FI037A</Use>
-				<XPath>GuaranteeOwner</XPath>
-				<Group>GuaranteeOwner</Group>
-				<MinOccurence>0</MinOccurence>
-				<MaxOccurence>1</MaxOccurence>
-				<DataElement>
-					<Name lang="fi">Tunnistenumero</Name>
-					<Name lang="sv">Identifieringsnummer</Name>
-					<Name lang="en">Identification no.</Name>
-					<Use>FI037A</Use>
-					<XPath>Identification</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Rule>R0850</Rule>
-					<Format>an..17</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Nimi</Name>
-					<Name lang="sv">Namn</Name>
-					<Name lang="en">Name</Name>
-					<Use>FI037A</Use>
-					<XPath>Name</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>an..70</Format>
-				</DataElement>
-				<DataGroup>
-					<Name lang="fi">Osoite</Name>
-					<Name lang="sv">Adress</Name>
-					<Name lang="en">Address</Name>
-					<Use>FI037A</Use>
-					<XPath>Address</XPath>
-					<Group>Address</Group>
-					<MinOccurence>1</MinOccurence>
-					<MaxOccurence>1</MaxOccurence>
-					<DataElement>
-						<Name lang="fi">Katuosoite</Name>
-						<Name lang="sv">Gatuadress</Name>
-						<Name lang="en">Street and number</Name>
-						<Use>FI037A</Use>
-						<XPath>Line</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Format>an..70</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Postinumero</Name>
-						<Name lang="sv">Postnummer</Name>
-						<Name lang="en">Postcode</Name>
-						<Use>FI037A</Use>
-						<XPath>Postcode</XPath>
-						<MinOccurence>0</MinOccurence>
-						<Format>an..17</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Postitoimipaikka</Name>
-						<Name lang="sv">Postanstalt</Name>
-						<Name lang="en">City</Name>
-						<Use>FI037A</Use>
-						<XPath>CityName</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Format>an..35</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Maa</Name>
-						<Name lang="sv">Land</Name>
-						<Name lang="en">Country</Name>
-						<Use>FI037A</Use>
-						<XPath>Country</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Codelist>CL248</Codelist>
-						<Format>a2</Format>
-					</DataElement>
-				</DataGroup>
-			</DataGroup>
-			<DataGroup>
-				<Name lang="fi">Vakuusvaraus</Name>
-				<Name lang="sv">Garantireservering</Name>
-				<Name lang="en">Usage</Name>
-				<Use>FI037A</Use>
-				<XPath>Usage</XPath>
-				<Group>Usage</Group>
-				<MinOccurence>0</MinOccurence>
-				<MaxOccurence>9999</MaxOccurence>
-				<DataElement>
-					<Name lang="fi">Järjestysnumero</Name>
-					<Name lang="sv">Ordningsnummer</Name>
-					<Name lang="en">Sequence number</Name>
-					<Use>FI037A</Use>
-					<XPath>Sequence</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Rule>R0987</Rule>
-					<Format>n..5</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">MRN-viitenumero</Name>
-					<Name lang="sv">MRN-referensnummer</Name>
-					<Name lang="en">MRN</Name>
-					<Use>FI037A</Use>
-					<XPath>MRN</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>an18</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Varauksen määrä</Name>
-					<Name lang="sv">Reserverat belopp</Name>
-					<Name lang="en">Covered amount</Name>
-					<Use>FI037A</Use>
-					<XPath>Amount</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>n..16,2</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Varauksen määrän valuuttalaji</Name>
-					<Name lang="sv">Valutaslag för reserverat belopp</Name>
-					<Name lang="en">Covered amount, currency code</Name>
-					<Use>FI037A</Use>
-					<XPath>Amount@CurrencyUnit</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Codelist>CL352</Codelist>
-					<Format>a3</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Varauspäivä</Name>
-					<Name lang="sv">Reserveringsadag</Name>
-					<Name lang="en">Lock date</Name>
-					<Use>FI037A</Use>
-					<XPath>Lock</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>date</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Varauksen vapautuspäivä ja -aika</Name>
-					<Name lang="sv">Datum och tid för frisläppande av reserveringen</Name>
-					<Name lang="en">Arrival date and time</Name>
-					<Use>FI037A</Use>
-					<XPath>Arrival</XPath>
-					<MinOccurence>0</MinOccurence>
-					<Format>dateTime</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Vastuun vapautuspäivä</Name>
-					<Name lang="sv">Datum för frisläppande av ansvar</Name>
-					<Name lang="en">Release date</Name>
-					<Use>FI037A</Use>
-					<XPath>Release</XPath>
-					<MinOccurence>0</MinOccurence>
-					<Format>date</Format>
-				</DataElement>
-			</DataGroup>
-			<DataGroup>
-				<Name lang="fi">Varaustilanne</Name>
-				<Name lang="sv">Reserveringsläge</Name>
-				<Name lang="en">Exposure</Name>
-				<Use>FI037A</Use>
-				<XPath>Exposure</XPath>
-				<Group>Exposure</Group>
-				<MinOccurence>0</MinOccurence>
-				<MaxOccurence>1</MaxOccurence>
-				<DataElement>
-					<Name lang="fi">Varausten määrä yhteensä</Name>
-					<Name lang="sv">Totalbelopp av reserveringar</Name>
-					<Name lang="en">Exposure</Name>
-					<Use>FI037A</Use>
-					<XPath>ExposureAmount</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>an..16,2</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Varausten lukumäärä</Name>
-					<Name lang="sv">Antal reserveringar</Name>
-					<Name lang="en">Exposure counter</Name>
-					<Use>FI037A</Use>
-					<XPath>ExposureCounter</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>n..8</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Varattavissa oleva määrä</Name>
-					<Name lang="sv">Belopp som kan reserveras</Name>
-					<Name lang="en">Balance</Name>
-					<Use>FI037A</Use>
-					<XPath>Balance</XPath>
-					<MinOccurence>0</MinOccurence>
-					<Format>an..16,2</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Varattavissa olevan määrän valuuttalaji</Name>
-					<Name lang="sv">Valutaslag för beloppet som kan reserveras</Name>
-					<Name lang="en">Balance, currency code</Name>
-					<Use>FI037A</Use>
-					<XPath>Balance@CurrencyUnit</XPath>
-					<MinOccurence>0</MinOccurence>
-					<Codelist>CL352</Codelist>
-					<Format>a3</Format>
-				</DataElement>
-			</DataGroup>
-			<DataGroup>
-				<Name lang="fi">Takaaja</Name>
-				<Name lang="sv">Garant</Name>
-				<Name lang="en">Guarantor</Name>
-				<Use>FI037A</Use>
-				<XPath>Guarantor</XPath>
-				<Group>Guarantor</Group>
-				<MinOccurence>0</MinOccurence>
-				<MaxOccurence>1</MaxOccurence>
-				<DataElement>
-					<Name lang="fi">Tunnistenumero</Name>
-					<Name lang="sv">Identifieringsnummer</Name>
-					<Name lang="en">Identification no.</Name>
-					<Use>FI037A</Use>
-					<XPath>Identification</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Rule>R0850</Rule>
-					<Format>an..17</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Nimi</Name>
-					<Name lang="sv">Namn</Name>
-					<Name lang="en">Name</Name>
-					<Use>FI037A</Use>
-					<XPath>Name</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>an..70</Format>
-				</DataElement>
-				<DataGroup>
-					<Name lang="fi">Osoite</Name>
-					<Name lang="sv">Adress</Name>
-					<Name lang="en">Address</Name>
-					<Use>FI037A</Use>
-					<XPath>Address</XPath>
-					<Group>Address</Group>
-					<MinOccurence>1</MinOccurence>
-					<MaxOccurence>1</MaxOccurence>
-					<DataElement>
-						<Name lang="fi">Katuosoite</Name>
-						<Name lang="sv">Gatuadress</Name>
-						<Name lang="en">Street and number</Name>
-						<Use>FI037A</Use>
-						<XPath>Line</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Format>an..70</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Postinumero</Name>
-						<Name lang="sv">Postnummer</Name>
-						<Name lang="en">Postcode</Name>
-						<Use>FI037A</Use>
-						<XPath>Postcode</XPath>
-						<MinOccurence>0</MinOccurence>
-						<Format>an..17</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Postitoimipaikka</Name>
-						<Name lang="sv">Postanstalt</Name>
-						<Name lang="en">City</Name>
-						<Use>FI037A</Use>
-						<XPath>CityName</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Format>an..35</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Maa</Name>
-						<Name lang="sv">Land</Name>
-						<Name lang="en">Country</Name>
-						<Use>FI037A</Use>
-						<XPath>Country</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Codelist>CL070</Codelist>
-						<Format>a2</Format>
-					</DataElement>
-				</DataGroup>
-			</DataGroup>
-			<DataGroup>
-				<Name lang="fi">Yleisvakuus</Name>
-				<Name lang="sv">Samlad garanti</Name>
-				<Name lang="en">Comprehensive guarantee</Name>
-				<Use>FI037A</Use>
-				<XPath>ComprehensiveGuarantee</XPath>
-				<Group>ComprehensiveGuarantee</Group>
-				<MinOccurence>0</MinOccurence>
-				<MaxOccurence>1</MaxOccurence>
-				<DataElement>
-					<Name lang="fi">Viitemäärä</Name>
-					<Name lang="sv">Referensbelopp</Name>
-					<Name lang="en">Reference amount</Name>
-					<Use>FI037A</Use>
-					<XPath>ReferenceAmount</XPath>
-					<MinOccurence>0</MinOccurence>
-					<Format>n..16,2</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Vakuusluokka (%)</Name>
-					<Name lang="sv">Garantiklass (%)</Name>
-					<Name lang="en">Percentage of reference amount</Name>
-					<Use>FI037A</Use>
-					<XPath>ReferencePercentage</XPath>
-					<MinOccurence>0</MinOccurence>
-					<Format>n..3</Format>
-					<DescriptionLine lang="fi">Vakuusluokan mukainen prosentti.</DescriptionLine>
-					<DescriptionLine lang="sv">Procent enligt garantiklass.</DescriptionLine>
-					<DescriptionLine lang="en">Percentage according to guarantee category.</DescriptionLine>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Vakuuden määrä</Name>
-					<Name lang="sv">Garantibelopp</Name>
-					<Name lang="en">Guarantee amount</Name>
-					<Use>FI037A</Use>
-					<XPath>GuaranteeAmount</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>n..16,2</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Vakuuden määrän valuuttalaji</Name>
-					<Name lang="sv">Valutaslag för garantibelopp</Name>
-					<Name lang="en">Guarantee amount, currency code</Name>
-					<Use>FI037A</Use>
-					<XPath>GuaranteeAmount@CurrencyUnit</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Codelist>CL352</Codelist>
-					<Format>a3</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">TC-todistusten lukumäärä</Name>
-					<Name lang="sv">Antal TC-intyg</Name>
-					<Name lang="en">Number of certificates</Name>
-					<Use>FI037A</Use>
-					<XPath>NumberOfCertificates</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>n..8</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">TC-todistuksen voimassaolon alkupäivä</Name>
-					<Name lang="sv">Startdatum för TC-intygets giltighet</Name>
-					<Name lang="en">Validity start date</Name>
-					<Use>FI037A</Use>
-					<XPath>ValidityStart</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>date</Format>
-					<DescriptionLine lang="fi">Vanhimman voimassaolevan TC-todistuksen myöntämispäivä. Palautuu 31.12.1900, jos TC-todistuksia ei ole.</DescriptionLine>
-					<DescriptionLine lang="sv">Dag då det äldsta giltiga TC-intyget beviljades. 31.12.1900 returneras som svar, om inga TC-intyg finns.</DescriptionLine>
-					<DescriptionLine lang="en">Date when the oldest valid TC certificate was granted. If there are no TC certificates, 31.12.1900 is returned as reply.</DescriptionLine>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">TC-todistuksen voimassaolon loppupäivä</Name>
-					<Name lang="sv">Slutdatum för TC-intygets giltighet</Name>
-					<Name lang="en">Validity end date</Name>
-					<Use>FI037A</Use>
-					<XPath>ValidityEnd</XPath>
-					<MinOccurence>0</MinOccurence>
-					<Format>date</Format>
-					<DescriptionLine lang="fi">Vanhimman voimassaolevan TC-todistuksen voimassaolon päättymispäivä.</DescriptionLine>
-					<DescriptionLine lang="sv">Sista giltighetsdag för det äldsta giltiga TC-intyget.</DescriptionLine>
-					<DescriptionLine lang="en">End date of validity of the oldest valid TC certificate.</DescriptionLine>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Käyttökielto</Name>
-					<Name lang="sv">Användningsförbud</Name>
-					<Name lang="en">Restricted use for suspended goods</Name>
-					<Use>FI037A</Use>
-					<XPath>UseRestriction</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Codelist>CL027</Codelist>
-					<Format>n1</Format>
-					<DescriptionLine lang="fi">Kyllä, jos vakuuteen liittyy voimassaoleva käyttökielto eikä käyttökiellosta ole vapautusta.</DescriptionLine>
-					<DescriptionLine lang="sv">Ja, om garantin omfattas av ett giltigt användningsförbud och det inte finns befrielse från användningsförbudet.</DescriptionLine>
-					<DescriptionLine lang="en">Yes, if the guarantee is accompanied by a valid restriction on use and there is no exemption from the restriction on use.</DescriptionLine>
-				</DataElement>
-				<DataGroup>
-					<Name lang="fi">Voimassaolorajoitus</Name>
-					<Name lang="sv">Giltighetsbegränsning</Name>
-					<Name lang="en">Validity limitation</Name>
-					<Use>FI037A</Use>
-					<XPath>ValidityLimitation</XPath>
-					<Group>ValidityLimitation</Group>
-					<MinOccurence>0</MinOccurence>
-					<MaxOccurence>99</MaxOccurence>
-					<DataElement>
-						<Name lang="fi">Järjestysnumero</Name>
-						<Name lang="sv">Ordningsnummer</Name>
-						<Name lang="en">Sequence number</Name>
-						<Use>FI037A</Use>
-						<XPath>Sequence</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Rule>R0987</Rule>
-						<Format>n..5</Format>
-					</DataElement>
-					<DataElement>
-						<Name lang="fi">Maa, jossa ei voimassa</Name>
-						<Name lang="sv">Land där garantin inte gäller</Name>
-						<Name lang="en">Guarantee not valid in</Name>
-						<Use>FI037A</Use>
-						<XPath>GuaranteeNotValid</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Codelist>CL146</Codelist>
-						<Format>a2</Format>
-					</DataElement>
-				</DataGroup>
-			</DataGroup>
-			<DataGroup>
-				<Name lang="fi">Yksittäisvakuus takausasiakirjalla</Name>
-				<Name lang="sv">Individuell garanti med garantidokument</Name>
-				<Name lang="en">Individual guarantee by guarantor</Name>
-				<Use>FI037A</Use>
-				<XPath>GuaranteeIndividualGuarantee</XPath>
-				<Group>GuaranteeIndividualGuarantee</Group>
-				<MinOccurence>0</MinOccurence>
-				<MaxOccurence>1</MaxOccurence>
-				<DataElement>
-					<Name lang="fi">Vakuuden määrä</Name>
-					<Name lang="sv">Garantibelopp</Name>
-					<Name lang="en">Guarantee amount</Name>
-					<Use>FI037A</Use>
-					<XPath>GuaranteeAmount</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Format>n..16,2</Format>
-				</DataElement>
-				<DataElement>
-					<Name lang="fi">Vakuuden määrän valuuttalaji</Name>
-					<Name lang="sv">Valutaslag för garantibelopp</Name>
-					<Name lang="en">Guarantee amount, currency code</Name>
-					<Use>FI037A</Use>
-					<XPath>GuaranteeAmount@CurrencyUnit</XPath>
-					<MinOccurence>1</MinOccurence>
-					<Codelist>CL352</Codelist>
-					<Format>a3</Format>
-				</DataElement>
-				<DataGroup>
-					<Name lang="fi">Lähtötullitoimipaikka</Name>
-					<Name lang="sv">Avgångstullkontor</Name>
-					<Name lang="en">Customs office of departure</Name>
-					<Use>FI037A</Use>
-					<XPath>DepartureOffice</XPath>
-					<Group>DepartureOffice</Group>
-					<MinOccurence>1</MinOccurence>
-					<MaxOccurence>1</MaxOccurence>
-					<DataElement>
-						<Name lang="fi">Tullitoimipaikan tunniste (viitenumero)</Name>
-						<Name lang="sv">Identifierare för tullkontor (referensnummer)</Name>
-						<Name lang="en">Customs office identifier (reference number)</Name>
-						<Use>FI037A</Use>
-						<XPath>Identification</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Codelist>CL171</Codelist>
-						<Format>an8</Format>
-					</DataElement>
-				</DataGroup>
-				<DataGroup>
-					<Name lang="fi">Määrätullitoimipaikka</Name>
-					<Name lang="sv">Destinationstullkontor</Name>
-					<Name lang="en">Customs office of destination</Name>
-					<Use>FI037A</Use>
-					<XPath>DestinationOffice</XPath>
-					<Group>DestinationOffice</Group>
-					<MinOccurence>1</MinOccurence>
-					<MaxOccurence>1</MaxOccurence>
-					<DataElement>
-						<Name lang="fi">Tullitoimipaikan tunniste (viitenumero)</Name>
-						<Name lang="sv">Identifierare för tullkontor (referensnummer)</Name>
-						<Name lang="en">Customs office identifier (reference number)</Name>
-						<Use>FI037A</Use>
-						<XPath>Identification</XPath>
-						<MinOccurence>1</MinOccurence>
-						<Codelist>CL172</Codelist>
-						<Format>an8</Format>
-					</DataElement>
-				</DataGroup>
-			</DataGroup>
-		</DataGroup>
-	</DataGroup>
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <DataGroup>
+    <Name lang="fi">Vakuustapahtuma</Name>
+    <Name lang="sv">Garantihändelse</Name>
+    <Name lang="en">Guarantee operation</Name>
+    <XPath/>
+    <Use>FI037A</Use>
+    <Use>FI086A</Use>
+    <Use>FI096A</Use>
+    <Use>FI099A</Use>
+    <Subset use="FI037A">K1</Subset>
+    <Subset use="FI037A">K2</Subset>
+    <Subset use="FI037A">K3</Subset>
+    <Subset use="FI037A">K4</Subset>
+    <Subset use="FI037A">K5</Subset>
+    <MinOccurrence use="FI037A">1</MinOccurrence>
+    <MinOccurrence use="FI086A">1</MinOccurrence>
+    <MinOccurrence use="FI096A">1</MinOccurrence>
+    <MinOccurrence use="FI099A">1</MinOccurrence>
+    <MaxOccurrence use="FI037A">1</MaxOccurrence>
+    <MaxOccurrence use="FI086A">1</MaxOccurrence>
+    <MaxOccurrence use="FI096A">1</MaxOccurrence>
+    <MaxOccurrence use="FI099A">1</MaxOccurrence>
+    <DataElement>
+      <Name lang="fi">Sanoman tunniste</Name>
+      <Name lang="sv">Meddelandets identifierare</Name>
+      <Name lang="en">Message identification</Name>
+      <XPath>/​Identification</XPath>
+      <Format>an..14</Format>
+      <Use>FI037A</Use>
+      <Use>FI086A</Use>
+      <Use>FI096A</Use>
+      <Use>FI099A</Use>
+      <Subset use="FI037A">K1</Subset>
+      <Subset use="FI037A">K2</Subset>
+      <Subset use="FI037A">K3</Subset>
+      <Subset use="FI037A">K4</Subset>
+      <Subset use="FI037A">K5</Subset>
+      <MinOccurrence use="FI037A">1</MinOccurrence>
+      <MinOccurrence use="FI086A">1</MinOccurrence>
+      <MinOccurrence use="FI096A">1</MinOccurrence>
+      <MinOccurrence use="FI099A">1</MinOccurrence>
+    </DataElement>
+    <DataGroup>
+      <Name lang="fi">Tiedonanto</Name>
+      <Name lang="sv">Underrättelse</Name>
+      <Name lang="en">Notification</Name>
+      <XPath>/​Notification</XPath>
+      <Use>FI086A</Use>
+      <Use>FI096A</Use>
+      <Use>FI099A</Use>
+      <MinOccurrence use="FI086A">1</MinOccurrence>
+      <MinOccurrence use="FI096A">1</MinOccurrence>
+      <MinOccurrence use="FI099A">1</MinOccurrence>
+      <MaxOccurrence use="FI086A">1</MaxOccurrence>
+      <MaxOccurrence use="FI096A">1</MaxOccurrence>
+      <MaxOccurrence use="FI099A">1</MaxOccurrence>
+      <DataElement>
+        <Name lang="fi">Ilmoituksen tyyppi</Name>
+        <Name lang="sv">Typ av underrättelse</Name>
+        <Name lang="en">Notification type</Name>
+        <XPath>/​Notification/​Type</XPath>
+        <Format>an3</Format>
+        <Use>FI086A</Use>
+        <Use>FI096A</Use>
+        <Use>FI099A</Use>
+        <MinOccurrence use="FI086A">1</MinOccurrence>
+        <MinOccurrence use="FI096A">1</MinOccurrence>
+        <MinOccurrence use="FI099A">1</MinOccurrence>
+        <Codelist use="FI086A">NCL097</Codelist>
+        <Codelist use="FI096A">NCL097</Codelist>
+        <Codelist use="FI099A">NCL097</Codelist>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Ilmoituksen päiväys ja aika</Name>
+        <Name lang="sv">Datum och tid för underrättelsen</Name>
+        <Name lang="en">Notification date and time</Name>
+        <XPath>/​Notification/​Notification</XPath>
+        <Format>dateTime</Format>
+        <Use>FI086A</Use>
+        <Use>FI096A</Use>
+        <Use>FI099A</Use>
+        <MinOccurrence use="FI086A">1</MinOccurrence>
+        <MinOccurrence use="FI096A">1</MinOccurrence>
+        <MinOccurrence use="FI099A">1</MinOccurrence>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Ilmoituksen kuvaus</Name>
+        <Name lang="sv">Beskrivning av underrättelsen</Name>
+        <Name lang="en">Notification description</Name>
+        <XPath>/​Notification/​Text</XPath>
+        <Format>an..4096</Format>
+        <Use>FI099A</Use>
+        <MinOccurrence use="FI099A">0</MinOccurrence>
+      </DataElement>
+      <DataGroup>
+        <Name lang="fi">Virhe</Name>
+        <Name lang="sv">Fel</Name>
+        <Name lang="en">Error</Name>
+        <XPath>/​Notification/​Error</XPath>
+        <Use>FI086A</Use>
+        <MinOccurrence use="FI086A">0</MinOccurrence>
+        <MaxOccurrence use="FI086A">999</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Virhekoodi</Name>
+          <Name lang="sv">Felkod</Name>
+          <Name lang="en">Error code</Name>
+          <XPath>/​Notification/​Error/​Code</XPath>
+          <Format>an..200</Format>
+          <Use>FI086A</Use>
+          <MinOccurrence use="FI086A">1</MinOccurrence>
+          <Codelist use="FI086A">CL401</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Virhesyy</Name>
+          <Name lang="sv">Felorsak</Name>
+          <Name lang="en">Error reason</Name>
+          <XPath>/​Notification/​Error/​Reason</XPath>
+          <Format>an..4096</Format>
+          <Use>FI086A</Use>
+          <MinOccurrence use="FI086A">0</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Virheen selite</Name>
+          <Name lang="sv">Felbeskrivning</Name>
+          <Name lang="en">Error description</Name>
+          <XPath>/​Notification/​Error/​Description</XPath>
+          <Format>an..4096</Format>
+          <Use>FI086A</Use>
+          <MinOccurrence use="FI086A">0</MinOccurrence>
+        </DataElement>
+        <DataGroup>
+          <Name lang="fi">Virheosoitin</Name>
+          <Name lang="sv">Felpekare</Name>
+          <Name lang="en">Error pointer</Name>
+          <XPath>/​Notification/​Error/​Pointer</XPath>
+          <Use>FI086A</Use>
+          <MinOccurrence use="FI086A">0</MinOccurrence>
+          <MaxOccurrence use="FI086A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Virheosoitin</Name>
+            <Name lang="sv">Felpekare</Name>
+            <Name lang="en">Error pointer</Name>
+            <XPath>/​Notification/​Error/​Pointer/​Location</XPath>
+            <Format>an..200</Format>
+            <Use>FI086A</Use>
+            <MinOccurrence use="FI086A">1</MinOccurrence>
+          </DataElement>
+        </DataGroup>
+        <DataElement>
+          <Name lang="fi">Tiedon alkuperäinen arvo</Name>
+          <Name lang="sv">Ursprungligt attributvärde</Name>
+          <Name lang="en">Original attribute value</Name>
+          <XPath>/​Notification/​Error/​OriginalValue</XPath>
+          <Format>an..512</Format>
+          <Use>FI086A</Use>
+          <MinOccurrence use="FI086A">0</MinOccurrence>
+        </DataElement>
+      </DataGroup>
+    </DataGroup>
+    <DataGroup>
+      <Name lang="fi">Pyynnön tekijä</Name>
+      <Name lang="sv">Förfrågare</Name>
+      <Name lang="en">Requester</Name>
+      <XPath>/​Requester</XPath>
+      <Use>FI037A</Use>
+      <Subset use="FI037A">K1</Subset>
+      <Subset use="FI037A">K2</Subset>
+      <Subset use="FI037A">K3</Subset>
+      <Subset use="FI037A">K4</Subset>
+      <Subset use="FI037A">K5</Subset>
+      <MinOccurrence use="FI037A">1</MinOccurrence>
+      <MaxOccurrence use="FI037A">1</MaxOccurrence>
+      <DataElement>
+        <Name lang="fi">Tunnistenumero</Name>
+        <Name lang="sv">Identifieringsnummer</Name>
+        <Name lang="en">Identification number</Name>
+        <XPath>/​Requester/​Identification</XPath>
+        <Format>an..17</Format>
+        <Use>FI037A</Use>
+        <Subset use="FI037A">K1</Subset>
+        <Subset use="FI037A">K2</Subset>
+        <Subset use="FI037A">K3</Subset>
+        <Subset use="FI037A">K4</Subset>
+        <Subset use="FI037A">K5</Subset>
+        <MinOccurrence use="FI037A">1</MinOccurrence>
+        <Rule use="FI037A">R0850</Rule>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Rooli</Name>
+        <Name lang="sv">Roll</Name>
+        <Name lang="en">Role</Name>
+        <XPath>/​Requester/​Role</XPath>
+        <Format>n1</Format>
+        <Use>FI037A</Use>
+        <Subset use="FI037A">K1</Subset>
+        <Subset use="FI037A">K2</Subset>
+        <Subset use="FI037A">K3</Subset>
+        <Subset use="FI037A">K4</Subset>
+        <Subset use="FI037A">K5</Subset>
+        <MinOccurrence use="FI037A">1</MinOccurrence>
+        <Codelist use="FI037A">CL156</Codelist>
+      </DataElement>
+    </DataGroup>
+    <DataGroup>
+      <Name lang="fi">Vakuustullitoimipaikka</Name>
+      <Name lang="sv">Garantitullkontor</Name>
+      <Name lang="en">Customs office of guarantee</Name>
+      <XPath>/​GuaranteeOffice</XPath>
+      <Use>FI037A</Use>
+      <Subset use="FI037A">K1</Subset>
+      <Subset use="FI037A">K2</Subset>
+      <Subset use="FI037A">K3</Subset>
+      <Subset use="FI037A">K4</Subset>
+      <Subset use="FI037A">K5</Subset>
+      <MinOccurrence use="FI037A">1</MinOccurrence>
+      <MaxOccurrence use="FI037A">1</MaxOccurrence>
+      <DataElement>
+        <Name lang="fi">Tullitoimipaikan tunniste (viitenumero)</Name>
+        <Name lang="sv">Identifierare för tullkontor (referensnummer)</Name>
+        <Name lang="en">Customs office identifier (reference number)</Name>
+        <XPath>/​GuaranteeOffice/​Identification</XPath>
+        <Format>an8</Format>
+        <Use>FI037A</Use>
+        <Subset use="FI037A">K1</Subset>
+        <Subset use="FI037A">K2</Subset>
+        <Subset use="FI037A">K3</Subset>
+        <Subset use="FI037A">K4</Subset>
+        <Subset use="FI037A">K5</Subset>
+        <MinOccurrence use="FI037A">1</MinOccurrence>
+        <Codelist use="FI037A">CL174</Codelist>
+      </DataElement>
+    </DataGroup>
+    <DataGroup>
+      <Name lang="fi">Vakuus</Name>
+      <Name lang="sv">Garanti</Name>
+      <Name lang="en">Guarantee reference</Name>
+      <XPath>/​GuaranteeReference</XPath>
+      <Use>FI037A</Use>
+      <Subset use="FI037A">K1</Subset>
+      <Subset use="FI037A">K2</Subset>
+      <Subset use="FI037A">K3</Subset>
+      <Subset use="FI037A">K4</Subset>
+      <Subset use="FI037A">K5</Subset>
+      <MinOccurrence use="FI037A">1</MinOccurrence>
+      <MaxOccurrence use="FI037A">99</MaxOccurrence>
+      <DataElement>
+        <Name lang="fi">Järjestysnumero</Name>
+        <Name lang="sv">Ordningsnummer</Name>
+        <Name lang="en">Sequence number</Name>
+        <XPath>/​GuaranteeReference/​Sequence</XPath>
+        <Format>n..5</Format>
+        <Use>FI037A</Use>
+        <Subset use="FI037A">K1</Subset>
+        <Subset use="FI037A">K2</Subset>
+        <Subset use="FI037A">K3</Subset>
+        <Subset use="FI037A">K4</Subset>
+        <Subset use="FI037A">K5</Subset>
+        <MinOccurrence use="FI037A">1</MinOccurrence>
+        <Rule use="FI037A">R0987</Rule>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Vakuuden viitenumero (GRN)</Name>
+        <Name lang="sv">Referensnummer för garanti (GRN)</Name>
+        <Name lang="en">Guarantee reference number (GRN)</Name>
+        <XPath>/​GuaranteeReference/​Reference</XPath>
+        <Format>an..24</Format>
+        <Use>FI037A</Use>
+        <Subset use="FI037A">K1</Subset>
+        <Subset use="FI037A">K2</Subset>
+        <Subset use="FI037A">K3</Subset>
+        <Subset use="FI037A">K4</Subset>
+        <Subset use="FI037A">K5</Subset>
+        <MinOccurrence use="FI037A">1</MinOccurrence>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Käyttöönottopäivä</Name>
+        <Name lang="sv">Dag för ibruktagande</Name>
+        <Name lang="en">Acceptance date and time</Name>
+        <XPath>/​GuaranteeReference/​Acceptance</XPath>
+        <Format>dateTime</Format>
+        <Use>FI037A</Use>
+        <Subset use="FI037A">K1</Subset>
+        <Subset use="FI037A">K2</Subset>
+        <Subset use="FI037A">K3</Subset>
+        <Subset use="FI037A">K4</Subset>
+        <Subset use="FI037A">K5</Subset>
+        <MinOccurrence use="FI037A">1</MinOccurrence>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Vakuuden tyyppi</Name>
+        <Name lang="sv">Garantityp</Name>
+        <Name lang="en">Guarantee type</Name>
+        <XPath>/​GuaranteeReference/​GuaranteeType</XPath>
+        <Format>an1</Format>
+        <Use>FI037A</Use>
+        <Subset use="FI037A">K1</Subset>
+        <Subset use="FI037A">K2</Subset>
+        <Subset use="FI037A">K3</Subset>
+        <Subset use="FI037A">K4</Subset>
+        <Subset use="FI037A">K5</Subset>
+        <MinOccurrence use="FI037A">1</MinOccurrence>
+        <Codelist use="FI037A">CL251</Codelist>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Käytön seurannan laajuus</Name>
+        <Name lang="sv">Omfattning av användningsövervakning</Name>
+        <Name lang="en">Guarantee monitoring code</Name>
+        <XPath>/​GuaranteeReference/​GuaranteeMonitoring</XPath>
+        <Format>n1</Format>
+        <Use>FI037A</Use>
+        <Subset use="FI037A">K1</Subset>
+        <Subset use="FI037A">K2</Subset>
+        <Subset use="FI037A">K3</Subset>
+        <Subset use="FI037A">K4</Subset>
+        <Subset use="FI037A">K5</Subset>
+        <MinOccurrence use="FI037A">1</MinOccurrence>
+        <Codelist use="FI037A">CL050</Codelist>
+      </DataElement>
+      <DataGroup>
+        <Name lang="fi">Vakuuskysely</Name>
+        <Name lang="sv">Garantiförfrågan</Name>
+        <Name lang="en">Guarantee query</Name>
+        <XPath>/​GuaranteeReference/​GuaranteeQuery</XPath>
+        <Use>FI037A</Use>
+        <Subset use="FI037A">K1</Subset>
+        <Subset use="FI037A">K2</Subset>
+        <Subset use="FI037A">K3</Subset>
+        <Subset use="FI037A">K4</Subset>
+        <Subset use="FI037A">K5</Subset>
+        <MinOccurrence use="FI037A">1</MinOccurrence>
+        <MaxOccurrence use="FI037A">1</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Kyselyn laajuus</Name>
+          <Name lang="sv">Förfrågans omfattning</Name>
+          <Name lang="en">Query identifier</Name>
+          <XPath>/​GuaranteeReference/​GuaranteeQuery/​QueryIdentifier</XPath>
+          <Format>n1</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K4</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+          <Codelist use="FI037A">CL054</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Jakson alkupäivä</Name>
+          <Name lang="sv">Periodens startdatum</Name>
+          <Name lang="en">Period from date</Name>
+          <XPath>/​GuaranteeReference/​GuaranteeQuery/​Start</XPath>
+          <Format>date</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K4</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">0</MinOccurrence>
+          <Rule use="FI037A">R0263</Rule>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Jakson loppupäivä</Name>
+          <Name lang="sv">Periodens slutdatum</Name>
+          <Name lang="en">Period to date</Name>
+          <XPath>/​GuaranteeReference/​GuaranteeQuery/​End</XPath>
+          <Format>date</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K4</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">0</MinOccurrence>
+          <Rule use="FI037A">R0263</Rule>
+          <Rule use="FI037A">R0705</Rule>
+        </DataElement>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Vakuudenhaltija</Name>
+        <Name lang="sv">Innehavare av garantin</Name>
+        <Name lang="en">Owner</Name>
+        <XPath>/​GuaranteeReference/​GuaranteeOwner</XPath>
+        <Use>FI037A</Use>
+        <Subset use="FI037A">K4</Subset>
+        <MinOccurrence use="FI037A">0</MinOccurrence>
+        <MaxOccurrence use="FI037A">1</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Tunnistenumero</Name>
+          <Name lang="sv">Identifieringsnummer</Name>
+          <Name lang="en">Identification number</Name>
+          <XPath>/​GuaranteeReference/​GuaranteeOwner/​Identification</XPath>
+          <Format>an..17</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K4</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+          <Rule use="FI037A">R0850</Rule>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Nimi</Name>
+          <Name lang="sv">Namn</Name>
+          <Name lang="en">Name</Name>
+          <XPath>/​GuaranteeReference/​GuaranteeOwner/​Name</XPath>
+          <Format>an..70</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K4</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+        </DataElement>
+        <DataGroup>
+          <Name lang="fi">Osoite</Name>
+          <Name lang="sv">Adress</Name>
+          <Name lang="en">Address</Name>
+          <XPath>/​GuaranteeReference/​GuaranteeOwner/​Address</XPath>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K4</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+          <MaxOccurrence use="FI037A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Katuosoite</Name>
+            <Name lang="sv">Gatuadress</Name>
+            <Name lang="en">Street and number</Name>
+            <XPath>/​GuaranteeReference/​GuaranteeOwner/​Address/​Line</XPath>
+            <Format>an..70</Format>
+            <Use>FI037A</Use>
+            <Subset use="FI037A">K4</Subset>
+            <MinOccurrence use="FI037A">1</MinOccurrence>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">Postitoimipaikka</Name>
+            <Name lang="sv">Postanstalt</Name>
+            <Name lang="en">City</Name>
+            <XPath>/​GuaranteeReference/​GuaranteeOwner/​Address/​CityName</XPath>
+            <Format>an..35</Format>
+            <Use>FI037A</Use>
+            <Subset use="FI037A">K4</Subset>
+            <MinOccurrence use="FI037A">1</MinOccurrence>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">Postinumero</Name>
+            <Name lang="sv">Postnummer</Name>
+            <Name lang="en">Postcode</Name>
+            <XPath>/​GuaranteeReference/​GuaranteeOwner/​Address/​Postcode</XPath>
+            <Format>an..17</Format>
+            <Use>FI037A</Use>
+            <Subset use="FI037A">K4</Subset>
+            <MinOccurrence use="FI037A">0</MinOccurrence>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">Maa</Name>
+            <Name lang="sv">Land</Name>
+            <Name lang="en">Country</Name>
+            <XPath>/​GuaranteeReference/​GuaranteeOwner/​Address/​Country</XPath>
+            <Format>a2</Format>
+            <Use>FI037A</Use>
+            <Subset use="FI037A">K4</Subset>
+            <MinOccurrence use="FI037A">1</MinOccurrence>
+            <Codelist use="FI037A">CL248</Codelist>
+          </DataElement>
+        </DataGroup>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Vakuusvaraus</Name>
+        <Name lang="sv">Garantireservering</Name>
+        <Name lang="en">Usage</Name>
+        <XPath>/​GuaranteeReference/​Usage</XPath>
+        <Use>FI037A</Use>
+        <Subset use="FI037A">K1</Subset>
+        <Subset use="FI037A">K3</Subset>
+        <Subset use="FI037A">K5</Subset>
+        <MinOccurrence use="FI037A">0</MinOccurrence>
+        <MaxOccurrence use="FI037A">9999</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Järjestysnumero</Name>
+          <Name lang="sv">Ordningsnummer</Name>
+          <Name lang="en">Sequence number</Name>
+          <XPath>/​GuaranteeReference/​Usage/​Sequence</XPath>
+          <Format>n..5</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+          <Rule use="FI037A">R0987</Rule>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">MRN-viitenumero</Name>
+          <Name lang="sv">MRN-referensnummer</Name>
+          <Name lang="en">MRN</Name>
+          <XPath>/​GuaranteeReference/​Usage/​MRN</XPath>
+          <Format>an18</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Varauksen määrä</Name>
+          <Name lang="sv">Reserverat belopp</Name>
+          <Name lang="en">Covered amount</Name>
+          <XPath>/​GuaranteeReference/​Usage/​Amount</XPath>
+          <Format>n..16,2</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Varauksen määrän valuuttalaji</Name>
+          <Name lang="sv">Valutaslag för reserverat belopp</Name>
+          <Name lang="en">Covered amount, currency code</Name>
+          <XPath>/​GuaranteeReference/​Usage/​Amount@CurrencyUnit</XPath>
+          <Format>a3</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+          <Codelist use="FI037A">CL352</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Varauspäivä</Name>
+          <Name lang="sv">Reserveringsdag</Name>
+          <Name lang="en">Lock date</Name>
+          <XPath>/​GuaranteeReference/​Usage/​Lock</XPath>
+          <Format>date</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Vastuun vapautuspäivä</Name>
+          <Name lang="sv">Datum för frisläppande av ansvar</Name>
+          <Name lang="en">Release date</Name>
+          <XPath>/​GuaranteeReference/​Usage/​Release</XPath>
+          <Format>date</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">0</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Varauksen vapautuspäivä ja -aika</Name>
+          <Name lang="sv">Datum och tid för frisläppande av reserveringen</Name>
+          <Name lang="en">Reservation release date and time</Name>
+          <XPath>/​GuaranteeReference/​Usage/​Arrival</XPath>
+          <Format>dateTime</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">0</MinOccurrence>
+        </DataElement>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Varaustilanne</Name>
+        <Name lang="sv">Reserveringsläge</Name>
+        <Name lang="en">Exposure</Name>
+        <XPath>/​GuaranteeReference/​Exposure</XPath>
+        <Use>FI037A</Use>
+        <Subset use="FI037A">K2</Subset>
+        <Subset use="FI037A">K3</Subset>
+        <Subset use="FI037A">K5</Subset>
+        <MinOccurrence use="FI037A">0</MinOccurrence>
+        <MaxOccurrence use="FI037A">1</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Varattavissa oleva määrä</Name>
+          <Name lang="sv">Belopp som kan reserveras</Name>
+          <Name lang="en">Balance</Name>
+          <XPath>/​GuaranteeReference/​Exposure/​Balance</XPath>
+          <Format>an..16,2</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">0</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Varattavissa oleva määrä, valuuttalaji</Name>
+          <Name lang="sv">Belopp som kan reserveras, valutaslag</Name>
+          <Name lang="en">Balance, currency unit</Name>
+          <XPath>/​GuaranteeReference/​Exposure/​Balance@CurrencyUnit</XPath>
+          <Format>a3</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">0</MinOccurrence>
+          <Codelist use="FI037A">CL352</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Varausten lukumäärä</Name>
+          <Name lang="sv">Antal reserveringar</Name>
+          <Name lang="en">Exposure counter</Name>
+          <XPath>/​GuaranteeReference/​Exposure/​ExposureCounter</XPath>
+          <Format>n..8</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Varausten määrä yhteensä</Name>
+          <Name lang="sv">Totalbelopp av reserveringar</Name>
+          <Name lang="en">Exposure total</Name>
+          <XPath>/​GuaranteeReference/​Exposure/​ExposureAmount</XPath>
+          <Format>an..16,2</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+        </DataElement>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Takaaja</Name>
+        <Name lang="sv">Garant</Name>
+        <Name lang="en">Guarantor</Name>
+        <XPath>/​GuaranteeReference/​Guarantor</XPath>
+        <Use>FI037A</Use>
+        <Subset use="FI037A">K1</Subset>
+        <Subset use="FI037A">K2</Subset>
+        <Subset use="FI037A">K3</Subset>
+        <Subset use="FI037A">K4</Subset>
+        <Subset use="FI037A">K5</Subset>
+        <MinOccurrence use="FI037A">0</MinOccurrence>
+        <MaxOccurrence use="FI037A">1</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Tunnistenumero</Name>
+          <Name lang="sv">Identifieringsnummer</Name>
+          <Name lang="en">Identification number</Name>
+          <XPath>/​GuaranteeReference/​Guarantor/​Identification</XPath>
+          <Format>an..17</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K4</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+          <Rule use="FI037A">R0850</Rule>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Nimi</Name>
+          <Name lang="sv">Namn</Name>
+          <Name lang="en">Name</Name>
+          <XPath>/​GuaranteeReference/​Guarantor/​Name</XPath>
+          <Format>an..70</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K4</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+        </DataElement>
+        <DataGroup>
+          <Name lang="fi">Osoite</Name>
+          <Name lang="sv">Adress</Name>
+          <Name lang="en">Address</Name>
+          <XPath>/​GuaranteeReference/​Guarantor/​Address</XPath>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K4</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+          <MaxOccurrence use="FI037A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Katuosoite</Name>
+            <Name lang="sv">Gatuadress</Name>
+            <Name lang="en">Street and number</Name>
+            <XPath>/​GuaranteeReference/​Guarantor/​Address/​Line</XPath>
+            <Format>an..70</Format>
+            <Use>FI037A</Use>
+            <Subset use="FI037A">K1</Subset>
+            <Subset use="FI037A">K2</Subset>
+            <Subset use="FI037A">K3</Subset>
+            <Subset use="FI037A">K4</Subset>
+            <Subset use="FI037A">K5</Subset>
+            <MinOccurrence use="FI037A">1</MinOccurrence>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">Postitoimipaikka</Name>
+            <Name lang="sv">Postanstalt</Name>
+            <Name lang="en">City</Name>
+            <XPath>/​GuaranteeReference/​Guarantor/​Address/​CityName</XPath>
+            <Format>an..35</Format>
+            <Use>FI037A</Use>
+            <Subset use="FI037A">K1</Subset>
+            <Subset use="FI037A">K2</Subset>
+            <Subset use="FI037A">K3</Subset>
+            <Subset use="FI037A">K4</Subset>
+            <Subset use="FI037A">K5</Subset>
+            <MinOccurrence use="FI037A">1</MinOccurrence>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">Postinumero</Name>
+            <Name lang="sv">Postnummer</Name>
+            <Name lang="en">Postcode</Name>
+            <XPath>/​GuaranteeReference/​Guarantor/​Address/​Postcode</XPath>
+            <Format>an..17</Format>
+            <Use>FI037A</Use>
+            <Subset use="FI037A">K1</Subset>
+            <Subset use="FI037A">K2</Subset>
+            <Subset use="FI037A">K3</Subset>
+            <Subset use="FI037A">K4</Subset>
+            <Subset use="FI037A">K5</Subset>
+            <MinOccurrence use="FI037A">0</MinOccurrence>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">Maa</Name>
+            <Name lang="sv">Land</Name>
+            <Name lang="en">Country</Name>
+            <XPath>/​GuaranteeReference/​Guarantor/​Address/​Country</XPath>
+            <Format>a2</Format>
+            <Use>FI037A</Use>
+            <Subset use="FI037A">K1</Subset>
+            <Subset use="FI037A">K2</Subset>
+            <Subset use="FI037A">K3</Subset>
+            <Subset use="FI037A">K4</Subset>
+            <Subset use="FI037A">K5</Subset>
+            <MinOccurrence use="FI037A">1</MinOccurrence>
+            <Codelist use="FI037A">CL070</Codelist>
+          </DataElement>
+        </DataGroup>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Yleisvakuus</Name>
+        <Name lang="sv">Samlad garanti</Name>
+        <Name lang="en">Comprehensive guarantee</Name>
+        <XPath>/​GuaranteeReference/​ComprehensiveGuarantee</XPath>
+        <Use>FI037A</Use>
+        <Subset use="FI037A">K1</Subset>
+        <Subset use="FI037A">K2</Subset>
+        <Subset use="FI037A">K3</Subset>
+        <Subset use="FI037A">K5</Subset>
+        <MinOccurrence use="FI037A">0</MinOccurrence>
+        <MaxOccurrence use="FI037A">1</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Viitemäärä</Name>
+          <Name lang="sv">Referensbelopp</Name>
+          <Name lang="en">Reference amount</Name>
+          <XPath>/​GuaranteeReference/​ComprehensiveGuarantee/​ReferenceAmount</XPath>
+          <Format>n..16,2</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">0</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Vakuusluokka (%)</Name>
+          <Name lang="sv">Garantiklass (%)</Name>
+          <Name lang="en">Percentage of reference amount</Name>
+          <XPath>/​GuaranteeReference/​ComprehensiveGuarantee/​ReferencePercentage</XPath>
+          <Format>n..3</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">0</MinOccurrence>
+          <Description lang="fi" use="FI037A">Vakuusluokan mukainen prosentti.</Description>
+          <Description lang="sv" use="FI037A">Procent enligt garantiklass.</Description>
+          <Description lang="en" use="FI037A">Percentage according to guarantee category.</Description>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Vakuuden määrä</Name>
+          <Name lang="sv">Garantibelopp</Name>
+          <Name lang="en">Guarantee amount</Name>
+          <XPath>/​GuaranteeReference/​ComprehensiveGuarantee/​GuaranteeAmount</XPath>
+          <Format>n..16,2</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Vakuuden määrä, valuuttalaji</Name>
+          <Name lang="sv">Garantibelopp, valutaslag</Name>
+          <Name lang="en">Guarantee amount, currency unit</Name>
+          <XPath>/​GuaranteeReference/​ComprehensiveGuarantee/​GuaranteeAmount@CurrencyUnit</XPath>
+          <Format>a3</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+          <Codelist use="FI037A">CL352</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">TC-todistusten lukumäärä</Name>
+          <Name lang="sv">Antal TC-intyg</Name>
+          <Name lang="en">Number of certificates</Name>
+          <XPath>/​GuaranteeReference/​ComprehensiveGuarantee/​NumberOfCertificates</XPath>
+          <Format>n..8</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">TC-todistuksen voimassaolon alkupäivä</Name>
+          <Name lang="sv">Startdatum för TC-intygets giltighet</Name>
+          <Name lang="en">Validity start date</Name>
+          <XPath>/​GuaranteeReference/​ComprehensiveGuarantee/​ValidityStart</XPath>
+          <Format>date</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+          <Description lang="fi" use="FI037A">Vanhimman voimassaolevan TC-todistuksen myöntämispäivä. Palautuu 31.12.1900, jos TC-todistuksia ei ole.</Description>
+          <Description lang="sv" use="FI037A">Dag då det äldsta giltiga TC-intyget beviljades. 31.12.1900 returneras som svar, om inga TC-intyg finns.</Description>
+          <Description lang="en" use="FI037A">Date when the oldest valid TC certificate was granted. If there are no TC certificates, 31.12.1900 is returned as reply.</Description>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">TC-todistuksen voimassaolon loppupäivä</Name>
+          <Name lang="sv">Slutdatum för TC-intygets giltighet</Name>
+          <Name lang="en">Validity end date</Name>
+          <XPath>/​GuaranteeReference/​ComprehensiveGuarantee/​ValidityEnd</XPath>
+          <Format>date</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">0</MinOccurrence>
+          <Description lang="fi" use="FI037A">Vanhimman voimassaolevan TC-todistuksen voimassaolon päättymispäivä.</Description>
+          <Description lang="sv" use="FI037A">Sista giltighetsdag för det äldsta giltiga TC-intyget.</Description>
+          <Description lang="en" use="FI037A">End date of validity of the oldest valid TC certificate.</Description>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Käyttökielto</Name>
+          <Name lang="sv">Användningsförbud</Name>
+          <Name lang="en">Restricted use for suspended goods</Name>
+          <XPath>/​GuaranteeReference/​ComprehensiveGuarantee/​UseRestriction</XPath>
+          <Format>n1</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+          <Codelist use="FI037A">CL027</Codelist>
+          <Description lang="fi" use="FI037A">Kyllä, jos vakuuteen liittyy voimassaoleva käyttökielto eikä käyttökiellosta ole vapautusta.</Description>
+          <Description lang="sv" use="FI037A">Ja, om garantin omfattas av ett giltigt användningsförbud och det inte finns befrielse från användningsförbudet.</Description>
+          <Description lang="en" use="FI037A">Yes, if the guarantee is accompanied by a valid restriction on use and there is no exemption from the restriction on use.</Description>
+        </DataElement>
+        <DataGroup>
+          <Name lang="fi">Voimassaolorajoitus</Name>
+          <Name lang="sv">Giltighetsbegränsning</Name>
+          <Name lang="en">Validity limitation</Name>
+          <XPath>/​GuaranteeReference/​ComprehensiveGuarantee/​ValidityLimitation</XPath>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">0</MinOccurrence>
+          <MaxOccurrence use="FI037A">99</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Järjestysnumero</Name>
+            <Name lang="sv">Ordningsnummer</Name>
+            <Name lang="en">Sequence number</Name>
+            <XPath>/​GuaranteeReference/​ComprehensiveGuarantee/​ValidityLimitation/​Sequence</XPath>
+            <Format>n..5</Format>
+            <Use>FI037A</Use>
+            <Subset use="FI037A">K1</Subset>
+            <Subset use="FI037A">K2</Subset>
+            <Subset use="FI037A">K3</Subset>
+            <Subset use="FI037A">K5</Subset>
+            <MinOccurrence use="FI037A">1</MinOccurrence>
+            <Rule use="FI037A">R0987</Rule>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">Maa, jossa ei voimassa</Name>
+            <Name lang="sv">Land där garantin inte gäller</Name>
+            <Name lang="en">Guarantee not valid in</Name>
+            <XPath>/​GuaranteeReference/​ComprehensiveGuarantee/​ValidityLimitation/​GuaranteeNotValid</XPath>
+            <Format>a2</Format>
+            <Use>FI037A</Use>
+            <Subset use="FI037A">K1</Subset>
+            <Subset use="FI037A">K2</Subset>
+            <Subset use="FI037A">K3</Subset>
+            <Subset use="FI037A">K5</Subset>
+            <MinOccurrence use="FI037A">1</MinOccurrence>
+            <Codelist use="FI037A">CL146</Codelist>
+          </DataElement>
+        </DataGroup>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Yksittäisvakuus takausasiakirjalla</Name>
+        <Name lang="sv">Individuell garanti med garantidokument</Name>
+        <Name lang="en">Individual guarantee by guarantor</Name>
+        <XPath>/​GuaranteeReference/​GuaranteeIndividualGuarantee</XPath>
+        <Use>FI037A</Use>
+        <Subset use="FI037A">K1</Subset>
+        <Subset use="FI037A">K2</Subset>
+        <Subset use="FI037A">K3</Subset>
+        <Subset use="FI037A">K5</Subset>
+        <MinOccurrence use="FI037A">0</MinOccurrence>
+        <MaxOccurrence use="FI037A">1</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Vakuuden määrä</Name>
+          <Name lang="sv">Garantibelopp</Name>
+          <Name lang="en">Guarantee amount</Name>
+          <XPath>/​GuaranteeReference/​GuaranteeIndividualGuarantee/​GuaranteeAmount</XPath>
+          <Format>n..16,2</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Vakuuden määrä, valuuttalaji</Name>
+          <Name lang="sv">Garantibelopp, valutaslag</Name>
+          <Name lang="en">Guarantee amount, currency unit</Name>
+          <XPath>/​GuaranteeReference/​GuaranteeIndividualGuarantee/​GuaranteeAmount@CurrencyUnit</XPath>
+          <Format>a3</Format>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+          <Codelist use="FI037A">CL352</Codelist>
+        </DataElement>
+        <DataGroup>
+          <Name lang="fi">Lähtötullitoimipaikka</Name>
+          <Name lang="sv">Avgångstullkontor</Name>
+          <Name lang="en">Customs office of departure</Name>
+          <XPath>/​GuaranteeReference/​GuaranteeIndividualGuarantee/​DepartureOffice</XPath>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+          <MaxOccurrence use="FI037A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Tullitoimipaikan tunniste (viitenumero)</Name>
+            <Name lang="sv">Identifierare för tullkontor (referensnummer)</Name>
+            <Name lang="en">Customs office identifier (reference number)</Name>
+            <XPath>/​GuaranteeReference/​GuaranteeIndividualGuarantee/​DepartureOffice/​Identification</XPath>
+            <Format>an8</Format>
+            <Use>FI037A</Use>
+            <Subset use="FI037A">K1</Subset>
+            <Subset use="FI037A">K2</Subset>
+            <Subset use="FI037A">K3</Subset>
+            <Subset use="FI037A">K5</Subset>
+            <MinOccurrence use="FI037A">1</MinOccurrence>
+            <Codelist use="FI037A">CL171</Codelist>
+          </DataElement>
+        </DataGroup>
+        <DataGroup>
+          <Name lang="fi">Määrätullitoimipaikka</Name>
+          <Name lang="sv">Destinationstullkontor</Name>
+          <Name lang="en">Customs office of destination</Name>
+          <XPath>/​GuaranteeReference/​GuaranteeIndividualGuarantee/​DestinationOffice</XPath>
+          <Use>FI037A</Use>
+          <Subset use="FI037A">K1</Subset>
+          <Subset use="FI037A">K2</Subset>
+          <Subset use="FI037A">K3</Subset>
+          <Subset use="FI037A">K5</Subset>
+          <MinOccurrence use="FI037A">1</MinOccurrence>
+          <MaxOccurrence use="FI037A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Tullitoimipaikan tunniste (viitenumero)</Name>
+            <Name lang="sv">Identifierare för tullkontor (referensnummer)</Name>
+            <Name lang="en">Customs office identifier (reference number)</Name>
+            <XPath>/​GuaranteeReference/​GuaranteeIndividualGuarantee/​DestinationOffice/​Identification</XPath>
+            <Format>an8</Format>
+            <Use>FI037A</Use>
+            <Subset use="FI037A">K1</Subset>
+            <Subset use="FI037A">K2</Subset>
+            <Subset use="FI037A">K3</Subset>
+            <Subset use="FI037A">K5</Subset>
+            <MinOccurrence use="FI037A">1</MinOccurrence>
+            <Codelist use="FI037A">CL172</Codelist>
+          </DataElement>
+        </DataGroup>
+      </DataGroup>
+    </DataGroup>
+  </DataGroup>
 </Message>
