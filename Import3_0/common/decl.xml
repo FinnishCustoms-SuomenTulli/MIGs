@@ -57,6 +57,8 @@
     <MaxOccurrence use="FI483B">1</MaxOccurrence>
     <MaxOccurrence use="FI485B">1</MaxOccurrence>
     <MaxOccurrence use="FI488B">1</MaxOccurrence>
+    <Rule use="FI413B">NR0051</Rule>
+    <Rule use="FI413B">NR0054</Rule>
     <Rule use="FI413B">NR0107</Rule>
     <Rule use="FI413B">NR1357</Rule>
     <Rule use="FI414B">NR0108</Rule>
@@ -65,6 +67,11 @@
     <Rule use="FI414B">NR4420</Rule>
     <Rule use="FI414B">NR4424</Rule>
     <Rule use="FI414B">NR4438</Rule>
+    <Rule use="FI473B">NR0051</Rule>
+    <Rule use="FI473B">NR0054</Rule>
+    <Rule use="FI473B">NR4419</Rule>
+    <Rule use="FI483B">NR0051</Rule>
+    <Rule use="FI483B">NR0054</Rule>
     <DataElement>
       <Name lang="fi">Tapahtuman tunniste</Name>
       <Name lang="sv">Händelsens identifierare</Name>
@@ -2479,6 +2486,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Rule use="FI413B">NR0035</Rule>
         <Rule use="FI413B">NR4070</Rule>
         <Rule use="FI414B">NR0035</Rule>
+        <Rule use="FI414B">NR4070</Rule>
         <Rule use="FI473B">NR0034</Rule>
         <Rule use="FI473B">NR0035</Rule>
         <Rule use="FI473B">NR4070</Rule>
@@ -3311,6 +3319,8 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Subset use="FI415B">I1</Subset>
         <MinOccurrence use="FI413B">0</MinOccurrence>
         <MinOccurrence use="FI415B">0</MinOccurrence>
+        <Rule use="FI413B">R0928</Rule>
+        <Rule use="FI415B">R0928</Rule>
         <Description lang="fi" use="FI413B">Ilmoitetaan EORI tai muun AEO toimijan vastavuoroiseen sopimukseen perustuva tunniste, jos viejällä on sellainen.</Description>
         <Description lang="sv" use="FI413B">EORI eller annan identifikation för AEO-aktör som grundar sig på ömsesidigt avtal anges, om exportören har en sådan, anmäls.</Description>
         <Description lang="en" use="FI413B">EORI or other identification based on a Mutual Recognition Agreement for AEO operators, if the exporter has such an ID, is entered.</Description>
@@ -4607,7 +4617,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MaxOccurrence use="FI413B">9999</MaxOccurrence>
       <MaxOccurrence use="FI415B">9999</MaxOccurrence>
       <Rule use="FI413B">NR0253</Rule>
+      <Rule use="FI413B">NR4453</Rule>
       <Rule use="FI415B">NR0253</Rule>
+      <Rule use="FI415B">NR4453</Rule>
       <Condition use="FI413B">NC0260</Condition>
       <Condition use="FI415B">NC0260</Condition>
       <Description lang="fi" use="FI413B">Ilmoitetaan vain kokoavalla täydentävällä tulli-ilmoituksella edeltävien asiakirjojen MRN-numerot.</Description>
@@ -5562,6 +5574,8 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Subset use="FI415B">I1</Subset>
           <MinOccurrence use="FI413B">1</MinOccurrence>
           <MinOccurrence use="FI415B">1</MinOccurrence>
+          <Rule use="FI413B">R0928</Rule>
+          <Rule use="FI415B">R0928</Rule>
           <Description lang="fi" use="FI413B">Ilmoitetaan toimijan EORI-tunniste tai kansainvälisen MRA-sopimuksen, AEO-toimijaa vastaavan toimijan tunniste.</Description>
           <Description lang="sv" use="FI413B">Aktörens EORI-nummer eller identifikationen för en aktör enligt ett internationellt MRA-avtal som motsvarar AEO-aktör anges.</Description>
           <Description lang="en" use="FI413B">EORI number of the actor or the identification number of an operator corresponding to an AEO operator under an international Mutual Recognition Agreement is entered.</Description>
@@ -5683,6 +5697,8 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Subset use="FI415B">I1</Subset>
           <MinOccurrence use="FI413B">0</MinOccurrence>
           <MinOccurrence use="FI415B">0</MinOccurrence>
+          <Rule use="FI413B">R0928</Rule>
+          <Rule use="FI415B">R0928</Rule>
         </DataElement>
         <DataGroup>
           <Name lang="fi">Toimipaikkakoodi</Name>
@@ -6428,6 +6444,8 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Subset use="FI415B">I1</Subset>
           <MinOccurrence use="FI413B">0</MinOccurrence>
           <MinOccurrence use="FI415B">0</MinOccurrence>
+          <Rule use="FI413B">R0928</Rule>
+          <Rule use="FI415B">R0928</Rule>
         </DataElement>
         <DataGroup>
           <Name lang="fi">Toimipaikkakoodi</Name>
@@ -10510,9 +10528,21 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <MinOccurrence use="FI415B">0</MinOccurrence>
             <Codelist use="FI413B">CL010</Codelist>
             <Codelist use="FI415B">CL010</Codelist>
+            <Rule use="FI413B">NR4429</Rule>
             <Rule use="FI415B">NR4429</Rule>
             <Condition use="FI413B">NC4406</Condition>
             <Condition use="FI415B">NC4406</Condition>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">Viitenumero</Name>
+            <Name lang="sv">Referensnummer</Name>
+            <Name lang="en">Reference number</Name>
+            <XPath>/​GoodsShipment/​GovernmentAgencyGoodsItem/​AdditionalDocument@function="AdditionalReference"/​Identification</XPath>
+            <Format>an..70</Format>
+            <Use>FI413B</Use>
+            <Use>FI415B</Use>
+            <MinOccurrence use="FI413B">0</MinOccurrence>
+            <MinOccurrence use="FI415B">0</MinOccurrence>
           </DataElement>
         </DataGroup>
         <DataGroup>
@@ -10726,6 +10756,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Rule use="FI413B">NR3030</Rule>
           <Rule use="FI413B">NR3041</Rule>
           <Rule use="FI413B">NR4412</Rule>
+          <Rule use="FI413B">NR4453</Rule>
           <Rule use="FI415B">NR0008</Rule>
           <Rule use="FI415B">NR0009</Rule>
           <Rule use="FI415B">NR0010</Rule>
@@ -10745,6 +10776,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Rule use="FI415B">NR3030</Rule>
           <Rule use="FI415B">NR3041</Rule>
           <Rule use="FI415B">NR4412</Rule>
+          <Rule use="FI415B">NR4453</Rule>
           <Rule use="FI473B">NR1318</Rule>
           <Rule use="FI473B">NR1325</Rule>
           <Rule use="FI473B">NR3041</Rule>
@@ -11302,12 +11334,20 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI485B">1</MinOccurrence>
         <Codelist use="FI413B">CL251</Codelist>
         <Codelist use="FI415B">CL251</Codelist>
+        <Condition use="FI413B">NC4415</Condition>
+        <Condition use="FI415B">NC4415</Condition>
         <Description lang="fi" use="FI413B">Ilmoita vakuuden tyypiksi 1 (yleisvakuus). Poikkeus: keskitetyn tuonnin tulli-ilmoituksissa voi ilmoittaa muitakin vakuuden tyyppejä.</Description>
         <Description lang="sv" use="FI413B">Ange 1 (samlad garanti) som garantityp. Undantag: i tulldeklarationer för centraliserad import kan även andra garantityper anges.</Description>
         <Description lang="en" use="FI413B">Provide 1 (comprehensive guarantee) as the guarantee type. Exception: other guarantee types can also be provided in customs declarations for centralized import.</Description>
         <Description lang="fi" use="FI415B">Ilmoita vakuuden tyypiksi 1 (yleisvakuus). Poikkeus: keskitetyn tuonnin tulli-ilmoituksissa voi ilmoittaa muitakin vakuuden tyyppejä.</Description>
         <Description lang="sv" use="FI415B">Ange 1 (samlad garanti) som garantityp. Undantag: i tulldeklarationer för centraliserad import kan även andra garantityper anges.</Description>
         <Description lang="en" use="FI415B">Provide 1 (comprehensive guarantee) as the guarantee type. Exception: other guarantee types can also be provided in customs declarations for centralized import.</Description>
+        <Description lang="fi" use="FI483B">Ilmoita vakuuden tyypiksi 1 (yleisvakuus).</Description>
+        <Description lang="sv" use="FI483B">Ange 1 (samlad garanti) som garantityp.</Description>
+        <Description lang="en" use="FI483B">Provide 1 (comprehensive guarantee) as the guarantee type.</Description>
+        <Description lang="fi" use="FI485B">Ilmoita vakuuden tyypiksi 1 (yleisvakuus).</Description>
+        <Description lang="sv" use="FI485B">Ange 1 (samlad garanti) som garantityp.</Description>
+        <Description lang="en" use="FI485B">Provide 1 (comprehensive guarantee) as the guarantee type.</Description>
       </DataElement>
       <DataGroup>
         <Name lang="fi">Vakuuden viite</Name>
@@ -11338,6 +11378,12 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Description lang="fi" use="FI415B">Vakuuden viite -tietoryhmän tietoja voi ilmoittaa vain kerran, niitä ei saa toistaa. Poikkeus: Keskitetyn tuonnin tulli-ilmoituksissa tietoryhmän tietoja voi toistaa useamman kerran, mutta silloinkin mutta silloinkin voi ilmoittaa vain yhden Suomessa myönnetyn yleisvakuuden.</Description>
         <Description lang="sv" use="FI415B">Uppgifter som tillhör datagruppen Referens för garanti kan endast anges en gång och får inte upprepas. Undantag: Vid tulldeklarationer för centraliserad import kan uppgifter i datagruppen upprepas flera gånger, men även i det fallet kan man ange endast en samlad garanti som beviljats i Finland.</Description>
         <Description lang="en" use="FI415B">Data in the data group “Guarantee reference” can be provided only once, they mustn’t be repeated. Exception: In customs declarations for centralised import, data in the data group can be repeated several times, but even then, only one comprehensive guarantee granted in Finland can be provided.</Description>
+        <Description lang="fi" use="FI483B">Vakuuden viite -tietoryhmän tietoja voi ilmoittaa vain kerran, niitä ei saa toistaa.</Description>
+        <Description lang="sv" use="FI483B">Uppgifter som tillhör datagruppen Referens för garanti kan endast anges en gång och får inte upprepas.</Description>
+        <Description lang="en" use="FI483B">Data in the data group “Guarantee reference” can be provided only once, they mustn’t be repeated.</Description>
+        <Description lang="fi" use="FI485B">Vakuuden viite -tietoryhmän tietoja voi ilmoittaa vain kerran, niitä ei saa toistaa.</Description>
+        <Description lang="sv" use="FI485B">Uppgifter som tillhör datagruppen Referens för garanti kan endast anges en gång och får inte upprepas.</Description>
+        <Description lang="en" use="FI485B">Data in the data group “Guarantee reference” can be provided only once, they mustn’t be repeated.</Description>
         <DataElement>
           <Name lang="fi">Vakuuden viitenumero (GRN)</Name>
           <Name lang="sv">Referensnummer för garanti (GRN)</Name>
@@ -11374,6 +11420,12 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Description lang="fi" use="FI415B">Ilmoita vakuuden viitenumero keskitetyn tuonnin tulli-ilmoituksissa, tai jos ilmoituksen perusteella tulee kannettavaksi veroja tai muita maksuja.</Description>
           <Description lang="sv" use="FI415B">Ange referensnummer för garanti i tulldeklarationer för centraliserad import eller om skatter eller andra avgifter ska tas ut på basis av deklarationen.</Description>
           <Description lang="en" use="FI415B">Provide reference in customs declarations for centralised import or if taxes or other charges are levied based on the declaration.</Description>
+          <Description lang="fi" use="FI483B">Ilmoita vakuuden viitenumero, jos ilmoituksen perusteella tulee kannettavaksi veroja tai muita maksuja.</Description>
+          <Description lang="sv" use="FI483B">Ange referensnummer för garanti om skatter eller andra avgifter ska tas ut på basis av deklarationen.</Description>
+          <Description lang="en" use="FI483B">Provide reference if taxes or other charges are levied based on the declaration.</Description>
+          <Description lang="fi" use="FI485B">Ilmoita vakuuden viitenumero, jos ilmoituksen perusteella tulee kannettavaksi veroja tai muita maksuja.</Description>
+          <Description lang="sv" use="FI485B">Ange referensnummer för garanti om skatter eller andra avgifter ska tas ut på basis av deklarationen.</Description>
+          <Description lang="en" use="FI485B">Provide reference if taxes or other charges are levied based on the declaration.</Description>
         </DataElement>
         <DataElement>
           <Name lang="fi">CC-ilmaisin</Name>
@@ -11395,8 +11447,10 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Rule use="FI415B">NR4429</Rule>
           <Condition use="FI413B">NC4405</Condition>
           <Condition use="FI413B">NC4406</Condition>
+          <Condition use="FI413B">NC4415</Condition>
           <Condition use="FI415B">NC4405</Condition>
           <Condition use="FI415B">NC4406</Condition>
+          <Condition use="FI415B">NC4415</Condition>
           <Description lang="fi" use="FI413B">Ilmoita CC-ilmaisin vain, jos annat keskitetyn tuonnin tulli-ilmoituksen ja vakuuden viitenumero ei ole FI-alkuinen (vakuus on myönnetty muualla kuin Suomessa).</Description>
           <Description lang="sv" use="FI413B">Ange CC-kvalificeraren endast om du inger en tulldeklaration för centraliserad import och referensnumret för garantin inte börjar på FI (garantin har beviljats i ett annat land än Finland).</Description>
           <Description lang="en" use="FI413B">Provide the CC Qualifier only if you are submitting a customs declaration for centralized import and the GRN doesn’t begin with FI (the guarantee has not been granted in Finland).</Description>
