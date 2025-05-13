@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2021 rel. 3 (x64) (http://www.altova.com) by Tulli (Tulli) -->
+<!-- edited with XMLSpy v2025 rel. 2 (x64) (https://www.altova.com) by Tulli (Tulli) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:altova="http://www.altova.com/xml-schema-extensions" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
 	<xs:element name="MessageExchange" type="MessageExchangeType"/>
 	<xs:complexType name="MessagesType">
@@ -228,7 +228,7 @@
 										<xs:element name="EO" minOccurs="0" maxOccurs="unbounded">
 											<xs:complexType>
 												<xs:simpleContent>
-													<xs:extension base="xs:string">
+													<xs:extension base="MessageType">
 														<xs:attribute name="labelfi"/>
 														<xs:attribute name="labelsv"/>
 														<xs:attribute name="labelen"/>
@@ -239,7 +239,7 @@
 										<xs:element name="Customs" minOccurs="0" maxOccurs="unbounded">
 											<xs:complexType>
 												<xs:simpleContent>
-													<xs:extension base="xs:string">
+													<xs:extension base="MessageType">
 														<xs:attribute name="labelfi"/>
 														<xs:attribute name="labelsv"/>
 														<xs:attribute name="labelen"/>
@@ -386,4 +386,9 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	<xs:simpleType name="MessageType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="FI\d{3}\w"/>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
