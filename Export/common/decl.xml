@@ -50,6 +50,9 @@
     <MaxOccurrence use="FI595A">1</MaxOccurrence>
     <MaxOccurrence use="FI613A">1</MaxOccurrence>
     <MaxOccurrence use="FI615A">1</MaxOccurrence>
+    <Rule use="FI513A">NR0051</Rule>
+    <Rule use="FI583A">NR0051</Rule>
+    <Rule use="FI593A">NR0051</Rule>
     <DataElement>
       <Name lang="fi">Tapahtuman tunniste</Name>
       <Name lang="sv">Händelsens identifierare</Name>
@@ -6493,48 +6496,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
             </DataElement>
           </DataGroup>
           <DataGroup>
-            <Name lang="fi">Tavaran koodi - yhdistetyn nimikkeistön koodi</Name>
-            <Name lang="sv">Varukod - KN-nummer</Name>
-            <Name lang="en">Commodity code - Combined Nomenclature code</Name>
-            <XPath>/​Consignment/​ConsignmentItem/​Commodity/​Classification</XPath>
-            <Use>FI613A</Use>
-            <Use>FI615A</Use>
-            <MinOccurrence use="FI613A">0</MinOccurrence>
-            <MinOccurrence use="FI615A">0</MinOccurrence>
-            <MaxOccurrence use="FI613A">1</MaxOccurrence>
-            <MaxOccurrence use="FI615A">1</MaxOccurrence>
-            <DataElement>
-              <Name lang="fi">Luokitustyyppi</Name>
-              <Name lang="sv">Klassificeringstyp</Name>
-              <Name lang="en">Classification type</Name>
-              <XPath>/​Consignment/​ConsignmentItem/​Commodity/​Classification/​IdentificationType</XPath>
-              <Format>an..3</Format>
-              <Use>FI613A</Use>
-              <Use>FI615A</Use>
-              <MinOccurrence use="FI613A">1</MinOccurrence>
-              <MinOccurrence use="FI615A">1</MinOccurrence>
-              <Codelist use="FI613A">NCL995</Codelist>
-              <Codelist use="FI615A">NCL995</Codelist>
-              <Description lang="fi" use="FI613A">Ilmoitetaan luokitustyyppi 'CN'.</Description>
-              <Description lang="sv" use="FI613A">Klassificeringstyp 'CN' anmäls.</Description>
-              <Description lang="en" use="FI613A">Classification type 'CN' is entered.</Description>
-              <Description lang="fi" use="FI615A">Ilmoitetaan luokitustyyppi 'CN'.</Description>
-              <Description lang="sv" use="FI615A">Klassificeringstyp 'CN' anmäls.</Description>
-              <Description lang="en" use="FI615A">Classification type 'CN' is entered.</Description>
-            </DataElement>
-            <DataElement>
-              <Name lang="fi">Tavaran koodi - yhdistetyn nimikkeistön koodi</Name>
-              <Name lang="sv">Varukod - KN-nummer</Name>
-              <Name lang="en">Commodity code - Combined Nomenclature code</Name>
-              <XPath>/​Consignment/​ConsignmentItem/​Commodity/​Classification/​Identification</XPath>
-              <Format>an2</Format>
-              <Use>FI613A</Use>
-              <Use>FI615A</Use>
-              <MinOccurrence use="FI613A">1</MinOccurrence>
-              <MinOccurrence use="FI615A">1</MinOccurrence>
-            </DataElement>
-          </DataGroup>
-          <DataGroup>
             <Name lang="fi">CUS-koodi</Name>
             <Name lang="sv">CUS-kod</Name>
             <Name lang="en">CUS code</Name>
@@ -7045,6 +7006,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Codelist use="FI613A">CL214</Codelist>
             <Codelist use="FI615A">CL214</Codelist>
             <Rule use="FI570A">NR5145</Rule>
+            <Rule use="FI570A">NR5153</Rule>
             <Rule use="FI613A">NR5105</Rule>
             <Rule use="FI613A">NR5106</Rule>
             <Rule use="FI613A">NR5110</Rule>
@@ -7073,6 +7035,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <MinOccurrence use="FI570A">1</MinOccurrence>
             <MinOccurrence use="FI613A">1</MinOccurrence>
             <MinOccurrence use="FI615A">1</MinOccurrence>
+            <Rule use="FI570A">NR5148</Rule>
             <Description lang="fi" use="FI570A">Ilmoitetaan edeltävän asiakirjan viitenumero MRN tai muu viite.</Description>
             <Description lang="sv" use="FI570A">Ange referensnummer (MRN) eller annan referens för tidigare dokument.</Description>
             <Description lang="en" use="FI570A">Provide previous document MRN or other reference.</Description>
@@ -7095,6 +7058,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <MinOccurrence use="FI570A">0</MinOccurrence>
             <MinOccurrence use="FI613A">0</MinOccurrence>
             <MinOccurrence use="FI615A">0</MinOccurrence>
+            <Condition use="FI570A">NC5075</Condition>
             <Condition use="FI613A">NC5068</Condition>
             <Condition use="FI615A">NC5068</Condition>
             <Description lang="fi" use="FI570A">Ilmoitetaan edeltävän asiakirjan MRN:än liittyvä tavaraerän järjestysnumero.</Description>

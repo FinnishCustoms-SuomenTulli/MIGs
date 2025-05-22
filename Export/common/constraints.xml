@@ -881,7 +881,7 @@ ELSE /*/GoodsShipment/Consignment/ActiveBorderTransportMeans = "N" &#13;
   <Constraint>
     <Code>E1401</Code>
     <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN tietoryhmän &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; kardinaliteetti on 3x</Description>
+  NIIN tietoryhmän &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; kardinaliteetti on 9x</Description>
     <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
   DÅ är kardinaliteten för &lt;i&gt;Tidigare dokument&lt;/i&gt; 9x</Description>
     <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
@@ -1661,13 +1661,13 @@ ELSE &lt;i&gt;Transport document reference&lt;/i&gt; = 'O'</Description>
   </Constraint>
   <Constraint>
     <Code>NC5050</Code>
-    <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FIETD'&#13;
+    <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FIPML' TAI &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on JOUKOSSA [N820, N821, N822, N952]&#13;
   NIIN &lt;i&gt;Kuljetusasiakirjan viite&lt;/i&gt; = 'N'&#13;
 MUUTEN &lt;i&gt;Kuljetusasiakirjan viite&lt;/i&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = 'FIETD'&#13;
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = 'FIPML' ELLER &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; är i GRUPPEN [N820, N821, N822, N952]&#13;
   DÅ är &lt;i&gt;Referens för transportdokument&lt;/i&gt; = 'N'&#13;
 ANNARS är &lt;i&gt;Referens för transportdokument&lt;/i&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; = 'FIETD'&#13;
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; = 'FIPML' OR &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; is in SET [N820, N821, N822, N952]&#13;
   THEN &lt;i&gt;Transport document reference&lt;/i&gt; = 'N'&#13;
 ELSE &lt;i&gt;Transport document reference&lt;/i&gt; = 'R'</Description>
   </Constraint>
@@ -1799,6 +1799,18 @@ ELSE &lt;i&gt;Previous document&lt;/i&gt; = 'R'</Description>
     <Description lang="en">IF &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; is in SET {N337, N355}&#13;
   THEN &lt;i&gt;Goods item identifier&lt;/i&gt; = 'R'&#13;
   ELSE &lt;i&gt;Goods item identifier&lt;/i&gt; = 'O'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC5075</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Lisätieto&lt;/i&gt;/&lt;i&gt;Lisätietokoodi&lt;/i&gt; on YHTÄ KUIN ‘FIPML’ &#13;
+  NIIN &lt;i&gt;Tavaraerän tunniste&lt;/i&gt; = 'N'&#13;
+MUUTEN &lt;i&gt;Tavaraerän tunniste&lt;/i&gt; = 'O'</Description>
+    <Description lang="sv">OM &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Ytterligare uppgifter&lt;/i&gt;/&lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; är LIKA MED ‘FIPML’ &#13;
+  DÅ är &lt;i&gt;Varupostidentifierare&lt;/i&gt; = 'N'&#13;
+ANNARS är &lt;i&gt;Varupostidentifierare&lt;/i&gt; = 'O'</Description>
+    <Description lang="en">IF &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Additional information&lt;/i&gt;/&lt;i&gt;Additional information code&lt;/i&gt; is EQUAL to ‘FIPML’ &#13;
+  THEN &lt;i&gt;Goods item identifier&lt;/i&gt; = 'N'&#13;
+ELSE &lt;i&gt;Goods item identifier&lt;/i&gt; = 'O'</Description>
   </Constraint>
   <Constraint>
     <Code>NC5283</Code>
@@ -1940,6 +1952,15 @@ ELSE /*/GoodsShipment/Consignment/inlandModeOfTransport = "N"</Description>
     <Description lang="fi">Palveluntarjoajan on oltava eri kuin maahantuoja (saapuminen ja tuonti), viejä (vienti), tavaranhaltija ja edustaja.</Description>
     <Description lang="sv">Tjänsteleverantören måste skilja sig från importör (införsel och import), exportör (export), deklarant och representant.</Description>
     <Description lang="en">Service provider has to be different from importer (entry and import), exporter (export), declarant and representative.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR0051</Code>
+    <Description lang="fi">Voit pyytää muutosta, jos olet tehnyt muutoksia ilmoitustietoihin.&#13;
+Jos pyydät muutosta luovutuksen jälkeen, tee muutokset tiedoissa ja kerro muutosten syyt joko tietoelementissä &lt;i&gt;Oikaisun syyn kuvaus&lt;/i&gt; tai lisäämällä liite.</Description>
+    <Description lang="sv">Du kan begära ändring om du har gjort ändringar i deklarationsuppgifterna.&#13;
+Om du begär ändring efter överlåtelse, gör ändringarna i detaljerna och ange skälen till ändringarna antingen i &lt;i&gt;Beskrivning av orsaken till korrigeringsbegäran&lt;/i&gt; eller lägg till en bilaga.</Description>
+    <Description lang="en">You can request amendment if you have made changes to the declaration details.&#13;
+If you request amendment after release, make the changes to the details and provide the reasons for the changes either in &lt;i&gt;Amendment reason description&lt;/i&gt; or add an attachment.</Description>
   </Constraint>
   <Constraint>
     <Code>NR0057</Code>
@@ -3023,6 +3044,24 @@ Note: The &lt;i&gt;Goods item number&lt;/i&gt; / &lt;i&gt;Sequence number&lt;/i&
     <Description lang="fi">&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on oltava JOUKOSSA {'N337', 'N355', 'N821', N952'}</Description>
     <Description lang="sv">&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; måste vara i GRUPPEN {'N337', 'N355', 'N821', N952'}</Description>
     <Description lang="en">&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; must be in SET {'N337', 'N355', 'N821', N952'}</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR5148</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on JOUKOSSA {1MRN, N830} TAI &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on JOUKOSSA {N337, N355, N820, N82', N822, N952} &#13;
+  NIIN tämän on oltava MRN</Description>
+    <Description lang="sv">OM &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; är i GRUPPEN {1MRN, N830} ELLER &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; är i GRUPPEN {N337, N355, N820, N82', N822, N952} &#13;
+  DÅ måste detta vara ett MRN</Description>
+    <Description lang="en">IF &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; is in SET {1MRN, N830} OR &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; is in SET {N337, N355, N820, N82', N822, N952} &#13;
+  THEN this must be an MRN</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR5153</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on JOUKOSSA {N337, N355}&#13;
+  NIIN tämän on oltava voimassa oleva UTU saapumisen asiakirja</Description>
+    <Description lang="sv">OM &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; är i GRUPPEN {N337, N355}&#13;
+  DÅ måste detta vara ett giltigt dokument i UTU ankomst</Description>
+    <Description lang="en">IF &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; is in SET {N337, N355}&#13;
+  THEN this must be a valid UTU Entry document</Description>
   </Constraint>
   <Constraint>
     <Code>NR5501</Code>
