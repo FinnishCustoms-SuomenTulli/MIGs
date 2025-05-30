@@ -1,676 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Constraints>
   <Constraint>
-    <Code>B1016</Code>
-    <Description lang="fi">During the Transitional Period, the data item “Customs office at border reference number”, is required for ‘native CC015C’ and ‘native CC013C’ and optional if CC013C or CC015C is the outcome of the upgraded CC013B or CC015B respectively. After the end of the Transitional Period, the data item will be always required.</Description>
-    <Description lang="sv">During the Transitional Period, the data item “Customs office at border reference number”, is required for ‘native CC015C’ and ‘native CC013C’ and optional if CC013C or CC015C is the outcome of the upgraded CC013B or CC015B respectively. After the end of the Transitional Period, the data item will be always required.</Description>
-    <Description lang="en">During the Transitional Period, the data item “Customs office at border reference number”, is required for ‘native CC015C’ and ‘native CC013C’ and optional if CC013C or CC015C is the outcome of the upgraded CC013B or CC015B respectively. After the end of the Transitional Period, the data item will be always required.</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1091</Code>
-    <Description lang="fi">Siirtymäkauden (TP) aikana kansalliseen passitussovellukseen lähetettävä sanoma ei saa sisältää arvoa '99'. Tämä arvo '99' on voimassa CL750:ssä TP:n aikana, vain siinä tapauksessa, että arvo '99' on seurausta kansallisen passitussovelluksen tekemästä vanhan viestin konversiosta.</Description>
-    <Description lang="sv">Under övergångsperioden (TP) bör det ursprungliga meddelandet som skickas till den nationella transiteringsapplikationen inte innehålla värdet '99'. Det här värdet '99' är giltigt i CL750 under TP, endast om värdet '99' är resultatet av konversionen av ett äldre meddelande från nationella transiteringsapplikationen.</Description>
-    <Description lang="en">During the Transitional Period (TP), the message sent to the National Transit Application should not include the value '99'. This value '99' is valid in CL750 during TP, only in case the value '99' is the result of the conversion by the National Transit Application of a legacy message.</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1804</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0710 attached to /*/Consignment/LocationOfGoods&#13;
-shall be disabled AND&#13;
-/*/Consignment/LocationOfGoods = "O"&#13;
-</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0710 attached to /*/Consignment/LocationOfGoods&#13;
-shall be disabled AND&#13;
-/*/Consignment/LocationOfGoods = "O"&#13;
-</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0710 attached to /*/Consignment/LocationOfGoods&#13;
-shall be disabled AND&#13;
-/*/Consignment/LocationOfGoods = "O"&#13;
-</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1805</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0837 will be disabled AND&#13;
-  IF /*/ TransitOperation/reducedDatasetIndicator is EQUAL TO ‘1’&#13;
-     THEN&#13;
-     /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/GoodsMeasure/netMass = "N"&#13;
-  ELSE         &#13;
-  /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/GoodsMeasure/netMass = "O"</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0837 will be disabled AND&#13;
-  IF /*/ TransitOperation/reducedDatasetIndicator is EQUAL TO ‘1’&#13;
-     THEN&#13;
-     /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/GoodsMeasure/netMass = "N"&#13;
-  ELSE         &#13;
-  /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/GoodsMeasure/netMass = "O"</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0837 will be disabled AND&#13;
-  IF /*/ TransitOperation/reducedDatasetIndicator is EQUAL TO ‘1’&#13;
-     THEN&#13;
-     /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/GoodsMeasure/netMass = "N"&#13;
-  ELSE         &#13;
-  /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/GoodsMeasure/netMass = "O"</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1806</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0806 will be disabled AND&#13;
-IF /*/Consignment/modeOfTransportAtTheBorder is PRESENT&#13;
-THEN&#13;
-   IF /*/Consignment/modeOfTransportAtTheBorder is EQUAL to "5" or "2"&#13;
-   THEN /*/Consignment/ActiveBorderTransportMeans = “O”&#13;
-   ELSE /*/Consignment/ActiveBorderTransportMeans = “R”&#13;
-ELSE&#13;
-/*/Consignment/ActiveBorderTransportMeans = “O”</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0806 will be disabled AND&#13;
-IF /*/Consignment/modeOfTransportAtTheBorder is PRESENT&#13;
-THEN&#13;
-   IF /*/Consignment/modeOfTransportAtTheBorder is EQUAL to "5" or "2"&#13;
-   THEN /*/Consignment/ActiveBorderTransportMeans = “O”&#13;
-   ELSE /*/Consignment/ActiveBorderTransportMeans = “R”&#13;
-ELSE&#13;
-/*/Consignment/ActiveBorderTransportMeans = “O”</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0806 will be disabled AND&#13;
-IF /*/Consignment/modeOfTransportAtTheBorder is PRESENT&#13;
-THEN&#13;
-   IF /*/Consignment/modeOfTransportAtTheBorder is EQUAL to "5" or "2"&#13;
-   THEN /*/Consignment/ActiveBorderTransportMeans = “O”&#13;
-   ELSE /*/Consignment/ActiveBorderTransportMeans = “R”&#13;
-ELSE&#13;
-/*/Consignment/ActiveBorderTransportMeans = “O”</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1811</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0076 attached to &#13;
-/*/Consignment/ActiveBorderTransportMeans/identificationNumber&#13;
-will be disabled</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0076 attached to &#13;
-/*/Consignment/ActiveBorderTransportMeans/identificationNumber&#13;
-will be disabled</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0076 attached to &#13;
-/*/Consignment/ActiveBorderTransportMeans/identificationNumber&#13;
-will be disabled</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1813</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; &#13;
-THEN R0003 and R0006 shall be disabled.</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; &#13;
-THEN R0003 and R0006 shall be disabled.</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; &#13;
-THEN R0003 and R0006 shall be disabled.</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1814</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R3061 attached to /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalInformation/code&#13;
-shall be disabled</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R3061 attached to /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalInformation/code&#13;
-shall be disabled</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R3061 attached to /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalInformation/code&#13;
-shall be disabled</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1815</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN R0473 poistetaan käytöstä</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ kommer R0473 att vara passiv</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN R0473 shall be disabled</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1821</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-IF /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/identificationNumber is&#13;
-PRESENT AND&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee/identificationNumber is a valid&#13;
-identifier in the European EOS ((Economic Operators Systems) verified by the EU Member State&#13;
-receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or&#13;
-sending this message&#13;
-THEN&#13;
-         /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/name="N" AND&#13;
-        /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/Address="N"&#13;
-ELSE&#13;
-      /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/name="R" AND&#13;
-     /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/Address="R";&#13;
-</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-IF /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/identificationNumber is&#13;
-PRESENT AND&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee/identificationNumber is a valid&#13;
-identifier in the European EOS ((Economic Operators Systems) verified by the EU Member State&#13;
-receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or&#13;
-sending this message&#13;
-THEN&#13;
-         /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/name="N" AND&#13;
-        /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/Address="N"&#13;
-ELSE&#13;
-      /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/name="R" AND&#13;
-     /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/Address="R";&#13;
-</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-IF /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/identificationNumber is&#13;
-PRESENT AND&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee/identificationNumber is a valid&#13;
-identifier in the European EOS ((Economic Operators Systems) verified by the EU Member State&#13;
-receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or&#13;
-sending this message&#13;
-THEN&#13;
-         /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/name="N" AND&#13;
-        /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/Address="N"&#13;
-ELSE&#13;
-      /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/name="R" AND&#13;
-     /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/Address="R";&#13;
-</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1822</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-IF /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/Address/country is in SET CL505&#13;
-THEN /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/Address/postcode = "O"&#13;
-ELSE /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/Address/postcode = "R";&#13;
-</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-IF /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/Address/country is in SET CL505&#13;
-THEN /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/Address/postcode = "O"&#13;
-ELSE /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/Address/postcode = "R";&#13;
-</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-IF /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/Address/country is in SET CL505&#13;
-THEN /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/Address/postcode = "O"&#13;
-ELSE /*/Consignment/HouseConsignment/ConsignmentItem/Consignee/Address/postcode = "R";&#13;
-</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1831</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0598 shall be disabled AND&#13;
-IF &lt;TRANSIT OPERATION.Security&gt; is in SET {1,2,3} AND&#13;
-the first two characters of the /*/CustomsOfficeOfTransitDeclared/referenceNumber is in SET CL010 AND the first two characters of&#13;
-/*/CustomsOfficeOfDeparture/referenceNumber is NOT in SET CL010&#13;
-THEN &lt;CUSTOMS OFFICE OF TRANSIT (DECLARED).Arrival date and time estimated&gt; = "R"&#13;
-ELSE &lt;CUSTOMS OFFICE OF TRANSIT (DECLARED).Arrival date and time estimated&gt; = "O"</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0598 shall be disabled AND&#13;
-IF &lt;TRANSIT OPERATION.Security&gt; is in SET {1,2,3} AND&#13;
-the first two characters of the /*/CustomsOfficeOfTransitDeclared/referenceNumber is in SET CL010 AND the first two characters of&#13;
-/*/CustomsOfficeOfDeparture/referenceNumber is NOT in SET CL010&#13;
-THEN &lt;CUSTOMS OFFICE OF TRANSIT (DECLARED).Arrival date and time estimated&gt; = "R"&#13;
-ELSE &lt;CUSTOMS OFFICE OF TRANSIT (DECLARED).Arrival date and time estimated&gt; = "O"</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0598 shall be disabled AND&#13;
-IF &lt;TRANSIT OPERATION.Security&gt; is in SET {1,2,3} AND&#13;
-the first two characters of the /*/CustomsOfficeOfTransitDeclared/referenceNumber is in SET CL010 AND the first two characters of&#13;
-/*/CustomsOfficeOfDeparture/referenceNumber is NOT in SET CL010&#13;
-THEN &lt;CUSTOMS OFFICE OF TRANSIT (DECLARED).Arrival date and time estimated&gt; = "R"&#13;
-ELSE &lt;CUSTOMS OFFICE OF TRANSIT (DECLARED).Arrival date and time estimated&gt; = "O"</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1832</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN R0106 poistetaan käytöstä</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ kommer R0106 att vara passiv</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN R0106 shall be disabled</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1834</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0153 attached to&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode&#13;
-shall be disabled and the D.G. will become optional</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0153 attached to&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode&#13;
-shall be disabled and the D.G. will become optional</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0153 attached to&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode&#13;
-shall be disabled and the D.G. will become optional</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1838</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN C0503 poistetaan käytöstä JA &lt;i&gt;Tavaralähetys&lt;/i&gt;/&lt;i&gt;Määrämaa&lt;/i&gt; = 'O'&#13;
-  JA&#13;
-  JOS &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kansallisuus&lt;/i&gt; on ILMOITETTU TAI &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusmuoto rajalla&lt;/i&gt; = '2'&#13;
-    NIIN &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Tunnistetietojen tyyppi&lt;/i&gt; JA &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt; = 'R'&#13;
-  MUUTEN &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Tunnistetietojen tyyppi&lt;/i&gt; JA &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt; = 'O'</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ kommer C0503 att vara passiv OCH &lt;i&gt;Varuförsändelse&lt;/i&gt;/&lt;i&gt;Destinationsland&lt;/i&gt; = 'O'&#13;
-  OCH&#13;
-  OM &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Nationalitet&lt;/i&gt; är ANMÄLT ELLER &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportsätt vid gränsen&lt;/i&gt; = '2'&#13;
-    DÅ är &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Typ av identifiering&lt;/i&gt; OCH &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt; = 'R'&#13;
-  ANNARS är &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Typ av identifiering&lt;/i&gt; OCH &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt; = 'O'</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN R0219 shall be disabled AND &lt;i&gt;Goods shipment&lt;/i&gt;/&lt;i&gt;Country of destination&lt;/i&gt; = 'O'&#13;
-  AND&#13;
-  IF &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Nationality&lt;/i&gt; is DECLARED OR &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Mode of transport at the border&lt;/i&gt; = '2'&#13;
-    THEN &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Type of identification&lt;/i&gt; AND &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt; = 'R'&#13;
-  ELSE &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Type of identification&lt;/i&gt; AND &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt; = 'O'</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1848</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0586 attached to /*/Consignment/CountryOfRoutingOfConsignment shall be disabled AND&#13;
-IF /*/Transit Operation/security is in SET {1, 2, 3}&#13;
-THEN /*/Consignment/CountryOfRoutingOfConsignment = "R"&#13;
-ELSE /*/Consignment/CountryOfRoutingOfConsignment = "N"</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0586 attached to /*/Consignment/CountryOfRoutingOfConsignment shall be disabled AND&#13;
-IF /*/Transit Operation/security is in SET {1, 2, 3}&#13;
-THEN /*/Consignment/CountryOfRoutingOfConsignment = "R"&#13;
-ELSE /*/Consignment/CountryOfRoutingOfConsignment = "N"</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0586 attached to /*/Consignment/CountryOfRoutingOfConsignment shall be disabled AND&#13;
-IF /*/Transit Operation/security is in SET {1, 2, 3}&#13;
-THEN /*/Consignment/CountryOfRoutingOfConsignment = "R"&#13;
-ELSE /*/Consignment/CountryOfRoutingOfConsignment = "N"</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1850</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-IF first digit of /*/Consignment/modeOfTransportAtTheBorder is in SET {2}&#13;
-THEN /*/Consignment/ActiveBorderTransportMeans/nationality="O"&#13;
-ELSE /*/Consignment/ActiveBorderTransportMeans/nationality="R"</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-IF first digit of /*/Consignment/modeOfTransportAtTheBorder is in SET {2}&#13;
-THEN /*/Consignment/ActiveBorderTransportMeans/nationality="O"&#13;
-ELSE /*/Consignment/ActiveBorderTransportMeans/nationality="R"</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-IF first digit of /*/Consignment/modeOfTransportAtTheBorder is in SET {2}&#13;
-THEN /*/Consignment/ActiveBorderTransportMeans/nationality="O"&#13;
-ELSE /*/Consignment/ActiveBorderTransportMeans/nationality="R"</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1858</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0191 will be disabled&#13;
-AND&#13;
-IF /*/TransitOperation/security is EQUAL to ‘0’&#13;
-THEN /*/Consignment/PlaceOfUnloading = “N”&#13;
-ELSE&#13;
-IF /*/TransitOperation/specificCircumstanceIndicator is EQUAL to ‘XXX’&#13;
-THEN /*/Consignment/PlaceOfUnloading = “O”&#13;
-ELSE /*/Consignment/PlaceOfUnloading = "R"&#13;
-</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0191 will be disabled&#13;
-AND&#13;
-IF /*/TransitOperation/security is EQUAL to ‘0’&#13;
-THEN /*/Consignment/PlaceOfUnloading = “N”&#13;
-ELSE&#13;
-IF /*/TransitOperation/specificCircumstanceIndicator is EQUAL to ‘XXX’&#13;
-THEN /*/Consignment/PlaceOfUnloading = “O”&#13;
-ELSE /*/Consignment/PlaceOfUnloading = "R"&#13;
-</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0191 will be disabled&#13;
-AND&#13;
-IF /*/TransitOperation/security is EQUAL to ‘0’&#13;
-THEN /*/Consignment/PlaceOfUnloading = “N”&#13;
-ELSE&#13;
-IF /*/TransitOperation/specificCircumstanceIndicator is EQUAL to ‘XXX’&#13;
-THEN /*/Consignment/PlaceOfUnloading = “O”&#13;
-ELSE /*/Consignment/PlaceOfUnloading = "R"&#13;
-</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1862</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0223 attached to /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/GoodsMeasure/netMass will be disabled.</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0223 attached to /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/GoodsMeasure/netMass will be disabled.</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0223 attached to /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/GoodsMeasure/netMass will be disabled.</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1875</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN &#13;
-IF /*/TransitOperation/security is EQUAL to "0" OR &#13;
-/*/Consignment/TransportCharges is PRESENT &#13;
-THEN &#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges = "N"&#13;
-ELSE&#13;
-THEN /*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges = "O".</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN &#13;
-IF /*/TransitOperation/security is EQUAL to "0" OR &#13;
-/*/Consignment/TransportCharges is PRESENT &#13;
-THEN &#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges = "N"&#13;
-ELSE&#13;
-THEN /*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges = "O".</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN &#13;
-IF /*/TransitOperation/security is EQUAL to "0" OR &#13;
-/*/Consignment/TransportCharges is PRESENT &#13;
-THEN &#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges = "N"&#13;
-ELSE&#13;
-THEN /*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges = "O".</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1877</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; THEN &#13;
-      IF /*/Consignment/HouseConsignment/ConsignmentItem/Consignee is PRESENT &#13;
-      for all /*/Consignment/HouseConsignment/ConsignmentItem &#13;
-      THEN at least one occurrence of &#13;
-      /*/Consignment/HouseConsignment/ConsignmentItem/Consignee must be different &#13;
-      from the others;&#13;
-&#13;
-IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; THEN &#13;
-      IF /*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges is &#13;
-      PRESENT for all /*/Consignment/HouseConsignment/ConsignmentItem &#13;
-      THEN at least one occurrence of&#13;
-       /*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges must be &#13;
-       different from the others.&#13;
-</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; THEN &#13;
-      IF /*/Consignment/HouseConsignment/ConsignmentItem/Consignee is PRESENT &#13;
-      for all /*/Consignment/HouseConsignment/ConsignmentItem &#13;
-      THEN at least one occurrence of &#13;
-      /*/Consignment/HouseConsignment/ConsignmentItem/Consignee must be different &#13;
-      from the others;&#13;
-&#13;
-IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; THEN &#13;
-      IF /*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges is &#13;
-      PRESENT for all /*/Consignment/HouseConsignment/ConsignmentItem &#13;
-      THEN at least one occurrence of&#13;
-       /*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges must be &#13;
-       different from the others.&#13;
-</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; THEN &#13;
-      IF /*/Consignment/HouseConsignment/ConsignmentItem/Consignee is PRESENT &#13;
-      for all /*/Consignment/HouseConsignment/ConsignmentItem &#13;
-      THEN at least one occurrence of &#13;
-      /*/Consignment/HouseConsignment/ConsignmentItem/Consignee must be different &#13;
-      from the others;&#13;
-&#13;
-IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; THEN &#13;
-      IF /*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges is &#13;
-      PRESENT for all /*/Consignment/HouseConsignment/ConsignmentItem &#13;
-      THEN at least one occurrence of&#13;
-       /*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges must be &#13;
-       different from the others.&#13;
-</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1889</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0599 will be disabled AND&#13;
-       IF/*/TransitOperation/security is in SET {1,2,3} AND the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is not in CL010  &#13;
-       THEN &#13;
-                /*/Consignment/modeOfTransportAtTheBorder = "R"&#13;
-       ELSE &#13;
-        /*/Consignment/modeOfTransportAtTheBorder = "O"&#13;
-</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0599 will be disabled AND&#13;
-       IF/*/TransitOperation/security is in SET {1,2,3} AND the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is not in CL010  &#13;
-       THEN &#13;
-                /*/Consignment/modeOfTransportAtTheBorder = "R"&#13;
-       ELSE &#13;
-        /*/Consignment/modeOfTransportAtTheBorder = "O"&#13;
-</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0599 will be disabled AND&#13;
-       IF/*/TransitOperation/security is in SET {1,2,3} AND the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is not in CL010  &#13;
-       THEN &#13;
-                /*/Consignment/modeOfTransportAtTheBorder = "R"&#13;
-       ELSE &#13;
-        /*/Consignment/modeOfTransportAtTheBorder = "O"&#13;
-</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1890</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN R0855 poistetaan käytöstä&#13;
-  JA&#13;
-  JOS &lt;i&gt;Sisämaan kuljetusmuoto&lt;/i&gt; = '3'&#13;
-    NIIN &lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt; kardinaliteetti = '3x'&#13;
-  MUUTEN &lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt; kardinaliteetti = '1x'</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ kommer R0855 att vara passiv&#13;
-  OCH&#13;
-  OM &lt;i&gt;Transportsätt inrikes&lt;/i&gt; = '3'&#13;
-    DÅ är kardinaliteten för &lt;i&gt;Transportmedel vid avgång&lt;/i&gt; = '3x'&#13;
-  ANNARS är kardinaliteten för &lt;i&gt;Transportmedel vid avgång&lt;/i&gt; = '1x'&lt;br&gt;</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN R0855 will be disabled&#13;
-  AND&#13;
-  IF &lt;i&gt;Inland mode of transport&lt;/i&gt; = '3'&#13;
-    THEN the cardinality of &lt;i&gt;Departure transport means&lt;/i&gt; = '3x'&#13;
-  ELSE the cardinality of &lt;i&gt;Departure transport means&lt;/i&gt; = '1x'&lt;br&gt;</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1891</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN C0826 poistetaan käytöstä&#13;
-&#13;
-  JA&#13;
-  JOS &lt;i&gt;Sisämaan kuljetusmuoto&lt;/i&gt; = '5'&#13;
-    NIIN &lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt; = 'N'&#13;
-  MUUTEN JOS &lt;i&gt;Kontti&lt;/i&gt; = '1'&#13;
-    NIIN &lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt; = 'O'&#13;
-  MUUTEN &lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ kommer C0826 att vara passiv&#13;
-  OCH&#13;
-  OM &lt;i&gt;Transportsätt inrikes&lt;/i&gt; = '5'&#13;
-    DÅ är &lt;i&gt;Transportmedel vid avgång&lt;/i&gt; = 'N'&#13;
-  ANNARS OM &lt;i&gt;Container&lt;/i&gt; = '1'&#13;
-    DÅ är &lt;i&gt;Transportmedel vid avgång&lt;/i&gt; = 'O'&#13;
-  ANNARS är &lt;i&gt;Transportmedel vid avgång&lt;/i&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN C0826 shall be disabled&#13;
-  AND&#13;
-  IF &lt;i&gt;Inland mode of transport&lt;/i&gt; = '5'&#13;
-    THEN &lt;i&gt;Departure transport means&lt;/i&gt; = 'N'&#13;
-  ELSE IF &lt;i&gt;Container&lt;/i&gt; = '1'&#13;
-    THEN &lt;i&gt;Departure transport means&lt;/i&gt; = 'O'&#13;
-  ELSE &lt;i&gt;Departure transport means&lt;/i&gt; = 'R'</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1892</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN&#13;
-    JOS &lt;i&gt;Kontti&lt;/i&gt; = '1'&#13;
-      NIIN &lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Tunnistenumero&lt;/i&gt; JA &lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Tunnistetietojen tyyppi&lt;/i&gt; = 'O'&#13;
-    MUUTEN &lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Tunnistenumero&lt;/i&gt; JA &lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Tunnistetietojen tyyppi&lt;/i&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ&#13;
-    OM &lt;i&gt;Container&lt;/i&gt; = '1'&#13;
-      DÅ är &lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Identifieringsnummer&lt;/i&gt; OCH &lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Typ av identifiering&lt;/i&gt; = 'O'&#13;
-    ANNARS är &lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Identifieringsnummer&lt;/i&gt; OCH &lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Typ av identifiering&lt;/i&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN&#13;
-    IF &lt;i&gt;Container&lt;/i&gt; = '1'&#13;
-      THEN &lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Identification number&lt;/i&gt; AND &lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Type of identification&lt;/i&gt; = 'O'&#13;
-    ELSE &lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Identification number&lt;/i&gt; AND &lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Type of identification&lt;/i&gt; = 'R'</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1893</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0403 will be disabled&#13;
-AND &#13;
-IF /*/TransitOperation/security is EQUAL to ‘0’&#13;
-THEN /*/Consignment/PlaceOfLoading = “N”&#13;
-ELSE /*/Consignment/PlaceOfLoading = “R”&#13;
-</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0403 will be disabled&#13;
-AND &#13;
-IF /*/TransitOperation/security is EQUAL to ‘0’&#13;
-THEN /*/Consignment/PlaceOfLoading = “N”&#13;
-ELSE /*/Consignment/PlaceOfLoading = “R”&#13;
-</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN C0403 will be disabled&#13;
-AND &#13;
-IF /*/TransitOperation/security is EQUAL to ‘0’&#13;
-THEN /*/Consignment/PlaceOfLoading = “N”&#13;
-ELSE /*/Consignment/PlaceOfLoading = “R”&#13;
-</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1897</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN &#13;
-IF /*/Consignment/inlandModeOfTransport is EQUAL to ‘2’ &#13;
-THEN /*/Consignment/DepartureTransportMeans/nationality = "N"&#13;
-ELSE&#13;
-IF /*/Consignment/containerIndicator is EQUAL to ‘1’ &#13;
-THEN /*/Consignment/DepartureTransportMeans/nationality = “O”&#13;
-ELSE /*/Consignment/DepartureTransportMeans/nationality = “R”</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN &#13;
-IF /*/Consignment/inlandModeOfTransport is EQUAL to ‘2’ &#13;
-THEN /*/Consignment/DepartureTransportMeans/nationality = "N"&#13;
-ELSE&#13;
-IF /*/Consignment/containerIndicator is EQUAL to ‘1’ &#13;
-THEN /*/Consignment/DepartureTransportMeans/nationality = “O”&#13;
-ELSE /*/Consignment/DepartureTransportMeans/nationality = “R”</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN &#13;
-IF /*/Consignment/inlandModeOfTransport is EQUAL to ‘2’ &#13;
-THEN /*/Consignment/DepartureTransportMeans/nationality = "N"&#13;
-ELSE&#13;
-IF /*/Consignment/containerIndicator is EQUAL to ‘1’ &#13;
-THEN /*/Consignment/DepartureTransportMeans/nationality = “O”&#13;
-ELSE /*/Consignment/DepartureTransportMeans/nationality = “R”</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1898</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; &#13;
-THEN&#13;
-IF /*/Guarantee/GuaranteeReference/amountToBeCovered is PRESENT &#13;
-THEN /*/Guarantee/GuaranteeReference/currency = "R"&#13;
-ELSE /*/Guarantee/GuaranteeReference/currency = "N’’&#13;
-&#13;
-&#13;
-</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; &#13;
-THEN&#13;
-IF /*/Guarantee/GuaranteeReference/amountToBeCovered is PRESENT &#13;
-THEN /*/Guarantee/GuaranteeReference/currency = "R"&#13;
-ELSE /*/Guarantee/GuaranteeReference/currency = "N’’&#13;
-&#13;
-&#13;
-</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; &#13;
-THEN&#13;
-IF /*/Guarantee/GuaranteeReference/amountToBeCovered is PRESENT &#13;
-THEN /*/Guarantee/GuaranteeReference/currency = "R"&#13;
-ELSE /*/Guarantee/GuaranteeReference/currency = "N’’&#13;
-&#13;
-&#13;
-</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1904</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0005 will be disabled&#13;
-</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0005 will be disabled&#13;
-</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0005 will be disabled&#13;
-</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B1922</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0601 will be disabled AND&#13;
-IF /*/Consignment/HouseConsingment/ConsignmentItem/AdditionalReference/type is in SET CL234 (DocumentTypeExcise) (i.e. Export of excise goods followed by transit (EMCS&amp;AES+NCTS))&#13;
-THEN&#13;
-   IF /*/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/type is EQUAL to ‘N830’ &#13;
-   THEN&#13;
-        IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT&#13;
-        THEN /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is EQUAL to ‘T1’&#13;
-        ELSE /*/TransitOperation/declarationType is in SET {T1,TIR}&#13;
-   ELSE // no further constraints on ‘Declaration type’ data items&#13;
-ELSE &#13;
-   IF /*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/type is in SET CL234 (DocumentTypeExcise) (i.e. Transit movement of EU goods under excise suspension (EMCS+NCTS))&#13;
-   THEN&#13;
-        IF /*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/type is PRESENT&#13;
-        THEN /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is in SET {T2, T2F}&#13;
-        ELSE /*/TransitOperation/declarationType is in SET {T2, T2F}</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0601 will be disabled AND&#13;
-IF /*/Consignment/HouseConsingment/ConsignmentItem/AdditionalReference/type is in SET CL234 (DocumentTypeExcise) (i.e. Export of excise goods followed by transit (EMCS&amp;AES+NCTS))&#13;
-THEN&#13;
-   IF /*/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/type is EQUAL to ‘N830’ &#13;
-   THEN&#13;
-        IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT&#13;
-        THEN /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is EQUAL to ‘T1’&#13;
-        ELSE /*/TransitOperation/declarationType is in SET {T1,TIR}&#13;
-   ELSE // no further constraints on ‘Declaration type’ data items&#13;
-ELSE &#13;
-   IF /*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/type is in SET CL234 (DocumentTypeExcise) (i.e. Transit movement of EU goods under excise suspension (EMCS+NCTS))&#13;
-   THEN&#13;
-        IF /*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/type is PRESENT&#13;
-        THEN /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is in SET {T2, T2F}&#13;
-        ELSE /*/TransitOperation/declarationType is in SET {T2, T2F}</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0601 will be disabled AND&#13;
-IF /*/Consignment/HouseConsingment/ConsignmentItem/AdditionalReference/type is in SET CL234 (DocumentTypeExcise) (i.e. Export of excise goods followed by transit (EMCS&amp;AES+NCTS))&#13;
-THEN&#13;
-   IF /*/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/type is EQUAL to ‘N830’ &#13;
-   THEN&#13;
-        IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT&#13;
-        THEN /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is EQUAL to ‘T1’&#13;
-        ELSE /*/TransitOperation/declarationType is in SET {T1,TIR}&#13;
-   ELSE // no further constraints on ‘Declaration type’ data items&#13;
-ELSE &#13;
-   IF /*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/type is in SET CL234 (DocumentTypeExcise) (i.e. Transit movement of EU goods under excise suspension (EMCS+NCTS))&#13;
-   THEN&#13;
-        IF /*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/type is PRESENT&#13;
-        THEN /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is in SET {T2, T2F}&#13;
-        ELSE /*/TransitOperation/declarationType is in SET {T2, T2F}</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B2101</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on SUUREMPI kuin &lt;TPendDate&gt;&#13;
-  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kansallisuus&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Tunnistetietojen tyyppi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Paljoudet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Paljoudet&lt;/i&gt;/&lt;i&gt;Bruttopaino&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Rajatullitoimipaikan viitenumero&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kansallisuus&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Tunnistetietojen tyyppi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Vakuus&lt;/i&gt;/&lt;i&gt;Vakuuden viite&lt;/i&gt;/&lt;i&gt;Katettava määrä&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är STÖRRE ÄN &lt;TPendDate&gt;&#13;
-  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Nationalitet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Typ av identifiering&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Varumängder&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Varumängder&lt;/i&gt;/&lt;i&gt;Bruttovikt&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Transittullkontorets referensnummer&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Nationalitet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Typ av identifiering&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Garanti&lt;/i&gt;/&lt;i&gt;Referens för garanti&lt;/i&gt;/&lt;i&gt;Belopp som ska täckas&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is GREATER than &lt;TPendDate&gt;&#13;
-  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Nationality&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Type of identification&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Goods measure&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Goods measure&lt;/i&gt;/&lt;i&gt;Gross mass&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Customs office at border identification number&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Nationality&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Type of identification&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Guarantee&lt;/i&gt;/&lt;i&gt;Guarantee reference&lt;/i&gt;/&lt;i&gt;Amount to be covered&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-  </Constraint>
-  <Constraint>
-    <Code>B2400</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on SUUREMPI kuin &lt;TPendDate&gt;&#13;
-  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Vastaanottaja&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Kuljetuskustannukset&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är STÖRRE än &lt;TPendDate&gt;&#13;
-  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Mottagare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Transportkostnader&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is GREATER than &lt;TPendDate&gt;&#13;
-  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Consignee&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Transport charges&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
-  </Constraint>
-  <Constraint>
     <Code>C0001</Code>
     <Description lang="fi">JOS &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Määrämaan koodi&lt;/i&gt; on JOUKOSSA CL009&#13;
 NIIN JOS &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Vastaanottaja&lt;/i&gt; on ILMOITETTU&#13;
@@ -741,13 +71,13 @@ ELSE&#13;
   </Constraint>
   <Constraint>
     <Code>C0015</Code>
-    <Description lang="fi">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234(DocumentTypeExcise)&#13;
+    <Description lang="fi">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234&#13;
 THEN /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/referenceNumber = "R"&#13;
 ELSE /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/referenceNumber = "O"</Description>
-    <Description lang="sv">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234(DocumentTypeExcise)&#13;
+    <Description lang="sv">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234&#13;
 THEN /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/referenceNumber = "R"&#13;
 ELSE /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/referenceNumber = "O"</Description>
-    <Description lang="en">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234(DocumentTypeExcise)&#13;
+    <Description lang="en">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234&#13;
 THEN /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/referenceNumber = "R"&#13;
 ELSE /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/referenceNumber = "O"</Description>
   </Constraint>
@@ -763,11 +93,11 @@ ELSE &#13;
      characters of /*/CustomsOfficeOfDestinationDeclared/referenceNumber)  &#13;
             THEN /*/CustomsOfficeOfTransitDeclared = "O"  &#13;
 ELSE &#13;
-     IF /*/TransitOperation/declarationType is EQUAL to 'T2' &#13;
+     IF /*/TransitOperation/declarationType is EQUAL to "T2" &#13;
              THEN /*/CustomsOfficeOfTransitDeclared = "R" &#13;
 ELSE &#13;
-     IF /*/TransitOperation/declarationType is EQUAL 'T' AND at least one instance of &#13;
-     /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is EQUAL to 'T2' &#13;
+     IF /*/TransitOperation/declarationType is EQUAL "T" AND at least one instance of &#13;
+     /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is EQUAL to "T2" &#13;
              THEN /*/CustomsOfficeOfTransitDeclared = "R" &#13;
 ELSE  &#13;
      IF the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is in SET &#13;
@@ -779,16 +109,14 @@ ELSE &#13;
              THEN /*/CustomsOfficeOfTransitDeclared = "R" &#13;
 ELSE &#13;
      IF the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is EQUAL to &#13;
-     'AD' OR IF the first two characters of &#13;
-     /*/CustomsOfficeOfDestinationDeclared/referenceNumber is EQUAL to 'AD' &#13;
+     "AD" OR IF the first two characters of &#13;
+     /*/CustomsOfficeOfDestinationDeclared/referenceNumber is EQUAL to "AD" &#13;
              THEN /*/CustomsOfficeOfTransitDeclared = "R"  &#13;
 ELSE &#13;
      IF /*/CustomsOfficeOfExitForTransitDeclared is PRESENT  &#13;
      THEN /*/CustomsOfficeOfTransitDeclared = "R"  &#13;
 ELSE  &#13;
-     /*/CustomsOfficeOfTransitDeclared = "O" &#13;
- &#13;
-</Description>
+     /*/CustomsOfficeOfTransitDeclared = "O"</Description>
     <Description lang="sv">IF /*/TransitOperation/declarationType is in SET {TIR,T2SM}  &#13;
      THEN /*/CustomsOfficeOfTransitDeclared = "N"  &#13;
 ELSE &#13;
@@ -799,11 +127,11 @@ ELSE &#13;
      characters of /*/CustomsOfficeOfDestinationDeclared/referenceNumber)  &#13;
             THEN /*/CustomsOfficeOfTransitDeclared = "O"  &#13;
 ELSE &#13;
-     IF /*/TransitOperation/declarationType is EQUAL to 'T2' &#13;
+     IF /*/TransitOperation/declarationType is EQUAL to "T2" &#13;
              THEN /*/CustomsOfficeOfTransitDeclared = "R" &#13;
 ELSE &#13;
-     IF /*/TransitOperation/declarationType is EQUAL 'T' AND at least one instance of &#13;
-     /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is EQUAL to 'T2' &#13;
+     IF /*/TransitOperation/declarationType is EQUAL "T" AND at least one instance of &#13;
+     /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is EQUAL to "T2" &#13;
              THEN /*/CustomsOfficeOfTransitDeclared = "R" &#13;
 ELSE  &#13;
      IF the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is in SET &#13;
@@ -815,16 +143,14 @@ ELSE &#13;
              THEN /*/CustomsOfficeOfTransitDeclared = "R" &#13;
 ELSE &#13;
      IF the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is EQUAL to &#13;
-     'AD' OR IF the first two characters of &#13;
-     /*/CustomsOfficeOfDestinationDeclared/referenceNumber is EQUAL to 'AD' &#13;
+     "AD" OR IF the first two characters of &#13;
+     /*/CustomsOfficeOfDestinationDeclared/referenceNumber is EQUAL to "AD" &#13;
              THEN /*/CustomsOfficeOfTransitDeclared = "R"  &#13;
 ELSE &#13;
      IF /*/CustomsOfficeOfExitForTransitDeclared is PRESENT  &#13;
      THEN /*/CustomsOfficeOfTransitDeclared = "R"  &#13;
 ELSE  &#13;
-     /*/CustomsOfficeOfTransitDeclared = "O" &#13;
- &#13;
-</Description>
+     /*/CustomsOfficeOfTransitDeclared = "O"</Description>
     <Description lang="en">IF /*/TransitOperation/declarationType is in SET {TIR,T2SM}  &#13;
      THEN /*/CustomsOfficeOfTransitDeclared = "N"  &#13;
 ELSE &#13;
@@ -835,11 +161,11 @@ ELSE &#13;
      characters of /*/CustomsOfficeOfDestinationDeclared/referenceNumber)  &#13;
             THEN /*/CustomsOfficeOfTransitDeclared = "O"  &#13;
 ELSE &#13;
-     IF /*/TransitOperation/declarationType is EQUAL to 'T2' &#13;
+     IF /*/TransitOperation/declarationType is EQUAL to "T2" &#13;
              THEN /*/CustomsOfficeOfTransitDeclared = "R" &#13;
 ELSE &#13;
-     IF /*/TransitOperation/declarationType is EQUAL 'T' AND at least one instance of &#13;
-     /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is EQUAL to 'T2' &#13;
+     IF /*/TransitOperation/declarationType is EQUAL "T" AND at least one instance of &#13;
+     /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is EQUAL to "T2" &#13;
              THEN /*/CustomsOfficeOfTransitDeclared = "R" &#13;
 ELSE  &#13;
      IF the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is in SET &#13;
@@ -851,16 +177,14 @@ ELSE &#13;
              THEN /*/CustomsOfficeOfTransitDeclared = "R" &#13;
 ELSE &#13;
      IF the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is EQUAL to &#13;
-     'AD' OR IF the first two characters of &#13;
-     /*/CustomsOfficeOfDestinationDeclared/referenceNumber is EQUAL to 'AD' &#13;
+     "AD" OR IF the first two characters of &#13;
+     /*/CustomsOfficeOfDestinationDeclared/referenceNumber is EQUAL to "AD" &#13;
              THEN /*/CustomsOfficeOfTransitDeclared = "R"  &#13;
 ELSE &#13;
      IF /*/CustomsOfficeOfExitForTransitDeclared is PRESENT  &#13;
      THEN /*/CustomsOfficeOfTransitDeclared = "R"  &#13;
 ELSE  &#13;
-     /*/CustomsOfficeOfTransitDeclared = "O" &#13;
- &#13;
-</Description>
+     /*/CustomsOfficeOfTransitDeclared = "O"</Description>
   </Constraint>
   <Constraint>
     <Code>C0035</Code>
@@ -993,17 +317,17 @@ ELSE /*/Guarantee/otherGuaranteeReference = "N"</Description>
   </Constraint>
   <Constraint>
     <Code>C0153</Code>
-    <Description lang="fi">IF /*/TransitOperation/TIRCarnetNumber is PRESENT AND &#13;
-       /*/Consignment/HouseConsignment/PreviousDocument/type IS NOT EQUAL to "N830"&#13;
-THEN /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode = "O"&#13;
+    <Description lang="fi">IF /*/TransitOperation/declarationType is EQUAL TO "TIR" AND&#13;
+/*/Consignment/HouseConsignment/PreviousDocument/type IS NOT EQUAL to "N830" &#13;
+THEN /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode = "O" &#13;
 ELSE /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode = "R"</Description>
-    <Description lang="sv">IF /*/TransitOperation/TIRCarnetNumber is PRESENT AND &#13;
-       /*/Consignment/HouseConsignment/PreviousDocument/type IS NOT EQUAL to "N830"&#13;
-THEN /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode = "O"&#13;
+    <Description lang="sv">IF /*/TransitOperation/declarationType is EQUAL TO "TIR" AND&#13;
+/*/Consignment/HouseConsignment/PreviousDocument/type IS NOT EQUAL to "N830" &#13;
+THEN /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode = "O" &#13;
 ELSE /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode = "R"</Description>
-    <Description lang="en">IF /*/TransitOperation/TIRCarnetNumber is PRESENT AND &#13;
-       /*/Consignment/HouseConsignment/PreviousDocument/type IS NOT EQUAL to "N830"&#13;
-THEN /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode = "O"&#13;
+    <Description lang="en">IF /*/TransitOperation/declarationType is EQUAL TO "TIR" AND&#13;
+/*/Consignment/HouseConsignment/PreviousDocument/type IS NOT EQUAL to "N830" &#13;
+THEN /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode = "O" &#13;
 ELSE /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode = "R"</Description>
   </Constraint>
   <Constraint>
@@ -1069,7 +393,7 @@ ELSE&#13;
   <Constraint>
     <Code>C0250</Code>
     <Description lang="fi">IF /*/HolderOfTheTransitProcedure/identificationNumber is PRESENT AND &#13;
-/*/HolderOfTheTransitProcedure/identificationNumber is a valid identifier in the European EOS ((Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
+/*/HolderOfTheTransitProcedure/identificationNumber is a valid identifier in the European EOS (Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
 THEN &#13;
      /*/HolderOfTheTransitProcedure/name="N" AND&#13;
      /*/HolderOfTheTransitProcedure/Address="N"&#13;
@@ -1077,7 +401,7 @@ ELSE &#13;
       /*/HolderOfTheTransitProcedure/name="R" AND &#13;
       /*/HolderOfTheTransitProcedure/Address="R";&#13;
 &#13;
-IF /*/Consignment/Consignor/identificationNumber is PRESENT AND /*/Consignment/Consignor/identificationNumber is a valid identifier in in the European EOS ((Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
+IF /*/Consignment/Consignor/identificationNumber is PRESENT AND /*/Consignment/Consignor/identificationNumber is a valid identifier in the European EOS (Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
 THEN &#13;
          /*/Consignment/Consignor/name="N" AND &#13;
         /*/Consignment/Consignor/Address="N"&#13;
@@ -1096,7 +420,7 @@ ELSE &#13;
 &#13;
 IF /*/Consignment/HouseConsignment/Consignor/identificationNumber is PRESENT&#13;
 &#13;
-AND /*/Consignment/HouseConsignment/Consignor/identificationNumber is a valid identifier in the European EOS ((Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
+AND /*/Consignment/HouseConsignment/Consignor/identificationNumber is a valid identifier in the European EOS (Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
 THEN &#13;
        /*/Consignment/HouseConsignment/Consignor/name="N" AND&#13;
       /*/Consignment/HouseConsignment/Consignor/Address="N"&#13;
@@ -1106,7 +430,7 @@ ELSE &#13;
 &#13;
 &#13;
 IF /*/Consignment/HouseConsignment/Consignee/identificationNumber is PRESENT&#13;
-AND /*/Consignment/HouseConsignment/Consignee/identificationNumber is a valid identifier in the European EOS ((Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
+AND /*/Consignment/HouseConsignment/Consignee/identificationNumber is a valid identifier in the European EOS (Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
 THEN &#13;
        /*/Consignment/HouseConsignment/Consignee/name="N" AND&#13;
       /*/Consignment/HouseConsignment/Consignee/Address="N"&#13;
@@ -1116,16 +440,15 @@ ELSE &#13;
 &#13;
 &#13;
 IF /*/Guarantor/identificationNumber is PRESENT AND &#13;
-/*/Guarantor/identificationNumber is a valid identifier in the European EOS ((Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
+/*/Guarantor/identificationNumber is a valid identifier in the European EOS (Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
 THEN &#13;
       /*/Guarantor/name="N" AND &#13;
      /*/Guarantor/Address="N"&#13;
 ELSE &#13;
      /*/Guarantor/name="R" AND &#13;
-    /*/Guarantor/Address="R";&#13;
-</Description>
+    /*/Guarantor/Address="R";</Description>
     <Description lang="sv">IF /*/HolderOfTheTransitProcedure/identificationNumber is PRESENT AND &#13;
-/*/HolderOfTheTransitProcedure/identificationNumber is a valid identifier in the European EOS ((Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
+/*/HolderOfTheTransitProcedure/identificationNumber is a valid identifier in the European EOS (Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
 THEN &#13;
      /*/HolderOfTheTransitProcedure/name="N" AND&#13;
      /*/HolderOfTheTransitProcedure/Address="N"&#13;
@@ -1133,7 +456,7 @@ ELSE &#13;
       /*/HolderOfTheTransitProcedure/name="R" AND &#13;
       /*/HolderOfTheTransitProcedure/Address="R";&#13;
 &#13;
-IF /*/Consignment/Consignor/identificationNumber is PRESENT AND /*/Consignment/Consignor/identificationNumber is a valid identifier in in the European EOS ((Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
+IF /*/Consignment/Consignor/identificationNumber is PRESENT AND /*/Consignment/Consignor/identificationNumber is a valid identifier in the European EOS (Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
 THEN &#13;
          /*/Consignment/Consignor/name="N" AND &#13;
         /*/Consignment/Consignor/Address="N"&#13;
@@ -1152,7 +475,7 @@ ELSE &#13;
 &#13;
 IF /*/Consignment/HouseConsignment/Consignor/identificationNumber is PRESENT&#13;
 &#13;
-AND /*/Consignment/HouseConsignment/Consignor/identificationNumber is a valid identifier in the European EOS ((Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
+AND /*/Consignment/HouseConsignment/Consignor/identificationNumber is a valid identifier in the European EOS (Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
 THEN &#13;
        /*/Consignment/HouseConsignment/Consignor/name="N" AND&#13;
       /*/Consignment/HouseConsignment/Consignor/Address="N"&#13;
@@ -1162,7 +485,7 @@ ELSE &#13;
 &#13;
 &#13;
 IF /*/Consignment/HouseConsignment/Consignee/identificationNumber is PRESENT&#13;
-AND /*/Consignment/HouseConsignment/Consignee/identificationNumber is a valid identifier in the European EOS ((Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
+AND /*/Consignment/HouseConsignment/Consignee/identificationNumber is a valid identifier in the European EOS (Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
 THEN &#13;
        /*/Consignment/HouseConsignment/Consignee/name="N" AND&#13;
       /*/Consignment/HouseConsignment/Consignee/Address="N"&#13;
@@ -1172,16 +495,15 @@ ELSE &#13;
 &#13;
 &#13;
 IF /*/Guarantor/identificationNumber is PRESENT AND &#13;
-/*/Guarantor/identificationNumber is a valid identifier in the European EOS ((Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
+/*/Guarantor/identificationNumber is a valid identifier in the European EOS (Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
 THEN &#13;
       /*/Guarantor/name="N" AND &#13;
      /*/Guarantor/Address="N"&#13;
 ELSE &#13;
      /*/Guarantor/name="R" AND &#13;
-    /*/Guarantor/Address="R";&#13;
-</Description>
+    /*/Guarantor/Address="R";</Description>
     <Description lang="en">IF /*/HolderOfTheTransitProcedure/identificationNumber is PRESENT AND &#13;
-/*/HolderOfTheTransitProcedure/identificationNumber is a valid identifier in the European EOS ((Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
+/*/HolderOfTheTransitProcedure/identificationNumber is a valid identifier in the European EOS (Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
 THEN &#13;
      /*/HolderOfTheTransitProcedure/name="N" AND&#13;
      /*/HolderOfTheTransitProcedure/Address="N"&#13;
@@ -1189,7 +511,7 @@ ELSE &#13;
       /*/HolderOfTheTransitProcedure/name="R" AND &#13;
       /*/HolderOfTheTransitProcedure/Address="R";&#13;
 &#13;
-IF /*/Consignment/Consignor/identificationNumber is PRESENT AND /*/Consignment/Consignor/identificationNumber is a valid identifier in in the European EOS ((Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
+IF /*/Consignment/Consignor/identificationNumber is PRESENT AND /*/Consignment/Consignor/identificationNumber is a valid identifier in the European EOS (Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
 THEN &#13;
          /*/Consignment/Consignor/name="N" AND &#13;
         /*/Consignment/Consignor/Address="N"&#13;
@@ -1208,7 +530,7 @@ ELSE &#13;
 &#13;
 IF /*/Consignment/HouseConsignment/Consignor/identificationNumber is PRESENT&#13;
 &#13;
-AND /*/Consignment/HouseConsignment/Consignor/identificationNumber is a valid identifier in the European EOS ((Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
+AND /*/Consignment/HouseConsignment/Consignor/identificationNumber is a valid identifier in the European EOS (Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
 THEN &#13;
        /*/Consignment/HouseConsignment/Consignor/name="N" AND&#13;
       /*/Consignment/HouseConsignment/Consignor/Address="N"&#13;
@@ -1218,7 +540,7 @@ ELSE &#13;
 &#13;
 &#13;
 IF /*/Consignment/HouseConsignment/Consignee/identificationNumber is PRESENT&#13;
-AND /*/Consignment/HouseConsignment/Consignee/identificationNumber is a valid identifier in the European EOS ((Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
+AND /*/Consignment/HouseConsignment/Consignee/identificationNumber is a valid identifier in the European EOS (Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
 THEN &#13;
        /*/Consignment/HouseConsignment/Consignee/name="N" AND&#13;
       /*/Consignment/HouseConsignment/Consignee/Address="N"&#13;
@@ -1228,14 +550,13 @@ ELSE &#13;
 &#13;
 &#13;
 IF /*/Guarantor/identificationNumber is PRESENT AND &#13;
-/*/Guarantor/identificationNumber is a valid identifier in the European EOS ((Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
+/*/Guarantor/identificationNumber is a valid identifier in the European EOS (Economic Operators Systems) verified by the EU Member State receiving or sending this message), OR is a valid identifier in the DB of the CTC country receiving or sending this message&#13;
 THEN &#13;
       /*/Guarantor/name="N" AND &#13;
      /*/Guarantor/Address="N"&#13;
 ELSE &#13;
      /*/Guarantor/name="R" AND &#13;
-    /*/Guarantor/Address="R";&#13;
-</Description>
+    /*/Guarantor/Address="R";</Description>
   </Constraint>
   <Constraint>
     <Code>C0337</Code>
@@ -1255,17 +576,23 @@ ELSE /*/Consignment/HouseConsignment/TransportCharges = "O"</Description>
   <Constraint>
     <Code>C0343</Code>
     <Description lang="fi">IF /*/Consignment/countryOfDestination is PRESENT&#13;
-THEN /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "N"&#13;
-ELSE /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "R" &#13;
-</Description>
+THEN /*/Consignment/HouseConsignment/countryOfDestination = "N" AND&#13;
+/*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "N"&#13;
+ELSE IF /*/Consignment/HouseConsignment/countryOfDestination is PRESENT&#13;
+THEN /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "N" &#13;
+ELSE /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "R"</Description>
     <Description lang="sv">IF /*/Consignment/countryOfDestination is PRESENT&#13;
-THEN /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "N"&#13;
-ELSE /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "R" &#13;
-</Description>
+THEN /*/Consignment/HouseConsignment/countryOfDestination = "N" AND&#13;
+/*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "N"&#13;
+ELSE IF /*/Consignment/HouseConsignment/countryOfDestination is PRESENT&#13;
+THEN /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "N" &#13;
+ELSE /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "R"</Description>
     <Description lang="en">IF /*/Consignment/countryOfDestination is PRESENT&#13;
-THEN /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "N"&#13;
-ELSE /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "R" &#13;
-</Description>
+THEN /*/Consignment/HouseConsignment/countryOfDestination = "N" AND&#13;
+/*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "N"&#13;
+ELSE IF /*/Consignment/HouseConsignment/countryOfDestination is PRESENT&#13;
+THEN /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "N" &#13;
+ELSE /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "R"</Description>
   </Constraint>
   <Constraint>
     <Code>C0403</Code>
@@ -1296,6 +623,30 @@ ELSE /*/TransitOperation/TIRCarnetNumber = "N"</Description>
     <Description lang="en">IF /*/TransitOperation/declarationType is EQUAL to "TIR" &#13;
 THEN /*/TransitOperation/TIRCarnetNumber = "R"&#13;
 ELSE /*/TransitOperation/TIRCarnetNumber = "N"</Description>
+  </Constraint>
+  <Constraint>
+    <Code>C0467</Code>
+    <Description lang="fi">"IF (/CC028C/TransitOperation/declarationAcceptanceDate» is PRESENT OR&#13;
+/CC028D/TransitOperation/declarationAcceptanceDate» is PRESENT)&#13;
+THEN&#13;
+/*/TransitOperation/MRN = "R" AND&#13;
+/*/TransitOperation/LRN = "N"&#13;
+ELSE /*/TransitOperation/MRN = "N" AND&#13;
+/*/TransitOperation/LRN = "R"</Description>
+    <Description lang="sv">"IF (/CC028C/TransitOperation/declarationAcceptanceDate» is PRESENT OR&#13;
+/CC028D/TransitOperation/declarationAcceptanceDate» is PRESENT)&#13;
+THEN&#13;
+/*/TransitOperation/MRN = "R" AND&#13;
+/*/TransitOperation/LRN = "N"&#13;
+ELSE /*/TransitOperation/MRN = "N" AND&#13;
+/*/TransitOperation/LRN = "R"</Description>
+    <Description lang="en">"IF (/CC028C/TransitOperation/declarationAcceptanceDate» is PRESENT OR&#13;
+/CC028D/TransitOperation/declarationAcceptanceDate» is PRESENT)&#13;
+THEN&#13;
+/*/TransitOperation/MRN = "R" AND&#13;
+/*/TransitOperation/LRN = "N"&#13;
+ELSE /*/TransitOperation/MRN = "N" AND&#13;
+/*/TransitOperation/LRN = "R"</Description>
   </Constraint>
   <Constraint>
     <Code>C0502</Code>
@@ -1485,17 +836,17 @@ ELSE &lt;i&gt;Goods reference&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>C0710</Code>
-    <Description lang="fi">IF /*/TransitOperation/Additional declaration type is EQUAL to 'D'&#13;
+    <Description lang="fi">IF /*/TransitOperation/Additional declaration type is EQUAL to "D"&#13;
 THEN /*/Consignment/LocationOfGoods = "O"&#13;
 ELSE IF the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is in SET CL147&#13;
 THEN /*/Consignment/LocationOfGoods = "O"&#13;
 ELSE /*/Consignment/LocationOfGoods = "R"</Description>
-    <Description lang="sv">IF /*/TransitOperation/Additional declaration type is EQUAL to 'D'&#13;
+    <Description lang="sv">IF /*/TransitOperation/Additional declaration type is EQUAL to "D"&#13;
 THEN /*/Consignment/LocationOfGoods = "O"&#13;
 ELSE IF the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is in SET CL147&#13;
 THEN /*/Consignment/LocationOfGoods = "O"&#13;
 ELSE /*/Consignment/LocationOfGoods = "R"</Description>
-    <Description lang="en">IF /*/TransitOperation/Additional declaration type is EQUAL to 'D'&#13;
+    <Description lang="en">IF /*/TransitOperation/Additional declaration type is EQUAL to "D"&#13;
 THEN /*/Consignment/LocationOfGoods = "O"&#13;
 ELSE IF the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is in SET CL147&#13;
 THEN /*/Consignment/LocationOfGoods = "O"&#13;
@@ -1527,15 +878,15 @@ ELSE /*/Consignment/ActiveBorderTransportMeans = "O"</Description>
   </Constraint>
   <Constraint>
     <Code>C0816</Code>
-    <Description lang="fi">IF the /*/CustomsOfficeOfDeparture (for the CC017C) or the /*/CustomsOfficeOfDestinationActual [for the CD018C and CC044C] is located in a CTC country or AD or SM&#13;
-THEN /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode/combinedNomenclatureCode= "N"&#13;
-ELSE  /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode/combinedNomenclatureCode= "O"</Description>
-    <Description lang="sv">IF the /*/CustomsOfficeOfDeparture (for the CC017C) or the /*/CustomsOfficeOfDestinationActual [for the CD018C and CC044C] is located in a CTC country or AD or SM&#13;
-THEN /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode/combinedNomenclatureCode= "N"&#13;
-ELSE  /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode/combinedNomenclatureCode= "O"</Description>
-    <Description lang="en">IF the /*/CustomsOfficeOfDeparture (for the CC017C) or the /*/CustomsOfficeOfDestinationActual [for the CD018C and CC044C] is located in a CTC country or AD or SM&#13;
-THEN /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode/combinedNomenclatureCode= "N"&#13;
-ELSE  /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode/combinedNomenclatureCode= "O"</Description>
+    <Description lang="fi">IF the /*/CustomsOfficeOfDeparture (for the CC017C) or the /*/CustomsOfficeOfDestinationActual [for the CD018C and CC044C] is located in a CTC country or AD or SM &#13;
+THEN /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode/combinedNomenclatureCode= "N" &#13;
+ELSE /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode/combinedNomenclatureCode= "O"</Description>
+    <Description lang="sv">IF the /*/CustomsOfficeOfDeparture (for the CC017C) or the /*/CustomsOfficeOfDestinationActual [for the CD018C and CC044C] is located in a CTC country or AD or SM &#13;
+THEN /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode/combinedNomenclatureCode= "N" &#13;
+ELSE /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode/combinedNomenclatureCode= "O"</Description>
+    <Description lang="en">IF the /*/CustomsOfficeOfDeparture (for the CC017C) or the /*/CustomsOfficeOfDestinationActual [for the CD018C and CC044C] is located in a CTC country or AD or SM &#13;
+THEN /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode/combinedNomenclatureCode= "N" &#13;
+ELSE /*/Consignment/HouseConsignment/ConsignmentItem/Commodity/CommodityCode/combinedNomenclatureCode= "O"</Description>
   </Constraint>
   <Constraint>
     <Code>C0822</Code>
@@ -1631,6 +982,24 @@ ELSE IF &lt;i&gt;Departure transport means&lt;/i&gt; is NOT PRESENT on FI015/FI0
     ELSE &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt; = 'O'</Description>
   </Constraint>
   <Constraint>
+    <Code>C0837</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt; on YHTÄ KUIN 'N830'&#13;
+  NIIN &lt;i&gt;Nettopaino&lt;/i&gt; = 'R'&#13;
+MUUTEN JOS &lt;i&gt;Vähennetyn tietosisällön indikaattori&lt;/i&gt; on YHTÄ KUIN '1'&#13;
+  NIIN &lt;i&gt;Nettopaino&lt;/i&gt; = 'N'&#13;
+MUUTEN &lt;i&gt;Nettopaino&lt;/i&gt; = 'O'</Description>
+    <Description lang="sv">OM &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt; är LIKA MED 'N830'&#13;
+  DÅ är &lt;i&gt;Nettovikt&lt;/i&gt; = 'R'&#13;
+ANNARS OM &lt;i&gt;Indikator för reducerad datauppsättning&lt;/i&gt; är LIKA MED '1'&#13;
+  DÅ är &lt;i&gt;Nettovikt&lt;/i&gt; = 'N'&#13;
+ANNRAS är &lt;i&gt;Nettovikt&lt;/i&gt; = 'O'</Description>
+    <Description lang="en">IF &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt; is EQUAL to 'N830'&#13;
+  THEN &lt;i&gt;Net mass&lt;/i&gt; = 'R'&#13;
+ELSE IF &lt;i&gt;Reduced dataset indicator&lt;/i&gt; is EQUAL to '1'&#13;
+  THEN &lt;i&gt;Net mass&lt;/i&gt; = 'N'&#13;
+ELSE &lt;i&gt;Net mass&lt;/i&gt; = 'O'</Description>
+  </Constraint>
+  <Constraint>
     <Code>C0839</Code>
     <Description lang="fi">IF /*/Authorisation/type is NOT EQUAL to "C521" &#13;
 THEN &#13;
@@ -1679,18 +1048,6 @@ ELSE IF &lt;i&gt;Time limit&lt;/i&gt; is NOT PRESENT on FI015/FI013&#13;
 ELSE &lt;i&gt;Time limit&lt;/i&gt; = 'O'</Description>
   </Constraint>
   <Constraint>
-    <Code>C0848</Code>
-    <Description lang="fi">JOS &lt;i&gt;Luvan tyyppi&lt;/i&gt; on JOUKOSSA {'C626', 'C627'}&#13;
-  NIIN &lt;i&gt;Luvanhaltijan tunnistenumero&lt;/i&gt; = 'R'&#13;
-MUUTEN &lt;i&gt;Luvanhaltijan tunnistenumero&lt;/i&gt; = 'O'</Description>
-    <Description lang="sv">OM &lt;i&gt;Typ av tillstånd&lt;/i&gt; är i GRUPPEN {'C626', 'C627'}&#13;
-  DÅ är &lt;i&gt;Tillståndshavarens identifieringsnummer&lt;/i&gt; = 'R'&#13;
-ANNARS är &lt;i&gt;Tillståndshavarens identifieringsnummer&lt;/i&gt; = 'O'</Description>
-    <Description lang="en">IF &lt;i&gt;Authorisation type&lt;/i&gt; is in SET {'C626', 'C627'}&#13;
-  THEN &lt;i&gt;Holder of the authorisation identification no.&lt;/i&gt; = 'R'&#13;
-ELSE &lt;i&gt;Holder of the authorisation identification no.&lt;/i&gt; = 'O'</Description>
-  </Constraint>
-  <Constraint>
     <Code>C0904</Code>
     <Description lang="fi">JOS &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; sanomalla FI013/FI015/FI170 = 'TIR'&#13;
   NIIN &lt;i&gt;TIR-haltijan tunnistenumero&lt;/i&gt; = 'R'&#13;
@@ -1719,582 +1076,6 @@ ANNARS är {FIg-075}}/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;V
 ELSE IF &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Country of dispatch&lt;/i&gt; is PRESENT&#13;
   THEN &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Country of dispatch&lt;/i&gt; = 'N'&#13;
 ELSE &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Country of dispatch&lt;/i&gt; = 'R'</Description>
-  </Constraint>
-  <Constraint>
-    <Code>E1102</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN tietoelementin &lt;i&gt;Postinumero&lt;/i&gt; muoto rajoitetaan an..9</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ kommer formatet för &lt;i&gt;Postnummer&lt;/i&gt; att begränsas till an..9</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN the format of &lt;i&gt;Postcode&lt;/i&gt; will be limited to an..9</Description>
-  </Constraint>
-  <Constraint>
-    <Code>E1103</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN tietoelementin &lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt; muoto rajoitetaan an..27</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ kommer formatet för &lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt; att begränsas till an..27</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN the format of &lt;i&gt;Identification number of transport means&lt;/i&gt; will be limited to an..27</Description>
-  </Constraint>
-  <Constraint>
-    <Code>E1104</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN tietoelementtien &lt;i&gt;Nimi&lt;/i&gt; ja &lt;i&gt;Katuosoite&lt;/i&gt; muoto rajoitetaan an..35</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ kommer formaten för &lt;i&gt;Namn&lt;/i&gt; och &lt;i&gt;Gatuadress&lt;/i&gt; att begränsas till an..35</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN the formats of &lt;i&gt;Name&lt;/i&gt; and &lt;i&gt;Street and number&lt;/i&gt; will be limited to an..35</Description>
-  </Constraint>
-  <Constraint>
-    <Code>E1105</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN tietoelementin &lt;i&gt;Lähetysmerkinnät&lt;/i&gt; muoto rajoitetaan an..42</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ kommer formatet för &lt;i&gt;Märken&lt;/i&gt; att begränsas till an..42</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN the format of &lt;i&gt;Shipping marks&lt;/i&gt; will be limited to an..42</Description>
-  </Constraint>
-  <Constraint>
-    <Code>E1107</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN tietoelementin &lt;i&gt;Tavaran kuvaus&lt;/i&gt; muoto rajoitetaan an..280</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ kommer formatet för &lt;i&gt;Varubeskrivning&lt;/i&gt; att begränsas till an..280</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN the format of &lt;i&gt;Description of goods&lt;/i&gt; will be limited to an..280</Description>
-  </Constraint>
-  <Constraint>
-    <Code>E1109</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN tietoelementtien &lt;i&gt;Bruttopaino&lt;/i&gt; ja &lt;i&gt;Nettopaino&lt;/i&gt; muoto rajoitetaan n..11,3</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ kommer formaten för &lt;i&gt;Bruttovikt&lt;/i&gt; och &lt;i&gt;Nettovikt&lt;/i&gt; att begränsas till n..11,3</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN the formats of &lt;i&gt;Gross mass&lt;/i&gt; and &lt;i&gt;Net mass&lt;/i&gt; will be limited to n..11,3</Description>
-  </Constraint>
-  <Constraint>
-    <Code>E1111</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN tietoelementin &lt;i&gt;Kolliluku&lt;/i&gt; muoto rajoitetaan n..5</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ kommer formatet för &lt;i&gt;Antal kollin&lt;/i&gt; att begränsas till n..5</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN the format of &lt;i&gt;Number of packages&lt;/i&gt; will be limited to n..5</Description>
-  </Constraint>
-  <Constraint>
-    <Code>E1114</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-/*/Consignment/PlaceOfLoading/location &#13;
-&#13;
-format shall be set to an..17</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-/*/Consignment/PlaceOfLoading/location &#13;
-&#13;
-format shall be set to an..17</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-/*/Consignment/PlaceOfLoading/location &#13;
-&#13;
-format shall be set to an..17</Description>
-  </Constraint>
-  <Constraint>
-    <Code>E1117</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/complementOfInformation&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/complementOfInformation&#13;
-&#13;
-format shall be set to an..26.&#13;
-</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/complementOfInformation&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/complementOfInformation&#13;
-&#13;
-format shall be set to an..26.&#13;
-</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/complementOfInformation&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/complementOfInformation&#13;
-&#13;
-format shall be set to an..26.&#13;
-</Description>
-  </Constraint>
-  <Constraint>
-    <Code>E1118</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-/*/Guarantee/GuaranteeReference/accessCode&#13;
-&#13;
-format shall be set to an4&#13;
-&#13;
-</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-/*/Guarantee/GuaranteeReference/accessCode&#13;
-&#13;
-format shall be set to an4&#13;
-&#13;
-</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN&#13;
-/*/Guarantee/GuaranteeReference/accessCode&#13;
-&#13;
-format shall be set to an4&#13;
-&#13;
-</Description>
-  </Constraint>
-  <Constraint>
-    <Code>E1301</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Vastaanottaja&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Lähetysmaa&lt;/i&gt;/&lt;i&gt;Lähetysmaan koodi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Määrämaa&lt;/i&gt;/&lt;i&gt;Määrämaan koodi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetuskustannukset&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Muu viite&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusasiakirja&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Viitenumero/UCR&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Lähettäjä&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Lisätieto&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Muu viite&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Liiteasiakirja&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; ei ole käytössä</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ används &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Mottagare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Avsändningsland&lt;/i&gt;/&lt;i&gt;Kod för avsändningsland&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Destinationsland&lt;/i&gt;/&lt;i&gt;Kod för destinationsland&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportkostnader&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Ytterligare referens&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportdokument&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Referensnummer/UCR&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Avsändare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Ytterligare uppgifter&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Ytterligare referens&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Bifogat dokument&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; inte</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Consignee&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Country of dispatch&lt;/i&gt;/&lt;i&gt;Country of dispatch code&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Country of destination&lt;/i&gt;/&lt;i&gt;Country of destination code&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Transport charges&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Additional reference&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Transport document&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Reference number/UCR&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Consignor&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Additional information&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Additional reference&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Supporting document&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; is not used</Description>
-  </Constraint>
-  <Constraint>
-    <Code>E1401</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN tietoryhmän &lt;i&gt;Edeltävä asiakirja&lt;/i&gt; kardinaliteetti on 3x</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ är kardinaliteten för &lt;i&gt;Tidigare dokument&lt;/i&gt; 9x</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN the cardinality for &lt;i&gt;Previous document&lt;/i&gt; is 9x</Description>
-  </Constraint>
-  <Constraint>
-    <Code>E1406</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on PIENEMPI tai YHTÄ SUURI kuin &lt;TPendDate&gt;&#13;
-  NIIN tietoryhmien &lt;i&gt;Lisämenettely&lt;/i&gt; JA &lt;i&gt;Vaaralliset aineet&lt;/i&gt; kardinaliteetti on 1x</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är MINDRE ÄN eller LIKA MED &lt;TPendDate&gt;&#13;
-  DÅ är kardinaliteten för &lt;i&gt;Ytterligare förfarande&lt;/i&gt; OCH &lt;i&gt;Farligt gods&lt;/i&gt; 1x</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN the cardinality for &lt;i&gt;Additional procedure&lt;/i&gt; AND &lt;i&gt;Dangerous goods&lt;/i&gt; is 3x</Description>
-  </Constraint>
-  <Constraint>
-    <Code>E1407</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; &#13;
-THEN&#13;
-for each Goods Item, the cumulated number of all instances of&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument AND /*/Consignment/HouseConsignment/ConsignmentItem/TransportDocument AND /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference &#13;
-shall be LESS OR EQUAL to 99x&#13;
-</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; &#13;
-THEN&#13;
-for each Goods Item, the cumulated number of all instances of&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument AND /*/Consignment/HouseConsignment/ConsignmentItem/TransportDocument AND /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference &#13;
-shall be LESS OR EQUAL to 99x&#13;
-</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; &#13;
-THEN&#13;
-for each Goods Item, the cumulated number of all instances of&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument AND /*/Consignment/HouseConsignment/ConsignmentItem/TransportDocument AND /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference &#13;
-shall be LESS OR EQUAL to 99x&#13;
-</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB1922</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0601 will be disabled AND&#13;
-IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-ADDITIONAL&#13;
-REFERENCE.Type&gt; is in SET CL234 (DocumentTypeExcise)&#13;
-(i.e. Export of excise goods followed by transit (EMCS&amp;AES+NCTS))&#13;
-THEN&#13;
- IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration&#13;
- type&gt; is PRESENT&#13;
- THEN (&lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration&#13;
- type&gt; is EQUAL to ‘T1’&#13;
- AND &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-&#13;
- PREVIOUS DOCUMENT.Type&gt; is EQUAL to ‘N830’)&#13;
- ELSE (&lt;TRANSIT OPERATION.Declaration type&gt; is in SET {‘T1’, ‘TIR’}&#13;
- AND &lt;CONSIGNMENT-HOUSE CONSIGNMENT-PREVIOUS DOCUMENT.Type&gt; is&#13;
- EQUAL to ‘N830’);&#13;
-ELSE IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-SUPPORTING&#13;
-DOCUMENT.Type&gt; is in SET CL234 (DocumentTypeExcise)&#13;
-(i.e. Transit movement of EU goods under excise suspension (EMCS+NCTS))&#13;
-THEN&#13;
- IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration&#13;
- type&gt; is PRESENT&#13;
- THEN &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT&#13;
- ITEM.Declaration type&gt; is in SET {T2, T2F}&#13;
- ELSE &lt;TRANSIT OPERATION.Declaration type&gt; is in SET {T2, T2F}&#13;
-&#13;
-&lt;br&gt;</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0601 will be disabled AND&#13;
-IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-ADDITIONAL&#13;
-REFERENCE.Type&gt; is in SET CL234 (DocumentTypeExcise)&#13;
-(i.e. Export of excise goods followed by transit (EMCS&amp;AES+NCTS))&#13;
-THEN&#13;
- IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration&#13;
- type&gt; is PRESENT&#13;
- THEN (&lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration&#13;
- type&gt; is EQUAL to ‘T1’&#13;
- AND &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-&#13;
- PREVIOUS DOCUMENT.Type&gt; is EQUAL to ‘N830’)&#13;
- ELSE (&lt;TRANSIT OPERATION.Declaration type&gt; is in SET {‘T1’, ‘TIR’}&#13;
- AND &lt;CONSIGNMENT-HOUSE CONSIGNMENT-PREVIOUS DOCUMENT.Type&gt; is&#13;
- EQUAL to ‘N830’);&#13;
-ELSE IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-SUPPORTING&#13;
-DOCUMENT.Type&gt; is in SET CL234 (DocumentTypeExcise)&#13;
-(i.e. Transit movement of EU goods under excise suspension (EMCS+NCTS))&#13;
-THEN&#13;
- IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration&#13;
- type&gt; is PRESENT&#13;
- THEN &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT&#13;
- ITEM.Declaration type&gt; is in SET {T2, T2F}&#13;
- ELSE &lt;TRANSIT OPERATION.Declaration type&gt; is in SET {T2, T2F}&#13;
-&#13;
-&lt;br&gt;</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN R0601 will be disabled AND&#13;
-IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-ADDITIONAL&#13;
-REFERENCE.Type&gt; is in SET CL234 (DocumentTypeExcise)&#13;
-(i.e. Export of excise goods followed by transit (EMCS&amp;AES+NCTS))&#13;
-THEN&#13;
- IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration&#13;
- type&gt; is PRESENT&#13;
- THEN (&lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration&#13;
- type&gt; is EQUAL to ‘T1’&#13;
- AND &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-&#13;
- PREVIOUS DOCUMENT.Type&gt; is EQUAL to ‘N830’)&#13;
- ELSE (&lt;TRANSIT OPERATION.Declaration type&gt; is in SET {‘T1’, ‘TIR’}&#13;
- AND &lt;CONSIGNMENT-HOUSE CONSIGNMENT-PREVIOUS DOCUMENT.Type&gt; is&#13;
- EQUAL to ‘N830’);&#13;
-ELSE IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-SUPPORTING&#13;
-DOCUMENT.Type&gt; is in SET CL234 (DocumentTypeExcise)&#13;
-(i.e. Transit movement of EU goods under excise suspension (EMCS+NCTS))&#13;
-THEN&#13;
- IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration&#13;
- type&gt; is PRESENT&#13;
- THEN &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT&#13;
- ITEM.Declaration type&gt; is in SET {T2, T2F}&#13;
- ELSE &lt;TRANSIT OPERATION.Declaration type&gt; is in SET {T2, T2F}&#13;
-&#13;
-&lt;br&gt;</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9000</Code>
-    <Description lang="fi">IF&#13;
-  &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-    THEN /*/Consignment/AdditionalInformation/Statement must be in sub codeset&#13;
-  AdditionalInformation;HeaderTRATR&#13;
-&#13;
-    ELSE /*/Consignment/AdditionalInformation/Statement must be in codeset&#13;
-  AdditionalInformation, Filter_TRA:1</Description>
-    <Description lang="sv">IF&#13;
-  &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-    THEN /*/Consignment/AdditionalInformation/Statement must be in sub codeset&#13;
-  AdditionalInformation;HeaderTRATR&#13;
-&#13;
-    ELSE /*/Consignment/AdditionalInformation/Statement must be in codeset&#13;
-  AdditionalInformation, Filter_TRA:1</Description>
-    <Description lang="en">IF&#13;
-  &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-    THEN /*/Consignment/AdditionalInformation/Statement must be in sub codeset&#13;
-  AdditionalInformation;HeaderTRATR&#13;
-&#13;
-    ELSE /*/Consignment/AdditionalInformation/Statement must be in codeset&#13;
-  AdditionalInformation, Filter_TRA:1</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9001</Code>
-    <Description lang="fi">IF&#13;
-  &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND&#13;
-&#13;
-    /*/TransitOperation/security is in SET {1, 3}&#13;
-    THEN&#13;
-    IF /*/Consignment/referenceNumberUCR is PRESENT&#13;
-            THEN           &#13;
-  /*/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR = "N"&#13;
-    ELSE&#13;
-    /*/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR=  "R"</Description>
-    <Description lang="sv">IF&#13;
-  &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND&#13;
-&#13;
-    /*/TransitOperation/security is in SET {1, 3}&#13;
-    THEN&#13;
-    IF /*/Consignment/referenceNumberUCR is PRESENT&#13;
-            THEN           &#13;
-  /*/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR = "N"&#13;
-    ELSE&#13;
-    /*/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR=  "R"</Description>
-    <Description lang="en">IF&#13;
-  &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND&#13;
-&#13;
-    /*/TransitOperation/security is in SET {1, 3}&#13;
-    THEN&#13;
-    IF /*/Consignment/referenceNumberUCR is PRESENT&#13;
-            THEN           &#13;
-  /*/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR = "N"&#13;
-    ELSE&#13;
-    /*/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR=  "R"</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9002</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND &#13;
-/*/Security is in SET {1, 3}&#13;
-THEN &#13;
-     IF /*/Consignment/UCR is NOT PRESENT AND&#13;
-              /*/Consignment/HouseConsignment/ConsignmentItem/UCR IS NOT PRESENT&#13;
-     THEN /*/Consignment/ TransportContractDocument = "R"&#13;
-     ELSE /*/Consignment/TransportContractDocument = "O"</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND &#13;
-/*/Security is in SET {1, 3}&#13;
-THEN &#13;
-     IF /*/Consignment/UCR is NOT PRESENT AND&#13;
-              /*/Consignment/HouseConsignment/ConsignmentItem/UCR IS NOT PRESENT&#13;
-     THEN /*/Consignment/ TransportContractDocument = "R"&#13;
-     ELSE /*/Consignment/TransportContractDocument = "O"</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND &#13;
-/*/Security is in SET {1, 3}&#13;
-THEN &#13;
-     IF /*/Consignment/UCR is NOT PRESENT AND&#13;
-              /*/Consignment/HouseConsignment/ConsignmentItem/UCR IS NOT PRESENT&#13;
-     THEN /*/Consignment/ TransportContractDocument = "R"&#13;
-     ELSE /*/Consignment/TransportContractDocument = "O"</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9003</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN /*/Consignment/TransportContractDocument/Identification&#13;
- format shall be set to an..35</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN /*/Consignment/TransportContractDocument/Identification&#13;
- format shall be set to an..35</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN /*/Consignment/TransportContractDocument/Identification&#13;
- format shall be set to an..35</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9004</Code>
-    <Description lang="fi">During the Transitional Period, in case of “Export Followed by Transit” with multiple export declarations covered by one standard transit declaration, the D.G. PREVIOUS DOCUMENT at CONSIGNMENT ITEM level can include the MRN of the related Export declaration (maximum one Export MRN included per one Consignment item).”</Description>
-    <Description lang="sv">During the Transitional Period, in case of “Export Followed by Transit” with multiple export declarations covered by one standard transit declaration, the D.G. PREVIOUS DOCUMENT at CONSIGNMENT ITEM level can include the MRN of the related Export declaration (maximum one Export MRN included per one Consignment item).”</Description>
-    <Description lang="en">During the Transitional Period, in case of “Export Followed by Transit” with multiple export declarations covered by one standard transit declaration, the D.G. PREVIOUS DOCUMENT at CONSIGNMENT ITEM level can include the MRN of the related Export declaration (maximum one Export MRN included per one Consignment item).”</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9005</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND&#13;
-/*/TransitOperation/security is in SET {1, 3}&#13;
-THEN&#13;
-IF /*/Consignment/referenceNumberUCR is PRESENT&#13;
-        THEN &#13;
-        /*/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR &#13;
-        = "N"&#13;
-ELSE&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR= "R"</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND&#13;
-/*/TransitOperation/security is in SET {1, 3}&#13;
-THEN&#13;
-IF /*/Consignment/referenceNumberUCR is PRESENT&#13;
-        THEN &#13;
-        /*/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR &#13;
-        = "N"&#13;
-ELSE&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR= "R"</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND&#13;
-/*/TransitOperation/security is in SET {1, 3}&#13;
-THEN&#13;
-IF /*/Consignment/referenceNumberUCR is PRESENT&#13;
-        THEN &#13;
-        /*/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR &#13;
-        = "N"&#13;
-ELSE&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR= "R"</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9006</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; THEN&#13;
-element /'/​Consignment/​TotalGrossMass AND&#13;
-/*/​Consignment/​HouseConsignment/​ConsignmentItem/​GoodsMeasure/​GrossMass&#13;
-IS 'R'</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; THEN&#13;
-element /'/​Consignment/​TotalGrossMass AND&#13;
-/*/​Consignment/​HouseConsignment/​ConsignmentItem/​GoodsMeasure/​GrossMass&#13;
-IS 'R'</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; THEN&#13;
-element /'/​Consignment/​TotalGrossMass AND&#13;
-/*/​Consignment/​HouseConsignment/​ConsignmentItem/​GoodsMeasure/​GrossMass&#13;
-IS 'R'</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9007</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND /*/TransitOperation/security is in SET {1, 2, 3}&#13;
-  THEN /*/Consignment/referenceNumberUCR = "R"</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND /*/TransitOperation/security is in SET {1, 2, 3}&#13;
-  THEN /*/Consignment/referenceNumberUCR = "R"</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND /*/TransitOperation/security is in SET {1, 2, 3}&#13;
-  THEN /*/Consignment/referenceNumberUCR = "R"</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9008</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN &#13;
-IF /*/Consignment/countryOfDestination is in SET CL009&#13;
-/*/Consignment/Consignee is PRESENT&#13;
-THEN&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "N"&#13;
-ELSE&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "R"</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN &#13;
-IF /*/Consignment/countryOfDestination is in SET CL009&#13;
-/*/Consignment/Consignee is PRESENT&#13;
-THEN&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "N"&#13;
-ELSE&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "R"</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN &#13;
-IF /*/Consignment/countryOfDestination is in SET CL009&#13;
-/*/Consignment/Consignee is PRESENT&#13;
-THEN&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "N"&#13;
-ELSE&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "R"</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9009</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN &#13;
-        ELSE IF /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination is in SET CL009&#13;
-THEN THIS&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "R"</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN &#13;
-        ELSE IF /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination is in SET CL009&#13;
-THEN THIS&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "R"</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-THEN &#13;
-        ELSE IF /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination is in SET CL009&#13;
-THEN THIS&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "R"</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9010</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-IF /*/TransitOperation/security is in SET {0,1}&#13;
-THEN&#13;
-IF /*/Consignment/Consignee is PRESENT&#13;
-THEN&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "N"&#13;
-ELSE&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "O"</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-IF /*/TransitOperation/security is in SET {0,1}&#13;
-THEN&#13;
-IF /*/Consignment/Consignee is PRESENT&#13;
-THEN&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "N"&#13;
-ELSE&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "O"</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-IF /*/TransitOperation/security is in SET {0,1}&#13;
-THEN&#13;
-IF /*/Consignment/Consignee is PRESENT&#13;
-THEN&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "N"&#13;
-ELSE&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "O"</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9012</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-IF at least one instance of /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalInformation/code is EQUAL to '30600'&#13;
-THEN THIS&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "N"</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-IF at least one instance of /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalInformation/code is EQUAL to '30600'&#13;
-THEN THIS&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "N"</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-IF at least one instance of /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalInformation/code is EQUAL to '30600'&#13;
-THEN THIS&#13;
-/*/Consignment/HouseConsignment/ConsignmentItem/Consignee = "N"</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9013</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; &#13;
-AND IF /*/TransitOperation/security is in SET {2,3}&#13;
-        THEN IF at least one instance of /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalInformation/code is EQUAL to '30600'&#13;
-                THEN /*/Consignment/Consignee = "N"&#13;
-                ELSE /*/Consignment/Consignee = "O"</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; &#13;
-AND IF /*/TransitOperation/security is in SET {2,3}&#13;
-        THEN IF at least one instance of /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalInformation/code is EQUAL to '30600'&#13;
-                THEN /*/Consignment/Consignee = "N"&#13;
-                ELSE /*/Consignment/Consignee = "O"</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; &#13;
-AND IF /*/TransitOperation/security is in SET {2,3}&#13;
-        THEN IF at least one instance of /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalInformation/code is EQUAL to '30600'&#13;
-                THEN /*/Consignment/Consignee = "N"&#13;
-                ELSE /*/Consignment/Consignee = "O"</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9016</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; THEN &#13;
-      IF /*/​Consignment/​HouseConsignment/​ConsignmentItem/​Consignee/​Name is PRESENT &#13;
-      for all /*/Consignment/HouseConsignment/ConsignmentItem &#13;
-      THEN at least one occurrence of &#13;
-      /*/​Consignment/​HouseConsignment/​ConsignmentItem/​Consignee/​Name must be different from the others;</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; THEN &#13;
-      IF /*/​Consignment/​HouseConsignment/​ConsignmentItem/​Consignee/​Name is PRESENT &#13;
-      for all /*/Consignment/HouseConsignment/ConsignmentItem &#13;
-      THEN at least one occurrence of &#13;
-      /*/​Consignment/​HouseConsignment/​ConsignmentItem/​Consignee/​Name must be different from the others;</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; THEN &#13;
-      IF /*/​Consignment/​HouseConsignment/​ConsignmentItem/​Consignee/​Name is PRESENT &#13;
-      for all /*/Consignment/HouseConsignment/ConsignmentItem &#13;
-      THEN at least one occurrence of &#13;
-      /*/​Consignment/​HouseConsignment/​ConsignmentItem/​Consignee/​Name must be different from the others;</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9017</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;AND  /*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges is PRESENT for all /*/Consignment/HouseConsignment/ConsignmentItem &#13;
-  THEN at least one occurrence of /*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges must be different from the others.</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;AND  /*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges is PRESENT for all /*/Consignment/HouseConsignment/ConsignmentItem &#13;
-  THEN at least one occurrence of /*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges must be different from the others.</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;AND  /*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges is PRESENT for all /*/Consignment/HouseConsignment/ConsignmentItem &#13;
-  THEN at least one occurrence of /*/Consignment/HouseConsignment/ConsignmentItem/TransportCharges must be different from the others.</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9019</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN /*/​Consignment/​HouseConsignment/​ConsignmentItem/​GoodsMeasure/​GrossMass IS 'R'</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN /*/​Consignment/​HouseConsignment/​ConsignmentItem/​GoodsMeasure/​GrossMass IS 'R'</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt;&#13;
-  THEN /*/​Consignment/​HouseConsignment/​ConsignmentItem/​GoodsMeasure/​GrossMass IS 'R'</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NB9020</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND &#13;
-/*/Security is in SET {1,2,3}&#13;
-THEN &#13;
-     IF /*/Consignment/UCR is NOT PRESENT AND&#13;
-              /*/Consignment/HouseConsignment/ConsignmentItem/UCR IS NOT PRESENT&#13;
-     THEN /*/Consignment/ TransportContractDocument = ''R''&#13;
-     ELSE /*/Consignment/TransportContractDocument = ''O''</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND &#13;
-/*/Security is in SET {1,2,3}&#13;
-THEN &#13;
-     IF /*/Consignment/UCR is NOT PRESENT AND&#13;
-              /*/Consignment/HouseConsignment/ConsignmentItem/UCR IS NOT PRESENT&#13;
-     THEN /*/Consignment/ TransportContractDocument = ''R''&#13;
-     ELSE /*/Consignment/TransportContractDocument = ''O''</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is LESS than or EQUAL to &lt;TPendDate&gt; AND &#13;
-/*/Security is in SET {1,2,3}&#13;
-THEN &#13;
-     IF /*/Consignment/UCR is NOT PRESENT AND&#13;
-              /*/Consignment/HouseConsignment/ConsignmentItem/UCR IS NOT PRESENT&#13;
-     THEN /*/Consignment/ TransportContractDocument = ''R''&#13;
-     ELSE /*/Consignment/TransportContractDocument = ''O''</Description>
   </Constraint>
   <Constraint>
     <Code>NC0016</Code>
@@ -2525,18 +1306,6 @@ ELSE /*/TransitOperation/MRN = "N" AND&#13;
 /*/TransitOperation/LRN = "R"</Description>
   </Constraint>
   <Constraint>
-    <Code>NC9015</Code>
-    <Description lang="fi">IF &lt;Decisive Date&gt; is GREATER than &lt;TPendDate&gt;&#13;
-THEN /*/Consignment/​BorderTransportMeans/​Journey&#13;
- format shall be set to an..17</Description>
-    <Description lang="sv">IF &lt;Decisive Date&gt; is GREATER than &lt;TPendDate&gt;&#13;
-THEN /*/Consignment/​BorderTransportMeans/​Journey&#13;
- format shall be set to an..17</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is GREATER than &lt;TPendDate&gt;&#13;
-THEN /*/Consignment/​BorderTransportMeans/​Journey&#13;
- format shall be set to an..17</Description>
-  </Constraint>
-  <Constraint>
     <Code>NC9016</Code>
     <Description lang="fi">IF /*/Security is in SET {'1', '3'}&#13;
 AND&#13;
@@ -2747,6 +1516,15 @@ ANNARS är &lt;i&gt;Varureferens&lt;/i&gt; = 'R'</Description>
 ELSE &lt;i&gt;Goods reference&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
+    <Code>NC9034</Code>
+    <Description lang="fi">JOS FI013 lähetetään sen jälkeen kun FI170 on lähetetty&#13;
+  NIIN &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; = 'A'</Description>
+    <Description lang="sv">OM FI013 skickas efter att FI170 har skickats&#13;
+  DÅ är &lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt; = 'A'</Description>
+    <Description lang="en">IF FI013 is sent after FI170 has been sent&#13;
+  THEN &lt;i&gt;Additional declaration type&lt;/i&gt; = 'A'</Description>
+  </Constraint>
+  <Constraint>
     <Code>NC9036</Code>
     <Description lang="fi">JOS &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt; on JOUKOSSA {B, C}&#13;
   NIIN &lt;i&gt;Talouden toimija&lt;/i&gt; = 'R'&#13;
@@ -2807,15 +1585,6 @@ ELSE &lt;i&gt;Customs office&lt;/i&gt; = 'N'</Description>
   THEN &lt;i&gt;Location of goods&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
-    <Code>NC9044</Code>
-    <Description lang="fi">JOS &lt;Ratkaiseva päivämäärä&gt; on SUUREMPI kuin &lt;TPendDate&gt;&#13;
-  NIIN &lt;i&gt;Lastauspaikka&lt;/i&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;Avgörande datum&gt; är STÖRRE ÄN &lt;TPendDate&gt;&#13;
-  DÅ är &lt;i&gt;Lastningsplats&lt;/i&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;Decisive Date&gt; is GREATER than &lt;TPendDate&gt;&#13;
-  THEN &lt;i&gt;Place of loading&lt;/i&gt; = 'R'</Description>
-  </Constraint>
-  <Constraint>
     <Code>NC9045</Code>
     <Description lang="fi">JOS &lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt; = 'D' JA &lt;i&gt;Turvaindikaattori&lt;/i&gt; on JOUKOSSA {1,2,3}&#13;
   NIIN &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt; = 'R'</Description>
@@ -2844,6 +1613,36 @@ ANNARS är &lt;i&gt;Kod för verksamhetsställe&lt;/i&gt; = 'N'</Description>
     <Description lang="en">IF &lt;i&gt;Identification number&lt;/i&gt; is Finnish EORI&#13;
   THEN &lt;i&gt;Office code&lt;/i&gt; = 'O'&#13;
 ELSE &lt;i&gt;Office code&lt;/i&gt; = 'N' </Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC9050</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt; on ILMOITETTU&#13;
+  NIIN &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt; = 'N'&#13;
+MUUTEN &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt; är ANMÄLD&#13;
+  DÅ är &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt; = 'N'&#13;
+ANNARS är &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt; is PRESENT&#13;
+  THEN &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt; = 'N'&#13;
+ELSE &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC9056</Code>
+    <Description lang="fi">IF &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; is EQUAL to ‘TIR’ AND &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; IS NOT EQUAL to 'N830'&#13;
+  THEN &lt;i&gt;Tavaran koodi - harmonoidun järjestelmän koodi&lt;/i&gt; = 'O'&#13;
+ELSE &lt;i&gt;Tavaran koodi - harmonoidun järjestelmän koodi&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">IF &lt;i&gt;Typ av deklaration&lt;/i&gt; is EQUAL to ‘TIR’ AND &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; IS NOT EQUAL to 'N830'&#13;
+  THEN &lt;i&gt;Varukod - HS-nummer&lt;/i&gt; = 'O'&#13;
+ELSE &lt;i&gt;Varukod - HS-nummer&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Declaration type&lt;/i&gt; is EQUAL to ‘TIR’ AND &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; IS NOT EQUAL to 'N830'&#13;
+  THEN &lt;i&gt;Commodity code - Harmonised System code&lt;/i&gt; = 'O'&#13;
+ELSE &lt;i&gt;Commodity code - Harmonised System code&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC9057</Code>
+    <Description lang="fi">Value must be &gt; 0</Description>
+    <Description lang="sv">Value must be &gt; 0</Description>
+    <Description lang="en">Value must be &gt; 0</Description>
   </Constraint>
   <Constraint>
     <Code>NR0028</Code>
@@ -2934,9 +1733,9 @@ ELSE &lt;i&gt;Office code&lt;/i&gt; = 'N' </Description>
   </Constraint>
   <Constraint>
     <Code>NR9001</Code>
-    <Description lang="fi">&lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lisäilmoitustyyppi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;LRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;MRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Turvaindikaattori&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Passitusmenettelyn haltija&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Edustaja&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; ei voida muuttaa</Description>
-    <Description lang="sv">&lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Ytterligare typ av deklaration&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;LRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;MRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Säkerhetsindikator&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Person som är ansvarig för transiteringsförfarandet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Ombud&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; kan inte ändras</Description>
-    <Description lang="en">&lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Additional declaration type&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;LRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;MRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Security&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Holder of the transit procedure&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Representative&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; cannot be amended</Description>
+    <Description lang="fi">&lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;LRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;MRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Turvaindikaattori&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Passitusmenettelyn haltija&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Edustaja&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; ei voida muuttaa</Description>
+    <Description lang="sv">&lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;LRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;MRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Säkerhetsindikator&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Person som är ansvarig för transiteringsförfarandet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Ombud&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; kan inte ändras</Description>
+    <Description lang="en">&lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;LRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;MRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Security&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Holder of the transit procedure&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Representative&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; cannot be amended</Description>
   </Constraint>
   <Constraint>
     <Code>NR9002</Code>
@@ -2962,20 +1761,20 @@ ELSE &lt;i&gt;Office code&lt;/i&gt; = 'N' </Description>
   <Constraint>
     <Code>NR9006</Code>
     <Description lang="fi">JOS &lt;i&gt;Sisämaan kuljetusmuoto&lt;/i&gt; TAI &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt; EI ole JOUKOSSA {5, 7}&#13;
-  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusmuoto rajalla&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
     <Description lang="sv">OM &lt;i&gt;Transportsätt inrikes&lt;/i&gt; ELLER &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt; INTE är i GRUPPEN {5, 7}&#13;
-  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportsätt vid gränsen&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
     <Description lang="en">IF &lt;i&gt;Inland mode of transport&lt;/i&gt; OR &lt;i&gt;Active border transport means&lt;/i&gt; is NOT in SET {5, 7}&#13;
-  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Mode of transport at the border&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NR9007</Code>
     <Description lang="fi">JOS &lt;i&gt;Sisämaan kuljetusmuoto&lt;/i&gt; TAI &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt; EI ole JOUKOSSA {2, 5, 7}&#13;
-  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kansallisuus&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kansallisuus&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kansallisuus&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kansallisuus&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
     <Description lang="sv">OM &lt;i&gt;Transportsätt inrikes&lt;/i&gt; ELLER &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt; INTE är i GRUPPEN {2, 5, 7}&#13;
-  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Nationalitet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Nationalitet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Nationalitet&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Nationalitet&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
     <Description lang="en">IF &lt;i&gt;Inland mode of transport&lt;/i&gt; OR &lt;i&gt;Active border transport means&lt;/i&gt; is NOT in SET {2, 5, 7}&#13;
-  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Nationality&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Nationality&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Nationality&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Nationality&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NR9008</Code>
@@ -3077,12 +1876,6 @@ THEN the first two characters of/*/CustomsOfficeOfDestinationDeclared/referenceN
 AND the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is in SET {FI}</Description>
   </Constraint>
   <Constraint>
-    <Code>NR9032</Code>
-    <Description lang="fi">Type of location value must be "B" or "C"</Description>
-    <Description lang="sv">Type of location value must be "B" or "C"</Description>
-    <Description lang="en">Type of location value must be "B" or "C"</Description>
-  </Constraint>
-  <Constraint>
     <Code>NR9034</Code>
     <Description lang="fi">IF /*/Guarantee/Type IS EQUAL TO ‘3’ AND&#13;
 IF /*/Guarantee/GuaranteeReference/OtherGuaranteeReference is PRESENT;&#13;
@@ -3111,33 +1904,6 @@ THEN&#13;
     <Description lang="en">If /*/Guarantee/Type is in set {4}&#13;
 THEN&#13;
 /*/Guarantee/GuaranteeReference/​OtherGuaranteeReference cannot include country code FI</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NR9039</Code>
-    <Description lang="fi">JOS &lt;i&gt;Passitusmenettelyn haltija&lt;/i&gt;/&lt;i&gt;Luonne&lt;/i&gt; = 'R'&#13;
-  NIIN EORI:a tulee käyttää&#13;
-MUUTEN JOS &lt;i&gt;Passitusmenettelyn haltija&lt;/i&gt;/&lt;i&gt;Luonne&lt;/i&gt; on JOUKOSSA {C, P}&#13;
-  NIIN kaksimerkkistä maakoodia ja syntymäaikaa muodossa PPKKVVVV tulee käyttää&#13;
-MUUTEN JOS &lt;i&gt;Passitusmenettelyn haltija&lt;/i&gt;/&lt;i&gt;Luonne&lt;/i&gt; = 'H'&#13;
-  NIIN kaksimerkkistä maakoodia ja suomalaista henkilötunnusta tulee käyttää&#13;
-MUUTEN JOS &lt;i&gt;Passitusmenettelyn haltija&lt;/i&gt;/&lt;i&gt;Luonne&lt;/i&gt; = 'F'&#13;
-  NIIN kaksimerkkistä ei-EU-maakoodia tulee käyttää</Description>
-    <Description lang="sv">OM &lt;i&gt;Person som är ansvarig för transiteringsförfarandet&lt;/i&gt;/&lt;i&gt;Natur&lt;/i&gt; = 'R'&#13;
-  Då ska EORI användas&#13;
-ANNARS OM &lt;i&gt;Person som är ansvarig för transiteringsförfarandet&lt;/i&gt;/&lt;i&gt;Natur&lt;/i&gt; är i GRUPPEN {C, P}&#13;
-  DÅ ska landskod på två bokstäver och födelsedatum i formatet DDMMÅÅÅÅ användas&#13;
-ANNARS OM &lt;i&gt;Person som är ansvarig för transiteringsförfarandet&lt;/i&gt;/&lt;i&gt;Natur&lt;/i&gt; = 'H'&#13;
-  DÅ ska landskod på två bokstäver och finsk personbeteckning användas&#13;
-ANNARS OM &lt;i&gt;Person som är ansvarig för transiteringsförfarandet&lt;/i&gt;/&lt;i&gt;Natur&lt;/i&gt; = 'F'&#13;
-  DÅ ska en landskod på två bokstäver som inte tillhör ett EU-land användas</Description>
-    <Description lang="en">IF &lt;i&gt;Holder of the transit procedure&lt;/i&gt;/&lt;i&gt;Nature&lt;/i&gt; = 'R'&#13;
-  THEN EORI shall be used&#13;
-ELSE IF &lt;i&gt;Holder of the transit procedure&lt;/i&gt;/&lt;i&gt;Nature&lt;/i&gt; is in SET {C, P}&#13;
-  THEN two-character country code and date of birth in format DDMMYYYY shall be used&#13;
-ELSE IF &lt;i&gt;Holder of the transit procedure&lt;/i&gt;/&lt;i&gt;Nature&lt;/i&gt; = 'H'&#13;
-  THEN two-character country code and Finnish personal identity code shall be used&#13;
-ELSE IF &lt;i&gt;Holder of the transit procedure&lt;/i&gt;/&lt;i&gt;Nature&lt;/i&gt; = 'F'&#13;
-  THEN two-character non-EU country code shall be used</Description>
   </Constraint>
   <Constraint>
     <Code>NR9040</Code>
@@ -3257,18 +2023,6 @@ THEN&#13;
 /*/​Authorisation/​Category must not be in set 'C521'</Description>
   </Constraint>
   <Constraint>
-    <Code>NR9063</Code>
-    <Description lang="fi">If /*/​Consignment/​HouseConsignment/​ConsignmentItem/​PreviousDocument/​Type is equal to N825&#13;
-THEN&#13;
-/*/​Type@function="DeclarationType" must NOT be in set 'T' or 'T1'</Description>
-    <Description lang="sv">If /*/​Consignment/​HouseConsignment/​ConsignmentItem/​PreviousDocument/​Type is equal to N825&#13;
-THEN&#13;
-/*/​Type@function="DeclarationType" must NOT be in set 'T' or 'T1'</Description>
-    <Description lang="en">If /*/​Consignment/​HouseConsignment/​ConsignmentItem/​PreviousDocument/​Type is equal to N825&#13;
-THEN&#13;
-/*/​Type@function="DeclarationType" must NOT be in set 'T' or 'T1'</Description>
-  </Constraint>
-  <Constraint>
     <Code>NR9064</Code>
     <Description lang="fi">JOS &lt;i&gt;Tunnistetietojen tyyppi&lt;/i&gt; = '30'&#13;
   NIIN kardinaliteetti = '1x'</Description>
@@ -3296,12 +2050,6 @@ THEN /​Consignment/​Itinerary has a cardinality of at least 2</Description>
   THEN channel change is not allowed</Description>
   </Constraint>
   <Constraint>
-    <Code>NR9069</Code>
-    <Description lang="fi">Format of the element must be an..35</Description>
-    <Description lang="sv">Format of the element must be an..35</Description>
-    <Description lang="en">Format of the element must be an..35</Description>
-  </Constraint>
-  <Constraint>
     <Code>NR9072</Code>
     <Description lang="fi">IF /*/​Authorisation/​Category is PRESENT&#13;
 THEN&#13;
@@ -3312,21 +2060,6 @@ THEN&#13;
     <Description lang="en">IF /*/​Authorisation/​Category is PRESENT&#13;
 THEN&#13;
 /*/​Authorisation/​Category must be equal to 'C521'</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NR9073</Code>
-    <Description lang="fi">IF /*/​Consignment/​HouseConsignment/​ConsignmentItem/​PreviousDocument/​Type&#13;
-IS in SET {'N830'}&#13;
-THEN&#13;
-/*/Security must be in SET {'2','3'}</Description>
-    <Description lang="sv">IF /*/​Consignment/​HouseConsignment/​ConsignmentItem/​PreviousDocument/​Type&#13;
-IS in SET {'N830'}&#13;
-THEN&#13;
-/*/Security must be in SET {'2','3'}</Description>
-    <Description lang="en">IF /*/​Consignment/​HouseConsignment/​ConsignmentItem/​PreviousDocument/​Type&#13;
-IS in SET {'N830'}&#13;
-THEN&#13;
-/*/Security must be in SET {'2','3'}</Description>
   </Constraint>
   <Constraint>
     <Code>NR9075</Code>
@@ -3380,15 +2113,6 @@ THEN&#13;
   THEN Consignment = 'N'</Description>
   </Constraint>
   <Constraint>
-    <Code>NR9085</Code>
-    <Description lang="fi">IF FI044 result code is in set {A5, B1}&#13;
-THEN Consignment = 'R'</Description>
-    <Description lang="sv">IF FI044 result code is in set {A5, B1}&#13;
-THEN Consignment = 'R'</Description>
-    <Description lang="en">IF FI044 result code is in set {A5, B1}&#13;
-THEN Consignment = 'R'</Description>
-  </Constraint>
-  <Constraint>
     <Code>NR9087</Code>
     <Description lang="fi">IF /*/​Consignment/​InlandTransportMode is NOT in SET {5, 7}&#13;
 THEN &#13;
@@ -3401,19 +2125,115 @@ THEN &#13;
 /*/​Consignment/​DepartureTransportMeans/​Nationality = R</Description>
   </Constraint>
   <Constraint>
-    <Code>NR9088</Code>
-    <Description lang="fi">Format of the element must be an..35</Description>
-    <Description lang="sv">Format of the element must be an..35</Description>
-    <Description lang="en">Format of the element must be an..35</Description>
+    <Code>NR9093</Code>
+    <Description lang="fi">Ilmoitettu päivämäärä ei voi olla tulevaisuudessa</Description>
+    <Description lang="sv">Anmälda datumet kan inte vara i framtiden</Description>
+    <Description lang="en">The date provided cannot be in the future</Description>
   </Constraint>
   <Constraint>
-    <Code>NR9091</Code>
-    <Description lang="fi">If /*/​Consignment/​BorderTransportMode is NOT in SET {5, 7}&#13;
-THEN /*/​Consignment/​BorderTransportMeans/​Nationality = R</Description>
-    <Description lang="sv">If /*/​Consignment/​BorderTransportMode is NOT in SET {5, 7}&#13;
-THEN /*/​Consignment/​BorderTransportMeans/​Nationality = R</Description>
-    <Description lang="en">If /*/​Consignment/​BorderTransportMode is NOT in SET {5, 7}&#13;
-THEN /*/​Consignment/​BorderTransportMeans/​Nationality = R</Description>
+    <Code>NR9096</Code>
+    <Description lang="fi">JOS &lt;i&gt;Tarkastustuloskoodi&lt;/i&gt; on JOUKOSSA {A5, B1}&#13;
+  NIIN &lt;i&gt;Lähetyserä&lt;/i&gt; = 'R' JA todelliset muutokset on ilmoitettava</Description>
+    <Description lang="sv">OM &lt;i&gt;Kontrollresultatkod&lt;/i&gt; är i GRUPPEN {A5, B1}&#13;
+  DÅ är &lt;i&gt;Leveransparti&lt;/i&gt; = 'R' OCH faktiska ändringar måste anmälas</Description>
+    <Description lang="en">IF &lt;i&gt;Control result code&lt;/i&gt; is in SET {A5, B1}&#13;
+  THEN &lt;i&gt;Consignment&lt;/i&gt; = 'R' AND actual changes must be declared</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9099</Code>
+    <Description lang="fi">&lt;i&gt;Turvaindikaattori&lt;/i&gt; must contain values in set {0, 2}</Description>
+    <Description lang="sv">&lt;i&gt;Säkerhetsindikator&lt;/i&gt; must contain values in set {0, 2}</Description>
+    <Description lang="en">&lt;i&gt;Security&lt;/i&gt; must contain values in set {0, 2}</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9100</Code>
+    <Description lang="fi">JOS &lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on YHTÄ KUIN 'N355'&#13;
+  NIIN &lt;i&gt;Turvaindikaattori&lt;/i&gt; on oltava '0'</Description>
+    <Description lang="sv">OM &lt;i&gt;Tidigare dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; är LIKA MED 'N355'&#13;
+  DÅ måste &lt;i&gt;Säkerhetsindikator&lt;/i&gt; vara '0'</Description>
+    <Description lang="en">IF &lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; is EQUAL to 'N355'&#13;
+  THEN &lt;i&gt;Security&lt;/i&gt; must be '0'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9106</Code>
+    <Description lang="fi">JOS &lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Liiteasiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; TAI &lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Muu viite&lt;/i&gt;/&lt;i&gt;Viitenumero&lt;/i&gt; on JOUKOSSA {C085, C400, C402, C638, C640, C678, C690, N853, Y121, Y163, Y797, Y798, Y799}&#13;
+  NIIN ainakin toinen tiedoista &lt;i&gt;Nettopaino&lt;/i&gt; TAI &lt;i&gt;Lisäpaljousyksiköt&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Bifogat dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; ELLER &lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Ytterligare referens&lt;/i&gt;/&lt;i&gt;Referensnummer&lt;/i&gt; är i GRUPPEN {C085, C400, C402, C638, C640, C678, C690, N853, Y121, Y163, Y797, Y798, Y799}&#13;
+  DÅ är åtminstone en av &lt;i&gt;Nettovikt&lt;/i&gt; ELLER &lt;i&gt;Extra mängdenheter&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Supporting document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; OR &lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Additional reference&lt;/i&gt;/&lt;i&gt;Reference number&lt;/i&gt; is in SET {C085, C400, C402, C638, C640, C678, C690, N853, Y121, Y163, Y797, Y798, Y799}&#13;
+  THEN at least one of &lt;i&gt;Net mass&lt;/i&gt; OR &lt;i&gt;Supplementary units&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9109</Code>
+    <Description lang="fi">IF either &lt;i&gt;Bruttopaino&lt;/i&gt; OR &lt;i&gt;Kolliluku&lt;/i&gt; is EQUAL to '0'&#13;
+  THEN &lt;i&gt;Bruttopaino&lt;/i&gt; AND &lt;i&gt;Kolliluku&lt;/i&gt; must be = '0'</Description>
+    <Description lang="sv">IF either &lt;i&gt;Bruttovikt&lt;/i&gt; OR &lt;i&gt;Antal kollin&lt;/i&gt; is EQUAL to '0'&#13;
+  THEN &lt;i&gt;Bruttovikt&lt;/i&gt; AND &lt;i&gt;Antal kollin&lt;/i&gt; must be = '0'</Description>
+    <Description lang="en">IF either &lt;i&gt;Gross mass&lt;/i&gt; OR &lt;i&gt;Number of packages&lt;/i&gt; is EQUAL to '0'&#13;
+  THEN &lt;i&gt;Gross mass&lt;/i&gt; AND &lt;i&gt;Number of packages&lt;/i&gt; must be = '0'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9110</Code>
+    <Description lang="fi">Kardinaliteetti on 1x</Description>
+    <Description lang="sv">Kardinaliteten är 1x</Description>
+    <Description lang="en">Cardinality is 1x</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9114</Code>
+    <Description lang="fi">IF &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; is 'T2'&#13;
+  THEN &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; cannot be in set {C085,C400,C402,C638,C640,C678,C690,L100,N853}</Description>
+    <Description lang="sv">IF &lt;i&gt;Typ av deklaration&lt;/i&gt; is 'T2'&#13;
+  THEN &lt;i&gt;Typ av dokument&lt;/i&gt; cannot be in set {C085,C400,C402,C638,C640,C678,C690,L100,N853}</Description>
+    <Description lang="en">IF &lt;i&gt;Declaration type&lt;/i&gt; is 'T2'&#13;
+  THEN &lt;i&gt;Document type&lt;/i&gt; cannot be in set {C085,C400,C402,C638,C640,C678,C690,L100,N853}</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9115</Code>
+    <Description lang="fi">IF &lt;i&gt;Ilmoitustyyppi&lt;/i&gt; is 'T2'&#13;
+  THEN &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; cannot be in SET {Y121,Y123,Y163,Y797,Y798,Y799,Y930,Y931,Y951}</Description>
+    <Description lang="sv">IF &lt;i&gt;Typ av deklaration&lt;/i&gt; is 'T2'&#13;
+  THEN &lt;i&gt;Typ av dokument&lt;/i&gt; cannot be in SET {Y121,Y123,Y163,Y797,Y798,Y799,Y930,Y931,Y951}</Description>
+    <Description lang="en">IF &lt;i&gt;Declaration type&lt;/i&gt; is 'T2'&#13;
+  THEN &lt;i&gt;Document type&lt;/i&gt; cannot be in SET {Y121,Y123,Y163,Y797,Y798,Y799,Y930,Y931,Y951}</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9118</Code>
+    <Description lang="fi">IF &lt;i&gt;Erityisolosuhdekoodi&lt;/i&gt; is = '1'&#13;
+  THEN &lt;i&gt;Luvan tyyppi&lt;/i&gt; must be EQUAL to 'C524'</Description>
+    <Description lang="sv">IF &lt;i&gt;Indikator för särskild omständighet&lt;/i&gt; is = '1'&#13;
+  THEN &lt;i&gt;Typ av tillstånd&lt;/i&gt; must be EQUAL to 'C524'</Description>
+    <Description lang="en">IF &lt;i&gt;Specific circumstance indicator&lt;/i&gt; is = '1'&#13;
+  THEN &lt;i&gt;Authorisation type&lt;/i&gt; must be EQUAL to 'C524'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9119</Code>
+    <Description lang="fi">Representative cannot be the same as holder of the transit procedure</Description>
+    <Description lang="sv">Representative cannot be the same as holder of the transit procedure</Description>
+    <Description lang="en">Representative cannot be the same as holder of the transit procedure</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9121</Code>
+    <Description lang="fi">&lt;i&gt;Tunnistenumero&lt;/i&gt; must be found in trader register</Description>
+    <Description lang="sv">&lt;i&gt;Identifieringsnummer&lt;/i&gt; must be found in trader register</Description>
+    <Description lang="en">&lt;i&gt;Identification number&lt;/i&gt; must be found in trader register</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9123</Code>
+    <Description lang="fi">IF  &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt; is EQUAL to 'A'&#13;
+  THEN EITHER &lt;i&gt;Tullitoimipaikka&lt;/i&gt; OR &lt;i&gt;Osoite&lt;/i&gt; = 'R'&#13;
+ELSE they are = 'N'</Description>
+    <Description lang="sv">IF  &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; is EQUAL to 'A'&#13;
+  THEN EITHER &lt;i&gt;Tullkontor&lt;/i&gt; OR &lt;i&gt;Adress&lt;/i&gt; = 'R'&#13;
+ELSE they are = 'N'</Description>
+    <Description lang="en">IF  &lt;i&gt;Type of location&lt;/i&gt; is EQUAL to 'A'&#13;
+  THEN EITHER &lt;i&gt;Customs office&lt;/i&gt; OR &lt;i&gt;Address&lt;/i&gt; = 'R'&#13;
+ELSE they are = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9124</Code>
+    <Description lang="fi">For EU traders the value must be a valid EORI or TCUIN</Description>
+    <Description lang="sv">For EU traders the value must be a valid EORI or TCUIN</Description>
+    <Description lang="en">For EU traders the value must be a valid EORI or TCUIN</Description>
   </Constraint>
   <Constraint>
     <Code>R0003</Code>
@@ -3423,9 +2243,9 @@ THEN /*/​Consignment/​BorderTransportMeans/​Nationality = R</Description>
   </Constraint>
   <Constraint>
     <Code>R0005</Code>
-    <Description lang="fi">The value of /*/CustomsOfficeOfTransitDeclared/arrivalDateAndTimeEstimated field is considered valid only if it is not LESS than or EQUAL to /*/Message/Preparation date and time</Description>
-    <Description lang="sv">The value of /*/CustomsOfficeOfTransitDeclared/arrivalDateAndTimeEstimated field is considered valid only if it is not LESS than or EQUAL to /*/Message/Preparation date and time</Description>
-    <Description lang="en">The value of /*/CustomsOfficeOfTransitDeclared/arrivalDateAndTimeEstimated field is considered valid only if it is not LESS than or EQUAL to /*/Message/Preparation date and time</Description>
+    <Description lang="fi">The value of /*/CustomsOfficeOfTransitDeclared/arrivalDateAndTimeEstimated field is considered valid only if it is not LESS than or EQUAL to /*/Message/preparationDateAndTime</Description>
+    <Description lang="sv">The value of /*/CustomsOfficeOfTransitDeclared/arrivalDateAndTimeEstimated field is considered valid only if it is not LESS than or EQUAL to /*/Message/preparationDateAndTime</Description>
+    <Description lang="en">The value of /*/CustomsOfficeOfTransitDeclared/arrivalDateAndTimeEstimated field is considered valid only if it is not LESS than or EQUAL to /*/Message/preparationDateAndTime</Description>
   </Constraint>
   <Constraint>
     <Code>R0006</Code>
@@ -3465,8 +2285,7 @@ IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is in SET {T2
 AND the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is in SET CL112&#13;
 THEN &#13;
 (at least one /*/Consignment/PreviousDocument/type is in SET CL178) OR&#13;
-(at least one /*/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/type is in SET CL178 for this ‘Consignment item’)&#13;
-</Description>
+(at least one /*/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/type is in SET CL178 for this "Consignment item")</Description>
     <Description lang="sv">IF /*/Transit Operation/declarationType is in SET {T2, T2F}&#13;
 AND the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is in SET CL112&#13;
 THEN &#13;
@@ -3476,8 +2295,7 @@ IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is in SET {T2
 AND the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is in SET CL112&#13;
 THEN &#13;
 (at least one /*/Consignment/PreviousDocument/type is in SET CL178) OR&#13;
-(at least one /*/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/type is in SET CL178 for this ‘Consignment item’)&#13;
-</Description>
+(at least one /*/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/type is in SET CL178 for this "Consignment item")</Description>
     <Description lang="en">IF /*/Transit Operation/declarationType is in SET {T2, T2F}&#13;
 AND the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is in SET CL112&#13;
 THEN &#13;
@@ -3487,8 +2305,7 @@ IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is in SET {T2
 AND the first two characters of /*/CustomsOfficeOfDeparture/referenceNumber is in SET CL112&#13;
 THEN &#13;
 (at least one /*/Consignment/PreviousDocument/type is in SET CL178) OR&#13;
-(at least one /*/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/type is in SET CL178 for this ‘Consignment item’)&#13;
-</Description>
+(at least one /*/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/type is in SET CL178 for this "Consignment item")</Description>
   </Constraint>
   <Constraint>
     <Code>R0021</Code>
@@ -3498,11 +2315,11 @@ THEN &#13;
   </Constraint>
   <Constraint>
     <Code>R0023</Code>
-    <Description lang="fi">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234 (DocumentTypeExcise)&#13;
+    <Description lang="fi">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234&#13;
 THEN /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/referenceNumber shall not be "0" (zero)</Description>
-    <Description lang="sv">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234 (DocumentTypeExcise)&#13;
+    <Description lang="sv">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234&#13;
 THEN /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/referenceNumber shall not be "0" (zero)</Description>
-    <Description lang="en">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234 (DocumentTypeExcise)&#13;
+    <Description lang="en">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234&#13;
 THEN /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/referenceNumber shall not be "0" (zero)</Description>
   </Constraint>
   <Constraint>
@@ -3563,70 +2380,67 @@ Note: The 'Sequence number' is unique if the XPath (without the last datagroup's
     <Code>R0055</Code>
     <Description lang="fi">Numbering of items: &#13;
 IF a discrepancy is identified in the Data Group THEN: &#13;
-  - ‘Declaration goods item number' shall be unique AND EQUAL to the declaration goods item &#13;
+  - "Declaration goods item number" shall be unique AND EQUAL to the declaration goods item &#13;
      number defined in the declaration for which the discrepancy is reported AND &#13;
-  - 'Goods item number’ shall be unique AND EQUAL to the goods item number defined in the &#13;
+  - "Goods item number" shall be unique AND EQUAL to the goods item number defined in the &#13;
     declaration for which the discrepancy is reported. &#13;
 IF a new Data Group is identified THEN: &#13;
-   - ‘Declaration goods item number' shall be unique AND EQUAL to the last declaration goods item &#13;
+   - "Declaration goods item number" shall be unique AND EQUAL to the last declaration goods item &#13;
       number defined in the declaration + 1 AND &#13;
-   - 'Goods item number’ shall be unique AND EQUAL to the last goods item number defined in the &#13;
-      declaration + 1 AND  &#13;
-      the rest of the Data Items contained in the Data Group and all sub–Data Groups shall be     &#13;
+   - "Goods item number" shall be unique AND EQUAL to the last goods item number defined in the &#13;
+      declaration + 1 AND &#13;
+      the rest of the Data Items contained in the Data Group and all sub–Data Groups shall be   &#13;
       filled in except for the Data Elements that are defined as optional or dependent in the &#13;
       declaration. &#13;
 IF a Goods item is missing THEN: &#13;
-   - ‘Declaration goods item number' shall be unique AND EQUAL to the number of the declaration &#13;
+   - "Declaration goods item number" shall be unique AND EQUAL to the number of the declaration &#13;
       goods item number defined in the declaration AND &#13;
-   - 'Goods item number’ shall be unique AND EQUAL to the  item number defined in the &#13;
+   - "Goods item number" shall be unique AND EQUAL to the item number defined in the &#13;
       declaration AND the rest of the Data Items contained in the Data Group and all sub–Data Groups &#13;
       shall not be filled. &#13;
-Note: The Sequence number of a Data Group is unique if the XPath and the value of the sequence number of this Data Item is unique in this message. &#13;
-</Description>
+Note: The Sequence number of a Data Group is unique if the XPath and the value of the sequence number of this Data Item is unique in this message.</Description>
     <Description lang="sv">Numbering of items: &#13;
 IF a discrepancy is identified in the Data Group THEN: &#13;
-  - ‘Declaration goods item number' shall be unique AND EQUAL to the declaration goods item &#13;
+  - "Declaration goods item number" shall be unique AND EQUAL to the declaration goods item &#13;
      number defined in the declaration for which the discrepancy is reported AND &#13;
-  - 'Goods item number’ shall be unique AND EQUAL to the goods item number defined in the &#13;
+  - "Goods item number" shall be unique AND EQUAL to the goods item number defined in the &#13;
     declaration for which the discrepancy is reported. &#13;
 IF a new Data Group is identified THEN: &#13;
-   - ‘Declaration goods item number' shall be unique AND EQUAL to the last declaration goods item &#13;
+   - "Declaration goods item number" shall be unique AND EQUAL to the last declaration goods item &#13;
       number defined in the declaration + 1 AND &#13;
-   - 'Goods item number’ shall be unique AND EQUAL to the last goods item number defined in the &#13;
-      declaration + 1 AND  &#13;
-      the rest of the Data Items contained in the Data Group and all sub–Data Groups shall be     &#13;
+   - "Goods item number" shall be unique AND EQUAL to the last goods item number defined in the &#13;
+      declaration + 1 AND &#13;
+      the rest of the Data Items contained in the Data Group and all sub–Data Groups shall be   &#13;
       filled in except for the Data Elements that are defined as optional or dependent in the &#13;
       declaration. &#13;
 IF a Goods item is missing THEN: &#13;
-   - ‘Declaration goods item number' shall be unique AND EQUAL to the number of the declaration &#13;
+   - "Declaration goods item number" shall be unique AND EQUAL to the number of the declaration &#13;
       goods item number defined in the declaration AND &#13;
-   - 'Goods item number’ shall be unique AND EQUAL to the  item number defined in the &#13;
+   - "Goods item number" shall be unique AND EQUAL to the item number defined in the &#13;
       declaration AND the rest of the Data Items contained in the Data Group and all sub–Data Groups &#13;
       shall not be filled. &#13;
-Note: The Sequence number of a Data Group is unique if the XPath and the value of the sequence number of this Data Item is unique in this message. &#13;
-</Description>
+Note: The Sequence number of a Data Group is unique if the XPath and the value of the sequence number of this Data Item is unique in this message.</Description>
     <Description lang="en">Numbering of items: &#13;
 IF a discrepancy is identified in the Data Group THEN: &#13;
-  - ‘Declaration goods item number' shall be unique AND EQUAL to the declaration goods item &#13;
+  - "Declaration goods item number" shall be unique AND EQUAL to the declaration goods item &#13;
      number defined in the declaration for which the discrepancy is reported AND &#13;
-  - 'Goods item number’ shall be unique AND EQUAL to the goods item number defined in the &#13;
+  - "Goods item number" shall be unique AND EQUAL to the goods item number defined in the &#13;
     declaration for which the discrepancy is reported. &#13;
 IF a new Data Group is identified THEN: &#13;
-   - ‘Declaration goods item number' shall be unique AND EQUAL to the last declaration goods item &#13;
+   - "Declaration goods item number" shall be unique AND EQUAL to the last declaration goods item &#13;
       number defined in the declaration + 1 AND &#13;
-   - 'Goods item number’ shall be unique AND EQUAL to the last goods item number defined in the &#13;
-      declaration + 1 AND  &#13;
-      the rest of the Data Items contained in the Data Group and all sub–Data Groups shall be     &#13;
+   - "Goods item number" shall be unique AND EQUAL to the last goods item number defined in the &#13;
+      declaration + 1 AND &#13;
+      the rest of the Data Items contained in the Data Group and all sub–Data Groups shall be   &#13;
       filled in except for the Data Elements that are defined as optional or dependent in the &#13;
       declaration. &#13;
 IF a Goods item is missing THEN: &#13;
-   - ‘Declaration goods item number' shall be unique AND EQUAL to the number of the declaration &#13;
+   - "Declaration goods item number" shall be unique AND EQUAL to the number of the declaration &#13;
       goods item number defined in the declaration AND &#13;
-   - 'Goods item number’ shall be unique AND EQUAL to the  item number defined in the &#13;
+   - "Goods item number" shall be unique AND EQUAL to the item number defined in the &#13;
       declaration AND the rest of the Data Items contained in the Data Group and all sub–Data Groups &#13;
       shall not be filled. &#13;
-Note: The Sequence number of a Data Group is unique if the XPath and the value of the sequence number of this Data Item is unique in this message. &#13;
-</Description>
+Note: The Sequence number of a Data Group is unique if the XPath and the value of the sequence number of this Data Item is unique in this message.</Description>
   </Constraint>
   <Constraint>
     <Code>R0060</Code>
@@ -3716,16 +2530,13 @@ THEN &#13;
   THEN there cannot be further &lt;i&gt;Packages&lt;/i&gt; with a value != '0' for &lt;i&gt;Number of packages&lt;/i&gt; within the same &lt;i&gt;Goods item&lt;/i&gt;</Description>
   </Constraint>
   <Constraint>
-    <Code>R0221</Code>
-    <Description lang="fi">JOs &lt;i&gt;Kolliluku&lt;/i&gt; = ‘0’ &#13;
-  NIIN &lt;i&gt;Bruttopaino&lt;/i&gt; on oltava = '0' JA on oltava toinen &lt;i&gt;Tavaraerä&lt;/i&gt; (saman tietoryhmän &lt;i&gt;Alatason lähetyserä&lt;/i&gt; tai &lt;i&gt;Tavaralähetys&lt;/i&gt; sisällä) jolla &lt;i&gt;Bruttopaino&lt;/i&gt; &gt; '0'&#13;
-MUUTEN &lt;i&gt;Bruttopaino&lt;/i&gt; on oltava &gt; '0'</Description>
-    <Description lang="sv">OM &lt;i&gt;Antal kollin&lt;/i&gt; = ‘0’ &#13;
-  DÅ måste &lt;i&gt;Bruttovikt&lt;/i&gt; vara = '0' OCH det måste finnas en annan &lt;i&gt;Varupost&lt;/i&gt; (inom samma &lt;i&gt;Leveransparti på undernivå&lt;/i&gt; eller &lt;i&gt;Varuförsändelse&lt;/i&gt;) med &lt;i&gt;Bruttovikt&lt;/i&gt; &gt; '0'&#13;
-ANNARS måste &lt;i&gt;Bruttovikt&lt;/i&gt; vara &gt; '0'</Description>
-    <Description lang="en">IF &lt;i&gt;Number of packages&lt;/i&gt; = ‘0’&#13;
-  THEN &lt;i&gt;Gross mass&lt;/i&gt; must be = '0' AND there must exist another &lt;i&gt;Goods item&lt;/i&gt; (within the same &lt;i&gt;House consignment&lt;/i&gt; or &lt;i&gt;Goods shipment&lt;/i&gt;) with &lt;i&gt;Gross mass&lt;/i&gt; &gt; '0'&#13;
-ELSE &lt;i&gt;Gross mass&lt;/i&gt; must be &gt; '0'</Description>
+    <Code>R0220</Code>
+    <Description lang="fi">JOS &lt;i&gt;Kolliluku&lt;/i&gt; = '0'&#13;
+  NIIN &lt;i&gt;Kollien laji&lt;/i&gt; ei voi olla koodistossa CL182</Description>
+    <Description lang="sv">OM &lt;i&gt;Antal kollin&lt;/i&gt; = '0'&#13;
+  DÅ kan &lt;i&gt;Kollislag&lt;/i&gt; inte vara i kodförteckning CL182</Description>
+    <Description lang="en">IF &lt;i&gt;Number of packages&lt;/i&gt; = '0'&#13;
+  THEN &lt;i&gt;Type of packages&lt;/i&gt; cannot be in code list CL182</Description>
   </Constraint>
   <Constraint>
     <Code>R0223</Code>
@@ -3765,33 +2576,33 @@ ELSE the format of /*/Guarantee/GuaranteeReference/GRN is "an17"</Description>
   </Constraint>
   <Constraint>
     <Code>R0350</Code>
-    <Description lang="fi">IF /*/TransitOperation/reducedDatasetIndicator&gt; is EQUAL to "1"&#13;
+    <Description lang="fi">IF /*/TransitOperation/reducedDatasetIndicator» is EQUAL to "1"&#13;
 AND /*/Consignment/inlandModeOfTransport is in SET {1, 2, 4} &#13;
 THEN &#13;
 at least one /*/Authorisation/type is EQUAL to "C524"</Description>
-    <Description lang="sv">IF /*/TransitOperation/reducedDatasetIndicator&gt; is EQUAL to "1"&#13;
+    <Description lang="sv">IF /*/TransitOperation/reducedDatasetIndicator» is EQUAL to "1"&#13;
 AND /*/Consignment/inlandModeOfTransport is in SET {1, 2, 4} &#13;
 THEN &#13;
 at least one /*/Authorisation/type is EQUAL to "C524"</Description>
-    <Description lang="en">IF /*/TransitOperation/reducedDatasetIndicator&gt; is EQUAL to "1"&#13;
+    <Description lang="en">IF /*/TransitOperation/reducedDatasetIndicator» is EQUAL to "1"&#13;
 AND /*/Consignment/inlandModeOfTransport is in SET {1, 2, 4} &#13;
 THEN &#13;
 at least one /*/Authorisation/type is EQUAL to "C524"</Description>
   </Constraint>
   <Constraint>
     <Code>R0352</Code>
-    <Description lang="fi">IF /*/TransitOperation/reducedDatasetIndicator&gt; is EQUAL to "1"&#13;
+    <Description lang="fi">IF /*/TransitOperation/reducedDatasetIndicator» is EQUAL to "1"&#13;
 AND /*/Consignment/inlandModeOfTransport is in SET {1, 2, 4}  &#13;
 THEN &#13;
-this Data Item includes at least one &lt;Authorisation number&gt; for a valid Authorisation for Reduced Data Set owned by the Holder of the Transit Procedure</Description>
-    <Description lang="sv">IF /*/TransitOperation/reducedDatasetIndicator&gt; is EQUAL to "1"&#13;
+this Data Item includes at least one «Authorisation number» for a valid Authorisation for Reduced Data Set owned by the Holder of the Transit Procedure</Description>
+    <Description lang="sv">IF /*/TransitOperation/reducedDatasetIndicator» is EQUAL to "1"&#13;
 AND /*/Consignment/inlandModeOfTransport is in SET {1, 2, 4}  &#13;
 THEN &#13;
-this Data Item includes at least one &lt;Authorisation number&gt; for a valid Authorisation for Reduced Data Set owned by the Holder of the Transit Procedure</Description>
-    <Description lang="en">IF /*/TransitOperation/reducedDatasetIndicator&gt; is EQUAL to "1"&#13;
+this Data Item includes at least one «Authorisation number» for a valid Authorisation for Reduced Data Set owned by the Holder of the Transit Procedure</Description>
+    <Description lang="en">IF /*/TransitOperation/reducedDatasetIndicator» is EQUAL to "1"&#13;
 AND /*/Consignment/inlandModeOfTransport is in SET {1, 2, 4}  &#13;
 THEN &#13;
-this Data Item includes at least one &lt;Authorisation number&gt; for a valid Authorisation for Reduced Data Set owned by the Holder of the Transit Procedure</Description>
+this Data Item includes at least one «Authorisation number» for a valid Authorisation for Reduced Data Set owned by the Holder of the Transit Procedure</Description>
   </Constraint>
   <Constraint>
     <Code>R0364</Code>
@@ -3801,6 +2612,12 @@ this Data Item includes at least one &lt;Authorisation number&gt; for a valid Au
    DÅ måste det finnas minst en &lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Förpackningar&lt;/i&gt; (Transitering: inom samma &lt;i&gt;Leveransparti på undernivå&lt;/i&gt;) med lika &lt;i&gt;Märken&lt;/i&gt; och {{FIe- 167}} STÖRRE ÄN '0'</Description>
     <Description lang="en">IF &lt;i&gt;Number of packages&lt;/i&gt; = '0'&#13;
   THEN there must exist at least one &lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Packages&lt;/i&gt; (Transit: within the same &lt;i&gt;House consignment&lt;/i&gt;) with equal &lt;i&gt;Shipping marks&lt;/i&gt; and &lt;i&gt;Number of packages&lt;/i&gt; GREATER THAN '0'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>R0416</Code>
+    <Description lang="fi">The Data Item &lt;CONSIGNMENT-HOUSE CONSIGNMENT-PREVIOUS DOCUMENT. Reference Number&gt; must include a valid ‘Export declaration’ or an ‘Export and exit summary declaration’ or a ‘Dispatch of goods in relation with special fiscal territories’.</Description>
+    <Description lang="sv">The Data Item &lt;CONSIGNMENT-HOUSE CONSIGNMENT-PREVIOUS DOCUMENT. Reference Number&gt; must include a valid ‘Export declaration’ or an ‘Export and exit summary declaration’ or a ‘Dispatch of goods in relation with special fiscal territories’.</Description>
+    <Description lang="en">The Data Item &lt;CONSIGNMENT-HOUSE CONSIGNMENT-PREVIOUS DOCUMENT. Reference Number&gt; must include a valid ‘Export declaration’ or an ‘Export and exit summary declaration’ or a ‘Dispatch of goods in relation with special fiscal territories’.</Description>
   </Constraint>
   <Constraint>
     <Code>R0448</Code>
@@ -3915,57 +2732,45 @@ THEN at least one occurrence of &#13;
   </Constraint>
   <Constraint>
     <Code>R0601</Code>
-    <Description lang="fi">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234 (DocumentTypeExcise)&#13;
-(i.e. Export of excise goods followed by transit (EMCS&amp;AES+NCTS))&#13;
+    <Description lang="fi">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234 (i.e. Export of excise goods followed by transit (EMCS&amp;AES+NCTS))&#13;
 THEN&#13;
-IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is &#13;
-PRESENT&#13;
-     THEN (/*/Consignment/HouseConsignment/ConsignmentItem/declarationType is&#13;
-      EQUAL to ‘T1’ AND /*/Consignment/HouseConsignment/PreviousDocument/type &#13;
-      is EQUAL to ‘N830’)&#13;
-ELSE (/*/TransitOperation/declarationType is in SET {‘T1’, ‘TIR’}  &#13;
-AND /*/Consignment/HouseConsignment/PreviousDocument/type is EQUAL to ‘N830’);&#13;
-IF /*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/type is in SET CL234 (DocumentTypeExcise)&#13;
-(i.e. Transit movement of EU goods under excise suspension (EMCS+NCTS))&#13;
+IF /*/Consignment/HouseConsignment/PreviousDocument/type is EQUAL to "N830"&#13;
+   THEN&#13;
+    	IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT&#13;
+        THEN /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is EQUAL to "T1"&#13;
+         ELSE /*/TransitOperation/declarationType is in SET {T1, TIR}&#13;
+ELSE   &#13;
+IF /*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/type is in SET CL234 (i.e. Transit movement of EU goods under excise suspension (EMCS+NCTS))&#13;
+ THEN&#13;
+     	IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT&#13;
+         THEN /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is in SET {T2, T2F}&#13;
+         ELSE /*/TransitOperation/declarationType is in SET {T2, T2F}</Description>
+    <Description lang="sv">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234 (i.e. Export of excise goods followed by transit (EMCS&amp;AES+NCTS))&#13;
 THEN&#13;
-IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT&#13;
-      THEN /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is in &#13;
-      SET {T2, T2F}&#13;
-ELSE /*/TransitOperation/declarationType is in SET {T2, T2F}</Description>
-    <Description lang="sv">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234 (DocumentTypeExcise)&#13;
-(i.e. Export of excise goods followed by transit (EMCS&amp;AES+NCTS))&#13;
+IF /*/Consignment/HouseConsignment/PreviousDocument/type is EQUAL to "N830"&#13;
+   THEN&#13;
+    	IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT&#13;
+        THEN /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is EQUAL to "T1"&#13;
+         ELSE /*/TransitOperation/declarationType is in SET {T1, TIR}&#13;
+ELSE   &#13;
+IF /*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/type is in SET CL234 (i.e. Transit movement of EU goods under excise suspension (EMCS+NCTS))&#13;
+ THEN&#13;
+     	IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT&#13;
+         THEN /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is in SET {T2, T2F}&#13;
+         ELSE /*/TransitOperation/declarationType is in SET {T2, T2F}</Description>
+    <Description lang="en">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234 (i.e. Export of excise goods followed by transit (EMCS&amp;AES+NCTS))&#13;
 THEN&#13;
-IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is &#13;
-PRESENT&#13;
-     THEN (/*/Consignment/HouseConsignment/ConsignmentItem/declarationType is&#13;
-      EQUAL to ‘T1’ AND /*/Consignment/HouseConsignment/PreviousDocument/type &#13;
-      is EQUAL to ‘N830’)&#13;
-ELSE (/*/TransitOperation/declarationType is in SET {‘T1’, ‘TIR’}  &#13;
-AND /*/Consignment/HouseConsignment/PreviousDocument/type is EQUAL to ‘N830’);&#13;
-IF /*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/type is in SET CL234 (DocumentTypeExcise)&#13;
-(i.e. Transit movement of EU goods under excise suspension (EMCS+NCTS))&#13;
-THEN&#13;
-IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT&#13;
-      THEN /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is in &#13;
-      SET {T2, T2F}&#13;
-ELSE /*/TransitOperation/declarationType is in SET {T2, T2F}</Description>
-    <Description lang="en">IF /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234 (DocumentTypeExcise)&#13;
-(i.e. Export of excise goods followed by transit (EMCS&amp;AES+NCTS))&#13;
-THEN&#13;
-IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is &#13;
-PRESENT&#13;
-     THEN (/*/Consignment/HouseConsignment/ConsignmentItem/declarationType is&#13;
-      EQUAL to ‘T1’ AND /*/Consignment/HouseConsignment/PreviousDocument/type &#13;
-      is EQUAL to ‘N830’)&#13;
-ELSE (/*/TransitOperation/declarationType is in SET {‘T1’, ‘TIR’}  &#13;
-AND /*/Consignment/HouseConsignment/PreviousDocument/type is EQUAL to ‘N830’);&#13;
-IF /*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/type is in SET CL234 (DocumentTypeExcise)&#13;
-(i.e. Transit movement of EU goods under excise suspension (EMCS+NCTS))&#13;
-THEN&#13;
-IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT&#13;
-      THEN /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is in &#13;
-      SET {T2, T2F}&#13;
-ELSE /*/TransitOperation/declarationType is in SET {T2, T2F}</Description>
+IF /*/Consignment/HouseConsignment/PreviousDocument/type is EQUAL to "N830"&#13;
+   THEN&#13;
+    	IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT&#13;
+        THEN /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is EQUAL to "T1"&#13;
+         ELSE /*/TransitOperation/declarationType is in SET {T1, TIR}&#13;
+ELSE   &#13;
+IF /*/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/type is in SET CL234 (i.e. Transit movement of EU goods under excise suspension (EMCS+NCTS))&#13;
+ THEN&#13;
+     	IF /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT&#13;
+         THEN /*/Consignment/HouseConsignment/ConsignmentItem/declarationType is in SET {T2, T2F}&#13;
+         ELSE /*/TransitOperation/declarationType is in SET {T2, T2F}</Description>
   </Constraint>
   <Constraint>
     <Code>R0789</Code>
@@ -3988,11 +2793,11 @@ ELSE the multiplicity of /*/Consignment/ActiveBorderTransportMeans is 1x</Descri
   <Constraint>
     <Code>R0849</Code>
     <Description lang="fi">IF /*/TransitOperation/declarationType is EQUAL to "TIR" &#13;
-THEN /*/TransitOperation/reducedDatasetIndicator = "0"</Description>
+THEN /*/TransitOperation/reducedDatasetIndicator = "O"</Description>
     <Description lang="sv">IF /*/TransitOperation/declarationType is EQUAL to "TIR" &#13;
-THEN /*/TransitOperation/reducedDatasetIndicator = "0"</Description>
+THEN /*/TransitOperation/reducedDatasetIndicator = "O"</Description>
     <Description lang="en">IF /*/TransitOperation/declarationType is EQUAL to "TIR" &#13;
-THEN /*/TransitOperation/reducedDatasetIndicator = "0"</Description>
+THEN /*/TransitOperation/reducedDatasetIndicator = "O"</Description>
   </Constraint>
   <Constraint>
     <Code>R0850</Code>
@@ -4026,13 +2831,13 @@ ELSE the cardinality of &lt;i&gt;Departure transport means&lt;/i&gt; is 1x</Desc
   </Constraint>
   <Constraint>
     <Code>R0859</Code>
-    <Description lang="fi">IF /*/TransitOperation/reducedDatasetIndicator = "1" &#13;
+    <Description lang="fi">IF /*/TransitOperation/reducedDatasetIndicator = "1"&#13;
 THEN at least one /*/Authorisation/type is EQUAL to "C524" &#13;
 ELSE /*/Authorisation/type shall not be EQUAL to "C524"</Description>
-    <Description lang="sv">IF /*/TransitOperation/reducedDatasetIndicator = "1" &#13;
+    <Description lang="sv">IF /*/TransitOperation/reducedDatasetIndicator = "1"&#13;
 THEN at least one /*/Authorisation/type is EQUAL to "C524" &#13;
 ELSE /*/Authorisation/type shall not be EQUAL to "C524"</Description>
-    <Description lang="en">IF /*/TransitOperation/reducedDatasetIndicator = "1" &#13;
+    <Description lang="en">IF /*/TransitOperation/reducedDatasetIndicator = "1"&#13;
 THEN at least one /*/Authorisation/type is EQUAL to "C524" &#13;
 ELSE /*/Authorisation/type shall not be EQUAL to "C524"</Description>
   </Constraint>
@@ -4113,9 +2918,9 @@ THEN the first two characters of /*/CustomsOfficeOfTransitActual/referenceNumber
   </Constraint>
   <Constraint>
     <Code>R0988</Code>
-    <Description lang="fi">Each &lt; Goods item number&gt; is unique for the Data Group it belongs to. The Goods item number shall be sequential, starting from "1" for the first iteration of the Data Group and increasing by "1" for each iteration.</Description>
-    <Description lang="sv">Each &lt; Goods item number&gt; is unique for the Data Group it belongs to. The Goods item number shall be sequential, starting from "1" for the first iteration of the Data Group and increasing by "1" for each iteration.</Description>
-    <Description lang="en">Each &lt; Goods item number&gt; is unique for the Data Group it belongs to. The Goods item number shall be sequential, starting from "1" for the first iteration of the Data Group and increasing by "1" for each iteration.</Description>
+    <Description lang="fi">Each « Goods item number» is unique for the Data Group it belongs to. The Goods item number shall be sequential, starting from "1" for the first iteration of the Data Group and increasing by "1" for each iteration.</Description>
+    <Description lang="sv">Each « Goods item number» is unique for the Data Group it belongs to. The Goods item number shall be sequential, starting from "1" for the first iteration of the Data Group and increasing by "1" for each iteration.</Description>
+    <Description lang="en">Each « Goods item number» is unique for the Data Group it belongs to. The Goods item number shall be sequential, starting from "1" for the first iteration of the Data Group and increasing by "1" for each iteration.</Description>
   </Constraint>
   <Constraint>
     <Code>R0990</Code>
@@ -4146,8 +2951,8 @@ THEN the first two characters of /*/CustomsOfficeOfTransitActual/referenceNumber
   </Constraint>
   <Constraint>
     <Code>R3061</Code>
-    <Description lang="fi">The Data Item /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalInformation/code shall not be EQUAL to '30600'</Description>
-    <Description lang="sv">The Data Item /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalInformation/code shall not be EQUAL to '30600'</Description>
-    <Description lang="en">The Data Item /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalInformation/code shall not be EQUAL to '30600'</Description>
+    <Description lang="fi">The Data Item /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalInformation/code shall not be EQUAL to "30600"</Description>
+    <Description lang="sv">The Data Item /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalInformation/code shall not be EQUAL to "30600"</Description>
+    <Description lang="en">The Data Item /*/Consignment/HouseConsignment/ConsignmentItem/AdditionalInformation/code shall not be EQUAL to "30600"</Description>
   </Constraint>
 </Constraints>

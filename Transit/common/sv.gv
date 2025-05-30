@@ -1,142 +1,186 @@
-Graph Transit {
-	node [shape=plaintext, fontname = "helvetica"];
-	edge [fontname = "helvetica"];
-	{rank=same "Amendment" "Notification" "Packaging" "ControlResult" "Guarantee"}
-	"TransitOperation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transiteringshändelse</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Händelsens identifierare<br align="left"/>MRN<br align="left"/>LRN<br align="left"/>Typ av deklaration<br align="left"/>Ytterligare typ av deklaration<br align="left"/>Bindande färdväg<br align="left"/>Språkkod<br align="left"/>Tidsfrist<br align="left"/>Indikator för reducerad datauppsättning<br align="left"/>Säkerhetsindikator<br align="left"/>Indikator för särskild omständighet<br align="left"/>Datum och tid för ankomstanmälan<br align="left"/>Följande förfarande<br align="left"/>Typ av följande förfarande<br align="left"/>Incidentflagga<br align="left"/>Förseglingarnas skick<br align="left"/>TIR-carnetnummer<br align="left"/></td></tr></table>>];
-	"Amendment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Korrigering</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Datum och tid för korrigeringen<br align="left"/>Beskrivning av orsaken till korrigeringsbegäran<br align="left"/>Begärans korrelation<br align="left"/></td></tr></table>>];
-	"Notification" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Underrättelse</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Datum och tid för underrättelsen<br align="left"/>Svarskod<br align="left"/>Beskrivning av underrättelsen<br align="left"/>Orsak till kontakt<br align="left"/>Orsak till ogiltigförklaring<br align="left"/>Orsak till korrigering<br align="left"/>Sammanhörande varupost<br align="left"/>Begärans korrelation<br align="left"/>Ersättande MRN<br align="left"/>Typ av underrättelse<br align="left"/>Del av deklarationen<br align="left"/>Nuvarande status<br align="left"/>Orsak till statusändring<br align="left"/>Tidsfrist<br align="left"/>Typ av tidsfrist<br align="left"/></td></tr></table>>];
-	"ProvidedInfo" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Inlämnad information</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Beskrivning<br align="left"/>Bilagans referens<br align="left"/></td></tr></table>>];
-	"Agent" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ombud</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Kod för ombuds status<br align="left"/>Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/></td></tr></table>>];
-	"Applicant" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ändringssökande</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/>Natur<br align="left"/></td></tr></table>>];
-	"Address" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Adress</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Gatuadress<br align="left"/>Postanstalt<br align="left"/>Postnummer<br align="left"/>Land<br align="left"/></td></tr></table>>];
-	"DestinationTrader" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Aktör vid destinationen</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/></td></tr></table>>];
-	"Principal" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Person som är ansvarig för transiteringsförfarandet</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>TIR-carnetinnehavarens identifieringsnummer<br align="left"/>Namn<br align="left"/>Natur<br align="left"/></td></tr></table>>];
-	"ServiceProvider" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tjänsteleverantör</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/></td></tr></table>>];
-	"Submitter" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Person som inger deklarationen</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Name<br align="left"/></td></tr></table>>];
-	"Communication" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontaktuppgifter</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">E-postadress<br align="left"/>Telefonnummer<br align="left"/></td></tr></table>>];
-	"Authorisation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tillstånd</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Typ av tillstånd<br align="left"/>Dokumentets identifierare<br align="left"/>Tillståndshavarens identifieringsnummer<br align="left"/></td></tr></table>>];
-	"Consignment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Leveransparti</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Container<br align="left"/>Kod för destinationsland<br align="left"/>Kod för avsändningsland<br align="left"/>Transportsätt vid gränsen<br align="left"/>Transportsätt inrikes<br align="left"/>Bruttovikt<br align="left"/></td></tr></table>>];
-	"SupportingDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Bifogat dokument</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Typ av dokument<br align="left"/>Dokumentets identifierare<br align="left"/>Varupostnummer i dokumentraden<br align="left"/>Kompletterande information<br align="left"/>Bilagans referens<br align="left"/></td></tr></table>>];
-	"AdditionalReference" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare referens</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Typ<br align="left"/>Referensnummer<br align="left"/></td></tr></table>>];
-	"AdditionalInformation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare uppgifter</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Kod för ytterligare uppgifter<br align="left"/>Beskrivning av ytterligare uppgifter<br align="left"/></td></tr></table>>];
-	"TransportContractDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportdokument</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Typ av dokument<br align="left"/>Dokumentets identifierare<br align="left"/>Bilagans referens<br align="left"/></td></tr></table>>];
-	"AEOMutualRecognitionParty" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare aktör i leveranskedjan</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Rollkod<br align="left"/></td></tr></table>>];
-	"Carrier" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportföretag</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/></td></tr></table>>];
-	"Consignee" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Mottagare</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/></td></tr></table>>];
-	"Consignor" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Avsändare</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Kod för verksamhetsställe<br align="left"/>Namn<br align="left"/></td></tr></table>>];
-	"BorderTransportMeans" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Aktivt transportmedel vid gränspassagen</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Identifieringsnummer<br align="left"/>Typ av identifiering<br align="left"/>Nationalitet<br align="left"/>Transportens referensnummer<br align="left"/>Transittullkontorets referensnummer<br align="left"/></td></tr></table>>];
-	"DepartureTransportMeans" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportmedel vid avgång</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Identifieringsnummer<br align="left"/>Typ av identifiering<br align="left"/>Nationalitet<br align="left"/></td></tr></table>>];
-	"Itinerary" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Landkoder i ruttordning för försändelsen</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Land<br align="left"/></td></tr></table>>];
-	"GoodsLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varornas förvaringsplats</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Typ av förvaringsplats<br align="left"/>Tullkontor<br align="left"/>Ekonomisk aktör<br align="left"/></td></tr></table>>];
-	"LoadingLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Lastningsplats</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Land<br align="left"/>Plats<br align="left"/></td></tr></table>>];
-	"UnloadingLocation" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Lossningsplats</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Land<br align="left"/>Plats<br align="left"/></td></tr></table>>];
-	"TransportEquipment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportutrustning</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Containernummer<br align="left"/>Antal förseglingar<br align="left"/></td></tr></table>>];
-	"Seal" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Förseglingar</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Identifieringskod<br align="left"/></td></tr></table>>];
-	"GoodsReference" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varureferens</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Varupostnummer i deklarationen<br align="left"/>Varupostnummer<br align="left"/></td></tr></table>>];
-	"Freight" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportkostnader</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Betalningssätt<br align="left"/></td></tr></table>>];
-	"HouseConsignment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Leveransparti på undernivå</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Kod för avsändningsland<br align="left"/>Bruttovikt<br align="left"/></td></tr></table>>];
-	"GoodsItem" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varupost</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Varupostnummer<br align="left"/>Varupostnummer i deklarationen<br align="left"/>Typ av deklaration<br align="left"/>Kod för destinationsland<br align="left"/>Kod för avsändningsland<br align="left"/>Varubeskrivning<br align="left"/>Varukod – HS-nummer<br align="left"/>Varukod – KN-nummer<br align="left"/>CUS-kod<br align="left"/>Bruttovikt<br align="left"/>Nettovikt<br align="left"/>Extra mängdenheter<br align="left"/></td></tr></table>>];
-	"DangerousGoods" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Farligt gods</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>FN-nummer<br align="left"/></td></tr></table>>];
-	"Packaging" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Förpackningar</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Märken<br align="left"/>Antal kollin<br align="left"/>Kollislag<br align="left"/></td></tr></table>>];
-	"PreviousDocument" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tidigare dokument</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Typ av tidigare dokument<br align="left"/>Referens för tidigare dokument<br align="left"/>Varupostidentifierare<br align="left"/>Referens för transportdokument<br align="left"/></td></tr></table>>];
-	"UCR" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Referensnummer/UCR</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Referensnummer/UCR<br align="left"/></td></tr></table>>];
-	"Incident" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Incident</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Kod<br align="left"/>Text<br align="left"/></td></tr></table>>];
-	"Endorsement" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Fastställande</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Datum<br align="left"/>Myndighet<br align="left"/>Plats<br align="left"/>Land<br align="left"/></td></tr></table>>];
-	"Location" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Plats</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">UN/LOCODE<br align="left"/>Land<br align="left"/>Latitud<br align="left"/>Longitud<br align="left"/></td></tr></table>>];
-	"Transhipment" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Omlastning</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Container<br align="left"/></td></tr></table>>];
-	"TransportMeans" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportmedel</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifieringsnummer<br align="left"/>Typ av identifiering<br align="left"/>Nationalitet<br align="left"/></td></tr></table>>];
-	"TransitOfficeDeclared" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transittullkontor</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Identifierare för tullkontor<br align="left"/>Ankomstdag och -tid (beräknad)<br align="left"/></td></tr></table>>];
-	"Guarantee" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Garanti</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Typ av garanti<br align="left"/>Annan referens för garanti<br align="left"/></td></tr></table>>];
-	"GuaranteeReference" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Referens för garanti</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Referensnummer för garanti (GRN)<br align="left"/>Tillträdeskod<br align="left"/>Belopp som ska täckas<br align="left"/>Belopp som ska täckas, valutaslag<br align="left"/></td></tr></table>>];
-	"UnloadingRemark" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Lossningsanmärkning</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Kontrollresultatkod<br align="left"/>Lossningsdatum<br align="left"/></td></tr></table>>];
-	"DepartureOffice" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Avgångstullkontor</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifierare för tullkontor<br align="left"/></td></tr></table>>];
-	"DestinationOfficeDeclared" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Destinationstullkontor</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifierare för tullkontor<br align="left"/></td></tr></table>>];
-	"DestinationOfficeActual" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Destinationstullkontor (faktiskt)</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifierare för tullkontor<br align="left"/></td></tr></table>>];
-	"ExitOfficeDeclared" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Utförseltullkontor för transitering</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Ordningsnummer<br align="left"/>Identifierare för tullkontor<br align="left"/></td></tr></table>>];
-	"Decision" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Beslut</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Beslutets datum och tid<br align="left"/></td></tr></table>>];
-	"Note" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Anmärkning</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Typ av anmärkning<br align="left"/>Anmärkningens text<br align="left"/></td></tr></table>>];
-	"Contact" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontaktuppgifter</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Namn<br align="left"/>E-postadress<br align="left"/>Telefonnummer<br align="left"/>Tullkontorets namn<br align="left"/></td></tr></table>>];
-	"Control" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontroll</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Kontrolltyp<br align="left"/>Kontrollplats<br align="left"/>Uppskattad tid för kontroll<br align="left"/>Sammanhörande varupost<br align="left"/>Tilläggsuppgifter om kontroll<br align="left"/></td></tr></table>>];
-	"Error" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Fel</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Felkod<br align="left"/>Felorsak<br align="left"/>Felets förklaring<br align="left"/>Felpekare<br align="left"/>Ursprungligt attributvärde<br align="left"/></td></tr></table>>];
-	"ControlResult" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontrollresultat</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Kod<br align="left"/>Datum<br align="left"/>Kontrollerat av<br align="left"/>Text<br align="left"/></td></tr></table>>];
-	"IncidentRegistrationOffice" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tullkontor som registrerat incidenten</b></font></td></tr><tr><td bgcolor="#fafafa" align="left">Identifierare för tullkontor<br align="left"/></td></tr></table>>];
-	"TransitOperation" -- "Amendment" [headlabel="0..1", taillabel="1" fontsize=10]
-	"TransitOperation" -- "Notification" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Notification" -- "ProvidedInfo" [headlabel="0..999", taillabel="1" fontsize=10]
-	"TransitOperation" -- "Agent" [headlabel="0..1", taillabel="1" fontsize=10]
-	"TransitOperation" -- "Applicant" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Applicant" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
-	"TransitOperation" -- "DestinationTrader" [headlabel="0..1", taillabel="1" fontsize=10]
-	"TransitOperation" -- "Principal" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Principal" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
-	"TransitOperation" -- "ServiceProvider" [headlabel="0..1", taillabel="1" fontsize=10]
-	"TransitOperation" -- "Submitter" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Submitter" -- "Communication" [headlabel="0..1", taillabel="1" fontsize=10]
-	"TransitOperation" -- "Authorisation" [headlabel="0..9", taillabel="1" fontsize=10]
-	"TransitOperation" -- "Consignment" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "SupportingDocument" [headlabel="0..99", taillabel="1" fontsize=10]
-	"Consignment" -- "AdditionalReference" [headlabel="0..99", taillabel="1" fontsize=10]
-	"Consignment" -- "AdditionalInformation" [headlabel="0..99", taillabel="1" fontsize=10]
-	"Consignment" -- "TransportContractDocument" [headlabel="0..99", taillabel="1" fontsize=10]
-	"Consignment" -- "AEOMutualRecognitionParty" [headlabel="0..99", taillabel="1" fontsize=10]
-	"Consignment" -- "Carrier" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "Consignee" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignee" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "Consignor" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignor" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "BorderTransportMeans" [headlabel="0..9", taillabel="1" fontsize=10]
-	"Consignment" -- "DepartureTransportMeans" [headlabel="0..999", taillabel="1" fontsize=10]
-	"Consignment" -- "Itinerary" [headlabel="0..99", taillabel="1" fontsize=10]
-	"Consignment" -- "GoodsLocation" [headlabel="0..1", taillabel="1" fontsize=10]
-	"GoodsLocation" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "LoadingLocation" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "UnloadingLocation" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "TransportEquipment" [headlabel="0..9999", taillabel="1" fontsize=10]
-	"TransportEquipment" -- "Seal" [headlabel="0..99", taillabel="1" fontsize=10]
-	"TransportEquipment" -- "GoodsReference" [headlabel="0..9999", taillabel="1" fontsize=10]
-	"Consignment" -- "Freight" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "HouseConsignment" [headlabel="0..999", taillabel="1" fontsize=10]
-	"HouseConsignment" -- "AdditionalReference" [headlabel="0..99", taillabel="1" fontsize=10]
-	"HouseConsignment" -- "TransportContractDocument" [headlabel="0..99", taillabel="1" fontsize=10]
-	"HouseConsignment" -- "AEOMutualRecognitionParty" [headlabel="0..99", taillabel="1" fontsize=10]
-	"HouseConsignment" -- "Consignee" [headlabel="0..1", taillabel="1" fontsize=10]
-	"HouseConsignment" -- "Consignor" [headlabel="0..1", taillabel="1" fontsize=10]
-	"HouseConsignment" -- "DepartureTransportMeans" [headlabel="0..999", taillabel="1" fontsize=10]
-	"HouseConsignment" -- "Freight" [headlabel="0..1", taillabel="1" fontsize=10]
-	"HouseConsignment" -- "GoodsItem" [headlabel="0..9999", taillabel="1" fontsize=10]
-	"GoodsItem" -- "AEOMutualRecognitionParty" [headlabel="0..99", taillabel="1" fontsize=10]
-	"GoodsItem" -- "Consignee" [headlabel="0..1", taillabel="1" fontsize=10]
-	"GoodsItem" -- "DangerousGoods" [headlabel="0..99", taillabel="1" fontsize=10]
-	"GoodsItem" -- "Packaging" [headlabel="0..99", taillabel="1" fontsize=10]
-	"SupportingDocument" -- "GoodsItem" [headlabel="1", taillabel="0..99" fontsize=10]
-	"AdditionalReference" -- "GoodsItem" [headlabel="1", taillabel="0..99" fontsize=10]
-	"AdditionalInformation" -- "GoodsItem" [headlabel="1", taillabel="0..99" fontsize=10]
-	"GoodsItem" -- "PreviousDocument" [headlabel="0..99", taillabel="1" fontsize=10]
-	"GoodsItem" -- "Freight" [headlabel="0..1", taillabel="1" fontsize=10]
-	"GoodsItem" -- "UCR" [headlabel="0..1", taillabel="1" fontsize=10]
-	"HouseConsignment" -- "UCR" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "Incident" [headlabel="0..9", taillabel="1" fontsize=10]
-	"Incident" -- "Endorsement" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Incident" -- "Location" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Location" -- "Address" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Incident" -- "TransportEquipment" [headlabel="0..9999", taillabel="1" fontsize=10]
-	"Incident" -- "Transhipment" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Transhipment" -- "TransportMeans" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Consignment" -- "TransitOfficeDeclared" [headlabel="0..9", taillabel="1" fontsize=10]
-	"Consignment" -- "UCR" [headlabel="0..1", taillabel="1" fontsize=10]
-	"TransitOperation" -- "Guarantee" [headlabel="0..9", taillabel="1" fontsize=10]
-	"Guarantee" -- "GuaranteeReference" [headlabel="0..99", taillabel="1" fontsize=10]
-	"TransitOperation" -- "UnloadingRemark" [headlabel="0..1", taillabel="1" fontsize=10]
-	"TransitOperation" -- "DepartureOffice" [headlabel="0..1", taillabel="1" fontsize=10]
-	"TransitOperation" -- "DestinationOfficeDeclared" [headlabel="0..1", taillabel="1" fontsize=10]
-	"TransitOperation" -- "DestinationOfficeActual" [headlabel="0..1", taillabel="1" fontsize=10]
-	"TransitOperation" -- "ExitOfficeDeclared" [headlabel="0..9", taillabel="1" fontsize=10]
-	"Notification" -- "Contact" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Notification" -- "Control" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Control" -- "Contact" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Notification" -- "Decision" [headlabel="0..1", taillabel="1" fontsize=10]
-	"Decision" -- "Note" [headlabel="0..999", taillabel="1" fontsize=10]
-	"Notification" -- "Error" [headlabel="0..999", taillabel="1" fontsize=10]
-	"TransitOperation" -- "ControlResult" [headlabel="0..1", taillabel="1" fontsize=10]
-	"TransitOperation" -- "IncidentRegistrationOffice" [headlabel="0..1", taillabel="1" fontsize=10]
+Graph ClassDiagram {
+bgcolor="#fafafa"
+ratio="0.4"
+node [shape=plain, fontname="Open Sans"]
+edge [fontname="Open Sans" width="2"]
+"FIg-001" -- "FIg-003" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-014" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-022" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-026" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-028" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-031" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-032" [headlabel="0..9" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-038" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-075" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-079" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-098" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-099" [headlabel="0..9" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-104" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-106" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-107" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-109" [headlabel="0..9" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-110" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-121" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-123" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" -- "FIg-124" [headlabel="0..9" taillabel="1" fontsize=10]
+"FIg-003" -- "FIg-029" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-003" -- "FIg-083" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-015" -- "FIg-011" [headlabel="0..999" taillabel="1" fontsize=10]
+"FIg-017" -- "FIg-023" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-019" -- "FIg-016" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-022" -- "FIg-029" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-026" -- "FIg-029" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-028" -- "FIg-009" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-028" -- "FIg-012" [headlabel="0..999" taillabel="1" fontsize=10]
+"FIg-028" -- "FIg-015" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-028" -- "FIg-017" [headlabel="0..9999" taillabel="1" fontsize=10]
+"FIg-028" -- "FIg-019" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-031" -- "FIg-043" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-031" -- "FIg-105" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-035" -- "FIg-083" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-038" -- "FIg-029" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-038" -- "FIg-083" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-044" -- "FIg-070" [headlabel="0..9999" taillabel="1" fontsize=10]
+"FIg-044" -- "FIg-112" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-045" -- "FIg-047" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-045" -- "FIg-051" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-045" -- "FIg-081" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-045" -- "FIg-087" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-054" -- "FIg-044" [headlabel="0..9999" taillabel="1" fontsize=10]
+"FIg-054" -- "FIg-058" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-054" -- "FIg-061" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-054" -- "FIg-064" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-055" -- "FIg-029" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-055" -- "FIg-083" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-061" -- "FIg-069" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-061" -- "FIg-083" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-064" -- "FIg-065" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-074" -- "FIg-083" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-035" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-044" [headlabel="0..9999" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-048" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-049" [headlabel="0..999" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-054" [headlabel="0..9" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-055" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-068" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-071" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-074" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-080" [headlabel="0..1999" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-085" [headlabel="0..9" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-092" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-095" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-096" [headlabel="0..9" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-102" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-111" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-118" [headlabel="0..9" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-122" [headlabel="0..999" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-126" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-127" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-129" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-134" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-075" -- "FIg-136" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-049" [headlabel="0..999" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-055" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-071" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-090" [headlabel="0..999" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-092" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-095" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-111" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-122" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-126" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-129" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-134" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-080" -- "FIg-135" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-045" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-052" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-071" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-089" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-092" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-102" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-111" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-126" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-134" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-135" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-090" -- "FIg-136" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-099" -- "FIg-120" [headlabel="0..99" taillabel="1" fontsize=10]
+"FIg-122" -- "FIg-042" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-127" -- "FIg-083" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-129" -- "FIg-029" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-129" -- "FIg-083" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-134" -- "FIg-029" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-136" -- "FIg-042" [headlabel="0..1" taillabel="1" fontsize=10]
+"FIg-001" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Deklaration</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Bindande färdväg</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Datum och tid för ankomstanmälan</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Följande förfarande</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Förseglingarnas skick</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Händelsens identifierare</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Indikator för reducerad datauppsättning</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Indikator för särskild omständighet</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">LRN</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">MRN</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Säkerhetsindikator</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Språkkod</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Tidsfrist</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">TIR-carnetnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Typ av deklaration</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Ytterligare typ av deklaration</td></tr></table>>]
+"FIg-003" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Person som är ansvarig för transiteringsförfarandet</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifieringsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Namn</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Natur</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">TIR-carnetinnehavarens identifieringsnummer</td></tr></table>>]
+"FIg-009" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontaktuppgifter</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">E-postadress</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Namn</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Telefonnummer</td></tr></table>>]
+"FIg-011" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Anmärkning</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Anmärkningens text</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Typ av anmärkning</td></tr></table>>]
+"FIg-012" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Inlämnad information</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Beskrivning</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Bilagans referens</td></tr></table>>]
+"FIg-014" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Korrigering</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Begärans korrelation</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Datum och tid för korrigeringen</td></tr></table>>]
+"FIg-015" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Beslut</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Beslutets datum och tid</td></tr></table>>]
+"FIg-016" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontaktuppgifter</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">E-postadress</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Telefonnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Tullkontorets namn</td></tr></table>>]
+"FIg-017" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Fel</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Felbeskrivning</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Felkod</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Felorsak</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Ursprungligt attributvärde</td></tr></table>>]
+"FIg-019" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontroll</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kontrollobjekt</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kontrollplats</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kontrolltyp</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Sammanhörande varupost</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Tilläggsuppgifter om kontroll</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Uppskattad tid för kontroll</td></tr></table>>]
+"FIg-022" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Aktör vid destinationen</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Identifieringsnummer</td></tr></table>>]
+"FIg-023" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Felpekare</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Felpekare</td></tr></table>>]
+"FIg-026" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ombud</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifieringsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kod för ombuds status</td></tr></table>>]
+"FIg-028" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Underrättelse</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Begärans korrelation</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Beskrivning av underrättelsen</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Datum och tid för underrättelsen</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Del av deklarationen</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ersättande MRN</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Meddelandets korrelation</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Nuvarande status</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Orsak till kontakt</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Orsak till korrigering</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Orsak till ogiltigförklaring</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Orsak till statusändring</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Sammanhörande varupost</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Svarskod</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Tidsfrist</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Tidsfrist</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Typ av underrättelse</td></tr></table>>]
+"FIg-029" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kod för verksamhetsställe</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kod för verksamhetsställe</td></tr></table>>]
+"FIg-031" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Person som inger deklarationen</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifieringsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Namn</td></tr></table>>]
+"FIg-032" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tillstånd</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Tillståndets identifierare</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Tillståndshavarens identifieringsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Typ av tillstånd</td></tr></table>>]
+"FIg-035" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Lastningsplats</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Platsens namn</td></tr></table>>]
+"FIg-038" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ändringssökande</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifieringsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Namn</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Natur</td></tr></table>>]
+"FIg-042" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Bilagans referens</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Bilagans referens</td></tr></table>>]
+"FIg-043" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Telefon</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kommunikationsmedel</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Telefonnummer</td></tr></table>>]
+"FIg-044" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportutrustning</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Antal förseglingar</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Containernummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr></table>>]
+"FIg-045" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Vara</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Varubeskrivning</td></tr></table>>]
+"FIg-047" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varukod - KN-nummer</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Klassificeringstyp</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Varukod - KN-nummer</td></tr></table>>]
+"FIg-048" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportföretag</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifieringsnummer</td></tr></table>>]
+"FIg-049" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportmedel vid avgång</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifieringsnummer av transportmedlet</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Nationalitet</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Typ av identifiering</td></tr></table>>]
+"FIg-051" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Farligt gods</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">FN-nummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Ordningsnummer</td></tr></table>>]
+"FIg-052" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Förpackningar</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Antal kollin</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kollislag</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Märken</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Ordningsnummer</td></tr></table>>]
+"FIg-054" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Incident</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kod</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Text</td></tr></table>>]
+"FIg-055" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Mottagare</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifieringsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Namn</td></tr></table>>]
+"FIg-058" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Påteckning</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Datum</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Land</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Myndighet</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Platsens namn</td></tr></table>>]
+"FIg-061" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Platsens namn</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Land</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">UN/LOCODE</td></tr></table>>]
+"FIg-064" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Omlastning</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Container</td></tr></table>>]
+"FIg-065" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportmedel</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifieringsnummer av transportmedlet</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Nationalitet</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Typ av identifiering</td></tr></table>>]
+"FIg-068" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Landkoder i ruttordning för försändelsen</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Land</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Ordningsnummer</td></tr></table>>]
+"FIg-069" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>GNSS</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Latitud</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Longitud</td></tr></table>>]
+"FIg-070" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varureferens</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Varupostnummer i deklarationen</td></tr></table>>]
+"FIg-071" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Avsändningsland</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Kod för avsändningsland</td></tr></table>>]
+"FIg-074" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Lossningsplats</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Platsens namn</td></tr></table>>]
+"FIg-075" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Leveransparti</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Bruttovikt</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Container</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Transportsätt inrikes</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Transportsätt vid gränsen</td></tr></table>>]
+"FIg-079" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tjänsteleverantör</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifieringsnummer</td></tr></table>>]
+"FIg-080" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Leveransparti på undernivå</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Bruttovikt</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Ordningsnummer</td></tr></table>>]
+"FIg-081" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varukod - HS-nummer</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Klassificeringstyp</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Varukod - HS-nummer</td></tr></table>>]
+"FIg-083" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Adress</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Gatuadress</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Land</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Postanstalt</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Postnummer</td></tr></table>>]
+"FIg-085" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Aktivt transportmedel vid gränspassagen</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifieringsnummer av transportmedlet</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Nationalitet</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Transittullkontorets referensnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Transportens referensnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Typ av identifiering</td></tr></table>>]
+"FIg-087" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>CUS-kod</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">CUS-kod</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Klassificeringstyp</td></tr></table>>]
+"FIg-089" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varumängder</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Bruttovikt</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Extra mängdenheter</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Nettovikt</td></tr></table>>]
+"FIg-090" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varupost</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Typ av deklaration</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Varupostnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Varupostnummer i deklarationen</td></tr></table>>]
+"FIg-092" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Destinationsland</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Kod för destinationsland</td></tr></table>>]
+"FIg-095" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportkostnader</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Betalningssätt</td></tr></table>>]
+"FIg-096" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transittullkontor (deklarerat)</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ankomstdag och -tid (beräknad)</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifierare för tullkontor</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr></table>>]
+"FIg-098" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Kontrollresultat</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Datum</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kod</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kontrollerat av</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Text</td></tr></table>>]
+"FIg-099" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Garanti</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Annan referens för garanti</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Garantityp</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Ordningsnummer</td></tr></table>>]
+"FIg-102" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare uppgifter</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Beskrivning av ytterligare uppgifter</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kod för ytterligare uppgifter</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr></table>>]
+"FIg-104" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Avgångstullkontor</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Identifierare för tullkontor</td></tr></table>>]
+"FIg-105" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>E-post</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">E-postadress</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Kommunikationsmedel</td></tr></table>>]
+"FIg-106" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Destinationstullkontor (deklarerat)</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Identifierare för tullkontor</td></tr></table>>]
+"FIg-107" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Destinationstullkontor (faktiskt)</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Identifierare för tullkontor</td></tr></table>>]
+"FIg-109" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Utförseltullkontor för transitering (deklarerat)</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifierare för tullkontor</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr></table>>]
+"FIg-110" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tullkontor som registrerat incidenten</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifierare för tullkontor</td></tr></table>>]
+"FIg-111" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare referens</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Referensnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Typ</td></tr></table>>]
+"FIg-112" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Förseglingar</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifiering</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Ordningsnummer</td></tr></table>>]
+"FIg-118" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transittullkontor</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ankomstdag och -tid (beräknad)</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifierare för tullkontor</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr></table>>]
+"FIg-120" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Referens för garanti</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Belopp som ska täckas</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Referensnummer för garanti (GRN)</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Tillträdeskod</td></tr></table>>]
+"FIg-121" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Lossningsanmärkning</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kontrollresultatkod</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Lossningsdatum</td></tr></table>>]
+"FIg-122" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Transportdokument</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Dokumentets identifierare</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Typ av dokument</td></tr></table>>]
+"FIg-123" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Destinationstullkontor</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Identifierare för tullkontor</td></tr></table>>]
+"FIg-124" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Utförseltullkontor för transitering</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifierare för tullkontor</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr></table>>]
+"FIg-126" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Referensnummer/UCR</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Referensnummer/UCR</td></tr></table>>]
+"FIg-127" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Varornas förvaringsplats</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ekonomisk aktör</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Tullkontor</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Typ av förvaringsplats</td></tr></table>>]
+"FIg-129" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Avsändare</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifieringsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Namn</td></tr></table>>]
+"FIg-134" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Ytterligare aktör i leveranskedjan</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Identifieringsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Rollkod</td></tr></table>>]
+"FIg-135" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Tidigare dokument</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kompletterande information</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Referens för tidigare dokument</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Referens för transportdokument</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Typ av dokument</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Typ av dokument</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Varupostidentifierare</td></tr></table>>]
+"FIg-136" [label=<<table border="0" cellspacing="0" cellborder="1" color="#E3E5E9"><tr><td bgcolor="#00205B"><font color="white"><b>Bifogat dokument</b></font></td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Dokumentets identifierare</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Kompletterande information</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Ordningsnummer</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LR">Typ av dokument</td></tr><tr><td bgcolor="#e5e8ee" align="left" sides="LRB">Varupostnummer i dokumentraden</td></tr></table>>]
 }
