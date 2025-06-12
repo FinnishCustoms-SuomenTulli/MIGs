@@ -1801,6 +1801,42 @@ ELSE &lt;i&gt;Previous document&lt;/i&gt; = 'R'</Description>
   ELSE &lt;i&gt;Goods item identifier&lt;/i&gt; = 'O'</Description>
   </Constraint>
   <Constraint>
+    <Code>NC5069</Code>
+    <Description lang="fi">IF &lt;i&gt;Ei ilmoitettavia tararoita&lt;/i&gt; is EQUAL to '1'&#13;
+  THEN &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt; = 'N'&#13;
+ELSE &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">IF &lt;i&gt;Ej varor att deklarera&lt;/i&gt; is EQUAL to '1'&#13;
+  THEN &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt; = 'N'&#13;
+ELSE &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;No goods to declare&lt;/i&gt; is EQUAL to '1'&#13;
+  THEN &lt;i&gt;Active border transport means&lt;/i&gt; = 'N'&#13;
+ELSE &lt;i&gt;Active border transport means&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC5070</Code>
+    <Description lang="fi">IF &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Viitenumero/UCR&lt;/i&gt; is PRESENT&#13;
+  THEN &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kuljetusasiakirja&lt;/i&gt; = 'O'&#13;
+ELSE &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kuljetusasiakirja&lt;/i&gt; = 'R'&#13;
+&#13;
+IF &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kuljetusasiakirja&lt;/i&gt; is PRESENT&#13;
+  THEN &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Viitenumero/UCR&lt;/i&gt; = 'O'&#13;
+ELSE &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Viitenumero/UCR&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">IF &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Referensnummer/UCR&lt;/i&gt; is PRESENT&#13;
+  THEN &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Transportdokument&lt;/i&gt; = 'O'&#13;
+ELSE &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Transportdokument&lt;/i&gt; = 'R'&#13;
+&#13;
+IF &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Transportdokument&lt;/i&gt; is PRESENT&#13;
+  THEN &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Referensnummer/UCR&lt;/i&gt; = 'O'&#13;
+ELSE &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Referensnummer/UCR&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Reference number/UCR&lt;/i&gt; is PRESENT&#13;
+  THEN &lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Transport document&lt;/i&gt; = 'O'&#13;
+ELSE &lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Transport document&lt;/i&gt; = 'R'&#13;
+&#13;
+IF &lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Transport document&lt;/i&gt; is PRESENT&#13;
+  THEN &lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Reference number/UCR&lt;/i&gt; = 'O'&#13;
+ELSE &lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Reference number/UCR&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
     <Code>NC5075</Code>
     <Description lang="fi">JOS &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Lisätieto&lt;/i&gt;/&lt;i&gt;Lisätietokoodi&lt;/i&gt; on YHTÄ KUIN ‘FIPML’ &#13;
   NIIN &lt;i&gt;Tavaraerän tunniste&lt;/i&gt; = 'N'&#13;
@@ -3055,6 +3091,21 @@ Note: The &lt;i&gt;Goods item number&lt;/i&gt; / &lt;i&gt;Sequence number&lt;/i&
   THEN this must be an MRN</Description>
   </Constraint>
   <Constraint>
+    <Code>NR5150</Code>
+    <Description lang="fi">IF &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt; is EQUAL to '10'&#13;
+  THEN it must be a 7 digit number (IMO number)</Description>
+    <Description lang="sv">IF &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt; is EQUAL to '10'&#13;
+  THEN it must be a 7 digit number (IMO number)</Description>
+    <Description lang="en">IF &lt;i&gt;Active border transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt; is EQUAL to '10'&#13;
+  THEN it must be a 7 digit number (IMO number)</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR5152</Code>
+    <Description lang="fi">The &lt;i&gt;Luonne&lt;/i&gt; cannot be in SET [H, C, P]</Description>
+    <Description lang="sv">The &lt;i&gt;Natur&lt;/i&gt; cannot be in SET [H, C, P]</Description>
+    <Description lang="en">The &lt;i&gt;Nature&lt;/i&gt; cannot be in SET [H, C, P]</Description>
+  </Constraint>
+  <Constraint>
     <Code>NR5153</Code>
     <Description lang="fi">JOS &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; on JOUKOSSA {N337, N355}&#13;
   NIIN tämän on oltava voimassa oleva UTU saapumisen asiakirja</Description>
@@ -3062,6 +3113,36 @@ Note: The &lt;i&gt;Goods item number&lt;/i&gt; / &lt;i&gt;Sequence number&lt;/i&
   DÅ måste detta vara ett giltigt dokument i UTU ankomst</Description>
     <Description lang="en">IF &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; is in SET {N337, N355}&#13;
   THEN this must be a valid UTU Entry document</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR5154</Code>
+    <Description lang="fi">Format should be yyyy/mm. Cannot be in the future.</Description>
+    <Description lang="sv">Format should be yyyy/mm. Cannot be in the future.</Description>
+    <Description lang="en">Format should be yyyy/mm. Cannot be in the future.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR5155</Code>
+    <Description lang="fi">Must be EQUAL to '9EIA'</Description>
+    <Description lang="sv">Must be EQUAL to '9EIA'</Description>
+    <Description lang="en">Must be EQUAL to '9EIA'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR5156</Code>
+    <Description lang="fi">&lt;i&gt;Luvanhaltijan tunnistenumero&lt;/i&gt; must be EQUAL to &lt;i&gt;Ilmoittaja&lt;/i&gt;/&lt;i&gt;Tunnistenumero&lt;/i&gt;</Description>
+    <Description lang="sv">&lt;i&gt;Tillståndshavarens identifieringsnummer&lt;/i&gt; must be EQUAL to &lt;i&gt;Deklarant&lt;/i&gt;/&lt;i&gt;Identifieringsnummer&lt;/i&gt;</Description>
+    <Description lang="en">&lt;i&gt;Holder of the authorisation identification no.&lt;/i&gt; must be EQUAL to &lt;i&gt;Declarant&lt;/i&gt;/&lt;i&gt;Identification number&lt;/i&gt;</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR5157</Code>
+    <Description lang="fi">The date cannot be in the future</Description>
+    <Description lang="sv">The date cannot be in the future</Description>
+    <Description lang="en">The date cannot be in the future</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR5158</Code>
+    <Description lang="fi">There should not be an existing FI586 declaration with state Registered or Ended that has the same combination of &lt;i&gt;Jakso&lt;/i&gt; + &lt;i&gt;Ilmoittaja&lt;/i&gt;/&lt;i&gt;Tunnistenumero&lt;/i&gt; + &lt;i&gt;Ilmoittaja&lt;/i&gt;/&lt;i&gt;Toimipaikkakoodi&lt;/i&gt;</Description>
+    <Description lang="sv">There should not be an existing FI586 declaration with state Registered or Ended that has the same combination of &lt;i&gt;Period&lt;/i&gt; + &lt;i&gt;Deklarant&lt;/i&gt;/&lt;i&gt;Identifieringsnummer&lt;/i&gt; + &lt;i&gt;Deklarant&lt;/i&gt;/&lt;i&gt;Kod för verksamhetsställe&lt;/i&gt;</Description>
+    <Description lang="en">There should not be an existing FI586 declaration with state Registered or Ended that has the same combination of &lt;i&gt;Period&lt;/i&gt; + &lt;i&gt;Declarant&lt;/i&gt;/&lt;i&gt;Identification number&lt;/i&gt; + &lt;i&gt;Declarant&lt;/i&gt;/&lt;i&gt;Office code&lt;/i&gt;</Description>
   </Constraint>
   <Constraint>
     <Code>NR5501</Code>

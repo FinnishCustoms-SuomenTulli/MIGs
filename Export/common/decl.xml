@@ -15,6 +15,7 @@
     <Use>FI570A</Use>
     <Use>FI583A</Use>
     <Use>FI585A</Use>
+    <Use>FI586A</Use>
     <Use>FI590A</Use>
     <Use>FI593A</Use>
     <Use>FI595A</Use>
@@ -30,6 +31,7 @@
     <MinOccurrence use="FI570A">1</MinOccurrence>
     <MinOccurrence use="FI583A">1</MinOccurrence>
     <MinOccurrence use="FI585A">1</MinOccurrence>
+    <MinOccurrence use="FI586A">1</MinOccurrence>
     <MinOccurrence use="FI590A">1</MinOccurrence>
     <MinOccurrence use="FI593A">1</MinOccurrence>
     <MinOccurrence use="FI595A">1</MinOccurrence>
@@ -45,6 +47,7 @@
     <MaxOccurrence use="FI570A">1</MaxOccurrence>
     <MaxOccurrence use="FI583A">1</MaxOccurrence>
     <MaxOccurrence use="FI585A">1</MaxOccurrence>
+    <MaxOccurrence use="FI586A">1</MaxOccurrence>
     <MaxOccurrence use="FI590A">1</MaxOccurrence>
     <MaxOccurrence use="FI593A">1</MaxOccurrence>
     <MaxOccurrence use="FI595A">1</MaxOccurrence>
@@ -52,6 +55,7 @@
     <MaxOccurrence use="FI615A">1</MaxOccurrence>
     <Rule use="FI513A">NR0051</Rule>
     <Rule use="FI583A">NR0051</Rule>
+    <Rule use="FI586A">NR5158</Rule>
     <Rule use="FI593A">NR0051</Rule>
     <DataElement>
       <Name lang="fi">Tapahtuman tunniste</Name>
@@ -69,6 +73,7 @@
       <Use>FI570A</Use>
       <Use>FI583A</Use>
       <Use>FI585A</Use>
+      <Use>FI586A</Use>
       <Use>FI590A</Use>
       <Use>FI593A</Use>
       <Use>FI595A</Use>
@@ -84,6 +89,7 @@
       <MinOccurrence use="FI570A">1</MinOccurrence>
       <MinOccurrence use="FI583A">1</MinOccurrence>
       <MinOccurrence use="FI585A">1</MinOccurrence>
+      <MinOccurrence use="FI586A">1</MinOccurrence>
       <MinOccurrence use="FI590A">1</MinOccurrence>
       <MinOccurrence use="FI593A">1</MinOccurrence>
       <MinOccurrence use="FI595A">1</MinOccurrence>
@@ -239,6 +245,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Use>FI570A</Use>
       <Use>FI583A</Use>
       <Use>FI585A</Use>
+      <Use>FI586A</Use>
       <Use>FI590A</Use>
       <Use>FI593A</Use>
       <Use>FI595A</Use>
@@ -253,6 +260,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MinOccurrence use="FI570A">1</MinOccurrence>
       <MinOccurrence use="FI583A">1</MinOccurrence>
       <MinOccurrence use="FI585A">1</MinOccurrence>
+      <MinOccurrence use="FI586A">1</MinOccurrence>
       <MinOccurrence use="FI590A">1</MinOccurrence>
       <MinOccurrence use="FI593A">1</MinOccurrence>
       <MinOccurrence use="FI595A">1</MinOccurrence>
@@ -695,6 +703,16 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Description lang="en" use="FI585A">Provide the date and time when the goods are available for inspection. The date of presentation provided in advance is also the export date regarding the declarations D and F. Can be provided no more than 30 days in advance.</Description>
     </DataElement>
     <DataElement>
+      <Name lang="fi">Jakso</Name>
+      <Name lang="sv">Period</Name>
+      <Name lang="en">Period</Name>
+      <XPath>/​Effective</XPath>
+      <Format>date</Format>
+      <Use>FI586A</Use>
+      <MinOccurrence use="FI586A">1</MinOccurrence>
+      <Rule use="FI586A">NR5154</Rule>
+    </DataElement>
+    <DataElement>
       <Name lang="fi">Eroavaisuuksia havaittu</Name>
       <Name lang="sv">Skillnader finns</Name>
       <Name lang="en">Discrepansies exist</Name>
@@ -756,6 +774,16 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Rule use="FI515A">NR5042</Rule>
     </DataElement>
     <DataElement>
+      <Name lang="fi">Ei ilmoitettavia tararoita</Name>
+      <Name lang="sv">Ej varor att deklarera</Name>
+      <Name lang="en">No goods to declare</Name>
+      <XPath>/​ZeroDeclaration</XPath>
+      <Format>n1</Format>
+      <Use>FI586A</Use>
+      <MinOccurrence use="FI586A">1</MinOccurrence>
+      <Codelist use="FI586A">CL027</Codelist>
+    </DataElement>
+    <DataElement>
       <Name lang="fi">Kielikoodi</Name>
       <Name lang="sv">Språkkod</Name>
       <Name lang="en">Language code</Name>
@@ -771,6 +799,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Use>FI570A</Use>
       <Use>FI583A</Use>
       <Use>FI585A</Use>
+      <Use>FI586A</Use>
       <Use>FI590A</Use>
       <Use>FI593A</Use>
       <Use>FI595A</Use>
@@ -786,6 +815,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MinOccurrence use="FI570A">1</MinOccurrence>
       <MinOccurrence use="FI583A">1</MinOccurrence>
       <MinOccurrence use="FI585A">1</MinOccurrence>
+      <MinOccurrence use="FI586A">1</MinOccurrence>
       <MinOccurrence use="FI590A">1</MinOccurrence>
       <MinOccurrence use="FI593A">1</MinOccurrence>
       <MinOccurrence use="FI595A">1</MinOccurrence>
@@ -1379,6 +1409,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Use>FI570A</Use>
       <Use>FI583A</Use>
       <Use>FI585A</Use>
+      <Use>FI586A</Use>
       <Use>FI590A</Use>
       <Use>FI593A</Use>
       <Use>FI595A</Use>
@@ -1392,6 +1423,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MinOccurrence use="FI570A">0</MinOccurrence>
       <MinOccurrence use="FI583A">0</MinOccurrence>
       <MinOccurrence use="FI585A">0</MinOccurrence>
+      <MinOccurrence use="FI586A">0</MinOccurrence>
       <MinOccurrence use="FI590A">0</MinOccurrence>
       <MinOccurrence use="FI593A">0</MinOccurrence>
       <MinOccurrence use="FI595A">0</MinOccurrence>
@@ -1405,6 +1437,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MaxOccurrence use="FI570A">1</MaxOccurrence>
       <MaxOccurrence use="FI583A">1</MaxOccurrence>
       <MaxOccurrence use="FI585A">1</MaxOccurrence>
+      <MaxOccurrence use="FI586A">1</MaxOccurrence>
       <MaxOccurrence use="FI590A">1</MaxOccurrence>
       <MaxOccurrence use="FI593A">1</MaxOccurrence>
       <MaxOccurrence use="FI595A">1</MaxOccurrence>
@@ -1469,6 +1502,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI570A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
         <Use>FI613A</Use>
@@ -1480,6 +1514,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI570A">1</MinOccurrence>
         <MinOccurrence use="FI583A">1</MinOccurrence>
         <MinOccurrence use="FI585A">1</MinOccurrence>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
         <MinOccurrence use="FI593A">1</MinOccurrence>
         <MinOccurrence use="FI595A">1</MinOccurrence>
         <MinOccurrence use="FI613A">1</MinOccurrence>
@@ -1491,6 +1526,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Codelist use="FI570A">CL094</Codelist>
         <Codelist use="FI583A">CL094</Codelist>
         <Codelist use="FI585A">CL094</Codelist>
+        <Codelist use="FI586A">CL094</Codelist>
         <Codelist use="FI593A">CL094</Codelist>
         <Codelist use="FI595A">CL094</Codelist>
         <Codelist use="FI613A">CL094</Codelist>
@@ -1506,6 +1542,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Rule use="FI583A">NR5038</Rule>
         <Rule use="FI583A">R0471</Rule>
         <Rule use="FI585A">R0471</Rule>
+        <Rule use="FI586A">R0471</Rule>
         <Rule use="FI593A">NR5037</Rule>
         <Rule use="FI593A">NR5038</Rule>
         <Rule use="FI593A">R0471</Rule>
@@ -1557,6 +1594,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI570A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI590A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
@@ -1570,6 +1608,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI570A">1</MinOccurrence>
         <MinOccurrence use="FI583A">1</MinOccurrence>
         <MinOccurrence use="FI585A">1</MinOccurrence>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
         <MinOccurrence use="FI590A">1</MinOccurrence>
         <MinOccurrence use="FI593A">1</MinOccurrence>
         <MinOccurrence use="FI595A">1</MinOccurrence>
@@ -1614,6 +1653,8 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Rule use="FI585A">NR5026</Rule>
         <Rule use="FI585A">NR5034</Rule>
         <Rule use="FI585A">R0940</Rule>
+        <Rule use="FI586A">R0893</Rule>
+        <Rule use="FI586A">R0995</Rule>
         <Rule use="FI590A">NR0034</Rule>
         <Rule use="FI590A">NR0035</Rule>
         <Rule use="FI593A">NR5037</Rule>
@@ -1680,6 +1721,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI570A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI590A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
@@ -1693,6 +1735,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI570A">0</MinOccurrence>
         <MinOccurrence use="FI583A">0</MinOccurrence>
         <MinOccurrence use="FI585A">0</MinOccurrence>
+        <MinOccurrence use="FI586A">0</MinOccurrence>
         <MinOccurrence use="FI590A">0</MinOccurrence>
         <MinOccurrence use="FI593A">0</MinOccurrence>
         <MinOccurrence use="FI595A">0</MinOccurrence>
@@ -1706,6 +1749,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MaxOccurrence use="FI570A">1</MaxOccurrence>
         <MaxOccurrence use="FI583A">1</MaxOccurrence>
         <MaxOccurrence use="FI585A">1</MaxOccurrence>
+        <MaxOccurrence use="FI586A">1</MaxOccurrence>
         <MaxOccurrence use="FI590A">1</MaxOccurrence>
         <MaxOccurrence use="FI593A">1</MaxOccurrence>
         <MaxOccurrence use="FI595A">1</MaxOccurrence>
@@ -1735,6 +1779,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI570A</Use>
           <Use>FI583A</Use>
           <Use>FI585A</Use>
+          <Use>FI586A</Use>
           <Use>FI590A</Use>
           <Use>FI593A</Use>
           <Use>FI595A</Use>
@@ -1748,6 +1793,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI570A">1</MinOccurrence>
           <MinOccurrence use="FI583A">1</MinOccurrence>
           <MinOccurrence use="FI585A">1</MinOccurrence>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
           <MinOccurrence use="FI590A">1</MinOccurrence>
           <MinOccurrence use="FI593A">1</MinOccurrence>
           <MinOccurrence use="FI595A">1</MinOccurrence>
@@ -1810,6 +1856,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI570A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI590A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
@@ -1823,6 +1870,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI570A">1</MinOccurrence>
         <MinOccurrence use="FI583A">1</MinOccurrence>
         <MinOccurrence use="FI585A">1</MinOccurrence>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
         <MinOccurrence use="FI590A">1</MinOccurrence>
         <MinOccurrence use="FI593A">1</MinOccurrence>
         <MinOccurrence use="FI595A">1</MinOccurrence>
@@ -1836,6 +1884,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Codelist use="FI570A">NCL121</Codelist>
         <Codelist use="FI583A">NCL121</Codelist>
         <Codelist use="FI585A">NCL121</Codelist>
+        <Codelist use="FI586A">NCL121</Codelist>
         <Codelist use="FI590A">NCL121</Codelist>
         <Codelist use="FI593A">NCL121</Codelist>
         <Codelist use="FI595A">NCL121</Codelist>
@@ -1846,6 +1895,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Rule use="FI515A">NR5042</Rule>
         <Rule use="FI583A">NR5037</Rule>
         <Rule use="FI583A">NR5038</Rule>
+        <Rule use="FI586A">NR5152</Rule>
         <Rule use="FI593A">NR5037</Rule>
         <Rule use="FI593A">NR5038</Rule>
         <Rule use="FI613A">NR5094</Rule>
@@ -2183,6 +2233,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Use>FI570A</Use>
       <Use>FI583A</Use>
       <Use>FI585A</Use>
+      <Use>FI586A</Use>
       <Use>FI593A</Use>
       <Use>FI595A</Use>
       <Use>FI613A</Use>
@@ -2193,6 +2244,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MinOccurrence use="FI570A">1</MinOccurrence>
       <MinOccurrence use="FI583A">1</MinOccurrence>
       <MinOccurrence use="FI585A">1</MinOccurrence>
+      <MinOccurrence use="FI586A">1</MinOccurrence>
       <MinOccurrence use="FI593A">1</MinOccurrence>
       <MinOccurrence use="FI595A">1</MinOccurrence>
       <MinOccurrence use="FI613A">1</MinOccurrence>
@@ -2203,6 +2255,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MaxOccurrence use="FI570A">1</MaxOccurrence>
       <MaxOccurrence use="FI583A">1</MaxOccurrence>
       <MaxOccurrence use="FI585A">1</MaxOccurrence>
+      <MaxOccurrence use="FI586A">1</MaxOccurrence>
       <MaxOccurrence use="FI593A">1</MaxOccurrence>
       <MaxOccurrence use="FI595A">1</MaxOccurrence>
       <MaxOccurrence use="FI613A">1</MaxOccurrence>
@@ -2249,6 +2302,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI570A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
         <Use>FI613A</Use>
@@ -2259,6 +2313,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI570A">1</MinOccurrence>
         <MinOccurrence use="FI583A">1</MinOccurrence>
         <MinOccurrence use="FI585A">1</MinOccurrence>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
         <MinOccurrence use="FI593A">1</MinOccurrence>
         <MinOccurrence use="FI595A">1</MinOccurrence>
         <MinOccurrence use="FI613A">1</MinOccurrence>
@@ -2294,6 +2349,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Rule use="FI585A">NR5029</Rule>
         <Rule use="FI585A">NR5035</Rule>
         <Rule use="FI585A">R0940</Rule>
+        <Rule use="FI586A">R0995</Rule>
         <Rule use="FI593A">NR5038</Rule>
         <Rule use="FI613A">NR5094</Rule>
         <Rule use="FI613A">R0995</Rule>
@@ -2340,6 +2396,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI570A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
         <Use>FI613A</Use>
@@ -2350,6 +2407,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI570A">0</MinOccurrence>
         <MinOccurrence use="FI583A">0</MinOccurrence>
         <MinOccurrence use="FI585A">0</MinOccurrence>
+        <MinOccurrence use="FI586A">0</MinOccurrence>
         <MinOccurrence use="FI593A">0</MinOccurrence>
         <MinOccurrence use="FI595A">0</MinOccurrence>
         <MinOccurrence use="FI613A">1</MinOccurrence>
@@ -2360,6 +2418,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MaxOccurrence use="FI570A">1</MaxOccurrence>
         <MaxOccurrence use="FI583A">1</MaxOccurrence>
         <MaxOccurrence use="FI585A">1</MaxOccurrence>
+        <MaxOccurrence use="FI586A">1</MaxOccurrence>
         <MaxOccurrence use="FI593A">1</MaxOccurrence>
         <MaxOccurrence use="FI595A">1</MaxOccurrence>
         <MaxOccurrence use="FI613A">1</MaxOccurrence>
@@ -2384,6 +2443,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI570A</Use>
           <Use>FI583A</Use>
           <Use>FI585A</Use>
+          <Use>FI586A</Use>
           <Use>FI593A</Use>
           <Use>FI595A</Use>
           <Use>FI613A</Use>
@@ -2394,6 +2454,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI570A">1</MinOccurrence>
           <MinOccurrence use="FI583A">1</MinOccurrence>
           <MinOccurrence use="FI585A">1</MinOccurrence>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
           <MinOccurrence use="FI593A">1</MinOccurrence>
           <MinOccurrence use="FI595A">1</MinOccurrence>
           <MinOccurrence use="FI613A">1</MinOccurrence>
@@ -2443,6 +2504,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI546A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
         <MinOccurrence use="FI513A">0</MinOccurrence>
@@ -2450,6 +2512,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI546A">0</MinOccurrence>
         <MinOccurrence use="FI583A">0</MinOccurrence>
         <MinOccurrence use="FI585A">0</MinOccurrence>
+        <MinOccurrence use="FI586A">0</MinOccurrence>
         <MinOccurrence use="FI593A">0</MinOccurrence>
         <MinOccurrence use="FI595A">0</MinOccurrence>
         <Rule use="FI513A">E1104</Rule>
@@ -2475,6 +2538,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI570A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
         <Use>FI613A</Use>
@@ -2485,6 +2549,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI570A">1</MinOccurrence>
         <MinOccurrence use="FI583A">1</MinOccurrence>
         <MinOccurrence use="FI585A">1</MinOccurrence>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
         <MinOccurrence use="FI593A">1</MinOccurrence>
         <MinOccurrence use="FI595A">1</MinOccurrence>
         <MinOccurrence use="FI613A">1</MinOccurrence>
@@ -2494,11 +2559,13 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Codelist use="FI546A">NCL121</Codelist>
         <Codelist use="FI583A">NCL121</Codelist>
         <Codelist use="FI585A">NCL121</Codelist>
+        <Codelist use="FI586A">NCL121</Codelist>
         <Codelist use="FI593A">NCL121</Codelist>
         <Codelist use="FI595A">NCL121</Codelist>
         <Codelist use="FI613A">NCL121</Codelist>
         <Codelist use="FI615A">NCL121</Codelist>
         <Rule use="FI515A">NR5042</Rule>
+        <Rule use="FI586A">NR5152</Rule>
         <Rule use="FI613A">NR5094</Rule>
       </DataElement>
       <DataGroup>
@@ -2511,6 +2578,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI546A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
         <MinOccurrence use="FI513A">0</MinOccurrence>
@@ -2518,6 +2586,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI546A">0</MinOccurrence>
         <MinOccurrence use="FI583A">0</MinOccurrence>
         <MinOccurrence use="FI585A">0</MinOccurrence>
+        <MinOccurrence use="FI586A">0</MinOccurrence>
         <MinOccurrence use="FI593A">0</MinOccurrence>
         <MinOccurrence use="FI595A">0</MinOccurrence>
         <MaxOccurrence use="FI513A">1</MaxOccurrence>
@@ -2525,6 +2594,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MaxOccurrence use="FI546A">1</MaxOccurrence>
         <MaxOccurrence use="FI583A">1</MaxOccurrence>
         <MaxOccurrence use="FI585A">1</MaxOccurrence>
+        <MaxOccurrence use="FI586A">1</MaxOccurrence>
         <MaxOccurrence use="FI593A">1</MaxOccurrence>
         <MaxOccurrence use="FI595A">1</MaxOccurrence>
         <Condition use="FI513A">NC5046</Condition>
@@ -2545,6 +2615,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI546A</Use>
           <Use>FI583A</Use>
           <Use>FI585A</Use>
+          <Use>FI586A</Use>
           <Use>FI593A</Use>
           <Use>FI595A</Use>
           <MinOccurrence use="FI513A">1</MinOccurrence>
@@ -2552,6 +2623,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI546A">1</MinOccurrence>
           <MinOccurrence use="FI583A">1</MinOccurrence>
           <MinOccurrence use="FI585A">1</MinOccurrence>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
           <MinOccurrence use="FI593A">1</MinOccurrence>
           <MinOccurrence use="FI595A">1</MinOccurrence>
           <Rule use="FI513A">E1104</Rule>
@@ -2569,6 +2641,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI546A</Use>
           <Use>FI583A</Use>
           <Use>FI585A</Use>
+          <Use>FI586A</Use>
           <Use>FI593A</Use>
           <Use>FI595A</Use>
           <MinOccurrence use="FI513A">1</MinOccurrence>
@@ -2576,6 +2649,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI546A">1</MinOccurrence>
           <MinOccurrence use="FI583A">1</MinOccurrence>
           <MinOccurrence use="FI585A">1</MinOccurrence>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
           <MinOccurrence use="FI593A">1</MinOccurrence>
           <MinOccurrence use="FI595A">1</MinOccurrence>
           <Rule use="FI515A">NR5042</Rule>
@@ -2591,6 +2665,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI546A</Use>
           <Use>FI583A</Use>
           <Use>FI585A</Use>
+          <Use>FI586A</Use>
           <Use>FI593A</Use>
           <Use>FI595A</Use>
           <MinOccurrence use="FI513A">0</MinOccurrence>
@@ -2598,6 +2673,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI546A">0</MinOccurrence>
           <MinOccurrence use="FI583A">0</MinOccurrence>
           <MinOccurrence use="FI585A">0</MinOccurrence>
+          <MinOccurrence use="FI586A">0</MinOccurrence>
           <MinOccurrence use="FI593A">0</MinOccurrence>
           <MinOccurrence use="FI595A">0</MinOccurrence>
           <Rule use="FI513A">E1102</Rule>
@@ -2622,6 +2698,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI546A</Use>
           <Use>FI583A</Use>
           <Use>FI585A</Use>
+          <Use>FI586A</Use>
           <Use>FI593A</Use>
           <Use>FI595A</Use>
           <MinOccurrence use="FI513A">1</MinOccurrence>
@@ -2629,6 +2706,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI546A">1</MinOccurrence>
           <MinOccurrence use="FI583A">1</MinOccurrence>
           <MinOccurrence use="FI585A">1</MinOccurrence>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
           <MinOccurrence use="FI593A">1</MinOccurrence>
           <MinOccurrence use="FI595A">1</MinOccurrence>
           <Codelist use="FI513A">CL248</Codelist>
@@ -2636,6 +2714,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Codelist use="FI546A">CL248</Codelist>
           <Codelist use="FI583A">CL248</Codelist>
           <Codelist use="FI585A">CL248</Codelist>
+          <Codelist use="FI586A">CL008</Codelist>
           <Codelist use="FI593A">CL248</Codelist>
           <Codelist use="FI595A">CL248</Codelist>
           <Rule use="FI513A">NR5132</Rule>
@@ -3039,6 +3118,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Use>FI570A</Use>
       <Use>FI583A</Use>
       <Use>FI585A</Use>
+      <Use>FI586A</Use>
       <Use>FI590A</Use>
       <Use>FI593A</Use>
       <Use>FI595A</Use>
@@ -3054,6 +3134,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MinOccurrence use="FI570A">0</MinOccurrence>
       <MinOccurrence use="FI583A">0</MinOccurrence>
       <MinOccurrence use="FI585A">0</MinOccurrence>
+      <MinOccurrence use="FI586A">0</MinOccurrence>
       <MinOccurrence use="FI590A">0</MinOccurrence>
       <MinOccurrence use="FI593A">0</MinOccurrence>
       <MinOccurrence use="FI595A">0</MinOccurrence>
@@ -3069,6 +3150,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MaxOccurrence use="FI570A">1</MaxOccurrence>
       <MaxOccurrence use="FI583A">1</MaxOccurrence>
       <MaxOccurrence use="FI585A">1</MaxOccurrence>
+      <MaxOccurrence use="FI586A">1</MaxOccurrence>
       <MaxOccurrence use="FI590A">1</MaxOccurrence>
       <MaxOccurrence use="FI593A">1</MaxOccurrence>
       <MaxOccurrence use="FI595A">1</MaxOccurrence>
@@ -3127,6 +3209,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI570A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI590A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
@@ -3142,6 +3225,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI570A">1</MinOccurrence>
         <MinOccurrence use="FI583A">1</MinOccurrence>
         <MinOccurrence use="FI585A">1</MinOccurrence>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
         <MinOccurrence use="FI590A">1</MinOccurrence>
         <MinOccurrence use="FI593A">1</MinOccurrence>
         <MinOccurrence use="FI595A">1</MinOccurrence>
@@ -3172,6 +3256,8 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Rule use="FI583A">NR5038</Rule>
         <Rule use="FI585A">NR0049</Rule>
         <Rule use="FI585A">NR1109</Rule>
+        <Rule use="FI586A">NR0049</Rule>
+        <Rule use="FI586A">NR1109</Rule>
         <Rule use="FI590A">NR0049</Rule>
         <Rule use="FI590A">NR1109</Rule>
         <Rule use="FI593A">NR0049</Rule>
@@ -3237,6 +3323,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Use>FI570A</Use>
       <Use>FI583A</Use>
       <Use>FI585A</Use>
+      <Use>FI586A</Use>
       <Use>FI590A</Use>
       <Use>FI593A</Use>
       <Use>FI595A</Use>
@@ -3252,6 +3339,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MinOccurrence use="FI570A">1</MinOccurrence>
       <MinOccurrence use="FI583A">1</MinOccurrence>
       <MinOccurrence use="FI585A">1</MinOccurrence>
+      <MinOccurrence use="FI586A">1</MinOccurrence>
       <MinOccurrence use="FI590A">1</MinOccurrence>
       <MinOccurrence use="FI593A">1</MinOccurrence>
       <MinOccurrence use="FI595A">1</MinOccurrence>
@@ -3267,6 +3355,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MaxOccurrence use="FI570A">1</MaxOccurrence>
       <MaxOccurrence use="FI583A">1</MaxOccurrence>
       <MaxOccurrence use="FI585A">1</MaxOccurrence>
+      <MaxOccurrence use="FI586A">1</MaxOccurrence>
       <MaxOccurrence use="FI590A">1</MaxOccurrence>
       <MaxOccurrence use="FI593A">1</MaxOccurrence>
       <MaxOccurrence use="FI595A">1</MaxOccurrence>
@@ -3301,6 +3390,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI570A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI590A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
@@ -3316,6 +3406,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI570A">1</MinOccurrence>
         <MinOccurrence use="FI583A">1</MinOccurrence>
         <MinOccurrence use="FI585A">1</MinOccurrence>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
         <MinOccurrence use="FI590A">1</MinOccurrence>
         <MinOccurrence use="FI593A">1</MinOccurrence>
         <MinOccurrence use="FI595A">1</MinOccurrence>
@@ -3371,6 +3462,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI570A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI590A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
@@ -3386,6 +3478,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI570A">1</MinOccurrence>
         <MinOccurrence use="FI583A">1</MinOccurrence>
         <MinOccurrence use="FI585A">1</MinOccurrence>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
         <MinOccurrence use="FI590A">1</MinOccurrence>
         <MinOccurrence use="FI593A">1</MinOccurrence>
         <MinOccurrence use="FI595A">1</MinOccurrence>
@@ -3401,6 +3494,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MaxOccurrence use="FI570A">1</MaxOccurrence>
         <MaxOccurrence use="FI583A">1</MaxOccurrence>
         <MaxOccurrence use="FI585A">1</MaxOccurrence>
+        <MaxOccurrence use="FI586A">1</MaxOccurrence>
         <MaxOccurrence use="FI590A">1</MaxOccurrence>
         <MaxOccurrence use="FI593A">1</MaxOccurrence>
         <MaxOccurrence use="FI595A">1</MaxOccurrence>
@@ -3421,6 +3515,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI570A</Use>
           <Use>FI583A</Use>
           <Use>FI585A</Use>
+          <Use>FI586A</Use>
           <Use>FI590A</Use>
           <Use>FI593A</Use>
           <Use>FI595A</Use>
@@ -3436,6 +3531,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI570A">1</MinOccurrence>
           <MinOccurrence use="FI583A">1</MinOccurrence>
           <MinOccurrence use="FI585A">1</MinOccurrence>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
           <MinOccurrence use="FI590A">1</MinOccurrence>
           <MinOccurrence use="FI593A">1</MinOccurrence>
           <MinOccurrence use="FI595A">1</MinOccurrence>
@@ -3492,6 +3588,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI570A</Use>
           <Use>FI583A</Use>
           <Use>FI585A</Use>
+          <Use>FI586A</Use>
           <Use>FI590A</Use>
           <Use>FI593A</Use>
           <Use>FI595A</Use>
@@ -3507,6 +3604,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI570A">1</MinOccurrence>
           <MinOccurrence use="FI583A">1</MinOccurrence>
           <MinOccurrence use="FI585A">1</MinOccurrence>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
           <MinOccurrence use="FI590A">1</MinOccurrence>
           <MinOccurrence use="FI593A">1</MinOccurrence>
           <MinOccurrence use="FI595A">1</MinOccurrence>
@@ -3520,6 +3618,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Codelist use="FI570A">CL707</Codelist>
           <Codelist use="FI583A">CL707</Codelist>
           <Codelist use="FI585A">CL707</Codelist>
+          <Codelist use="FI586A">CL707</Codelist>
           <Codelist use="FI590A">CL707</Codelist>
           <Codelist use="FI593A">CL707</Codelist>
           <Codelist use="FI595A">CL707</Codelist>
@@ -3540,6 +3639,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI570A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI590A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
@@ -3555,6 +3655,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI570A">0</MinOccurrence>
         <MinOccurrence use="FI583A">0</MinOccurrence>
         <MinOccurrence use="FI585A">0</MinOccurrence>
+        <MinOccurrence use="FI586A">0</MinOccurrence>
         <MinOccurrence use="FI590A">0</MinOccurrence>
         <MinOccurrence use="FI593A">0</MinOccurrence>
         <MinOccurrence use="FI595A">0</MinOccurrence>
@@ -3570,6 +3671,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MaxOccurrence use="FI570A">1</MaxOccurrence>
         <MaxOccurrence use="FI583A">1</MaxOccurrence>
         <MaxOccurrence use="FI585A">1</MaxOccurrence>
+        <MaxOccurrence use="FI586A">1</MaxOccurrence>
         <MaxOccurrence use="FI590A">1</MaxOccurrence>
         <MaxOccurrence use="FI593A">1</MaxOccurrence>
         <MaxOccurrence use="FI595A">1</MaxOccurrence>
@@ -3589,6 +3691,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI570A</Use>
           <Use>FI583A</Use>
           <Use>FI585A</Use>
+          <Use>FI586A</Use>
           <Use>FI590A</Use>
           <Use>FI593A</Use>
           <Use>FI595A</Use>
@@ -3604,6 +3707,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI570A">1</MinOccurrence>
           <MinOccurrence use="FI583A">1</MinOccurrence>
           <MinOccurrence use="FI585A">1</MinOccurrence>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
           <MinOccurrence use="FI590A">1</MinOccurrence>
           <MinOccurrence use="FI593A">1</MinOccurrence>
           <MinOccurrence use="FI595A">1</MinOccurrence>
@@ -3660,6 +3764,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI570A</Use>
           <Use>FI583A</Use>
           <Use>FI585A</Use>
+          <Use>FI586A</Use>
           <Use>FI590A</Use>
           <Use>FI593A</Use>
           <Use>FI595A</Use>
@@ -3675,6 +3780,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI570A">1</MinOccurrence>
           <MinOccurrence use="FI583A">1</MinOccurrence>
           <MinOccurrence use="FI585A">1</MinOccurrence>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
           <MinOccurrence use="FI590A">1</MinOccurrence>
           <MinOccurrence use="FI593A">1</MinOccurrence>
           <MinOccurrence use="FI595A">1</MinOccurrence>
@@ -3688,6 +3794,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Codelist use="FI570A">CL707</Codelist>
           <Codelist use="FI583A">CL707</Codelist>
           <Codelist use="FI585A">CL707</Codelist>
+          <Codelist use="FI586A">CL707</Codelist>
           <Codelist use="FI590A">CL707</Codelist>
           <Codelist use="FI593A">CL707</Codelist>
           <Codelist use="FI595A">CL707</Codelist>
@@ -3985,10 +4092,13 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <XPath>/​Authorisation</XPath>
       <Use>FI513A</Use>
       <Use>FI515A</Use>
+      <Use>FI586A</Use>
       <MinOccurrence use="FI513A">0</MinOccurrence>
       <MinOccurrence use="FI515A">0</MinOccurrence>
+      <MinOccurrence use="FI586A">0</MinOccurrence>
       <MaxOccurrence use="FI513A">9</MaxOccurrence>
       <MaxOccurrence use="FI515A">9</MaxOccurrence>
+      <MaxOccurrence use="FI586A">9</MaxOccurrence>
       <Rule use="FI513A">NB5505</Rule>
       <Rule use="FI513A">NB5559</Rule>
       <Rule use="FI513A">NR5534</Rule>
@@ -4011,8 +4121,10 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Format>n..5</Format>
         <Use>FI513A</Use>
         <Use>FI515A</Use>
+        <Use>FI586A</Use>
         <MinOccurrence use="FI513A">1</MinOccurrence>
         <MinOccurrence use="FI515A">1</MinOccurrence>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
         <Rule use="FI513A">NR5141</Rule>
         <Rule use="FI515A">R0987</Rule>
       </DataElement>
@@ -4024,10 +4136,13 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Format>an..4</Format>
         <Use>FI513A</Use>
         <Use>FI515A</Use>
+        <Use>FI586A</Use>
         <MinOccurrence use="FI513A">0</MinOccurrence>
         <MinOccurrence use="FI515A">0</MinOccurrence>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
         <Codelist use="FI513A">CL605</Codelist>
         <Codelist use="FI515A">CL605</Codelist>
+        <Codelist use="FI586A">CL605</Codelist>
         <Rule use="FI513A">NB5555</Rule>
         <Rule use="FI513A">NR0028</Rule>
         <Rule use="FI513A">NR1002</Rule>
@@ -4053,6 +4168,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Rule use="FI515A">R0676</Rule>
         <Rule use="FI515A">R0677</Rule>
         <Rule use="FI515A">S0017</Rule>
+        <Rule use="FI586A">NR5155</Rule>
         <Condition use="FI513A">NC5045</Condition>
         <Condition use="FI515A">NC5045</Condition>
       </DataElement>
@@ -4064,8 +4180,10 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Format>an..35</Format>
         <Use>FI513A</Use>
         <Use>FI515A</Use>
+        <Use>FI586A</Use>
         <MinOccurrence use="FI513A">1</MinOccurrence>
         <MinOccurrence use="FI515A">1</MinOccurrence>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
         <Rule use="FI513A">NR1001</Rule>
         <Rule use="FI513A">NR1004</Rule>
         <Rule use="FI513A">NR1005</Rule>
@@ -4075,6 +4193,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Rule use="FI515A">NR1005</Rule>
         <Rule use="FI515A">NR1013</Rule>
         <Rule use="FI515A">NR5042</Rule>
+        <Rule use="FI586A">NR1001</Rule>
         <Description lang="fi" use="FI513A">Ilmoitetaan liiteasiakirjaa / lupaa koskeva numero, tunniste tai muu yksilöintitieto.</Description>
         <Description lang="sv" use="FI513A">Nummer, identifikation eller annan specificerande uppgift anges för det bifogade dokumentet / tillståndet anmäls.</Description>
         <Description lang="en" use="FI513A">Number, reference or other identifier for the supporting document/licence is entered.</Description>
@@ -4090,11 +4209,14 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Format>an..17</Format>
         <Use>FI513A</Use>
         <Use>FI515A</Use>
+        <Use>FI586A</Use>
         <MinOccurrence use="FI513A">0</MinOccurrence>
         <MinOccurrence use="FI515A">1</MinOccurrence>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
         <Rule use="FI513A">R0995</Rule>
         <Rule use="FI515A">NR5042</Rule>
         <Rule use="FI515A">R0995</Rule>
+        <Rule use="FI586A">NR5156</Rule>
       </DataElement>
     </DataGroup>
     <DataGroup>
@@ -4107,6 +4229,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Use>FI515A</Use>
       <Use>FI583A</Use>
       <Use>FI585A</Use>
+      <Use>FI586A</Use>
       <Use>FI593A</Use>
       <Use>FI595A</Use>
       <MinOccurrence use="FI507A">0</MinOccurrence>
@@ -4114,6 +4237,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MinOccurrence use="FI515A">0</MinOccurrence>
       <MinOccurrence use="FI583A">0</MinOccurrence>
       <MinOccurrence use="FI585A">0</MinOccurrence>
+      <MinOccurrence use="FI586A">0</MinOccurrence>
       <MinOccurrence use="FI593A">0</MinOccurrence>
       <MinOccurrence use="FI595A">0</MinOccurrence>
       <MaxOccurrence use="FI507A">99</MaxOccurrence>
@@ -4121,6 +4245,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <MaxOccurrence use="FI515A">99</MaxOccurrence>
       <MaxOccurrence use="FI583A">99</MaxOccurrence>
       <MaxOccurrence use="FI585A">99</MaxOccurrence>
+      <MaxOccurrence use="FI586A">99</MaxOccurrence>
       <MaxOccurrence use="FI593A">99</MaxOccurrence>
       <MaxOccurrence use="FI595A">99</MaxOccurrence>
       <Rule use="FI513A">NB5559</Rule>
@@ -4138,6 +4263,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI515A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
         <MinOccurrence use="FI507A">1</MinOccurrence>
@@ -4145,12 +4271,14 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI515A">1</MinOccurrence>
         <MinOccurrence use="FI583A">1</MinOccurrence>
         <MinOccurrence use="FI585A">1</MinOccurrence>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
         <MinOccurrence use="FI593A">1</MinOccurrence>
         <MinOccurrence use="FI595A">1</MinOccurrence>
         <Rule use="FI513A">NR5141</Rule>
         <Rule use="FI515A">R0987</Rule>
         <Rule use="FI583A">NR5141</Rule>
         <Rule use="FI585A">R0987</Rule>
+        <Rule use="FI586A">R0987</Rule>
         <Rule use="FI593A">NR5141</Rule>
         <Rule use="FI595A">R0987</Rule>
       </DataElement>
@@ -4165,6 +4293,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI515A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
         <MinOccurrence use="FI507A">1</MinOccurrence>
@@ -4172,6 +4301,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI515A">1</MinOccurrence>
         <MinOccurrence use="FI583A">1</MinOccurrence>
         <MinOccurrence use="FI585A">1</MinOccurrence>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
         <MinOccurrence use="FI593A">1</MinOccurrence>
         <MinOccurrence use="FI595A">1</MinOccurrence>
         <Codelist use="FI507A">CL239</Codelist>
@@ -4179,6 +4309,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Codelist use="FI515A">CL239</Codelist>
         <Codelist use="FI583A">CL239</Codelist>
         <Codelist use="FI585A">CL239</Codelist>
+        <Codelist use="FI586A">CL239</Codelist>
         <Codelist use="FI593A">CL239</Codelist>
         <Codelist use="FI595A">CL239</Codelist>
         <Rule use="FI513A">NB5004</Rule>
@@ -4249,6 +4380,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI515A</Use>
         <Use>FI583A</Use>
         <Use>FI585A</Use>
+        <Use>FI586A</Use>
         <Use>FI593A</Use>
         <Use>FI595A</Use>
         <MinOccurrence use="FI507A">0</MinOccurrence>
@@ -4256,6 +4388,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI515A">0</MinOccurrence>
         <MinOccurrence use="FI583A">0</MinOccurrence>
         <MinOccurrence use="FI585A">0</MinOccurrence>
+        <MinOccurrence use="FI586A">0</MinOccurrence>
         <MinOccurrence use="FI593A">0</MinOccurrence>
         <MinOccurrence use="FI595A">0</MinOccurrence>
         <Rule use="FI513A">NB5556</Rule>
@@ -4279,6 +4412,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Condition use="FI515A">NC5006</Condition>
         <Condition use="FI583A">NC5006</Condition>
         <Condition use="FI585A">NC5006</Condition>
+        <Condition use="FI586A">NC5006</Condition>
         <Condition use="FI593A">NC5006</Condition>
         <Condition use="FI595A">NC5006</Condition>
         <Description lang="fi" use="FI513A">Ilmoitetaan koodiin liittyvä tarkempi kuvaus, mikäli koodi sitä vaati.</Description>
@@ -4300,6 +4434,307 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Description lang="sv" use="FI595A">Ange en närmare beskrivning gällande koden, om koden så kräver.</Description>
         <Description lang="en" use="FI595A">Provide a more detailed description related to the code, if the code requires it.</Description>
       </DataElement>
+    </DataGroup>
+    <DataGroup>
+      <Name lang="fi">Rajan ylittävä aktiivinen kuljetusväline</Name>
+      <Name lang="sv">Aktivt transportmedel vid gränspassagen</Name>
+      <Name lang="en">Active border transport means</Name>
+      <XPath>/​BorderTransportMeans</XPath>
+      <Use>FI586A</Use>
+      <MinOccurrence use="FI586A">0</MinOccurrence>
+      <MaxOccurrence use="FI586A">9999</MaxOccurrence>
+      <Condition use="FI586A">NC5069</Condition>
+      <DataElement>
+        <Name lang="fi">Järjestysnumero</Name>
+        <Name lang="sv">Ordningsnummer</Name>
+        <Name lang="en">Sequence number</Name>
+        <XPath>/​BorderTransportMeans/​Sequence</XPath>
+        <Format>n..5</Format>
+        <Use>FI586A</Use>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
+        <Rule use="FI586A">R0987</Rule>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Kuljetusmuoto rajalla</Name>
+        <Name lang="sv">Transportsätt vid gränsen</Name>
+        <Name lang="en">Mode of transport at the border</Name>
+        <XPath>/​BorderTransportMeans/​Mode</XPath>
+        <Format>n1</Format>
+        <Use>FI586A</Use>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
+        <Codelist use="FI586A">CL218</Codelist>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Kuljetusvälineen tunnistenumero</Name>
+        <Name lang="sv">Identifieringsnummer av transportmedlet</Name>
+        <Name lang="en">Identification number of transport means</Name>
+        <XPath>/​BorderTransportMeans/​Identification</XPath>
+        <Format>an..35</Format>
+        <Use>FI586A</Use>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
+        <Rule use="FI586A">NR5150</Rule>
+        <Rule use="FI586A">R0076</Rule>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Tunnistetietojen tyyppi</Name>
+        <Name lang="sv">Typ av identifiering</Name>
+        <Name lang="en">Type of identification</Name>
+        <XPath>/​BorderTransportMeans/​IdentificationType</XPath>
+        <Format>n2</Format>
+        <Use>FI586A</Use>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
+        <Codelist use="FI586A">CL219</Codelist>
+        <Rule use="FI586A">R0475</Rule>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Kansallisuus</Name>
+        <Name lang="sv">Nationalitet</Name>
+        <Name lang="en">Nationality</Name>
+        <XPath>/​BorderTransportMeans/​RegistrationNationality</XPath>
+        <Format>a2</Format>
+        <Use>FI586A</Use>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
+        <Codelist use="FI586A">CL008</Codelist>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Viranomaisaluksen muonitus</Name>
+        <Name lang="sv">Proviantering av myndighetsfartyg</Name>
+        <Name lang="en">Provisions for a government vessel</Name>
+        <XPath>/​BorderTransportMeans/​MilitaryConsignment</XPath>
+        <Format>n1</Format>
+        <Use>FI586A</Use>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
+        <Codelist use="FI586A">CL027</Codelist>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Lastauspäivä</Name>
+        <Name lang="sv">Lastningdag</Name>
+        <Name lang="en">Loading date</Name>
+        <XPath>/​BorderTransportMeans/​Loading</XPath>
+        <Format>date</Format>
+        <Use>FI586A</Use>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
+        <Rule use="FI586A">NR5157</Rule>
+      </DataElement>
+      <DataGroup>
+        <Name lang="fi">Viitenumero/UCR</Name>
+        <Name lang="sv">Referensnummer/UCR</Name>
+        <Name lang="en">Reference number/UCR</Name>
+        <XPath>/​BorderTransportMeans/​UCR</XPath>
+        <Use>FI586A</Use>
+        <MinOccurrence use="FI586A">0</MinOccurrence>
+        <MaxOccurrence use="FI586A">1</MaxOccurrence>
+        <Condition use="FI586A">NC5070</Condition>
+        <DataElement>
+          <Name lang="fi">Viitenumero/UCR</Name>
+          <Name lang="sv">Referensnummer/UCR</Name>
+          <Name lang="en">Reference number/UCR</Name>
+          <XPath>/​BorderTransportMeans/​UCR/​TraderAssignedReference</XPath>
+          <Format>an..35</Format>
+          <Use>FI586A</Use>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
+        </DataElement>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Kuljetusasiakirja</Name>
+        <Name lang="sv">Transportdokument</Name>
+        <Name lang="en">Transport document</Name>
+        <XPath>/​BorderTransportMeans/​TransportContractDocument</XPath>
+        <Use>FI586A</Use>
+        <MinOccurrence use="FI586A">0</MinOccurrence>
+        <MaxOccurrence use="FI586A">1</MaxOccurrence>
+        <Condition use="FI586A">NC5070</Condition>
+        <DataElement>
+          <Name lang="fi">Asiakirjatyyppi</Name>
+          <Name lang="sv">Typ av dokument</Name>
+          <Name lang="en">Document type</Name>
+          <XPath>/​BorderTransportMeans/​TransportContractDocument/​Type</XPath>
+          <Format>an4</Format>
+          <Use>FI586A</Use>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
+          <Codelist use="FI586A">CL754</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Asiakirjatunniste</Name>
+          <Name lang="sv">Dokumentets identifierare</Name>
+          <Name lang="en">Document identifier</Name>
+          <XPath>/​BorderTransportMeans/​TransportContractDocument/​Identification</XPath>
+          <Format>an..70</Format>
+          <Use>FI586A</Use>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
+        </DataElement>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Tavaran sijaintipaikka</Name>
+        <Name lang="sv">Varornas förvaringsplats</Name>
+        <Name lang="en">Location of goods</Name>
+        <XPath>/​BorderTransportMeans/​GoodsLocation</XPath>
+        <Use>FI586A</Use>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
+        <MaxOccurrence use="FI586A">1</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">UN/LOCODE</Name>
+          <Name lang="sv">UN/LOCODE</Name>
+          <Name lang="en">UN/LOCODE</Name>
+          <XPath>/​BorderTransportMeans/​GoodsLocation/​UNLOCODE</XPath>
+          <Format>an..17</Format>
+          <Use>FI586A</Use>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
+          <Codelist use="FI586A">CL244</Codelist>
+        </DataElement>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Tavara</Name>
+        <Name lang="sv">Vara</Name>
+        <Name lang="en">Commodity</Name>
+        <XPath>/​BorderTransportMeans/​Commodity</XPath>
+        <Use>FI586A</Use>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
+        <MaxOccurrence use="FI586A">99</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Järjestysnumero</Name>
+          <Name lang="sv">Ordningsnummer</Name>
+          <Name lang="en">Sequence number</Name>
+          <XPath>/​BorderTransportMeans/​Commodity/​Sequence</XPath>
+          <Format>n..5</Format>
+          <Use>FI586A</Use>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
+          <Rule use="FI586A">R0987</Rule>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Palautustavara</Name>
+          <Name lang="sv">Returgods</Name>
+          <Name lang="en">Return goods</Name>
+          <XPath>/​BorderTransportMeans/​Commodity/​ReturnGoods</XPath>
+          <Format>n1</Format>
+          <Use>FI586A</Use>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
+          <Codelist use="FI586A">CL027</Codelist>
+        </DataElement>
+        <DataElement>
+          <Name lang="fi">Tilastoarvo</Name>
+          <Name lang="sv">Statistiskt värde</Name>
+          <Name lang="en">Statistical value</Name>
+          <XPath>/​BorderTransportMeans/​Commodity/​StatisticalValue</XPath>
+          <Format>n..16,2</Format>
+          <Use>FI586A</Use>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
+        </DataElement>
+        <DataGroup>
+          <Name lang="fi">Tavaran koodi - harmonoidun järjestelmän koodi</Name>
+          <Name lang="sv">Varukod - HS-nummer</Name>
+          <Name lang="en">Commodity code - Harmonised System code</Name>
+          <XPath>/​BorderTransportMeans/​Commodity/​Classification</XPath>
+          <Use>FI586A</Use>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
+          <MaxOccurrence use="FI586A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Tavaran koodi - harmonoidun järjestelmän koodi</Name>
+            <Name lang="sv">Varukod - HS-nummer</Name>
+            <Name lang="en">Commodity code - Harmonised System code</Name>
+            <XPath>/​BorderTransportMeans/​Commodity/​Classification/​Identification</XPath>
+            <Format>an6</Format>
+            <Use>FI586A</Use>
+            <MinOccurrence use="FI586A">1</MinOccurrence>
+            <Rule use="FI586A">NR5059</Rule>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">Luokitustyyppi</Name>
+            <Name lang="sv">Klassificeringstyp</Name>
+            <Name lang="en">Classification type</Name>
+            <XPath>/​BorderTransportMeans/​Commodity/​Classification/​IdentificationType</XPath>
+            <Format>an..3</Format>
+            <Use>FI586A</Use>
+            <MinOccurrence use="FI586A">1</MinOccurrence>
+            <Codelist use="FI586A">NCL995</Codelist>
+          </DataElement>
+        </DataGroup>
+        <DataGroup>
+          <Name lang="fi">Tavaran koodi - yhdistetyn nimikkeistön koodi</Name>
+          <Name lang="sv">Varukod - KN-nummer</Name>
+          <Name lang="en">Commodity code - Combined Nomenclature code</Name>
+          <XPath>/​BorderTransportMeans/​Commodity/​Classification</XPath>
+          <Use>FI586A</Use>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
+          <MaxOccurrence use="FI586A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Tavaran koodi - yhdistetyn nimikkeistön koodi</Name>
+            <Name lang="sv">Varukod - KN-nummer</Name>
+            <Name lang="en">Commodity code - Combined Nomenclature code</Name>
+            <XPath>/​BorderTransportMeans/​Commodity/​Classification/​Identification</XPath>
+            <Format>an2</Format>
+            <Use>FI586A</Use>
+            <MinOccurrence use="FI586A">1</MinOccurrence>
+            <Rule use="FI586A">NR5060</Rule>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">Luokitustyyppi</Name>
+            <Name lang="sv">Klassificeringstyp</Name>
+            <Name lang="en">Classification type</Name>
+            <XPath>/​BorderTransportMeans/​Commodity/​Classification/​IdentificationType</XPath>
+            <Format>an..3</Format>
+            <Use>FI586A</Use>
+            <MinOccurrence use="FI586A">1</MinOccurrence>
+            <Codelist use="FI586A">NCL995</Codelist>
+          </DataElement>
+        </DataGroup>
+        <DataGroup>
+          <Name lang="fi">Verotuoteryhmä</Name>
+          <Name lang="sv">Skatteproduktgrupp</Name>
+          <Name lang="en">Tax product group</Name>
+          <XPath>/​BorderTransportMeans/​Commodity/​Classification</XPath>
+          <Use>FI586A</Use>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
+          <MaxOccurrence use="FI586A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Verotuoteryhmä</Name>
+            <Name lang="sv">Skatteproduktgrupp</Name>
+            <Name lang="en">Tax product group</Name>
+            <XPath>/​BorderTransportMeans/​Commodity/​Classification/​Identification</XPath>
+            <Format>an..6</Format>
+            <Use>FI586A</Use>
+            <MinOccurrence use="FI586A">1</MinOccurrence>
+            <Codelist use="FI586A">NCL517</Codelist>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">Luokitustyyppi</Name>
+            <Name lang="sv">Klassificeringstyp</Name>
+            <Name lang="en">Classification type</Name>
+            <XPath>/​BorderTransportMeans/​Commodity/​Classification/​IdentificationType</XPath>
+            <Format>an..3</Format>
+            <Use>FI586A</Use>
+            <MinOccurrence use="FI586A">1</MinOccurrence>
+            <Codelist use="FI586A">NCL995</Codelist>
+          </DataElement>
+        </DataGroup>
+        <DataGroup>
+          <Name lang="fi">Paljoudet</Name>
+          <Name lang="sv">Varumängder</Name>
+          <Name lang="en">Goods measure</Name>
+          <XPath>/​BorderTransportMeans/​Commodity/​GoodsMeasure</XPath>
+          <Use>FI586A</Use>
+          <MinOccurrence use="FI586A">1</MinOccurrence>
+          <MaxOccurrence use="FI586A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Nettopaino</Name>
+            <Name lang="sv">Nettovikt</Name>
+            <Name lang="en">Net mass</Name>
+            <XPath>/​BorderTransportMeans/​Commodity/​GoodsMeasure/​NetNetMass</XPath>
+            <Format>n..16,6</Format>
+            <Use>FI586A</Use>
+            <MinOccurrence use="FI586A">0</MinOccurrence>
+          </DataElement>
+          <DataElement>
+            <Name lang="fi">Lisäpaljousyksiköt</Name>
+            <Name lang="sv">Extra mängdenheter</Name>
+            <Name lang="en">Supplementary units</Name>
+            <XPath>/​BorderTransportMeans/​Commodity/​GoodsMeasure/​Tariff</XPath>
+            <Format>n..16,6</Format>
+            <Use>FI586A</Use>
+            <MinOccurrence use="FI586A">0</MinOccurrence>
+          </DataElement>
+        </DataGroup>
+      </DataGroup>
     </DataGroup>
     <DataGroup>
       <Name lang="fi">Lähetyserä</Name>
