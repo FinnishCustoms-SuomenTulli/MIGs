@@ -336,7 +336,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Use>FI046A</Use>
       <Use>FI053A</Use>
       <Use>FI170A</Use>
-      <MinOccurrence use="FI007A">0</MinOccurrence>
+      <MinOccurrence use="FI007A">1</MinOccurrence>
       <MinOccurrence use="FI013A">1</MinOccurrence>
       <MinOccurrence use="FI014A">1</MinOccurrence>
       <MinOccurrence use="FI015A">1</MinOccurrence>
@@ -591,16 +591,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Condition use="FI039A">NC9018</Condition>
       </DataElement>
       <DataElement>
-        <Name lang="fi">Sanoman korrelaatio</Name>
-        <Name lang="sv">Meddelandets korrelation</Name>
-        <Name lang="en">Message correlation</Name>
-        <XPath>/​Notification/​MessageCorrelation</XPath>
-        <Format>an..50</Format>
-        <Use>FI039A</Use>
-        <MinOccurrence use="FI039A">0</MinOccurrence>
-        <Condition use="FI039A">NC9019</Condition>
-      </DataElement>
-      <DataElement>
         <Name lang="fi">Korvaava MRN</Name>
         <Name lang="sv">Ersättande MRN</Name>
         <Name lang="en">Superseding MRN</Name>
@@ -759,10 +749,12 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI170A">1</MinOccurrence>
         <Rule use="FI013A">NR0034</Rule>
         <Rule use="FI013A">NR9121</Rule>
-        <Rule use="FI014A">R0850</Rule>
+        <Rule use="FI014A">NR0034</Rule>
+        <Rule use="FI014A">NR9121</Rule>
         <Rule use="FI015A">NR0034</Rule>
         <Rule use="FI015A">NR9121</Rule>
-        <Rule use="FI170A">R0850</Rule>
+        <Rule use="FI170A">NR0034</Rule>
+        <Rule use="FI170A">NR9121</Rule>
       </DataElement>
       <DataGroup>
         <Name lang="fi">Toimipaikkakoodi</Name>
@@ -842,7 +834,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Rule use="FI014A">NR0035</Rule>
         <Rule use="FI014A">NR9021</Rule>
         <Rule use="FI014A">NR9050</Rule>
-        <Rule use="FI014A">R0850</Rule>
       </DataElement>
       <DataGroup>
         <Name lang="fi">Toimipaikkakoodi</Name>
@@ -963,8 +954,8 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI044A</Use>
         <MinOccurrence use="FI007A">1</MinOccurrence>
         <MinOccurrence use="FI044A">1</MinOccurrence>
-        <Rule use="FI007A">R0850</Rule>
-        <Rule use="FI044A">R0850</Rule>
+        <Rule use="FI007A">NR0034</Rule>
+        <Rule use="FI044A">NR0034</Rule>
       </DataElement>
       <DataGroup>
         <Name lang="fi">Toimipaikkakoodi</Name>
@@ -1045,7 +1036,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Rule use="FI015A">NR9021</Rule>
         <Rule use="FI015A">NR9078</Rule>
         <Rule use="FI015A">R0850</Rule>
-        <Rule use="FI170A">R0850</Rule>
+        <Rule use="FI170A">NR0034</Rule>
       </DataElement>
       <DataGroup>
         <Name lang="fi">Toimipaikkakoodi</Name>
@@ -2410,7 +2401,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI170A">1</MinOccurrence>
           <Rule use="FI013A">R0473</Rule>
           <Rule use="FI015A">R0473</Rule>
-          <Rule use="FI170A">NR9006</Rule>
           <Rule use="FI170A">R0473</Rule>
         </DataElement>
         <DataElement>
@@ -2956,11 +2946,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Codelist use="FI013A">CL171</Codelist>
           <Codelist use="FI015A">CL171</Codelist>
           <Codelist use="FI170A">CL171</Codelist>
-          <Condition use="FI007A">NC9040</Condition>
           <Condition use="FI007A">NR9123</Condition>
           <Condition use="FI013A">NR9123</Condition>
           <Condition use="FI015A">NR9123</Condition>
-          <Condition use="FI170A">NC9040</Condition>
           <Condition use="FI170A">NR9123</Condition>
           <Description lang="fi" use="FI013A">Tullitoimipaikan koodia ei toistaiseksi voi käyttää.</Description>
           <Description lang="sv" use="FI013A">Tullkontorets kod kan tills vidare inte användas.</Description>
@@ -2987,7 +2975,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MinOccurrence use="FI015A">0</MinOccurrence>
           <MinOccurrence use="FI170A">0</MinOccurrence>
           <Rule use="FI007A">NR9048</Rule>
-          <Rule use="FI170A">R0850</Rule>
           <Condition use="FI007A">NC0035</Condition>
           <Condition use="FI007A">NC9036</Condition>
           <Condition use="FI013A">NC0035</Condition>
@@ -3027,7 +3014,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <MaxOccurrence use="FI015A">1</MaxOccurrence>
           <MaxOccurrence use="FI170A">1</MaxOccurrence>
           <Condition use="FI007A">NC9012</Condition>
-          <Condition use="FI007A">NR9123</Condition>
           <Condition use="FI013A">NC9012</Condition>
           <Condition use="FI013A">NR9123</Condition>
           <Condition use="FI015A">NC9012</Condition>
@@ -4366,6 +4352,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <MinOccurrence use="FI044A">1</MinOccurrence>
             <Rule use="FI013A">R0988</Rule>
             <Rule use="FI015A">R0988</Rule>
+            <Rule use="FI044A">NR9059</Rule>
             <Rule use="FI044A">R0055</Rule>
             <Description lang="fi" use="FI013A">Ilmoitetaan alatason lähetyseräkohtainen juokseva numero tavaraerälle.</Description>
             <Description lang="sv" use="FI013A">Ange den leveranspartispecifika undernivåns löpande numrering för varuposten.</Description>
@@ -4392,6 +4379,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Rule use="FI013A">R0007</Rule>
             <Rule use="FI015A">R0007</Rule>
             <Rule use="FI044A">NR9054</Rule>
+            <Rule use="FI044A">NR9059</Rule>
             <Rule use="FI044A">R0055</Rule>
             <Description lang="fi" use="FI013A">Ilmoitetaan juokseva numero tavaraerälle, siten että koko ilmoituksen ensimmäinen tavaraerä saa numeron 1, tämä numero ei saa toistua ilmoituksella kuin yhden kerran.</Description>
             <Description lang="sv" use="FI013A">Ange den löpande numreringen för varuposten, så att den första varuposten för hela deklarationen får nummer 1. Numret får bara förekomma en gång i deklarationen.</Description>

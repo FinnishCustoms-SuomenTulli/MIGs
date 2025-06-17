@@ -1378,15 +1378,6 @@ ELSE IF /*/Notification/ContactReason is EQUAL to '006' &#13;
   THEN /*/Notification/RequestCorrelation = 'N'</Description>
   </Constraint>
   <Constraint>
-    <Code>NC9019</Code>
-    <Description lang="fi">IF /*/Notification/ContactReason is EQUAL to ‘005’&#13;
-  THEN /*/Notification/MessageCorrelation = 'R'</Description>
-    <Description lang="sv">IF /*/Notification/ContactReason is EQUAL to ‘005’&#13;
-  THEN /*/Notification/MessageCorrelation = 'R'</Description>
-    <Description lang="en">IF /*/Notification/ContactReason is EQUAL to ‘005’&#13;
-  THEN /*/Notification/MessageCorrelation = 'R'</Description>
-  </Constraint>
-  <Constraint>
     <Code>NC9021</Code>
     <Description lang="fi">IF ​/*/Authorisation/​Category is present&#13;
 THEN&#13;
@@ -1544,18 +1535,6 @@ ELSE &lt;i&gt;Economic operator&lt;/i&gt; = 'N'</Description>
   DÅ kan FI017 inte skickas</Description>
     <Description lang="en">IF FI015/&lt;i&gt;Declaration type&lt;/i&gt; = 'A'&#13;
   THEN FI017 cannot be sent</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NC9040</Code>
-    <Description lang="fi">JOS &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt; = 'A'&#13;
-  NIIN &lt;i&gt;Tullitoimipaikka&lt;/i&gt; = 'O'&#13;
-MUUTEN &lt;i&gt;Tullitoimipaikka&lt;/i&gt; = 'N'</Description>
-    <Description lang="sv">OM &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; = 'A'&#13;
-  DÅ är &lt;i&gt;Tullkontor&lt;/i&gt; = 'O'&#13;
-ANNARS är &lt;i&gt;Tullkontor&lt;/i&gt; = 'N'</Description>
-    <Description lang="en">IF &lt;i&gt;Type of location&lt;/i&gt; = 'A'&#13;
-  THEN &lt;i&gt;Customs office&lt;/i&gt; = 'O'&#13;
-ELSE &lt;i&gt;Customs office&lt;/i&gt; = 'N'</Description>
   </Constraint>
   <Constraint>
     <Code>NC9041</Code>
@@ -1761,11 +1740,11 @@ ELSE &lt;i&gt;Commodity code - Harmonised System code&lt;/i&gt; = 'R'</Descripti
   <Constraint>
     <Code>NR9006</Code>
     <Description lang="fi">JOS &lt;i&gt;Sisämaan kuljetusmuoto&lt;/i&gt; TAI &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt; EI ole JOUKOSSA {5, 7}&#13;
-  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
     <Description lang="sv">OM &lt;i&gt;Transportsätt inrikes&lt;/i&gt; ELLER &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt; INTE är i GRUPPEN {5, 7}&#13;
-  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
     <Description lang="en">IF &lt;i&gt;Inland mode of transport&lt;/i&gt; OR &lt;i&gt;Active border transport means&lt;/i&gt; is NOT in SET {5, 7}&#13;
-  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NR9007</Code>
@@ -1997,6 +1976,12 @@ THEN&#13;
   THEN &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; must be in SET {B,C}</Description>
     <Description lang="en">IF &lt;i&gt;Authorisation identifier&lt;/i&gt; is present AND &lt;i&gt;Authorisation type&lt;/i&gt; is in SET {C520, C522}&#13;
   THEN &lt;i&gt;Type of location&lt;/i&gt; must be in SET {B,C}</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9059</Code>
+    <Description lang="fi">If discrepancies have been detected, the numbering of the goods items will be the same as in the original declaration. In the case of a new goods item, the sequence number is the last goods item in the declaration +1.</Description>
+    <Description lang="sv">If discrepancies have been detected, the numbering of the goods items will be the same as in the original declaration. In the case of a new goods item, the sequence number is the last goods item in the declaration +1.</Description>
+    <Description lang="en">If discrepancies have been detected, the numbering of the goods items will be the same as in the original declaration. In the case of a new goods item, the sequence number is the last goods item in the declaration +1.</Description>
   </Constraint>
   <Constraint>
     <Code>NR9061</Code>
