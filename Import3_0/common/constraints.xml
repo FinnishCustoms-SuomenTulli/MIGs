@@ -1108,6 +1108,177 @@ THEN the DE is Mandatory</Description>
 THEN the DE is Mandatory</Description>
   </Constraint>
   <Constraint>
+    <Code>NC2001</Code>
+    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {44, 51, 53, 46 or 48} ja &lt;i&gt;Toimipaikkakoodi&lt;/i&gt; on tyhjä TAI &lt;i&gt;Tunnistenumero&lt;/i&gt; on suomalainen henkilötunnus&#13;
+  NIIN &lt;i&gt;Nimi&lt;/i&gt; ja &lt;i&gt;Osoite&lt;/i&gt; = 'R'&#13;
+  MUUTEN &lt;i&gt;Nimi&lt;/i&gt; ja &lt;i&gt;Osoite&lt;/i&gt; = 'O'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {44, 51, 53, 46 or 48} och &lt;i&gt;Kod för verksamhetsställe&lt;/i&gt; är tomt ELLER &lt;i&gt;Identifieringsnummer&lt;/i&gt; är en finsk personbeteckning&#13;
+  DÅ är &lt;i&gt;Namn&lt;/i&gt; och &lt;i&gt;Adress&lt;/i&gt; = 'R'&#13;
+  ANNARS är &lt;i&gt;Namn&lt;/i&gt; och &lt;i&gt;Adress&lt;/i&gt; = 'O'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {44, 51, 53, 46 or 48} and &lt;i&gt;Office code&lt;/i&gt; is empty OR &lt;i&gt;Identification number&lt;/i&gt; is Finnish personal identification number&#13;
+  THEN &lt;i&gt;Name&lt;/i&gt; and &lt;i&gt;Address&lt;/i&gt; = 'R'&#13;
+  ELSE &lt;i&gt;Name&lt;/i&gt; and &lt;i&gt;Address&lt;/i&gt; = 'O'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC2002</Code>
+    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {44, 51, 53, 46, 48}&#13;
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Ilmoituksen antaja&lt;/i&gt;/&lt;i&gt;Nimi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Ilmoituksen antaja&lt;/i&gt;/&lt;i&gt;Sähköposti&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lupa&lt;/i&gt;/&lt;i&gt;Luvan tunniste&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lupa&lt;/i&gt;/&lt;i&gt;Luvan tyyppi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Ilmoittaja&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Tullivelka yhteensä&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  MUUTEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Ilmoituksen antaja&lt;/i&gt;/&lt;i&gt;Nimi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Ilmoituksen antaja&lt;/i&gt;/&lt;i&gt;Sähköposti&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lupa&lt;/i&gt;/&lt;i&gt;Luvan tunniste&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lupa&lt;/i&gt;/&lt;i&gt;Luvan tyyppi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Ilmoittaja&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Tullivelka yhteensä&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {44, 51, 53, 46, 48}&#13;
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Person som inger deklarationen&lt;/i&gt;/&lt;i&gt;Namn&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Person som inger deklarationen&lt;/i&gt;/&lt;i&gt;E-post&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Tillstånd&lt;/i&gt;/&lt;i&gt;Tillståndets identifierare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Tillstånd&lt;/i&gt;/&lt;i&gt;Typ av tillstånd&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Deklarant&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Total tullskuld&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ANNARS är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Person som inger deklarationen&lt;/i&gt;/&lt;i&gt;Namn&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Person som inger deklarationen&lt;/i&gt;/&lt;i&gt;E-post&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Tillstånd&lt;/i&gt;/&lt;i&gt;Tillståndets identifierare&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Tillstånd&lt;/i&gt;/&lt;i&gt;Typ av tillstånd&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Deklarant&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Total tullskuld&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {44, 51, 53, 46, 48}&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Submitter&lt;/i&gt;/&lt;i&gt;Name&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Submitter&lt;/i&gt;/&lt;i&gt;E-mail&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Authorisation&lt;/i&gt;/&lt;i&gt;Authorisation identifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Authorisation&lt;/i&gt;/&lt;i&gt;Authorisation type&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Declarant&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Total customs debt&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Submitter&lt;/i&gt;/&lt;i&gt;Name&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Submitter&lt;/i&gt;/&lt;i&gt;E-mail&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Authorisation&lt;/i&gt;/&lt;i&gt;Authorisation identifier&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Authorisation&lt;/i&gt;/&lt;i&gt;Authorisation type&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Declarant&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Total customs debt&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC2003</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is '71'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Varaston tunnistetiedot&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Varaston tunnistetiedot&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Edeltävä asiakirja&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is '71'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Identifiering av lager&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Identifiering av lager&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Tidigare dokument&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '71'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Identification of warehouse&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Identification of warehouse&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Previous document&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC2004</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is '71'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lisätieto&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Liiteasiakirja&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is '71'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Ytterligare uppgifter&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Bifogat dokument&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '71'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Additional information&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Supporting document&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC2005</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is '71'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lupa&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lupa&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is '71'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Tillstånd&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Tillstånd&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '71'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Authorisation&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Authorisation&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC2007</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is '51'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Lisäyksinkertaistus&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Lisäyksinkertaistus&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is '51'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Ytterligare förenkling&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Ytterligare förenkling&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '51'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Additional simplification&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Additional simplification&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC2008</Code>
+    <Description lang="fi">IF &lt;i&gt;Liiteasiakirja&lt;/i&gt; '4HVT' or '8TLV' is declared&#13;
+  THEN  &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Päättämistä koskevat tiedot&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Päättämistä koskevat tiedot&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+    <Description lang="sv">IF &lt;i&gt;Bifogat dokument&lt;/i&gt; '4HVT' or '8TLV' is declared&#13;
+  THEN  &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Uppgifter om avräkningen&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Uppgifter om avräkningen&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Supporting document&lt;/i&gt; '4HVT' or '8TLV' is declared&#13;
+  THEN  &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Details of discharge&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Details of discharge&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC2009</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is '44'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Päättämistä koskevat tiedot&lt;/i&gt;/&lt;i&gt;Seuraavan asiakirjan viite&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Päättämistä koskevat tiedot&lt;/i&gt;/&lt;i&gt;Seuraavan asiakirjan viite&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is '44'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Uppgifter om avräkningen&lt;/i&gt;/&lt;i&gt;Referens för följande dokument&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Uppgifter om avräkningen&lt;/i&gt;/&lt;i&gt;Referens för följande dokument&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '44'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Details of discharge&lt;/i&gt;/&lt;i&gt;Following document reference&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Details of discharge&lt;/i&gt;/&lt;i&gt;Following document reference&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC2010</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is in SET {51, 44, 53, 46}&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Päättämistä koskevat tiedot&lt;/i&gt;/&lt;i&gt;Vastaavien tavaroiden käyttö&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+ELSE IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is '48'&#13;
+THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Päättämistä koskevat tiedot&lt;/i&gt;/&lt;i&gt;Vastaavien tavaroiden käyttö&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is in SET {51, 44, 53, 46}&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Uppgifter om avräkningen&lt;/i&gt;/&lt;i&gt;Bruk av likvärdiga varor&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+ELSE IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is '48'&#13;
+THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Uppgifter om avräkningen&lt;/i&gt;/&lt;i&gt;Bruk av likvärdiga varor&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {51, 44, 53, 46}&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Details of discharge&lt;/i&gt;/&lt;i&gt;Usage of equivalent goods&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+ELSE IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '48'&#13;
+THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Details of discharge&lt;/i&gt;/&lt;i&gt;Usage of equivalent goods&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC2011</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is in SET {44, 46, 48}&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Päättämistä koskevat tiedot&lt;/i&gt;/&lt;i&gt;Tavaroiden lopullinen käyttö / viedyt tavarat&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+ELSE IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is in SET {51, 53 }&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Päättämistä koskevat tiedot&lt;/i&gt;/&lt;i&gt;Tavaroiden lopullinen käyttö / viedyt tavarat&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is in SET {44, 46, 48}&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Uppgifter om avräkningen&lt;/i&gt;/&lt;i&gt;Varornas slutgiltiga bruk / exporterade varor&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+ELSE IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is in SET {51, 53 }&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Uppgifter om avräkningen&lt;/i&gt;/&lt;i&gt;Varornas slutgiltiga bruk / exporterade varor&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {44, 46, 48}&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Details of discharge&lt;/i&gt;/&lt;i&gt;Final use of the goods / exported goods&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+ELSE IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {51, 53 }&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Details of discharge&lt;/i&gt;/&lt;i&gt;Final use of the goods / exported goods&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC2013</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is '71'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Ilmoituksen antaja&lt;/i&gt;/&lt;i&gt;Tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; is 'R' &#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Ilmoituksen antaja&lt;/i&gt;/&lt;i&gt;Tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; is 'N'</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is '71'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Person som inger deklarationen&lt;/i&gt;/&lt;i&gt;Identifieringsnummer&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; is 'R' &#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Person som inger deklarationen&lt;/i&gt;/&lt;i&gt;Identifieringsnummer&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; is 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '71'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Submitter&lt;/i&gt;/&lt;i&gt;Identification number&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; is 'R' &#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Submitter&lt;/i&gt;/&lt;i&gt;Identification number&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; is 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC2015</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is in SET {44, 51}&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Tavara&lt;/i&gt;/&lt;i&gt;CBAM-tuotteita&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Päättämistä koskevat tiedot&lt;/i&gt;/&lt;i&gt;CBAM-tuotteita&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Tavara&lt;/i&gt;/&lt;i&gt;CBAM-tuotteita&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Päättämistä koskevat tiedot&lt;/i&gt;/&lt;i&gt;CBAM-tuotteita&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is in SET {44, 51}&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Vara&lt;/i&gt;/&lt;i&gt;CBAM-produkter&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Uppgifter om avräkningen&lt;/i&gt;/&lt;i&gt;CBAM-produkter&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Vara&lt;/i&gt;/&lt;i&gt;CBAM-produkter&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Uppgifter om avräkningen&lt;/i&gt;/&lt;i&gt;CBAM-produkter&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {44, 51}&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Commodity&lt;/i&gt;/&lt;i&gt;CBAM products&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Details of discharge&lt;/i&gt;/&lt;i&gt;CBAM products&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Commodity&lt;/i&gt;/&lt;i&gt;CBAM products&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Details of discharge&lt;/i&gt;/&lt;i&gt;CBAM products&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC2016</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is '44'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Päättämistä koskevat tiedot&lt;/i&gt;/&lt;i&gt;Käyttöpäivä&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Päättämistä koskevat tiedot&lt;/i&gt;/&lt;i&gt;Käyttöpäivä&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is '44'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Uppgifter om avräkningen&lt;/i&gt;/&lt;i&gt;Användningsdag&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Uppgifter om avräkningen&lt;/i&gt;/&lt;i&gt;Användningsdag&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '44'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Details of discharge&lt;/i&gt;/&lt;i&gt;Date of use&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Details of discharge&lt;/i&gt;/&lt;i&gt;Date of use&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC2017</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is '44'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Päättämistä koskevat tiedot&lt;/i&gt;/&lt;i&gt;Viimeinen käyttöpäivä&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Päätöstilitettävä erä&lt;/i&gt;/&lt;i&gt;Päättämistä koskevat tiedot&lt;/i&gt;/&lt;i&gt;Viimeinen käyttöpäivä&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is '44'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Uppgifter om avräkningen&lt;/i&gt;/&lt;i&gt;Sista användningsdag&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Post som ska avräknas&lt;/i&gt;/&lt;i&gt;Uppgifter om avräkningen&lt;/i&gt;/&lt;i&gt;Sista användningsdag&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '44'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Details of discharge&lt;/i&gt;/&lt;i&gt;End date of use&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'O'&#13;
+  ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Placement to be discharged&lt;/i&gt;/&lt;i&gt;Details of discharge&lt;/i&gt;/&lt;i&gt;End date of use&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
     <Code>NC4001</Code>
     <Description lang="fi">If dataset type is H5P, then this is not used, else it is required.</Description>
     <Description lang="sv">If dataset type is H5P, then this is not used, else it is required.</Description>
@@ -1536,12 +1707,6 @@ ELSE &lt;i&gt;Customs office of guarantee&lt;/i&gt; = 'R'</Description>
     <Description lang="fi">Palveluntarjoajan on oltava eri kuin maahantuoja (saapuminen ja tuonti), viejä (vienti), tavaranhaltija ja edustaja.</Description>
     <Description lang="sv">Tjänsteleverantören måste skilja sig från importör (införsel och import), exportör (export), deklarant och representant.</Description>
     <Description lang="en">Service provider has to be different from importer (entry and import), exporter (export), declarant and representative.</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NR0049_BoD</Code>
-    <Description lang="fi">Service provider has to be different from representative and holder of authorisation</Description>
-    <Description lang="sv">Service provider has to be different from representative and holder of authorisation</Description>
-    <Description lang="en">Service provider has to be different from representative and holder of authorisation</Description>
   </Constraint>
   <Constraint>
     <Code>NR0051</Code>
@@ -2561,18 +2726,6 @@ declared Authorisation/HolderID must be either Importer/IdentificationNumber or 
     <Description lang="en">Service provider has to be registered as service provider in trader register.</Description>
   </Constraint>
   <Constraint>
-    <Code>NR1111</Code>
-    <Description lang="fi">Trader must be found in Trader register	</Description>
-    <Description lang="sv">Trader must be found in Trader register	</Description>
-    <Description lang="en">Trader must be found in Trader register	</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NR1112</Code>
-    <Description lang="fi">If submitter is not holder of CW authorisation nor representative in FI434, then he/she must be found trader register and marked there as service provider.</Description>
-    <Description lang="sv">If submitter is not holder of CW authorisation nor representative in FI434, then he/she must be found trader register and marked there as service provider.</Description>
-    <Description lang="en">If submitter is not holder of CW authorisation nor representative in FI434, then he/she must be found trader register and marked there as service provider.</Description>
-  </Constraint>
-  <Constraint>
     <Code>NR1116</Code>
     <Description lang="fi">JOS &lt;i&gt;Luonne&lt;/i&gt; on JOUKOSSA {'Y', 'K', 'V', 'T'}&#13;
   NIIN tietoelementin &lt;i&gt;Tunnistenumero&lt;/i&gt; muodon on oltava FI + 9 merkkiä</Description>
@@ -2930,13 +3083,25 @@ IF &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {D, E, F}  THEN &lt;
   THEN &lt;i&gt;Additional information code&lt;/i&gt; cannot be 'FIFAL'</Description>
   </Constraint>
   <Constraint>
-    <Code>NR2001</Code>
-    <Description lang="fi">If Representative is used,&#13;
-then authorization holder must not be the same as Representative,</Description>
-    <Description lang="sv">If Representative is used,&#13;
-then authorization holder must not be the same as Representative,</Description>
-    <Description lang="en">If Representative is used,&#13;
-then authorization holder must not be the same as Representative,</Description>
+    <Code>NR2000</Code>
+    <Description lang="fi">Given MRN must be valid&#13;
+-declaration must exist in UTU,&#13;
+-declaration must be in state ReleasedWaitingForDischarge,&#13;
+-warehouse identification (from FI488) is the same as in the discharged declaration,&#13;
+-authorisation holder ID (from FI488) is the same as in the discharged declaration,&#13;
+-declaration must be covered in subsequent declarations in correct states (status 4 or 5 from Export)</Description>
+    <Description lang="sv">Given MRN must be valid&#13;
+-declaration must exist in UTU,&#13;
+-declaration must be in state ReleasedWaitingForDischarge,&#13;
+-warehouse identification (from FI488) is the same as in the discharged declaration,&#13;
+-authorisation holder ID (from FI488) is the same as in the discharged declaration,&#13;
+-declaration must be covered in subsequent declarations in correct states (status 4 or 5 from Export)</Description>
+    <Description lang="en">Given MRN must be valid&#13;
+-declaration must exist in UTU,&#13;
+-declaration must be in state ReleasedWaitingForDischarge,&#13;
+-warehouse identification (from FI488) is the same as in the discharged declaration,&#13;
+-authorisation holder ID (from FI488) is the same as in the discharged declaration,&#13;
+-declaration must be covered in subsequent declarations in correct states (status 4 or 5 from Export)</Description>
   </Constraint>
   <Constraint>
     <Code>NR2010</Code>
@@ -2957,10 +3122,205 @@ then authorization holder must not be the same as Representative,</Description>
     <Description lang="en">Time limit T3 cannot be extended, if requested procedure in case details is 46, 48 or 53.</Description>
   </Constraint>
   <Constraint>
+    <Code>NR2014</Code>
+    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on '71'&#13;
+  NIIN toimijan on löydyttävä asiakasrekisteristä</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är '71'&#13;
+  DÅ måste aktören hittas is kundregistret</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '71'&#13;
+  THEN trader must be found in trader register</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2015</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is in SET {44, 51, 53, 46, 48}&#13;
+  THEN declarants of all placements to be discharged must be same as declarant of BoD/NoD.</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is in SET {44, 51, 53, 46, 48}&#13;
+  THEN declarants of all placements to be discharged must be same as declarant of BoD/NoD.</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {44, 51, 53, 46, 48}&#13;
+  THEN declarants of all placements to be discharged must be same as declarant of BoD/NoD.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2016</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is '71 '&#13;
+  THEN &lt;i&gt;Palveluntarjoaja&lt;/i&gt; has to be different from &lt;i&gt;Edustaja&lt;/i&gt; and &lt;i&gt;Luvanhaltijan tunnistenumero&lt;/i&gt;&#13;
+  ELSE &lt;i&gt;Palveluntarjoaja&lt;/i&gt; has to be different from &lt;i&gt;Ilmoittaja&lt;/i&gt; and &lt;i&gt;Edustaja&lt;/i&gt;</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is '71 '&#13;
+  THEN &lt;i&gt;Tjänsteleverantör&lt;/i&gt; has to be different from &lt;i&gt;Ombud&lt;/i&gt; and &lt;i&gt;Tillståndshavarens identifieringsnummer&lt;/i&gt;&#13;
+  ELSE &lt;i&gt;Tjänsteleverantör&lt;/i&gt; has to be different from &lt;i&gt;Deklarant&lt;/i&gt; and &lt;i&gt;Ombud&lt;/i&gt;</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '71 '&#13;
+  THEN &lt;i&gt;Service provider&lt;/i&gt; has to be different from &lt;i&gt;Representative&lt;/i&gt; and &lt;i&gt;Holder of the authorisation identification no.&lt;/i&gt;&#13;
+  ELSE &lt;i&gt;Service provider&lt;/i&gt; has to be different from &lt;i&gt;Declarant&lt;/i&gt; and &lt;i&gt;Representative&lt;/i&gt;</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2017</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is '71' AND &lt;i&gt;Ilmoituksen antaja&lt;/i&gt; is not holder of CW authorisation nor representative in FI488, then he/she must be found trader register and marked there as service provider.</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is '71' AND &lt;i&gt;Person som inger deklarationen&lt;/i&gt; is not holder of CW authorisation nor representative in FI488, then he/she must be found trader register and marked there as service provider.</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '71' AND &lt;i&gt;Submitter&lt;/i&gt; is not holder of CW authorisation nor representative in FI488, then he/she must be found trader register and marked there as service provider.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2019</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is '71' AND IF warehouse is a private customs warehouse  AND IF Representative is used&#13;
+  THEN authorization holder must not be the same as Representative</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is '71' AND IF warehouse is a private customs warehouse  AND IF Representative is used&#13;
+  THEN authorization holder must not be the same as Representative</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '71' AND IF warehouse is a private customs warehouse  AND IF Representative is used&#13;
+  THEN authorization holder must not be the same as Representative</Description>
+  </Constraint>
+  <Constraint>
     <Code>NR2020</Code>
     <Description lang="fi">Time limit does not exist</Description>
     <Description lang="sv">Time limit does not exist</Description>
     <Description lang="en">Time limit does not exist</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2021</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is in SET {44, 51, 53, 46, 48}&#13;
+  THEN Authorisation ID's of all placements to be discharged must be same as Authorisation of BoD/NoD.&lt;br&gt;</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is in SET {44, 51, 53, 46, 48}&#13;
+  THEN Authorisation ID's of all placements to be discharged must be same as Authorisation of BoD/NoD.&lt;br&gt;</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {44, 51, 53, 46, 48}&#13;
+  THEN Authorisation ID's of all placements to be discharged must be same as Authorisation of BoD/NoD.&lt;br&gt;</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2022</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is in SET {44, 51, 53, 46, 48} AND IF BoD/NoD Authorisation ID not exists&#13;
+ THEN placements to be discharged must not have authorisations.</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is in SET {44, 51, 53, 46, 48} AND IF BoD/NoD Authorisation ID not exists&#13;
+ THEN placements to be discharged must not have authorisations.</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {44, 51, 53, 46, 48} AND IF BoD/NoD Authorisation ID not exists&#13;
+ THEN placements to be discharged must not have authorisations.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2023</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is in SET {44, 51, 53, 46, 48} AND IF BoD/NoD Authorisation ID not exists&#13;
+ THEN placements to be discharged must have additional information code '00100'.</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is in SET {44, 51, 53, 46, 48} AND IF BoD/NoD Authorisation ID not exists&#13;
+ THEN placements to be discharged must have additional information code '00100'.</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {44, 51, 53, 46, 48} AND IF BoD/NoD Authorisation ID not exists&#13;
+ THEN placements to be discharged must have additional information code '00100'.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2024</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is in SET {44, 51, 53, 46, 48} AND IF BoD/NoD Authorisation ID exists&#13;
+  THEN authorization holder ID must me same as declarant</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is in SET {44, 51, 53, 46, 48} AND IF BoD/NoD Authorisation ID exists&#13;
+  THEN authorization holder ID must me same as declarant</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {44, 51, 53, 46, 48} AND IF BoD/NoD Authorisation ID exists&#13;
+  THEN authorization holder ID must me same as declarant</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2025</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is '51'&#13;
+  THEN FID85 or FID86 is required</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is '51'&#13;
+  THEN FID85 or FID86 is required</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '51'&#13;
+  THEN FID85 or FID86 is required</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2026</Code>
+    <Description lang="fi">IF &lt;i&gt;Lisätietokoodi&lt;/i&gt; is 'FID86'&#13;
+  THEN &lt;i&gt;Lisätiedon kuvaus&lt;/i&gt; must exist in codelist CalculationMethod</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; is 'FID86'&#13;
+  THEN &lt;i&gt;Beskrivning av ytterligare uppgifter&lt;/i&gt; must exist in codelist CalculationMethod</Description>
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; is 'FID86'&#13;
+  THEN &lt;i&gt;Additional information description&lt;/i&gt; must exist in codelist CalculationMethod</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2028</Code>
+    <Description lang="fi">IF Procedure is in SET {44, 51, 53, 46, 48}&#13;
+  THEN Procedure of placement to be discharged must be same as procedure of BoD/NoD.</Description>
+    <Description lang="sv">IF Procedure is in SET {44, 51, 53, 46, 48}&#13;
+  THEN Procedure of placement to be discharged must be same as procedure of BoD/NoD.</Description>
+    <Description lang="en">IF Procedure is in SET {44, 51, 53, 46, 48}&#13;
+  THEN Procedure of placement to be discharged must be same as procedure of BoD/NoD.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2030</Code>
+    <Description lang="fi">IF &lt;i&gt;Lisätietokoodi&lt;/i&gt; 'FIGLO' exits&#13;
+  THEN all placements to be discharged must have the same Period of Discharge</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; 'FIGLO' exits&#13;
+  THEN all placements to be discharged must have the same Period of Discharge</Description>
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; 'FIGLO' exits&#13;
+  THEN all placements to be discharged must have the same Period of Discharge</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2031</Code>
+    <Description lang="fi">IF Procedure is '44' or '51'&#13;
+  THEN Time limit for Bill of discharge H of placement to be discharged must not be in the past.</Description>
+    <Description lang="sv">IF Procedure is '44' or '51'&#13;
+  THEN Time limit for Bill of discharge H of placement to be discharged must not be in the past.</Description>
+    <Description lang="en">IF Procedure is '44' or '51'&#13;
+  THEN Time limit for Bill of discharge H of placement to be discharged must not be in the past.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2032</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is '46' &lt;i&gt;Vastaavien tavaroiden käyttö&lt;/i&gt;&#13;
+  THEN must be 'Yes'</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is '46' &lt;i&gt;Bruk av likvärdiga varor&lt;/i&gt;&#13;
+  THEN must be 'Yes'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '46' &lt;i&gt;Usage of equivalent goods&lt;/i&gt;&#13;
+  THEN must be 'Yes'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2033</Code>
+    <Description lang="fi">IF &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; is '51'&#13;
+  THEN &lt;i&gt;Edeltävä menettelykoodi&lt;/i&gt; of placement to be discharged must not be '11'</Description>
+    <Description lang="sv">IF &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; is '51'&#13;
+  THEN &lt;i&gt;Kod för föregående förfarande&lt;/i&gt; of placement to be discharged must not be '11'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is '51'&#13;
+  THEN &lt;i&gt;Previous procedure code&lt;/i&gt; of placement to be discharged must not be '11'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2034</Code>
+    <Description lang="fi">IF Procedure is in SET {53, 46, 48}&#13;
+  THEN (Time limit for discharging of procedure F + 1 day) of placement to be discharged must not be in the past</Description>
+    <Description lang="sv">IF Procedure is in SET {53, 46, 48}&#13;
+  THEN (Time limit for discharging of procedure F + 1 day) of placement to be discharged must not be in the past</Description>
+    <Description lang="en">IF Procedure is in SET {53, 46, 48}&#13;
+  THEN (Time limit for discharging of procedure F + 1 day) of placement to be discharged must not be in the past</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2035</Code>
+    <Description lang="fi">IF value of simplification is yes, also IPO-permit must be declared.</Description>
+    <Description lang="sv">IF value of simplification is yes, also IPO-permit must be declared.</Description>
+    <Description lang="en">IF value of simplification is yes, also IPO-permit must be declared.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2037</Code>
+    <Description lang="fi">Additional information code FIGLO may be declared only if requested procedure is 51</Description>
+    <Description lang="sv">Additional information code FIGLO may be declared only if requested procedure is 51</Description>
+    <Description lang="en">Additional information code FIGLO may be declared only if requested procedure is 51</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2039</Code>
+    <Description lang="fi">IF Procedure is in SET {44, 51, 53, 46, 48} AND IF EIDR-notification&#13;
+  THEN all EIDRs connected to the same V-recapitulative declaration must be included in the same BoD/NoD.</Description>
+    <Description lang="sv">IF Procedure is in SET {44, 51, 53, 46, 48} AND IF EIDR-notification&#13;
+  THEN all EIDRs connected to the same V-recapitulative declaration must be included in the same BoD/NoD.</Description>
+    <Description lang="en">IF Procedure is in SET {44, 51, 53, 46, 48} AND IF EIDR-notification&#13;
+  THEN all EIDRs connected to the same V-recapitulative declaration must be included in the same BoD/NoD.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2041</Code>
+    <Description lang="fi">Authorisation declared must be valid on the latest acceptance date of the referred import declarations</Description>
+    <Description lang="sv">Authorisation declared must be valid on the latest acceptance date of the referred import declarations</Description>
+    <Description lang="en">Authorisation declared must be valid on the latest acceptance date of the referred import declarations</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2042</Code>
+    <Description lang="fi">IF Procedure is in SET {44, 51, 53, 46, 48}&#13;
+  THEN Value of SplitConsignment (All goods discharged) must be “Yes”.</Description>
+    <Description lang="sv">IF Procedure is in SET {44, 51, 53, 46, 48}&#13;
+  THEN Value of SplitConsignment (All goods discharged) must be “Yes”.</Description>
+    <Description lang="en">IF Procedure is in SET {44, 51, 53, 46, 48}&#13;
+  THEN Value of SplitConsignment (All goods discharged) must be “Yes”.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2047</Code>
+    <Description lang="fi">Authorisation type and holderID declared by trader must be the same as the Authorisation type and holderID of the authorization details fetched from Authorisation register.</Description>
+    <Description lang="sv">Authorisation type and holderID declared by trader must be the same as the Authorisation type and holderID of the authorization details fetched from Authorisation register.</Description>
+    <Description lang="en">Authorisation type and holderID declared by trader must be the same as the Authorisation type and holderID of the authorization details fetched from Authorisation register.</Description>
   </Constraint>
   <Constraint>
     <Code>NR3001</Code>
