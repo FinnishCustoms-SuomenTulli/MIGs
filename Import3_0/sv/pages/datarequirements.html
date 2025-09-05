@@ -86,14 +86,17 @@
                 <select name="filter" id="Select" class="form-control">
                     <option value="null">-- Filtrera datainnehållen --</option>
                     <option value="all">Visa allt</option>
-                    <option value="I1">Förenklad deklaration</option>
-                    <option value="H2">Tullagring</option>
-                    <option value="H3">Tillfällig införsel</option>
-                    <option value="H4">Aktiv förädling</option>
-                    <option value="H5">Skattegränsanmälan</option>
-                    <option value="H5N">Nationell skattegränsanmälan - icke-momsregistrerade aktörer</option>
-                    <option value="H5R">Nationell skattegränsanmälan - momsregistrerade aktörer</option>
-                    <option value="H5P">Nationell skattegränsanmälan - sammandragsdeklaration</option>
+                    <option value="I1">Förenklad deklaration (FI413B & FI415B)</option>
+                    <option value="H2">Tullagring (FI413B & FI415B)</option>
+                    <option value="H3">Tillfällig införsel (FI413B & FI415B)</option>
+                    <option value="H4">Aktiv förädling (FI413B & FI415B)</option>
+                    <option value="H5">Skattegränsanmälan (FI413B & FI415B)</option>
+                    <option value="H5N">Nationell skattegränsanmälan - icke-momsregistrerade aktörer (FI413B & FI415B)
+                    </option>
+                    <option value="H5R">Nationell skattegränsanmälan - momsregistrerade aktörer (FI413B & FI415B)
+                    </option>
+                    <option value="H5P">Nationell skattegränsanmälan - sammandragsdeklaration (FI413B & FI415B)</option>
+                    <option value="NoD">Anmälan om avslutande (Tullagring)</option>
                 </select>
                 <div class="tab-content"></div>
                 <div id="codemodal"></div>
@@ -250,6 +253,10 @@
                 case 'H5P':
                     $('.datatable > tbody > tr:not(.description)').removeClass('hidden').addClass('oddeven').show();
                     $('.datatable > tbody > tr:not(.H5P):not(.all)').removeClass('oddeven').addClass('hidden').hide();
+                    break;
+                case 'NoD':
+                    $('.datatable > tbody > tr:not(.description)').removeClass('hidden').addClass('oddeven').show();
+                    $('.datatable > tbody > tr:not(.NoD):not(.all)').removeClass('oddeven').addClass('hidden').hide();
                     break;
             }
         });

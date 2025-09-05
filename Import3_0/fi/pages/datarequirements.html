@@ -86,14 +86,15 @@
                 <select name="filter" id="Select" class="form-control">
                     <option value="null">-- Suodata tietosisältö --</option>
                     <option value="all">Näytä kaikki</option>
-                    <option value="I1">Yksinkertaistettu ilmoitus</option>
-                    <option value="H2">Tullivarastointi</option>
-                    <option value="H3">Väliaikainen maahantuonti</option>
-                    <option value="H4">Sisäinen jalostus</option>
-                    <option value="H5">Verorajailmoitus</option>
-                    <option value="H5N">Kansallinen verorajailmoitus - ALV-rekisteröimättömät toimijat</option>
-                    <option value="H5R">Kansallinen verorajailmoitus - ALV-rekisteröidyt toimijat</option>
-                    <option value="H5P">Kansallinen verorajailmoitus - yhteenvetoilmoitus</option>
+                    <option value="I1">Yksinkertaistettu ilmoitus (FI413B & FI415B)</option>
+                    <option value="H2">Tullivarastointi (FI413B & FI415B)</option>
+                    <option value="H3">Väliaikainen maahantuonti (FI413B & FI415B)</option>
+                    <option value="H4">Sisäinen jalostus (FI413B & FI415B)</option>
+                    <option value="H5">Verorajailmoitus (FI413B & FI415B)</option>
+                    <option value="H5N">Kansallinen verorajailmoitus - ALV-rekisteröimättömät toimijat (FI413B & FI415B)</option>
+                    <option value="H5R">Kansallinen verorajailmoitus - ALV-rekisteröidyt toimijat (FI413B & FI415B)</option>
+                    <option value="H5P">Kansallinen verorajailmoitus - yhteenvetoilmoitus (FI413B & FI415B)</option>
+                    <option value="NoD">Päättämistiedonanto (Tullivarastointi)</option>
                 </select>
                 <div class="tab-content"></div>
                 <div id="codemodal"></div>
@@ -250,6 +251,10 @@
                 case 'H5P':
                     $('.datatable > tbody > tr:not(.description)').removeClass('hidden').addClass('oddeven').show();
                     $('.datatable > tbody > tr:not(.H5P):not(.all)').removeClass('oddeven').addClass('hidden').hide();
+                    break;
+                case 'NoD':
+                    $('.datatable > tbody > tr:not(.description)').removeClass('hidden').addClass('oddeven').show();
+                    $('.datatable > tbody > tr:not(.NoD):not(.all)').removeClass('oddeven').addClass('hidden').hide();
                     break;
             }
         });

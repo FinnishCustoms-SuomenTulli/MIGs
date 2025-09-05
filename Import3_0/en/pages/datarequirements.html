@@ -86,14 +86,18 @@
                 <select name="filter" id="Select" class="form-control">
                     <option value="null">-- Filter data requirements --</option>
                     <option value="all">Show everything</option>
-                    <option value="I1">Simplified declaration</option>
-                    <option value="H2">Customs warehousing</option>
-                    <option value="H3">Temporary admission</option>
-                    <option value="H4">Inward processing</option>
-                    <option value="H5">Fiscal border declaration</option>
-                    <option value="H5N">National fiscal border declaration - non-VAT registered traders</option>
-                    <option value="H5R">National fiscal border declaration - VAT registered traders</option>
-                    <option value="H5P">National fiscal border declaration - recapitulative statements</option>
+                    <option value="I1">Simplified declaration (FI413B & FI415B)</option>
+                    <option value="H2">Customs warehousing (FI413B & FI415B)</option>
+                    <option value="H3">Temporary admission (FI413B & FI415B)</option>
+                    <option value="H4">Inward processing (FI413B & FI415B)</option>
+                    <option value="H5">Fiscal border declaration (FI413B & FI415B)</option>
+                    <option value="H5N">National fiscal border declaration - non-VAT registered traders (FI413B &
+                        FI415B)</option>
+                    <option value="H5R">National fiscal border declaration - VAT registered traders (FI413B & FI415B)
+                    </option>
+                    <option value="H5P">National fiscal border declaration - recapitulative statements (FI413B & FI415B)
+                    </option>
+                    <option value="NoD">Discharge notification (Customs warehousing)</option>
                 </select>
                 <div class="tab-content"></div>
                 <div id="codemodal"></div>
@@ -250,6 +254,10 @@
                 case 'H5P':
                     $('.datatable > tbody > tr:not(.description)').removeClass('hidden').addClass('oddeven').show();
                     $('.datatable > tbody > tr:not(.H5P):not(.all)').removeClass('oddeven').addClass('hidden').hide();
+                    break;
+                case 'NoD':
+                    $('.datatable > tbody > tr:not(.description)').removeClass('hidden').addClass('oddeven').show();
+                    $('.datatable > tbody > tr:not(.NoD):not(.all)').removeClass('oddeven').addClass('hidden').hide();
                     break;
             }
         });
