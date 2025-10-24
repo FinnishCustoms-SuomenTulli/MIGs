@@ -1279,6 +1279,27 @@ ELSE IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {51, 53 }&#13;
   ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Goods to be discharged&lt;/i&gt;/&lt;i&gt;Details of discharge&lt;/i&gt;/&lt;i&gt;End date of use&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'</Description>
   </Constraint>
   <Constraint>
+    <Code>NC2018</Code>
+    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {44, 51}&#13;
+  NIIN &lt;i&gt;Todellinen tuotto&lt;/i&gt; = 'O'&#13;
+  MUUTEN &lt;i&gt;Todellinen tuotto&lt;/i&gt; = 'N'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {44, 51}&#13;
+  DÅ är &lt;i&gt;Faktisk avkastningsgrad&lt;/i&gt; = 'O'&#13;
+  ANNARS är &lt;i&gt;Faktisk avkastningsgrad&lt;/i&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {44, 51}&#13;
+  THEN &lt;i&gt;Actual rate of yield&lt;/i&gt; = 'O'&#13;
+  ELSE &lt;i&gt;Actual rate of yield&lt;/i&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC2019</Code>
+    <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; on JOUKOSSA {44, 51} JA &lt;i&gt;Lisätietokoodi&lt;/i&gt; arvolla 'FIXRY' EI ole ilmoitettu&#13;
+  NIIN &lt;i&gt;Todellinen tuotto&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för begärt förfarande&lt;/i&gt; är i GRUPPEN {44, 51} OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; med värde 'FIXRY' INTE är anmält&#13;
+  DÅ är &lt;i&gt;Faktisk avkastningsgrad&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {44, 51} AND &lt;i&gt;Additional information code&lt;/i&gt; with value 'FIXRY' is NOT declared&#13;
+  THEN &lt;i&gt;Actual rate of yield&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
     <Code>NC4001</Code>
     <Description lang="fi">If dataset type is H5P, then this is not used, else it is required.</Description>
     <Description lang="sv">If dataset type is H5P, then this is not used, else it is required.</Description>
@@ -4087,6 +4108,57 @@ o Previous procedure 21 is not allowed for any goods item</Description>
     <Description lang="fi">Jos GRN lisätään muutokseen, sen on oltava sama kuin aiemmassa velka-/vastuuvarauksessa käytetty</Description>
     <Description lang="sv">Om GRN läggs till i en ändring, måste den vara densamma som användes i den tidigare skuld-/ansvarsreservation</Description>
     <Description lang="en">If GRN is added in amendment, it must be the same as used in previous debt/liability reservation</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4083</Code>
+    <Description lang="fi">Kaikilla tavaraerätasolla ilmoitutuilla tietoryhmillä &lt;i&gt;Muu viite&lt;/i&gt; joilla &lt;i&gt;Koodi&lt;/i&gt; = 'Y128' on oltava identtinen &lt;i&gt;Viitenumero&lt;/i&gt;</Description>
+    <Description lang="sv">Alla &lt;i&gt;Ytterligare referens&lt;/i&gt; med &lt;i&gt;Kod&lt;/i&gt; = 'Y128' som är anmälda på varupostnivå måste ha samma &lt;i&gt;Referensnummer&lt;/i&gt;</Description>
+    <Description lang="en">All &lt;i&gt;Additional reference&lt;/i&gt; with &lt;i&gt;Code&lt;/i&gt; = 'Y128' declared on goods item level must have the same &lt;i&gt;Reference number&lt;/i&gt;</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4084</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; on YHTÄ KUIN 'FICBM'&#13;
+  NIIN &lt;i&gt;Lisätiedon kuvaus&lt;/i&gt; = 'R' JA muodon on oltava täsmälleen määritysten mukainen:&#13;
+    TARIC-koodi;paino (n..16,6) ['kg'/'KG'/'KGM'];arvo (n..16,2) ['eur'/'EUR']</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; är LIKA MED 'FICBM'&#13;
+  DÅ är &lt;i&gt;Beskrivning av ytterligare uppgifter&lt;/i&gt; = 'R' OCH formatet måste vara exact som definierat:&#13;
+    TARIC kod;vikt (n..16,6) ['kg'/'KG'/'KGM'];värde (n..16,2) ['eur'/'EUR']</Description>
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; is EQUAL to 'FICBM'&#13;
+  THEN &lt;i&gt;Additional information description&lt;/i&gt; = 'R' AND format must be exactly as defined:&#13;
+    TARIC code;weight (n..16,6) ['kg'/'KG'/'KGM'];value (n..16,2) ['eur'/'EUR']</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4085</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; on YHTÄ KUIN 'FICBM'&#13;
+  NIIN elementissä &lt;i&gt;Lisätiedon kuvaus&lt;/i&gt; ilmoitettu TARIC-koodi on oltava eri kuin tietoryhmän &lt;i&gt;Tavara&lt;/i&gt; alla ilmoitettu</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; är LIKA MED 'FICBM'&#13;
+  DÅ måste TARIC koden i &lt;i&gt;Beskrivning av ytterligare uppgifter&lt;/i&gt; vara en annan än den som har anmälts under &lt;i&gt;Vara&lt;/i&gt;</Description>
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; is EQUAL to 'FICBM'&#13;
+  THEN TARIC code in &lt;i&gt;Additional information description&lt;/i&gt; must be different from the one defined in &lt;i&gt;Commodity&lt;/i&gt;</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4088</Code>
+    <Description lang="fi">&lt;i&gt;Viitenumero&lt;/i&gt; = 'Y128' voidaan käyttää ainoastaan hiilirajamekanismin alaisilla tuotteilla</Description>
+    <Description lang="sv">&lt;i&gt;Referensnummer&lt;/i&gt; = 'Y128' kan endast användas för varor som mekanismen för koldioxidjustering vid gränserna omfattar</Description>
+    <Description lang="en">&lt;i&gt;Reference number&lt;/i&gt; = 'Y128' can only be used for goods covered by the Carbon Border Adjustment Mechanism</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4089</Code>
+    <Description lang="fi">JOS tavaraerä sisältää hiilirajamekanismin alaisia tuotteita&#13;
+  NIIN tietoelementin &lt;i&gt;Viitenumero&lt;/i&gt; esiintymässä on ilmoitettava JOUKOSSA {Y128, Y135, Y136, Y137, Y237, Y238} oleva koodi</Description>
+    <Description lang="sv">OM varorna i varuposten omfattas av mekanismen för koldioxidjustering vid gränserna&#13;
+  DÅ måste ett &lt;i&gt;Referensnummer&lt;/i&gt; från GRUPPEN {Y128, Y135, Y136, Y137, Y237, Y238} anmälas</Description>
+    <Description lang="en">IF goods item consists of goods covered by the Carbon Border Adjustment Mechanism&#13;
+  THEN a &lt;i&gt;Reference number&lt;/i&gt; from SET {Y128, Y135, Y136, Y137, Y237, Y238} must be declared</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4090</Code>
+    <Description lang="fi">JOS raja ylittyy (kokonaisnettomassa ylittää 50 000 kg)&#13;
+  NIIN &lt;i&gt;Viitenumero&lt;/i&gt; = 'Y137' ei voida ilmoittaa</Description>
+    <Description lang="sv">OM gränsen överstigs (totala nettomassan överstiger 50 000 kg)&#13;
+  DÅ kan &lt;i&gt;Referensnummer&lt;/i&gt; = 'Y137' inte anmälas</Description>
+    <Description lang="en">IF the threshold is exceeded (total net mass exceeds 50 000 kg)&#13;
+  THEN &lt;i&gt;Reference number&lt;/i&gt; = 'Y137' cannot be declared</Description>
   </Constraint>
   <Constraint>
     <Code>NR4301</Code>

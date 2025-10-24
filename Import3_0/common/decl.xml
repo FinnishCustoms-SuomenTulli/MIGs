@@ -4337,11 +4337,11 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <MinOccurrence use="FI483B">1</MinOccurrence>
         <MinOccurrence use="FI485B">1</MinOccurrence>
         <MinOccurrence use="FI488B">1</MinOccurrence>
-        <Codelist use="FI413B">CL013H</Codelist>
-        <Codelist use="FI415B">CL013H</Codelist>
+        <Codelist use="FI413B">CL213</Codelist>
+        <Codelist use="FI415B">CL213</Codelist>
         <Codelist use="FI483B">CL013H</Codelist>
         <Codelist use="FI485B">CL013H</Codelist>
-        <Codelist use="FI488B">CL013H</Codelist>
+        <Codelist use="FI488B">CL213</Codelist>
         <Rule use="FI413B">NR3002</Rule>
         <Rule use="FI415B">NR3002</Rule>
         <Description lang="fi" use="FI413B">Ilmoitetaan kokoilmoitusta koskevan liiteasiakirjan koodi.</Description>
@@ -5431,6 +5431,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Name lang="en">Procedure</Name>
       <XPath>/​GovernmentProcedure</XPath>
       <Use>FI488B</Use>
+      <Subset use="FI488B">NoD</Subset>
       <MinOccurrence use="FI488B">1</MinOccurrence>
       <MaxOccurrence use="FI488B">1</MaxOccurrence>
       <DataElement>
@@ -5440,6 +5441,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <XPath>/​GovernmentProcedure/​Current</XPath>
         <Format>an2</Format>
         <Use>FI488B</Use>
+        <Subset use="FI488B">NoD</Subset>
         <MinOccurrence use="FI488B">1</MinOccurrence>
         <Codelist use="FI488B">CL092</Codelist>
         <Rule use="FI488B">NR2025</Rule>
@@ -5726,16 +5728,18 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Use>FI488B</Use>
             <MinOccurrence use="FI488B">1</MinOccurrence>
             <MaxOccurrence use="FI488B">1</MaxOccurrence>
-            <DataElement>
-              <Name lang="fi">Nettopaino</Name>
-              <Name lang="sv">Nettovikt</Name>
-              <Name lang="en">Net mass</Name>
-              <XPath>/​Consignment/​Discharge/​Commodity/​GoodsMeasure/​NetNetMass</XPath>
-              <Format>n..16,6</Format>
-              <Use>FI488B</Use>
-              <MinOccurrence use="FI488B">1</MinOccurrence>
-            </DataElement>
           </DataGroup>
+          <DataElement>
+            <Name lang="fi">Todellinen tuotto</Name>
+            <Name lang="sv">Faktisk avkastningsgrad</Name>
+            <Name lang="en">Actual rate of yield</Name>
+            <XPath>/​Consignment/​Discharge/​Commodity/​ActualRateOfYield</XPath>
+            <Format>n..5,2</Format>
+            <Use>FI488B</Use>
+            <MinOccurrence use="FI488B">0</MinOccurrence>
+            <Condition use="FI488B">NC2018</Condition>
+            <Condition use="FI488B">NC2019</Condition>
+          </DataElement>
         </DataGroup>
         <DataGroup>
           <Name lang="fi">Päättämistä koskevat tiedot</Name>
@@ -5849,7 +5853,7 @@ Jos tullimenettelyksi on ilmoitettu 46 tai 48, annetaan selvitys siitä, mitä t
             <Use>FI488B</Use>
             <Subset use="FI488B">NoD</Subset>
             <MinOccurrence use="FI488B">1</MinOccurrence>
-            <Codelist use="FI488B">CL013H</Codelist>
+            <Codelist use="FI488B">CL213</Codelist>
           </DataElement>
           <DataElement>
             <Name lang="fi">Asiakirjatunniste</Name>
@@ -10840,8 +10844,8 @@ Jos tullimenettelyksi on ilmoitettu 46 tai 48, annetaan selvitys siitä, mitä t
             <MinOccurrence use="FI415B">1</MinOccurrence>
             <MinOccurrence use="FI483B">1</MinOccurrence>
             <MinOccurrence use="FI485B">1</MinOccurrence>
-            <Codelist use="FI413B">CL013G</Codelist>
-            <Codelist use="FI415B">CL013G</Codelist>
+            <Codelist use="FI413B">CL213</Codelist>
+            <Codelist use="FI415B">CL213</Codelist>
             <Codelist use="FI483B">CL013G</Codelist>
             <Codelist use="FI485B">CL013G</Codelist>
             <Rule use="FI413B">NR3002</Rule>
@@ -10953,12 +10957,18 @@ Jos tullimenettelyksi on ilmoitettu 46 tai 48, annetaan selvitys siitä, mitä t
               <MinOccurrence use="FI415B">0</MinOccurrence>
               <Rule use="FI413B">NR0290</Rule>
               <Rule use="FI415B">NR0290</Rule>
-              <Description lang="fi" use="FI413B">Ilmoitetaan lupaan/todistukseen merkittävä määrä, jos merkintä tehdään paljouden perusteella.</Description>
-              <Description lang="sv" use="FI413B">Mängden som ska antecknas i tillståndet/intyget anges, om anteckningen är mängdbaserad.</Description>
-              <Description lang="en" use="FI413B">The quantity to be entered in the licence/certificate is provided, if the entry is based on a quantity.</Description>
-              <Description lang="fi" use="FI415B">Ilmoitetaan lupaan/todistukseen merkittävä määrä, jos merkintä tehdään paljouden perusteella.</Description>
-              <Description lang="sv" use="FI415B">Mängden som ska antecknas i tillståndet/intyget anges, om anteckningen är mängdbaserad.</Description>
-              <Description lang="en" use="FI415B">The quantity to be entered in the licence/certificate is provided, if the entry is based on a quantity.</Description>
+              <Description lang="fi" use="FI413B">Ilmoitetaan lupaan/todistukseen merkittävä määrä, jos merkintä tehdään paljouden perusteella.&lt;br&gt;
+Kenttään ei saa laittaa muuta tietoa kuin alaskirjattava määrä.  Desimaalierottimena käytetään pistettä (esim. ”1.5”).</Description>
+              <Description lang="sv" use="FI413B">Mängden som ska antecknas i tillståndet/intyget anges, om anteckningen är mängdbaserad.&lt;br&gt;
+I fältet får man inte ange någon annan uppgift än mängden som ska avskrivas. Som decimalavskiljare används punkt (t.ex. ”1.5”).</Description>
+              <Description lang="en" use="FI413B">The quantity to be entered in the licence/certificate is provided, if the entry is based on a quantity.&lt;br&gt;
+You must not enter any other details than the write-off quantity in the field. A dot is used as the decimal separator (e.g. “1.5”).</Description>
+              <Description lang="fi" use="FI415B">Ilmoitetaan lupaan/todistukseen merkittävä määrä, jos merkintä tehdään paljouden perusteella.&lt;br&gt;
+Kenttään ei saa laittaa muuta tietoa kuin alaskirjattava määrä.  Desimaalierottimena käytetään pistettä (esim. ”1.5”).</Description>
+              <Description lang="sv" use="FI415B">Mängden som ska antecknas i tillståndet/intyget anges, om anteckningen är mängdbaserad.&lt;br&gt;
+I fältet får man inte ange någon annan uppgift än mängden som ska avskrivas. Som decimalavskiljare används punkt (t.ex. ”1.5”).</Description>
+              <Description lang="en" use="FI415B">The quantity to be entered in the licence/certificate is provided, if the entry is based on a quantity.&lt;br&gt;
+You must not enter any other details than the write-off quantity in the field. A dot is used as the decimal separator (e.g. “1.5”).</Description>
             </DataElement>
             <DataElement>
               <Name lang="fi">Määrä, paljousyksikkö ja tarkennin</Name>
@@ -11135,14 +11145,16 @@ Jos tullimenettelyksi on ilmoitettu 46 tai 48, annetaan selvitys siitä, mitä t
           <MinOccurrence use="FI415B">0</MinOccurrence>
           <MaxOccurrence use="FI413B">99</MaxOccurrence>
           <MaxOccurrence use="FI415B">99</MaxOccurrence>
+          <Rule use="FI413B">NR4083</Rule>
+          <Rule use="FI415B">NR4083</Rule>
           <Condition use="FI413B">NC0210</Condition>
           <Condition use="FI415B">NC0210</Condition>
-          <Description lang="fi" use="FI413B">Ilmoitetaan rajoituksiin ja kieltoihin liittyviä Taric negaatiokoodeja (esim. Y923 ja Y900).</Description>
-          <Description lang="sv" use="FI413B">Ange Taric-negationskoder som hänför sig till förbud och restriktioner (t.ex. Y923 och Y900).</Description>
-          <Description lang="en" use="FI413B">Enter Taric negation codes related to restrictions and prohibitions (e.g. Y923 and Y900).</Description>
-          <Description lang="fi" use="FI415B">Ilmoitetaan rajoituksiin ja kieltoihin liittyviä Taric negaatiokoodeja (esim. Y923 ja Y900).</Description>
-          <Description lang="sv" use="FI415B">Ange Taric-negationskoder som hänför sig till förbud och restriktioner (t.ex. Y923 och Y900).</Description>
-          <Description lang="en" use="FI415B">Enter Taric negation codes related to restrictions and prohibitions (e.g. Y923 and Y900).</Description>
+          <Description lang="fi" use="FI413B">Ilmoitetaan rajoituksiin ja kieltoihin liittyviä Y-alkuisia Taric-ehtokoodeja. Jos ehtokoodi edellyttää lisätiedon antamista, lisätieto ilmoitetaan viitenumero-tietoelementissä. Jos esimerkiksi tietoryhmän koodiksi ilmoitetaan lisätietokoodi Y123, tietoryhmän viitenumeroksi ilmoitetaan F-kaasuportaalin rekisteröinti- ja tunnistenumero.</Description>
+          <Description lang="sv" use="FI413B">Ange Taric-villkorskoder som börjar på Y och som hänför sig till förbud och restriktioner. Om villkorskoden förutsätter att en ytterligare uppgift anges, anges uppgiften i dataelementet Referensnummer. Om exempelvis koden för ytterligare uppgifter Y123 anges som kod för datagruppen, ska registrerings- och identifieringsnumret i F-gasportalen anges som referensnummer för datagruppen.</Description>
+          <Description lang="en" use="FI413B">Provide Taric condition codes that begin with Y and concern restrictions and prohibitions. If the condition code requires providing additional information, this information is provided in the data element Reference number. If, for example, you provide additional information code Y123 as a code for the data group, you should provide the F-gas Portal registration and identification number as a reference number for the data group.</Description>
+          <Description lang="fi" use="FI415B">Ilmoitetaan rajoituksiin ja kieltoihin liittyviä Y-alkuisia Taric-ehtokoodeja. Jos ehtokoodi edellyttää lisätiedon antamista, lisätieto ilmoitetaan viitenumero-tietoelementissä. Jos esimerkiksi tietoryhmän koodiksi ilmoitetaan lisätietokoodi Y123, tietoryhmän viitenumeroksi ilmoitetaan F-kaasuportaalin rekisteröinti- ja tunnistenumero.</Description>
+          <Description lang="sv" use="FI415B">Ange Taric-villkorskoder som börjar på Y och som hänför sig till förbud och restriktioner. Om villkorskoden förutsätter att en ytterligare uppgift anges, anges uppgiften i dataelementet Referensnummer. Om exempelvis koden för ytterligare uppgifter Y123 anges som kod för datagruppen, ska registrerings- och identifieringsnumret i F-gasportalen anges som referensnummer för datagruppen.</Description>
+          <Description lang="en" use="FI415B">Provide Taric condition codes that begin with Y and concern restrictions and prohibitions. If the condition code requires providing additional information, this information is provided in the data element Reference number. If, for example, you provide additional information code Y123 as a code for the data group, you should provide the F-gas Portal registration and identification number as a reference number for the data group.</Description>
           <DataElement>
             <Name lang="fi">Koodi</Name>
             <Name lang="sv">Kod</Name>
@@ -11187,6 +11199,12 @@ Jos tullimenettelyksi on ilmoitettu 46 tai 48, annetaan selvitys siitä, mitä t
             <Use>FI415B</Use>
             <MinOccurrence use="FI413B">0</MinOccurrence>
             <MinOccurrence use="FI415B">0</MinOccurrence>
+            <Rule use="FI413B">NR4088</Rule>
+            <Rule use="FI413B">NR4089</Rule>
+            <Rule use="FI413B">NR4090</Rule>
+            <Rule use="FI415B">NR4088</Rule>
+            <Rule use="FI415B">NR4089</Rule>
+            <Rule use="FI415B">NR4090</Rule>
           </DataElement>
         </DataGroup>
         <DataGroup>
@@ -11335,7 +11353,11 @@ Jos tullimenettelyksi on ilmoitettu 46 tai 48, annetaan selvitys siitä, mitä t
             <MinOccurrence use="FI483B">0</MinOccurrence>
             <MinOccurrence use="FI485B">0</MinOccurrence>
             <Rule use="FI413B">NR1375</Rule>
+            <Rule use="FI413B">NR4084</Rule>
+            <Rule use="FI413B">NR4085</Rule>
             <Rule use="FI415B">NR1375</Rule>
+            <Rule use="FI415B">NR4084</Rule>
+            <Rule use="FI415B">NR4085</Rule>
             <Rule use="FI483B">NR1375</Rule>
             <Rule use="FI485B">NR1375</Rule>
             <Condition use="FI413B">NC0025_OPT</Condition>
