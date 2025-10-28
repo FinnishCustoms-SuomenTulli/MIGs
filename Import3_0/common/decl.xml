@@ -5728,6 +5728,25 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Use>FI488B</Use>
             <MinOccurrence use="FI488B">1</MinOccurrence>
             <MaxOccurrence use="FI488B">1</MaxOccurrence>
+            <DataElement>
+              <Name lang="fi">Kirjanpidollinen määrä</Name>
+              <Name lang="sv">Redovisningskvantitet</Name>
+              <Name lang="en">Accounting quantity</Name>
+              <XPath>/​Consignment/​Discharge/​Commodity/​GoodsMeasure/​AccountingQuantity</XPath>
+              <Format>n..16,6</Format>
+              <Use>FI488B</Use>
+              <MinOccurrence use="FI488B">1</MinOccurrence>
+            </DataElement>
+            <DataElement>
+              <Name lang="fi">Kirjanpidollinen paljousyksikkö</Name>
+              <Name lang="sv">Redovisningskvantitet, enhet</Name>
+              <Name lang="en">Accounting quantity unit</Name>
+              <XPath>/​Consignment/​Discharge/​Commodity/​GoodsMeasure/​AccountingQuantityUnit</XPath>
+              <Format>an..6</Format>
+              <Use>FI488B</Use>
+              <MinOccurrence use="FI488B">1</MinOccurrence>
+              <Codelist use="FI488B">CL059</Codelist>
+            </DataElement>
           </DataGroup>
           <DataElement>
             <Name lang="fi">Todellinen tuotto</Name>
