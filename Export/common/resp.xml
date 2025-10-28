@@ -23,6 +23,7 @@
     <Use>FI552A</Use>
     <Use>FI572A</Use>
     <Use>FI599A</Use>
+    <Use>FI905A</Use>
     <MinOccurrence use="FI503A">1</MinOccurrence>
     <MinOccurrence use="FI505A">1</MinOccurrence>
     <MinOccurrence use="FI510A">1</MinOccurrence>
@@ -41,6 +42,7 @@
     <MinOccurrence use="FI552A">1</MinOccurrence>
     <MinOccurrence use="FI572A">1</MinOccurrence>
     <MinOccurrence use="FI599A">1</MinOccurrence>
+    <MinOccurrence use="FI905A">1</MinOccurrence>
     <MaxOccurrence use="FI503A">1</MaxOccurrence>
     <MaxOccurrence use="FI505A">1</MaxOccurrence>
     <MaxOccurrence use="FI510A">1</MaxOccurrence>
@@ -59,6 +61,7 @@
     <MaxOccurrence use="FI552A">1</MaxOccurrence>
     <MaxOccurrence use="FI572A">1</MaxOccurrence>
     <MaxOccurrence use="FI599A">1</MaxOccurrence>
+    <MaxOccurrence use="FI905A">1</MaxOccurrence>
     <DataElement>
       <Name lang="fi">Tapahtuman tunniste</Name>
       <Name lang="sv">Händelsens identifierare</Name>
@@ -83,6 +86,7 @@
       <Use>FI552A</Use>
       <Use>FI572A</Use>
       <Use>FI599A</Use>
+      <Use>FI905A</Use>
       <MinOccurrence use="FI503A">0</MinOccurrence>
       <MinOccurrence use="FI505A">0</MinOccurrence>
       <MinOccurrence use="FI510A">0</MinOccurrence>
@@ -101,6 +105,7 @@
       <MinOccurrence use="FI552A">0</MinOccurrence>
       <MinOccurrence use="FI572A">0</MinOccurrence>
       <MinOccurrence use="FI599A">0</MinOccurrence>
+      <MinOccurrence use="FI905A">0</MinOccurrence>
     </DataElement>
     <DataElement>
       <Name lang="fi">MRN</Name>
@@ -126,6 +131,7 @@
       <Use>FI552A</Use>
       <Use>FI572A</Use>
       <Use>FI599A</Use>
+      <Use>FI905A</Use>
       <MinOccurrence use="FI503A">1</MinOccurrence>
       <MinOccurrence use="FI505A">1</MinOccurrence>
       <MinOccurrence use="FI510A">1</MinOccurrence>
@@ -144,6 +150,7 @@
       <MinOccurrence use="FI552A">1</MinOccurrence>
       <MinOccurrence use="FI572A">1</MinOccurrence>
       <MinOccurrence use="FI599A">1</MinOccurrence>
+      <MinOccurrence use="FI905A">1</MinOccurrence>
     </DataElement>
     <DataElement>
       <Name lang="fi">LRN</Name>
@@ -441,6 +448,7 @@
       <Use>FI552A</Use>
       <Use>FI572A</Use>
       <Use>FI599A</Use>
+      <Use>FI905A</Use>
       <MinOccurrence use="FI503A">1</MinOccurrence>
       <MinOccurrence use="FI505A">1</MinOccurrence>
       <MinOccurrence use="FI510A">1</MinOccurrence>
@@ -459,6 +467,7 @@
       <MinOccurrence use="FI552A">1</MinOccurrence>
       <MinOccurrence use="FI572A">1</MinOccurrence>
       <MinOccurrence use="FI599A">1</MinOccurrence>
+      <MinOccurrence use="FI905A">1</MinOccurrence>
       <MaxOccurrence use="FI503A">1</MaxOccurrence>
       <MaxOccurrence use="FI505A">1</MaxOccurrence>
       <MaxOccurrence use="FI510A">1</MaxOccurrence>
@@ -477,6 +486,7 @@
       <MaxOccurrence use="FI552A">1</MaxOccurrence>
       <MaxOccurrence use="FI572A">1</MaxOccurrence>
       <MaxOccurrence use="FI599A">1</MaxOccurrence>
+      <MaxOccurrence use="FI905A">1</MaxOccurrence>
       <DataElement>
         <Name lang="fi">Ilmoituksen tyyppi</Name>
         <Name lang="sv">Typ av underrättelse</Name>
@@ -501,6 +511,7 @@
         <Use>FI552A</Use>
         <Use>FI572A</Use>
         <Use>FI599A</Use>
+        <Use>FI905A</Use>
         <MinOccurrence use="FI503A">1</MinOccurrence>
         <MinOccurrence use="FI505A">1</MinOccurrence>
         <MinOccurrence use="FI510A">1</MinOccurrence>
@@ -519,6 +530,7 @@
         <MinOccurrence use="FI552A">1</MinOccurrence>
         <MinOccurrence use="FI572A">1</MinOccurrence>
         <MinOccurrence use="FI599A">1</MinOccurrence>
+        <MinOccurrence use="FI905A">1</MinOccurrence>
         <Codelist use="FI503A">NCL097</Codelist>
         <Codelist use="FI505A">NCL097</Codelist>
         <Codelist use="FI510A">NCL097</Codelist>
@@ -537,6 +549,7 @@
         <Codelist use="FI552A">NCL097</Codelist>
         <Codelist use="FI572A">NCL097</Codelist>
         <Codelist use="FI599A">NCL097</Codelist>
+        <Codelist use="FI905A">NCL097</Codelist>
       </DataElement>
       <DataElement>
         <Name lang="fi">Ilmoituksen päiväys ja aika</Name>
@@ -609,6 +622,15 @@
         <MinOccurrence use="FI599A">0</MinOccurrence>
       </DataElement>
       <DataElement>
+        <Name lang="fi">Ilmoituksen osa</Name>
+        <Name lang="sv">Del av deklarationen</Name>
+        <Name lang="en">Declaration part</Name>
+        <XPath>/​Notification/​Element</XPath>
+        <Format>an..70</Format>
+        <Use>FI905A</Use>
+        <MinOccurrence use="FI905A">0</MinOccurrence>
+      </DataElement>
+      <DataElement>
         <Name lang="fi">Yhteenkuuluva tavaraerä</Name>
         <Name lang="sv">Sammanhörande varupost</Name>
         <Name lang="en">Related goods item</Name>
@@ -617,9 +639,30 @@
         <Use>FI530A</Use>
         <Use>FI544A</Use>
         <Use>FI552A</Use>
+        <Use>FI905A</Use>
         <MinOccurrence use="FI530A">0</MinOccurrence>
         <MinOccurrence use="FI544A">0</MinOccurrence>
         <MinOccurrence use="FI552A">0</MinOccurrence>
+        <MinOccurrence use="FI905A">0</MinOccurrence>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Nykyinen tila</Name>
+        <Name lang="sv">Nuvarande status</Name>
+        <Name lang="en">Current state</Name>
+        <XPath>/​Notification/​CurrentState</XPath>
+        <Format>an..35</Format>
+        <Use>FI905A</Use>
+        <MinOccurrence use="FI905A">1</MinOccurrence>
+      </DataElement>
+      <DataElement>
+        <Name lang="fi">Tilamuutoksen syy</Name>
+        <Name lang="sv">Orsak till statusändring</Name>
+        <Name lang="en">Reason for state change</Name>
+        <XPath>/​Notification/​StateChangeReason</XPath>
+        <Format>an..10</Format>
+        <Use>FI905A</Use>
+        <MinOccurrence use="FI905A">1</MinOccurrence>
+        <Codelist use="FI905A">NCL905</Codelist>
       </DataElement>
       <DataElement>
         <Name lang="fi">Pyynnön korrelaatio</Name>
@@ -1388,7 +1431,7 @@
           <Use>FI599A</Use>
           <MinOccurrence use="FI503A">1</MinOccurrence>
           <MinOccurrence use="FI519A">0</MinOccurrence>
-          <MinOccurrence use="FI529A">1</MinOccurrence>
+          <MinOccurrence use="FI529A">0</MinOccurrence>
           <MinOccurrence use="FI599A">1</MinOccurrence>
         </DataElement>
         <DataElement>
@@ -1569,7 +1612,7 @@
           <Use>FI599A</Use>
           <MinOccurrence use="FI503A">1</MinOccurrence>
           <MinOccurrence use="FI519A">0</MinOccurrence>
-          <MinOccurrence use="FI529A">1</MinOccurrence>
+          <MinOccurrence use="FI529A">0</MinOccurrence>
           <MinOccurrence use="FI599A">1</MinOccurrence>
         </DataElement>
         <DataElement>
@@ -1750,7 +1793,7 @@
           <Use>FI599A</Use>
           <MinOccurrence use="FI503A">1</MinOccurrence>
           <MinOccurrence use="FI519A">0</MinOccurrence>
-          <MinOccurrence use="FI529A">1</MinOccurrence>
+          <MinOccurrence use="FI529A">0</MinOccurrence>
           <MinOccurrence use="FI599A">1</MinOccurrence>
         </DataElement>
         <DataElement>

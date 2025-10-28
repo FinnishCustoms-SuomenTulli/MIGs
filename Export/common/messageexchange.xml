@@ -12,7 +12,7 @@
 		<TextLine lang="fi">Jos ilmoituksessa on korjattavaa, on asiakkaan pyydettävä koko ilmoituksen mitätöintiä ja annettava uusi ilmoitus.  Poistumisen yleisilmoituksen korjaaminen on mahdollista ennen lastausluvan myöntämistä. </TextLine>
 		<TextLine lang="fi">Lähettäjä voi myös pyytää Tullia mitätöimään tavaroista antamansa vienti-ilmoituksen, jälleenvientitiedonannon tai poistumisen yleisilmoituksen.</TextLine>
 		<TextLine lang="fi">Vapaamuotoisella yhteydenotolla asiakas voi pyytää Tullia huomioimaan aiemmin antamaansa ilmoitukseen liittyviä tietoja, esimerkiksi pyytää vireillä olevan oikaisu- tai mitätöintipyynnön perumista.</TextLine>
-		<TextLine lang="fi">Sanomaliikenneopasta on täydennetty poistumiseen liittyvien sanomien FI570, FI590, FI615 ja FI613 osalta.</TextLine>
+		<TextLine lang="fi">Sanomaliikenneopasta on täydennetty poistumiseen liittyvien sanomien FI570, FI586, FI590, FI615 ja FI613 osalta.</TextLine>
 		<TextLine lang="sv">Deklarationerna för export och utförsel kan inges till Tullen genom direkt meddelandedeklarering. Meddelandena handläggs i Tullens nya tullklareringssystem (UTU). Deklarationerna handläggs i huvudsak automatiskt, och de deklarationer som kräver manuell handläggning handläggs vid Tullens elektroniska servicecentral.</TextLine>
 		<TextLine lang="sv">I denna guide för meddelandetrafik beskrivs grundprinciperna för meddelandetrafiken mellan kunden och Tullen i fråga om de deklarationer och anmälningar som inges vid hänförande av varor till 	exportförfarandet och vid varors utförsel. Guiden omfattar meddelandena som kunden kan skicka till Tullen eller få från Tullen. I guiden ges exempel på de vanligaste situationerna i meddelandetrafiken.</TextLine>
 		<TextLine lang="sv">Tullens system granskar i olika skeden att deklarationsmeddelandet som skickats till Tullen uppfyller de krav som Tullen ställer på meddelandenas struktur och innehåll. Tullens system skickar svarsmeddelandena till den avsändare som skickat meddelandet till Tullen.</TextLine>
@@ -23,7 +23,7 @@
 		<TextLine lang="sv">Det går inte att korrigera en anmälan om återexport med ett meddelande. Om det finns uppgifter i anmälan som behöver korrigeras ska kunden begära att hela anmälan ogiltigförklaras och inge en ny anmälan.  En summarisk utförseldeklaration kan korrigeras innan lastningstillstånd beviljats. </TextLine>
 		<TextLine lang="sv">Avsändaren kan också begära att Tullen ogiltigförklarar exportdeklarationen, anmälan om återexport eller den summariska utförseldeklarationen som avsändaren ingett för varorna.</TextLine>
 		<TextLine lang="sv">Med en fritt formulerad kontakt kan kunden be Tullen att notera uppgifter som hänför sig till en deklaration som kunden inlämnat tidigare, t.ex. begära att en begäran om ändring eller ogiltigförklaring som är under handläggning ska dras tillbaka.</TextLine>
-		<TextLine lang="sv">Guiden för meddelandetrafik har kompletterats vad gäller utförselmeddelandena FI570, FI590, FI615 och FI613.</TextLine>
+		<TextLine lang="sv">Guiden för meddelandetrafik har kompletterats vad gäller utförselmeddelandena FI570, FI586, FI590, FI615 och FI613.</TextLine>
 		<TextLine lang="en">Export and exit declarations can be sent to Customs through direct message exchange. The messages are processed in Customs’ new customs clearance system (UTU). As a rule, the declarations are processed automatically. Any declarations that require manual processing are processed by Customs’ Electronic Service Centre.</TextLine>
 		<TextLine lang="en">This guide for message exchange describes the basic principles of the message exchange between the sender of the declaration and Customs regarding declarations and notifications related to the placement of goods under the export procedure and to exit. The guide lists the messages that the customer can send to Customs as well as the notifications that the customer can receive from Customs. The guide contains examples of the most typical use cases in message exchange.</TextLine>
 		<TextLine lang="en">Customs’ system verifies, at different stages, that the declaration message sent to Customs meets the requirements specified by Customs for the message structure and content. Customs' system sends the response notifications to the sender that sent the message to Customs.</TextLine>
@@ -34,7 +34,7 @@
 		<TextLine lang="en">A re-export notification cannot be amended with a message. If the notification needs to be amended, the customer must request invalidation of the whole notification and submit a new notification.  It is possible to amend an exit summary declaration before an exit release notification (loading permit) is granted.</TextLine>
 		<TextLine lang="en">The sender can also request Customs to invalidate an export declaration, re-export notification or an exit summary declaration the sender has submitted for the goods.</TextLine>
 		<TextLine lang="en">With a free-form contact request, the customer can request Customs to observe information related to a declaration submitted earlier. The customer can e.g. send a request to cancel a pending amendment request or an invalidation request.</TextLine>
-		<TextLine lang="en">This guide for message exchange has been supplemented regarding the exit messages FI570, FI590, FI615 and FI613.</TextLine>
+		<TextLine lang="en">This guide for message exchange has been supplemented regarding the exit messages FI570, FI586, FI590, FI615 and FI613.</TextLine>
 	</Intro>
 	<Messages>
 		<Message>
@@ -119,6 +119,16 @@
 		</Message>
 		<Message>
 			<Sender>EO</Sender>
+			<ID>FI583A</ID>
+			<Name lang="fi">Alustoimitusilmoituksen korjauspyyntösanoma</Name>
+			<Name lang="en">Amendment request for declaration for ship supplies</Name>
+			<Name lang="sv">Begäran om korrigering av fartygsleveransdeklaration</Name>
+			<DescriptionLine lang="fi">Asiakas lähettää Tullille pyynnön korjata antamansa alustoimitusilmoituksen tietoja ennen tavaroiden luovutusta menettelyyn (muutostyyppi KOR). Asiakas lähettää Tullille pyynnön oikaista antamansa alustoimitusilmoituksen tietoja tavaroiden menettelyyn luovutuksen jälkeen (muutostyyppi OIK).</DescriptionLine>
+			<DescriptionLine lang="en">The customer sends Customs a request to amend details in a submitted declaration for ship supplies before the goods are released for the procedure (amendment type KOR). The customer sends Customs a request to amend details in a submitted declaration for ship supplies after the goods have been released for the procedure (amendment type OIK).</DescriptionLine>
+			<DescriptionLine lang="sv">Kunden skickar Tullen en begäran om att uppgifter i fartygsleveransdeklarationen ska korrigeras innan varorna frigörs för förfarandet (ändringstyp KOR). Kunden skickar Tullen en begäran om att uppgifter i fartygsleveransdeklarationen ska ändras efter att varorna frigjorts för förfarandet (ändringstyp OIK).</DescriptionLine>
+		</Message>
+		<Message>
+			<Sender>EO</Sender>
 			<ID>FI585A</ID>
 			<Name lang="fi">Alustoimitusilmoitus</Name>
 			<Name lang="en">Standard declaration for ship supplies</Name>
@@ -127,15 +137,16 @@
 			<DescriptionLine lang="en">The customer sends Customs an export declaration message concerning ship supplies.</DescriptionLine>
 			<DescriptionLine lang="sv">Kunden skickar Tullen ett exportdeklarationsmeddelande om en fartygsleverans.</DescriptionLine>
 		</Message>
+
 		<Message>
 			<Sender>EO</Sender>
-			<ID>FI583A</ID>
-			<Name lang="fi">Alustoimitusilmoituksen korjauspyyntösanoma</Name>
-			<Name lang="en">Amendment request for declaration for ship supplies</Name>
-			<Name lang="sv">Begäran om korrigering av fartygsleveransdeklaration</Name>
-			<DescriptionLine lang="fi">Asiakas lähettää Tullille pyynnön korjata antamansa alustoimitusilmoituksen tietoja ennen tavaroiden luovutusta menettelyyn (muutostyyppi KOR). Asiakas lähettää Tullille pyynnön oikaista antamansa alustoimitusilmoituksen tietoja tavaroiden menettelyyn luovutuksen jälkeen (muutostyyppi OIK).</DescriptionLine>
-			<DescriptionLine lang="en">The customer sends Customs a request to amend details in a submitted declaration for ship supplies before the goods are released for the procedure (amendment type KOR). The customer sends Customs a request to amend details in a submitted declaration for ship supplies after the goods have been released for the procedure (amendment type OIK).</DescriptionLine>
-			<DescriptionLine lang="sv">Kunden skickar Tullen en begäran om att uppgifter i fartygsleveransdeklarationen ska korrigeras innan varorna frigörs för förfarandet (ändringstyp KOR). Kunden skickar Tullen en begäran om att uppgifter i fartygsleveransdeklarationen ska ändras efter att varorna frigjorts för förfarandet (ändringstyp OIK).</DescriptionLine>
+			<ID>FI586A</ID>
+			<Name lang="fi">Alustoimituksen kuukausi-ilmoitus</Name>
+			<Name lang="en">Monthly declaration for ship supplies</Name>
+			<Name lang="sv">Månatlig deklaration för fartygsleveranser</Name>
+			<DescriptionLine lang="fi">Alustoimituksen kuukausi-ilmoitusta käytetään säännöllisissä tavarantoimituksissa aluksille (laivaan tai lentokoneeseen), jotka poistuvat Suomesta. Ilmoittaminen edellyttää toimijalta Tullin myöntämää alustoimituksen yksinkertaistuslupaa (EIA). Ilmoitus annetaan varastokohtaisesti jälkikäteen, seuraavan kuukauden 16. päivään mennessä. Asiakas lähettää Tullille alustoimitusta koskevan kuukausi-ilmoitussanoman. Asiakas voi lähettää Tullille vapaamuotoisen yhteydenottopyynnön koskien alustoimituksen kuukausi-ilmoitusta. Asiakas voi saada Tullin ilmoituksen alustoimituksen kuukausi-ilmoitukseen liittyen. Mikäli ilmoituksessa on virheitä, alkuperäinen ilmoitus tulee mitätöidä ja tehdä uusi ilmoitus. Ilmoitusta ei voida korjata.</DescriptionLine>
+			<DescriptionLine lang="en">A monthly declaration for ship supplies is used for regular deliveries to ships or aircraft departing from Finland. To submit the declaration, the operator must have an authorisation for simplification of ship supplies (EIA), granted by Customs. The declaration is submitted retrospectively for each warehouse/storage facility by the 16th day of the following month. The customer sends Customs a monthly declaration for ship supplies. The customer can send Customs a free-form contact request concerning the monthly declaration for ship supplies. The customer can receive Customs’ notification concerning the monthly declaration for ship supplies. If there are errors in the declaration, the original declaration must be invalidated and a new declaration must be submitted. The declaration cannot be amended.</DescriptionLine>
+			<DescriptionLine lang="sv">En månatlig deklaration för fartygsleveranser används vid regelbundna leveranser av varor till fartyg eller flygplan som lämnar Finland. För att kunna inge deklarationen måste aktören ha ett tillstånd till förenkling vid fartygsleveranser (EIA) som Tullen beviljat. Deklarationen inges separat för varje lager i efterhand, senast den 16 dagen i påföljande månad. Kunden skickar Tullen en månatlig deklaration för fartygsleveranser. Kunden kan skicka Tullen en fritt formulerad kontakt gällande deklarationen. Kunden kan få en Tullens anmälan gällande deklarationen. Ifall det förekommer fel i deklarationen ska den ursprungliga deklarationen ogiltigförklaras och en ny deklaration inges. Det går inte att korrigera deklarationen.</DescriptionLine>
 		</Message>
 		<Message>
 			<Sender>EO</Sender>
@@ -359,9 +370,9 @@
 			<Name lang="fi">Lisäselvityspyyntö</Name>
 			<Name lang="sv">Begäran om tilläggsutredning</Name>
 			<Name lang="en">Additional information request</Name>
-			<DescriptionLine lang="fi">Tulli lähettää lisäselvityspyynnön asiakkaalle, kun se haluaa lisäselvitystä johonkin asiakkaan antamaan vienti-ilmoitukseen (FI515, FI513, FI585, FI583, FI595, FI593, FI570, FI576, FI615 tai FI613) liittyvään asiaan. Asiakkaan pitää vastata lisäselvityspyyntöön vastaussanomalla (FI553).</DescriptionLine>
-			<DescriptionLine lang="sv">Tullen skickar kunden en begäran om tilläggsutredning när Tullen önskar få ytterligare information om någonting som hänför sig till en exportdeklaration (FI515, FI513, FI585, FI583, FI595, FI593, FI570, FI576, FI615 eller FI613) som kunden ingett. Kunden ska svara på begäran om tilläggsutredning med ett svarsmeddelande (FI553).</DescriptionLine>
-			<DescriptionLine lang="en">Customs sends the customer an additional information request, when it wants additional information on a matter related to an export declaration (FI515, FI513, FI585, FI583, FI595, FI593, FI570, FI576, FI615 or FI613) submitted by the customer. The customer must reply with an additional information response (FI553).</DescriptionLine>
+			<DescriptionLine lang="fi">Tulli lähettää lisäselvityspyynnön asiakkaalle, kun se haluaa lisäselvitystä johonkin asiakkaan antamaan vienti-ilmoitukseen (FI515, FI513, FI570, FI583, FI585, FI586, FI593, FI595, FI613 tai FI615) liittyvään asiaan. Asiakkaan pitää vastata lisäselvityspyyntöön vastaussanomalla (FI553).</DescriptionLine>
+			<DescriptionLine lang="sv">Tullen skickar kunden en begäran om tilläggsutredning när Tullen önskar få ytterligare information om någonting som hänför sig till en exportdeklaration (FI515, FI513, FI570, FI583, FI585, FI586, FI593, FI595, FI613 eller FI615) som kunden ingett. Kunden ska svara på begäran om tilläggsutredning med ett svarsmeddelande (FI553).</DescriptionLine>
+			<DescriptionLine lang="en">Customs sends the customer an additional information request, when it wants additional information on a matter related to an export declaration (FI515, FI513, FI570, FI583, FI585, FI586, FI593, FI595, FI613 or FI615) submitted by the customer. The customer must reply with an additional information response (FI553).</DescriptionLine>
 		</Message>
 		<Message>
 			<Sender>Customs</Sender>
@@ -1793,6 +1804,119 @@
 					<ItemLine lang="fi">Tulli lähettää asiakkaalle poistumisilmoitusta koskevan hylkäyssanoman (FI516). Asia ei ole Tullissa vireillä. Asiakkaan pitää lähettää uusi poistumisilmoitus -sanoma.</ItemLine>
 					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om avslag (FI516) gällande anmälan om utförsel. Ärendet är inte längre anhängigt vid Tullen. Kunden måste skicka in en ny anmälan om utförsel.</ItemLine>
 					<ItemLine lang="en">Customs sends the customer a rejection notification (FI516) concerning the exit notification. The matter is not pending at Customs. The customer must submit a new exit notification.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+	</UseCases>
+	<UseCases>
+		<Label lang="fi">Alustoimituksen kuukausi-ilmoitus</Label>
+		<Label lang="sv">Månatlig deklaration för fartygsleveranser</Label>
+		<Label lang="en">Monthly declaration for ship supplies</Label>
+		<UseCase>
+			<Name lang="fi">Alustoimituksen kuukausi-ilmoitus ‒ ilmoitus virheetön </Name>
+			<Name lang="sv">Månatlig deklaration för fartygsleveranser – deklarationen är felfri </Name>
+			<Name lang="en">Monthly declaration for ship supplies – the declaration is correct </Name>
+			<Sequence>
+				<EO>FI586A</EO>
+				<Customs>FI526A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille alustoimituksen kuukausi-ilmoitussanoman (FI586). Tullin järjestelmä tarkastaa ilmoitussanomasta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä oikeellisuuden. Ilmoitus on muodollisesti virheetön, eikä siinä havaittu sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar Tullen meddelandet månatlig deklaration för fartygsleveranser (FI586). Tullens system kontrollerar kundens identifieringsuppgifter i deklarationsmeddelandet samt innehållets formbundenhet och riktighet. Deklarationen är formellt felfri och inga innehållsliga fel upptäcks i den.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs a monthly declaration for ship supplies (FI586). Customs' system checks the customer’s identification details provided in the declaration message as well as the specified form and correctness of the content of the declaration. The declaration is formally correct, and no errors were detected in its content.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI526). Tällä sanomalla asiakkaalle ilmoitetaan alustoimituksen kuukausi-ilmoituksen rekisteröintipäivä ja MRN-numero, joka yksilöi ilmoituksen.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om registrering (FI526). Med detta meddelande delges kunden datumet för registrering av den månatliga deklarationen för fartygsleveranser samt ett MRN-referensnummer som identifierar deklarationen.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI526). It notifies the customer of the registration date of the monthly declaration for ship supplies and its MRN, which identifies the declaration.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Alustoimituksen kuukausi-ilmoitus  –ilmoitus muodollisesti virheellinen </Name>
+			<Name lang="sv">Månatlig deklaration för fartygsleveranser – deklarationen är formellt felaktig </Name>
+			<Name lang="en">Monthly declaration for ship supplies – the declaration is formally incorrect </Name>
+			<Sequence>
+				<EO>FI586A</EO>
+				<Customs>FI516A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille alustoimituksen kuukausi-ilmoituksen (FI586). Tullin järjestelmä tarkastaa ilmoitussanomasta asiakkaan tunnistetiedot ja ilmoituksen sisällön määrämuotoisuuden sekä oikeellisuuden. Ilmoitus ei täytä määrämuotoisuuden vaatimuksia.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar Tullen en månatlig deklaration för fartygsleveranser (FI586). Tullens system kontrollerar kundens identifieringsuppgifter i deklarationsmeddelandet samt innehållets formbundenhet och riktighet. Deklarationen uppfyller inte kraven på formbundenhet.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs a monthly declaration for ship supplies (FI586). Customs' system checks the customer’s identification details provided in the declaration message as well as the specified form and correctness of the content of the declaration. The declaration does not meet the requirements for specified form.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle alustoimituksen kuukausi-ilmoitusta koskevan hylkäyssanoman (FI516). Asia ei ole Tullissa vireillä. Asiakkaan pitää lähettää uusi alustoimituksen kuukausi-ilmoitus.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om avslag (FI516) gällande den månatliga deklarationen för fartygsleveranser. Ärendet är inte längre anhängigt vid Tullen. Kunden ska skicka in en ny månatlig deklaration för fartygsleveranser.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a rejection notification (FI516) concerning the monthly declaration for ship supplies. The matter is not pending at Customs. The customer must submit a new monthly declaration for ship supplies.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Alustoimituksen kuukausi-ilmoitus – Tulli pyytää lisäselvitystä </Name>
+			<Name lang="sv">Månatlig deklaration för fartygsleveranser – Tullen begär tilläggsutredning </Name>
+			<Name lang="en">Monthly declaration for ship supplies – Customs requests additional information </Name>
+			<Sequence>
+				<EO>FI586A</EO>
+				<Customs>FI526A</Customs>
+				<Customs>FI552A</Customs>
+				<EO>FI553A</EO>
+				<Customs>FI526A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille alustoimituksen kuukausi-ilmoituksen (FI586). Tullin järjestelmä tarkastaa ilmoitussanomasta asiakkaan tunnistetiedot ja sisällön määrämuotoisuuden sekä oikeellisuuden. Ilmoitus on muodollisesti virheetön.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar Tullen en månatlig deklaration för fartygsleveranser (FI586). Tullens system kontrollerar kundens identifieringsuppgifter i deklarationsmeddelandet samt innehållets formbundenhet och riktighet. Deklarationen är formellt felfri.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs a monthly declaration for ship supplies (FI586). Customs' system checks the customer’s identification details provided in the declaration message as well as the specified form and correctness of the content. The declaration is formally correct.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI526). Tällä sanomalla asiakkaalle ilmoitetaan ilmoituksen rekisteröintipäivä ja MRN-viitenumero, joka yksilöi ilmoituksen. Tulli tarkastaa ilmoituksella ilmoitettujen tietojen oikeellisuuden. Tarkastuksessa ilmoituksella ei havaita aineellisia virheitä, mutta asian jatkokäsittely edellyttää kuitenkin asiakkaalta lisäselvitystä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om registrering (FI526). Med detta meddelande delges kunden datumet för registrering av deklarationen samt ett MRN-referensnummer som identifierar deklarationen. Tullen kontrollerar att uppgifterna som angetts i deklarationen är felfria. Vid kontrollen upptäcks inga materiella fel i deklarationen, men för att handläggningen av ärendet ska kunna fortsätta förutsätts en tilläggsutredning av kunden.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI526). It notifies the customer of the registration date of the declaration and its MRN, which identifies the declaration. Customs checks the correctness of the details provided in the declaration. The check doesn’t reveal any material errors in the declaration, but further processing of the matter requires additional information from the customer.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle lisäselvityspyynnön (FI552), jossa ilmoitetaan tarvittava lisäselvitys ja määräaika lisäselvityksen toimittamiseksi.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden en begäran om tilläggsutredning (FI552) där det meddelas vilken tilläggsutredning som behövs och inom vilken tid den ska lämnas in.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer an additional information request (FI552) indicating the required additional information and the time limit prescribed for providing this information.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille vastauksen lisäselvityspyyntöön (FI553) annettuun määräaikaan mennessä. Ilmoitus on muodollisesti virheetön. Tulli tarkastaa asiakkaan antaman lisäselvityksen. Lisäselvitys mahdollistaa ilmoituksen käsittelyn jatkamisen.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar Tullen ett svar på begäran om tilläggsutredning (FI553) inom den angivna tidsfristen. Deklarationen är formellt felfri. Tullen kontrollerar tilläggsutredningen som kunden har lämnat in. Tilläggsutredningen gör det möjligt att fortsätta handlägga deklarationen.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs an additional information response (FI553) within the prescribed time limit. The declaration is formally correct. Customs checks the additional information provided by the customer. The additional information enables further processing of the declaration.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman lisäselvityspyynnön vastauksena (FI526).</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om registrering (FI526) som svar på svaret på begäran om tilläggsutredning.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI526) as a response to the additional information response.</ItemLine>
+				</Item>
+			</SequenceDescription>
+		</UseCase>
+		<UseCase>
+			<Name lang="fi">Alustoimituksen kuukausi-ilmoituksen mitätöintipyyntö – mitätöintipyynnön hyväksyminen </Name>
+			<Name lang="sv">Begäran om ogiltigförklaring av en månatlig deklaration för fartygsleveranser – godtagande av begäran om ogiltigförklaring </Name>
+			<Name lang="en">Request for invalidation of a monthly declaration for ship supplies – acceptance of invalidation request </Name>
+			<Sequence>
+				<EO>FI514A</EO>
+				<Customs>FI526A</Customs>
+				<Customs>FI510A</Customs>
+			</Sequence>
+			<SequenceDescription>
+				<Item>
+					<ItemLine lang="fi">Asiakas lähettää Tullille mitätöintipyynnön (FI514), jolla asiakas pyytää Tullia mitätöimään aiemmin antamansa alustoimituksen kuukausi-ilmoituksen (FI586). Tullin järjestelmä tarkastaa mitätöintipyynnöltä asiakkaan tunnistetiedot ja mitätöintipyynnön määrämuotoisuuden. Tullin järjestelmä tarkastaa lisäksi, onko ilmoituksen tila sellainen, että mitätöinti on mahdollinen. Mitätöintipyyntö on muodollisesti virheetön, ja mitätöinti on mahdollista.</ItemLine>
+					<ItemLine lang="sv">Kunden skickar Tullen en begäran om ogiltigförklaring (FI514) med vilken kunden begär att Tullen ogiltigförklarar en månatlig deklaration om fartygsleveranser (FI586) som denne ingett tidigare. Tullens system kontrollerar kundens identifieringsuppgifter i begäran om ogiltigförklaring samt begärans formbundenhet. Tullens system kontrollerar även om deklarationen har en sådan status att ogiltigförklaringen kan utföras. Begäran om ogiltigförklaring är formellt felfri och ogiltigförklaringen kan utföras.</ItemLine>
+					<ItemLine lang="en">The customer sends Customs an invalidation request (FI514) to request Customs to invalidate a monthly declaration for ship supplies (FI586) submitted earlier. Customs' system checks the customer’s identification details provided in the invalidation request and the specified form of the request. Customs' system also checks whether the state of the declaration enables invalidation. The invalidation request is formally correct and invalidation is possible.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle rekisteröintisanoman (FI526), jolla asiakkaalle ilmoitetaan mitätöintipyynnön rekisteröintipäivä. Tulli ei havaitse ilmoitusta käsitellessään sisällöllisiä virheitä.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om registrering (FI526) med vilket kunden delges datumet för registrering av begäran om ogiltigförklaring. Tullen upptäcker inga innehållsliga fel vid handläggningen av deklarationen.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer a registration notification (FI526) to notify the customer of the registration date of the invalidation request. Customs does not detect any content-related errors when processing the declaration.</ItemLine>
+				</Item>
+				<Item>
+					<ItemLine lang="fi">Tulli lähettää asiakkaalle mitätöintisanoman (FI510), jolla Tulli ilmoittaa asiakkaalle päätöksestään mitätöidä ilmoitus. Tullin järjestelmä muodostaa erillisen mitätöintiä koskevan päätöstulosteen asiakkaan noudettavaksi.</ItemLine>
+					<ItemLine lang="sv">Tullen skickar kunden ett meddelande om ogiltigförklaring (FI510) med vilket Tullen meddelar kunden om sitt beslut att ogiltigförklara deklarationen. Tullens system genererar en separat beslutsutskrift om ogiltigförklaringen som kunden kan hämta.</ItemLine>
+					<ItemLine lang="en">Customs sends the customer an invalidation notification (FI510) to notify the customer of its decision to invalidate the declaration. Customs’ system generates a separate decision printout concerning the invalidation for the customer to retrieve.</ItemLine>
 				</Item>
 			</SequenceDescription>
 		</UseCase>
