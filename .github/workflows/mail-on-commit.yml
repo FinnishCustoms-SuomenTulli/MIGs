@@ -12,18 +12,23 @@ jobs:
         id: check
         run: |
           KEYWORDS=("Entry" "Export" "Guarantee" "Import" "Transit")
-          MATCH=false
-          COMMITS=$(git log -1 --pretty=%B)
-          for WORD in "${KEYWORDS[@]}"; do
-            if echo "$COMMITS" | grep -qi "$WORD"; then
-              MATCH=true
-              echo "Found keyword: $WORD"
-              echo "match=$WORD" >> $GITHUB_OUTPUT
-            fi
-          done
-          if [ "$MATCH" = false ]; then
-            echo "No keyword found"
-            exit 0
+          EVENTS='${{ toJson(github.event.commits) }}'
+          MATCH=""
+          # `jq` is available on the ubuntu runner
+          while IFS= read -r msg; do
+            for WORD in "${KEYWORDS[@]}"; do
+              if grep -qi -- "$WORD" <<< "$msg"; then
+                MATCH="$WORD"
+                echo "Found keyword: $WORD in: $msg"
+                break 2
+              fi
+            done
+          done < <(jq -r '.[].message' <<< "$EVENTS")
+      
+          if [[ -n "$MATCH" ]]; then
+            echo "match=$MATCH" >> "$GITHUB_OUTPUT"
+          else
+            echo "No keyword found."
           fi
 
       - name: Send email
