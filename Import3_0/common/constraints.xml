@@ -4161,6 +4161,39 @@ o Previous procedure 21 is not allowed for any goods item</Description>
   THEN &lt;i&gt;Reference number&lt;/i&gt; = 'Y137' cannot be declared</Description>
   </Constraint>
   <Constraint>
+    <Code>NR4091</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FIEOR' on ilmoitettu&#13;
+  NIIN kentässä &lt;i&gt;Lisätiedon kuvaus&lt;/i&gt; ilmoitetun EORI-numeron on oltava voimassa EOS-tietokannassa</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = 'FIEOR' är anmält&#13;
+  DÅ måste EORI-numret i &lt;i&gt;Beskrivning av ytterligare uppgifter&lt;/i&gt; vara giltigt i EOS-databasen</Description>
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; = 'FIEOR' is declared&#13;
+  THEN EORI number provided in &lt;i&gt;Additional information description&lt;/i&gt; must be valid in the EOS database</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4092</Code>
+    <Description lang="fi">Ilmoituksella voi olla vain yksi tietoryhmän &lt;i&gt;Lisätieto&lt;/i&gt; esiintymä jolla &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FIEOR'</Description>
+    <Description lang="sv">Det kan finnas endast en förekomst av &lt;i&gt;Ytterligare uppgifter&lt;/i&gt; med &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = 'FIEOR'</Description>
+    <Description lang="en">Only once occurrence of &lt;i&gt;Additional information&lt;/i&gt; with &lt;i&gt;Additional information code&lt;/i&gt; = 'FIEOR' can be declared</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4093</Code>
+    <Description lang="fi">JOS ilmoitetaan CBAM-tavaroita JA &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FIEOR' EI ole ilmoitettu&#13;
+  NIIN &lt;i&gt;Tuoja&lt;/i&gt;/&lt;i&gt;Tunnistenumero&lt;/i&gt; TAI &lt;i&gt;Ilmoittaja&lt;/i&gt;/&lt;i&gt;Tunnistenumero&lt;/i&gt; on oltava voimassa oleva EORI</Description>
+    <Description lang="sv">OM CBAM-varor deklareras OCH &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = 'FIEOR' INTE är anmäld&#13;
+  DÅ måste &lt;i&gt;Importör&lt;/i&gt;/&lt;i&gt;Identifieringsnummer&lt;/i&gt; ELLER &lt;i&gt;Deklarant&lt;/i&gt;/&lt;i&gt;Identifieringsnummer&lt;/i&gt; vara ett giltigt EORI</Description>
+    <Description lang="en">IF CBAM goods are declared AND &lt;i&gt;Additional information code&lt;/i&gt; = 'FIEOR' is NOT declared&#13;
+  THEN &lt;i&gt;Importer&lt;/i&gt;/&lt;i&gt;Identification number&lt;/i&gt; OR &lt;i&gt;Declarant&lt;/i&gt;/&lt;i&gt;Identification number&lt;/i&gt; must be a valid EORI</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR4095</Code>
+    <Description lang="fi">JOS CBAM-tavaroita ei ole ilmoitettu&#13;
+  NIIN &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FICBM' ei voida ilmoittaa</Description>
+    <Description lang="sv">OM CBAM-varor INTE har anmälts&#13;
+  DÅ kan &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = 'FICBM' inte anmälas</Description>
+    <Description lang="en">IF CBAM goods are NOT declared&#13;
+  THEN &lt;i&gt;Additional information code&lt;/i&gt; = 'FICBM' cannot be declared</Description>
+  </Constraint>
+  <Constraint>
     <Code>NR4301</Code>
     <Description lang="fi">JOS &lt;i&gt;Pyydetty menettelykoodi&lt;/i&gt; = '44' JA &lt;i&gt;Lisämenettelykoodi&lt;/i&gt; = '655' JA &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FIXBH'&#13;
   NIIN &lt;i&gt;Lisätiedon kuvaus&lt;/i&gt; = '1'</Description>
