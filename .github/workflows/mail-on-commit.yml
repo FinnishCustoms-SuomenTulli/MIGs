@@ -2,7 +2,7 @@ name: Notify on Keyword Commits
 
 on:
   push:
-    branches: [ main, master ]  # or whichever branch you care about
+    branches: [ main, master ]
 
 jobs:
   keyword_email:
@@ -10,10 +10,17 @@ jobs:
     steps:
       - name: Check for keyword in commits
         id: check
+        shell: bash
         run: |
           KEYWORDS=("Entry" "Export" "Guarantee" "Import" "Transit")
-          EVENTS='${{ toJson(github.event.commits) }}'
           MATCH=""
+
+          # Safely capture the JSON payload from GitHub into $EVENTS
+          EVENTS=$(cat << 'EOF'
+          ${{ toJson(github.event.commits) }}
+          EOF
+          )
+
           # `jq` is available on the ubuntu runner
           while IFS= read -r msg; do
             for WORD in "${KEYWORDS[@]}"; do
@@ -24,7 +31,7 @@ jobs:
               fi
             done
           done < <(jq -r '.[].message' <<< "$EVENTS")
-      
+
           if [[ -n "$MATCH" ]]; then
             echo "match=$MATCH" >> "$GITHUB_OUTPUT"
           else
@@ -40,7 +47,7 @@ jobs:
           username: ${{ secrets.EMAIL_USER }}
           password: ${{ secrets.EMAIL_PASS }}
           subject: "🔔 Sanomakuvauksia päivitetty"
-          to: "ucc@tulli.fi, mikael.gustafsson@tulli.fi"
+          to: "mikael.gustafsson@tulli.fi"
           from: "mikael.gustafsson@tulli.fi"
           body: |
             ${{ github.event.head_commit.message }}
