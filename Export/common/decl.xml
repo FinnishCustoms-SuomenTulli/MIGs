@@ -779,7 +779,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       <Rule use="FI515A">NR5042</Rule>
     </DataElement>
     <DataElement>
-      <Name lang="fi">Ei ilmoitettavia tararoita</Name>
+      <Name lang="fi">Ei ilmoitettavia tavaroita</Name>
       <Name lang="sv">Ej varor att deklarera</Name>
       <Name lang="en">No goods to declare</Name>
       <XPath>/​ZeroDeclaration</XPath>
@@ -1296,7 +1296,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
       </DataElement>
       <DataElement>
         <Name lang="fi">Määräajan laji</Name>
-        <Name lang="sv">Typ af tidsgräns</Name>
+        <Name lang="sv">Typ av tidsgräns</Name>
         <Name lang="en">Time limit type</Name>
         <XPath>/​Notification/​Limit@LimitType</XPath>
         <Format>an..3</Format>
@@ -4259,10 +4259,8 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Format>n..5</Format>
         <Use>FI513A</Use>
         <Use>FI515A</Use>
-        <Use>FI586A</Use>
         <MinOccurrence use="FI513A">1</MinOccurrence>
         <MinOccurrence use="FI515A">1</MinOccurrence>
-        <MinOccurrence use="FI586A">1</MinOccurrence>
         <Rule use="FI513A">NR5141</Rule>
         <Rule use="FI515A">R0987</Rule>
       </DataElement>
@@ -4346,7 +4344,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI513A</Use>
         <Use>FI515A</Use>
         <Use>FI586A</Use>
-        <MinOccurrence use="FI513A">0</MinOccurrence>
+        <MinOccurrence use="FI513A">1</MinOccurrence>
         <MinOccurrence use="FI515A">1</MinOccurrence>
         <MinOccurrence use="FI586A">1</MinOccurrence>
         <Rule use="FI513A">R0995</Rule>
@@ -4575,6 +4573,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Description lang="fi" use="FI585A">Ilmoitetaan koodiin liittyvä tarkempi kuvaus, mikäli koodi sitä vaati.</Description>
         <Description lang="sv" use="FI585A">Ange en närmare beskrivning gällande koden, om koden så kräver.</Description>
         <Description lang="en" use="FI585A">Provide a more detailed description related to the code, if the code requires it.</Description>
+        <Description lang="fi" use="FI586A">Ilmoituksessa on aina ilmoitettava lisätietokoodi "FIXVT – Varaston tunniste tai muu paikan identifioiva tieto”. Ilmoita lisätietokoodin kuvaukseksi varaston tunnistenumero silloin, jos tavarat toimitetaan varastosta, joka edellyttää tulli- tai veroviranomaisen lupaa. Muissa tapauksissa ilmoita tavaroiden lähettämispaikan osoitetieto. Lisätietokoodi "FI586 – Yli 3 kk vanhalta tilityskuukaudelta annettu Alustoimitusten kuukausi-ilmoitus FI586" ilmoitetaan, jos annat jälkikäteen ilmoituksen yli 3 kk vanhalta tilityskaudelta. Tämä lisätietokoodi ei edellytä kuvausta.</Description>
+        <Description lang="sv" use="FI586A">I deklarationen ska man alltid ange koden för ytterligare uppgifter "FIXVT – Lagerkod eller annan identifierare för plats". Som beskrivning av koden för ytterligare uppgifter anges lagrets identifieringsnummer, om varorna levereras från ett lager som förutsätter tillstånd av tull- eller skattemyndighet. I övriga fall ska adressuppgifter för varornas avsändningsplats anges. Koden för ytterligare uppgifter "FI586 – Månatlig deklaration för fartygsleveranser FI586 som ingetts för en redovisningsmånad som är mer än 3 månader i det förflutna" anges om du i efterhand inger en deklaration för en redovisningsperiod som är mer än 3 månader i det förflutna. Denna kod för ytterligare uppgifter kräver ingen beskrivning.</Description>
+        <Description lang="en" use="FI586A">The additional information code “FIXVT – Warehouse ID or other location identifier” must always be provided in the declaration. Provide the warehouse ID as the description of the additional information code when the goods are delivered from a warehouse requiring an authorisation from the customs or tax authorities. In other cases, provide the address of the place of dispatch of the goods. Provide the additional information code “FI586 – Monthly declaration for ship supplies FI586 submitted for an accounting period more than 3 months in the past” if you’re submitting a retrospective declaration for an accounting period that is more than 3 months in the past. This additional information code does not require a description.</Description>
         <Description lang="fi" use="FI593A">Ilmoitetaan koodiin liittyvä tarkempi kuvaus, mikäli koodi sitä vaati.</Description>
         <Description lang="sv" use="FI593A">Ange en närmare beskrivning gällande koden, om koden så kräver.</Description>
         <Description lang="en" use="FI593A">Provide a more detailed description related to the code, if the code requires it.</Description>
@@ -4672,7 +4673,6 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Use>FI586A</Use>
         <MinOccurrence use="FI586A">0</MinOccurrence>
         <MaxOccurrence use="FI586A">1</MaxOccurrence>
-        <Condition use="FI586A">NC5070</Condition>
         <DataElement>
           <Name lang="fi">Viitenumero/UCR</Name>
           <Name lang="sv">Referensnummer/UCR</Name>
@@ -4689,9 +4689,8 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Name lang="en">Transport document</Name>
         <XPath>/​BorderTransportMeans/​TransportContractDocument</XPath>
         <Use>FI586A</Use>
-        <MinOccurrence use="FI586A">0</MinOccurrence>
+        <MinOccurrence use="FI586A">1</MinOccurrence>
         <MaxOccurrence use="FI586A">1</MaxOccurrence>
-        <Condition use="FI586A">NC5070</Condition>
         <DataElement>
           <Name lang="fi">Asiakirjatyyppi</Name>
           <Name lang="sv">Typ av dokument</Name>
@@ -4711,6 +4710,24 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Use>FI586A</Use>
           <MinOccurrence use="FI586A">1</MinOccurrence>
         </DataElement>
+        <DataGroup>
+          <Name lang="fi">Liitteen viite</Name>
+          <Name lang="sv">Bilagans referens</Name>
+          <Name lang="en">Attachment reference</Name>
+          <XPath>/​BorderTransportMeans/​TransportContractDocument/​NationalReference</XPath>
+          <Use>FI586A</Use>
+          <MinOccurrence use="FI586A">0</MinOccurrence>
+          <MaxOccurrence use="FI586A">1</MaxOccurrence>
+          <DataElement>
+            <Name lang="fi">Liitteen viite</Name>
+            <Name lang="sv">Bilagans referens</Name>
+            <Name lang="en">Attachment reference</Name>
+            <XPath>/​BorderTransportMeans/​TransportContractDocument/​NationalReference/​Identification</XPath>
+            <Format>an..22</Format>
+            <Use>FI586A</Use>
+            <MinOccurrence use="FI586A">1</MinOccurrence>
+          </DataElement>
+        </DataGroup>
       </DataGroup>
       <DataGroup>
         <Name lang="fi">Tavaran sijaintipaikka</Name>
@@ -4870,7 +4887,10 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <XPath>/​BorderTransportMeans/​Commodity/​GoodsMeasure/​NetNetMass</XPath>
             <Format>n..16,6</Format>
             <Use>FI586A</Use>
-            <MinOccurrence use="FI586A">0</MinOccurrence>
+            <MinOccurrence use="FI586A">1</MinOccurrence>
+            <Description lang="fi" use="FI586A">Nettopaino ilman yksikköä (kg) on ilmoitettava aina kaikista tavaroista.</Description>
+            <Description lang="sv" use="FI586A">Nettovikt utan enhet (kg) ska alltid anges för alla varor.</Description>
+            <Description lang="en" use="FI586A">The net mass without the unit (kg) must always be provided for all goods.</Description>
           </DataElement>
           <DataElement>
             <Name lang="fi">Lisäpaljousyksiköt</Name>
@@ -4880,6 +4900,9 @@ For the time being, Customs will only accept an identifier of up to 14 character
             <Format>n..16,6</Format>
             <Use>FI586A</Use>
             <MinOccurrence use="FI586A">0</MinOccurrence>
+            <Description lang="fi" use="FI586A">Lisäpaljous on ilmoitettava juomista ja tietyistä tupakkatuotteista. Ilmoita tässä litramäärä (ilman yksikköä), jos ilmoitat alkoholi- tai virvoitusjuomia. Ilmoita kappalemäärä (ilman yksikköä), jos ilmoitat savukkeita, sikareita, pikkusikareita tai savukepapereita.</Description>
+            <Description lang="sv" use="FI586A">Extra mängdenhet ska anges för drycker och vissa tobaksprodukter. Om du deklarerar alkohol- eller läskedrycker, ange här litermängd (utan enhet). Om du deklarerar cigaretter, cigarrer, cigariller eller cigarettpapper, ange styckeantal (utan enhet).</Description>
+            <Description lang="en" use="FI586A">A supplementary unit must be provided for beverages and certain tobacco products. If you’re declaring alcoholic beverages or soft drinks, provide here the number of liters (without the unit). If you’re declaring cigarettes, cigars, cigarillos or cigarette paper, provide the number of pieces (without the unit).</Description>
           </DataElement>
         </DataGroup>
       </DataGroup>
@@ -4931,7 +4954,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
         <Format>n..16,6</Format>
         <Use>FI613A</Use>
         <Use>FI615A</Use>
-        <MinOccurrence use="FI613A">0</MinOccurrence>
+        <MinOccurrence use="FI613A">1</MinOccurrence>
         <MinOccurrence use="FI615A">1</MinOccurrence>
         <Rule use="FI613A">R0994</Rule>
         <Rule use="FI615A">R0994</Rule>
@@ -5309,7 +5332,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <Format>an..70</Format>
           <Use>FI613A</Use>
           <Use>FI615A</Use>
-          <MinOccurrence use="FI613A">0</MinOccurrence>
+          <MinOccurrence use="FI613A">1</MinOccurrence>
           <MinOccurrence use="FI615A">1</MinOccurrence>
         </DataElement>
         <DataGroup>
@@ -5319,7 +5342,7 @@ For the time being, Customs will only accept an identifier of up to 14 character
           <XPath>/​Consignment/​Consignee/​Address</XPath>
           <Use>FI613A</Use>
           <Use>FI615A</Use>
-          <MinOccurrence use="FI613A">0</MinOccurrence>
+          <MinOccurrence use="FI613A">1</MinOccurrence>
           <MinOccurrence use="FI615A">1</MinOccurrence>
           <MaxOccurrence use="FI613A">1</MaxOccurrence>
           <MaxOccurrence use="FI615A">1</MaxOccurrence>
