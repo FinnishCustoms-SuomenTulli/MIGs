@@ -413,7 +413,7 @@
       </DataElement>
       <DataElement>
         <Name lang="fi">Määräajan laji</Name>
-        <Name lang="sv">Typ af tidsgräns</Name>
+        <Name lang="sv">Typ av tidsgräns</Name>
         <Name lang="en">Time limit type</Name>
         <XPath>/​Notification/​Limit@LimitType</XPath>
         <Format>an..3</Format>
@@ -435,6 +435,7 @@
         <Use>FI310A</Use>
         <Use>FI329A</Use>
         <Use>FI330A</Use>
+        <Use>FI344A</Use>
         <Use>FI348A</Use>
         <Use>FI350A</Use>
         <Use>FI351A</Use>
@@ -443,6 +444,7 @@
         <MinOccurrence use="FI310A">1</MinOccurrence>
         <MinOccurrence use="FI329A">1</MinOccurrence>
         <MinOccurrence use="FI330A">1</MinOccurrence>
+        <MinOccurrence use="FI344A">0</MinOccurrence>
         <MinOccurrence use="FI348A">1</MinOccurrence>
         <MinOccurrence use="FI350A">1</MinOccurrence>
         <MinOccurrence use="FI351A">1</MinOccurrence>
@@ -451,6 +453,7 @@
         <MaxOccurrence use="FI310A">1</MaxOccurrence>
         <MaxOccurrence use="FI329A">1</MaxOccurrence>
         <MaxOccurrence use="FI330A">1</MaxOccurrence>
+        <MaxOccurrence use="FI344A">1</MaxOccurrence>
         <MaxOccurrence use="FI348A">1</MaxOccurrence>
         <MaxOccurrence use="FI350A">1</MaxOccurrence>
         <MaxOccurrence use="FI351A">1</MaxOccurrence>
@@ -463,8 +466,10 @@
           <XPath>/​Notification/​Decision/​Decision</XPath>
           <Format>dateTime</Format>
           <Use>FI310A</Use>
+          <Use>FI344A</Use>
           <Use>FI348A</Use>
           <MinOccurrence use="FI310A">1</MinOccurrence>
+          <MinOccurrence use="FI344A">1</MinOccurrence>
           <MinOccurrence use="FI348A">1</MinOccurrence>
         </DataElement>
         <DataGroup>
@@ -475,6 +480,7 @@
           <Use>FI310A</Use>
           <Use>FI329A</Use>
           <Use>FI330A</Use>
+          <Use>FI344A</Use>
           <Use>FI348A</Use>
           <Use>FI350A</Use>
           <Use>FI351A</Use>
@@ -483,6 +489,7 @@
           <MinOccurrence use="FI310A">1</MinOccurrence>
           <MinOccurrence use="FI329A">1</MinOccurrence>
           <MinOccurrence use="FI330A">1</MinOccurrence>
+          <MinOccurrence use="FI344A">0</MinOccurrence>
           <MinOccurrence use="FI348A">1</MinOccurrence>
           <MinOccurrence use="FI350A">1</MinOccurrence>
           <MinOccurrence use="FI351A">1</MinOccurrence>
@@ -491,6 +498,7 @@
           <MaxOccurrence use="FI310A">999</MaxOccurrence>
           <MaxOccurrence use="FI329A">999</MaxOccurrence>
           <MaxOccurrence use="FI330A">999</MaxOccurrence>
+          <MaxOccurrence use="FI344A">999</MaxOccurrence>
           <MaxOccurrence use="FI348A">999</MaxOccurrence>
           <MaxOccurrence use="FI350A">999</MaxOccurrence>
           <MaxOccurrence use="FI351A">999</MaxOccurrence>
@@ -505,6 +513,7 @@
             <Use>FI310A</Use>
             <Use>FI329A</Use>
             <Use>FI330A</Use>
+            <Use>FI344A</Use>
             <Use>FI348A</Use>
             <Use>FI350A</Use>
             <Use>FI351A</Use>
@@ -513,6 +522,7 @@
             <MinOccurrence use="FI310A">1</MinOccurrence>
             <MinOccurrence use="FI329A">1</MinOccurrence>
             <MinOccurrence use="FI330A">1</MinOccurrence>
+            <MinOccurrence use="FI344A">1</MinOccurrence>
             <MinOccurrence use="FI348A">1</MinOccurrence>
             <MinOccurrence use="FI350A">1</MinOccurrence>
             <MinOccurrence use="FI351A">1</MinOccurrence>
@@ -521,6 +531,7 @@
             <Codelist use="FI310A">NCL051</Codelist>
             <Codelist use="FI329A">NCL051</Codelist>
             <Codelist use="FI330A">NCL051</Codelist>
+            <Codelist use="FI344A">NCL051</Codelist>
             <Codelist use="FI348A">NCL051</Codelist>
             <Codelist use="FI350A">NCL051</Codelist>
             <Codelist use="FI351A">NCL051</Codelist>
@@ -536,6 +547,7 @@
             <Use>FI310A</Use>
             <Use>FI329A</Use>
             <Use>FI330A</Use>
+            <Use>FI344A</Use>
             <Use>FI348A</Use>
             <Use>FI350A</Use>
             <Use>FI351A</Use>
@@ -544,6 +556,7 @@
             <MinOccurrence use="FI310A">1</MinOccurrence>
             <MinOccurrence use="FI329A">1</MinOccurrence>
             <MinOccurrence use="FI330A">1</MinOccurrence>
+            <MinOccurrence use="FI344A">1</MinOccurrence>
             <MinOccurrence use="FI348A">1</MinOccurrence>
             <MinOccurrence use="FI350A">1</MinOccurrence>
             <MinOccurrence use="FI351A">1</MinOccurrence>
@@ -1047,34 +1060,6 @@
       <MaxOccurrence use="FI319A">1</MaxOccurrence>
       <MaxOccurrence use="FI329A">1</MaxOccurrence>
       <MaxOccurrence use="FI351A">1</MaxOccurrence>
-      <DataGroup>
-        <Name lang="fi">Viitenumero/UCR</Name>
-        <Name lang="sv">Referensnummer/UCR</Name>
-        <Name lang="en">Reference number/UCR</Name>
-        <XPath>/​Consignment/​UCR</XPath>
-        <Use>FI319A</Use>
-        <Use>FI329A</Use>
-        <Use>FI351A</Use>
-        <MinOccurrence use="FI319A">0</MinOccurrence>
-        <MinOccurrence use="FI329A">0</MinOccurrence>
-        <MinOccurrence use="FI351A">0</MinOccurrence>
-        <MaxOccurrence use="FI319A">1</MaxOccurrence>
-        <MaxOccurrence use="FI329A">1</MaxOccurrence>
-        <MaxOccurrence use="FI351A">1</MaxOccurrence>
-        <DataElement>
-          <Name lang="fi">Viitenumero/UCR</Name>
-          <Name lang="sv">Referensnummer/UCR</Name>
-          <Name lang="en">Reference number/UCR</Name>
-          <XPath>/​Consignment/​UCR/​TraderAssignedReference</XPath>
-          <Format>an..35</Format>
-          <Use>FI319A</Use>
-          <Use>FI329A</Use>
-          <Use>FI351A</Use>
-          <MinOccurrence use="FI319A">1</MinOccurrence>
-          <MinOccurrence use="FI329A">1</MinOccurrence>
-          <MinOccurrence use="FI351A">1</MinOccurrence>
-        </DataElement>
-      </DataGroup>
       <DataGroup>
         <Name lang="fi">Vastaanottaja</Name>
         <Name lang="sv">Mottagare</Name>
@@ -1652,6 +1637,34 @@
             <MinOccurrence use="FI319A">1</MinOccurrence>
           </DataElement>
         </DataGroup>
+      </DataGroup>
+      <DataGroup>
+        <Name lang="fi">Viitenumero/UCR</Name>
+        <Name lang="sv">Referensnummer/UCR</Name>
+        <Name lang="en">Reference number/UCR</Name>
+        <XPath>/​Consignment/​UCR</XPath>
+        <Use>FI319A</Use>
+        <Use>FI329A</Use>
+        <Use>FI351A</Use>
+        <MinOccurrence use="FI319A">0</MinOccurrence>
+        <MinOccurrence use="FI329A">0</MinOccurrence>
+        <MinOccurrence use="FI351A">0</MinOccurrence>
+        <MaxOccurrence use="FI319A">1</MaxOccurrence>
+        <MaxOccurrence use="FI329A">1</MaxOccurrence>
+        <MaxOccurrence use="FI351A">1</MaxOccurrence>
+        <DataElement>
+          <Name lang="fi">Viitenumero/UCR</Name>
+          <Name lang="sv">Referensnummer/UCR</Name>
+          <Name lang="en">Reference number/UCR</Name>
+          <XPath>/​Consignment/​UCR/​TraderAssignedReference</XPath>
+          <Format>an..35</Format>
+          <Use>FI319A</Use>
+          <Use>FI329A</Use>
+          <Use>FI351A</Use>
+          <MinOccurrence use="FI319A">1</MinOccurrence>
+          <MinOccurrence use="FI329A">1</MinOccurrence>
+          <MinOccurrence use="FI351A">1</MinOccurrence>
+        </DataElement>
       </DataGroup>
       <DataGroup>
         <Name lang="fi">Tavaraerä</Name>
