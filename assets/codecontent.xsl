@@ -11,8 +11,11 @@
 	</xsl:template>
 	<xsl:template match="CodeList">
 		<p>
-			<xsl:value-of select="Description[@lang=($language)]"/>
+			<xsl:call-template name="md-links">
+				<xsl:with-param name="s" select="string(Description[@lang=$language])"/>
+			</xsl:call-template>
 		</p>
+		<xsl:if test="count(CodeItem) > 0">
 		<table class="table table-striped table-hover table-responsive table-condensed">
 			<thead>
 				<tr>
@@ -186,5 +189,38 @@
 				</xsl:if>
 			</xsl:for-each>
 		</table>
+		</xsl:if>
+	</xsl:template>
+	<xsl:template name="md-links">
+		<xsl:param name="s"/>
+		<xsl:choose>
+			<!-- We consider it a link only if we can find the pieces in order -->
+			<xsl:when test="contains($s,'[') and contains($s,'](') and contains($s,')')
+                    and string-length(substring-before($s,'[')) + 1
+                        &lt; string-length(substring-before($s,']('))">
+				<!-- Output text before the '[' -->
+				<xsl:value-of select="substring-before($s,'[')"/>
+				<!-- After '[' -->
+				<xsl:variable name="afterOpen" select="substring-after($s,'[')"/>
+				<!-- Label is up to the next ']' -->
+				<xsl:variable name="label" select="substring-before($afterOpen,']')"/>
+				<!-- After '](' -->
+				<xsl:variable name="afterLabel" select="substring-after($afterOpen,'](')"/>
+				<!-- URL is up to the next ')' -->
+				<xsl:variable name="url" select="substring-before($afterLabel,')')"/>
+				<!-- Emit the link -->
+				<a href="{$url}">
+					<xsl:value-of select="$label"/>
+				</a>
+				<!-- Recurse on remainder after ')' -->
+				<xsl:call-template name="md-links">
+					<xsl:with-param name="s" select="substring-after($afterLabel,')')"/>
+				</xsl:call-template>
+			</xsl:when>
+			<!-- No (more) links -->
+			<xsl:otherwise>
+				<xsl:value-of select="$s"/>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 </xsl:stylesheet>

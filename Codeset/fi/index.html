@@ -157,6 +157,45 @@
 			var checkDate = picker.startDate.format('YYYYMMDD');
 			transform('../../../codelists/codelists.xml', '../../assets/codelists2.xsl', document.getElementById('contents'), 'fi', checkDate);
 		});
+		
+		$(function () {
+
+			function openAndScrollToHash() {
+				var hash = window.location.hash;
+				if (!hash) return false;
+
+				var $target = $(hash);
+				if (!$target.length) return false;
+
+				// Open (Bootstrap collapse)
+				$target.collapse('show');
+
+				// Scroll (offset for fixed header; adjust/remove -80 as needed)
+				$('html, body').animate({ scrollTop: $target.offset().top - 40 }, 400);
+
+				return true;
+			}
+
+			// Try immediately
+			if (openAndScrollToHash()) return;
+
+			// If not found, watch for dynamic insertion
+			var observer = new MutationObserver(function () {
+				if (openAndScrollToHash()) observer.disconnect();
+			});
+
+			observer.observe(document.body, { childList: true, subtree: true });
+
+			// Also handle hash changes (user clicks internal links)
+			$(window).on('hashchange', function () {
+				if (openAndScrollToHash()) return;
+
+				// If hash changed to something not yet present, re-arm observer briefly
+				observer.disconnect();
+				observer.observe(document.body, { childList: true, subtree: true });
+			});
+
+		});
 
 		(function () {
 			var searchTerm, panelContainerId;
