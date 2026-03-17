@@ -563,7 +563,7 @@
       </DataElement>
       <DataElement>
         <Name lang="fi">Määräajan laji</Name>
-        <Name lang="sv">Typ av tidsgräns</Name>
+        <Name lang="sv">Typ af tidsgräns</Name>
         <Name lang="en">Time limit type</Name>
         <XPath>/​Notification/​Limit@LimitType</XPath>
         <Format>an..3</Format>
@@ -1138,7 +1138,7 @@
         <Use>FI029A</Use>
         <Use>FI043A</Use>
         <MinOccurrence use="FI029A">0</MinOccurrence>
-        <MinOccurrence use="FI043A">0</MinOccurrence>
+        <MinOccurrence use="FI043A">1</MinOccurrence>
       </DataElement>
       <DataGroup>
         <Name lang="fi">Toimipaikkakoodi</Name>
@@ -1249,8 +1249,11 @@
           <XPath>/​Principal/​Address/​Country</XPath>
           <Format>a2</Format>
           <Use>FI029A</Use>
+          <Use>FI043A</Use>
           <MinOccurrence use="FI029A">1</MinOccurrence>
+          <MinOccurrence use="FI043A">1</MinOccurrence>
           <Codelist use="FI029A">CL248</Codelist>
+          <Codelist use="FI043A">CL199</Codelist>
         </DataElement>
       </DataGroup>
     </DataGroup>
@@ -1440,8 +1443,8 @@
           <Use>FI043A</Use>
           <MinOccurrence use="FI029A">1</MinOccurrence>
           <MinOccurrence use="FI043A">1</MinOccurrence>
-          <Codelist use="FI029A">CL008</Codelist>
-          <Codelist use="FI043A">CL008</Codelist>
+          <Codelist use="FI029A">CL008_NCTS</Codelist>
+          <Codelist use="FI043A">CL008_NCTS</Codelist>
         </DataElement>
       </DataGroup>
       <DataGroup>
@@ -1460,7 +1463,7 @@
           <Format>a2</Format>
           <Use>FI029A</Use>
           <MinOccurrence use="FI029A">1</MinOccurrence>
-          <Codelist use="FI029A">CL008</Codelist>
+          <Codelist use="FI029A">CL008_NCTS</Codelist>
         </DataElement>
       </DataGroup>
       <DataElement>
@@ -1665,6 +1668,19 @@
             <MinOccurrence use="FI029A">0</MinOccurrence>
             <MinOccurrence use="FI043A">0</MinOccurrence>
           </DataElement>
+          <DataElement>
+            <Name lang="fi">Maa</Name>
+            <Name lang="sv">Land</Name>
+            <Name lang="en">Country</Name>
+            <XPath>/​Consignment/​Consignee/​Address/​Country</XPath>
+            <Format>a2</Format>
+            <Use>FI029A</Use>
+            <Use>FI043A</Use>
+            <MinOccurrence use="FI029A">1</MinOccurrence>
+            <MinOccurrence use="FI043A">1</MinOccurrence>
+            <Codelist use="FI029A">CL199</Codelist>
+            <Codelist use="FI043A">CL199</Codelist>
+          </DataElement>
         </DataGroup>
       </DataGroup>
       <DataGroup>
@@ -1770,8 +1786,11 @@
             <Name lang="en">Country</Name>
             <XPath>/​Consignment/​Consignor/​Address/​Country</XPath>
             <Format>a2</Format>
+            <Use>FI029A</Use>
             <Use>FI043A</Use>
+            <MinOccurrence use="FI029A">1</MinOccurrence>
             <MinOccurrence use="FI043A">1</MinOccurrence>
+            <Codelist use="FI029A">CL199</Codelist>
             <Codelist use="FI043A">CL248</Codelist>
           </DataElement>
         </DataGroup>
@@ -1820,7 +1839,7 @@
           <Format>a2</Format>
           <Use>FI029A</Use>
           <MinOccurrence use="FI029A">0</MinOccurrence>
-          <Codelist use="FI029A">CL008</Codelist>
+          <Codelist use="FI029A">CL008_NCTS</Codelist>
         </DataElement>
         <DataElement>
           <Name lang="fi">Kuljetuksen viitenumero</Name>
@@ -1898,8 +1917,8 @@
           <Use>FI043A</Use>
           <MinOccurrence use="FI029A">0</MinOccurrence>
           <MinOccurrence use="FI043A">0</MinOccurrence>
-          <Codelist use="FI029A">CL008</Codelist>
-          <Codelist use="FI043A">CL008</Codelist>
+          <Codelist use="FI029A">CL008_NCTS</Codelist>
+          <Codelist use="FI043A">CL008_NCTS</Codelist>
         </DataElement>
       </DataGroup>
       <DataGroup>
@@ -2303,8 +2322,8 @@
               <Use>FI182A</Use>
               <MinOccurrence use="FI043A">1</MinOccurrence>
               <MinOccurrence use="FI182A">1</MinOccurrence>
-              <Codelist use="FI043A">CL008</Codelist>
-              <Codelist use="FI182A">CL008</Codelist>
+              <Codelist use="FI043A">CL008_NCTS</Codelist>
+              <Codelist use="FI182A">CL008_NCTS</Codelist>
             </DataElement>
           </DataGroup>
         </DataGroup>
@@ -2341,8 +2360,8 @@
           <Use>FI043A</Use>
           <MinOccurrence use="FI029A">1</MinOccurrence>
           <MinOccurrence use="FI043A">1</MinOccurrence>
-          <Codelist use="FI029A">CL213</Codelist>
-          <Codelist use="FI043A">CL213</Codelist>
+          <Codelist use="FI029A">CL213_NCTS</Codelist>
+          <Codelist use="FI043A">CL213_NCTS</Codelist>
         </DataElement>
         <DataElement>
           <Name lang="fi">Asiakirjatunniste</Name>
@@ -2474,7 +2493,7 @@
           <MinOccurrence use="FI029A">1</MinOccurrence>
           <MinOccurrence use="FI043A">1</MinOccurrence>
           <Codelist use="FI029A">CL754</Codelist>
-          <Codelist use="FI043A">CL754</Codelist>
+          <Codelist use="FI043A">CL754_NCTS</Codelist>
         </DataElement>
         <DataElement>
           <Name lang="fi">Asiakirjatunniste</Name>
@@ -2578,7 +2597,7 @@
           <Format>a2</Format>
           <Use>FI029A</Use>
           <MinOccurrence use="FI029A">1</MinOccurrence>
-          <Codelist use="FI029A">CL008</Codelist>
+          <Codelist use="FI029A">CL008_NCTS</Codelist>
         </DataElement>
       </DataGroup>
       <DataGroup>
@@ -2689,7 +2708,7 @@
             <Format>a2</Format>
             <Use>FI029A</Use>
             <MinOccurrence use="FI029A">1</MinOccurrence>
-            <Codelist use="FI029A">CL008</Codelist>
+            <Codelist use="FI029A">CL008_NCTS</Codelist>
           </DataElement>
         </DataGroup>
         <DataElement>
@@ -2726,7 +2745,7 @@
             <Format>a2</Format>
             <Use>FI029A</Use>
             <MinOccurrence use="FI029A">1</MinOccurrence>
-            <Codelist use="FI029A">CL008</Codelist>
+            <Codelist use="FI029A">CL008_NCTS</Codelist>
           </DataElement>
         </DataGroup>
         <DataElement>
@@ -2891,7 +2910,7 @@
           <Format>a1</Format>
           <Use>FI029A</Use>
           <MinOccurrence use="FI029A">1</MinOccurrence>
-          <Codelist use="FI029A">CL116</Codelist>
+          <Codelist use="FI029A">CL116_NCTS</Codelist>
         </DataElement>
       </DataGroup>
       <DataGroup>
@@ -2937,8 +2956,8 @@
             <Use>FI043A</Use>
             <MinOccurrence use="FI029A">1</MinOccurrence>
             <MinOccurrence use="FI043A">1</MinOccurrence>
-            <Codelist use="FI029A">CL008</Codelist>
-            <Codelist use="FI043A">CL008</Codelist>
+            <Codelist use="FI029A">CL008_NCTS</Codelist>
+            <Codelist use="FI043A">CL008_NCTS</Codelist>
           </DataElement>
         </DataGroup>
         <DataGroup>
@@ -2957,7 +2976,7 @@
             <Format>a2</Format>
             <Use>FI029A</Use>
             <MinOccurrence use="FI029A">1</MinOccurrence>
-            <Codelist use="FI029A">CL008</Codelist>
+            <Codelist use="FI029A">CL008_NCTS</Codelist>
           </DataElement>
         </DataGroup>
         <DataElement>
@@ -3114,8 +3133,8 @@
             <Use>FI043A</Use>
             <MinOccurrence use="FI029A">1</MinOccurrence>
             <MinOccurrence use="FI043A">1</MinOccurrence>
-            <Codelist use="FI029A">CL754</Codelist>
-            <Codelist use="FI043A">CL754</Codelist>
+            <Codelist use="FI029A">CL754_NCTS</Codelist>
+            <Codelist use="FI043A">CL754_NCTS</Codelist>
           </DataElement>
           <DataElement>
             <Name lang="fi">Asiakirjatunniste</Name>
@@ -3407,6 +3426,19 @@
               <MinOccurrence use="FI029A">0</MinOccurrence>
               <MinOccurrence use="FI043A">0</MinOccurrence>
             </DataElement>
+            <DataElement>
+              <Name lang="fi">Maa</Name>
+              <Name lang="sv">Land</Name>
+              <Name lang="en">Country</Name>
+              <XPath>/​Consignment/​HouseConsignment/​Consignor/​Address/​Country</XPath>
+              <Format>a2</Format>
+              <Use>FI029A</Use>
+              <Use>FI043A</Use>
+              <MinOccurrence use="FI029A">1</MinOccurrence>
+              <MinOccurrence use="FI043A">1</MinOccurrence>
+              <Codelist use="FI029A">CL199</Codelist>
+              <Codelist use="FI043A">CL199</Codelist>
+            </DataElement>
           </DataGroup>
         </DataGroup>
         <DataGroup>
@@ -3485,7 +3517,7 @@
             <Format>a1</Format>
             <Use>FI029A</Use>
             <MinOccurrence use="FI029A">1</MinOccurrence>
-            <Codelist use="FI029A">CL116</Codelist>
+            <Codelist use="FI029A">CL116_NCTS</Codelist>
           </DataElement>
         </DataGroup>
         <DataGroup>
@@ -3555,8 +3587,8 @@
               <Use>FI043A</Use>
               <MinOccurrence use="FI029A">1</MinOccurrence>
               <MinOccurrence use="FI043A">1</MinOccurrence>
-              <Codelist use="FI029A">CL008</Codelist>
-              <Codelist use="FI043A">CL008</Codelist>
+              <Codelist use="FI029A">CL008_NCTS</Codelist>
+              <Codelist use="FI043A">CL008_NCTS</Codelist>
             </DataElement>
           </DataGroup>
           <DataGroup>
@@ -3575,7 +3607,7 @@
               <Format>a2</Format>
               <Use>FI029A</Use>
               <MinOccurrence use="FI029A">1</MinOccurrence>
-              <Codelist use="FI029A">CL008</Codelist>
+              <Codelist use="FI029A">CL008_NCTS</Codelist>
             </DataElement>
           </DataGroup>
           <DataGroup>
@@ -3936,7 +3968,7 @@
               <MinOccurrence use="FI029A">1</MinOccurrence>
               <MinOccurrence use="FI043A">1</MinOccurrence>
               <Codelist use="FI029A">CL213</Codelist>
-              <Codelist use="FI043A">CL213</Codelist>
+              <Codelist use="FI043A">CL213_NCTS</Codelist>
             </DataElement>
             <DataElement>
               <Name lang="fi">Asiakirjatunniste</Name>
