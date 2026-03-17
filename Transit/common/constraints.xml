@@ -286,6 +286,18 @@ THEN /*/Guarantee/GuaranteeReference = "R"&#13;
 ELSE /*/Guarantee/GuaranteeReference = "N"</Description>
   </Constraint>
   <Constraint>
+    <Code>C0086</Code>
+    <Description lang="fi">IF &lt;i&gt;Vakuuden tyyppi&lt;/i&gt; is in SET CL286 (GuaranteeTypeWithGRN)&#13;
+  THEN &lt;i&gt;Vakuuden viitenumero (GRN)&lt;/i&gt; AND &lt;i&gt;Tunnuskoodi&lt;/i&gt; = 'R'&#13;
+ELSE &lt;i&gt;Vakuuden viitenumero (GRN)&lt;/i&gt; AND &lt;i&gt;Tunnuskoodi&lt;/i&gt; = 'N'</Description>
+    <Description lang="sv">IF &lt;i&gt;Garantityp&lt;/i&gt; is in SET CL286 (GuaranteeTypeWithGRN)&#13;
+  THEN &lt;i&gt;Referensnummer för garanti (GRN)&lt;/i&gt; AND &lt;i&gt;Tillträdeskod&lt;/i&gt; = 'R'&#13;
+ELSE &lt;i&gt;Referensnummer för garanti (GRN)&lt;/i&gt; AND &lt;i&gt;Tillträdeskod&lt;/i&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Guarantee type&lt;/i&gt; is in SET CL286 (GuaranteeTypeWithGRN)&#13;
+  THEN &lt;i&gt;Guarantee reference number (GRN)&lt;/i&gt; AND &lt;i&gt;Access code&lt;/i&gt; = 'R'&#13;
+ELSE &lt;i&gt;Guarantee reference number (GRN)&lt;/i&gt; AND &lt;i&gt;Access code&lt;/i&gt; = 'N'</Description>
+  </Constraint>
+  <Constraint>
     <Code>C0101</Code>
     <Description lang="fi">IF /*/TransitOperation/reducedDatasetIndicator is EQUAL to "1"&#13;
 THEN /*/Authorisation = "R"&#13;
@@ -593,24 +605,6 @@ THEN /*/Consignment/HouseConsignment/countryOfDestination = "N" AND&#13;
 ELSE IF /*/Consignment/HouseConsignment/countryOfDestination is PRESENT&#13;
 THEN /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "N" &#13;
 ELSE /*/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination = "R"</Description>
-  </Constraint>
-  <Constraint>
-    <Code>C0403</Code>
-    <Description lang="fi">IF /*/TransitOperation/additionalDeclarationType is EQUAL to “D” &#13;
-THEN /*/Consignment/PlaceOfLoading = “O”&#13;
-ELSE /*/Consignment/PlaceOfLoading = “R”&#13;
-&#13;
-</Description>
-    <Description lang="sv">IF /*/TransitOperation/additionalDeclarationType is EQUAL to “D” &#13;
-THEN /*/Consignment/PlaceOfLoading = “O”&#13;
-ELSE /*/Consignment/PlaceOfLoading = “R”&#13;
-&#13;
-</Description>
-    <Description lang="en">IF /*/TransitOperation/additionalDeclarationType is EQUAL to “D” &#13;
-THEN /*/Consignment/PlaceOfLoading = “O”&#13;
-ELSE /*/Consignment/PlaceOfLoading = “R”&#13;
-&#13;
-</Description>
   </Constraint>
   <Constraint>
     <Code>C0411</Code>
@@ -1078,30 +1072,6 @@ ELSE IF &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;
 ELSE &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Country of dispatch&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
-    <Code>NC0016</Code>
-    <Description lang="fi">JOS &lt;i&gt;Toimipaikkakoodi&lt;/i&gt; ei ole ILMOITETTU TAI &lt;i&gt;Tunnistenumero&lt;/i&gt; sisältää suomalaisen henkilötunnuksen&#13;
-  NIIN &lt;i&gt;Nimi&lt;/i&gt; JA &lt;i&gt;Osoite&lt;/i&gt; = 'R'&#13;
-MUUTEN &lt;i&gt;Nimi&lt;/i&gt; JA &lt;i&gt;Osoite&lt;/i&gt; = 'N'</Description>
-    <Description lang="sv">OM &lt;i&gt;Kod för verksamhetsställe&lt;/i&gt; inte är ANMÄLT ELLER &lt;i&gt;Identifieringsnummer&lt;/i&gt; innehåller en finskt personbeteckning&#13;
-  DÅ är &lt;i&gt;Namn&lt;/i&gt; COH &lt;i&gt;Adress&lt;/i&gt; = 'R'&#13;
-ANNARS är &lt;i&gt;Namn&lt;/i&gt; OCH &lt;i&gt;Adress&lt;/i&gt; = 'N'</Description>
-    <Description lang="en">IF &lt;i&gt;Office code&lt;/i&gt; is not ENTERED OR &lt;i&gt;Identification number&lt;/i&gt; contains a Finnish personal identity code&#13;
-  THEN &lt;i&gt;Name&lt;/i&gt; AND &lt;i&gt;Address&lt;/i&gt; = 'R'&#13;
-ELSE &lt;i&gt;Name&lt;/i&gt; AND &lt;i&gt;Address&lt;/i&gt; = 'N'</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NC0035</Code>
-    <Description lang="fi">JOS &lt;i&gt;Sijaintipaikan tyyppi&lt;/i&gt; on JOUKOSSA {B, C}&#13;
-  NIIN &lt;i&gt;Talouden toimija&lt;/i&gt; = 'O'&#13;
-MUUTEN &lt;i&gt;Talouden toimija&lt;/i&gt; = 'N' </Description>
-    <Description lang="sv">OM &lt;i&gt;Typ av förvaringsplats&lt;/i&gt; är i GRUPPEN {B, C}&#13;
-  DÅ är &lt;i&gt;Ekonomisk aktör&lt;/i&gt; = 'O'&#13;
-ANNARS är &lt;i&gt;Ekonomisk aktör&lt;/i&gt; = 'N' </Description>
-    <Description lang="en">IF &lt;i&gt;Type of location&lt;/i&gt; is in SET {B, C}&#13;
-  THEN &lt;i&gt;Economic operator&lt;/i&gt; = 'O'&#13;
-ELSE &lt;i&gt;Economic operator&lt;/i&gt; = 'N' </Description>
-  </Constraint>
-  <Constraint>
     <Code>NC0221</Code>
     <Description lang="fi">JOS &lt;i&gt;Tunnistenumero&lt;/i&gt; on ILMOITETTU&#13;
   NIIN &lt;i&gt;Toimipaikkakoodi&lt;/i&gt; = 'O'&#13;
@@ -1193,36 +1163,6 @@ ELSE &#13;
     <Description lang="fi">If following procedure is entered, then this is = R</Description>
     <Description lang="sv">If following procedure is entered, then this is = R</Description>
     <Description lang="en">If following procedure is entered, then this is = R</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NC9009</Code>
-    <Description lang="fi">IF /*/Guarantee/guaranteeType is in SET CL286&#13;
-THEN /*/Guarantee/GuaranteeReference/GRN = "R" AND&#13;
-/*/Guarantee/GuaranteeReference/accessCode = "R"&#13;
-  ELSE IF /*/Guarantee/guaranteeType IS EQUAL TO ‘3’ &#13;
-THEN /*/Guarantee/GuaranteeReference/GRN = "O" AND&#13;
-/*/Guarantee/GuaranteeReference/accessCode = "O"&#13;
-ELSE /*/Guarantee/GuaranteeReference/GRN = "N" AND&#13;
-/*/Guarantee/GuaranteeReference/accessCode = "N"&#13;
-</Description>
-    <Description lang="sv">IF /*/Guarantee/guaranteeType is in SET CL286&#13;
-THEN /*/Guarantee/GuaranteeReference/GRN = "R" AND&#13;
-/*/Guarantee/GuaranteeReference/accessCode = "R"&#13;
-  ELSE IF /*/Guarantee/guaranteeType IS EQUAL TO ‘3’ &#13;
-THEN /*/Guarantee/GuaranteeReference/GRN = "O" AND&#13;
-/*/Guarantee/GuaranteeReference/accessCode = "O"&#13;
-ELSE /*/Guarantee/GuaranteeReference/GRN = "N" AND&#13;
-/*/Guarantee/GuaranteeReference/accessCode = "N"&#13;
-</Description>
-    <Description lang="en">IF /*/Guarantee/guaranteeType is in SET CL286&#13;
-THEN /*/Guarantee/GuaranteeReference/GRN = "R" AND&#13;
-/*/Guarantee/GuaranteeReference/accessCode = "R"&#13;
-  ELSE IF /*/Guarantee/guaranteeType IS EQUAL TO ‘3’ &#13;
-THEN /*/Guarantee/GuaranteeReference/GRN = "O" AND&#13;
-/*/Guarantee/GuaranteeReference/accessCode = "O"&#13;
-ELSE /*/Guarantee/GuaranteeReference/GRN = "N" AND&#13;
-/*/Guarantee/GuaranteeReference/accessCode = "N"&#13;
-</Description>
   </Constraint>
   <Constraint>
     <Code>NC9010</Code>
@@ -1474,15 +1414,6 @@ THEN /*/Consignment/modeOfTransportAtTheBorder = "R"&#13;
 ELSE /*/Consignment/modeOfTransportAtTheBorder = "O"</Description>
   </Constraint>
   <Constraint>
-    <Code>NC9029</Code>
-    <Description lang="fi">IF /*/Guarantee/guaranteeType is in SET {0, 1, 2, 4}&#13;
-THEN /*/Guarantee/GuaranteeReference/GRN = "R"</Description>
-    <Description lang="sv">IF /*/Guarantee/guaranteeType is in SET {0, 1, 2, 4}&#13;
-THEN /*/Guarantee/GuaranteeReference/GRN = "R"</Description>
-    <Description lang="en">IF /*/Guarantee/guaranteeType is in SET {0, 1, 2, 4}&#13;
-THEN /*/Guarantee/GuaranteeReference/GRN = "R"</Description>
-  </Constraint>
-  <Constraint>
     <Code>NC9030</Code>
     <Description lang="fi">IF /*/Guarantee/guaranteeType is in SET {0, 1, 2, 4}&#13;
 THEN &#13;
@@ -1493,18 +1424,6 @@ THEN &#13;
     <Description lang="en">IF /*/Guarantee/guaranteeType is in SET {0, 1, 2, 4}&#13;
 THEN &#13;
 /*/Guarantee/GuaranteeReference/accessCode = "R"</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NC9032</Code>
-    <Description lang="fi">JOS ainoastaan yksi esiintymä tietoryhmästä &lt;i&gt;Kuljetusvälineet&lt;/i&gt; on ILMOITETTU JA &lt;i&gt;Kontin tunnistenumero&lt;/i&gt; on ILMOITETTU&#13;
-  NIIN &lt;i&gt;Tavaraviite&lt;/i&gt; = 'O'&#13;
-MUUTEN &lt;i&gt;Tavaraviite&lt;/i&gt; = 'R'</Description>
-    <Description lang="sv">OM endast en förekomst av &lt;i&gt;Transportutrustning&lt;/i&gt; är ANMÄLD OCH &lt;i&gt;Containernummer&lt;/i&gt; är ANMÄLD&#13;
-  DÅ är &lt;i&gt;Varureferens&lt;/i&gt; = 'O'&#13;
-ANNARS är &lt;i&gt;Varureferens&lt;/i&gt; = 'R'</Description>
-    <Description lang="en">IF only one instance of &lt;i&gt;Transport equipment&lt;/i&gt; is PRESENT AND &lt;i&gt;Container identification number&lt;/i&gt; is PRESENT&#13;
-  THEN &lt;i&gt;Goods reference&lt;/i&gt; = 'O'&#13;
-ELSE &lt;i&gt;Goods reference&lt;/i&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NC9034</Code>
@@ -1535,24 +1454,6 @@ ELSE &lt;i&gt;Economic operator&lt;/i&gt; = 'N'</Description>
   DÅ kan FI017 inte skickas</Description>
     <Description lang="en">IF FI015/&lt;i&gt;Declaration type&lt;/i&gt; = 'A'&#13;
   THEN FI017 cannot be sent</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NC9041</Code>
-    <Description lang="fi">IF /*/​Consignment/​HouseConsignment/​ExportCountry/Country is present&#13;
-  THEN /*/​Consignment/​HouseConsignment/​Sequence must be &gt; 1 AND /*/​Consignment/​HouseConsignment/​ExportCountry/Country must have at least two different values on parallel element</Description>
-    <Description lang="sv">IF /*/​Consignment/​HouseConsignment/​ExportCountry/Country is present&#13;
-  THEN /*/​Consignment/​HouseConsignment/​Sequence must be &gt; 1 AND /*/​Consignment/​HouseConsignment/​ExportCountry/Country must have at least two different values on parallel element</Description>
-    <Description lang="en">IF /*/​Consignment/​HouseConsignment/​ExportCountry/Country is present&#13;
-  THEN /*/​Consignment/​HouseConsignment/​Sequence must be &gt; 1 AND /*/​Consignment/​HouseConsignment/​ExportCountry/Country must have at least two different values on parallel element</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NC9042</Code>
-    <Description lang="fi">IF /*/​Consignment/​HouseConsignment/​ConsignmentItem/​ExportCountry/Country is present&#13;
-  THEN /​Consignment/​HouseConsignment/​ConsignmentItem/Sequence must be &gt; 1 AND /*/​Consignment/​HouseConsignment/​ConsignmentItem/​ExportCountry/Country must have at least two different values on parallel element</Description>
-    <Description lang="sv">IF /*/​Consignment/​HouseConsignment/​ConsignmentItem/​ExportCountry/Country is present&#13;
-  THEN /​Consignment/​HouseConsignment/​ConsignmentItem/Sequence must be &gt; 1 AND /*/​Consignment/​HouseConsignment/​ConsignmentItem/​ExportCountry/Country must have at least two different values on parallel element</Description>
-    <Description lang="en">IF /*/​Consignment/​HouseConsignment/​ConsignmentItem/​ExportCountry/Country is present&#13;
-  THEN /​Consignment/​HouseConsignment/​ConsignmentItem/Sequence must be &gt; 1 AND /*/​Consignment/​HouseConsignment/​ConsignmentItem/​ExportCountry/Country must have at least two different values on parallel element</Description>
   </Constraint>
   <Constraint>
     <Code>NC9043</Code>
@@ -1624,6 +1525,51 @@ ELSE &lt;i&gt;Commodity code - Harmonised System code&lt;/i&gt; = 'R'</Descripti
     <Description lang="en">Value must be &gt; 0</Description>
   </Constraint>
   <Constraint>
+    <Code>NC9069</Code>
+    <Description lang="fi">IF &lt;i&gt;Tunnistenumero&lt;/i&gt; is PRESENT AND &lt;i&gt;Luonne&lt;/i&gt; is EQUAL TO 'R'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Muutoksenhakija&lt;/i&gt;/&lt;i&gt;Nimi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Muutoksenhakija&lt;/i&gt;/&lt;i&gt;Osoite&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
+ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Muutoksenhakija&lt;/i&gt;/&lt;i&gt;Nimi&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Muutoksenhakija&lt;/i&gt;/&lt;i&gt;Osoite&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R' &#13;
+&#13;
+&lt;br&gt;</Description>
+    <Description lang="sv">IF &lt;i&gt;Identifieringsnummer&lt;/i&gt; is PRESENT AND &lt;i&gt;Natur&lt;/i&gt; is EQUAL TO 'R'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Ändringssökande&lt;/i&gt;/&lt;i&gt;Namn&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Ändringssökande&lt;/i&gt;/&lt;i&gt;Adress&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
+ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Ändringssökande&lt;/i&gt;/&lt;i&gt;Namn&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Ändringssökande&lt;/i&gt;/&lt;i&gt;Adress&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R' &#13;
+&#13;
+&lt;br&gt;</Description>
+    <Description lang="en">IF &lt;i&gt;Identification number&lt;/i&gt; is PRESENT AND &lt;i&gt;Nature&lt;/i&gt; is EQUAL TO 'R'&#13;
+  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Applicant&lt;/i&gt;/&lt;i&gt;Name&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Applicant&lt;/i&gt;/&lt;i&gt;Address&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'N'&#13;
+ELSE &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Applicant&lt;/i&gt;/&lt;i&gt;Name&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Applicant&lt;/i&gt;/&lt;i&gt;Address&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R' &#13;
+&#13;
+&lt;br&gt;</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC9070</Code>
+    <Description lang="fi">IF &lt;i&gt;Tunnistenumero&lt;/i&gt; is not present or if its two first characters are not in SET CL010&#13;
+  THEN &lt;i&gt;Nimi&lt;/i&gt; AND &lt;i&gt;Osoite&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">IF &lt;i&gt;Identifieringsnummer&lt;/i&gt; is not present or if its two first characters are not in SET CL010&#13;
+  THEN &lt;i&gt;Namn&lt;/i&gt; AND &lt;i&gt;Adress&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Identification number&lt;/i&gt; is not present or if its two first characters are not in SET CL010&#13;
+  THEN &lt;i&gt;Name&lt;/i&gt; AND &lt;i&gt;Address&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC9071</Code>
+    <Description lang="fi">IF &lt;i&gt;Tunnistenumero&lt;/i&gt; is not found in the trader register&#13;
+  THEN &lt;i&gt;Nimi&lt;/i&gt; AND &lt;i&gt;Osoite&lt;/i&gt; = 'R'</Description>
+    <Description lang="sv">IF &lt;i&gt;Identifieringsnummer&lt;/i&gt; is not found in the trader register&#13;
+  THEN &lt;i&gt;Namn&lt;/i&gt; AND &lt;i&gt;Adress&lt;/i&gt; = 'R'</Description>
+    <Description lang="en">IF &lt;i&gt;Identification number&lt;/i&gt; is not found in the trader register&#13;
+  THEN &lt;i&gt;Name&lt;/i&gt; AND &lt;i&gt;Address&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC9072</Code>
+    <Description lang="fi">IF &lt;i&gt;Liiteasiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; is in SET [C085, C400, C402, C638, C640, C678, C690, N853] OR &lt;i&gt;Muu viite&lt;/i&gt;/&lt;i&gt;Tyyppi&lt;/i&gt; is in SET [Y121, Y163, Y797, Y798, Y799]&#13;
+  THEN &lt;i&gt;Nettopaino&lt;/i&gt; OR &lt;i&gt;Lisäpaljousyksiköt&lt;/i&gt; = 'R'&lt;br&gt;</Description>
+    <Description lang="sv">IF &lt;i&gt;Bifogat dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; is in SET [C085, C400, C402, C638, C640, C678, C690, N853] OR &lt;i&gt;Ytterligare referens&lt;/i&gt;/&lt;i&gt;Typ&lt;/i&gt; is in SET [Y121, Y163, Y797, Y798, Y799]&#13;
+  THEN &lt;i&gt;Nettovikt&lt;/i&gt; OR &lt;i&gt;Extra mängdenheter&lt;/i&gt; = 'R'&lt;br&gt;</Description>
+    <Description lang="en">IF &lt;i&gt;Supporting document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; is in SET [C085, C400, C402, C638, C640, C678, C690, N853] OR &lt;i&gt;Additional reference&lt;/i&gt;/&lt;i&gt;Type&lt;/i&gt; is in SET [Y121, Y163, Y797, Y798, Y799]&#13;
+  THEN &lt;i&gt;Net mass&lt;/i&gt; OR &lt;i&gt;Supplementary units&lt;/i&gt; = 'R'&lt;br&gt;</Description>
+  </Constraint>
+  <Constraint>
     <Code>NR0028</Code>
     <Description lang="fi">&lt;i&gt;Luvan tyyppi&lt;/i&gt; on oltava uniikki.</Description>
     <Description lang="sv">&lt;i&gt;Typ av tillstånd&lt;/i&gt; måste vara unikt.</Description>
@@ -1652,12 +1598,6 @@ ELSE &lt;i&gt;Commodity code - Harmonised System code&lt;/i&gt; = 'R'</Descripti
     <Description lang="fi">Atleast one of Description, document link must be present.</Description>
     <Description lang="sv">Atleast one of Description, document link must be present.</Description>
     <Description lang="en">Atleast one of Description, document link must be present.</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NR0049</Code>
-    <Description lang="fi">Palveluntarjoajan on oltava eri kuin maahantuoja (saapuminen ja tuonti), viejä (vienti), tavaranhaltija ja edustaja.</Description>
-    <Description lang="sv">Tjänsteleverantören måste skilja sig från importör (införsel och import), exportör (export), deklarant och representant.</Description>
-    <Description lang="en">Service provider has to be different from importer (entry and import), exporter (export), declarant and representative.</Description>
   </Constraint>
   <Constraint>
     <Code>NR0511</Code>
@@ -1717,34 +1657,19 @@ ELSE &lt;i&gt;Commodity code - Harmonised System code&lt;/i&gt; = 'R'</Descripti
     <Description lang="en">&lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;LRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;MRN&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Security&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Holder of the transit procedure&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Representative&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; cannot be amended</Description>
   </Constraint>
   <Constraint>
-    <Code>NR9002</Code>
-    <Description lang="fi">JOS &lt;i&gt;Kontti&lt;/i&gt; = '1'&#13;
-  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineet&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;i&gt;Container&lt;/i&gt; = '1'&#13;
-  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Transportutrustning&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;i&gt;Container&lt;/i&gt; = '1'&#13;
-  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;Transport equipment&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
-  </Constraint>
-  <Constraint>
     <Code>NR9003</Code>
     <Description lang="fi">This value must correspond to existing already send FI015.</Description>
     <Description lang="sv">This value must correspond to existing already send FI015.</Description>
     <Description lang="en">This value must correspond to existing already send FI015.</Description>
   </Constraint>
   <Constraint>
-    <Code>NR9005</Code>
-    <Description lang="fi">When informed the number of seals, also the the identifiers must be informed</Description>
-    <Description lang="sv">When informed the number of seals, also the the identifiers must be informed</Description>
-    <Description lang="en">When informed the number of seals, also the the identifiers must be informed</Description>
-  </Constraint>
-  <Constraint>
     <Code>NR9006</Code>
     <Description lang="fi">JOS &lt;i&gt;Sisämaan kuljetusmuoto&lt;/i&gt; TAI &lt;i&gt;Rajan ylittävä aktiivinen kuljetusväline&lt;/i&gt; EI ole JOUKOSSA {5, 7}&#13;
-  NIIN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Ilmoitus&lt;/i&gt;/&lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Kuljetusväline lähdettäessä&lt;/i&gt;/&lt;i&gt;Kuljetusvälineen tunnistenumero&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  NIIN &lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
     <Description lang="sv">OM &lt;i&gt;Transportsätt inrikes&lt;/i&gt; ELLER &lt;i&gt;Aktivt transportmedel vid gränspassagen&lt;/i&gt; INTE är i GRUPPEN {5, 7}&#13;
-  DÅ är &lt;ul&gt;&lt;li&gt;&lt;i&gt;Deklaration&lt;/i&gt;/&lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Transportmedel vid avgång&lt;/i&gt;/&lt;i&gt;Identifieringsnummer av transportmedlet&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  DÅ är &lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
     <Description lang="en">IF &lt;i&gt;Inland mode of transport&lt;/i&gt; OR &lt;i&gt;Active border transport means&lt;/i&gt; is NOT in SET {5, 7}&#13;
-  THEN &lt;ul&gt;&lt;li&gt;&lt;i&gt;Declaration&lt;/i&gt;/&lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Departure transport means&lt;/i&gt;/&lt;i&gt;Identification number of transport means&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
+  THEN &lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt; = 'R'</Description>
   </Constraint>
   <Constraint>
     <Code>NR9007</Code>
@@ -1933,22 +1858,10 @@ THEN&#13;
 warehouse id must be found in Authorisation.</Description>
   </Constraint>
   <Constraint>
-    <Code>NR9049</Code>
-    <Description lang="fi">Element /*/​Notification/​ContactReason IS 'R'</Description>
-    <Description lang="sv">Element /*/​Notification/​ContactReason IS 'R'</Description>
-    <Description lang="en">Element /*/​Notification/​ContactReason IS 'R'</Description>
-  </Constraint>
-  <Constraint>
     <Code>NR9050</Code>
     <Description lang="fi">FI014A/​Applicant/​Identification must be same as /*/​Principal/​Identification</Description>
     <Description lang="sv">FI014A/​Applicant/​Identification must be same as /*/​Principal/​Identification</Description>
     <Description lang="en">FI014A/​Applicant/​Identification must be same as /*/​Principal/​Identification</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NR9052</Code>
-    <Description lang="fi">&lt;i&gt;Yhteydenoton syy&lt;/i&gt; on oltava JOUKOSSA {003, 004, 006}</Description>
-    <Description lang="sv">&lt;i&gt;Orsak till kontakt&lt;/i&gt; måste vara i GRUPPEN {003, 004, 006}</Description>
-    <Description lang="en">&lt;i&gt;Reason for contact&lt;/i&gt; must be in SET {003, 004, 006}</Description>
   </Constraint>
   <Constraint>
     <Code>NR9054</Code>
@@ -2098,6 +2011,15 @@ THEN&#13;
   THEN Consignment = 'N'</Description>
   </Constraint>
   <Constraint>
+    <Code>NR9085</Code>
+    <Description lang="fi">IF FI044 result code is in set {A5, B1}&#13;
+THEN Consignment = 'R'</Description>
+    <Description lang="sv">IF FI044 result code is in set {A5, B1}&#13;
+THEN Consignment = 'R'</Description>
+    <Description lang="en">IF FI044 result code is in set {A5, B1}&#13;
+THEN Consignment = 'R'</Description>
+  </Constraint>
+  <Constraint>
     <Code>NR9087</Code>
     <Description lang="fi">IF /*/​Consignment/​InlandTransportMode is NOT in SET {5, 7}&#13;
 THEN &#13;
@@ -2140,15 +2062,6 @@ THEN &#13;
   THEN &lt;i&gt;Security&lt;/i&gt; must be '0'</Description>
   </Constraint>
   <Constraint>
-    <Code>NR9106</Code>
-    <Description lang="fi">JOS &lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Liiteasiakirja&lt;/i&gt;/&lt;i&gt;Asiakirjatyyppi&lt;/i&gt; TAI &lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Muu viite&lt;/i&gt;/&lt;i&gt;Viitenumero&lt;/i&gt; on JOUKOSSA {C085, C400, C402, C638, C640, C678, C690, N853, Y121, Y163, Y797, Y798, Y799}&#13;
-  NIIN ainakin toinen tiedoista &lt;i&gt;Nettopaino&lt;/i&gt; TAI &lt;i&gt;Lisäpaljousyksiköt&lt;/i&gt; = 'R'</Description>
-    <Description lang="sv">OM &lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Bifogat dokument&lt;/i&gt;/&lt;i&gt;Typ av dokument&lt;/i&gt; ELLER &lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Ytterligare referens&lt;/i&gt;/&lt;i&gt;Referensnummer&lt;/i&gt; är i GRUPPEN {C085, C400, C402, C638, C640, C678, C690, N853, Y121, Y163, Y797, Y798, Y799}&#13;
-  DÅ är åtminstone en av &lt;i&gt;Nettovikt&lt;/i&gt; ELLER &lt;i&gt;Extra mängdenheter&lt;/i&gt; = 'R'</Description>
-    <Description lang="en">IF &lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Supporting document&lt;/i&gt;/&lt;i&gt;Document type&lt;/i&gt; OR &lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Additional reference&lt;/i&gt;/&lt;i&gt;Reference number&lt;/i&gt; is in SET {C085, C400, C402, C638, C640, C678, C690, N853, Y121, Y163, Y797, Y798, Y799}&#13;
-  THEN at least one of &lt;i&gt;Net mass&lt;/i&gt; OR &lt;i&gt;Supplementary units&lt;/i&gt; = 'R'</Description>
-  </Constraint>
-  <Constraint>
     <Code>NR9109</Code>
     <Description lang="fi">IF either &lt;i&gt;Bruttopaino&lt;/i&gt; OR &lt;i&gt;Kolliluku&lt;/i&gt; is EQUAL to '0'&#13;
   THEN &lt;i&gt;Bruttopaino&lt;/i&gt; AND &lt;i&gt;Kolliluku&lt;/i&gt; must be = '0'</Description>
@@ -2156,12 +2069,6 @@ THEN &#13;
   THEN &lt;i&gt;Bruttovikt&lt;/i&gt; AND &lt;i&gt;Antal kollin&lt;/i&gt; must be = '0'</Description>
     <Description lang="en">IF either &lt;i&gt;Gross mass&lt;/i&gt; OR &lt;i&gt;Number of packages&lt;/i&gt; is EQUAL to '0'&#13;
   THEN &lt;i&gt;Gross mass&lt;/i&gt; AND &lt;i&gt;Number of packages&lt;/i&gt; must be = '0'</Description>
-  </Constraint>
-  <Constraint>
-    <Code>NR9110</Code>
-    <Description lang="fi">Kardinaliteetti on 1x</Description>
-    <Description lang="sv">Kardinaliteten är 1x</Description>
-    <Description lang="en">Cardinality is 1x</Description>
   </Constraint>
   <Constraint>
     <Code>NR9114</Code>
@@ -2180,6 +2087,24 @@ THEN &#13;
   THEN &lt;i&gt;Typ av dokument&lt;/i&gt; cannot be in SET {Y121,Y123,Y163,Y797,Y798,Y799,Y930,Y931,Y951}</Description>
     <Description lang="en">IF &lt;i&gt;Declaration type&lt;/i&gt; is 'T2'&#13;
   THEN &lt;i&gt;Document type&lt;/i&gt; cannot be in SET {Y121,Y123,Y163,Y797,Y798,Y799,Y930,Y931,Y951}</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9116</Code>
+    <Description lang="fi">IF &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Ilmoitustyyppi&lt;/i&gt; is 'T2'&#13;
+  THEN &lt;i&gt;Asiakirjatyyppi&lt;/i&gt; CANNOT be in SET [C085, C400, C402, C638, C640, C678, C690, L100, N853]</Description>
+    <Description lang="sv">IF &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Typ av deklaration&lt;/i&gt; is 'T2'&#13;
+  THEN &lt;i&gt;Typ av dokument&lt;/i&gt; CANNOT be in SET [C085, C400, C402, C638, C640, C678, C690, L100, N853]</Description>
+    <Description lang="en">IF &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Declaration type&lt;/i&gt; is 'T2'&#13;
+  THEN &lt;i&gt;Document type&lt;/i&gt; CANNOT be in SET [C085, C400, C402, C638, C640, C678, C690, L100, N853]</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9117</Code>
+    <Description lang="fi">IF &lt;i&gt;Lähetyserä&lt;/i&gt;/&lt;i&gt;Alatason lähetyserä&lt;/i&gt;/&lt;i&gt;Tavaraerä&lt;/i&gt;/&lt;i&gt;Ilmoitustyyppi&lt;/i&gt; is 'T2'&#13;
+  THEN &lt;i&gt;Tyyppi&lt;/i&gt; CANNOT be in SET [Y121, Y123, Y163, Y797, Y798, Y799, Y930, Y931, Y951]</Description>
+    <Description lang="sv">IF &lt;i&gt;Leveransparti&lt;/i&gt;/&lt;i&gt;Leveransparti på undernivå&lt;/i&gt;/&lt;i&gt;Varupost&lt;/i&gt;/&lt;i&gt;Typ av deklaration&lt;/i&gt; is 'T2'&#13;
+  THEN &lt;i&gt;Typ&lt;/i&gt; CANNOT be in SET [Y121, Y123, Y163, Y797, Y798, Y799, Y930, Y931, Y951]</Description>
+    <Description lang="en">IF &lt;i&gt;Consignment&lt;/i&gt;/&lt;i&gt;House consignment&lt;/i&gt;/&lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Declaration type&lt;/i&gt; is 'T2'&#13;
+  THEN &lt;i&gt;Type&lt;/i&gt; CANNOT be in SET [Y121, Y123, Y163, Y797, Y798, Y799, Y930, Y931, Y951]</Description>
   </Constraint>
   <Constraint>
     <Code>NR9118</Code>
@@ -2219,6 +2144,24 @@ ELSE they are = 'N'</Description>
     <Description lang="fi">For EU traders the value must be a valid EORI or TCUIN</Description>
     <Description lang="sv">For EU traders the value must be a valid EORI or TCUIN</Description>
     <Description lang="en">For EU traders the value must be a valid EORI or TCUIN</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9127</Code>
+    <Description lang="fi">Must be unique in the declaration</Description>
+    <Description lang="sv">Must be unique in the declaration</Description>
+    <Description lang="en">Must be unique in the declaration</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9133</Code>
+    <Description lang="fi">Oltava tulevaisuudessa</Description>
+    <Description lang="sv">Måste vara i framtiden</Description>
+    <Description lang="en">Must be in the future</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR9134</Code>
+    <Description lang="fi">Oltava identtinen alkuperäisen ilmoituksen tiedon &lt;i&gt;Tunnistenumero&lt;/i&gt; kanssa</Description>
+    <Description lang="sv">Måste vara identiskt med &lt;i&gt;Identifieringsnummer&lt;/i&gt; på den ursprungliga deklarationen</Description>
+    <Description lang="en">Must be identical to &lt;i&gt;Identification number&lt;/i&gt; on original declaration</Description>
   </Constraint>
   <Constraint>
     <Code>R0003</Code>
@@ -2599,12 +2542,6 @@ this Data Item includes at least one «Authorisation number» for a valid Author
   THEN there must exist at least one &lt;i&gt;Goods item&lt;/i&gt;/&lt;i&gt;Packages&lt;/i&gt; (Transit: within the same &lt;i&gt;House consignment&lt;/i&gt;) with equal &lt;i&gt;Shipping marks&lt;/i&gt; and &lt;i&gt;Number of packages&lt;/i&gt; GREATER THAN '0'</Description>
   </Constraint>
   <Constraint>
-    <Code>R0416</Code>
-    <Description lang="fi">The Data Item &lt;CONSIGNMENT-HOUSE CONSIGNMENT-PREVIOUS DOCUMENT. Reference Number&gt; must include a valid ‘Export declaration’ or an ‘Export and exit summary declaration’ or a ‘Dispatch of goods in relation with special fiscal territories’.</Description>
-    <Description lang="sv">The Data Item &lt;CONSIGNMENT-HOUSE CONSIGNMENT-PREVIOUS DOCUMENT. Reference Number&gt; must include a valid ‘Export declaration’ or an ‘Export and exit summary declaration’ or a ‘Dispatch of goods in relation with special fiscal territories’.</Description>
-    <Description lang="en">The Data Item &lt;CONSIGNMENT-HOUSE CONSIGNMENT-PREVIOUS DOCUMENT. Reference Number&gt; must include a valid ‘Export declaration’ or an ‘Export and exit summary declaration’ or a ‘Dispatch of goods in relation with special fiscal territories’.</Description>
-  </Constraint>
-  <Constraint>
     <Code>R0448</Code>
     <Description lang="fi">JOS &lt;i&gt;Kontin tunnistenumero&lt;/i&gt; EI OLE ILMOITETTU&#13;
   NIIN arvo '0' ei kelpaa tietoelementtiin &lt;i&gt;Sinettien lukumäärä&lt;/i&gt;</Description>
@@ -2928,11 +2865,11 @@ THEN the first two characters of /*/CustomsOfficeOfTransitActual/referenceNumber
   <Constraint>
     <Code>R3060</Code>
     <Description lang="fi">JOS &lt;i&gt;Määrämaan koodi&lt;/i&gt; on JOUKOSSA CL009&#13;
-  NIIN &lt;i&gt;Lisätietokoodi&lt;/i&gt; ei voi olla = '30600'</Description>
+  NIIN &lt;i&gt;Lisätietokoodi&lt;/i&gt; ei voi olla YHTÄ KUIN '30600'</Description>
     <Description lang="sv">OM &lt;i&gt;Kod för destinationsland&lt;/i&gt; är i GRUPPEN CL009&#13;
-  DÅ kan &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; inte vara = '30600'</Description>
+  DÅ kan &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; inte vara LIKA MED '30600'</Description>
     <Description lang="en">IF &lt;i&gt;Country of destination code&lt;/i&gt; is in SET CL009&#13;
-  THEN &lt;i&gt;Additional information code&lt;/i&gt; cannot be = '30600'</Description>
+  THEN &lt;i&gt;Additional information code&lt;/i&gt; can not be EQUAL to '30600'</Description>
   </Constraint>
   <Constraint>
     <Code>R3061</Code>
