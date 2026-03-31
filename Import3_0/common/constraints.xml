@@ -170,7 +170,7 @@ MUUTEN tämä tietoelementti = 'N'</Description>
     <Description lang="sv">OM anges av relevant &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt;&#13;
   DÅ är detta dataelement = 'R'&#13;
 ANNARS är detta dataelement = 'N'</Description>
-    <Description lang="en">IF specified by the relevant &lt;i&gt;Additional information code&lt;/i&gt; &lt;i&gt;Additional information description&lt;/i&gt;&#13;
+    <Description lang="en">IF specified by the relevant &lt;i&gt;Additional information code&lt;/i&gt;&#13;
   THEN this data element = 'R'&#13;
 ELSE this data element = 'N'</Description>
   </Constraint>
@@ -1307,6 +1307,15 @@ ELSE IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {51, 53 }&#13;
   DÅ är &lt;i&gt;Faktisk avkastningsgrad&lt;/i&gt; = 'R'</Description>
     <Description lang="en">IF &lt;i&gt;Requested procedure code&lt;/i&gt; is in SET {44, 51} AND &lt;i&gt;Additional information code&lt;/i&gt; with value 'FIXRY' is NOT declared&#13;
   THEN &lt;i&gt;Actual rate of yield&lt;/i&gt; = 'R'</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NC2020</Code>
+    <Description lang="fi">JOS &lt;i&gt;Lisätietokoodi&lt;/i&gt; on YHTÄ KUIN 'FID85'&#13;
+  NIIN &lt;i&gt;Lisätiedon kuvaus&lt;/i&gt; = 'N'</Description>
+    <Description lang="sv">OM &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; är LIKA MED 'FID85'&#13;
+  DÅ är &lt;i&gt;Beskrivning av ytterligare uppgifter&lt;/i&gt; = 'N'</Description>
+    <Description lang="en">IF &lt;i&gt;Additional information code&lt;/i&gt; is EQUAL to 'FID85'&#13;
+  THEN &lt;i&gt;Additional information description&lt;/i&gt; = 'N'</Description>
   </Constraint>
   <Constraint>
     <Code>NC4001</Code>
@@ -3119,19 +3128,22 @@ IF &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {D, E, F}  THEN &lt;
 -declaration must be in state ReleasedWaitingForDischarge,&#13;
 -warehouse identification (from FI488) is the same as in the discharged declaration,&#13;
 -authorisation holder ID (from FI488) is the same as in the discharged declaration,&#13;
--declaration must be covered in subsequent declarations in correct states (status 4 or 5 from Export)</Description>
+-IF FIXAT not exists&#13;
+  -declaration must be covered in subsequent declarations in correct states (status 4 or 5 from Export)</Description>
     <Description lang="sv">Given MRN must be valid&#13;
 -declaration must exist in UTU,&#13;
 -declaration must be in state ReleasedWaitingForDischarge,&#13;
 -warehouse identification (from FI488) is the same as in the discharged declaration,&#13;
 -authorisation holder ID (from FI488) is the same as in the discharged declaration,&#13;
--declaration must be covered in subsequent declarations in correct states (status 4 or 5 from Export)</Description>
+-IF FIXAT not exists&#13;
+  -declaration must be covered in subsequent declarations in correct states (status 4 or 5 from Export)</Description>
     <Description lang="en">Given MRN must be valid&#13;
 -declaration must exist in UTU,&#13;
 -declaration must be in state ReleasedWaitingForDischarge,&#13;
 -warehouse identification (from FI488) is the same as in the discharged declaration,&#13;
 -authorisation holder ID (from FI488) is the same as in the discharged declaration,&#13;
--declaration must be covered in subsequent declarations in correct states (status 4 or 5 from Export)</Description>
+-IF FIXAT not exists&#13;
+  -declaration must be covered in subsequent declarations in correct states (status 4 or 5 from Export)</Description>
   </Constraint>
   <Constraint>
     <Code>NR2010</Code>
@@ -3372,6 +3384,21 @@ IF &lt;i&gt;Additional declaration type&lt;/i&gt; is in SET {D, E, F}  THEN &lt;
     <Description lang="fi">Authorisation type and holderID declared by trader must be the same as the Authorisation type and holderID of the authorization details fetched from Authorisation register.</Description>
     <Description lang="sv">Authorisation type and holderID declared by trader must be the same as the Authorisation type and holderID of the authorization details fetched from Authorisation register.</Description>
     <Description lang="en">Authorisation type and holderID declared by trader must be the same as the Authorisation type and holderID of the authorization details fetched from Authorisation register.</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2048</Code>
+    <Description lang="fi">JOS &lt;i&gt;Menettely&lt;/i&gt; on '71'&#13;
+  NIIN &lt;i&gt;Lisätietokoodi&lt;/i&gt; ei voi olla JOUKOSSA [FINCO, FIEMN, FIEM3]</Description>
+    <Description lang="sv">OM &lt;i&gt;Förfarande&lt;/i&gt; är '71'&#13;
+  DÅ kan &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; inte vara i GRUPPEN [FINCO, FIEMN, FIEM3]</Description>
+    <Description lang="en">IF &lt;i&gt;Procedure&lt;/i&gt; is '71'&#13;
+  THEN &lt;i&gt;Additional information code&lt;/i&gt; cannot be in SET [FINCO, FIEMN, FIEM3]</Description>
+  </Constraint>
+  <Constraint>
+    <Code>NR2050</Code>
+    <Description lang="fi">&lt;i&gt;Lisätiedon kuvaus&lt;/i&gt; joka liittyy tietoon &lt;i&gt;Lisätietokoodi&lt;/i&gt; = 'FIPLK' on oltava eri kuin &lt;i&gt;Tavaran koodi - Taric-lisäkoodi&lt;/i&gt;</Description>
+    <Description lang="sv">&lt;i&gt;Beskrivning av ytterligare uppgifter&lt;/i&gt; som hör ihop med &lt;i&gt;Kod för ytterligare uppgifter&lt;/i&gt; = 'FIPLK' måste vara olika än &lt;i&gt;Varukod - Taric-tilläggsnummer&lt;/i&gt;</Description>
+    <Description lang="en">&lt;i&gt;Additional information description&lt;/i&gt; associated with &lt;i&gt;Additional information code&lt;/i&gt; = 'FIPLK' must be different than &lt;i&gt;Commodity code - TARIC additional code&lt;/i&gt;</Description>
   </Constraint>
   <Constraint>
     <Code>NR3001</Code>
