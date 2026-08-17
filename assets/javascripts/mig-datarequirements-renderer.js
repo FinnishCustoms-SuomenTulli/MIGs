@@ -343,12 +343,20 @@
             tbody.appendChild(renderDataRow(row, columns, options));
 
             if (row.description) {
-                tbody.appendChild(renderDescriptionRow(row, columns));
+                tbody.appendChild(
+                    renderDescriptionRow(
+                        row,
+                        columns,
+                        options
+                    )
+                );
             }
         });
     }
 
-    function renderElementHierarchyBody(table, rows, columns) {
+    function renderElementHierarchyBody(table, rows, columns, options) {
+        options = options || {};
+
         var tbody = table.querySelector('tbody');
 
         if (!tbody) return;
@@ -361,10 +369,22 @@
 
             if (!isElementRow(row)) return;
 
-            tbody.appendChild(renderDataRow(row, columns));
+            tbody.appendChild(
+                renderDataRow(
+                    row,
+                    columns,
+                    options
+                )
+            );
 
             if (row.description) {
-                tbody.appendChild(renderDescriptionRow(row, columns));
+                tbody.appendChild(
+                    renderDescriptionRow(
+                        row,
+                        columns,
+                        options
+                    )
+                );
             }
         });
     }
@@ -405,7 +425,14 @@
     function renderDataRow(row, columns, options) {
         options = options || {};
 
-        var kind = String(row.kind || '').toLowerCase();
+        var kind =
+            String(row.kind || '').toLowerCase();
+
+        var accessibilityIds =
+            rowAccessibilityIds(
+                row,
+                options
+            );
 
         var tr = el('tr', {
             className: [
@@ -417,15 +444,30 @@
             ].join(' ')
         });
 
-        if (options.rowId && typeof options.rowId === 'function') {
-            var rowId = options.rowId(row);
+        if (
+            options.rowId &&
+            typeof options.rowId === 'function'
+        ) {
+            var rowId =
+                options.rowId(row);
+
             if (rowId) {
-                tr.setAttribute('id', rowId);
+                tr.setAttribute(
+                    'id',
+                    rowId
+                );
             }
         }
 
         columns.forEach(function (column) {
-            tr.appendChild(renderDataCell(row, column, options));
+            tr.appendChild(
+                renderDataCell(
+                    row,
+                    column,
+                    options,
+                    accessibilityIds
+                )
+            );
         });
 
         return tr;
@@ -437,6 +479,35 @@
             .replace(/[^A-Za-z0-9_-]+/g, '_')
             .replace(/_+/g, '_')
             .replace(/^_+|_+$/g, '');
+    }
+
+    function rowAccessibilityIds(row, options) {
+        options = options || {};
+
+        if (
+            !row.description ||
+            !options.messageId
+        ) {
+            return null;
+        }
+
+        var base = [
+            safeId(options.messageId),
+            safeId(options.idPrefix || 'table'),
+            safeFragmentId(
+                row.sourcePath ||
+                row.path ||
+                row.name
+            )
+        ].join('_');
+
+        return {
+            nameCellId:
+                'dataRequirements_data_' + base,
+
+            descriptionId:
+                'dataRequirements_description_' + base
+        };
     }
 
     function groupAnchorBase(row) {
@@ -513,7 +584,12 @@
         });
     }
 
-    function renderDataCell(row, column, options) {
+    function renderDataCell(
+        row,
+        column,
+        options,
+        accessibilityIds
+    ) {
         options = options || {};
 
         var td = el('td', {
@@ -521,6 +597,21 @@
                 'data-column': column.key
             }
         });
+
+        if (
+            accessibilityIds &&
+            isNameColumn(column)
+        ) {
+            td.setAttribute(
+                'id',
+                accessibilityIds.nameCellId
+            );
+
+            td.setAttribute(
+                'aria-describedby',
+                accessibilityIds.descriptionId
+            );
+        }
 
         if (column.key === 'codeList') {
             renderReferenceButtons(td, 'code-list', row.codeList);
@@ -553,18 +644,40 @@
         return td;
     }
 
-    function renderDescriptionRow(row, columns) {
+    function renderDescriptionRow(
+        row,
+        columns,
+        options
+    ) {
+        var accessibilityIds =
+            rowAccessibilityIds(
+                row,
+                options
+            );
+
         var tr = el('tr', {
-            className: 'data-requirements-description-row'
+            className:
+                'data-requirements-description-row'
         });
 
         var td = el('td', {
             attrs: {
-                colspan: String(columns.length)
+                colspan:
+                    String(columns.length)
             }
         });
 
-        renderMarkdownInto(td, row.description);
+        if (accessibilityIds) {
+            td.setAttribute(
+                'id',
+                accessibilityIds.descriptionId
+            );
+        }
+
+        renderMarkdownInto(
+            td,
+            row.description
+        );
 
         tr.appendChild(td);
 
@@ -724,18 +837,34 @@
             'data-requirements-groups-table'
         );
 
-        renderTableBody(groupTable, groupRows, GROUP_COLUMNS, {
-            rowId: function (row) {
-                return groupSummaryAnchorId(row);
-            },
-            cellHref: function (row, column) {
-                if (isGroupRow(row) && column.key === 'dataGroup') {
-                    return '#' + groupElementAnchorId(row);
-                }
+        renderTableBody(
+            groupTable,
+            groupRows,
+            GROUP_COLUMNS,
+            {
+                messageId:
+                    messageData.messageId,
 
-                return '';
+                idPrefix:
+                    'groups',
+
+                rowId: function (row) {
+                    return groupSummaryAnchorId(row);
+                },
+
+                cellHref: function (row, column) {
+                    if (
+                        isGroupRow(row) &&
+                        column.key === 'dataGroup'
+                    ) {
+                        return '#' +
+                            groupElementAnchorId(row);
+                    }
+
+                    return '';
+                }
             }
-        });
+        );
 
         var elementTable = renderSection(
             target,
@@ -745,7 +874,18 @@
             'data-requirements-elements-table'
         );
 
-        renderElementHierarchyBody(elementTable, messageData.rows, ELEMENT_COLUMNS);
+        renderElementHierarchyBody(
+            elementTable,
+            messageData.rows,
+            ELEMENT_COLUMNS,
+            {
+                messageId:
+                    messageData.messageId,
+
+                idPrefix:
+                    'elements'
+            }
+        );
     }
 
     function renderSingleTable(messageData, target) {
@@ -757,7 +897,18 @@
             'data-requirements-combined-table'
         );
 
-        renderTableBody(table, messageData.rows, COMBINED_COLUMNS);
+        renderTableBody(
+            table,
+            messageData.rows,
+            COMBINED_COLUMNS,
+            {
+                messageId:
+                    messageData.messageId,
+
+                idPrefix:
+                    'structure'
+            }
+        );
     }
 
     global.MIGDataRequirementsRenderer = {
