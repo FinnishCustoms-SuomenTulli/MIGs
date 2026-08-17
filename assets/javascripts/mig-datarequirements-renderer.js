@@ -3,6 +3,7 @@
 
     var t = global.MIGUtils.t;
     var el = global.MIGUtils.el;
+    var safeId = global.MIGUtils.safeId;
     var localized = global.MIGUtils.localized;
     var loadJson = global.MIGUtils.loadJson;
     var markdownToHtml = global.MIGUtils.markdownToHtml;
@@ -155,12 +156,30 @@
         refreshTooltips(target);
     }
 
+    function sectionHeadingId(messageId, titleKey) {
+        return 'dataRequirements_' +
+            safeId(messageId) +
+            '_' +
+            safeId(titleKey);
+    }
 
-    function renderSectionHeading(target, key) {
-        target.appendChild(el('h3', {
-            className: 'data-requirements-section-heading',
-            text: t(key)
-        }));
+    function renderSectionHeading(
+        target,
+        key,
+        headingId
+    ) {
+        var heading = el('h3', {
+            className:
+                'data-requirements-section-heading',
+            text: t(key),
+            attrs: {
+                id: headingId
+            }
+        });
+
+        target.appendChild(heading);
+
+        return heading;
     }
 
     function renderColumnHeader(column) {
@@ -225,10 +244,36 @@
         return table;
     }
 
-    function renderSection(target, titleKey, columns, tableClassName) {
-        renderSectionHeading(target, titleKey);
+    function renderSection(
+        target,
+        messageId,
+        titleKey,
+        columns,
+        tableClassName
+    ) {
+        var headingId =
+            sectionHeadingId(
+                messageId,
+                titleKey
+            );
 
-        var table = renderTableShell(columns, tableClassName);
+        renderSectionHeading(
+            target,
+            titleKey,
+            headingId
+        );
+
+        var table =
+            renderTableShell(
+                columns,
+                tableClassName
+            );
+
+        table.setAttribute(
+            'aria-labelledby',
+            headingId
+        );
+
         target.appendChild(table);
 
         return table;
@@ -673,6 +718,7 @@
 
         var groupTable = renderSection(
             target,
+            messageData.messageId,
             'dataRequirements.sections.groups',
             GROUP_COLUMNS,
             'data-requirements-groups-table'
@@ -693,6 +739,7 @@
 
         var elementTable = renderSection(
             target,
+            messageData.messageId,
             'dataRequirements.sections.elements',
             ELEMENT_COLUMNS,
             'data-requirements-elements-table'
@@ -704,6 +751,7 @@
     function renderSingleTable(messageData, target) {
         var table = renderSection(
             target,
+            messageData.messageId,
             'dataRequirements.sections.dataStructure',
             COMBINED_COLUMNS,
             'data-requirements-combined-table'

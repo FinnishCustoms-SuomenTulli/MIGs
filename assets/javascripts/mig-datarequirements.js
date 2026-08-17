@@ -397,7 +397,8 @@
         title.appendChild(el('span', {
             className: 'icon icon-tulli-message icon-white',
             attrs: {
-                style: 'margin-right:3px'
+                style: 'margin-right:3px',
+                'aria-hidden': 'true'
             }
         }));
 
