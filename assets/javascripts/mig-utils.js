@@ -275,7 +275,11 @@
 
         var alert = el('div', {
             className: 'alert alert-danger',
-            text: message
+            text: message,
+            attrs: {
+                role: 'alert',
+                'aria-atomic': 'true'
+            }
         });
 
         target.appendChild(alert);
@@ -285,6 +289,37 @@
         }
 
         return alert;
+    }
+
+    function announceStatus(message) {
+        var region =
+            document.getElementById(
+                'mig-status-region'
+            );
+
+        if (!region) {
+            region = el('div', {
+                className: 'sr-only',
+                attrs: {
+                    id: 'mig-status-region',
+                    role: 'status',
+                    'aria-atomic': 'true'
+                }
+            });
+
+            document.body.appendChild(region);
+        }
+
+        /*
+         * Clear first so that repeating the same message
+         * is announced again.
+         */
+        region.textContent = '';
+
+        window.requestAnimationFrame(function () {
+            region.textContent =
+                String(message || '');
+        });
     }
 
     function initScrollableTabs() {
@@ -420,6 +455,7 @@
         resolveElement: resolveElement,
         renderEmptyState: renderEmptyState,
         renderErrorAlert: renderErrorAlert,
+        announceStatus: announceStatus,
         initScrollableTabs: initScrollableTabs
     };
 })(window);

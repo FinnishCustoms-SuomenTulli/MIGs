@@ -9,6 +9,7 @@
     var initScrollableTabs = window.MIGUtils.initScrollableTabs;
     var selectedSubset = '';
     var referenceModalTrigger = null;
+    var announceStatus = window.MIGUtils.announceStatus;
 
     function dataRequirementsViewStorageKey() {
         return 'mig:' + MIGIntro.getSystemPath() + ':dataRequirementsViewMode';
@@ -283,6 +284,10 @@
 
                 rerenderActiveMessage();
 
+                announceStatus(
+                    t('dataRequirements.updated')
+                );
+
                 renderViewModeControl(
                     '#dataRequirementsViewMode'
                 );
@@ -372,7 +377,12 @@
 
         select.addEventListener('change', function () {
             selectedSubset = select.value;
+
             rerenderActiveMessage();
+
+            announceStatus(
+                t('dataRequirements.updated')
+            );
         });
 
         selectWrapper.appendChild(select);
