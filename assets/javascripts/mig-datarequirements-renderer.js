@@ -592,11 +592,24 @@
     ) {
         options = options || {};
 
-        var td = el('td', {
-            attrs: {
-                'data-column': column.key
+        var isRowHeader =
+            isNameColumn(column);
+
+        var td = el(
+            isRowHeader ? 'th' : 'td',
+            {
+                attrs: {
+                    'data-column': column.key
+                }
             }
-        });
+        );
+
+        if (isRowHeader) {
+            td.setAttribute(
+                'scope',
+                'row'
+            );
+        }
 
         if (
             accessibilityIds &&
