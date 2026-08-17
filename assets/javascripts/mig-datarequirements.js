@@ -751,7 +751,8 @@
                             id: tabId,
                             role: 'tabpanel',
                             'aria-labelledby':
-                                tabControlId
+                                tabControlId,
+                            tabindex: '0'
                         }
                     });
 

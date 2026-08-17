@@ -103,15 +103,118 @@
         }
     ];
 
-    function refreshTooltips() {
-        if (global.MIGIntro && typeof global.MIGIntro.refreshTooltips === 'function') {
-            global.MIGIntro.refreshTooltips();
+    function refreshTooltips(root) {
+        if (
+            !global.jQuery ||
+            !global.jQuery.fn ||
+            typeof global.jQuery.fn.tooltip !==
+            'function'
+        ) {
             return;
         }
 
-        if (global.jQuery && global.jQuery.fn && typeof global.jQuery.fn.tooltip === 'function') {
-            global.jQuery('[data-toggle="tooltip"]').tooltip();
+        var $tips =
+            global.jQuery(root || document)
+                .find(
+                    '.data-requirements-header-help'
+                );
+
+        try {
+            $tips.tooltip('destroy');
+        } catch (ignoreDestroy) {
+            try {
+                $tips.tooltip('dispose');
+            } catch (ignoreDispose) { }
         }
+
+        $tips.tooltip({
+            container: 'body',
+            html: false,
+            trigger: 'manual'
+        });
+
+        $tips
+            .off('.migHeaderHelp')
+
+            .on(
+                'click.migHeaderHelp',
+                function (event) {
+                    event.preventDefault();
+
+                    var button = this;
+                    var $button =
+                        global.jQuery(button);
+
+                    var wasOpen =
+                        button.getAttribute(
+                            'aria-expanded'
+                        ) === 'true';
+
+                    /*
+                     * Only one header help tooltip
+                     * should be visible at a time.
+                     */
+                    $tips
+                        .not(button)
+                        .tooltip('hide');
+
+                    if (wasOpen) {
+                        $button.tooltip('hide');
+                    } else {
+                        $button.tooltip('show');
+                    }
+                }
+            )
+
+            .on(
+                'keydown.migHeaderHelp',
+                function (event) {
+                    if (event.key !== 'Escape') {
+                        return;
+                    }
+
+                    if (
+                        this.getAttribute(
+                            'aria-expanded'
+                        ) !== 'true'
+                    ) {
+                        return;
+                    }
+
+                    event.preventDefault();
+
+                    global.jQuery(this)
+                        .tooltip('hide');
+                }
+            )
+
+            .on(
+                'focusout.migHeaderHelp',
+                function () {
+                    global.jQuery(this)
+                        .tooltip('hide');
+                }
+            )
+
+            .on(
+                'shown.bs.tooltip.migHeaderHelp',
+                function () {
+                    this.setAttribute(
+                        'aria-expanded',
+                        'true'
+                    );
+                }
+            )
+
+            .on(
+                'hidden.bs.tooltip.migHeaderHelp',
+                function () {
+                    this.setAttribute(
+                        'aria-expanded',
+                        'false'
+                    );
+                }
+            );
     }
 
     function renderMarkdownInto(target, value) {
@@ -206,7 +309,7 @@
                 'data-placement': 'top',
                 'data-container': 'body',
                 title: helpText,
-                'aria-label': label + ': ' + helpText
+                'aria-expanded': 'false'
             }
         });
 
