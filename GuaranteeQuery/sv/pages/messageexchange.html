@@ -1,190 +1,108 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fi" xml:lang="fi">
+
+<html lang="sv" xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Guide f&ouml;r meddelandetrafik -</title>
-    <link rel="icon" href="../../../assets/favicon.ico">
-    <link rel="stylesheet" href="../../../assets/tulli-bootstrap-style.css" type="text/css" />
-    <link rel="stylesheet" href="../../../assets/tulli-mig-me.css" type="text/css" />
-    <link rel="stylesheet" href="../../../assets/scroll-style.css" type="text/css" />
+    <meta charset="utf-8" />
+    <title data-i18n="pageTitles.messageExchange" data-i18n-suffix=" -"></title>
+    <link href="../../../assets/favicon.ico" rel="icon" />
+    <link href="../../../assets/tulli-bootstrap-style.css" rel="stylesheet" type="text/css" />
+    <link href="../../../assets/messageexchange-layout-additions.css" rel="stylesheet" type="text/css" />
+    <link href="../../../assets/messageexchange-sequence.css" rel="stylesheet" type="text/css" />
+    <link href="../../../assets/scroll-style.css" rel="stylesheet" type="text/css" />
+    <link href="../../../assets/sequence-diagram-min.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body class="guidelines">
-
-    <nav class="navbar navbar-default navbar-static-top">
+<body class="guidelines" data-lang="sv">
+    <nav class="navbar navbar-default navbar-static-top" data-i18n-aria-label="accessibility.languageNavigation">
         <div class="container">
-            <div class="navbar-header">
-                <span class="navbar-text main-navbar">Guide f&ouml;r meddelandetrafik version </span>
-                <a href="../../fi/pages/messageexchange.html">Suomi</a>
-                <a href="../../en/pages/messageexchange.html">English</a>
+            <div class="navbar-header"><span class="navbar-text main-navbar"></span>
+                <a lang="fi" hreflang="fi" data-i18n="languageNames.fi" data-lang-option="fi" href="../../fi/pages/messageexchange.html"></a>
+                <a lang="sv" hreflang="sv" data-i18n="languageNames.sv" data-lang-option="sv" href="../../sv/pages/messageexchange.html"></a>
+                <a lang="en" hreflang="en" data-i18n="languageNames.en" data-lang-option="en" href="../../en/pages/messageexchange.html"></a>
             </div>
         </div>
-        <!-- /.container -->
     </nav>
-    <!-- /.navbar -->
-
     <header>
         <div class="upper">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <a class="" href="../index.html">
-                            <img class="img-responsive pull-left" src="../../../assets/images/logo-tulli.svg" alt="Finska tullens logotyp" /></a>
-
-                        <button type="button" class="navbar-toggle collapsed pull-right margin-0" data-toggle="collapse" data-target="#navbar-mainmenu" aria-expanded="false" aria-controls="navbar-mainmenu">
-                            <span class="sr-only">Meny</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12"><a class="" href="../index.html"> <img alt=""
+                                class="img-responsive pull-left" data-i18n-alt="logoAlt"
+                                src="../../../assets/images/logo-tulli.svg" /></a><button
+                            aria-controls="navbar-mainmenu" aria-expanded="false"
+                            class="navbar-toggle collapsed pull-right margin-0" data-target="#navbar-mainmenu"
+                            data-toggle="collapse" type="button"><span class="sr-only"
+                                data-i18n="menu.menu"></span><span class="icon-bar"></span><span
+                                class="icon-bar"></span><span class="icon-bar"></span></button></div>
                     <div class="col-md-9 col-sm-12 col-xs-12">
-                        <nav id="navbar-mainmenu" role="menu" class="mainmenu collapse navbar-collapse">
+                        <nav class="mainmenu collapse navbar-collapse" id="navbar-mainmenu" data-i18n-aria-label="accessibility.mainNavigation">
                             <ul class="nav nav-pills">
-                                <li>
-                                    <a href="../index.html">Hem</a>
-                                </li>
-                                <li class='current'>
-                                    <a class='current' href="messageexchange.html">Guide f&ouml;r meddelandetrafik</a>
-                                </li>
-                                <li>
-                                    <a href="datamodel.html">Klassdiagram</a>
-                                </li>
-                                <li>
-                                    <a href="datarequirements.html">Datainneh&aring;ll</a>
-                                </li>
-                                <li>
-                                    <a href="codes.html">Koder</a>
-                                </li>
-                                <li>
-                                    <a href="examples.html">Exempel</a>
-                                </li>
+                                <li><a data-i18n="menu.home" href="../index.html"></a></li>
+                                <li class="current"><a class="current" aria-current="page" data-i18n="pageTitles.messageExchange"
+                                        href="messageexchange.html"></a></li>
+                                <li><a data-i18n="pageTitles.classDiagram" href="datamodel.html"></a></li>
+                                <li><a data-i18n="pageTitles.dataRequirements" href="datarequirements.html"></a></li>
+                                <li><a data-i18n="frontPage.cards.codes.title" href="codes.html"></a></li>
+                                <li><a data-i18n="pageTitles.examples" href="examples.html"></a></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="lower">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-10">
-                        <h1>Guide f&ouml;r meddelandetrafik</h1>
+                    <div class="col-sm-8 col-xs-12">
+                        <h1 data-i18n="pageTitles.messageExchange"></h1>
                     </div>
-                    <div class="col-xs-2">
-                        <button type="button" class="navbar-toggle collapsed pull-right padding-0 margin-0" data-toggle="collapse" data-target="#nav-sidebar" aria-expanded="false" aria-controls="nav-sidebar">
-                            <span class="sr-only">Meny</span>
-                            <span class="icon icon-tulli-chevron-down icon-blue"></span>
-                        </button>
+                    <div class="col-sm-4 col-xs-12 text-right">
+                        <div class="mig-page-tools">
+                            <div id="migVersionSelector"></div>
+                        </div>
                     </div>
+                    <div class="col-xs-2"><button aria-controls="nav-sidebar" aria-expanded="false"
+                            class="navbar-toggle collapsed pull-right padding-0 margin-0" data-target="#nav-sidebar"
+                            data-toggle="collapse" type="button"><span class="sr-only"
+                                data-i18n="menu.menu"></span><span
+                                class="icon icon-tulli-chevron-down icon-blue"></span></button></div>
                 </div>
             </div>
         </div>
     </header>
-
     <div class="main-content-area">
-
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-3 sidebar" role="complementary">
-                    <nav id="nav-sidebar" class="hidden-print collapse navbar-collapse" data-spy="affix" data-offset-top="210">
-                        <ul class="nav nav-stacked">
-                            <li class="active">
-                                <a href="#intro">Allm&auml;nt</a>
-                            </li>
-                            <li>
-                                <a href="#messages">Meddelanden</a>
-                            </li>
-                            <li>
-                                <a href="#usecases">Anv&auml;ndingsfallen</a>
-                            </li>
-                        </ul>
+                    <nav class="hidden-print collapse navbar-collapse" data-offset-top="210" data-spy="affix" id="nav-sidebar" style="width: 270px" data-i18n-aria-label="accessibility.pageNavigation">
+                        <ul class="nav nav-stacked" id="messageExchangeNav"></ul>
                     </nav>
                 </div>
-
                 <div class="col-md-9 col-sm-9 col-xs-12" role="main">
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    </div>
+                    <div aria-multiselectable="true" class="panel-group" id="accordion" role="tablist"></div>
                 </div>
             </div>
         </div>
-
     </div>
-
     <footer>
         <div class="container">
-            <div class="row">
-                &copy; Finska tullen 2018
-
-            </div>
+            <div class="row" data-i18n="footer"></div>
         </div>
     </footer>
-    <!-- Bootstrap core JavaScript
-================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src='../../../assets/javascripts/vendor/jquery.js'></script>
-    <script>
-        $(document).ready(function() {
-            $.ajax({
-                url: '../../common/intro.xml',
-                type: 'GET',
-                dataType: 'xml',
-                success: function(returnedXMLResponse) {
-                        $('System[lang="sv"]', returnedXMLResponse).each(function() {
-                            var system = $(this).text();
-                            $(".pageheader").append(system);
-                            document.title += " " + system;
-                        })
-                        $('VersionHistory Version:last Number', returnedXMLResponse).each(function() {
-                            var version = $(this).text();
-                            $(".main-navbar").append(version + " ");
-                        })
-                        $('VersionHistory Version:last Date', returnedXMLResponse).each(function() {
-                            var date = new Date($(this).text());
-                            date = date.toLocaleDateString("sv-FI");
-                            $(".main-navbar").append(date);
-                        })
-                    } // End Success
-            }); // End AJAX
-        });
-    </script>
-
-    <script src='../../../assets/xsltProcessor.js'></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            transform('../../common/messageexchange.xml', '../../../assets/messageexchange.xsl', document.getElementById('accordion'), 'sv');
-        })
-    </script>
-    <script src='../../../assets/javascripts/bootstrap.js'></script>
-
-    <script src='../../../assets/javascripts/custom-ui.js'></script>
-
-    <script>
-        $(function() {
-
-        });
-    </script>
-
-    <script>
-        $(document).ready(function(){
-              $('body').append('<span id="toTop" class="badge"><i class="media-object icon-md icon icon-tulli-arrow-up"></i></span>');
-    	        $(window).scroll(function () {
-			        if ($(this).scrollTop() != 0) {
-				        $('#toTop').fadeIn();
-			        } else {
-				        $('#toTop').fadeOut();
-			        }
-		        }); 
-            $('#toTop').click(function(){
-                $("html, body").animate({ scrollTop: 0 }, 600);
-                return false;
-            });
-        });
-    </script>
-
+    <script src="../../../assets/javascripts/vendor/jquery.js"></script>
+    <script src="../../../assets/javascripts/vendor/webfontloader.js"></script>
+    <script src="../../../assets/javascripts/vendor/snap.svg-min.js"></script>
+    <script src="../../../assets/javascripts/vendor/underscore-umd-min.js"></script>
+    <script src="../../../assets/javascripts/mig-i18n.js"></script>
+    <script src="../../../assets/javascripts/mig-utils.js"></script>
+    <script src="../../../assets/javascripts/mig-intro.js"></script>
+    <script src="../../../assets/javascripts/vendor/marked.umd.js"></script>
+    <script src="../../../assets/javascripts/vendor/sequence-diagram-min.js"></script>
+    <script src="../../../assets/javascripts/vendor/bootstrap.js"></script>
+    <script src="../../../assets/javascripts/mig-ui.js"></script>
+    <script src="../../../assets/javascripts/mig-messageexchange.js"></script>
+    <script src="../../../assets/javascripts/mig-messageexchange-sequence.js"></script>
 </body>
 
 </html>
