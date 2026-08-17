@@ -8,6 +8,7 @@
     var renderEmptyState = window.MIGUtils.renderEmptyState;
     var initScrollableTabs = window.MIGUtils.initScrollableTabs;
     var selectedSubset = '';
+    var referenceModalTrigger = null;
 
     function dataRequirementsViewStorageKey() {
         return 'mig:' + MIGIntro.getSystemPath() + ':dataRequirementsViewMode';
@@ -198,19 +199,24 @@
                 type: 'button',
                 id: 'dataRequirementsViewModeButton',
                 'data-toggle': 'dropdown',
-                'aria-haspopup': 'true',
                 'aria-expanded': 'false',
+                'aria-controls': 'dataRequirementsViewModeMenu',
+                'aria-label': t('dataRequirements.viewMode.title'),
                 title: t('dataRequirements.viewMode.title')
             }
         });
 
         button.appendChild(el('span', {
-            className: 'icon icon-tulli-settings'
+            className: 'icon icon-tulli-settings',
+            attrs: {
+                'aria-hidden': 'true'
+            }
         }));
 
         var menu = el('ul', {
             className: 'dropdown-menu dropdown-menu-right',
             attrs: {
+                id: 'dataRequirementsViewModeMenu',
                 'aria-labelledby': 'dataRequirementsViewModeButton'
             }
         });
@@ -235,33 +241,65 @@
     function renderViewModeOption(value, label, currentMode) {
         var item = el('li');
 
-        var link = el('a', {
+        var isSelected =
+            value === currentMode;
+
+        var button = el('button', {
+            className: 'mig-view-mode-option',
             attrs: {
-                href: '#',
+                type: 'button',
                 'data-view-mode': value,
-                role: 'menuitem'
+                'aria-pressed':
+                    isSelected ? 'true' : 'false'
             }
         });
 
-        link.appendChild(el('span', {
-            className: value === currentMode
+        button.appendChild(el('span', {
+            className: isSelected
                 ? 'icon icon-tulli-radio-checked'
-                : 'icon icon-tulli-radio-unchecked'
+                : 'icon icon-tulli-radio-unchecked',
+            attrs: {
+                'aria-hidden': 'true'
+            }
         }));
 
-        link.appendChild(document.createTextNode(' ' + label));
+        button.appendChild(
+            document.createTextNode(
+                ' ' + label
+            )
+        );
 
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
+        button.addEventListener(
+            'click',
+            function () {
+                var selectedMode =
+                    setDataRequirementsViewMode(
+                        value
+                    );
 
-            var selectedMode = setDataRequirementsViewMode(value);
+                applyDataRequirementsViewMode(
+                    selectedMode
+                );
 
-            applyDataRequirementsViewMode(selectedMode);
-            rerenderActiveMessage();
-            renderViewModeControl('#dataRequirementsViewMode');
-        });
+                rerenderActiveMessage();
 
-        item.appendChild(link);
+                renderViewModeControl(
+                    '#dataRequirementsViewMode'
+                );
+
+                var trigger =
+                    document.getElementById(
+                        'dataRequirementsViewModeButton'
+                    );
+
+                if (trigger) {
+                    trigger.focus();
+                }
+            }
+        );
+
+        item.appendChild(button);
+
         return item;
     }
 
@@ -529,12 +567,36 @@
             var type = trigger.getAttribute('data-reference-type');
             var id = trigger.getAttribute('data-reference-id');
 
+            referenceModalTrigger = trigger;
             openReferenceModal(type, id, options);
         });
 
         if (window.jQuery) {
             window.jQuery('#dataRequirementsModal')
-                .on('hidden.bs.modal', resetReferenceModal);
+                .on('shown.bs.modal', function () {
+                    var modal =
+                        document.getElementById(
+                            'dataRequirementsModal'
+                        );
+
+                    if (modal) {
+                        modal.focus();
+                    }
+                })
+                .on('hidden.bs.modal', function () {
+                    resetReferenceModal();
+
+                    if (
+                        referenceModalTrigger &&
+                        document.documentElement.contains(
+                            referenceModalTrigger
+                        )
+                    ) {
+                        referenceModalTrigger.focus();
+                    }
+
+                    referenceModalTrigger = null;
+                });
         }
     }
 
