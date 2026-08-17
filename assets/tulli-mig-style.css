@@ -90,11 +90,11 @@ thead {
     top: 0;
 }
 
-thead > th {
+thead>th {
     border-bottom: 1px solid #bbbcbc;
 }
 
-thead > th {
+thead>th {
     background-color: #fafafa;
     position: sticky;
     position: -ms-sticky;
@@ -173,7 +173,6 @@ a.modalToggle {
 }
 
 .mig-view-mode-dropdown {
-    position: relative;
     display: inline-block;
 }
 
@@ -182,16 +181,17 @@ a.modalToggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     height: 40px;
     min-width: 58px;
     padding: 6px 34px 6px 12px;
-    margin: 0;
+
     border: 1px solid #ccc;
     border-radius: 0;
     background: #fff;
     color: #00205b;
+
     line-height: 1;
-    vertical-align: bottom;
     box-shadow: none;
 }
 
@@ -201,28 +201,24 @@ a.modalToggle {
     background: #fff;
     color: #00205b;
     border-color: #00205b;
-    outline: 0;
 }
 
 .mig-view-mode-button:after {
+    content: "\e909";
+
+    position: absolute;
+    right: 12px;
+
     font-family: 'Tulli-Icons' !important;
     font-style: normal;
     font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
     line-height: 1;
-    pointer-events: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\e909";
+
     color: #00205b;
-    position: absolute;
-    z-index: 10;
-    right: 12px;
+    pointer-events: none;
 }
 
 .mig-view-mode-button .icon-tulli-settings {
-    display: inline-block;
     font-size: 18px;
     line-height: 1;
 }
@@ -230,6 +226,34 @@ a.modalToggle {
 .mig-view-mode-dropdown .dropdown-menu {
     text-align: left;
     min-width: 190px;
+}
+
+.mig-view-mode-dropdown .dropdown-menu>li>button.mig-view-mode-option {
+    display: block;
+    width: 100%;
+
+    padding: 3px 20px;
+
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+
+    background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+
+    color: inherit;
+    font: inherit;
+    font-weight: 400;
+    line-height: 1.42857143;
+
+    text-align: left;
+    white-space: nowrap;
+}
+
+.mig-view-mode-dropdown .dropdown-menu>li>button.mig-view-mode-option:hover,
+.mig-view-mode-dropdown .dropdown-menu>li>button.mig-view-mode-option:focus {
+    background: #f5f5f5;
 }
 
 #mig-subset-select {
@@ -274,23 +298,6 @@ a.modalToggle {
     width: 4px;
     background-color: #f2a900;
 }
-
-/*.data-requirements-description-row > td:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -1px;
-  width: 14px;
-  background-color: #f2a900;
-  clip-path: polygon(
-    0 0,
-    4px 0,
-    100% 50%,
-    4px 100%,
-    0 100%
-  );
-}*/
 
 .data-requirements-group,
 .data-requirements-row {
@@ -444,12 +451,12 @@ body.datamodel-page #canvas svg {
     display: none;
 }
 
-.messagetabs > li {
+.messagetabs>li {
     float: none;
     flex: 0 0 auto;
 }
 
-.messagetabs > li {
+.messagetabs>li {
     float: none;
     flex: 0 0 auto;
 }
