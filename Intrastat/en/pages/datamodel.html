@@ -1,165 +1,98 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Class diagram -</title>
-        <link rel="icon" href="../../../assets/favicon.ico" />
-        <link rel="stylesheet" href="../../../assets/tulli-bootstrap-style.css" type="text/css" />
-        <link rel="stylesheet" href="../../../assets/tulli-mig-tables-style.css" type="text/css" />
-        <link rel="stylesheet" href="../../../assets/joint.css" type="text/css" />
-        <link rel="stylesheet" href="../../../assets/umlcd.css" type="text/css" />
-        <style>
-            #canvas svg {
-                width: 100%;
-                height: auto;
-            }
-        </style>
-    </head>
+<!DOCTYPE html>
 
-    <body class="Site">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <span class="navbar-text main-navbar">Class diagram version </span>
-                    <a href="../../fi/pages/datamodel.html">Suomi</a>
-                    <a href="../../sv/pages/datamodel.html">Svenska</a>
-                </div>
-            </div>
-            <!-- /.container -->
-        </nav>
-        <!-- /.navbar -->
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-        <header>
-            <div class="upper">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-12 col-xs-12">
-                            <a class="" href="../index.html"> <img class="img-responsive pull-left" src="../../../assets/images/logo-tulli.svg" alt="Finnish Customs logotype" /></a>
+<head>
+    <meta charset="utf-8" />
+    <title data-i18n="pageTitles.classDiagram" data-i18n-suffix=" -"></title>
+    <link href="../../../assets/favicon.ico" rel="icon" />
+    <link href="../../../assets/treeselect.css" rel="stylesheet" type="text/css" />
+    <link href="../../../assets/tulli-bootstrap-style.css" rel="stylesheet" type="text/css" />
+    <link href="../../../assets/tulli-mig-tables-style.css" rel="stylesheet" type="text/css" />
+    <link href="../../../assets/joint.css" rel="stylesheet" type="text/css" />
+    <link href="../../../assets/umlcd.css" rel="stylesheet" type="text/css" />
+</head>
 
-                            <button type="button" class="navbar-toggle collapsed pull-right margin-0" data-toggle="collapse" data-target="#navbar-mainmenu" aria-expanded="false" aria-controls="navbar-mainmenu">
-                                <span class="sr-only">Menu</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="col-md-9 col-sm-12 col-xs-12">
-                            <nav id="navbar-mainmenu" role="menu" class="mainmenu collapse navbar-collapse">
-                                <ul class="nav nav-pills">
-                                    <li>
-                                        <a href="../index.html">Home</a>
-                                    </li>
-                                    <li>
-                                        <a href="messageexchange.html">Guide for message exchange</a>
-                                    </li>
-                                    <li class="current">
-                                        <a class="current" href="datamodel.html">Class diagram</a>
-                                    </li>
-                                    <li>
-                                        <a href="datarequirements.html">Data requirements</a>
-                                    </li>
-                                    <li>
-                                        <a href="codes.html">Codes</a>
-                                    </li>
-                                    <li>
-                                        <a href="examples.html">Examples</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
+<body class="Site datamodel-page" data-lang="en" data-to-top="false">
+    <nav class="navbar navbar-default navbar-static-top" data-i18n-aria-label="accessibility.languageNavigation">
+        <div class="container">
+            <div class="navbar-header">
+                <span class="navbar-text main-navbar"></span>
+                <a lang="fi" hreflang="fi" data-i18n="languageNames.fi" data-lang-option="fi" href="../../fi/pages/datamodel.html"></a>
+                <a lang="sv" hreflang="sv" data-i18n="languageNames.sv" data-lang-option="sv" href="../../sv/pages/datamodel.html"></a>
+                <a lang="en" hreflang="en" data-i18n="languageNames.en" data-lang-option="en" href="../../en/pages/datamodel.html"></a>
             </div>
-
-            <div class="lower">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <h1>Class diagram</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <main class="Site-content">
-            <div class="col-xs-12" role="main">
-                <div class="panel panel-primary" id="canvas"></div>
-            </div>
-        </main>
-        <footer>
+        </div>
+    </nav>
+    <header>
+        <div class="upper">
             <div class="container">
                 <div class="row">
-                    &copy; Tulli 2018
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <a class="" href="../index.html"> <img alt="" class="img-responsive pull-left"
+                                data-i18n-alt="logoAlt" src="../../../assets/images/logo-tulli.svg" /></a>
+                        <button aria-controls="navbar-mainmenu" aria-expanded="false"
+                            class="navbar-toggle collapsed pull-right margin-0" data-target="#navbar-mainmenu"
+                            data-toggle="collapse" type="button">
+                            <span class="sr-only" data-i18n="menu.menu"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="col-md-9 col-sm-12 col-xs-12">
+                        <nav class="mainmenu collapse navbar-collapse" id="navbar-mainmenu" data-i18n-aria-label="accessibility.mainNavigation">
+                            <ul class="nav nav-pills">
+                                <li><a data-i18n="menu.home" href="../index.html"></a></li>
+                                <li><a data-i18n="pageTitles.messageExchange" href="messageexchange.html"></a></li>
+                                <li class="current"><a class="current" aria-current="page" data-i18n="pageTitles.classDiagram"
+                                        href="datamodel.html"></a></li>
+                                <li><a data-i18n="pageTitles.dataRequirements" href="datarequirements.html"></a></li>
+                                <li><a data-i18n="frontPage.cards.codes.title" href="codes.html"></a></li>
+                                <li><a data-i18n="pageTitles.examples" href="examples.html"></a></li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
-        </footer>
+        </div>
+        <div class="lower">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 col-xs-12">
+                        <h1 data-i18n="pageTitles.classDiagram"></h1>
+                    </div>
+                    <div class="col-sm-8 col-xs-12 text-right">
+                        <div class="mig-page-tools mig-datamodel-tools">
+                            <div id="migMessageFilter"></div>
+                            <div id="migVersionSelector"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="Site-content">
+        <div class="col-xs-12">
+            <div class="panel panel-primary" id="canvas"></div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row" data-i18n="footer"></div>
+        </div>
+    </footer>
+    <script src="../../../assets/javascripts/vendor/jquery.js"></script>
+    <script src="../../../assets/javascripts/vendor/treeselect.umd.js"></script>
+    <script src="../../../assets/javascripts/mig-i18n.js"></script>
+    <script src="../../../assets/javascripts/mig-utils.js"></script>
+    <script src="../../../assets/javascripts/mig-intro.js"></script>
+    <script src="../../../assets/javascripts/viz-standalone.js"></script>
+    <script src="../../../assets/javascripts/svg-pan-zoom.min.js"></script>
+    <script src="../../../assets/javascripts/full.render.js"></script>
+    <script src="../../../assets/javascripts/bootstrap.js"></script>
+    <script src="../../../assets/javascripts/custom-ui.js"></script>
+    <script src="../../../assets/javascripts/mig-datamodel.js"></script>
+</body>
 
-        <script src="../../../assets/javascripts/vendor/jquery.js"></script>
-        <script src="../../../assets/javascripts/viz.js"></script>
-        <script src="../../../assets/javascripts/svg-pan-zoom.min.js"></script>
-        <script src="../../../assets/javascripts/full.render.js"></script>
-        <script>
-            $(document).ready(function () {
-                $.ajax({
-                    url: "../../common/intro.xml",
-                    type: "GET",
-                    dataType: "xml",
-                    success: function (returnedXMLResponse) {
-                        $("VersionHistory Version:last Number", returnedXMLResponse).each(function () {
-                            var version = $(this).text();
-                            $(".main-navbar").append(version + " ");
-                        });
-                        $("VersionHistory Version:last Date", returnedXMLResponse).each(function () {
-                            var generated = new Date($(this).text());
-                            var generated = generated.toLocaleDateString("en-GB");
-                            $(".main-navbar").append(generated);
-                        });
-
-                        $('System[lang="en"]', returnedXMLResponse).each(function () {
-                            var system = $(this).text();
-                            document.title += " " + system;
-                        });
-                    }, // End Success
-                }); // End AJAX
-            });
-        </script>
-        <script src="../../../assets/javascripts/bootstrap.js"></script>
-
-        <script src="../../../assets/javascripts/custom-ui.js"></script>
-
-        <script>
-            $(function () {});
-        </script>
-
-        <script>
-            var viz = new Viz();
-            url = "../../common/en.gv";
-            var request = new XMLHttpRequest();
-            request.addEventListener("load", function () {
-                viz.renderSVGElement(this.responseText).then(function (element) {
-                    document.getElementById("canvas").appendChild(element);
-                    panZoom = svgPanZoom(element, {
-                        zoomEnabled: true,
-                        controlIconsEnabled: true,
-                        fit: true,
-                        center: true,
-                        minZoom: 0.1,
-                    });
-
-                    element.addEventListener(
-                        "paneresize",
-                        function (e) {
-                            panZoom.resize();
-                        },
-                        false
-                    );
-                    window.addEventListener("resize", function (e) {
-                        panZoom.resize();
-                    });
-                });
-            });
-            request.open("GET", url);
-            request.send();
-        </script>
-    </body>
 </html>

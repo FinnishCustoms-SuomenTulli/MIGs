@@ -1,0 +1,190 @@
+{
+    "System": {
+        "fi": "Intrastat",
+        "sv": "Intrastat",
+        "en": "Intrastat"
+    },
+    "Versions": {
+        "1.3.2": {
+            "fi": [],
+            "sv": [],
+            "en": [],
+            "info": {
+                "data": true,
+                "xml": true,
+                "messageExchange": false,
+                "releaseDate": "2022-08-29 09:13:23",
+                "remark": {
+                    "fi": "Liiketoiminnan luonne",
+                    "sv": "Typ av transaktion",
+                    "en": "Nature of transaction"
+                },
+                "messages": [
+                    "INSTAT",
+                    "INSRES"
+                ],
+                "examples": [
+                    "INSTAT",
+                    "INSTAT_example01_PSI_arrival",
+                    "INSTAT_example02_PSI_dispatch",
+                    "INSTAT_example03_TDP_arrival",
+                    "INSTAT_example04_TDP_dispatch",
+                    "INSTAT_example05_PSI_nil_arrival",
+                    "INSTAT_example06_PSI_nil_dispatch",
+                    "INSRES-accepted",
+                    "INSRES-rejected"
+                ]
+            }
+        },
+        "1.4.0": {
+            "fi": [
+                {
+                    "text": "Selite muuttunut sanomalle INSTAT: \"Ilmoitetaan tavaravirran suunta. Mahdolliset arvot ovat:\r\nA…\" → \"Ilmoitetaan tavaravirran suunta. Ilmoitetaan arvo:\r\nD = Vie…\".",
+                    "tooltip": "Aiempi arvo:\nIlmoitetaan tavaravirran suunta. Mahdolliset arvot ovat:\r\nA = Tuonti\r\nD = Vienti\n\nUusi arvo:\nIlmoitetaan tavaravirran suunta. Ilmoitetaan arvo:\r\nD = Vienti"
+                },
+                {
+                    "text": "Nimi muuttunut kohdassa {Declaration}/Declaration/Item/MSConsDestCode: \"EU-jäsenmaa\" → \"Määrämaa\".",
+                    "tooltip": "Aiempi arvo:\nEU-jäsenmaa\n\nUusi arvo:\nMäärämaa"
+                },
+                {
+                    "text": "Selite muuttunut sanomalle INSTAT: \"Koodiluettelo on saatavilla myös Intrastat-oppaassa, joka s…\" → \"Koodiluettelo on saatavilla myös Intrastat-oppaassa, joka s…\".",
+                    "tooltip": "Aiempi arvo:\nKoodiluettelo on saatavilla myös Intrastat-oppaassa, joka sisältää myös lisätietoja maiden luokittelusta.\r\nTuonnissa EU-maa, josta tavara on lähetetty Suomeen (lähetysmaa), viennissä EU-maa, jonne tavarat lähetetään Suomesta (määrämaa).\n\nUusi arvo:\nKoodiluettelo on saatavilla myös Intrastat-oppaassa, joka sisältää myös lisätietoja maiden luokittelusta.\r\nEU-maa, jonne tavarat lähetetään Suomesta (määrämaa)."
+                },
+                {
+                    "text": "Validointi sanomalle INSTAT kohdassa {Declaration}/Declaration/Item/countryOfOriginCode muuttunut: \"D\" → \"R\".",
+                    "tooltip": "Aiempi arvo:\nD\n\nUusi arvo:\nR"
+                },
+                {
+                    "text": "Rajoite NC004 poistettu sanomasta INSTAT kohdassa {Declaration}/Declaration/Item/countryOfOriginCode.",
+                    "tooltip": null
+                },
+                {
+                    "text": "Selite muuttunut sanomalle INSTAT: \"Alkuperämaa eli alkuperämaan koodi, esim. SE. Myös Euroopan…\" → \"Alkuperämaa eli alkuperämaan koodi, esim. SE. Myös Euroopan…\".",
+                    "tooltip": "Aiempi arvo:\nAlkuperämaa eli alkuperämaan koodi, esim. SE. Myös Euroopan Unionin ulkopuolinen maa on mahdollinen. Pakollinen tieto tuonnissa, viennissä vapaaehtoinen tieto vuonna 2021, pakollinen vuoden 2022 tammikuun ilmoituksesta alkaen. Viennissä alkuperämaa voi olla myös FI Suomi.\n\nUusi arvo:\nAlkuperämaa eli alkuperämaan koodi, esim. SE. Myös Euroopan Unionin ulkopuolinen maa on mahdollinen. Pakollinen tieto. Alkuperämaa voi olla myös FI Suomi."
+                },
+                {
+                    "text": "Selite muuttunut sanomalle INSTAT: \"Tilastoarvo on tavaran arvo Suomen rajalla (tuonnissa CIF, …\" → \"Tilastoarvo on tavaran arvo Suomen rajalla (FOB).\".",
+                    "tooltip": "Aiempi arvo:\nTilastoarvo on tavaran arvo Suomen rajalla (tuonnissa CIF, viennissä FOB).\n\nUusi arvo:\nTilastoarvo on tavaran arvo Suomen rajalla (FOB)."
+                },
+                {
+                    "text": "Selite muuttunut sanomalle INSTAT: \"Vain viennissä:Kauppakumppanin alv-tunnus, esim. SE01234569…\" → \"Kauppakumppanin alv-tunnus, esim. SE01234569. Kauppakumppan…\".",
+                    "tooltip": "Aiempi arvo:\nVain viennissä:Kauppakumppanin alv-tunnus, esim. SE01234569. Ei pakollinen tieto vuonna 2021, mutta voi ilmoittaa vapaaehtoisena tietona. Pakollinen tieto viennissä vuoden 2022 tammikuun ilmoituksesta alkaen. Kauppakumppanin maan pitää olla sama kuin määrämaa paitsi erikoistapauksissa:\r\n1. XX999999999999:kolmikantakaupassa, jos kauppakumppani tavaran lopullisessa määrämaassa on tuntematon. XX on sen maan koodi, johon lasku lähetetään.\r\n2. QN999999999999:tavara toimitetaan yksityishenkilölle\r\n3. QV999999999999:muusta syystä tuntematon kauppakumppani (käytössä ainoastaan vuonna 2021)\n\nUusi arvo:\nKauppakumppanin alv-tunnus, esim. SE01234569. Kauppakumppanin maan pitää olla sama kuin määrämaa paitsi erikoistapauksissa:\r\n1. XX999999999999:kolmikantakaupassa, jos kauppakumppani tavaran lopullisessa määrämaassa on tuntematon. XX on sen maan koodi, johon lasku lähetetään.\r\n2. QN999999999999:tavara toimitetaan yksityishenkilölle\r\n3. QV999999999999:muusta syystä tuntematon kauppakumppani (käytössä ainoastaan vuonna 2021)"
+                },
+                {
+                    "text": "Selite muuttunut sanomalle INSRES: \"Ilmoitetaan tavaravirran suunta. Mahdolliset arvot ovat:\r\nA…\" → \"Ilmoitetaan tavaravirran suunta. Mahdolliset arvot ovat:\r\nD…\".",
+                    "tooltip": "Aiempi arvo:\nIlmoitetaan tavaravirran suunta. Mahdolliset arvot ovat:\r\nA = Tuonti\r\nD = Vienti\n\nUusi arvo:\nIlmoitetaan tavaravirran suunta. Mahdolliset arvot ovat:\r\nD = Vienti"
+                },
+                {
+                    "text": "Rajoite NC004 poistettu.",
+                    "tooltip": null
+                }
+            ],
+            "sv": [
+                {
+                    "text": "Beskrivning ändrad för meddelande INSTAT: \"Varuflödets riktning anmäls. Möjliga värden är:\r\nA = Import…\" → \"Varuflödets riktning anmäls. Anmäl värdet:\r\nD = Export\".",
+                    "tooltip": "Tidigare värde:\nVaruflödets riktning anmäls. Möjliga värden är:\r\nA = Import\r\nD = Export\n\nNytt värde:\nVaruflödets riktning anmäls. Anmäl värdet:\r\nD = Export"
+                },
+                {
+                    "text": "Namn ändrad under {Declaration}/Declaration/Item/MSConsDestCode: \"EU-medlemsland\" → \"Bestämmelseland\".",
+                    "tooltip": "Tidigare värde:\nEU-medlemsland\n\nNytt värde:\nBestämmelseland"
+                },
+                {
+                    "text": "Beskrivning ändrad för meddelande INSTAT: \"Kodförteckningen finns även i Intrastat-guiden, som dessuto…\" → \"Kodförteckningen finns även i Intrastat-guiden, som dessuto…\".",
+                    "tooltip": "Tidigare värde:\nKodförteckningen finns även i Intrastat-guiden, som dessutom innehåller tilläggsuppgifter om ländernas klassificering.\r\nVid införsel det EU-land varifrån varorna skickats till Finland (avsändningsland), vid utförsel det EU-land vart varorna skickas från Finland (bestämmelseland).\n\nNytt värde:\nKodförteckningen finns även i Intrastat-guiden, som dessutom innehåller tilläggsuppgifter om ländernas klassificering.\r\nVDet EU-land vart varorna skickas från Finland (bestämmelseland)."
+                },
+                {
+                    "text": "Validering för meddelande INSTAT under {Declaration}/Declaration/Item/countryOfOriginCode har ändrats: \"D\" → \"R\".",
+                    "tooltip": "Tidigare värde:\nD\n\nNytt värde:\nR"
+                },
+                {
+                    "text": "Begränsning NC004 har tagits bort från meddelande INSTAT under {Declaration}/Declaration/Item/countryOfOriginCode.",
+                    "tooltip": null
+                },
+                {
+                    "text": "Beskrivning ändrad för meddelande INSTAT: \"Ursprungsland, dvs. koden för ursprungslandet, t.ex. SE. Et…\" → \"Ursprungsland, dvs. koden för ursprungslandet, t.ex. SE. Et…\".",
+                    "tooltip": "Tidigare värde:\nUrsprungsland, dvs. koden för ursprungslandet, t.ex. SE. Ett land utanför Europeiska unionen är också möjligt. Obligatorisk information för import, frivillig information för export 2021, obligatorisk från januari 2022-anmälan. Vid export kan ursprungslandet också vara FI Finland.\n\nNytt värde:\nUrsprungsland, dvs. koden för ursprungslandet, t.ex. SE. Ett land utanför Europeiska unionen är också möjligt. Obligatorisk information. VUrsprungslandet kan också vara FI Finland."
+                },
+                {
+                    "text": "Beskrivning ändrad för meddelande INSTAT: \"Det statiska värdet är varans värde vid Finska gränsen (CIF…\" → \"Det statiska värdet är varans värde vid Finska gränsen (FOB…\".",
+                    "tooltip": "Tidigare värde:\nDet statiska värdet är varans värde vid Finska gränsen (CIF vid införsel, FOB vid utförsel).\n\nNytt värde:\nDet statiska värdet är varans värde vid Finska gränsen (FOB)."
+                },
+                {
+                    "text": "Beskrivning ändrad för meddelande INSTAT: \"Endast för export:handelsnummer för handelspartner, t.ex. S…\" → \"Handelsnummer för handelspartner, t.ex. SE01234569. Handels…\".",
+                    "tooltip": "Tidigare värde:\nEndast för export:handelsnummer för handelspartner, t.ex. SE01234569. Ej obligatoriskt 2021, men kan rapporteras som frivilligt. Obligatorisk information för export från januari 2022-anmälan. Handelspartnerns land måste vara detsamma som destinationslandet, utom i särskilda fall:\r\n1. XX999999999999:i triangulär handel, om handelspartnern i det land där varan slutligt bestäms är okänd. XX är koden för det land fakturan skickas till.\r\n2. QN999999999999:varorna levereras till en privatperson\r\n3. QV999999999999:annars okänd handelspartner (används endast 2021)\n\nNytt värde:\nHandelsnummer för handelspartner, t.ex. SE01234569. Handelspartnerns land måste vara detsamma som destinationslandet, utom i särskilda fall:\r\n1. XX999999999999:i triangulär handel, om handelspartnern i det land där varan slutligt bestäms är okänd. XX är koden för det land fakturan skickas till.\r\n2. QN999999999999:varorna levereras till en privatperson\r\n3. QV999999999999:annars okänd handelspartner (används endast 2021)"
+                },
+                {
+                    "text": "Beskrivning ändrad för meddelande INSRES: \"Varuflödets riktning anmäls. Möjliga värden är:\r\nA = Import…\" → \"Varuflödets riktning anmäls. Möjliga värden är:\r\nD = Export\".",
+                    "tooltip": "Tidigare värde:\nVaruflödets riktning anmäls. Möjliga värden är:\r\nA = Import\r\nD = Export\n\nNytt värde:\nVaruflödets riktning anmäls. Möjliga värden är:\r\nD = Export"
+                },
+                {
+                    "text": "Begränsning NC004 har tagits bort.",
+                    "tooltip": null
+                }
+            ],
+            "en": [
+                {
+                    "text": "Description changed for message INSTAT: \"Flow of goods reported in the Intrastat declaration. Possib…\" → \"Flow of goods reported in the Intrastat declaration. Enter …\".",
+                    "tooltip": "Previous value:\nFlow of goods reported in the Intrastat declaration. Possible values are:\r\nA = Import\r\nD = Export\n\nNew value:\nFlow of goods reported in the Intrastat declaration. Enter value:\r\nD = Export"
+                },
+                {
+                    "text": "Name changed for path {Declaration}/Declaration/Item/MSConsDestCode: \"Member State of consignment/destination\" → \"Country of destination\".",
+                    "tooltip": "Previous value:\nMember State of consignment/destination\n\nNew value:\nCountry of destination"
+                },
+                {
+                    "text": "Description changed for message INSTAT: \"Code list is also available in the publication Intrastat Gu…\" → \"Code list is also available in the publication Intrastat Gu…\".",
+                    "tooltip": "Previous value:\nCode list is also available in the publication Intrastat Guide, which also includes further information of the classification of countries.\r\nIn import the country from which the goods have been sent to Finland (country of consignment), in export the country to which the goods are sent from Finland (country of destination).\n\nNew value:\nCode list is also available in the publication Intrastat Guide, which also includes further information of the classification of countries.\r\nThe country to which the goods are sent from Finland (country of destination)."
+                },
+                {
+                    "text": "Under {Declaration}/Declaration/Item/countryOfOriginCode, the validation of message INSTAT changed: \"D\" → \"R\".",
+                    "tooltip": "Previous value:\nD\n\nNew value:\nR"
+                },
+                {
+                    "text": "Constraint NC004 removed from message INSTAT under {Declaration}/Declaration/Item/countryOfOriginCode.",
+                    "tooltip": null
+                },
+                {
+                    "text": "Description changed for message INSTAT: \"Country of origin, ie the code of the country of origin, eg…\" → \"Country of origin, ie the code of the country of origin, eg…\".",
+                    "tooltip": "Previous value:\nCountry of origin, ie the code of the country of origin, eg SE. A country outside the European Union is also possible. Mandatory information for imports, optional information for exports in 2021, mandatory from the January 2022 notification. In exports, the country of origin may also be FI Finland.\n\nNew value:\nCountry of origin, ie the code of the country of origin, eg SE. A country outside the European Union is also possible. Mandatory information. The country of origin may also be FI Finland."
+                },
+                {
+                    "text": "Description changed for message INSTAT: \"The statistical value is the value at the Finnish border (C…\" → \"The statistical value is the value at the Finnish border (F…\".",
+                    "tooltip": "Previous value:\nThe statistical value is the value at the Finnish border (CIF at import, FOB at export).\n\nNew value:\nThe statistical value is the value at the Finnish border (FOB)."
+                },
+                {
+                    "text": "Description changed for message INSTAT: \"For export only:VAT ID of the trading partner, eg SE0123456…\" → \"VAT ID of the trading partner, eg SE01234569. The country o…\".",
+                    "tooltip": "Previous value:\nFor export only:VAT ID of the trading partner, eg SE01234569. Not mandatory in 2021, but may be reported as optional. Mandatory information for exports from the January 2022 notification. The country of the trading partner must be the same as the country of destination, except in special cases:\r\n1. XX999999999999:in triangular trade, if the trading partner in the country of final destination of the goods is unknown. XX is the code of the country to which the invoice is sent.\r\n2. QN999999999999:the goods are delivered to a private individual\r\n3. QV999999999999:otherwise unknown trading partner (only used during 2021)\n\nNew value:\nVAT ID of the trading partner, eg SE01234569. The country of the trading partner must be the same as the country of destination, except in special cases:\r\n1. XX999999999999:in triangular trade, if the trading partner in the country of final destination of the goods is unknown. XX is the code of the country to which the invoice is sent.\r\n2. QN999999999999:the goods are delivered to a private individual\r\n3. QV999999999999:otherwise unknown trading partner (only used during 2021)"
+                },
+                {
+                    "text": "Description changed for message INSRES: \"Flow of goods reported in the Intrastat declaration. Possib…\" → \"Flow of goods reported in the Intrastat declaration. Possib…\".",
+                    "tooltip": "Previous value:\nFlow of goods reported in the Intrastat declaration. Possible values are:\r\nA = Import\r\nD = Export\n\nNew value:\nFlow of goods reported in the Intrastat declaration. Possible values are:\r\nD = Export"
+                },
+                {
+                    "text": "Constraint NC004 removed.",
+                    "tooltip": null
+                }
+            ],
+            "info": {
+                "data": true,
+                "xml": false,
+                "messageExchange": false,
+                "releaseDate": "2026-08-17 09:13:23",
+                "remark": {
+                    "fi": "Tuonnin poisto",
+                    "sv": "Borttagning av import",
+                    "en": "Removal of import"
+                },
+                "messages": [
+                    "INSTAT",
+                    "INSRES"
+                ],
+                "examples": [
+                    "INSTAT_example01_PSI_dispatch",
+                    "INSTAT_example02_TDP_dispatch",
+                    "INSTAT_example03_PSI_nil_dispatch",
+                    "INSRES-accepted",
+                    "INSRES-rejected"
+                ]
+            }
+        }
+    }
+}
