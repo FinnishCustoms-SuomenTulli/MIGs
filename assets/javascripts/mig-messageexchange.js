@@ -135,7 +135,7 @@
             }
         });
 
-        section.appendChild(el('h2', {
+        section.appendChild(el('h3', {
             text: messageSectionLabel(sender, lang)
         }));
 
@@ -321,43 +321,46 @@
         useCase,
         useCaseIndex,
         lang,
-        openCaseNumber
+        openCaseNumber,
+        headingLevel
     ) {
         var caseNumber = useCaseIndex + 1;
         var collapseId = caseCollapseId(caseNumber);
-        var headingId = 'heading-' + collapseId;
+        var triggerId = 'trigger-' + collapseId;
         var isOpen = openCaseNumber === caseNumber;
 
         var panel = el('div', {
-            className:
-                'panel panel-default message-exchange-case'
+            className: 'panel panel-default message-exchange-case'
         });
 
         var heading = el('div', {
-            className: 'panel-heading',
-            attrs: {
-                role: 'tab',
-                id: headingId
+            className: 'panel-heading'
+        });
+
+        var title = el(
+            'h' + headingLevel,
+            {
+                className: 'panel-title'
             }
-        });
+        );
 
-        var title = el('h4', {
-            className: 'panel-title'
-        });
-
-        var link = el('a', {
-            className: isOpen ? '' : 'collapsed',
+        var button = el('button', {
+            className:
+                'message-exchange-case-toggle' +
+                (isOpen ? '' : ' collapsed'),
             attrs: {
-                role: 'button',
+                id: triggerId,
+                type: 'button',
                 'data-toggle': 'collapse',
-                href: '#' + collapseId,
+                'data-target': '#' + collapseId,
                 'aria-expanded': isOpen ? 'true' : 'false',
                 'aria-controls': collapseId
             }
         });
 
-        link.appendChild(el('span', {
-            className: 'message-exchange-case-number',
+        button.appendChild(el('span', {
+            className:
+                'message-exchange-case-number',
             text:
                 t('messageExchangePage.caseLabel') +
                 ' ' +
@@ -365,7 +368,7 @@
                 ': '
         }));
 
-        link.appendChild(
+        button.appendChild(
             document.createTextNode(
                 localized(
                     useCase.name,
@@ -375,7 +378,7 @@
             )
         );
 
-        title.appendChild(link);
+        title.appendChild(button);
         heading.appendChild(title);
         panel.appendChild(heading);
 
@@ -385,8 +388,6 @@
                 (isOpen ? ' in' : ''),
             attrs: {
                 id: collapseId,
-                role: 'tabpanel',
-                'aria-labelledby': headingId,
                 'data-use-case-index': useCaseIndex
             }
         });
@@ -395,16 +396,13 @@
             className: 'panel-body'
         });
 
-        /*
-         * Deliberately empty for now. This is the hook for
-         * js-sequence-diagrams later.
-         */
         body.appendChild(el('div', {
             className:
                 'message-exchange-sequence-diagram',
             attrs: {
                 'data-use-case-index': useCaseIndex,
-                'data-case-number': caseNumber
+                'data-case-number': caseNumber,
+                'aria-hidden': 'true'
             }
         }));
 
@@ -442,34 +440,17 @@
             });
     }
 
-    function renderCases(
-        data,
-        records,
-        lang,
-        openCaseNumber
-    ) {
+    function renderCases(records, lang, openCaseNumber, headingLevel) {
         if (!records.length) {
             return null;
         }
 
         var panelGroup = el('div', {
-            className:
-                'panel-group message-exchange-cases',
-            attrs: {
-                role: 'tablist',
-                'aria-multiselectable': 'true'
-            }
+            className: 'panel-group message-exchange-cases'
         });
 
         records.forEach(function (record) {
-            panelGroup.appendChild(
-                renderUseCase(
-                    record.useCase,
-                    record.index,
-                    lang,
-                    openCaseNumber
-                )
-            );
+            panelGroup.appendChild(renderUseCase(record.useCase, record.index, lang, openCaseNumber, headingLevel));
         });
 
         return panelGroup;
@@ -480,7 +461,8 @@
         group,
         subgroup,
         lang,
-        openCaseNumber
+        openCaseNumber,
+        headerLevel
     ) {
         var section = el('section', {
             className: 'message-exchange-subgroup',
@@ -489,7 +471,7 @@
             }
         });
 
-        section.appendChild(el('h3', {
+        section.appendChild(el('h4', {
             text: localized(
                 subgroup.label,
                 lang,
@@ -509,14 +491,10 @@
         }
 
         var cases = renderCases(
-            data,
-            casesFor(
-                data,
-                group.key,
-                subgroup.key
-            ),
+            casesFor(data, group.key, subgroup.key),
             lang,
-            openCaseNumber
+            openCaseNumber,
+            headerLevel
         );
 
         if (cases) {
@@ -539,7 +517,7 @@
             }
         });
 
-        section.appendChild(el('h2', {
+        section.appendChild(el('h3', {
             className: 'message-exchange-usecase-group-title',
             text: localized(
                 group.label,
@@ -560,10 +538,10 @@
         }
 
         var directCases = renderCases(
-            data,
             casesFor(data, group.key, null),
             lang,
-            openCaseNumber
+            openCaseNumber,
+            4
         );
 
         if (directCases) {
@@ -578,7 +556,8 @@
                         group,
                         subgroup,
                         lang,
-                        openCaseNumber
+                        openCaseNumber,
+                        5
                     )
                 );
             });
@@ -741,8 +720,14 @@
 
             links.forEach(function (link) {
                 if (link.parentNode) {
-                    link.parentNode.classList.remove('active');
+                    link.parentNode.classList.remove(
+                        'active'
+                    );
                 }
+
+                link.removeAttribute(
+                    'aria-current'
+                );
             });
 
             if (
@@ -751,6 +736,11 @@
             ) {
                 currentRecord.link.parentNode
                     .classList.add('active');
+
+                currentRecord.link.setAttribute(
+                    'aria-current',
+                    'location'
+                );
             }
         }
 

@@ -466,21 +466,18 @@
         } catch (error) {
             container.innerHTML = '';
 
+            container.removeAttribute('aria-hidden');
+
             var warning = document.createElement('div');
+
             warning.className = 'alert alert-warning';
-            warning.textContent =
-                t('messageExchangePage.sequenceRenderError');
+
+            warning.setAttribute('role', 'alert');
+            warning.setAttribute('aria-atomic', 'true');
+
+            warning.textContent = t('messageExchangePage.sequenceRenderError');
 
             container.appendChild(warning);
-
-            console.warn(
-                'Sequence diagram rendering failed.',
-                {
-                    error: error,
-                    source: source,
-                    useCase: detail.useCase
-                }
-            );
 
             return null;
         }
