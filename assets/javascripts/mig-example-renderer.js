@@ -272,21 +272,50 @@
   }
 
   function renderDownloadLink(xmlUrl, options) {
-    const link = el('a', { href: xmlUrl });
-    append(link, span('icon icon-tulli-external', null));
-    link.firstChild.setAttribute('style', 'margin-right:3px');
-    append(link, options?.downloadLabel || global.MIG_I18N.t('examples.downloadXml'));
+    const link = el('a', {
+      href: xmlUrl
+    });
+
+    append(link, el('span', {
+      class: 'icon icon-tulli-external',
+      style: 'margin-right:3px',
+      'aria-hidden': 'true'
+    }));
+
+    append(
+      link,
+      options?.downloadLabel ||
+      global.MIG_I18N.t(
+        'examples.downloadXml'
+      )
+    );
+
     return link;
   }
 
-  function renderXmlDocument(xmlDoc, xmlUrl, options) {
+  function renderXmlDocument(xmlDoc, xmlUrl, xmlText, options) {
     const fragment = document.createDocumentFragment();
 
     fragment.appendChild(renderDownloadLink(xmlUrl, options));
     fragment.appendChild(el('p'));
-    fragment.appendChild(div('st', renderChildren(xmlDoc)));
+
+    // Accessible representation: actual XML source in logical reading order/
+    fragment.appendChild(renderAccessibleXml(xmlText));
+
+    // Visual representation: existing syntax-highlighted renderer.
+    const visualSource = div('st', renderChildren(xmlDoc));
+
+    visualSource.setAttribute('aria-hidden', 'true');
+    fragment.appendChild(visualSource);
 
     return fragment;
+  }
+
+  function renderAccessibleXml(xmlText) {
+    const code = el('code');
+    code.textContent = String(xmlText || '');
+
+    return el('pre', { class: 'sr-only' }, code);
   }
 
   function parseXml(xmlText, xmlUrl) {
@@ -313,7 +342,7 @@
 
     const xmlText = await response.text();
     const xmlDoc = parseXml(xmlText, xmlUrl);
-    targetElement.replaceChildren(renderXmlDocument(xmlDoc, xmlUrl, options || {}));
+    targetElement.replaceChildren(renderXmlDocument(xmlDoc, xmlUrl, xmlText, options || {}));
     return xmlDoc;
   }
 
