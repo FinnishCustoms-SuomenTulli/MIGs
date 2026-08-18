@@ -14,6 +14,7 @@
     var localeForLanguage = global.MIGUtils.localeForLanguage;
     var formatDisplayDate = global.MIGUtils.formatDisplayDate;
     var normalizeIsoDate = global.MIGUtils.normalizeIsoDate;
+    var announceStatus = global.MIGUtils.announceStatus;
     var renderErrorAlert = global.MIGUtils.renderErrorAlert;
 
     function lowerCase(value) {
@@ -24,21 +25,15 @@
     }
 
     function appendGeneratedTimestamp(data) {
-        var generated =
-            data &&
-            (data.Generated || data.generated);
+        var generated = data && (data.Generated || data.generated);
 
         if (!generated) {
             return;
         }
 
-        var navbar =
-            document.querySelector('.main-navbar');
+        var navbar = document.querySelector('.main-navbar');
 
-        if (
-            !navbar ||
-            navbar.dataset.codeListsGenerated === 'true'
-        ) {
+        if (!navbar || navbar.dataset.codeListsGenerated === 'true') {
             return;
         }
 
@@ -65,8 +60,7 @@
             generatedTime
         ].join(' ');
 
-        var oldHeader =
-            navbar.querySelector('.mig-header-info');
+        var oldHeader = navbar.querySelector('.mig-header-info');
 
         if (oldHeader) {
             oldHeader.remove();
@@ -84,9 +78,7 @@
     }
 
     function datePickerFormat(lang) {
-        return lang === 'en'
-            ? 'D/M/YYYY'
-            : 'D.M.YYYY';
+        return lang === 'en' ? 'D/M/YYYY' : 'D.M.YYYY';
     }
 
     function codeListSearchText(codeList, selectedDate) {
@@ -146,19 +138,6 @@
             state.searchIndex[codeListId] =
                 codeListSearchText(codeList, state.selectedDate);
         });
-    }
-
-    function codeItemMatchesSearch(item, searchTerm) {
-        if (!searchTerm) {
-            return true;
-        }
-
-        var searchableText = [
-            item.code,
-            item.name,
-            item.description
-        return lowerCase(searchableText)
-            .indexOf(searchTerm) !== -1;
     }
 
     function currentSearchTerm() {
@@ -232,51 +211,25 @@
     }
 
     function createAccordionRow(codeList) {
-        var codeListId =
-            codeList.Identification || '';
-
+        var codeListId = codeList.Identification || '';
         var safeCodeListId = safeId(codeListId);
-
-        var collapseId =
-            'CODELIST_' + safeCodeListId;
-
-        var headingId =
-            'CODELIST_HEADING_' + safeCodeListId;
-
-        var name = localized(
-            codeList.Name,
-            state.lang,
-            codeListId
-        );
-
-        var row = createElement(
-            'div',
-            'accordion-row'
-        );
+        var collapseId = 'CODELIST_' + safeCodeListId;
+        var headingId = 'CODELIST_HEADING_' + safeCodeListId;
+        var name = localized(codeList.Name, state.lang, codeListId);
+        var row = createElement('div', 'accordion-row');
 
         row.id = 'panel_' + safeCodeListId;
+        row.setAttribute('data-codelist', codeListId);
 
-        row.setAttribute(
-            'data-codelist',
-            codeListId
-        );
+        var button = createElement('button', 'accordion-link collapsed');
 
-        var link = createElement(
-            'a',
-            'accordion-link collapsed'
-        );
-
-        link.id = headingId;
-        link.href = '#' + collapseId;
-        link.setAttribute('role', 'button');
-        link.setAttribute('data-toggle', 'collapse');
-        link.setAttribute('aria-expanded', 'false');
-        link.setAttribute(
-            'aria-controls',
-            collapseId
-        );
-
-        link.appendChild(
+        button.id = headingId;
+        button.setAttribute('type', 'button');
+        button.setAttribute('data-toggle', 'collapse');
+        button.setAttribute('data-target', '#' + collapseId);
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-controls', collapseId);
+        button.appendChild(
             document.createTextNode(
                 codeListId +
                 (name && name !== codeListId
@@ -285,60 +238,37 @@
             )
         );
 
-        link.appendChild(
-            createElement(
-                'span',
-                'icon icon-tulli-chevron-tight-down'
-            )
+        button.appendChild(
+            createElement('span', 'icon icon-tulli-chevron-tight-down')
         );
+        button.lastChild.setAttribute('aria-hidden', 'true');
 
-        link.lastChild.setAttribute(
-            'aria-hidden',
-            'true'
-        );
-
-        var collapse = createElement(
-            'div',
-            'accordion-content collapse'
-        );
+        var collapse = createElement('div', 'accordion-content collapse');
 
         collapse.id = collapseId;
+        collapse.setAttribute('data-codelist', codeListId);
 
-        collapse.setAttribute(
-            'data-codelist',
-            codeListId
-        );
+        var heading = createElement('h2', 'accordion-heading');
 
-        collapse.setAttribute(
-            'aria-labelledby',
-            headingId
-        );
+        heading.appendChild(button);
 
-        var content = createElement(
-            'div',
-            'accordion-content-container'
-        );
+        var content = createElement('div', 'accordion-content-container');
 
-        content.setAttribute(
-            'data-codelist',
-            codeListId
-        );
-
-        content.setAttribute(
-            'data-code-list-content',
-            codeListId
-        );
-
+        content.setAttribute('data-codelist', codeListId);
+        content.setAttribute('data-code-list-content', codeListId);
         collapse.appendChild(content);
-        row.appendChild(link);
+
+        row.appendChild(heading);
         row.appendChild(collapse);
 
         state.rows[codeListId] = {
             row: row,
-            link: link,
+            link: button,
             collapse: collapse,
             content: content
         };
+
+        observeCodeListContent(content);
 
         return row;
     }
@@ -346,34 +276,21 @@
     function renderCatalog() {
         state.target.innerHTML = '';
 
-        var container = createElement(
-            'div',
-            'container'
-        );
+        var container = createElement('div', 'container');
 
-        var row = createElement(
-            'div',
-            'row'
-        );
+        var row = createElement('div', 'row');
 
-        var accordion = createElement(
-            'div',
-            'accordion'
-        );
+        var accordion = createElement('div', 'accordion');
 
         state.rows = Object.create(null);
 
         state.codeLists.forEach(function (codeList) {
-            if (
-                !codeList ||
-                !codeList.Identification
+            if (!codeList || !codeList.Identification
             ) {
                 return;
             }
 
-            accordion.appendChild(
-                createAccordionRow(codeList)
-            );
+            accordion.appendChild(createAccordionRow(codeList));
         });
 
         row.appendChild(accordion);
@@ -382,15 +299,11 @@
     }
 
     function renderCodeListPanel(collapse) {
-        if (
-            !collapse ||
-            !global.MIGCodeListRenderer
-        ) {
+        if (!collapse || !global.MIGCodeListRenderer) {
             return;
         }
 
-        var codeListId =
-            collapse.getAttribute('data-codelist');
+        var codeListId = collapse.getAttribute('data-codelist');
 
         var record = state.rows[codeListId];
 
@@ -399,12 +312,9 @@
         }
 
         var target = record.content;
-        var searchTerm = currentSearchTerm();
+        //var searchTerm = currentSearchTerm();
 
-        if (
-            target.dataset.renderedDate === state.selectedDate &&
-            target.dataset.renderedSearch === searchTerm
-        ) {
+        if (target.dataset.renderedDate === state.selectedDate) {
             return;
         }
 
@@ -417,21 +327,13 @@
                 codeListId: codeListId,
                 lang: state.lang,
                 date: state.selectedDate,
-                pageSize: state.pageSize,
-                itemFilter: function (item) {
-                    return codeItemMatchesSearch(
-                        item,
-                        searchTerm
-                    );
-                }
+                pageSize: state.pageSize
             }
         );
 
-        target.dataset.renderedDate =
-            state.selectedDate;
+        target.dataset.renderedDate = state.selectedDate;
 
-        target.dataset.renderedSearch =
-            searchTerm;
+        highlightRowsInContent(target, currentSearchTerm());
     }
 
     function invalidateRenderedCodeLists() {
@@ -487,6 +389,8 @@
         invalidateRenderedCodeLists();
         buildSearchIndex();
         applySearch();
+
+        announceStatus(t('codesPage.updated'));
     }
 
     function initializeDatePicker() {
@@ -548,9 +452,7 @@
             return;
         }
 
-        /*
-         * Basic fallback when daterangepicker is unavailable.
-         */
+        // Basic fallback when daterangepicker is unavailable.
         input.type = 'date';
         input.value = state.selectedDate;
 
@@ -575,7 +477,13 @@
                 global.clearTimeout(timer);
 
                 timer = global.setTimeout(
-                    applySearch,
+                    function () {
+                        applySearch();
+
+                        announceStatus(
+                            t('codesPage.updated')
+                        );
+                    },
                     120
                 );
             }
@@ -583,10 +491,7 @@
     }
 
     function bindAccordion() {
-        if (
-            global.jQuery &&
-            global.jQuery.fn
-        ) {
+        if (global.jQuery && global.jQuery.fn) {
             global.jQuery(state.target).on(
                 'show.bs.collapse.migCodes',
                 '.accordion-content',
@@ -598,46 +503,31 @@
             return;
         }
 
-        /*
-         * Bootstrap normally handles these links. This fallback
-         * provides basic behavior without jQuery collapse.
-         */
+        // provides basic behavior without jQuery collapse.
         state.target.addEventListener(
             'click',
             function (event) {
                 var link = event.target;
 
-                while (
-                    link &&
-                    link !== state.target &&
-                    !link.classList.contains(
-                        'accordion-link'
-                    )
-                ) {
+                while (link && link !== state.target && !link.classList.contains('accordion-link')) {
                     link = link.parentNode;
                 }
 
-                if (
-                    !link ||
-                    link === state.target
-                ) {
+                if (!link || link === state.target) {
                     return;
                 }
 
                 event.preventDefault();
 
-                var collapseId =
-                    link.getAttribute('aria-controls');
+                var collapseId = link.getAttribute('aria-controls');
 
-                var collapse =
-                    document.getElementById(collapseId);
+                var collapse = document.getElementById(collapseId);
 
                 if (!collapse) {
                     return;
                 }
 
-                var isOpen =
-                    collapse.classList.contains('in');
+                var isOpen = collapse.classList.contains('in');
 
                 if (isOpen) {
                     collapse.classList.remove('in');
@@ -645,10 +535,7 @@
 
                     link.classList.add('collapsed');
 
-                    link.setAttribute(
-                        'aria-expanded',
-                        'false'
-                    );
+                    link.setAttribute('aria-expanded', 'false');
                 } else {
                     renderCodeListPanel(collapse);
 
@@ -657,10 +544,7 @@
 
                     link.classList.remove('collapsed');
 
-                    link.setAttribute(
-                        'aria-expanded',
-                        'true'
-                    );
+                    link.setAttribute('aria-expanded', 'true');
                 }
             }
         );
@@ -672,14 +556,9 @@
         }
 
         var top =
-            element.getBoundingClientRect().top +
-            global.pageYOffset -
-            40;
+            element.getBoundingClientRect().top + global.pageYOffset - 80;
 
-        if (
-            global.jQuery &&
-            global.jQuery.fn
-        ) {
+        if (global.jQuery && global.jQuery.fn) {
             global.jQuery('html, body').animate(
                 {
                     scrollTop: top
@@ -713,32 +592,18 @@
             return false;
         }
 
-        var collapse =
-            document.getElementById(targetId);
+        var collapse = document.getElementById(targetId);
 
-        if (
-            !collapse ||
-            !state.target.contains(collapse) ||
-            !collapse.classList.contains(
-                'accordion-content'
-            )
-        ) {
+        if (!collapse || !state.target.contains(collapse) || !collapse.classList.contains('accordion-content')) {
             return false;
         }
 
         renderCodeListPanel(collapse);
 
-        if (
-            global.jQuery &&
-            global.jQuery.fn
-        ) {
-            var $collapse =
-                global.jQuery(collapse);
+        if (global.jQuery && global.jQuery.fn) {
+            var $collapse = global.jQuery(collapse);
 
-            if (
-                $collapse.hasClass('in') ||
-                $collapse.hasClass('show')
-            ) {
+            if ($collapse.hasClass('in') || $collapse.hasClass('show')) {
                 scrollToElement(collapse);
             } else {
                 $collapse.one(
@@ -757,12 +622,7 @@
         collapse.classList.add('in');
         collapse.style.display = 'block';
 
-        var record =
-            state.rows[
-            collapse.getAttribute(
-                'data-codelist'
-            )
-            ];
+        var record = state.rows[collapse.getAttribute('data-codelist')];
 
         if (record) {
             record.link.classList.remove(
@@ -783,18 +643,13 @@
     function initCodesPage(options) {
         options = options || {};
 
-        var target = document.querySelector(
-            options.target || '#contents'
-        );
+        var target = document.querySelector(options.target || '#contents');
 
         if (!target) {
             return Promise.resolve(null);
         }
 
-        if (
-            target.dataset.migCodesInitialized ===
-            'true'
-        ) {
+        if (target.dataset.migCodesInitialized === 'true') {
             return Promise.resolve(state);
         }
 

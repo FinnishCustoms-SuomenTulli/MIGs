@@ -3,6 +3,7 @@
 
     var t = global.MIGUtils.t;
     var localized = global.MIGUtils.localized;
+    var safeId = global.MIGUtils.safeId;
     var loadJson = global.MIGUtils.loadJson;
     var createElement = global.MIGUtils.el;
     var isActiveOnDate = global.MIGUtils.isActiveOnDate;
@@ -112,11 +113,16 @@
     }
 
     function appendTextCell(row, value, className) {
-        var cell = createElement(
-            'td',
-            className,
-            value == null ? '' : value
-        );
+        var cell = createElement('td', className, value == null ? '' : value);
+
+        row.appendChild(cell);
+
+        return cell;
+    }
+
+    function appendRowHeader(row, value, className) {
+        var cell = createElement('th', className, value == null ? '' : value);
+        cell.setAttribute('scope', 'row');
 
         row.appendChild(cell);
 
@@ -130,28 +136,19 @@
     }
 
     function appendFilterCell(row, item, filterKey) {
-        var filterClass = filterLabel(filterKey)
-            .toLowerCase()
-            .replace(/[^a-z0-9_-]+/g, '-');
+        var filterClass = filterLabel(filterKey).toLowerCase().replace(/[^a-z0-9_-]+/g, '-');
+        var cell = createElement('td', 'code-list-filter code-list-filter-' + filterClass);
+        var filters = item && item.filters ? item.filters : {};
+        var enabled = filterIsEnabled(filters[filterKey]);
 
-        var cell = createElement(
-            'td',
-            'code-list-filter code-list-filter-' + filterClass
-        );
-
-        var filters = item && item.filters
-            ? item.filters
-            : {};
-
-        if (filterIsEnabled(filters[filterKey])) {
-            var icon = createElement(
-                'span',
-                'icon icon-tulli-checkmark'
-            );
+        if (enabled) {
+            var icon = createElement('span', 'icon icon-tulli-checkmark');
 
             icon.setAttribute('aria-hidden', 'true');
             cell.appendChild(icon);
         }
+
+        cell.appendChild(createElement('span', 'sr-only', enabled ? t('codeLists.filterEnabled') : t('codeLists.filterDisabled')));
 
         row.appendChild(cell);
 
@@ -161,7 +158,7 @@
     function createCodeItemRow(item, filterColumns, lang) {
         var row = document.createElement('tr');
 
-        appendTextCell(
+        appendRowHeader(
             row,
             item.code,
             'code-list-code'
@@ -174,11 +171,7 @@
         );
 
         filterColumns.forEach(function (filterColumn) {
-            appendFilterCell(
-                row,
-                item,
-                filterColumn.key
-            );
+            appendFilterCell(row, item, filterColumn.key);
         });
 
         appendTextCell(
@@ -490,50 +483,61 @@
             target.appendChild(description);
         }
 
-        var wrapper = createElement(
-            'div',
-            'table-responsive code-list-table-wrapper'
+        var wrapper = createElement('div', 'table-responsive code-list-table-wrapper');
+
+        var table = createElement('table', 'table table-striped table-hover table-condensed code-list-table');
+
+        var caption = createElement(
+            'caption',
+            'sr-only',
+            codeList.id +
+            (
+                codeList.name &&
+                    codeList.name !== codeList.id
+                    ? ' - ' + codeList.name
+                    : ''
+            )
         );
 
-        var table = createElement(
-            'table',
-            'table table-striped table-hover table-condensed code-list-table'
-        );
+        table.appendChild(caption);
 
         var thead = document.createElement('thead');
         var headerRow = document.createElement('tr');
+        var codeHeader = createElement('th', '', t('codeLists.tableHeaders.code'));
 
-        headerRow.appendChild(createElement(
-            'th',
-            '',
-            t('codeLists.tableHeaders.code')
-        ));
+        codeHeader.setAttribute('scope', 'col');
+        headerRow.appendChild(codeHeader);
 
-        headerRow.appendChild(createElement(
-            'th',
-            '',
-            t('codeLists.tableHeaders.name')
-        ));
+        var nameHeader = createElement('th', '', t('codeLists.tableHeaders.name'));
+
+        nameHeader.setAttribute('scope', 'col');
+        headerRow.appendChild(nameHeader);
 
         filterColumns.forEach(function (filterColumn) {
-            var th = createElement(
-                'th',
-                '',
-                filterColumn.label
-            );
+            var th = createElement('th', 'code-list-filter-header');
 
-            th.setAttribute('data-toggle', 'tooltip');
-            th.setAttribute('data-placement', 'top');
-            th.setAttribute('title', filterColumn.help);
+            th.setAttribute('scope', 'col');
+            th.appendChild(document.createTextNode(filterColumn.label));
+
+            var helpButton = createElement('button', 'code-list-filter-help');
+
+            helpButton.setAttribute('type', 'button');
+            helpButton.setAttribute('title', filterColumn.help);
+            helpButton.setAttribute('aria-label', filterColumn.label + ': ' + filterColumn.help);
+            helpButton.setAttribute('data-toggle', 'tooltip');
+            helpButton.setAttribute('data-placement', 'top');
+            helpButton.appendChild(createElement('span', 'icon icon-tulli-info'));
+            helpButton.lastChild.setAttribute('aria-hidden', 'true');
+
+            th.appendChild(helpButton);
 
             headerRow.appendChild(th);
         });
 
-        headerRow.appendChild(createElement(
-            'th',
-            '',
-            t('codeLists.tableHeaders.validity')
-        ));
+        var validityHeader = createElement('th', '', t('codeLists.tableHeaders.validity'));
+
+        validityHeader.setAttribute('scope', 'col');
+        headerRow.appendChild(validityHeader);
 
         thead.appendChild(headerRow);
         table.appendChild(thead);
