@@ -10,6 +10,7 @@
     var selectedSubset = '';
     var referenceModalTrigger = null;
     var announceStatus = window.MIGUtils.announceStatus;
+    var renderErrorAlert = window.MIGUtils.renderErrorAlert;
 
     function dataRequirementsViewStorageKey() {
         return 'mig:' + MIGIntro.getSystemPath() + ':dataRequirementsViewMode';
@@ -132,7 +133,19 @@
 
         event.preventDefault();
 
-        tabLinks[targetIndex].focus();
+        var targetTab =
+            tabLinks[targetIndex];
+
+        targetTab.focus();
+
+        if (
+            typeof targetTab.scrollIntoView === 'function'
+        ) {
+            targetTab.scrollIntoView({
+                block: 'nearest',
+                inline: 'nearest'
+            });
+        }
     }
 
     function indexUsecaseMessages(usecases) {
@@ -445,8 +458,12 @@
             }
         ).catch(function (error) {
             pane.dataset.loaded = 'false';
-            contentTarget.textContent = error.message || String(error);
-            console.warn(error);
+
+            renderErrorAlert(
+                pane,
+                error.message || String(error),
+                error
+            );
         });
     }
 

@@ -7,6 +7,7 @@
     var safeId = window.MIGUtils.safeId;
     var renderEmptyState = window.MIGUtils.renderEmptyState;
     var initScrollableTabs = window.MIGUtils.initScrollableTabs;
+    var renderErrorAlert = window.MIGUtils.renderErrorAlert;
 
     function exampleTabId(exampleId) {
         return 'example_' + safeId(exampleId);
@@ -105,7 +106,19 @@
 
         event.preventDefault();
 
-        tabLinks[targetIndex].focus();
+        var targetTab =
+            tabLinks[targetIndex];
+
+        targetTab.focus();
+
+        if (
+            typeof targetTab.scrollIntoView === 'function'
+        ) {
+            targetTab.scrollIntoView({
+                block: 'nearest',
+                inline: 'nearest'
+            });
+        }
     }
 
     function normalizeExample(example, lang) {
@@ -177,8 +190,12 @@
                     pane
                 ).catch(function (error) {
                     pane.dataset.loaded = 'false';
-                    pane.textContent = error.message || String(error);
-                    console.warn(error);
+
+                    renderErrorAlert(
+                        pane,
+                        error.message || String(error),
+                        error
+                    );
                 });
             }
 
@@ -239,7 +256,8 @@
                         id: tabId,
                         role: 'tabpanel',
                         'aria-labelledby':
-                            tabControlId
+                            tabControlId,
+                        tabindex: '0'
                     }
                 });
 
