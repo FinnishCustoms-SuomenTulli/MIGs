@@ -89,10 +89,7 @@
             : 'D.M.YYYY';
     }
 
-    function codeListSearchText(
-        codeList,
-        selectedDate
-    ) {
+    function codeListSearchText(codeList, selectedDate) {
         codeList = codeList || {};
 
         var parts = [
@@ -137,22 +134,17 @@
     }
 
     function buildSearchIndex() {
-        state.searchIndex =
-            Object.create(null);
+        state.searchIndex = Object.create(null);
 
         state.codeLists.forEach(function (codeList) {
-            var codeListId =
-                codeList.Identification || '';
+            var codeListId = codeList.Identification || '';
 
             if (!codeListId) {
                 return;
             }
 
             state.searchIndex[codeListId] =
-                codeListSearchText(
-                    codeList,
-                    state.selectedDate
-                );
+                codeListSearchText(codeList, state.selectedDate);
         });
     }
 
@@ -165,8 +157,6 @@
             item.code,
             item.name,
             item.description
-        ].join('\n');
-
         return lowerCase(searchableText)
             .indexOf(searchTerm) !== -1;
     }
@@ -181,36 +171,62 @@
         ).trim();
     }
 
+    function highlightRowsInContent(content, searchTerm) {
+        if (!content) {
+            return;
+        }
+
+        var rows = content.querySelectorAll('.code-list-table tbody tr');
+
+        Array.prototype.forEach.call(
+            rows,
+            function (row) {
+                /*
+                 * Ignore informational rows such as the
+                 * "no items" message.
+                 */
+                if (row.querySelector('.code-list-empty')
+                ) {
+                    row.classList.remove('codes-search-match');
+
+                    return;
+                }
+
+                var matches = searchTerm && lowerCase(row.textContent).indexOf(searchTerm) !== -1;
+
+                row.classList.toggle('codes-search-match', Boolean(matches));
+            }
+        );
+    }
+
+    function highlightRenderedRows(searchTerm) {
+        Object.keys(state.rows).forEach(
+            function (codeListId) {
+                highlightRowsInContent(state.rows[codeListId].content, searchTerm);
+            }
+        );
+    }
+
     function applySearch() {
         if (!state.searchInput) {
             return;
         }
 
-        var searchTerm =
-            lowerCase(state.searchInput.value)
-                .trim();
+        var searchTerm = lowerCase(state.searchInput.value).trim();
 
         Object.keys(state.rows).forEach(function (
             codeListId
         ) {
-            var row = state.rows[codeListId].row;
+            //var row = state.rows[codeListId].row;
 
-            var searchText =
-                state.searchIndex[codeListId] || '';
+            var searchText = state.searchIndex[codeListId] || '';
 
-            var matches =
-                !searchTerm ||
-                searchText.indexOf(searchTerm) !== -1;
+            //var matches = !searchTerm || searchText.indexOf(searchTerm) !== -1;
 
-            /*
-             * Use an explicit display value rather than hidden.
-             * Existing accordion CSS may set display:block and
-             * otherwise override the browser's [hidden] rule.
-             */
-            row.style.display = matches
-                ? 'block'
-                : 'none';
+            //row.style.display = matches ? 'block' : 'none';
         });
+
+        highlightRenderedRows(searchTerm);
 
         rerenderOpenCodeLists();
     }
@@ -419,11 +435,8 @@
     }
 
     function invalidateRenderedCodeLists() {
-        Object.keys(state.rows).forEach(function (
-            codeListId
-        ) {
-            var target =
-                state.rows[codeListId].content;
+        Object.keys(state.rows).forEach(function (codeListId) {
+            var target = state.rows[codeListId].content;
 
             target.innerHTML = '';
 
@@ -432,28 +445,40 @@
     }
 
     function rerenderOpenCodeLists() {
-        Object.keys(state.rows).forEach(function (
-            codeListId
-        ) {
+        Object.keys(state.rows).forEach(function (codeListId) {
             var collapse =
                 state.rows[codeListId].collapse;
 
-            if (
-                collapse.classList.contains('in') ||
-                collapse.classList.contains('show')
-            ) {
+            if (collapse.classList.contains('in') || collapse.classList.contains('show')) {
                 renderCodeListPanel(collapse);
             }
         });
     }
 
-    function setSelectedDate(value) {
-        var selectedDate =
-            normalizeIsoDate(value);
+    function observeCodeListContent(content) {
+        if (!content || content._migCodesSearchObserver) {
+            return;
+        }
 
-        if (
-            selectedDate === state.selectedDate
-        ) {
+        var observer = new MutationObserver(
+            function () {
+                highlightRowsInContent(content, currentSearchTerm());
+            }
+        );
+
+        observer.observe(content, {
+            childList: true,
+            subtree: true
+        });
+
+        content._migCodesSearchObserver =
+            observer;
+    }
+
+    function setSelectedDate(value) {
+        var selectedDate = normalizeIsoDate(value);
+
+        if (selectedDate === state.selectedDate) {
             return;
         }
 
