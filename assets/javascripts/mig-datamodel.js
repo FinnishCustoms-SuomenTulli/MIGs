@@ -4,7 +4,9 @@
     var t = global.MIGUtils.t;
     var el = global.MIGUtils.el;
     var localized = global.MIGUtils.localizedCoerce;
+    var safeId = global.MIGUtils.safeId;
     var localeForLanguage = global.MIGUtils.localeForLanguage;
+    var announceStatus = global.MIGUtils.announceStatus;
     var renderErrorAlert = global.MIGUtils.renderErrorAlert;
     var selectedMessageIds = [];
     var messageTreeselect = null;
@@ -47,16 +49,11 @@
 
         Object.keys(group.messages || {})
             .forEach(function (messageId) {
-                var message =
-                    group.messages[messageId] || {};
+                var message = group.messages[messageId] || {};
 
-                var value =
-                    Number(message.maxOccurrence);
+                var value = Number(message.maxOccurrence);
 
-                if (
-                    Number.isFinite(value) &&
-                    value > maximum
-                ) {
+                if (Number.isFinite(value) && value > maximum) {
                     maximum = value;
                 }
             });
@@ -72,41 +69,25 @@
                 ''
             ).trim();
 
-        /*
-         * English name is the intended class identity.
-         * The path fallback only prevents unrelated unnamed
-         * groups from accidentally being merged.
-         */
+        // English name is the intended class identity. The path fallback only prevents unrelated unnamed groups from accidentally being merged.
         return englishName || normalizePath(path);
     }
 
     function buildModel(data, lang) {
-        var entriesByPath =
-            Object.create(null);
+        var entriesByPath = Object.create(null);
+        var groupsByPath = Object.create(null);
+        var classes = Object.create(null);
+        var associations = Object.create(null);
 
-        var groupsByPath =
-            Object.create(null);
-
-        var classes =
-            Object.create(null);
-
-        var associations =
-            Object.create(null);
-
-        /*
-         * First normalize every JSON path.
-         */
-        Object.keys(data || {}).forEach(function (
-            sourcePath
-        ) {
+        // First normalize every JSON path.
+        Object.keys(data || {}).forEach(function (sourcePath) {
             var entry = data[sourcePath];
 
             if (!entry) {
                 return;
             }
 
-            var path =
-                normalizePath(sourcePath);
+            var path = normalizePath(sourcePath);
 
             entriesByPath[path] = entry;
 
@@ -115,9 +96,7 @@
             }
         });
 
-        /*
-         * Build one class for each unique English Group name.
-         */
+        // Build one class for each unique English Group name.
         Object.keys(groupsByPath).forEach(function (
             path
         ) {
@@ -141,111 +120,56 @@
             }
         });
 
-        /*
-         * Add direct child Elements to their parent Group.
-         *
-         * Element identity is also based on its English name,
-         * so repeated appearances inside the same class are
-         * collapsed.
-         */
-        Object.keys(entriesByPath).forEach(function (
-            path
-        ) {
-            var entry =
-                entriesByPath[path];
+        // Add direct child Elements to their parent Group.
+        // Element identity is also based on its English name, so repeated appearances inside the same class are collapsed.
+        Object.keys(entriesByPath).forEach(function (path) {
+            var entry = entriesByPath[path];
 
             if (entry.kind !== 'Element') {
                 return;
             }
 
-            var parent =
-                parentPath(path);
-
-            var parentGroup =
-                groupsByPath[parent];
+            var parent = parentPath(path);
+            var parentGroup = groupsByPath[parent];
 
             if (!parentGroup) {
                 return;
             }
 
-            var classId =
-                classIdentity(
-                    parentGroup,
-                    parent
-                );
+            var classId = classIdentity(parentGroup, parent);
 
-            var targetClass =
-                classes[classId];
+            var targetClass = classes[classId];
 
             if (!targetClass) {
                 return;
             }
 
-            var elementId =
-                localized(
-                    entry.name,
-                    'en',
-                    path
-                );
+            var elementId = localized(entry.name, 'en', path);
 
             if (
                 !targetClass.elements[elementId]
             ) {
                 targetClass.elements[elementId] = {
                     id: elementId,
-                    name: localized(
-                        entry.name,
-                        lang,
-                        elementId
-                    )
+                    name: localized(entry.name, lang, elementId)
                 };
             }
         });
 
-        /*
-         * Direct Group -> Group relationships only.
-         *
-         * Example:
-         *
-         * Consignment
-         *   -> Consignor
-         *       -> Address
-         *
-         * produces exactly two associations.
-         */
-        Object.keys(groupsByPath).forEach(function (
-            childPath
-        ) {
-            var child =
-                groupsByPath[childPath];
-
-            var parent =
-                parentPath(childPath);
-
-            var parentGroup =
-                groupsByPath[parent];
+        // Direct Group -> Group relationships only.
+        Object.keys(groupsByPath).forEach(function (childPath) {
+            var child = groupsByPath[childPath];
+            var parent = parentPath(childPath);
+            var parentGroup = groupsByPath[parent];
 
             if (!parentGroup) {
                 return;
             }
 
-            var parentId =
-                classIdentity(
-                    parentGroup,
-                    parent
-                );
-
-            var childId =
-                classIdentity(
-                    child,
-                    childPath
-                );
-
-            var key =
-                parentId + '\u0000' + childId;
-
-            var occurrence =
-                maxOccurrence(child);
+            var parentId = classIdentity(parentGroup, parent);
+            var childId = classIdentity(child, childPath);
+            var key = parentId + '\u0000' + childId;
+            var occurrence = maxOccurrence(child);
 
             if (!associations[key]) {
                 associations[key] = {
@@ -257,10 +181,7 @@
                 return;
             }
 
-            /*
-             * Same class association may appear in several
-             * source paths. Keep the largest maxOccurrence.
-             */
+            // Same class association may appear in several source paths. Keep the largest maxOccurrence.
             associations[key].maxOccurrence =
                 Math.max(
                     associations[key]
@@ -272,8 +193,7 @@
         var classList =
             Object.keys(classes)
                 .map(function (id) {
-                    var item =
-                        classes[id];
+                    var item = classes[id];
 
                     item.elements =
                         Object.keys(item.elements)
@@ -356,10 +276,7 @@
             '</tr>'
         );
 
-        item.elements.forEach(function (
-            element,
-            index
-        ) {
+        item.elements.forEach(function (element, index) {
             var isLast =
                 index === item.elements.length - 1;
 
@@ -437,6 +354,225 @@
         return lines.join('\n');
     }
 
+    function renderAccessibleModel(model, target) {
+        var section = el('section', {
+            className: 'sr-only',
+            attrs: { 'aria-labelledby': 'dataModelAccessibleTitle' }
+        });
+
+        section.appendChild(el('h2', {
+            text: t('dataModel.accessibleDiagram'),
+            attrs: { id: 'dataModelAccessibleTitle' }
+        }));
+
+        section.appendChild(el('h3', { text: t('dataModel.classes') }));
+
+        model.classes.forEach(function (item) {
+            section.appendChild(el('h4', { text: item.name }));
+
+            if (item.elements.length) {
+                section.appendChild(el('h5', { text: t('dataModel.dataElements') }));
+
+                var list = el('ul');
+
+                item.elements.forEach(function (element) {
+                    list.appendChild(el('li', { text: element.name }));
+                });
+
+                section.appendChild(list);
+            }
+        });
+
+        renderAccessibleAssociations(model, section);
+
+        target.appendChild(section);
+    }
+
+    function renderAccessibleAssociations(model, target) {
+        if (!model.associations.length) {
+            return;
+        }
+
+        target.appendChild(el('h3', { text: t('dataModel.relationships') }));
+
+        var namesById = Object.create(null);
+
+        model.classes.forEach(function (item) {
+            namesById[item.id] = item.name;
+        });
+
+        var table = el('table');
+
+        var thead = el('thead');
+        var headerRow = el('tr');
+
+        [
+            t('dataModel.parentClass'),
+            t('dataModel.childClass'),
+            t('dataModel.parentCardinality'),
+            t('dataModel.childCardinality')
+        ].forEach(function (label) {
+            headerRow.appendChild(el('th', {
+                text: label,
+                attrs: {
+                    scope: 'col'
+                }
+            }));
+        });
+
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        var tbody = el('tbody');
+
+        model.associations.forEach(function (association) {
+            var row = el('tr');
+
+            row.appendChild(el('th', {
+                text:
+                    namesById[association.parent] || association.parent,
+                attrs: {
+                    scope: 'row'
+                }
+            }));
+
+            row.appendChild(el('td', { text: namesById[association.child] || association.child }));
+            row.appendChild(el('td', { text: '1' }));
+            row.appendChild(el('td', { text: '0..' + association.maxOccurrence }));
+
+            tbody.appendChild(row);
+        });
+
+        table.appendChild(tbody);
+        target.appendChild(table);
+    }
+
+    function renderDiagramControls(target, panZoom) {
+        var controls = el('div', {
+            className: 'mig-datamodel-controls',
+            attrs: {
+                role: 'group',
+                'aria-label':
+                    t('dataModel.diagramControls')
+            }
+        });
+
+        function control(labelKey, visualText, action) {
+            var button = el('button', {
+                className:
+                    'btn btn-default btn-sm',
+                attrs: {
+                    type: 'button',
+                    'aria-label': t(labelKey),
+                    title: t(labelKey),
+                    'data-toggle': 'tooltip',
+                    'data-placement': 'bottom',
+                    'data-container': 'body'
+                }
+            });
+
+            button.appendChild(el('span', {
+                text: visualText,
+                attrs: {
+                    'aria-hidden': 'true'
+                }
+            }));
+
+            button.addEventListener(
+                'click',
+                action
+            );
+
+            controls.appendChild(button);
+        }
+
+        control(
+            'dataModel.panLeft',
+            '←',
+            function () {
+                panZoom.panBy({
+                    x: 50,
+                    y: 0
+                });
+            }
+        );
+
+        control(
+            'dataModel.panUp',
+            '↑',
+            function () {
+                panZoom.panBy({
+                    x: 0,
+                    y: 50
+                });
+            }
+        );
+
+        control(
+            'dataModel.panDown',
+            '↓',
+            function () {
+                panZoom.panBy({
+                    x: 0,
+                    y: -50
+                });
+            }
+        );
+
+        control(
+            'dataModel.panRight',
+            '→',
+            function () {
+                panZoom.panBy({
+                    x: -50,
+                    y: 0
+                });
+            }
+        );
+
+        control(
+            'dataModel.zoomIn',
+            '+',
+            function () {
+                panZoom.zoomIn();
+            }
+        );
+
+        control(
+            'dataModel.zoomOut',
+            '−',
+            function () {
+                panZoom.zoomOut();
+            }
+        );
+
+        control(
+            'dataModel.resetView',
+            'Reset',
+            function () {
+                panZoom.resetZoom();
+                panZoom.resetPan();
+                panZoom.fit();
+                panZoom.center();
+            }
+        );
+
+        target.insertBefore(
+            controls,
+            target.firstChild
+        );
+
+        if (
+            global.jQuery &&
+            global.jQuery.fn &&
+            typeof global.jQuery.fn.tooltip === 'function'
+        ) {
+            global.jQuery(controls)
+                .find('[data-toggle="tooltip"]')
+                .tooltip();
+        }
+    }
+
     function renderSvg(dot, target) {
         return global.Viz.instance()
             .then(function (viz) {
@@ -446,18 +582,25 @@
                 target.innerHTML = '';
                 target.appendChild(svg);
 
+                svg.setAttribute('aria-hidden', 'true');
+                svg.setAttribute('focusable', 'false');
+
                 var panZoom =
                     global.svgPanZoom(
                         svg,
                         {
                             zoomEnabled: true,
-                            controlIconsEnabled: true,
-                            preventMouseEventsDefault:
-                                false,
+                            controlIconsEnabled: false,
+                            preventMouseEventsDefault: false,
                             fit: true,
                             center: true
                         }
                     );
+
+                renderDiagramControls(
+                    target,
+                    panZoom
+                );
 
                 global.jQuery(global)
                     .off('resize.datamodel')
@@ -554,15 +697,13 @@
     }
 
     function filterDataByMessages(data, messageIds) {
-        var selected =
-            Object.create(null);
+        var selected = Object.create(null);
 
         (messageIds || []).forEach(function (messageId) {
             selected[messageId] = true;
         });
 
-        var filtered =
-            Object.create(null);
+        var filtered = Object.create(null);
 
         Object.keys(data || {}).forEach(function (path) {
             var entry = data[path];
@@ -571,8 +712,7 @@
                 return;
             }
 
-            var messages =
-                Object.create(null);
+            var messages = Object.create(null);
 
             Object.keys(entry.messages).forEach(function (
                 messageId
@@ -600,10 +740,51 @@
         return filtered;
     }
 
-    function renderMessageFilter(target, usecases, lang, onChange) {
-        target = document.querySelector(
-            target || '#migMessageFilter'
+    function messageTreeItemValue(item) {
+        var checkbox = item.querySelector('.treeselect-list__item-checkbox');
+
+        return checkbox ? checkbox.getAttribute('input-id') : '';
+    }
+
+    function messageTreeItemLevel(item) {
+        var level = 1;
+        var node = item.parentElement;
+
+        while (
+            node &&
+            !node.classList.contains('treeselect-list')
+        ) {
+            if (node.classList.contains('treeselect-list__group-container')) {
+                level += 1;
+            }
+
+            node = node.parentElement;
+        }
+
+        // Group items sit one level higher than their leaf contents in Treeselect's DOM.
+        if (item.classList.contains('treeselect-list__item--group')) {
+            level -= 1;
+        }
+
+        return Math.max(level, 1);
+    }
+
+    function syncMessageTreeItemState(item) {
+        var isPartial = item.classList.contains('treeselect-list__item--partial-checked');
+        var isChecked = item.classList.contains('treeselect-list__item--checked');
+
+        item.setAttribute(
+            'aria-checked',
+            isPartial
+                ? 'mixed'
+                : isChecked
+                    ? 'true'
+                    : 'false'
         );
+    }
+
+    function renderMessageFilter(target, usecases, lang, onChange) {
+        target = document.querySelector(target || '#migMessageFilter');
 
         if (!target) {
             return null;
@@ -625,8 +806,7 @@
 
         target.innerHTML = '';
 
-        var messages =
-            (usecases && usecases.messages) || [];
+        var messages = (usecases && usecases.messages) || [];
 
         selectedMessageIds = messages
             .filter(function (message) {
@@ -682,41 +862,152 @@
             },
 
             inputCallback: function (value) {
-                selectedMessageIds =
-                    Array.isArray(value)
-                        ? value.slice()
-                        : [];
+                selectedMessageIds = Array.isArray(value) ? value.slice() : [];
+
+                var list = target.querySelector('.treeselect-list');
+
+                if (list) {
+                    list.querySelectorAll('.treeselect-list__item').forEach(
+                        syncMessageTreeItemState
+                    );
+                }
 
                 if (typeof onChange === 'function') {
                     onChange();
                 }
-            }
+            },
+
+            openCallback: function () {
+                decorateMessageTree(target);
+
+                var input = target.querySelector('#migMessageSelect');
+
+                if (input) {
+                    input.setAttribute('aria-expanded', 'true');
+                }
+
+                scheduleMessageTreeActiveDescendant(target);
+            },
+
+            closeCallback: function () {
+                var input = target.querySelector('#migMessageSelect');
+
+                if (input) {
+                    input.setAttribute('aria-expanded', 'false');
+
+                    input.removeAttribute('aria-activedescendant');
+                }
+            },
+
+            openCloseGroupCallback: function (groupId, isClosed) {
+                var item = null;
+
+                target.querySelectorAll('.treeselect-list__item').forEach(function (candidate) {
+                    if (messageTreeItemValue(candidate) === String(groupId)) {
+                        item = candidate;
+                    }
+                });
+
+                if (item) {
+                    item.setAttribute('aria-expanded', isClosed ? 'false' : 'true');
+                }
+            },
         });
 
+        decorateMessageTree(target);
+
+        target.addEventListener('keydown', function () { scheduleMessageTreeActiveDescendant(target); });
+        target.addEventListener('click', function () { scheduleMessageTreeActiveDescendant(target); });
+
         return messageTreeselect;
+    }
+
+    function syncMessageTreeActiveDescendant(target) {
+        var input = target.querySelector('#migMessageSelect');
+
+        if (!input) {
+            return;
+        }
+
+        var focused = target.querySelector('.treeselect-list__item--focused');
+
+        if (focused && focused.id) {
+            input.setAttribute('aria-activedescendant', focused.id);
+        } else {
+            input.removeAttribute('aria-activedescendant');
+        }
+    }
+
+    function scheduleMessageTreeActiveDescendant(target) {
+        window.requestAnimationFrame(
+            function () {
+                syncMessageTreeActiveDescendant(target);
+            }
+        );
+    }
+
+    function decorateMessageTree(target) {
+        var input = target.querySelector('#migMessageSelect');
+        var list = target.querySelector('.treeselect-list');
+
+        if (input) {
+            input.setAttribute('role', 'combobox');
+            input.setAttribute('aria-haspopup', 'tree');
+            input.setAttribute('aria-controls', 'migMessageTree');
+            input.setAttribute('aria-autocomplete', 'list');
+            input.setAttribute('aria-expanded', list ? 'true' : 'false');
+        }
+
+        if (!list) {
+            return;
+        }
+
+        list.setAttribute('id', 'migMessageTree');
+        list.setAttribute('role', 'tree');
+        list.setAttribute('aria-multiselectable', 'true');
+        list.setAttribute('aria-label', t('dataModel.messageFilter'));
+
+        list.querySelectorAll('.treeselect-list__item').forEach(function (item) {
+            item.setAttribute('role', 'treeitem');
+
+            var value = messageTreeItemValue(item);
+
+            if (value) {
+                item.setAttribute('id', 'migMessageTreeItem_' + safeId(value));
+            }
+
+            var level = messageTreeItemLevel(item);
+
+            item.setAttribute('aria-level', String(level));
+
+            syncMessageTreeItemState(item);
+
+            if (item.classList.contains('treeselect-list__item--group')
+            ) {
+                // openLevel: 1 means the root is open while its Incoming/Outgoing groups begin collapsed.
+                item.setAttribute('aria-expanded', level === 1 ? 'true' : 'false');
+            }
+
+            var checkbox = item.querySelector('.treeselect-list__item-checkbox');
+
+            if (checkbox) {
+                checkbox.setAttribute('aria-hidden', 'true');
+            }
+        });
     }
 
     function init(options) {
         options = options || {};
 
-        var target =
-            document.querySelector(
-                options.target || '#canvas'
-            );
+        var target = document.querySelector(options.target || '#canvas');
 
         if (!target) {
             return Promise.resolve(null);
         }
 
-        var lang =
-            options.lang ||
-            document.body.dataset.lang ||
-            document.documentElement.lang ||
-            'en';
+        var lang = options.lang || document.body.dataset.lang || document.documentElement.lang || 'en';
 
-        var introUrl =
-            options.introUrl ||
-            '../../common/intro.json';
+        var introUrl = options.introUrl || '../../common/intro.json';
 
         target.innerHTML = '';
 
@@ -757,25 +1048,19 @@
                     var usecases = results[1];
 
                     function renderCurrentModel() {
-                        var filteredData =
-                            filterDataByMessages(
-                                data,
-                                selectedMessageIds
-                            );
-
-                        var model =
-                            buildModel(
-                                filteredData,
-                                lang
-                            );
-
-                        var dot =
-                            buildDot(model);
+                        var filteredData = filterDataByMessages(data, selectedMessageIds);
+                        var model = buildModel(filteredData, lang);
+                        var dot = buildDot(model);
 
                         return renderSvg(
                             dot,
                             target
                         ).then(function (rendered) {
+                            renderAccessibleModel(
+                                model,
+                                target
+                            );
+
                             return {
                                 model: model,
                                 dot: dot,
@@ -790,6 +1075,11 @@
                         lang,
                         function () {
                             renderCurrentModel()
+                                .then(function () {
+                                    announceStatus(
+                                        t('dataModel.updated')
+                                    );
+                                })
                                 .catch(function (error) {
                                     renderErrorAlert(
                                         target,
@@ -800,9 +1090,7 @@
                         }
                     );
 
-                    return renderCurrentModel().then(function (
-                        result
-                    ) {
+                    return renderCurrentModel().then(function (result) {
                         return {
                             versionId:
                                 versionId,
