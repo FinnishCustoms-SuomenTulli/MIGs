@@ -18,10 +18,7 @@
     var renderErrorAlert = global.MIGUtils.renderErrorAlert;
 
     function lowerCase(value) {
-        return String(value || '')
-            .toLocaleLowerCase(
-                localeForLanguage(state.lang)
-            );
+        return String(value || '').toLocaleLowerCase(localeForLanguage(state.lang));
     }
 
     function appendGeneratedTimestamp(data) {
@@ -49,10 +46,7 @@
             twoDigits(generatedDate.getDate())
         ].join('-');
 
-        var generatedTime =
-            twoDigits(generatedDate.getHours()) +
-            '.' +
-            twoDigits(generatedDate.getMinutes());
+        var generatedTime = twoDigits(generatedDate.getHours()) + '.' + twoDigits(generatedDate.getMinutes());
 
         var headerText = [
             t('pageTitles.codes'),
@@ -66,19 +60,9 @@
             oldHeader.remove();
         }
 
-        navbar.appendChild(
-            createElement(
-                'span',
-                'mig-header-info',
-                ' ' + headerText
-            )
-        );
+        navbar.appendChild(createElement('span', 'mig-header-info', ' ' + headerText));
 
         navbar.dataset.codeListsGenerated = 'true';
-    }
-
-    function datePickerFormat(lang) {
-        return lang === 'en' ? 'D/M/YYYY' : 'D.M.YYYY';
     }
 
     function codeListSearchText(codeList, selectedDate) {
@@ -86,21 +70,11 @@
 
         var parts = [
             codeList.Identification || '',
-            localized(
-                codeList.Name,
-                state.lang,
-                ''
-            ),
-            localized(
-                codeList.Description,
-                state.lang,
-                ''
-            )
+            localized(codeList.Name, state.lang, ''),
+            localized(codeList.Description, state.lang, '')
         ];
 
-        var items = Array.isArray(codeList.CodeItems)
-            ? codeList.CodeItems
-            : [];
+        var items = Array.isArray(codeList.CodeItems) ? codeList.CodeItems : [];
 
         items.forEach(function (item) {
             if (!isActiveOnDate(item, selectedDate)) {
@@ -108,17 +82,8 @@
             }
 
             parts.push(item.Code || '');
-
-            parts.push(localized(
-                item.Name,
-                state.lang,
-                ''
-            ));
-
-            parts.push(localized(
-                item.Description,
-                state.lang,
-                ''
+            parts.push(localized(item.Name, state.lang, ''));
+            parts.push(localized(item.Description, state.lang, ''
             ));
         });
 
@@ -145,9 +110,7 @@
             return '';
         }
 
-        return lowerCase(
-            state.searchInput.value
-        ).trim();
+        return lowerCase(state.searchInput.value).trim();
     }
 
     function highlightRowsInContent(content, searchTerm) {
@@ -201,7 +164,6 @@
         });
 
         highlightRenderedRows(searchTerm);
-
         rerenderOpenCodeLists();
     }
 
@@ -224,18 +186,8 @@
         button.setAttribute('data-target', '#' + collapseId);
         button.setAttribute('aria-expanded', 'false');
         button.setAttribute('aria-controls', collapseId);
-        button.appendChild(
-            document.createTextNode(
-                codeListId +
-                (name && name !== codeListId
-                    ? ' - ' + name
-                    : '')
-            )
-        );
-
-        button.appendChild(
-            createElement('span', 'icon icon-tulli-chevron-tight-down')
-        );
+        button.appendChild(document.createTextNode(codeListId + (name && name !== codeListId ? ' - ' + name : '')));
+        button.appendChild(createElement('span', 'icon icon-tulli-chevron-tight-down'));
         button.lastChild.setAttribute('aria-hidden', 'true');
 
         var collapse = createElement('div', 'accordion-content collapse');
@@ -272,16 +224,13 @@
         state.target.innerHTML = '';
 
         var container = createElement('div', 'container');
-
         var row = createElement('div', 'row');
-
         var accordion = createElement('div', 'accordion');
 
         state.rows = Object.create(null);
 
         state.codeLists.forEach(function (codeList) {
-            if (!codeList || !codeList.Identification
-            ) {
+            if (!codeList || !codeList.Identification) {
                 return;
             }
 
@@ -299,7 +248,6 @@
         }
 
         var codeListId = collapse.getAttribute('data-codelist');
-
         var record = state.rows[codeListId];
 
         if (!record) {
@@ -307,7 +255,6 @@
         }
 
         var target = record.content;
-        //var searchTerm = currentSearchTerm();
 
         if (target.dataset.renderedDate === state.selectedDate) {
             return;
@@ -368,8 +315,7 @@
             subtree: true
         });
 
-        content._migCodesSearchObserver =
-            observer;
+        content._migCodesSearchObserver = observer;
     }
 
     function setSelectedDate(value) {
@@ -388,6 +334,128 @@
         announceStatus(t('codesPage.updated'));
     }
 
+    var calendarGridButtonSelector = '.vc-date__btn, ' + '.vc-months__month, ' + '.vc-years__year';
+
+    function normalizeCalendarAccessibility(root) {
+        if (!root) {
+            return;
+        }
+
+        var buttons =
+            Array.prototype.slice.call(root.querySelectorAll(calendarGridButtonSelector));
+
+        if (!buttons.length) {
+            return;
+        }
+
+        var focused = buttons.indexOf(document.activeElement) !== -1 ? document.activeElement : null;
+
+        var selected = null;
+        var today = null;
+
+        buttons.forEach(function (button) {
+            var cell = button.closest('[role="gridcell"]');
+
+            if (!cell) {
+                return;
+            }
+
+            var isSelected =
+                cell.getAttribute('aria-selected') === 'true' ||
+                button.getAttribute('aria-selected') === 'true' ||
+                cell.hasAttribute('data-vc-date-selected') ||
+                button.hasAttribute('data-vc-months-month-selected') ||
+                button.hasAttribute('data-vc-years-year-selected');
+
+            if (isSelected) {
+                selected = selected || button;
+
+                cell.setAttribute('aria-selected', 'true');
+            } else {
+                cell.removeAttribute('aria-selected');
+            }
+
+            // Selection belongs to the gridcell.
+            button.removeAttribute('aria-selected');
+
+            if (cell.hasAttribute('data-vc-date-today')) {
+                today = button;
+            }
+
+            button.setAttribute('tabindex', '-1');
+        });
+
+        var active = focused || selected || today || buttons[0];
+
+        if (active) {
+            active.setAttribute('tabindex', '0');
+        }
+    }
+
+    function initializeCalendarAccessibility(root) {
+        if (!root) {
+            return;
+        }
+
+        normalizeCalendarAccessibility(root);
+
+        if (root.dataset.migAccessibilityInitialized === 'true') {
+            return;
+        }
+
+        root.dataset.migAccessibilityInitialized = 'true';
+
+        root.addEventListener(
+            'focusin',
+            function (event) {
+                if (!event.target.matches || !event.target.matches(calendarGridButtonSelector)) {
+                    return;
+                }
+
+                root.querySelectorAll(calendarGridButtonSelector).forEach(function (button) {
+                    button.setAttribute('tabindex', button === event.target ? '0' : '-1');
+                });
+            }
+        );
+
+        var observer =
+            new MutationObserver(
+                function () {
+                    normalizeCalendarAccessibility(
+                        root
+                    );
+                }
+            );
+
+        observer.observe(
+            root,
+            {
+                childList: true,
+                subtree: true
+            }
+        );
+    }
+
+    function syncCalendarAccessibility() {
+        window.requestAnimationFrame(
+            function () {
+                var root = document.querySelector('.vc[data-vc="calendar"]' + '[data-vc-input]');
+
+                if (!root) {
+                    return;
+                }
+
+                root.id = 'codesDatePicker';
+                root.setAttribute('role', 'dialog');
+                root.removeAttribute('tabindex');
+
+                state.dateInput.setAttribute('aria-controls', root.id);
+
+                initializeCalendarAccessibility(root);
+            }
+        );
+    }
+
     function initializeDatePicker() {
         var input = state.dateInput;
 
@@ -395,68 +463,114 @@
             return;
         }
 
-        if (
-            global.jQuery &&
-            global.jQuery.fn &&
-            typeof global.jQuery.fn.daterangepicker ===
-            'function' &&
-            global.moment
-        ) {
-            var $input = global.jQuery(input);
+        var Calendar = global.VanillaCalendarPro && global.VanillaCalendarPro.Calendar;
 
-            $input.daterangepicker({
-                singleDatePicker: true,
-                showDropdowns: true,
+        if (typeof Calendar !== 'function') {
+            // Safe native fallback if the library is ever unavailable.
+            input.type = 'date';
+            input.value = state.selectedDate;
 
-                startDate: global.moment(
-                    state.selectedDate,
-                    'YYYY-MM-DD'
-                ),
-
-                minDate: global.moment()
-                    .subtract(10, 'years')
-                    .startOf('year'),
-
-                maxDate: global.moment(
-                    '2099-12-31',
-                    'YYYY-MM-DD'
-                ),
-
-                opens: 'center',
-                drops: 'auto',
-
-                locale: {
-                    format: datePickerFormat(state.lang),
-                    firstDay: 1,
-                    daysOfWeek: t('codesPage.datePicker.daysOfWeek'),
-                    monthNames: t('codesPage.datePicker.monthNames')
-                }
-            });
-
-            $input.on(
-                'apply.daterangepicker.migCodes',
-                function (event, picker) {
-                    setSelectedDate(
-                        picker.startDate.format(
-                            'YYYY-MM-DD'
-                        )
-                    );
+            input.addEventListener(
+                'change',
+                function () {
+                    setSelectedDate(input.value);
                 }
             );
 
             return;
         }
 
-        // Basic fallback when daterangepicker is unavailable.
-        input.type = 'date';
-        input.value = state.selectedDate;
+        var today = new Date();
+        var minimumDate = String(today.getFullYear() - 10) + '-01-01';
+        var maximumDate = '2099-12-31';
 
-        input.addEventListener(
-            'change',
-            function () {
-                setSelectedDate(input.value);
+        // Vanilla Calendar input mode deliberately leaves control of the visible input value to the application.
+        input.value = formatDisplayDate(state.selectedDate, state.lang);
+        input.setAttribute('autocomplete', 'off');
+        input.setAttribute('aria-haspopup', 'dialog');
+
+        input.setAttribute('aria-expanded', 'false');
+
+        var calendar = new Calendar(
+            input,
+            {
+                inputMode: true,
+                positionToInput: 'auto',
+                locale: localeForLanguage(state.lang),
+                firstWeekday: 1,
+                selectionDatesMode: 'single',
+                selectedDates: [state.selectedDate],
+                enableJumpToSelectedDate: true,
+                dateMin: minimumDate,
+                dateMax: maximumDate,
+                displayDateMin: minimumDate,
+                displayDateMax: maximumDate,
+                labels: {
+                    application: t('codesPage.datePicker.labels.calendar'),
+                    navigation: t('codesPage.datePicker.labels.navigation'),
+                    arrowNext: {
+                        month: t('codesPage.datePicker.labels.nextMonth'),
+                        year: t('codesPage.datePicker.labels.nextYears')
+                    },
+                    arrowPrev: {
+                        month: t('codesPage.datePicker.labels.previousMonth'),
+                        year: t('codesPage.datePicker.labels.previousYears')
+                    },
+                    month: t('codesPage.datePicker.labels.selectMonth'),
+                    months: t('codesPage.datePicker.labels.months'),
+                    year: t('codesPage.datePicker.labels.selectYear'),
+                    years: t('codesPage.datePicker.labels.years'),
+                    week: t('codesPage.datePicker.labels.week'),
+                    dates: t('codesPage.datePicker.labels.dates')
+                },
+                onChangeToInput: function (self) {
+                    var selectedDates = self.context && self.context.selectedDates;
+
+                    if (!selectedDates || !selectedDates.length) {
+                        return;
+                    }
+
+                    var selectedDate = selectedDates[0];
+
+                    input.value = formatDisplayDate(selectedDate, state.lang);
+
+                    setSelectedDate(selectedDate);
+                },
+                onInit: function () {
+                    syncCalendarAccessibility();
+                },
+                onShow: function () {
+                    input.setAttribute('aria-expanded', 'true');
+
+                    syncCalendarAccessibility();
+                },
+                onHide: function () {
+                    input.setAttribute('aria-expanded', 'false');
+                },
             }
         );
+
+        calendar.init();
+
+        document.addEventListener(
+            'keydown',
+            function (event) {
+                if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') {
+                    return;
+                }
+
+                var calendarElement = event.target.closest ? event.target.closest('.vc') : null;
+
+                if (!calendarElement) {
+                    return;
+                }
+
+                event.preventDefault();
+            },
+            true
+        );
+
+        state.datePicker = calendar;
     }
 
     function bindSearch() {
@@ -475,9 +589,7 @@
                     function () {
                         applySearch();
 
-                        announceStatus(
-                            t('codesPage.updated')
-                        );
+                        announceStatus(t('codesPage.updated'));
                     },
                     120
                 );
@@ -515,7 +627,6 @@
                 event.preventDefault();
 
                 var collapseId = link.getAttribute('aria-controls');
-
                 var collapse = document.getElementById(collapseId);
 
                 if (!collapse) {
@@ -550,8 +661,7 @@
             return;
         }
 
-        var top =
-            element.getBoundingClientRect().top + global.pageYOffset - 80;
+        var top = element.getBoundingClientRect().top + global.pageYOffset - 80;
 
         if (global.jQuery && global.jQuery.fn) {
             global.jQuery('html, body').animate(
@@ -652,13 +762,7 @@
 
         var lang =
             options.lang ||
-            (
-                global.MIGIntro &&
-                    typeof global.MIGIntro.getLang ===
-                    'function'
-                    ? global.MIGIntro.getLang()
-                    : ''
-            ) ||
+            (global.MIGIntro && typeof global.MIGIntro.getLang === 'function' ? global.MIGIntro.getLang() : '') ||
             document.body.dataset.lang ||
             document.documentElement.lang ||
             'en';
@@ -670,22 +774,12 @@
             codeLists: [],
             rows: Object.create(null),
             searchIndex: Object.create(null),
-            searchInput: document.querySelector(
-                options.searchTarget ||
-                '#accordion_search_bar'
-            ),
-            dateInput: document.querySelector(
-                options.dateTarget ||
-                '#dateInput'
-            ),
-            selectedDate: normalizeIsoDate(
-                options.date || todayIso()
-            ),
+            searchInput: document.querySelector(options.searchTarget || '#accordion_search_bar'),
+            dateInput: document.querySelector(options.dateTarget || '#dateInput'),
+            selectedDate: normalizeIsoDate(options.date || todayIso()),
             codeListsUrl:
                 options.codeListsUrl ||
-                document.body.getAttribute(
-                    'data-codelists-url'
-                ) ||
+                document.body.getAttribute('data-codelists-url') ||
                 '../../../../codelists/codelists.json',
             pageSize: Math.max(
                 1,
@@ -702,10 +796,7 @@
             .then(function (data) {
                 state.data = data || {};
 
-                state.codeLists =
-                    Array.isArray(state.data.CodeLists)
-                        ? state.data.CodeLists
-                        : [];
+                state.codeLists = Array.isArray(state.data.CodeLists) ? state.data.CodeLists : [];
 
                 appendGeneratedTimestamp(state.data);
                 renderCatalog();
@@ -715,18 +806,12 @@
 
                 openHashTarget();
 
-                global.addEventListener(
-                    'hashchange',
-                    openHashTarget
-                );
+                global.addEventListener('hashchange', openHashTarget);
 
                 return state;
             })
             .catch(function (error) {
-                renderErrorAlert(
-                    state.target,
-                    t('codesPage.loadError'),
-                    error
+                renderErrorAlert(state.target, t('codesPage.loadError'), error
                 );
 
                 return null;

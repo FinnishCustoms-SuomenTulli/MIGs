@@ -770,3 +770,157 @@ button.accordion-link {
 .code-list-table.table-hover>tbody>tr.codes-search-match:hover>td {
     background-color: #faf2cc;
 }
+
+/* Vanilla Calendar Pro — MIG/Tulli overrides */
+
+.vc[data-vc="calendar"] {
+    width: 280px;
+    padding: 10px 12px 12px;
+
+    border: 1px solid #d5d9df;
+    border-radius: 3px;
+
+    background: #fff;
+
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Header */
+
+.vc .vc-header {
+    min-height: 34px;
+    margin-bottom: 6px;
+}
+
+.vc .vc-arrow {
+    width: 34px;
+    min-height: 32px;
+
+    color: #00205b;
+}
+
+.vc .vc-month,
+.vc .vc-year {
+    min-height: 30px;
+    padding: 4px 8px;
+
+    background: #fff;
+    color: #00205b;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.vc .vc-month:hover,
+.vc .vc-year:hover,
+.vc .vc-arrow:hover {
+    background: #f3f5f7;
+}
+
+
+/* Weekday headings */
+
+.vc .vc-week__day {
+    min-height: 28px;
+
+    color: #333;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* No special weekend colouring */
+.vc .vc-week__day[data-vc-week-day-off] {
+    color: #333;
+}
+
+.vc .vc-date[data-vc-date-weekend] .vc-date__btn {
+    background: transparent;
+    color: #222;
+}
+
+.vc .vc-date[data-vc-date-weekend] .vc-date__btn:hover {
+    background: #eef1f5;
+    color: #00205b;
+}
+
+/* Dates */
+
+.vc .vc-date__btn {
+    min-width: 32px;
+    height: 30px;
+    padding: 0;
+
+    border-radius: 2px;
+
+    color: #222;
+
+    font-size: 12px;
+    line-height: 30px;
+}
+
+/* Weekends look exactly like weekdays */
+.vc .vc-date[data-vc-date-weekend] .vc-date__btn {
+    color: #222;
+}
+
+/* Dates belonging to previous/next month stay subdued */
+.vc .vc-date[data-vc-date-month="prev"] .vc-date__btn,
+.vc .vc-date[data-vc-date-month="next"] .vc-date__btn {
+    color: #9aa1aa;
+}
+
+.vc .vc-date__btn:hover {
+    background: #eef1f5;
+    color: #00205b;
+}
+
+
+/* Selected / today */
+
+.vc .vc-date[data-vc-date-selected] .vc-date__btn {
+    background: #00205b;
+    color: #fff;
+}
+
+.vc .vc-date[data-vc-date-today] .vc-date__btn {
+    background: transparent;
+    color: #222;
+    box-shadow: none;
+}
+
+.vc .vc-date[data-vc-date-selected] .vc-date__btn,
+.vc .vc-date[data-vc-date-selected] .vc-date__btn:hover,
+.vc .vc-date[data-vc-date-selected] .vc-date__btn:focus {
+    background: #00205b;
+    color: #fff;
+}
+
+/* Month/year grids */
+
+.vc .vc-months__month,
+.vc .vc-years__year {
+    min-height: 34px;
+
+    color: #222;
+
+    font-size: 13px;
+}
+
+.vc .vc-months__cell[aria-selected="true"] .vc-months__month,
+.vc .vc-years__cell[aria-selected="true"] .vc-years__year {
+    background: #00205b;
+    color: #fff;
+}
+
+
+/* Keyboard focus-- */
+
+.vc button:focus-visible {
+    outline: 2px solid #00205b;
+    outline-offset: 2px;
+}
