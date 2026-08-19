@@ -36,6 +36,30 @@
         return value;
     }
 
+    function dataRequirementsTabOrderStorageKey() {
+        return 'mig:' + MIGIntro.getSystemPath() + ':dataRequirementsTabOrder';
+    }
+
+    function getDataRequirementsTabOrder() {
+        var value = null;
+
+        try {
+            value = localStorage.getItem(dataRequirementsTabOrderStorageKey());
+        } catch (ignore) { }
+
+        return value === 'alphabetical' ? 'alphabetical' : 'default';
+    }
+
+    function setDataRequirementsTabOrder(value) {
+        value = value === 'alphabetical' ? 'alphabetical' : 'default';
+
+        try {
+            localStorage.setItem(dataRequirementsTabOrderStorageKey(), value);
+        } catch (ignore) { }
+
+        return value;
+    }
+
     function messageTabId(messageId) {
         return 'message_' + safeId(messageId);
     }
@@ -195,6 +219,46 @@
         document.body.classList.toggle('datarequirements-view-split', mode === 'split');
     }
 
+    function applyMessageTabOrder(order) {
+        var tabs = document.querySelector('#messageTabs');
+
+        var tabContent = document.querySelector('#messageTabContent');
+
+        if (!tabs || !tabContent) {
+            return;
+        }
+
+        var items = Array.prototype.slice.call(tabs.children);
+
+        items.sort(function (left, right) {
+            if (order === 'alphabetical') {
+                return String(left.getAttribute('data-sort-label') || '').localeCompare(
+                    String(right.getAttribute('data-sort-label') || ''),
+                    undefined,
+                    {
+                        numeric: true,
+                        sensitivity: 'base'
+                    }
+                );
+            }
+
+            return (
+                Number(left.getAttribute('data-original-order')) - Number(right.getAttribute('data-original-order'))
+            );
+        });
+
+        items.forEach(function (item) {
+            tabs.appendChild(item);
+
+            var paneId = item.getAttribute('data-pane-id');
+            var pane = paneId ? document.getElementById(paneId) : null;
+
+            if (pane) {
+                tabContent.appendChild(pane);
+            }
+        });
+    }
+
     function renderViewModeControl(target) {
         target = document.querySelector(target || '#dataRequirementsViewMode');
         if (!target) return;
@@ -235,6 +299,11 @@
             }
         });
 
+        menu.appendChild(el('li', {
+            className: 'dropdown-header',
+            text: t('dataRequirements.viewMode.section')
+        }));
+
         menu.appendChild(renderViewModeOption(
             'split',
             t('dataRequirements.viewMode.split'),
@@ -246,6 +315,26 @@
             t('dataRequirements.viewMode.table'),
             currentMode
         ));
+
+        menu.appendChild(el('li', {
+            className: 'divider',
+            attrs: { role: 'separator' }
+        }));
+
+        menu.appendChild(el('li', {
+            className: 'dropdown-header',
+            text: t('dataRequirements.tabOrder.title')
+        }));
+
+        var currentOrder = getDataRequirementsTabOrder();
+
+        menu.appendChild(
+            renderTabOrderOption('default', t('dataRequirements.tabOrder.default'), currentOrder)
+        );
+
+        menu.appendChild(
+            renderTabOrderOption('alphabetical', t('dataRequirements.tabOrder.alphabetical'), currentOrder)
+        );
 
         wrapper.appendChild(button);
         wrapper.appendChild(menu);
@@ -309,6 +398,51 @@
                     document.getElementById(
                         'dataRequirementsViewModeButton'
                     );
+
+                if (trigger) {
+                    trigger.focus();
+                }
+            }
+        );
+
+        item.appendChild(button);
+
+        return item;
+    }
+
+    function renderTabOrderOption(value, label, currentOrder) {
+        var item = el('li');
+        var isSelected = value === currentOrder;
+        var button = el('button', {
+            className: 'mig-view-mode-option',
+            attrs: {
+                type: 'button',
+                'data-tab-order': value,
+                'aria-pressed': isSelected ? 'true' : 'false'
+            }
+        });
+
+        button.appendChild(el('span', {
+            className: isSelected
+                ? 'icon icon-tulli-radio-checked'
+                : 'icon icon-tulli-radio-unchecked',
+            attrs: {
+                'aria-hidden': 'true'
+            }
+        }));
+
+        button.appendChild(document.createTextNode(' ' + label));
+
+        button.addEventListener(
+            'click',
+            function () {
+                var selectedOrder = setDataRequirementsTabOrder(value);
+
+                applyMessageTabOrder(selectedOrder);
+                announceStatus(t('dataRequirements.updated'));
+                renderViewModeControl('#dataRequirementsViewMode');
+
+                var trigger = document.getElementById('dataRequirementsViewModeButton');
 
                 if (trigger) {
                     trigger.focus();
@@ -726,6 +860,9 @@
                         className: isActive ? 'active' : '',
                         attrs: { role: 'presentation' }
                     });
+                    tabItem.setAttribute('data-original-order', index);
+                    tabItem.setAttribute('data-sort-label', message.tabLabel);
+                    tabItem.setAttribute('data-pane-id', tabId);
 
                     var tabLink = el('a', {
                         className: isActive ? 'active' : '',
@@ -851,6 +988,7 @@
                     }
                 });
 
+                applyMessageTabOrder(getDataRequirementsTabOrder());
                 initScrollableTabs();
             });
         });
