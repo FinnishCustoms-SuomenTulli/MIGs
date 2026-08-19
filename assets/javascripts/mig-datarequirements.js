@@ -459,10 +459,7 @@
         ).catch(function (error) {
             pane.dataset.loaded = 'false';
 
-            renderErrorAlert(
-                pane,
-                error.message || String(error),
-                error
+            renderErrorAlert(pane, error.message || String(error), error
             );
         });
     }
@@ -528,8 +525,7 @@
                         codeList.id + ' - ' + codeList.name;
                 }
             }).catch(function (error) {
-                body.textContent = error.message || String(error);
-                console.warn(error);
+                renderErrorAlert(body, error.message || String(error), error);
             });
         } else if (type === 'constraint') {
             MIGConstraintRenderer.loadConstraint(
@@ -560,10 +556,7 @@
                     }
                 );
             }).catch(function (error) {
-                body.textContent =
-                    error.message || String(error);
-
-                console.warn(error);
+                renderErrorAlert(body, error.message || String(error), error);
             });
         }
 

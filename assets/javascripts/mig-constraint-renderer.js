@@ -178,23 +178,23 @@
         );
 
         if (!constraint) {
-            target.textContent =
-                t('dataRequirements.constraintModal.notFound') +
-                ' ' +
-                constraintId;
+            var warning = document.createElement('div');
+
+            warning.className = 'alert alert-warning';
+            warning.setAttribute('role', 'alert');
+            warning.setAttribute('aria-atomic', 'true');
+            warning.textContent = t('dataRequirements.constraintModal.notFound') + ' ' + constraintId;
+
+            target.appendChild(warning);
 
             return null;
         }
 
         var description = document.createElement('div');
 
-        description.className =
-            'data-requirements-constraint-description';
+        description.className = 'data-requirements-constraint-description';
 
-        appendConstraintContent(
-            description,
-            constraint.description
-        );
+        appendConstraintContent(description, constraint.description);
 
         target.appendChild(description);
 

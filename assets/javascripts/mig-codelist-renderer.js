@@ -735,7 +735,13 @@
         var codeList = normalizeCodeList(sourceCodeList, lang);
 
         if (!codeList) {
-            target.textContent = t('codeLists.notFound') + ' ' + codeListId;
+            var warning = createElement('div', 'alert alert-warning');
+
+            warning.setAttribute('role', 'alert');
+            warning.setAttribute('aria-atomic', 'true');
+            warning.textContent = t('codeLists.notFound') + ' ' + codeListId;
+
+            target.appendChild(warning);
 
             return null;
         }
