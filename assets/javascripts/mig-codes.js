@@ -485,6 +485,7 @@
         var maximumDate = '2099-12-31';
 
         // Vanilla Calendar input mode deliberately leaves control of the visible input value to the application.
+        input.readOnly = true;
         input.value = formatDisplayDate(state.selectedDate, state.lang);
         input.setAttribute('autocomplete', 'off');
         input.setAttribute('aria-haspopup', 'dialog');

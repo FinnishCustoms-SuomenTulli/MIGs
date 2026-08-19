@@ -3,7 +3,6 @@
 
     var t = global.MIGUtils.t;
     var localized = global.MIGUtils.localized;
-    var safeId = global.MIGUtils.safeId;
     var loadJson = global.MIGUtils.loadJson;
     var createElement = global.MIGUtils.el;
     var isActiveOnDate = global.MIGUtils.isActiveOnDate;
@@ -14,6 +13,7 @@
 
     function numericCssValue(value) {
         var number = parseFloat(value);
+
         return isNaN(number) ? 0 : number;
     }
 
@@ -24,9 +24,7 @@
 
         var style = global.getComputedStyle(element);
 
-        return element.getBoundingClientRect().height +
-            numericCssValue(style.marginTop) +
-            numericCssValue(style.marginBottom);
+        return element.getBoundingClientRect().height + numericCssValue(style.marginTop) + numericCssValue(style.marginBottom);
     }
 
     function nextFrame(callback) {
@@ -50,17 +48,14 @@
     }
 
     function filterLabel(filterName) {
-        return String(filterName || '')
-            .replace(/^Filter_/, '');
+        return String(filterName || '').replace(/^Filter_/, '');
     }
 
     function collectUsedFilterKeys(items) {
         var used = Object.create(null);
 
         (items || []).forEach(function (item) {
-            var filters = item && item.filters
-                ? item.filters
-                : {};
+            var filters = item && item.filters ? item.filters : {};
 
             Object.keys(filters).forEach(function (filterName) {
                 if (filterName.indexOf('Filter_') === 0) {
@@ -74,11 +69,7 @@
 
     function buildFilterColumns(data, items, lang) {
         var used = collectUsedFilterKeys(items);
-
-        var definitions = data && Array.isArray(data.Definitions)
-            ? data.Definitions
-            : [];
-
+        var definitions = data && Array.isArray(data.Definitions) ? data.Definitions : [];
         var columns = [];
 
         definitions.forEach(function (definition) {
@@ -89,10 +80,7 @@
             columns.push({
                 key: definition.Name,
                 label: filterLabel(definition.Name),
-                help: localized(
-                    definition.Definition,
-                    lang,
-                    filterLabel(definition.Name)
+                help: localized(definition.Definition, lang, filterLabel(definition.Name)
                 )
             });
 
@@ -102,11 +90,7 @@
         Object.keys(used)
             .sort()
             .forEach(function (filterName) {
-                columns.push({
-                    key: filterName,
-                    label: filterLabel(filterName),
-                    help: filterLabel(filterName)
-                });
+                columns.push({ key: filterName, label: filterLabel(filterName), help: filterLabel(filterName) });
             });
 
         return columns;
@@ -130,9 +114,7 @@
     }
 
     function filterIsEnabled(value) {
-        return value === 1 ||
-            value === '1' ||
-            value === true;
+        return value === 1 || value === '1' || value === true;
     }
 
     function appendFilterCell(row, item, filterKey) {
@@ -158,48 +140,26 @@
     function createCodeItemRow(item, filterColumns, lang) {
         var row = document.createElement('tr');
 
-        appendRowHeader(
-            row,
-            item.code,
-            'code-list-code'
-        );
+        appendRowHeader(row, item.code, 'code-list-code');
 
-        appendTextCell(
-            row,
-            item.name,
-            'code-list-name'
-        );
+        appendTextCell(row, item.name, 'code-list-name');
 
         filterColumns.forEach(function (filterColumn) {
             appendFilterCell(row, item, filterColumn.key);
         });
 
-        appendTextCell(
-            row,
-            formatValidity(item, lang),
-            'code-list-validity'
-        );
+        appendTextCell(row, formatValidity(item, lang), 'code-list-validity');
 
         return row;
     }
 
     function createPaginationArrow(symbol, label, className) {
-        var button = createElement(
-            'button',
-            'btn btn-default btn-sm code-list-pagination-button ' +
-            (className || '')
-        );
+        var button = createElement('button', 'btn btn-default btn-sm code-list-pagination-button ' + (className || ''));
 
         button.setAttribute('type', 'button');
         button.setAttribute('aria-label', label);
-
-        button.appendChild(
-            document.createTextNode(symbol)
-        );
-
-        button.appendChild(
-            createElement('span', 'sr-only', label)
-        );
+        button.appendChild(document.createTextNode(symbol));
+        button.appendChild(createElement('span', 'sr-only', label));
 
         return button;
     }
@@ -218,13 +178,10 @@
     }
 
     function findCodeList(data, codeListId) {
-        var codeLists = data && Array.isArray(data.CodeLists)
-            ? data.CodeLists
-            : [];
+        var codeLists = data && Array.isArray(data.CodeLists) ? data.CodeLists : [];
 
         return codeLists.find(function (codeList) {
-            return codeList &&
-                codeList.Identification === codeListId;
+            return codeList && codeList.Identification === codeListId;
         }) || null;
     }
 
@@ -234,16 +191,10 @@
         return {
             code: item.Code || '',
             name: localized(item.Name, lang, ''),
-            description: localized(
-                item.Description,
-                lang,
-                ''
-            ),
+            description: localized(item.Description, lang, ''),
             startDate: item.StartDate || '',
             endDate: item.EndDate || '',
-            filters: item.Filters && typeof item.Filters === 'object'
-                ? Object.assign({}, item.Filters)
-                : {},
+            filters: item.Filters && typeof item.Filters === 'object' ? Object.assign({}, item.Filters) : {},
             source: item
         };
     }
@@ -253,16 +204,8 @@
 
         return {
             id: codeList.Identification || '',
-            name: localized(
-                codeList.Name,
-                lang,
-                codeList.Identification || ''
-            ),
-            description: localized(
-                codeList.Description,
-                lang,
-                ''
-            ),
+            name: localized(codeList.Name, lang, codeList.Identification || ''),
+            description: localized(codeList.Description, lang, ''),
             items: Array.isArray(codeList.CodeItems)
                 ? codeList.CodeItems.map(function (item) {
                     return normalizeCodeItem(item, lang);
@@ -273,112 +216,60 @@
     }
 
     function findCodeItem(codeList, code, selectedDate) {
-        if (
-            !codeList ||
-            !Array.isArray(codeList.items)
-        ) {
+        if (!codeList || !Array.isArray(codeList.items)) {
             return null;
         }
 
         code = String(code || '');
 
         return codeList.items.find(function (item) {
-            return String(item.code) === code &&
-                isActiveOnDate(item, selectedDate);
+            return String(item.code) === code && isActiveOnDate(item, selectedDate);
         }) || null;
     }
 
     function renderCodeItem(data, target, options) {
         options = options || {};
 
-        var codeListId =
-            options.codeListId ||
-            options.id ||
-            '';
-
-        var code =
-            options.code !== undefined &&
-                options.code !== null
-                ? String(options.code)
-                : '';
-
+        var codeListId = options.codeListId || options.id || '';
+        var code = options.code !== undefined && options.code !== null ? String(options.code) : '';
         var lang = options.lang || 'en';
 
         if (!codeListId || !code) {
             return null;
         }
 
-        var selectedDate = normalizeIsoDate(
-            options.date
-        );
+        var selectedDate = normalizeIsoDate(options.date);
+        var sourceCodeList = findCodeList(data, codeListId);
+        var codeList = normalizeCodeList(sourceCodeList, lang);
 
-        var sourceCodeList = findCodeList(
-            data,
-            codeListId
-        );
-
-        var codeList = normalizeCodeList(
-            sourceCodeList,
-            lang
-        );
-
-        /*
-         * Missing code list: deliberately return nothing.
-         * Do not clear or modify the target.
-         */
+        // Missing code list: deliberately return nothing. Do not clear or modify the target.
         if (!codeList) {
             return null;
         }
 
-        var item = findCodeItem(
-            codeList,
-            code,
-            selectedDate
-        );
+        var item = findCodeItem(codeList, code, selectedDate);
 
-        /*
-         * Missing or inactive code: deliberately return nothing.
-         */
+        // Missing or inactive code: deliberately return nothing.
         if (!item) {
             return null;
         }
 
-        /*
-         * Prefer an explicit item description when one exists.
-         * CL401 stores its explanatory text in Name.
-         */
-        var text =
-            item.description ||
-            item.name ||
-            '';
+        // Prefer an explicit item description when one exists. CL401 stores its explanatory text in Name.
+        var text = item.description || item.name || '';
 
         if (!text) {
             return null;
         }
 
         if (target) {
-            var block = createElement(
-                'div',
-                options.className ||
-                'code-list-item-description'
-            );
+            var block = createElement('div', options.className || 'code-list-item-description');
 
-            block.setAttribute(
-                'data-code-list-id',
-                codeList.id
-            );
-
-            block.setAttribute(
-                'data-code',
-                item.code
-            );
+            block.setAttribute('data-code-list-id', codeList.id);
+            block.setAttribute('data-code', item.code);
 
             block.textContent = text;
 
-            /*
-             * Append instead of replacing existing content. This allows
-             * the CL401 text to follow the constraints.json content.
-             */
+            // Append instead of replacing existing content. This allows the CL401 text to follow the constraints.json content.
             target.appendChild(block);
         }
 
@@ -403,18 +294,10 @@
 
         return loadJson(url)
             .then(function (data) {
-                return renderCodeItem(
-                    data,
-                    target,
-                    options
-                );
+                return renderCodeItem(data, target, options);
             })
             .catch(function (error) {
-                /*
-                 * This API is used for optional supplementary content.
-                 * With silent:true, even a loading or parsing error is
-                 * deliberately ignored.
-                 */
+                // This API is used for optional supplementary content. With silent:true, even a loading or parsing error is deliberately ignored.
                 if (options.silent === true) {
                     return null;
                 }
@@ -435,16 +318,10 @@
             Number(options.pageSize) || 100
         );
 
-        /*
-         * When modal fitting is enabled, initially render only ten
-         * rows. Once Bootstrap has shown the modal, the renderer can
-         * measure the real available height and adjust the page size.
-         */
-        var pageSize = fitToModal
-            ? Math.min(requestedPageSize, 10)
-            : requestedPageSize;
-
+        // When modal fitting is enabled, initially render only ten rows. Once Bootstrap has shown the modal, the renderer can measure the real available height and adjust the page size.
+        var pageSize = fitToModal ? Math.min(requestedPageSize, 10) : requestedPageSize;
         var pageIndex = 0;
+        var restoreNumberButtonFocus = false;
 
         var items = codeList.items.filter(function (item) {
             return isActiveOnDate(item, selectedDate);
@@ -456,21 +333,11 @@
             });
         }
 
-        var filterColumns = buildFilterColumns(
-            options.data,
-            codeList.items,
-            lang
-        );
+        var filterColumns = buildFilterColumns(options.data, codeList.items, lang);
 
         if (codeList.description) {
-            var description = createElement(
-                'div',
-                'code-list-description'
-            );
-
-            var descriptionHtml = markdownToHtml(
-                codeList.description
-            );
+            var description = createElement('div', 'code-list-description');
+            var descriptionHtml = markdownToHtml(codeList.description);
 
             if (descriptionHtml) {
                 description.innerHTML = descriptionHtml;
@@ -484,20 +351,8 @@
         }
 
         var wrapper = createElement('div', 'table-responsive code-list-table-wrapper');
-
         var table = createElement('table', 'table table-striped table-hover table-condensed code-list-table');
-
-        var caption = createElement(
-            'caption',
-            'sr-only',
-            codeList.id +
-            (
-                codeList.name &&
-                    codeList.name !== codeList.id
-                    ? ' - ' + codeList.name
-                    : ''
-            )
-        );
+        var caption = createElement('caption', 'sr-only', codeList.id + (codeList.name && codeList.name !== codeList.id ? ' - ' + codeList.name : ''));
 
         table.appendChild(caption);
 
@@ -548,56 +403,20 @@
         wrapper.appendChild(table);
         target.appendChild(wrapper);
 
-        var pagination = createElement(
-            'nav',
-            'code-list-pagination'
-        );
+        var pagination = createElement('nav', 'code-list-pagination');
 
-        pagination.setAttribute(
-            'aria-label',
-            t('codeLists.pagination.label')
-        );
+        pagination.setAttribute('aria-label', t('codeLists.pagination.label'));
 
-        var paginationControls = createElement(
-            'div',
-            'code-list-pagination-controls'
-        );
-
-        var firstButton = createPaginationArrow(
-            '\u00AB',
-            t('codeLists.pagination.first'),
-            'code-list-pagination-first'
-        );
-
-        var previousButton = createPaginationArrow(
-            '<',
-            t('codeLists.pagination.previous'),
-            'code-list-pagination-previous'
-        );
-
-        var numberButtons = createElement(
-            'span',
-            'code-list-pagination-numbers'
-        );
-
-        var nextButton = createPaginationArrow(
-            '>',
-            t('codeLists.pagination.next'),
-            'code-list-pagination-next'
-        );
-
-        var lastButton = createPaginationArrow(
-            '\u00BB',
-            t('codeLists.pagination.last'),
-            'code-list-pagination-last'
-        );
-
-        var pageStatus = createElement(
-            'span',
-            'code-list-pagination-status'
-        );
+        var paginationControls = createElement('div', 'code-list-pagination-controls');
+        var firstButton = createPaginationArrow('\u00AB', t('codeLists.pagination.first'), 'code-list-pagination-first');
+        var previousButton = createPaginationArrow('<', t('codeLists.pagination.previous'), 'code-list-pagination-previous');
+        var numberButtons = createElement('span', 'code-list-pagination-numbers');
+        var nextButton = createPaginationArrow('>', t('codeLists.pagination.next'), 'code-list-pagination-next');
+        var lastButton = createPaginationArrow('\u00BB', t('codeLists.pagination.last'), 'code-list-pagination-last');
+        var pageStatus = createElement('span', 'code-list-pagination-status');
 
         pageStatus.setAttribute('aria-live', 'polite');
+        pageStatus.setAttribute('aria-atomic', 'true');
 
         paginationControls.appendChild(firstButton);
         paginationControls.appendChild(previousButton);
@@ -638,12 +457,8 @@
             numberButtons.innerHTML = '';
 
             var count = pageCount();
-
-            var range = visiblePageRange(
-                pageIndex,
-                count,
-                5
-            );
+            var range = visiblePageRange(pageIndex, count, 5);
+            var currentPageButton = null;
 
             for (
                 var pageNumber = range.start;
@@ -653,59 +468,47 @@
                 (function (targetPage) {
                     var visiblePageNumber = targetPage + 1;
 
-                    var button = createElement(
-                        'button',
-                        'btn btn-default btn-sm code-list-pagination-number',
-                        visiblePageNumber
-                    );
+                    var button = createElement('button', 'btn btn-default btn-sm ' + 'code-list-pagination-number', visiblePageNumber);
 
                     button.setAttribute('type', 'button');
-
-                    button.setAttribute(
-                        'aria-label',
-                        t('codeLists.pagination.page') +
-                        ' ' +
-                        visiblePageNumber
-                    );
+                    button.setAttribute('aria-label', t('codeLists.pagination.page') + ' ' + visiblePageNumber);
 
                     if (targetPage === pageIndex) {
                         button.classList.add('active');
-                        button.setAttribute(
-                            'aria-current',
-                            'page'
-                        );
+                        button.setAttribute('aria-current', 'page');
+                        button.appendChild(createElement('span', 'sr-only', ' (' + t('codeLists.pagination.current') + ')'));
 
-                        button.appendChild(createElement(
-                            'span',
-                            'sr-only',
-                            ' (' +
-                            t('codeLists.pagination.current') +
-                            ')'
-                        ));
+                        currentPageButton = button;
                     }
 
-                    button.addEventListener('click', function () {
-                        setPage(targetPage);
-                    });
+                    button.addEventListener(
+                        'click',
+                        function () {
+                            restoreNumberButtonFocus =
+                                true;
+
+                            setPage(targetPage);
+                        }
+                    );
 
                     numberButtons.appendChild(button);
                 })(pageNumber);
+            }
+
+            if (restoreNumberButtonFocus) {
+                restoreNumberButtonFocus = false;
+
+                if (currentPageButton) {
+                    currentPageButton.focus();
+                }
             }
         }
 
         function renderEmptyState() {
             var emptyRow = document.createElement('tr');
+            var emptyCell = createElement('td', 'code-list-empty', t('codeLists.noItemsForDate'));
 
-            var emptyCell = createElement(
-                'td',
-                'code-list-empty',
-                t('codeLists.noItemsForDate')
-            );
-
-            emptyCell.setAttribute(
-                'colspan',
-                String(3 + filterColumns.length)
-            );
+            emptyCell.setAttribute('colspan', String(3 + filterColumns.length));
 
             emptyRow.appendChild(emptyCell);
             tbody.appendChild(emptyRow);
@@ -729,12 +532,7 @@
             }
 
             var startIndex = pageIndex * pageSize;
-
-            var endIndex = Math.min(
-                startIndex + pageSize,
-                items.length
-            );
-
+            var endIndex = Math.min(startIndex + pageSize, items.length);
             var fragment = document.createDocumentFragment();
 
             for (
@@ -758,21 +556,12 @@
 
             renderNumberButtons();
 
-            pageStatus.textContent =
-                (startIndex + 1) +
-                '\u2013' +
-                endIndex +
-                ' / ' +
-                items.length;
+            pageStatus.textContent = (startIndex + 1) + '\u2013' + endIndex + ' / ' + items.length;
 
             pagination.hidden = items.length <= pageSize;
         }
 
-        /*
-         * These listeners are attached once. The earlier incomplete
-         * implementation attached some of them every time a page was
-         * rendered, which caused duplicate events.
-         */
+        // These listeners are attached once. The earlier incomplete implementation attached some of them every time a page was rendered, which caused duplicate events.
         firstButton.addEventListener('click', function () {
             setPage(0);
         });
@@ -807,23 +596,14 @@
             var content = target.closest('.modal-content');
             var modalBody = target.closest('.modal-body');
 
-            if (
-                !modal ||
-                !dialog ||
-                !content ||
-                !modalBody ||
-                !modalIsVisible(modal)
-            ) {
+            if (!modal || !dialog || !content || !modalBody || !modalIsVisible(modal)) {
                 return;
             }
 
             var renderedRows = tbody.querySelectorAll('tr');
             var sampleRowHeight = 0;
 
-            /*
-             * Use the tallest of the first ten visible rows. This is
-             * safer than assuming every row has the same height.
-             */
+            // Use the tallest of the first ten visible rows. This is safer than assuming every row has the same height.
             for (
                 var index = 0;
                 index < Math.min(renderedRows.length, 10);
@@ -842,35 +622,12 @@
             var dialogStyle = global.getComputedStyle(dialog);
             var bodyStyle = global.getComputedStyle(modalBody);
             var tableStyle = global.getComputedStyle(table);
-
-            var modalHeader =
-                content.querySelector('.modal-header');
-
-            var modalFooter =
-                content.querySelector('.modal-footer');
-
-            var description =
-                target.querySelector('.code-list-description');
-
-            var maximumContentHeight =
-                global.innerHeight -
-                numericCssValue(dialogStyle.marginTop) -
-                numericCssValue(dialogStyle.marginBottom);
-
-            var fixedHeight =
-                outerHeight(modalHeader) +
-                outerHeight(modalFooter) +
-                numericCssValue(bodyStyle.paddingTop) +
-                numericCssValue(bodyStyle.paddingBottom) +
-                outerHeight(description) +
-                outerHeight(pagination) +
-                thead.getBoundingClientRect().height +
-                numericCssValue(tableStyle.marginTop) +
-                numericCssValue(tableStyle.marginBottom) +
-                12;
-
-            var availableRowsHeight =
-                maximumContentHeight - fixedHeight;
+            var modalHeader = content.querySelector('.modal-header');
+            var modalFooter = content.querySelector('.modal-footer');
+            var description = target.querySelector('.code-list-description');
+            var maximumContentHeight = global.innerHeight - numericCssValue(dialogStyle.marginTop) - numericCssValue(dialogStyle.marginBottom);
+            var fixedHeight = outerHeight(modalHeader) + outerHeight(modalFooter) + numericCssValue(bodyStyle.paddingTop) + numericCssValue(bodyStyle.paddingBottom) + outerHeight(description) + outerHeight(pagination) + thead.getBoundingClientRect().height + numericCssValue(tableStyle.marginTop) + numericCssValue(tableStyle.marginBottom) + 12;
+            var availableRowsHeight = maximumContentHeight - fixedHeight;
 
             var calculatedPageSize = Math.max(
                 1,
@@ -883,18 +640,12 @@
                 return;
             }
 
-            /*
-             * Preserve the first item that was visible before the page
-             * size changed.
-             */
-            var firstVisibleItem =
-                pageIndex * pageSize;
+            // Preserve the first item that was visible before the page size changed.
+            var firstVisibleItem = pageIndex * pageSize;
 
             pageSize = calculatedPageSize;
 
-            pageIndex = Math.floor(
-                firstVisibleItem / pageSize
-            );
+            pageIndex = Math.floor(firstVisibleItem / pageSize);
 
             renderPage();
         }
@@ -904,10 +655,7 @@
 
             var modal = target.closest('.modal');
 
-            /*
-             * The JSON may finish rendering before Bootstrap has completed
-             * showing the modal. Retry briefly until real dimensions exist.
-             */
+            // The JSON may finish rendering before Bootstrap has completed showing the modal. Retry briefly until real dimensions exist.
             if (!modalIsVisible(modal)) {
                 if (attempt < 20) {
                     global.setTimeout(function () {
@@ -921,10 +669,7 @@
             nextFrame(function () {
                 refreshPageSizeFromModal();
 
-                /*
-                 * Measure once more after the first page-size change has
-                 * caused the modal and table to relayout.
-                 */
+                // Measure once more after the first page-size change has caused the modal and table to relayout.
                 global.setTimeout(function () {
                     refreshPageSizeFromModal();
                 }, 50);
@@ -945,15 +690,9 @@
             var modal = target.closest('.modal');
 
             if (modal) {
-                global.addEventListener(
-                    'resize',
-                    handleResize
-                );
+                global.addEventListener('resize', handleResize);
 
-                if (
-                    global.jQuery &&
-                    global.jQuery.fn
-                ) {
+                if (global.jQuery && global.jQuery.fn) {
                     var $modal = global.jQuery(modal);
 
                     $modal.one(
@@ -966,17 +705,11 @@
                     $modal.one(
                         'hidden.bs.modal.migCodeList',
                         function () {
-                            global.removeEventListener(
-                                'resize',
-                                handleResize
-                            );
+                            global.removeEventListener('resize', handleResize);
                         }
                     );
 
-                    /*
-                     * Also start immediately. If the modal is not visible yet,
-                     * scheduleModalFit() retries until Bootstrap has shown it.
-                     */
+                    // Also start immediately. If the modal is not visible yet, scheduleModalFit() retries until Bootstrap has shown it.
                     scheduleModalFit();
                 } else if (
                     modal.classList.contains('in')
@@ -996,28 +729,13 @@
 
         target.innerHTML = '';
 
-        var codeListId =
-            options.codeListId ||
-            options.id ||
-            '';
-
+        var codeListId = options.codeListId || options.id || '';
         var lang = options.lang || 'en';
-
-        var sourceCodeList = findCodeList(
-            data,
-            codeListId
-        );
-
-        var codeList = normalizeCodeList(
-            sourceCodeList,
-            lang
-        );
+        var sourceCodeList = findCodeList(data, codeListId);
+        var codeList = normalizeCodeList(sourceCodeList, lang);
 
         if (!codeList) {
-            target.textContent =
-                t('codeLists.notFound') +
-                ' ' +
-                codeListId;
+            target.textContent = t('codeLists.notFound') + ' ' + codeListId;
 
             return null;
         }
@@ -1031,10 +749,7 @@
             itemFilter: options.itemFilter
         });
 
-        if (
-            global.MIGIntro &&
-            typeof global.MIGIntro.refreshTooltips === 'function'
-        ) {
+        if (global.MIGIntro && typeof global.MIGIntro.refreshTooltips === 'function') {
             global.MIGIntro.refreshTooltips(target);
         }
 
