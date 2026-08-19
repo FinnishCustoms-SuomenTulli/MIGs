@@ -160,10 +160,7 @@
         Array.prototype.forEach.call(
             rows,
             function (row) {
-                /*
-                 * Ignore informational rows such as the
-                 * "no items" message.
-                 */
+                // Ignore informational rows such as the "no items" message.
                 if (row.querySelector('.code-list-empty')
                 ) {
                     row.classList.remove('codes-search-match');
@@ -196,13 +193,11 @@
         Object.keys(state.rows).forEach(function (
             codeListId
         ) {
-            //var row = state.rows[codeListId].row;
-
+            var row = state.rows[codeListId].row;
             var searchText = state.searchIndex[codeListId] || '';
+            var matches = !searchTerm || searchText.indexOf(searchTerm) !== -1;
 
-            //var matches = !searchTerm || searchText.indexOf(searchTerm) !== -1;
-
-            //row.style.display = matches ? 'block' : 'none';
+            row.style.display = matches ? 'block' : 'none';
         });
 
         highlightRenderedRows(searchTerm);
