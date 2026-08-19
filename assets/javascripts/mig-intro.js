@@ -10,18 +10,13 @@
     var formatDisplayDate = window.MIGUtils.formatDisplayDate;
 
     function getLang() {
-        return (document.body && document.body.dataset && document.body.dataset.lang) ||
-            document.documentElement.lang ||
-            (window.MIG_I18N && window.MIG_I18N.lang) ||
-            'en';
+        return (document.body && document.body.dataset && document.body.dataset.lang) || document.documentElement.lang || (window.MIG_I18N && window.MIG_I18N.lang) || 'en';
     }
 
     function richTextToHtml(value) {
         var html = escapeHtml(value || '');
 
-        // The change texts sometimes contain real HTML fragments such as <i>, <ul>, and <li>,
-        // but they also contain literal placeholders such as <Decisive Date>. Escape everything
-        // first, then selectively restore only the harmless formatting tags we expect.
+        // The change texts sometimes contain real HTML fragments such as <i>, <ul>, and <li>, but they also contain literal placeholders such as <Decisive Date>. Escape everything first, then selectively restore only the harmless formatting tags we expect.
         html = html
             .replace(/&lt;(\/?)i&gt;/gi, '<$1i>')
             .replace(/&lt;(\/?)em&gt;/gi, '<$1em>')
@@ -110,8 +105,7 @@
         var ids = versionIds(intro);
         if (!ids.length) return '';
 
-        var now = options.now instanceof Date ? options.now.getTime() :
-            typeof options.now === 'number' ? options.now : Date.now();
+        var now = options.now instanceof Date ? options.now.getTime() : typeof options.now === 'number' ? options.now : Date.now();
         var bestId = '';
         var bestTime = -Infinity;
         var bestIndex = -1;
@@ -126,14 +120,12 @@
             }
         });
 
-        // If the manifest only contains future or undated versions, fall back to the
-        // last manifest entry so the page still renders deterministically.
+        // If the manifest only contains future or undated versions, fall back to the last manifest entry so the page still renders deterministically.
         return bestId || latestManifestVersionId(intro);
     }
 
     function latestVersionId(intro, options) {
-        // Backwards-compatible alias: in the UI, "latest" means the latest released
-        // version, not necessarily the final entry in a manifest that may include future versions.
+        // Backwards-compatible alias: in the UI, "latest" means the latest released version, not necessarily the final entry in a manifest that may include future versions.
         return currentVersionId(intro, options);
     }
 
@@ -296,23 +288,28 @@
                 // Use a plain inline link instead of a Bootstrap button. The old
                 // btn/btn-link/btn-xs combination can increase the line-height of
                 // long list items and create visually distracting wrapped lines.
-                var detailsLink = el('a', {
-                    className: 'mig-change-details',
+                var detailsButton = el('button', {
+                    className:
+                        'mig-change-details',
                     text: t('intro.showDetails'),
                     attrs: {
-                        href: '#',
-                        role: 'button',
+                        type: 'button',
                         'data-toggle': 'tooltip',
                         'data-html': 'true',
                         'data-placement': 'top',
                         'data-container': 'body',
-                        title: tooltipHtml(change.tooltip)
+                        title: tooltipHtml(
+                            change.tooltip
+                        )
                     }
                 });
-                detailsLink.addEventListener('click', function (event) {
-                    event.preventDefault();
-                });
-                item.appendChild(detailsLink);
+                item.appendChild(detailsButton);
+
+                var printDetails = el('div', { className: 'mig-change-details-print' });
+
+                printDetails.innerHTML = tooltipHtml(change.tooltip);
+
+                item.appendChild(printDetails);
             }
             list.appendChild(item);
         });
@@ -321,28 +318,77 @@
 
     function renderVersionModal(intro, versionId, lang) {
         var modalId = 'Version_' + sanitizeVersionId(versionId);
+        var titleId = modalId + '_title';
         var modal = el('div', {
             className: 'modal fade',
             attrs: {
                 id: modalId,
                 tabindex: '-1',
                 role: 'dialog',
-                'data-keyboard': 'false'
+                'aria-modal': 'true',
+                'aria-labelledby': titleId
             }
         });
-        var dialog = el('div', { className: 'modal-dialog modal-lg', attrs: { role: 'document' } });
+
+        var dialog = el('div', {
+            className: 'modal-dialog modal-lg',
+            attrs: { role: 'document' }
+        });
+
         var content = el('div', { className: 'modal-content' });
-        var header = el('div', { className: 'modal-header' });
-        var title = el('h1', { className: 'modal-title' });
-        title.appendChild(document.createTextNode(t('intro.version') + ' ' + versionId + ' '));
-        title.appendChild(el('span', { className: 'printButton icon icon-tulli-printer' }));
+        var header = el('div', { className: 'modal-header mig-version-modal-header' });
+        var title = el('h2', {
+            className: 'modal-title',
+            attrs: { id: titleId }
+        });
+
+        title.appendChild(
+            document.createTextNode(
+                t('intro.version') +
+                ' ' +
+                versionId
+            )
+        );
+
         header.appendChild(title);
 
+        var printButton = el('button', {
+            className: 'printButton btn btn-default btn-sm',
+            attrs: {
+                type: 'button',
+                'aria-label': t('intro.print'),
+                title: t('intro.print')
+            }
+        });
+
+        printButton.appendChild(el('span', {
+            className: 'icon icon-tulli-printer',
+            attrs: { 'aria-hidden': 'true' }
+        }));
+
+        header.appendChild(printButton);
+
+        var footer = el('div', {
+            className: 'modal-footer'
+        });
+
+        footer.appendChild(el('button', {
+            className: 'btn btn-default remove-bottom',
+            text: t('browserModal.close'),
+            attrs: {
+                type: 'button',
+                'data-dismiss': 'modal'
+            }
+        }));
+
         var body = el('div', { className: 'modal-body' });
+
         renderChangeList(body, getVersionChanges(intro, versionId, lang), { lang: lang });
 
         content.appendChild(header);
         content.appendChild(body);
+        content.appendChild(footer);
+
         dialog.appendChild(content);
         modal.appendChild(dialog);
         return modal;
@@ -361,10 +407,17 @@
 
         target.innerHTML = '';
 
-        var table = el('table', { className: 'table table-striped table-responsive table-condensed' });
+        var table = el('table', { className: 'table table-striped table-responsive table-condensed', attrs: { id: 'versionHistoryTable' } });
         var thead = el('thead');
         var headerRow = el('tr');
-        headers.forEach(function (headerText) { headerRow.appendChild(el('th', { text: headerText })); });
+        headers.forEach(function (headerText) {
+            headerRow.appendChild(
+                el('th', {
+                    text: headerText,
+                    attrs: { scope: 'col' }
+                })
+            );
+        });
         thead.appendChild(headerRow);
         table.appendChild(thead);
 
@@ -372,15 +425,8 @@
         ids.slice().reverse().forEach(function (versionId) {
             var info = versionInfo(intro, versionId);
             var row = el('tr');
-
-            var versionCell = el('td');
-            var link = el('a', {
-                attrs: {
-                    href: '#',
-                    'data-toggle': 'modal',
-                    'data-target': '#Version_' + sanitizeVersionId(versionId)
-                }
-            });
+            var versionCell = el('th', { attrs: { scope: 'row' } });
+            var link = el('a', { attrs: { href: '#', 'data-toggle': 'modal', 'data-target': '#Version_' + sanitizeVersionId(versionId) } });
             link.appendChild(document.createTextNode(versionId));
             link.appendChild(el('br'));
             link.appendChild(document.createTextNode(formatDisplayDate(info.releaseDate, lang)));
@@ -389,69 +435,75 @@
 
             row.appendChild(el('td', { text: localized(info.remark, lang, '') }));
 
-            ['xml', 'data', 'messageExchange'].forEach(function (flagName) {
-                row.appendChild(el('td', {
-                    text: isTruthyFlag(info[flagName]) ? '•' : '',
-                    attrs: { align: 'center' }
-                }));
-            });
+            ['xml', 'data', 'messageExchange']
+                .forEach(function (flagName) {
+                    var enabled = isTruthyFlag(info[flagName]);
+                    var cell = el('td', { attrs: { align: 'center' } });
+
+                    if (enabled) {
+                        cell.appendChild(el('span', { text: '•', attrs: { 'aria-hidden': 'true' } }));
+                    }
+
+                    cell.appendChild(el('span', { className: 'sr-only', text: enabled ? t('intro.yes') : t('intro.no') }));
+
+                    row.appendChild(cell);
+                });
             tbody.appendChild(row);
         });
         table.appendChild(tbody);
+
         target.appendChild(table);
 
         if (ids.length > 8) {
             var readMore = el('p', { className: 'read-more' });
-            var readMoreLink = el('a', {
+            var readMoreButton = el('button', {
                 className: 'button',
                 text: t('intro.showAllVersions'),
-                attrs: { href: '#' }
-            });
-
-            readMoreLink.addEventListener('click', function (event) {
-                event.preventDefault();
-
-                target.dataset.expanded = 'true';
-
-                var totalHeight = 0;
-
-                Array.prototype.forEach.call(target.querySelectorAll('table'), function (table) {
-                    totalHeight += table.offsetHeight + 40;
-                });
-
-                var panel = target.closest('.panel');
-
-                if (window.jQuery) {
-                    window.jQuery(target)
-                        .css({
-                            height: target.offsetHeight,
-                            'max-height': 9999,
-                            overflow: 'hidden'
-                        })
-                        .animate({ height: totalHeight }, 250);
-
-                    window.jQuery(panel)
-                        .css({
-                            height: panel.offsetHeight,
-                            'max-height': 9999
-                        })
-                        .animate({ height: totalHeight + 80 }, 250);
-
-
-                    window.jQuery(readMore).fadeOut();
-                } else {
-                    target.style.height = totalHeight + 'px';
-                    target.style.maxHeight = '9999px';
-                    target.style.overflow = 'hidden';
-
-                    panel.style.height = (totalHeight + 80) + 'px';
-                    panel.style.maxHeight = '9999px';
-
-                    readMore.style.display = 'none';
+                attrs: {
+                    type: 'button',
+                    'aria-expanded': 'false',
+                    'aria-controls': 'versionHistoryTable'
                 }
             });
 
-            readMore.appendChild(readMoreLink);
+            readMoreButton.addEventListener(
+                'click',
+                function () {
+                    var firstHiddenLink = target.querySelector('tbody tr[aria-hidden="true"] a');
+
+                    target.dataset.expanded = 'true';
+
+                    readMoreButton.setAttribute('aria-expanded', 'true');
+
+                    target.querySelectorAll('tbody tr[aria-hidden="true"]').forEach(function (row) {
+                        row.removeAttribute('aria-hidden');
+
+                        row.querySelectorAll('a, button')
+                            .forEach(function (control) {
+                                control.removeAttribute('tabindex');
+                            });
+                    });
+
+                    target.style.height = 'auto';
+                    target.style.maxHeight = 'none';
+                    target.style.overflow = 'visible';
+
+                    var panel = target.closest('.panel');
+
+                    if (panel) {
+                        panel.style.height = 'auto';
+                        panel.style.maxHeight = 'none';
+                    }
+
+                    readMore.hidden = true;
+
+                    if (firstHiddenLink) {
+                        firstHiddenLink.focus();
+                    }
+                }
+            );
+
+            readMore.appendChild(readMoreButton);
             target.appendChild(readMore);
         }
 
@@ -626,25 +678,68 @@
     }
 
     function initializePrintButtons() {
-        if (initializePrintButtons.done) return;
-        initializePrintButtons.done = true;
-        document.addEventListener('click', function (event) {
-            var button = event.target.closest && event.target.closest('.printButton');
-            if (!button) return;
+        if (initializePrintButtons.done) {
+            return;
+        }
 
-            if (window.jQuery) {
-                var section = window.jQuery('body');
-                var modalBody = window.jQuery('.modal-body:visible').detach();
-                var content = window.jQuery('body').children().detach();
-                section.append(modalBody);
+        initializePrintButtons.done = true;
+
+        document.addEventListener(
+            'click',
+            function (event) {
+                var button = event.target.closest && event.target.closest('.printButton');
+
+                if (!button) {
+                    return;
+                }
+
+                var modal = button.closest('.modal');
+
+                if (!modal) {
+                    return;
+                }
+
+                var title = modal.querySelector('.modal-title');
+                var modalBody = modal.querySelector('.modal-body');
+
+                if (!modalBody) {
+                    return;
+                }
+
+                var printContainer = document.createElement('div');
+
+                printContainer.className = 'mig-version-print';
+
+                if (title) {
+                    var printTitle = document.createElement('h1');
+
+                    printTitle.textContent = title.textContent.trim();
+
+                    printContainer.appendChild(printTitle);
+                }
+
+                var bodyClone = modalBody.cloneNode(true);
+
+                bodyClone.classList.remove('modal-body');
+                bodyClone.classList.add('mig-version-print-body');
+
+                printContainer.appendChild(bodyClone);
+
+                document.body.appendChild(printContainer);
+                document.body.classList.add('mig-printing');
+
                 window.print();
-                window.jQuery('.modal-header:visible').after(modalBody);
-                section.empty().append(content);
-                window.jQuery('.modal.show, .modal.in').modal('hide');
-                return;
+
+                document.body.classList.remove('mig-printing');
+
+                printContainer.remove();
+
+                // Close the modal after printing.
+                if (window.jQuery && window.jQuery.fn && typeof window.jQuery.fn.modal === 'function') {
+                    window.jQuery(modal).modal('hide');
+                }
             }
-            window.print();
-        });
+        );
     }
 
     function renderCurrentVersionChanges(target, intro, options) {
@@ -690,13 +785,12 @@
             var item = el('li');
 
             var link = el('a', {
-                attrs: {
-                    href: '../common/' + encodeURIComponent(versionId) + '/schemas.zip'
-                }
+                attrs: { href: '../common/' + encodeURIComponent(versionId) + '/schemas.zip' }
             });
 
             link.appendChild(el('span', {
-                className: 'icon icon-tulli-file-import'
+                className: 'icon icon-tulli-file-import',
+                attrs: { 'aria-hidden': 'true' }
             }));
 
             link.appendChild(document.createTextNode(

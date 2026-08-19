@@ -65,8 +65,47 @@
     var height = Math.ceil(navigationBody.getBoundingClientRect().height);
     if (!height) return;
 
+    sidebarBox.style.height = height + 'px';
     sidebarBox.style.maxHeight = height + 'px';
     sidebarBox.style.overflow = 'hidden';
+
+    syncVersionHistoryAccessibility(
+      sidebarBox
+    );
+  }
+
+  function syncVersionHistoryAccessibility(sidebarBox) {
+    if (!sidebarBox || sidebarBox.dataset.expanded === 'true') {
+      return;
+    }
+
+    var readMore = sidebarBox.querySelector('.read-more');
+
+    if (!readMore) {
+      return;
+    }
+
+    // The top edge of the fade is our accessibility boundary.
+
+    var visibleBottom = readMore.getBoundingClientRect().top;
+
+    sidebarBox.querySelectorAll('tbody tr').forEach(function (row) {
+      var isClipped = row.getBoundingClientRect().bottom > visibleBottom;
+
+      if (isClipped) {
+        row.setAttribute('aria-hidden', 'true');
+      } else {
+        row.removeAttribute('aria-hidden');
+      }
+
+      row.querySelectorAll('a, button').forEach(function (control) {
+        if (isClipped) {
+          control.setAttribute('tabindex', '-1');
+        } else {
+          control.removeAttribute('tabindex');
+        }
+      });
+    });
   }
 
   function scheduleSidebarHeightSync() {
