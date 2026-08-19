@@ -219,7 +219,8 @@
                 var isActive = index === selectedIndex;
 
                 var tabItem = el('li', {
-                    className: isActive ? 'active' : ''
+                    className: isActive ? 'active' : '',
+                    attrs: { role: 'presentation' }
                 });
 
                 var tabLink = el('a', {
@@ -277,10 +278,7 @@
 
                 if (window.jQuery) {
                     window.jQuery(tabLink).on('shown.bs.tab', function () {
-                        syncExampleTabState(
-                            tabs,
-                            tabLink
-                        );
+                        syncExampleTabState(tabs, tabLink);
 
                         if (window.history && window.history.replaceState) {
                             window.history.replaceState(null, '', '#' + tabId);

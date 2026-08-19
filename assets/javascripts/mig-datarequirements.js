@@ -723,7 +723,8 @@
                     var isActive = index === selectedIndex;
 
                     var tabItem = el('li', {
-                        className: isActive ? 'active' : ''
+                        className: isActive ? 'active' : '',
+                        attrs: { role: 'presentation' }
                     });
 
                     var tabLink = el('a', {
@@ -816,28 +817,33 @@
                     pane.renderMessage = loadThisMessage;
 
                     if (window.jQuery) {
-                        syncMessageTabState(
-                            tabs,
-                            tabLink
-                        );
-
                         window.jQuery(tabLink).on('shown.bs.tab', function () {
+                            syncMessageTabState(tabs, tabLink);
+
                             if (window.history && window.history.replaceState) {
                                 window.history.replaceState(null, '', '#' + tabId);
                             }
 
                             loadThisMessage();
+
                             window.MIG_I18N.updateLanguageLinks();
-                        });
+                        }
+                        );
                     } else {
-                        tabLink.addEventListener('click', function () {
-                            if (window.history && window.history.replaceState) {
-                                window.history.replaceState(null, '', '#' + tabId);
-                            }
+                        tabLink.addEventListener(
+                            'click',
+                            function () {
+                                syncMessageTabState(tabs, tabLink);
 
-                            loadThisMessage();
-                            window.MIG_I18N.updateLanguageLinks();
-                        });
+                                if (window.history && window.history.replaceState) {
+                                    window.history.replaceState(null, '', '#' + tabId);
+                                }
+
+                                loadThisMessage();
+
+                                window.MIG_I18N.updateLanguageLinks();
+                            }
+                        );
                     }
 
                     if (isActive) {

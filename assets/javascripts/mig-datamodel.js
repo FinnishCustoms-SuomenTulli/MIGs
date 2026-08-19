@@ -12,8 +12,7 @@
     var messageTreeselect = null;
 
     function normalizePath(value) {
-        return String(value || '')
-            .replace(/[\u200B-\u200D\uFEFF]/g, '');
+        return String(value || '').replace(/[\u200B-\u200D\uFEFF]/g, '');
     }
 
     function parentPath(value) {

@@ -489,7 +489,7 @@
         input.value = formatDisplayDate(state.selectedDate, state.lang);
         input.setAttribute('autocomplete', 'off');
         input.setAttribute('aria-haspopup', 'dialog');
-
+        input.setAttribute('role', 'combobox');
         input.setAttribute('aria-expanded', 'false');
 
         var calendar = new Calendar(
