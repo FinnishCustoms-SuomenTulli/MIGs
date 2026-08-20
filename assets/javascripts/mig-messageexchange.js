@@ -919,6 +919,8 @@
         );
 
         if (!contentTarget || !global.MIGIntro) {
+            document.body.classList.remove('messageexchange-loading');
+
             return Promise.resolve(null);
         }
 
@@ -966,10 +968,11 @@
 
                         render(data, {
                             lang: lang,
-                            contentTarget:
-                                options.contentTarget,
+                            contentTarget: options.contentTarget,
                             navTarget: options.navTarget
                         });
+
+                        document.body.classList.remove('messageexchange-loading');
 
                         return current;
                     });
@@ -980,6 +983,8 @@
                     t('messageExchangePage.loadError'),
                     error
                 );
+
+                document.body.classList.remove('messageexchange-loading');
 
                 return null;
             });
