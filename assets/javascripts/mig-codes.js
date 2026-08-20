@@ -752,10 +752,14 @@
         var target = document.querySelector(options.target || '#contents');
 
         if (!target) {
+            document.body.classList.remove('codes-loading');
+
             return Promise.resolve(null);
         }
 
         if (target.dataset.migCodesInitialized === 'true') {
+            document.body.classList.remove('codes-loading');
+
             return Promise.resolve(state);
         }
 
@@ -809,11 +813,14 @@
 
                 global.addEventListener('hashchange', openHashTarget);
 
+                document.body.classList.remove('codes-loading');
+
                 return state;
             })
             .catch(function (error) {
-                renderErrorAlert(state.target, t('codesPage.loadError'), error
-                );
+                renderErrorAlert(state.target, t('codesPage.loadError'), error);
+
+                document.body.classList.remove('codes-loading');
 
                 return null;
             });
