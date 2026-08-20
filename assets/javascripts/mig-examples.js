@@ -175,17 +175,19 @@
                     versionInfo: MIGIntro.versionInfo(intro, versionId)
                 });
 
+                document.body.classList.remove('page-loading');
+
                 return;
             }
 
             var examplesBaseUrl = MIGIntro.versionedCommonUrl(versionId, 'examples/', introUrl);
 
             function loadExampleIntoPane(example, pane) {
-                if (pane.dataset.loaded === 'true') return;
+                if (pane.dataset.loaded === 'true') return Promise.resolve();
 
                 pane.dataset.loaded = 'true';
 
-                MIGExampleRenderer.loadXmlExample(
+                return MIGExampleRenderer.loadXmlExample(
                     examplesBaseUrl + encodeURIComponent(example.file),
                     pane
                 ).catch(function (error) {
@@ -207,6 +209,9 @@
 
             if (!normalizedExamples.length) {
                 renderEmptyState(tabContent, 'examples.noExamples');
+
+                document.body.classList.remove('page-loading');
+
                 return;
             }
 
@@ -303,7 +308,9 @@
                 }
 
                 if (isActive) {
-                    loadExampleIntoPane(example, pane);
+                    loadExampleIntoPane(example, pane).then(function () {
+                        document.body.classList.remove('page-loading');
+                    });
                 }
 
             });

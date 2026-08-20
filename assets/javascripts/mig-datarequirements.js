@@ -567,7 +567,7 @@
     }
 
     function renderMessageIntoPane(message, pane, options) {
-        if (pane.dataset.loaded === 'true') return;
+        if (pane.dataset.loaded === 'true') return Promise.resolve();
 
         pane.dataset.loaded = 'true';
 
@@ -575,11 +575,11 @@
         var contentTarget = pane.querySelector('[data-message-content]');
         var declarationRoot = options.declarationRoot || document.body.getAttribute('data-declaration-root') || '';
 
-        if (!headerTarget || !contentTarget) return;
+        if (!headerTarget || !contentTarget) return Promise.resolve();
 
         renderMessageHeader(headerTarget, message);
 
-        MIGDataRequirementsRenderer.loadMessage(
+        return MIGDataRequirementsRenderer.loadMessage(
             options.dataRequirementsUrl,
             contentTarget,
             {
@@ -828,9 +828,9 @@
                 if (!messages.length) {
                     renderEmptyState(tabContent, 'dataRequirements.noMessages');
 
-                    console.warn('No messages found for version:', versionId, {
-                        versionInfo: MIGIntro.versionInfo(intro, versionId)
-                    });
+                    console.warn('No messages found for version:', versionId, { versionInfo: MIGIntro.versionInfo(intro, versionId) });
+
+                    document.body.classList.remove('page-loading');
 
                     return;
                 }
@@ -843,6 +843,9 @@
 
                 if (!normalizedMessages.length) {
                     renderEmptyState(tabContent, 'dataRequirements.noMessages');
+
+                    document.body.classList.remove('page-loading');
+
                     return;
                 }
 
@@ -943,7 +946,7 @@
                     );
 
                     function loadThisMessage() {
-                        renderMessageIntoPane(message, pane, {
+                        return renderMessageIntoPane(message, pane, {
                             lang: lang,
                             versionId: versionId,
                             dataRequirementsUrl: dataRequirementsUrl,
@@ -984,7 +987,9 @@
                     }
 
                     if (isActive) {
-                        loadThisMessage();
+                        loadThisMessage().then(function () {
+                            document.body.classList.remove('page-loading');
+                        });
                     }
                 });
 
