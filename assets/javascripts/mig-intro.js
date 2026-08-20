@@ -58,9 +58,7 @@
             }
         });
 
-        if (langIndex === -1) {
-            return '../common/intro.json';
-        }
+        if (langIndex === -1) return '../common/intro.json';
 
         var isPageUnderLanguage = parts[langIndex + 1] === 'pages';
 
@@ -140,6 +138,146 @@
 
     function systemName(intro, lang) {
         return localized(intro && intro.System, lang || getLang(), '');
+    }
+
+    function seoPageKey() {
+        var filename = String(window.location.pathname || '').split('/').pop().toLowerCase();
+
+        switch (filename) {
+            case 'datarequirements.html':
+                return 'dataRequirements';
+
+            case 'messageexchange.html':
+                return 'messageExchange';
+
+            case 'datamodel.html':
+                return 'classDiagram';
+
+            case 'codes.html':
+                return 'codes';
+
+            case 'examples.html':
+                return 'examples';
+
+            default:
+                return 'home';
+        }
+    }
+
+    function setMetaContent(selector, attributes, content) {
+        if (!content) return;
+
+        var meta = document.head.querySelector(selector);
+
+        if (!meta) {
+            meta = document.createElement('meta');
+
+            Object.keys(attributes).forEach(function (name) {
+                meta.setAttribute(name, attributes[name]);
+            });
+
+            document.head.appendChild(meta);
+        }
+
+        meta.setAttribute('content', content);
+    }
+
+    function canonicalPageUrl() {
+        var url = new URL(window.location.href);
+
+        url.search = '';
+        url.hash = '';
+
+        return url.toString();
+    }
+
+    function setLinkHref(selector, attributes, href) {
+        if (!href) return;
+
+        var link = document.head.querySelector(selector);
+
+        if (!link) {
+            link = document.createElement('link');
+
+            Object.keys(attributes).forEach(function (name) {
+                link.setAttribute(name, attributes[name]);
+            });
+
+            document.head.appendChild(link);
+        }
+
+        link.setAttribute('href', href);
+    }
+
+    function applyCanonicalMetadata() {
+        var canonical = canonicalPageUrl();
+
+        setLinkHref('link[rel="canonical"]', { rel: 'canonical' }, canonical);
+        setMetaContent('meta[property="og:url"]', { property: 'og:url' }, canonical);
+    }
+
+    function languagePageUrl(lang) {
+        var url = new URL(canonicalPageUrl());
+        var parts = url.pathname.split('/');
+        var replaced = false;
+
+        parts =
+            parts.map(function (part) {
+                if (!replaced && /^(fi|sv|en)$/i.test(part)) {
+                    replaced = true;
+                    return lang;
+                }
+
+                return part;
+            });
+
+        if (!replaced) return '';
+
+        url.pathname = parts.join('/');
+
+        return url.toString();
+    }
+
+    function applyLanguageAlternates() {
+        ['fi', 'sv', 'en'].forEach(function (lang) {
+            var href = languagePageUrl(lang);
+
+            if (!href) return;
+
+            setLinkHref('link[rel="alternate"]' + '[hreflang="' + lang + '"]', { rel: 'alternate', hreflang: lang }, href);
+        });
+    }
+    
+    function applySeoMetadata(intro, options) {
+        options = options || {};
+
+        var lang = options.lang || getLang();
+        var system = systemName(intro, lang);
+        var pageKey = options.pageKey || seoPageKey();
+        var pageTitle = pageKey === 'home' ? t('siteTitle') : t('pageTitles.' + pageKey);
+        var brand = t('seo.brand');
+        var title = [pageTitle, system].filter(Boolean).join(' - ');
+
+        if (brand) title += ' | ' + brand;
+
+        var description = t('seo.descriptions.' + pageKey);
+
+        if (description && system) description += ' – ' + system;
+
+        if (title) {
+            document.title = title;
+
+            setMetaContent('meta[property="og:title"]', { property: 'og:title' }, title);
+        }
+
+        if (description) {
+            setMetaContent('meta[name="description"]', { name: 'description' }, description);
+            setMetaContent('meta[property="og:description"]', { property: 'og:description' }, description
+            );
+        }
+
+        applyCanonicalMetadata();
+        applyLanguageAlternates();
     }
 
     function getVersionDate(intro, versionId, lang) {
@@ -285,9 +423,6 @@
             if (change && change.tooltip) {
                 item.appendChild(document.createTextNode(' '));
 
-                // Use a plain inline link instead of a Bootstrap button. The old
-                // btn/btn-link/btn-xs combination can increase the line-height of
-                // long list items and create visually distracting wrapped lines.
                 var detailsButton = el('button', {
                     className:
                         'mig-change-details',
@@ -298,9 +433,7 @@
                         'data-html': 'true',
                         'data-placement': 'top',
                         'data-container': 'body',
-                        title: tooltipHtml(
-                            change.tooltip
-                        )
+                        title: tooltipHtml(change.tooltip)
                     }
                 });
                 item.appendChild(detailsButton);
@@ -337,18 +470,9 @@
 
         var content = el('div', { className: 'modal-content' });
         var header = el('div', { className: 'modal-header mig-version-modal-header' });
-        var title = el('h2', {
-            className: 'modal-title',
-            attrs: { id: titleId }
-        });
+        var title = el('h2', { className: 'modal-title', attrs: { id: titleId } });
 
-        title.appendChild(
-            document.createTextNode(
-                t('intro.version') +
-                ' ' +
-                versionId
-            )
-        );
+        title.appendChild(document.createTextNode(t('intro.version') + ' ' + versionId));
 
         header.appendChild(title);
 
@@ -368,9 +492,7 @@
 
         header.appendChild(printButton);
 
-        var footer = el('div', {
-            className: 'modal-footer'
-        });
+        var footer = el('div', { className: 'modal-footer' });
 
         footer.appendChild(el('button', {
             className: 'btn btn-default remove-bottom',
@@ -478,10 +600,9 @@
                     target.querySelectorAll('tbody tr[aria-hidden="true"]').forEach(function (row) {
                         row.removeAttribute('aria-hidden');
 
-                        row.querySelectorAll('a, button')
-                            .forEach(function (control) {
-                                control.removeAttribute('tabindex');
-                            });
+                        row.querySelectorAll('a, button').forEach(function (control) {
+                            control.removeAttribute('tabindex');
+                        });
                     });
 
                     target.style.height = 'auto';
@@ -647,8 +768,8 @@
         var pageHeader = document.querySelector('.pageheader');
         if (pageHeader && system) appendOnce(pageHeader, 'mig-pageheader-system', system);
 
-        if (options.updateDocumentTitle !== false && system && document.title.indexOf(system) === -1) {
-            document.title = (document.title + ' ' + system).replace(/\s+/g, ' ').trim();
+        if (options.updateDocumentTitle !== false) {
+            applySeoMetadata(intro, { lang: lang });
         }
     }
 
@@ -678,9 +799,7 @@
     }
 
     function initializePrintButtons() {
-        if (initializePrintButtons.done) {
-            return;
-        }
+        if (initializePrintButtons.done) return;
 
         initializePrintButtons.done = true;
 
@@ -689,22 +808,16 @@
             function (event) {
                 var button = event.target.closest && event.target.closest('.printButton');
 
-                if (!button) {
-                    return;
-                }
+                if (!button) return;
 
                 var modal = button.closest('.modal');
 
-                if (!modal) {
-                    return;
-                }
+                if (!modal) return;
 
                 var title = modal.querySelector('.modal-title');
                 var modalBody = modal.querySelector('.modal-body');
 
-                if (!modalBody) {
-                    return;
-                }
+                if (!modalBody) return;
 
                 var printContainer = document.createElement('div');
 
@@ -933,6 +1046,7 @@
         renderErrors: renderErrors,
         renderVersionSelector: renderVersionSelector,
         applyHeaderInfo: applyHeaderInfo,
+        applySeoMetadata: applySeoMetadata,
         refreshTooltips: initializeBootstrapTooltips,
         initIndex: initIndex,
         initPage: initPage,
