@@ -1001,6 +1001,8 @@
         var target = document.querySelector(options.target || '#canvas');
 
         if (!target) {
+            document.body.classList.remove('page-loading');
+
             return Promise.resolve(null);
         }
 
@@ -1090,6 +1092,7 @@
                     );
 
                     return renderCurrentModel().then(function (result) {
+                        document.body.classList.remove('page-loading');
                         return {
                             versionId:
                                 versionId,
@@ -1113,6 +1116,8 @@
                     t('messageExchangePage.loadError'),
                     error
                 );
+
+                document.body.classList.remove('page-loading');
 
                 return null;
             });
