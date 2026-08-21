@@ -102,10 +102,20 @@
     if (document.querySelector('.sidebar nav')) global.bootstrap.ScrollSpy.getOrCreateInstance(document.body, { target: '.sidebar nav' });
   }
 
+  function initModalFocusCleanup() {
+    document.addEventListener('hide.bs.modal', function (event) {
+        var modal = event.target;
+        var focused = document.activeElement;
+
+        if (focused && modal.contains(focused)) focused.blur();
+    });
+}
+
   function init() {
     global.MIG_I18N.ready(function (t) { addToTopButton(t('accessibility.backToTop')); });
 
     initBootstrapComponents();
+    initModalFocusCleanup();
 
     document.querySelectorAll('.current').forEach(function (element) {
       element.classList.remove('current');
