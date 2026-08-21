@@ -499,7 +499,7 @@
         }
 
         var collapse = container.closest
-            ? container.closest('.panel-collapse')
+            ? container.closest('.message-exchange-case-collapse')
             : null;
 
         if (!collapse) {
@@ -507,7 +507,7 @@
         }
 
         /*
-         * The outer case panel is visible even though its collapse
+         * The outer case card is visible even though its collapse
          * body is not, so it gives us a sensible measurement width.
          */
         var casePanel = collapse.closest

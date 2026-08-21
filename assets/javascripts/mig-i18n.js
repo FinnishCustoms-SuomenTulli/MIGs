@@ -75,13 +75,13 @@
                 var linkLang = link.getAttribute('data-lang-option');
 
                 if (linkLang === api.lang) {
-                    link.classList.add('hidden');
+                    link.hidden = true;
                     link.setAttribute('aria-hidden', 'true');
                     link.setAttribute('tabindex', '-1');
                     return;
                 }
 
-                link.classList.remove('hidden');
+                link.hidden = false;
                 link.removeAttribute('aria-hidden');
                 link.removeAttribute('tabindex');
 

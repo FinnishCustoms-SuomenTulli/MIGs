@@ -130,7 +130,7 @@
             cell.appendChild(icon);
         }
 
-        cell.appendChild(createElement('span', 'sr-only', enabled ? t('codeLists.filterEnabled') : t('codeLists.filterDisabled')));
+        cell.appendChild(createElement('span', 'visually-hidden', enabled ? t('codeLists.filterEnabled') : t('codeLists.filterDisabled')));
 
         row.appendChild(cell);
 
@@ -159,7 +159,7 @@
         button.setAttribute('type', 'button');
         button.setAttribute('aria-label', label);
         button.appendChild(document.createTextNode(symbol));
-        button.appendChild(createElement('span', 'sr-only', label));
+        button.appendChild(createElement('span', 'visually-hidden', label));
 
         return button;
     }
@@ -351,8 +351,8 @@
         }
 
         var wrapper = createElement('div', 'table-responsive code-list-table-wrapper');
-        var table = createElement('table', 'table table-striped table-hover table-condensed code-list-table');
-        var caption = createElement('caption', 'sr-only', codeList.id + (codeList.name && codeList.name !== codeList.id ? ' - ' + codeList.name : ''));
+        var table = createElement('table', 'table table-striped table-hover table-sm code-list-table');
+        var caption = createElement('caption', 'visually-hidden', codeList.id + (codeList.name && codeList.name !== codeList.id ? ' - ' + codeList.name : ''));
 
         table.appendChild(caption);
 
@@ -379,8 +379,8 @@
             helpButton.setAttribute('type', 'button');
             helpButton.setAttribute('title', filterColumn.help);
             helpButton.setAttribute('aria-label', filterColumn.label + ': ' + filterColumn.help);
-            helpButton.setAttribute('data-toggle', 'tooltip');
-            helpButton.setAttribute('data-placement', 'top');
+            helpButton.setAttribute('data-bs-toggle', 'tooltip');
+            helpButton.setAttribute('data-bs-placement', 'top');
             helpButton.appendChild(createElement('span', 'icon icon-tulli-info'));
             helpButton.lastChild.setAttribute('aria-hidden', 'true');
 
@@ -402,6 +402,12 @@
         table.appendChild(tbody);
         wrapper.appendChild(table);
         target.appendChild(wrapper);
+
+        if (global.bootstrap && global.bootstrap.Tooltip) {
+            wrapper.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function (button) {
+                global.bootstrap.Tooltip.getOrCreateInstance(button);
+            });
+        }
 
         var pagination = createElement('nav', 'code-list-pagination');
 
@@ -476,7 +482,7 @@
                     if (targetPage === pageIndex) {
                         button.classList.add('active');
                         button.setAttribute('aria-current', 'page');
-                        button.appendChild(createElement('span', 'sr-only', ' (' + t('codeLists.pagination.current') + ')'));
+                        button.appendChild(createElement('span', 'visually-hidden', ' (' + t('codeLists.pagination.current') + ')'));
 
                         currentPageButton = button;
                     }
@@ -582,7 +588,6 @@
             if (!modal) return false;
 
             return (
-                modal.classList.contains('in') ||
                 modal.classList.contains('show')
             ) &&
                 modal.getBoundingClientRect().height > 0;
@@ -692,30 +697,13 @@
             if (modal) {
                 global.addEventListener('resize', handleResize);
 
-                if (global.jQuery && global.jQuery.fn) {
-                    var $modal = global.jQuery(modal);
+                modal.addEventListener('shown.bs.modal', scheduleModalFit, { once: true });
+                modal.addEventListener('hidden.bs.modal', function () {
+                    global.removeEventListener('resize', handleResize);
+                }, { once: true });
 
-                    $modal.one(
-                        'shown.bs.modal.migCodeList',
-                        function () {
-                            scheduleModalFit();
-                        }
-                    );
-
-                    $modal.one(
-                        'hidden.bs.modal.migCodeList',
-                        function () {
-                            global.removeEventListener('resize', handleResize);
-                        }
-                    );
-
-                    // Also start immediately. If the modal is not visible yet, scheduleModalFit() retries until Bootstrap has shown it.
-                    scheduleModalFit();
-                } else if (
-                    modal.classList.contains('in')
-                ) {
-                    scheduleModalFit();
-                }
+                // Start immediately too; scheduleModalFit() already retries while the modal is transitioning.
+                scheduleModalFit();
             }
         }
 

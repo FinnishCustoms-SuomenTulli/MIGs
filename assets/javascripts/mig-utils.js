@@ -299,7 +299,7 @@
 
         if (!region) {
             region = el('div', {
-                className: 'sr-only',
+                className: 'visually-hidden',
                 attrs: {
                     id: 'mig-status-region',
                     role: 'status',

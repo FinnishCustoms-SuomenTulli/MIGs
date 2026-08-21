@@ -143,11 +143,8 @@
             case ' ':
                 event.preventDefault();
 
-                if (window.jQuery) {
-                    window.jQuery(currentTab).tab('show');
-                } else {
-                    currentTab.click();
-                }
+                if (window.bootstrap && window.bootstrap.Tab) window.bootstrap.Tab.getOrCreateInstance(currentTab).show();
+                else currentTab.click();
 
                 return;
 
@@ -276,7 +273,7 @@
             attrs: {
                 type: 'button',
                 id: 'dataRequirementsViewModeButton',
-                'data-toggle': 'dropdown',
+                'data-bs-toggle': 'dropdown',
                 'aria-expanded': 'false',
                 'aria-controls': 'dataRequirementsViewModeMenu',
                 'aria-label': t('dataRequirements.viewMode.title'),
@@ -292,7 +289,7 @@
         }));
 
         var menu = el('ul', {
-            className: 'dropdown-menu dropdown-menu-right',
+            className: 'dropdown-menu dropdown-menu-end',
             attrs: {
                 id: 'dataRequirementsViewModeMenu',
                 'aria-labelledby': 'dataRequirementsViewModeButton'
@@ -317,7 +314,7 @@
         ));
 
         menu.appendChild(el('li', {
-            className: 'divider',
+            className: 'dropdown-divider',
             attrs: { role: 'separator' }
         }));
 
@@ -479,11 +476,10 @@
         }
 
         var container = el('div', {
-            className: 'form-inline mig-version-selector'
+            className: 'mig-version-selector'
         });
 
         var label = el('label', {
-            className: 'control-label',
             text: t('dataRequirements.subset'),
             attrs: {
                 for: 'mig-subset-select'
@@ -548,7 +544,7 @@
         target.innerHTML = '';
 
         var title = el('h2', {
-            className: 'panel-title'
+            className: 'card-title'
         });
 
         title.appendChild(el('span', {
@@ -694,9 +690,7 @@
             });
         }
 
-        if (window.jQuery) {
-            window.jQuery(modal).modal('show');
-        }
+        if (window.bootstrap && window.bootstrap.Modal) window.bootstrap.Modal.getOrCreateInstance(modal).show();
     }
 
     function resetReferenceModal() {
@@ -726,33 +720,19 @@
             openReferenceModal(type, id, options);
         });
 
-        if (window.jQuery) {
-            window.jQuery('#dataRequirementsModal')
-                .on('shown.bs.modal', function () {
-                    var closeButton =
-                        document.getElementById(
-                            'dataRequirementsModalClose'
-                        );
+        var modal = document.getElementById('dataRequirementsModal');
+        if (!modal) return;
 
-                    if (closeButton) {
-                        closeButton.focus();
-                    }
-                })
-                .on('hidden.bs.modal', function () {
-                    resetReferenceModal();
+        modal.addEventListener('shown.bs.modal', function () {
+            var closeButton = document.getElementById('dataRequirementsModalClose');
+            if (closeButton) closeButton.focus();
+        });
 
-                    if (
-                        referenceModalTrigger &&
-                        document.documentElement.contains(
-                            referenceModalTrigger
-                        )
-                    ) {
-                        referenceModalTrigger.focus();
-                    }
-
-                    referenceModalTrigger = null;
-                });
-        }
+        modal.addEventListener('hidden.bs.modal', function () {
+            resetReferenceModal();
+            if (referenceModalTrigger && document.documentElement.contains(referenceModalTrigger)) referenceModalTrigger.focus();
+            referenceModalTrigger = null;
+        });
     }
 
     function initDataRequirementsPage(options) {
@@ -873,7 +853,7 @@
                             id: tabControlId,
                             href: '#' + tabId,
                             role: 'tab',
-                            'data-toggle': 'tab',
+                            'data-bs-toggle': 'tab',
                             'aria-controls': tabId,
                             'aria-selected': isActive
                                 ? 'true'
@@ -908,11 +888,11 @@
                     });
 
                     var panel = el('div', {
-                        className: 'panel panel-primary'
+                        className: 'card card-primary'
                     });
 
                     var panelHeading = el('div', {
-                        className: 'panel-heading',
+                        className: 'card-header',
                         attrs: {
                             'data-message-header':
                                 message.id
@@ -956,8 +936,8 @@
 
                     pane.renderMessage = loadThisMessage;
 
-                    if (window.jQuery) {
-                        window.jQuery(tabLink).on('shown.bs.tab', function () {
+                    if (window.bootstrap && window.bootstrap.Tab) {
+                        tabLink.addEventListener('shown.bs.tab', function () {
                             syncMessageTabState(tabs, tabLink);
 
                             if (window.history && window.history.replaceState) {
@@ -965,10 +945,8 @@
                             }
 
                             loadThisMessage();
-
                             window.MIG_I18N.updateLanguageLinks();
-                        }
-                        );
+                        });
                     } else {
                         tabLink.addEventListener(
                             'click',

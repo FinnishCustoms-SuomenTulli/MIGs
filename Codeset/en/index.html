@@ -4,6 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title data-i18n="pageTitles.codes" data-i18n-suffix=" -"></title>
     <link href="../../assets/favicon.ico" rel="icon" />
     <link rel="stylesheet" href="../../assets/css/tulli-bootstrap-compact.css">
@@ -26,19 +27,19 @@
         <div class="upper">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <a class="" href="../index.html"> <img alt="" class="img-responsive pull-left"
+                    <div class="col-lg-3 col-12">
+                        <a class="" href="../index.html"> <img alt="" class="img-responsive float-start"
                                 data-i18n-alt="logoAlt" src="../../assets/images/logo-tulli.svg" width="180" height="39"/></a>
                         <button aria-controls="navbar-mainmenu" aria-expanded="false"
-                            class="navbar-toggle collapsed pull-right margin-0" data-target="#navbar-mainmenu"
-                            data-toggle="collapse" type="button">
-                            <span class="sr-only" data-i18n="menu.menu"></span>
+                            class="navbar-toggle collapsed float-end margin-0" data-bs-target="#navbar-mainmenu"
+                            data-bs-toggle="collapse" type="button">
+                            <span class="visually-hidden" data-i18n="menu.menu"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
                     </div>
-                    <div class="col-md-9 col-sm-12 col-xs-12">
+                    <div class="col-lg-9 col-12">
                         <nav class="mainmenu collapse navbar-collapse" id="navbar-mainmenu" data-i18n-aria-label="accessibility.mainNavigation">
                             <ul class="nav nav-pills">
                                 <li><a data-i18n="menu.home" href="../index.html"></a></li>
@@ -57,7 +58,7 @@
         <div class="lower">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-12">
                         <h1 data-i18n="pageTitles.codes"></h1>
                     </div>
                 </div>
@@ -65,12 +66,12 @@
         </div>
     </header>
     <main class="Site-content">
-        <div class="col-xs-12">
-            <div class="panel panel-primary">
-                <div class="panel-body">
+        <div class="col-12">
+            <div class="card card-primary">
+                <div class="card-body">
                     <div class="container">
                         <div data-i18n-html="codesPage.introHtml"></div>
-                        <div class="codes-page-downloads text-right">
+                        <div class="codes-page-downloads text-end">
                             <a class="btn btn-default btn-sm" data-i18n="codesPage.downloadXml" download
                                 href="../../../../codelists/codelists.xml"></a>
 
@@ -78,7 +79,7 @@
                                 href="../../../../codelists/codelists.json"></a>
                         </div>
                         <div class="row codes-page-toolbar">
-                            <div class="col-sm-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label data-i18n="codesPage.validityDate" for="dateInput"></label>
 
@@ -86,17 +87,17 @@
                                         <input aria-describedby="form-instruction-visuallyHidden" class="form-control"
                                             id="dateInput" type="text" />
 
-                                        <span aria-hidden="true" class="input-group-addon">
+                                        <span aria-hidden="true" class="input-group-text">
                                             <i class="icon icon-tulli-calendar"></i>
                                         </span>
                                     </div>
 
-                                    <div class="sr-only" data-i18n="codesPage.dateInstruction"
+                                    <div class="visually-hidden" data-i18n="codesPage.dateInstruction"
                                         id="form-instruction-visuallyHidden"></div>
                                 </div>
                             </div>
 
-                            <div class="col-sm-8">
+                            <div class="col-md-8">
                                 <div class="form-group" id="accordion_search_bar_container">
                                     <label data-i18n="codesPage.searchWithinContents"
                                         for="accordion_search_bar"></label>
@@ -105,14 +106,14 @@
                                         data-i18n-placeholder="codesPage.searchPlaceholder" id="accordion_search_bar"
                                         type="search" />
 
-                                    <div class="sr-only" data-i18n="codesPage.searchInstruction"
+                                    <div class="visually-hidden" data-i18n="codesPage.searchInstruction"
                                         id="form-instruction-visuallyHidden2"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="panel-body" id="contents"></div>
+                <div class="card-body" id="contents"></div>
             </div>
         </div>
     </main>

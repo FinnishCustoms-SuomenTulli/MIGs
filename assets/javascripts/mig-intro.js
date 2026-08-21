@@ -247,7 +247,7 @@
             setLinkHref('link[rel="alternate"]' + '[hreflang="' + lang + '"]', { rel: 'alternate', hreflang: lang }, href);
         });
     }
-    
+
     function applySeoMetadata(intro, options) {
         options = options || {};
 
@@ -326,7 +326,7 @@
 
             // Skip downloads and modal triggers.
             if (link.hasAttribute('download')) return;
-            if (link.getAttribute('data-toggle') === 'modal') return;
+            if (link.getAttribute('data-bs-toggle') === 'modal') return;
 
             var url;
 
@@ -429,10 +429,10 @@
                     text: t('intro.showDetails'),
                     attrs: {
                         type: 'button',
-                        'data-toggle': 'tooltip',
-                        'data-html': 'true',
-                        'data-placement': 'top',
-                        'data-container': 'body',
+                        'data-bs-toggle': 'tooltip',
+                        'data-bs-html': 'true',
+                        'data-bs-placement': 'top',
+                        'data-bs-container': 'body',
                         title: tooltipHtml(change.tooltip)
                     }
                 });
@@ -499,7 +499,7 @@
             text: t('browserModal.close'),
             attrs: {
                 type: 'button',
-                'data-dismiss': 'modal'
+                'data-bs-dismiss': 'modal'
             }
         }));
 
@@ -529,7 +529,7 @@
 
         target.innerHTML = '';
 
-        var table = el('table', { className: 'table table-striped table-responsive table-condensed', attrs: { id: 'versionHistoryTable' } });
+        var table = el('table', { className: 'table table-striped table-responsive table-sm', attrs: { id: 'versionHistoryTable' } });
         var thead = el('thead');
         var headerRow = el('tr');
         headers.forEach(function (headerText) {
@@ -548,7 +548,7 @@
             var info = versionInfo(intro, versionId);
             var row = el('tr');
             var versionCell = el('th', { attrs: { scope: 'row' } });
-            var link = el('a', { attrs: { href: '#', 'data-toggle': 'modal', 'data-target': '#Version_' + sanitizeVersionId(versionId) } });
+            var link = el('a', { attrs: { href: '#', 'data-bs-toggle': 'modal', 'data-bs-target': '#Version_' + sanitizeVersionId(versionId) } });
             link.appendChild(document.createTextNode(versionId));
             link.appendChild(el('br'));
             link.appendChild(document.createTextNode(formatDisplayDate(info.releaseDate, lang)));
@@ -566,7 +566,7 @@
                         cell.appendChild(el('span', { text: '•', attrs: { 'aria-hidden': 'true' } }));
                     }
 
-                    cell.appendChild(el('span', { className: 'sr-only', text: enabled ? t('intro.yes') : t('intro.no') }));
+                    cell.appendChild(el('span', { className: 'visually-hidden', text: enabled ? t('intro.yes') : t('intro.no') }));
 
                     row.appendChild(cell);
                 });
@@ -588,40 +588,38 @@
                 }
             });
 
-            readMoreButton.addEventListener(
-                'click',
-                function () {
-                    var firstHiddenLink = target.querySelector('tbody tr[aria-hidden="true"] a');
+            readMoreButton.addEventListener('click', function () {
+                var firstHiddenLink = target.querySelector('tbody tr[aria-hidden="true"] a');
 
-                    target.dataset.expanded = 'true';
+                target.dataset.expanded = 'true';
 
-                    readMoreButton.setAttribute('aria-expanded', 'true');
+                readMoreButton.setAttribute('aria-expanded', 'true');
 
-                    target.querySelectorAll('tbody tr[aria-hidden="true"]').forEach(function (row) {
-                        row.removeAttribute('aria-hidden');
+                target.querySelectorAll('tbody tr[aria-hidden="true"]').forEach(function (row) {
+                    row.removeAttribute('aria-hidden');
 
-                        row.querySelectorAll('a, button').forEach(function (control) {
-                            control.removeAttribute('tabindex');
-                        });
+                    row.querySelectorAll('a, button').forEach(function (control) {
+                        control.removeAttribute('tabindex');
                     });
+                });
 
-                    target.style.height = 'auto';
-                    target.style.maxHeight = 'none';
-                    target.style.overflow = 'visible';
+                target.style.height = 'auto';
+                target.style.maxHeight = 'none';
+                target.style.overflow = 'visible';
 
-                    var panel = target.closest('.panel');
+                var panel = target.closest('.card');
 
-                    if (panel) {
-                        panel.style.height = 'auto';
-                        panel.style.maxHeight = 'none';
-                    }
-
-                    readMore.hidden = true;
-
-                    if (firstHiddenLink) {
-                        firstHiddenLink.focus();
-                    }
+                if (panel) {
+                    panel.style.height = 'auto';
+                    panel.style.maxHeight = 'none';
                 }
+
+                readMore.hidden = true;
+
+                if (firstHiddenLink) {
+                    firstHiddenLink.focus();
+                }
+            }
             );
 
             readMore.appendChild(readMoreButton);
@@ -651,11 +649,10 @@
         }
 
         var wrapper = el('div', {
-            className: 'form-inline mig-version-selector'
+            className: 'mig-version-selector'
         });
 
         var label = el('label', {
-            className: 'control-label',
             text: t('intro.version'),
             attrs: {
                 for: 'migVersionSelect'
@@ -775,27 +772,13 @@
 
     function initializeBootstrapTooltips(root) {
         root = root || document;
+        if (!window.bootstrap || !window.bootstrap.Tooltip) return;
 
-        function tryInitialize() {
-            if (window.jQuery && typeof window.jQuery.fn.tooltip === 'function') {
-                var $tips = window.jQuery(root).find('[data-toggle="tooltip"]');
-
-                // Reinitialise safely. Bootstrap 3 uses "destroy"; Bootstrap 4 uses
-                // "dispose". Ignore failures so this remains tolerant of either one.
-                try { $tips.tooltip('destroy'); } catch (ignoreDestroy) {
-                    try { $tips.tooltip('dispose'); } catch (ignoreDispose) { }
-                }
-
-                $tips.tooltip({
-                    container: 'body',
-                    html: true,
-                    trigger: 'hover focus'
-                });
-                return;
-            }
-        }
-
-        tryInitialize();
+        root.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function (element) {
+            var existing = window.bootstrap.Tooltip.getInstance(element);
+            if (existing) existing.dispose();
+            new window.bootstrap.Tooltip(element, { container: 'body', html: true, trigger: 'hover focus' });
+        });
     }
 
     function initializePrintButtons() {
@@ -848,9 +831,7 @@
                 printContainer.remove();
 
                 // Close the modal after printing.
-                if (window.jQuery && window.jQuery.fn && typeof window.jQuery.fn.modal === 'function') {
-                    window.jQuery(modal).modal('hide');
-                }
+                if (window.bootstrap && window.bootstrap.Modal) window.bootstrap.Modal.getOrCreateInstance(modal).hide();
             }
         );
     }

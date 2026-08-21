@@ -355,7 +355,7 @@
 
     function renderAccessibleModel(model, target) {
         var section = el('section', {
-            className: 'sr-only',
+            className: 'visually-hidden',
             attrs: { 'aria-labelledby': 'dataModelAccessibleTitle' }
         });
 
@@ -464,9 +464,9 @@
                     type: 'button',
                     'aria-label': t(labelKey),
                     title: t(labelKey),
-                    'data-toggle': 'tooltip',
-                    'data-placement': 'bottom',
-                    'data-container': 'body'
+                    'data-bs-toggle': 'tooltip',
+                    'data-bs-placement': 'bottom',
+                    'data-bs-container': 'body'
                 }
             });
 
@@ -561,14 +561,10 @@
             target.firstChild
         );
 
-        if (
-            global.jQuery &&
-            global.jQuery.fn &&
-            typeof global.jQuery.fn.tooltip === 'function'
-        ) {
-            global.jQuery(controls)
-                .find('[data-toggle="tooltip"]')
-                .tooltip();
+        if (global.bootstrap && global.bootstrap.Tooltip) {
+            controls.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function (button) {
+                global.bootstrap.Tooltip.getOrCreateInstance(button);
+            });
         }
     }
 
@@ -601,14 +597,9 @@
                     panZoom
                 );
 
-                global.jQuery(global)
-                    .off('resize.datamodel')
-                    .on(
-                        'resize.datamodel',
-                        function () {
-                            panZoom.resize();
-                        }
-                    );
+                if (renderSvg.resizeHandler) global.removeEventListener('resize', renderSvg.resizeHandler);
+                renderSvg.resizeHandler = function () { panZoom.resize(); };
+                global.addEventListener('resize', renderSvg.resizeHandler);
 
                 return {
                     svg: svg,
@@ -831,12 +822,13 @@
             value: selectedMessageIds.slice(),
 
             id: 'migMessageSelect',
-            ariaLabel:
-                t('dataModel.messageFilter'),
+            ariaLabel: t('dataModel.messageFilter'),
 
             isSingleSelect: false,
             isGroupedValue: false,
             isIndependentNodes: false,
+
+            alwaysOpen: true,
 
             openLevel: 1,
             showCount: true,

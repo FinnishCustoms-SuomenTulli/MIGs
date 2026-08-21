@@ -92,11 +92,8 @@
             case ' ':
                 event.preventDefault();
 
-                if (window.jQuery) {
-                    window.jQuery(currentTab).tab('show');
-                } else {
-                    currentTab.click();
-                }
+                if (window.bootstrap && window.bootstrap.Tab) window.bootstrap.Tab.getOrCreateInstance(currentTab).show();
+                else currentTab.click();
 
                 return;
 
@@ -234,7 +231,7 @@
                         id: tabControlId,
                         href: '#' + tabId,
                         role: 'tab',
-                        'data-toggle': 'tab',
+                        'data-bs-toggle': 'tab',
                         'aria-controls': tabId,
                         'aria-selected': isActive
                             ? 'true'
@@ -281,8 +278,8 @@
                     }
                 );
 
-                if (window.jQuery) {
-                    window.jQuery(tabLink).on('shown.bs.tab', function () {
+                if (window.bootstrap && window.bootstrap.Tab) {
+                    tabLink.addEventListener('shown.bs.tab', function () {
                         syncExampleTabState(tabs, tabLink);
 
                         if (window.history && window.history.replaceState) {

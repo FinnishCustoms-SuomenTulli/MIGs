@@ -2,6 +2,7 @@
     'use strict';
 
     var current = null;
+    var caseEventsBound = false;
 
     var t = global.MIGUtils.t;
     var el = global.MIGUtils.el;
@@ -86,25 +87,25 @@
 
     function renderTopLevelPanel(id, title) {
         var panel = el('section', {
-            className: 'panel panel-primary message-exchange-section',
+            className: 'card card-primary message-exchange-section',
             attrs: {
                 id: id
             }
         });
 
         var heading = el('div', {
-            className: 'panel-heading'
+            className: 'card-header'
         });
 
         heading.appendChild(el('h2', {
-            className: 'panel-title',
+            className: 'card-title',
             text: title
         }));
 
         panel.appendChild(heading);
 
         var body = el('div', {
-            className: 'panel-body'
+            className: 'card-body'
         });
 
         panel.appendChild(body);
@@ -330,17 +331,17 @@
         var isOpen = openCaseNumber === caseNumber;
 
         var panel = el('div', {
-            className: 'panel panel-default message-exchange-case'
+            className: 'card message-exchange-case'
         });
 
         var heading = el('div', {
-            className: 'panel-heading'
+            className: 'card-header'
         });
 
         var title = el(
             'h' + headingLevel,
             {
-                className: 'panel-title'
+                className: 'card-title'
             }
         );
 
@@ -351,8 +352,8 @@
             attrs: {
                 id: triggerId,
                 type: 'button',
-                'data-toggle': 'collapse',
-                'data-target': '#' + collapseId,
+                'data-bs-toggle': 'collapse',
+                'data-bs-target': '#' + collapseId,
                 'aria-expanded': isOpen ? 'true' : 'false',
                 'aria-controls': collapseId
             }
@@ -384,8 +385,8 @@
 
         var collapse = el('div', {
             className:
-                'panel-collapse collapse' +
-                (isOpen ? ' in' : ''),
+                'message-exchange-case-collapse collapse' +
+                (isOpen ? ' show' : ''),
             attrs: {
                 id: collapseId,
                 'data-use-case-index': useCaseIndex
@@ -393,7 +394,7 @@
         });
 
         var body = el('div', {
-            className: 'panel-body'
+            className: 'card-body'
         });
 
         body.appendChild(el('div', {
@@ -446,7 +447,7 @@
         }
 
         var panelGroup = el('div', {
-            className: 'panel-group message-exchange-cases'
+            className: 'message-exchange-cases'
         });
 
         records.forEach(function (record) {
@@ -789,46 +790,20 @@
     }
 
     function bindCaseEvents() {
-        if (
-            global.jQuery &&
-            global.jQuery.fn &&
-            typeof global.jQuery.fn.collapse === 'function'
-        ) {
-            var selector =
-                '.message-exchange-case .panel-collapse';
+        var selector = '.message-exchange-case .message-exchange-case-collapse';
 
-            global.jQuery(document)
-                .off(
-                    'show.bs.collapse.messageexchange',
-                    selector
-                )
-                .off(
-                    'shown.bs.collapse.messageexchange',
-                    selector
-                )
-                .on(
-                    'show.bs.collapse.messageexchange',
-                    selector,
-                    function () {
-                        notifyCaseShowing(this);
-                    }
-                )
-                .on(
-                    'shown.bs.collapse.messageexchange',
-                    selector,
-                    function () {
-                        notifyCaseShown(this);
-                    }
-                );
+        if (!caseEventsBound) {
+            document.addEventListener('show.bs.collapse', function (event) {
+                if (event.target.matches(selector)) notifyCaseShowing(event.target);
+            });
+            document.addEventListener('shown.bs.collapse', function (event) {
+                if (event.target.matches(selector)) notifyCaseShown(event.target);
+            });
+            caseEventsBound = true;
         }
 
-        var initiallyOpen = document.querySelector(
-            '.message-exchange-case .panel-collapse.in'
-        );
-
-        if (initiallyOpen) {
-            notifyCaseShown(initiallyOpen);
-        }
+        var initiallyOpen = document.querySelector('.message-exchange-case .message-exchange-case-collapse.show');
+        if (initiallyOpen) notifyCaseShown(initiallyOpen);
     }
 
     function openHashCase() {
@@ -846,13 +821,7 @@
             return;
         }
 
-        if (
-            global.jQuery &&
-            global.jQuery.fn &&
-            typeof global.jQuery.fn.collapse === 'function'
-        ) {
-            global.jQuery(target).collapse('show');
-        }
+        if (global.bootstrap && global.bootstrap.Collapse) global.bootstrap.Collapse.getOrCreateInstance(target, { toggle: false }).show();
 
         var panel = target.closest
             ? target.closest('.message-exchange-case')

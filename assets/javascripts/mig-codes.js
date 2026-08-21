@@ -182,8 +182,8 @@
 
         button.id = headingId;
         button.setAttribute('type', 'button');
-        button.setAttribute('data-toggle', 'collapse');
-        button.setAttribute('data-target', '#' + collapseId);
+        button.setAttribute('data-bs-toggle', 'collapse');
+        button.setAttribute('data-bs-target', '#' + collapseId);
         button.setAttribute('aria-expanded', 'false');
         button.setAttribute('aria-controls', collapseId);
         button.appendChild(document.createTextNode(codeListId + (name && name !== codeListId ? ' - ' + name : '')));
@@ -293,7 +293,7 @@
             var collapse =
                 state.rows[codeListId].collapse;
 
-            if (collapse.classList.contains('in') || collapse.classList.contains('show')) {
+            if (collapse.classList.contains('show')) {
                 renderCodeListPanel(collapse);
             }
         });
@@ -599,62 +599,9 @@
     }
 
     function bindAccordion() {
-        if (global.jQuery && global.jQuery.fn) {
-            global.jQuery(state.target).on(
-                'show.bs.collapse.migCodes',
-                '.accordion-content',
-                function () {
-                    renderCodeListPanel(this);
-                }
-            );
-
-            return;
-        }
-
-        // provides basic behavior without jQuery collapse.
-        state.target.addEventListener(
-            'click',
-            function (event) {
-                var link = event.target;
-
-                while (link && link !== state.target && !link.classList.contains('accordion-link')) {
-                    link = link.parentNode;
-                }
-
-                if (!link || link === state.target) {
-                    return;
-                }
-
-                event.preventDefault();
-
-                var collapseId = link.getAttribute('aria-controls');
-                var collapse = document.getElementById(collapseId);
-
-                if (!collapse) {
-                    return;
-                }
-
-                var isOpen = collapse.classList.contains('in');
-
-                if (isOpen) {
-                    collapse.classList.remove('in');
-                    collapse.style.display = 'none';
-
-                    link.classList.add('collapsed');
-
-                    link.setAttribute('aria-expanded', 'false');
-                } else {
-                    renderCodeListPanel(collapse);
-
-                    collapse.classList.add('in');
-                    collapse.style.display = 'block';
-
-                    link.classList.remove('collapsed');
-
-                    link.setAttribute('aria-expanded', 'true');
-                }
-            }
-        );
+        state.target.addEventListener('show.bs.collapse', function (event) {
+            if (event.target.classList.contains('accordion-content')) renderCodeListPanel(event.target);
+        });
     }
 
     function scrollToElement(element) {
@@ -664,21 +611,7 @@
 
         var top = element.getBoundingClientRect().top + global.pageYOffset - 80;
 
-        if (global.jQuery && global.jQuery.fn) {
-            global.jQuery('html, body').animate(
-                {
-                    scrollTop: top
-                },
-                400
-            );
-
-            return;
-        }
-
-        global.scrollTo({
-            top: top,
-            behavior: 'smooth'
-        });
+        global.scrollTo({ top: top, behavior: 'smooth' });
     }
 
     function openHashTarget() {
@@ -706,42 +639,19 @@
 
         renderCodeListPanel(collapse);
 
-        if (global.jQuery && global.jQuery.fn) {
-            var $collapse = global.jQuery(collapse);
-
-            if ($collapse.hasClass('in') || $collapse.hasClass('show')) {
-                scrollToElement(collapse);
-            } else {
-                $collapse.one(
-                    'shown.bs.collapse.migCodesHash',
-                    function () {
-                        scrollToElement(collapse);
-                    }
-                );
-
-                $collapse.collapse('show');
-            }
-
+        if (collapse.classList.contains('show')) {
+            scrollToElement(collapse);
             return true;
         }
 
-        collapse.classList.add('in');
-        collapse.style.display = 'block';
+        collapse.addEventListener('shown.bs.collapse', function () { scrollToElement(collapse); }, { once: true });
 
-        var record = state.rows[collapse.getAttribute('data-codelist')];
-
-        if (record) {
-            record.link.classList.remove(
-                'collapsed'
-            );
-
-            record.link.setAttribute(
-                'aria-expanded',
-                'true'
-            );
+        if (global.bootstrap && global.bootstrap.Collapse) {
+            global.bootstrap.Collapse.getOrCreateInstance(collapse, { toggle: false }).show();
+        } else {
+            collapse.classList.add('show');
+            scrollToElement(collapse);
         }
-
-        scrollToElement(collapse);
 
         return true;
     }

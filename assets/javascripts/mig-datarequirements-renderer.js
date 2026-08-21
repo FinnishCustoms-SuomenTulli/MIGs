@@ -104,117 +104,44 @@
     ];
 
     function refreshTooltips(root) {
-        if (
-            !global.jQuery ||
-            !global.jQuery.fn ||
-            typeof global.jQuery.fn.tooltip !==
-            'function'
-        ) {
-            return;
-        }
+        if (!global.bootstrap || !global.bootstrap.Tooltip) return;
 
-        var $tips =
-            global.jQuery(root || document)
-                .find(
-                    '.data-requirements-header-help'
-                );
+        var tips = (root || document).querySelectorAll('.data-requirements-header-help');
 
-        try {
-            $tips.tooltip('destroy');
-        } catch (ignoreDestroy) {
-            try {
-                $tips.tooltip('dispose');
-            } catch (ignoreDispose) { }
-        }
+        tips.forEach(function (button) {
+            var tooltip = global.bootstrap.Tooltip.getOrCreateInstance(button, {
+                container: 'body',
+                html: false,
+                trigger: 'manual'
+            });
 
-        $tips.tooltip({
-            container: 'body',
-            html: false,
-            trigger: 'manual'
+            if (button.dataset.migHeaderHelpBound === 'true') return;
+            button.dataset.migHeaderHelpBound = 'true';
+
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                var wasOpen = button.getAttribute('aria-expanded') === 'true';
+
+                tips.forEach(function (candidate) {
+                    if (candidate === button) return;
+                    var candidateTooltip = global.bootstrap.Tooltip.getInstance(candidate);
+                    if (candidateTooltip) candidateTooltip.hide();
+                });
+
+                if (wasOpen) tooltip.hide();
+                else tooltip.show();
+            });
+
+            button.addEventListener('keydown', function (event) {
+                if (event.key !== 'Escape' || button.getAttribute('aria-expanded') !== 'true') return;
+                event.preventDefault();
+                tooltip.hide();
+            });
+
+            button.addEventListener('focusout', function () { tooltip.hide(); });
+            button.addEventListener('shown.bs.tooltip', function () { button.setAttribute('aria-expanded', 'true'); });
+            button.addEventListener('hidden.bs.tooltip', function () { button.setAttribute('aria-expanded', 'false'); });
         });
-
-        $tips
-            .off('.migHeaderHelp')
-
-            .on(
-                'click.migHeaderHelp',
-                function (event) {
-                    event.preventDefault();
-
-                    var button = this;
-                    var $button =
-                        global.jQuery(button);
-
-                    var wasOpen =
-                        button.getAttribute(
-                            'aria-expanded'
-                        ) === 'true';
-
-                    /*
-                     * Only one header help tooltip
-                     * should be visible at a time.
-                     */
-                    $tips
-                        .not(button)
-                        .tooltip('hide');
-
-                    if (wasOpen) {
-                        $button.tooltip('hide');
-                    } else {
-                        $button.tooltip('show');
-                    }
-                }
-            )
-
-            .on(
-                'keydown.migHeaderHelp',
-                function (event) {
-                    if (event.key !== 'Escape') {
-                        return;
-                    }
-
-                    if (
-                        this.getAttribute(
-                            'aria-expanded'
-                        ) !== 'true'
-                    ) {
-                        return;
-                    }
-
-                    event.preventDefault();
-
-                    global.jQuery(this)
-                        .tooltip('hide');
-                }
-            )
-
-            .on(
-                'focusout.migHeaderHelp',
-                function () {
-                    global.jQuery(this)
-                        .tooltip('hide');
-                }
-            )
-
-            .on(
-                'shown.bs.tooltip.migHeaderHelp',
-                function () {
-                    this.setAttribute(
-                        'aria-expanded',
-                        'true'
-                    );
-                }
-            )
-
-            .on(
-                'hidden.bs.tooltip.migHeaderHelp',
-                function () {
-                    this.setAttribute(
-                        'aria-expanded',
-                        'false'
-                    );
-                }
-            );
     }
 
     function renderMarkdownInto(target, value) {
@@ -305,9 +232,9 @@
             className: 'thead-link data-requirements-header-help',
             attrs: {
                 type: 'button',
-                'data-toggle': 'tooltip',
-                'data-placement': 'top',
-                'data-container': 'body',
+                'data-bs-toggle': 'tooltip',
+                'data-bs-placement': 'top',
+                'data-bs-container': 'body',
                 title: helpText,
                 'aria-expanded': 'false'
             }
@@ -541,9 +468,9 @@
             className: [
                 'data-requirements-row',
                 'data-requirements-' + kind,
-                'indent-' + (row.level || 0),
+                'indent-' + (row.level || 0)/*,
                 'all',
-                'oddeven'
+                'oddeven'*/
             ].join(' ')
         });
 

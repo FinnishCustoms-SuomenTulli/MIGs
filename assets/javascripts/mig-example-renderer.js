@@ -315,7 +315,7 @@
     const code = el('code');
     code.textContent = String(xmlText || '');
 
-    return el('pre', { class: 'sr-only' }, code);
+    return el('pre', { class: 'visually-hidden' }, code);
   }
 
   function parseXml(xmlText, xmlUrl) {
