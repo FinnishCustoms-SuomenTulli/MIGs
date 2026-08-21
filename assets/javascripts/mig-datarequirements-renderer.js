@@ -106,41 +106,15 @@
     function refreshTooltips(root) {
         if (!global.bootstrap || !global.bootstrap.Tooltip) return;
 
-        var tips = (root || document).querySelectorAll('.data-requirements-header-help');
+        (root || document).querySelectorAll('.data-requirements-header-help').forEach(function (button) {
+            var existing = global.bootstrap.Tooltip.getInstance(button);
+            if (existing) existing.dispose();
 
-        tips.forEach(function (button) {
-            var tooltip = global.bootstrap.Tooltip.getOrCreateInstance(button, {
+            new global.bootstrap.Tooltip(button, {
                 container: 'body',
                 html: false,
-                trigger: 'manual'
+                trigger: 'hover focus'
             });
-
-            if (button.dataset.migHeaderHelpBound === 'true') return;
-            button.dataset.migHeaderHelpBound = 'true';
-
-            button.addEventListener('click', function (event) {
-                event.preventDefault();
-                var wasOpen = button.getAttribute('aria-expanded') === 'true';
-
-                tips.forEach(function (candidate) {
-                    if (candidate === button) return;
-                    var candidateTooltip = global.bootstrap.Tooltip.getInstance(candidate);
-                    if (candidateTooltip) candidateTooltip.hide();
-                });
-
-                if (wasOpen) tooltip.hide();
-                else tooltip.show();
-            });
-
-            button.addEventListener('keydown', function (event) {
-                if (event.key !== 'Escape' || button.getAttribute('aria-expanded') !== 'true') return;
-                event.preventDefault();
-                tooltip.hide();
-            });
-
-            button.addEventListener('focusout', function () { tooltip.hide(); });
-            button.addEventListener('shown.bs.tooltip', function () { button.setAttribute('aria-expanded', 'true'); });
-            button.addEventListener('hidden.bs.tooltip', function () { button.setAttribute('aria-expanded', 'false'); });
         });
     }
 
