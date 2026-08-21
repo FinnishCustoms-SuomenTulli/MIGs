@@ -828,8 +828,6 @@
             isGroupedValue: false,
             isIndependentNodes: false,
 
-            alwaysOpen: true,
-
             openLevel: 1,
             showCount: true,
 
