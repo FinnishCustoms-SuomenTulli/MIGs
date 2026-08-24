@@ -547,7 +547,7 @@
         ids.slice().reverse().forEach(function (versionId) {
             var info = versionInfo(intro, versionId);
             var row = el('tr');
-            var versionCell = el('th', { attrs: { scope: 'row' } });
+            var versionCell = el('th', { attrs: { scope: 'row', 'data-header': headers[0] } });
             var link = el('a', { attrs: { href: '#', 'data-bs-toggle': 'modal', 'data-bs-target': '#Version_' + sanitizeVersionId(versionId) } });
             link.appendChild(document.createTextNode(versionId));
             link.appendChild(el('br'));
@@ -555,21 +555,22 @@
             versionCell.appendChild(link);
             row.appendChild(versionCell);
 
-            row.appendChild(el('td', { text: localized(info.remark, lang, '') }));
+            row.appendChild(el('td', { text: localized(info.remark, lang, ''), attrs: { 'data-header': headers[1] } }));
 
-            ['xml', 'data', 'messageExchange']
-                .forEach(function (flagName) {
-                    var enabled = isTruthyFlag(info[flagName]);
-                    var cell = el('td', { attrs: { align: 'center' } });
-
-                    if (enabled) {
-                        cell.appendChild(el('span', { text: '•', attrs: { 'aria-hidden': 'true' } }));
-                    }
-
-                    cell.appendChild(el('span', { className: 'visually-hidden', text: enabled ? t('intro.yes') : t('intro.no') }));
-
-                    row.appendChild(cell);
+            ['xml', 'data', 'messageExchange'].forEach(function (flagName, index) {
+                var enabled = isTruthyFlag(info[flagName]);
+                var cell = el('td', {
+                    attrs: { align: 'center', 'data-header': headers[index + 2] }
                 });
+
+                if (enabled) {
+                    cell.appendChild(el('span', { text: '•', attrs: { 'aria-hidden': 'true' } }));
+                }
+
+                cell.appendChild(el('span', { className: 'visually-hidden', text: enabled ? t('intro.yes') : t('intro.no') }));
+
+                row.appendChild(cell);
+            });
             tbody.appendChild(row);
         });
         table.appendChild(tbody);

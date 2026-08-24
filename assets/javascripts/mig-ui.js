@@ -25,17 +25,12 @@
     syncVisibility();
   }
 
-  function tableResponsive() {
-    Array.prototype.forEach.call(document.querySelectorAll('table'), function (table, tableIndex) {
-      table.classList.add('table-' + tableIndex);
+  function resetVersionHistoryAccessibility(sidebarBox) {
+    sidebarBox.querySelectorAll('tbody tr').forEach(function (row) {
+      row.removeAttribute('aria-hidden');
 
-      Array.prototype.forEach.call(table.querySelectorAll('th'), function (header, thIndex) {
-        var headerText = header.textContent.trim();
-        header.classList.add('table-header-' + tableIndex + thIndex);
-
-        Array.prototype.forEach.call(table.querySelectorAll('tr td:nth-of-type(' + (thIndex + 1) + ')'), function (cell) {
-          cell.setAttribute('data-header', headerText);
-        });
+      row.querySelectorAll('a, button').forEach(function (control) {
+        control.removeAttribute('tabindex');
       });
     });
   }
@@ -44,7 +39,28 @@
     var navigationBody = document.querySelector('.front-navigation > .card-body');
     var sidebarBox = document.querySelector('.sidebar-box');
 
-    if (!navigationBody || !sidebarBox || sidebarBox.dataset.expanded === 'true') return;
+    if (!navigationBody || !sidebarBox) return;
+
+    var readMore = sidebarBox.querySelector('.read-more');
+
+    if (global.matchMedia('(max-width:767.98px)').matches) {
+      sidebarBox.style.removeProperty('height');
+      sidebarBox.style.removeProperty('max-height');
+      sidebarBox.style.removeProperty('overflow');
+
+      resetVersionHistoryAccessibility(sidebarBox);
+
+      if (readMore) readMore.hidden = true;
+      return;
+    }
+
+    if (sidebarBox.dataset.expanded === 'true') {
+      if (readMore) readMore.hidden = true;
+      resetVersionHistoryAccessibility(sidebarBox);
+      return;
+    }
+
+    if (readMore) readMore.hidden = false;
 
     var height = Math.ceil(navigationBody.getBoundingClientRect().height);
     if (!height) return;
@@ -52,6 +68,7 @@
     sidebarBox.style.height = height + 'px';
     sidebarBox.style.maxHeight = height + 'px';
     sidebarBox.style.overflow = 'hidden';
+
     syncVersionHistoryAccessibility(sidebarBox);
   }
 
@@ -104,12 +121,12 @@
 
   function initModalFocusCleanup() {
     document.addEventListener('hide.bs.modal', function (event) {
-        var modal = event.target;
-        var focused = document.activeElement;
+      var modal = event.target;
+      var focused = document.activeElement;
 
-        if (focused && modal.contains(focused)) focused.blur();
+      if (focused && modal.contains(focused)) focused.blur();
     });
-}
+  }
 
   function init() {
     global.MIG_I18N.ready(function (t) { addToTopButton(t('accessibility.backToTop')); });
