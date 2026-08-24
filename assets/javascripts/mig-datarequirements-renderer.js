@@ -394,34 +394,14 @@
     }
 
     function renderElementGroupRow(row, columns) {
-        var tr = el('tr', {
-            className: [
-                'data-requirements-group',
-                'indent-' + (row.level || 0),
-            ].join(' '),
-            attrs: {
-                id: groupElementAnchorId(row)
-            }
-        });
-
-        var td = el('td', {
-            attrs: {
-                colspan: String(columns.length),
-                'data-column': 'dataGroup'
-            }
-        });
-
-        var link = el('a', {
-            attrs: {
-                href: '#' + groupSummaryAnchorId(row)
-            }
-        });
+        var tr = el('tr', { className: ['data-requirements-group', 'indent-' + (row.level || 0),].join(' '), attrs: { id: groupElementAnchorId(row) } });
+        var th = el('th', { className: 'data-requirements-element-group-cell', attrs: { scope: 'row', colspan: String(columns.length), 'data-column': 'dataGroup' } });
+        var link = el('a', { attrs: { href: '#' + groupSummaryAnchorId(row) } });
 
         appendValueWithOptionalIcon(link, row, { key: 'dataGroup' }, row.name || row.path || '');
 
-        td.appendChild(link);
-
-        tr.appendChild(td);
+        th.appendChild(link);
+        tr.appendChild(th);
 
         return tr;
     }
@@ -588,84 +568,54 @@
         });
     }
 
-    function renderDataCell(
-        row,
-        column,
-        options,
-        accessibilityIds
-    ) {
+    function renderDataCell(row, column, options, accessibilityIds) {
         options = options || {};
 
-        var isRowHeader =
-            isNameColumn(column);
+        var isRowHeader = isNameColumn(column);
+        var td = el(isRowHeader ? 'th' : 'td', { attrs: { 'data-column': column.key, 'data-header': t(column.labelKey) } });
+        var valueContainer = el('span', { className: 'data-requirements-cell-value' });
 
-        var td = el(
-            isRowHeader ? 'th' : 'td',
-            {
-                attrs: {
-                    'data-column': column.key
-                }
-            }
-        );
+        if (isRowHeader) td.setAttribute('scope', 'row');
 
-        if (isRowHeader) {
-            td.setAttribute(
-                'scope',
-                'row'
-            );
-        }
+        if (accessibilityIds && isNameColumn(column)) {
+            td.setAttribute('id', accessibilityIds.nameCellId);
 
-        if (
-            accessibilityIds &&
-            isNameColumn(column)
-        ) {
-            td.setAttribute(
-                'id',
-                accessibilityIds.nameCellId
-            );
-
-            td.setAttribute(
-                'aria-describedby',
-                accessibilityIds.descriptionId
-            );
+            td.setAttribute('aria-describedby', accessibilityIds.descriptionId);
         }
 
         if (column.key === 'codeList') {
-            renderReferenceButtons(td, 'code-list', row.codeList);
+            renderReferenceButtons(valueContainer, 'code-list', row.codeList);
+
+            td.appendChild(valueContainer);
             return td;
         }
 
         if (column.key === 'constraints') {
-            renderReferenceButtons(td, 'constraint', row.constraints);
+            renderReferenceButtons(valueContainer, 'constraint', row.constraints);
+
+            td.appendChild(valueContainer);
             return td;
         }
 
         var value = columnValue(row, column);
-        var href = options.cellHref && typeof options.cellHref === 'function'
-            ? options.cellHref(row, column)
-            : '';
+        var href = options.cellHref && typeof options.cellHref === 'function' ? options.cellHref(row, column) : '';
 
         if (href) {
-            var link = el('a', {
-                attrs: {
-                    href: href
-                }
-            });
+            var link = el('a', { attrs: { href: href } });
 
             appendValueWithOptionalIcon(link, row, column, value);
-            td.appendChild(link);
+
+            valueContainer.appendChild(link);
         } else {
-            appendValueWithOptionalIcon(td, row, column, value);
+            appendValueWithOptionalIcon(valueContainer, row, column, value);
         }
+
+        td.appendChild(valueContainer);
 
         return td;
     }
 
-    function renderDescriptionRow(
-        row,
-        columns,
-        options
-    ) {
+    function renderDescriptionRow(row, columns, options) {
         var accessibilityIds =
             rowAccessibilityIds(
                 row,
