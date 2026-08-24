@@ -447,19 +447,38 @@
     }
 
     function renderDiagramControls(target, panZoom) {
+        var shell = el('div', { className: 'mig-datamodel-controls-shell' });
+
+        var toggle = el('button', {
+            className: 'mig-datamodel-controls-toggle btn btn-default btn-sm',
+            attrs: {
+                type: 'button',
+                'aria-expanded': 'false',
+                'aria-controls': 'migDatamodelControls'
+            }
+        });
+
+        toggle.appendChild(document.createTextNode(t('dataModel.diagramControls')));
+
+        toggle.appendChild(document.createTextNode(' '));
+
+        toggle.appendChild(el('span', {
+            className: 'icon icon-tulli-chevron-down',
+            attrs: { 'aria-hidden': 'true' }
+        }));
+
         var controls = el('div', {
             className: 'mig-datamodel-controls',
             attrs: {
+                id: 'migDatamodelControls',
                 role: 'group',
-                'aria-label':
-                    t('dataModel.diagramControls')
+                'aria-label': t('dataModel.diagramControls')
             }
         });
 
         function control(labelKey, visualText, action) {
             var button = el('button', {
-                className:
-                    'btn btn-default btn-sm',
+                className: 'btn btn-default btn-sm',
                 attrs: {
                     type: 'button',
                     'aria-label': t(labelKey),
@@ -470,101 +489,58 @@
                 }
             });
 
-            button.appendChild(el('span', {
-                text: visualText,
-                attrs: {
-                    'aria-hidden': 'true'
-                }
-            }));
+            button.appendChild(el('span', { text: visualText, attrs: { 'aria-hidden': 'true' } }));
 
-            button.addEventListener(
-                'click',
-                action
-            );
+            button.addEventListener('click', action);
 
             controls.appendChild(button);
         }
 
-        control(
-            'dataModel.panLeft',
-            '←',
-            function () {
-                panZoom.panBy({
-                    x: 50,
-                    y: 0
-                });
-            }
-        );
+        control('dataModel.panLeft', '←', function () {
+            panZoom.panBy({ x: 50, y: 0 });
+        });
 
-        control(
-            'dataModel.panUp',
-            '↑',
-            function () {
-                panZoom.panBy({
-                    x: 0,
-                    y: 50
-                });
-            }
-        );
+        control('dataModel.panUp', '↑', function () {
+            panZoom.panBy({ x: 0, y: 50 });
+        });
 
-        control(
-            'dataModel.panDown',
-            '↓',
-            function () {
-                panZoom.panBy({
-                    x: 0,
-                    y: -50
-                });
-            }
-        );
+        control('dataModel.panDown', '↓', function () {
+            panZoom.panBy({ x: 0, y: -50 });
+        });
 
-        control(
-            'dataModel.panRight',
-            '→',
-            function () {
-                panZoom.panBy({
-                    x: -50,
-                    y: 0
-                });
-            }
-        );
+        control('dataModel.panRight', '→', function () {
+            panZoom.panBy({ x: -50, y: 0 });
+        });
 
-        control(
-            'dataModel.zoomIn',
-            '+',
-            function () {
-                panZoom.zoomIn();
-            }
-        );
+        control('dataModel.zoomIn', '+', function () {
+            panZoom.zoomIn();
+        });
 
-        control(
-            'dataModel.zoomOut',
-            '−',
-            function () {
-                panZoom.zoomOut();
-            }
-        );
+        control('dataModel.zoomOut', '−', function () {
+            panZoom.zoomOut();
+        });
 
-        control(
-            'dataModel.resetView',
-            'Reset',
-            function () {
-                panZoom.resetZoom();
-                panZoom.resetPan();
-                panZoom.fit();
-                panZoom.center();
-            }
-        );
+        control('dataModel.resetView', 'Reset', function () {
+            panZoom.resetZoom();
+            panZoom.resetPan();
+            panZoom.fit();
+            panZoom.center();
+        });
 
-        target.insertBefore(
-            controls,
-            target.firstChild
-        );
+        toggle.addEventListener('click', function () {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+
+            toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            controls.classList.toggle('show', !expanded);
+        });
+
+        shell.appendChild(toggle);
+        shell.appendChild(controls);
+
+        target.insertBefore(shell, target.firstChild);
 
         if (global.bootstrap && global.bootstrap.Tooltip) {
-            controls.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function (button) {
-                global.bootstrap.Tooltip.getOrCreateInstance(button);
-            });
+            controls.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function (button) { global.bootstrap.Tooltip.getOrCreateInstance(button); });
         }
     }
 
